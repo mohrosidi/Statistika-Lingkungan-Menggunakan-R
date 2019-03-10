@@ -1,0 +1,1284 @@
+# Sintaks Bahasa R
+
+## Operator Aritmatika
+
+Proses perhitungan akan ditangani oleh fungsi khusus. `R` akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
+
+```{r}
+2+4*2
+```
+
+Bandingkan dengan sintaks berikut:
+
+```{r}
+(2+4)*2
+```
+
+> `R` dapat digunakan sebagai kalkulator
+
+Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, `R` akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian. 
+
+Operator aritmatika yang disediakan `R` adalah sebagai berikut:
+
+**Table 1** Operator Aritmatika `R`
+
+**Simbol**     | **Keterangan**
+---------------|--------------------------------------------------------------------------------------
++              | *Addition*, untuk operasi penjumlahan
+-              | *Substraction*, untuk operasi pengurangan
+*              | *Multiplication*, untuk operasi pembagian
+/              | *Division*, untuk operasi pembagian
+^              | *Eksponentiation*, untuk operasi pemangkatan
+%%             | *Modulus*, Untuk mencari sisa pembagian
+%/%            | *Integer*, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian
+
+Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.
+
+```{r}
+# Addition
+5+3
+
+# Substraction
+5-3
+
+# Multiplication
+5*3
+
+# Division
+5/3
+
+# Eksponetiation
+5^3
+
+# Modulus
+5%%3
+
+# Integer
+5%/%3
+
+```
+
+> *Note: * Pada `R` tanda `#` berfungsi menambahkan keterangan untuk menjelaskan sebuah sintaks pada `R`.
+
+## Fungsi Aritmetik
+
+Selain fungsi operator aritmetik, pada `R` juga telah tersedia fungsi aritmetik yang lain seperti logaritmik, ekponensial, trigonometri, dll.
+
+1. Logaritma dan eksponensial
+
+Untuk contoh fungsi logaritmik dan eksponensial jalankan sintaks berikut:
+
+```{r}
+log2(8) # logaritma basis 2 untuk 8
+log10(8) # logaritma basis 10 untuk 8
+exp(8) # eksponensial 8
+```
+
+2. Fungsi trigonometri
+
+fungsi trigonometri yang ditampilkan seperti sin,cos, tan, dll.
+
+```{r, eval=FALSE}
+cos(x) # cos x
+sin(x) # Sin x
+tan(x) # Tan x
+acos(x) # arc-cos x
+asin(x) # arc-sin x
+atan(x) #arc-tan x
+```
+
+> **Note: ** x dalam fungsi trigonometri memiliki satuan radian
+
+Berikut adalah salah satu contoh penggunaannya:
+
+```{r}
+cos(pi)
+```
+
+
+3. Fungsi matematik lainnya
+
+Fungsi lainnya yang dapat digunakan adalah fungsi absolut, akar kuadrat, dll. Berikut adalah contoh sintaks penggunaan fungsi absolut dan akar kuadrat.
+
+```{r}
+abs(-2) # nilai absolut -2
+sqrt(4) # akar kuadrat 4
+```
+
+## Operator Relasi
+
+Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan `R` disajikan pada Table 2.
+
+**Table 2** Operator Relasi `R`
+
+**Simbol**     | **Keterangan**           
+---------------|---------------------------
+">"            | Lebih besar dari
+"<"            | Lebih Kecil dari
+"=="           | Sama dengan
+">="           | Lebih besar sama dengan
+"<="           | Lebih kecil sama dengan
+"!="           | Tidak sama dengan
+
+Berikut adalah penerapan operator pada tabel tersebut:
+
+```{r}
+x <- 34
+y <- 35
+
+# Operator >
+x > y
+
+# Operator <
+x < y
+
+# operator ==
+x == y
+
+# Operator >=
+x >= y
+
+# Operator <=
+x <= y
+
+# Operator !=
+x != y
+
+```
+
+## Operator Logika
+
+Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika `TRUE`. Operator logika yang disediakan `R` dapat dilihat pada Table 3.
+
+**Table 3** Operator logika `R`
+
+**Simbol**     | **Keterangan**           
+---------------|----------------------------------
+&&             | Operator logika AND
+||             | Operator logika OR
+!              | Opeartor logika NOT
+&              | Operator logika AND element wise
+|              | Operator logika OR element wise
+
+Penerapannya terdapat pada sintaks berikut:
+
+```{r}
+v <- c(TRUE,TRUE, FALSE)
+t <- c(FALSE,FALSE,FALSE)
+
+# Operator &&
+print(v&&t)
+
+# Operator ||
+print(v||t)
+
+# Operator !
+print(!v)
+
+# operator &
+print(v&t)
+
+# Operator |
+print(v|t)
+```
+
+> **Note: ** 
+>
+> operator & dan | akan mengecek logika tiap elemen pada vektor secara berpesangan (sesuai urutan dari kiri ke kanan). 
+>
+>Operator %% dan || hanya mengecek dari kiri ke kanan pada observasi pertama. Misal saat menggunakan && jika observasi pertama TRUE maka observasi pertama pada vektor lainnya akan dicek, namun jika observasi pertama FALSE maka proses akan segera dihentikan dan menghasilkan FALSE.
+
+## Memasukkan Nilai Kedalam Variabel
+
+Variabel pada `R` dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:
+
+```{r}
+# Harga sebuah lemon adalah 500 rupiah
+lemon <- 500
+
+# Atau
+500 -> lemon
+
+# dapat juga menggunakan tanda "="
+lemon = 500
+
+```
+
+> **Note: **
+>
+> 1. `R` memungkinkan penggunaan <-,->, atau = sebagai perintah pengisi nilai variabel
+>
+> 2. `R` bersifat *case-sensitive*. Maksudnya adalah variabel Lemon tidak sama dengan lemon (Besar kecil huruf berpengaruh)
+
+Untuk mengetahui nilai dari objek `lemon` kita dapat menggunakan fungsi `print()` atau mengetikkan nama objeknya secara langsung.
+
+```{r}
+# Menggunakan fungsi print()
+print(lemon)
+
+# Atau
+lemon
+```
+
+`R` akan menyimpan variabel `lemon` sebagai objek pada memori. Sehingga kita dapat melakukan operasi terhadap objek tersebut seperti mengalikannya atau menjumlahkannya dengan bilangan lain. Sebagai contoh jalankan sintaks berikut:
+
+```{r}
+# Operasi perkalian terhadap objek lemon
+5*lemon
+```
+
+Kita dapat juga mengubah nilai dari objek `lemon` dengan cara menginput nilai baru terhadap objek yang sama. `R` secara otomatis akan menggatikan nilai sebelumnya. Untuk lebih memahaminya jalankan sintaks berikut:
+
+```{r}
+lemon <- 1000
+
+# Print lemon
+print(lemon)
+```
+
+Untuk lebih memahaminya berikut adalah sintaks untuk menghitung volume suatu objek.
+
+```{r}
+# Dimensi objek
+panjang <- 10
+lebar <- 5
+tinggi <- 5
+
+# Menghitung volume
+volume <- panjang*lebar*tinggi
+
+# Print objek volume
+print(volume)
+```
+
+Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi `ls()`.
+
+```{r}
+ls()
+```
+
+> Kumpulan objek yang telah tersimpan dalam memori disebut sebagai **workspace**
+
+Untuk menghapus objek pada memori kita dapat menggunakan fungsi `rm()`. Pada sintaks berikut penulis hendak menghapus objek `lemon` dan `volume`.
+
+```{r}
+# Menghapus objek lemon dan volume
+rm(lemon, volume)
+
+# Tampilkan kembali objek yang tersisa
+ls()
+```
+
+> **Note: ** Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.
+
+## Tipe Data
+
+Data pada `R` dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada `R` disajikan pada Table 4.
+
+**Table 4** Tipe Data `R`
+
+**Tipe Data**  | **Contoh**              | **Keterangan**
+---------------|-------------------------|--------------------------------------------------
+Logical        | TRUE, FALSE             | Nilai Boolean
+Numeric        | 12.3, 5, 999            | Segala jenis angka
+Integer        | 23L, 97L, 3L            | Bilangan integer (bilangan bulat)
+Complex        | 2i, 3i, 9i              | Bilangan kompleks
+Character      | 'a', "b", "123"         | Karakter dan string
+Raw            | Identik dengan "hello"  | Segala jenis data yang disimpan sebagai raw bytes
+
+Sintaks berikut adalah contoh dari tipe data pada `R`. Untuk mengetahui tipa data suatu objek kita dapat menggunakan perintah `class()`
+
+```{r}
+# Logical
+apel <- TRUE
+class(apel)
+
+# Numeric
+x <- 2.3
+class(x)
+
+# Integer
+y <- 2L
+class(y)
+
+# Compleks
+z <- 5+2i
+class(z)
+
+# string
+w <- "saya"
+class(w)
+
+# Raw
+xy <- charToRaw("hello world")
+class(xy)
+
+```
+
+Keenam jenis data tersebut disebut sebagai tipe data atomik. Hal ini disebabkan karena hanya dapat menangani satu tipe data saja. Misalnya hanya numeric atau hanya integer.
+
+Selain menggunakan fungsi `class()`, kita dapat pula menggunakan fungsi `is_numeric()`, `is.character()`, `is.logical()`, dan sebagainya berdasarkan jenis data apa yang ingin kita cek. Berbeda dengan fungsi `class()`, ouput yang dihasilkan pada fungsi seperti `is_numeric()` adalah nilai Boolean sehingga fungsi ini hanya digunakan untuk mengecek apakah jenis data pada objek sama seperti yang kita pikirkan. Sebagai contoh disajikan pada sintaks berikut:
+
+```{r}
+data <- 25
+
+# Cek apakah objek berisi data numerik
+is.numeric(data)
+
+# Cek apakah objek adalah karakter
+is.character(data)
+```
+
+Kita juga dapat mengubah jenis data menjadi jenis lainnya seperti integer menjadi numerik atau sebaliknya. Fungsi yang digunakan adalah `as.numeric()` jika ingin mengubah suatu jenis data menjadi numerik. Fungsi lainnya juga dapat digunakan sesuai dengan kita ingin mengubah jenis data objek menjadi jenis data lainnya.
+
+```{r}
+# Integer
+apel <- 2L
+
+# Ubah menjadi numerik
+as.numeric(apel)
+
+# Cek
+is.numeric(apel)
+
+# Logical
+nangka <- TRUE
+
+# Ubah logical menjadi numeric
+as.numeric(nangka)
+
+# Karakter
+minum <- "minum"
+
+# ubah karakter menjadi numerik
+as.numeric(minum)
+
+```
+
+> **Note: ** Konversi karakter menjadi numerik akan menghasilkan output NA (*not available*). `R` tidak mengetahui bagaimana cara merubah karakter menjadi bentuk numerik.
+
+Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik *double quote* ("") maupun *single quote* ('').Jika pada teks yang kita tuliskan mengandung *quote* maka kita harus menghentikannya menggunakan tanda ( \ ). Sbegai contoh kita ingin menuliskan `**My friend's name is "Adi"**, pada sintaks akan dituliskan:
+
+```{r}
+'My friend\`s name is "Adi"'
+
+# Atau
+
+"My friend's name \"Adi\""
+```
+
+## Vektor
+
+Vektor merupakan kombinasi berbagai nilai (numerik, karakter, logical, dan sebagainya berdasarkan jenis input data) pada objek yang sma. Pada contoh kasus berikut, pembaca akan memiliki sesuai jenis data input yaitu**vektor numerik**, **vector karakter**, **vektor logical**, dll.
+
+
+### Membuat vektor
+
+Vektor dibuat dengan menggunakan fungsi `c()`(concatenate) seperti yang disajikan pada sintaks berikut:
+
+```{r}
+# membuat vektor numerik
+x <- c(3,3.5,4,7)
+x # print vektor
+
+# membuat vektor karakter
+y <- c("Apel", "Jeruk", "Rambutan", "Salak")
+y # print vektor
+
+# membuat vektor logical
+t <- c("TRUE", "FALSE", "TRUE")
+t # print vektor
+
+```
+
+selain menginput nilai pada vektor, kita juga dapat memberi nama nilai setiap vektor menggunakan fungsi `names()`.
+
+```{r}
+# Membuat vektor jumlah buah yang dibeli
+Jumlah <- c(5,5,6,7)
+names(Jumlah) <- c("Apel", "Jeruk", "Rambutan", "Salak")
+
+# Atau
+Jumlah <- c(Apel=5, Jeruk=5, Rambutan=6, Salak=7)
+
+# Print
+Jumlah
+```
+
+> **Note: ** Vektor hanya dapat memuat satu buah jenis data. Vektor hanya dapat mengandung jenis data numerik saja, karakter saja, dll.
+
+Untuk menentukan panjang sebuah vektor kita dapat menggunakan fungsi `lenght()`.
+
+```{r}
+length(Jumlah)
+```
+
+### Missing Values
+
+Seringkali nilai pada vektor kita tidak lengkap atau terdapat nilai yang hilang (*missing value*) pada vektor. *Missing value* pada `R` dilambangkan oleh `NA`(*not available*). Berikut adalah contoh vektor dengan *missing value*.
+
+```{r}
+Jumlah <- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)
+```
+
+Untuk mengecek apakah dalam objek terdapat *missing value* dapat menggunakan fungsi `is.na()`. ouput dari fungsi tersebut adalah nilai Boolean. Jika terdapat *Missing value*, maka output yang dihasilkan akan memberikan nilai `TRUE`.
+
+```{r}
+is.na(Jumlah)
+```
+
+> **Note: **
+> 
+> Selain NA terdapat NaN (*not a number*) sebagai *missing value8*. Nilai tersebut muncul ketika fungsi matematika yang digunakan pada proses perhitungan tidak bekerja sebagaimana mestinya. Contoh: 0/0 = NaN
+>
+> `is.na()` juga akan menghasilkan nilai `TRUE` pada NaN. Untuk membedakannya dengan NA dapat digunakan fungsi `is.nan()`.
+
+### Subset Pada Vektor
+
+*Subseting vector* terdiri atas tiga jenis, yaitu: *positive indexing*, *Negative Indexing*, dan .
+
+* **Positive indexing**: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.
+
+```{r}
+# Subset vektor pada urutan kedua
+Jumlah[2]
+
+# Subset vektor pada urutan 2 dan 4
+Jumlah[c(2, 4)]
+```
+
+Selain melalui urutan (indeks), kita juga dapat melakukan subset berdasarkan nama elemen vektornya.
+
+```{r}
+Jumlah["Jeruk"]
+```
+
+> **Note: ** Indeks pada `R` dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]
+
+* **Negative indexing**: mengecualikan (*exclude*) elemen vektor.
+
+```{r}
+# mengecualikan elemen vektor 2 dan 4
+Jumlah[-c(2,4)]
+
+# mengecualikan elemen vektor 1 sampai 3
+Jumlah[-c(1:3)]
+```
+
+* **Subset berdasarkan vektor logical**: Hanya, elemen-elemen yang nilai yang bersesuaian dalam vektor pemilihan bernilai TRUE, akan disimpan dalam subset.
+
+> **Note: ** panjang vektor yang digunakan untuk subset harus sama.
+
+```{r}
+Jumlah <- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)
+
+# selecting vector
+merah <- c(TRUE, FALSE, TRUE, FALSE)
+
+# Subset
+Jumlah[merah==TRUE]
+
+# Subset untuk elemen vektor bukan missing value
+Jumlah[!is.na(Jumlah)]
+```
+
+### Perhitungan Menggunakan Vektor
+
+Jika Anda melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:
+
+```{r}
+pendapatan <- c(2000, 1800, 2500, 3000)
+names(pendapatan) <- c("Andi", "Joni", "Lina", "Rani")
+pendapatan
+
+# Kalikan pendapatan dengan 3
+pendapatan*3
+```
+
+Seperti yang dapat dilihat, `R` mengalikan setiap elemen dengan bilangan pengali.
+
+Kita juga dapat mengalikan vektor dengan vektor lainnya.Contohnya disajikan pada sintaks berikut:
+
+```{r}
+# membuat vektor dengan panjang sama dengan dengan vektor pendapatan
+coefs <- c(2, 1.5, 1, 3)
+
+# Mengalikan pendapatan dengan vektor coefs
+pendapatan*coefs
+```
+
+Berdasarkan sintaks tersebut dapat terlihat bahwa operasi matematik terhadap masing-masing vektor dapat berlangsung jika panjang vektornya sama.
+
+Berikut adalah fungsi lain yang dapat digunakan pada operasi matematika vektor.
+
+```{r, results='hide'}
+max(x) # memperoleh nilai maksimum x
+min(x) # memperoleh nilai minimum x
+range(x) # memperoleh range vektor x
+length(x) # memperoleh jumlah elemen vektor x
+sum(x) # memperoleh total penjumlahan elemen vektor x
+prod(x) # memeperoleh produk elemen vektor x
+mean(x) # memperoleh nilai rata-rata seluruh elemen vektor x
+sd(x) # standar deviasi vektor x
+var(x) # varian vektor x
+sort(x) # mengurutkan elemen vektor x dari yang terbesar
+```
+
+Contoh penggunaan fungsi tersebut disajikan beberapa pada sintaks berikut:
+
+```{r}
+# Menghitung range pendapatan
+range(pendapatan)
+
+# menghitung rata-rata dan standar deviasi pendapatan
+mean(pendapatan)
+sd(pendapatan)
+
+```
+
+## Matriks
+
+Matriks seperti Excel sheet yang berisi banyak baris dan kolom (kumpulan bebrapa vektor). Matriks digunakan untuk menggabungkan vektor dengan tipe yang sama, yang bisa berupa numerik, karakter, atau logis. Matriks digunakan untuk menyimpan tabel data dalam R. Baris-baris matriks pada umumnya adalah individu / pengamatan dan kolom adalah variabel.
+
+### Membuat matriks
+
+Untuk membuat matriks kita dapat menggunakan fungsi `cbind()` atau `rbind()`. Berikut adalah contoh sintaks untuk membuat matriks.
+
+```{r}
+# membuat vektor numerik
+col1 <- c(5, 6, 7, 8, 9)
+col2 <- c(2, 4, 5, 9, 8)
+col3 <- c(7, 3, 4, 8, 7)
+
+# menggabungkan vektor berdasarkan kolom
+my_data <- cbind(col1, col2, col3)
+my_data
+
+# Mengubah atau menambahkan nama baris
+rownames(my_data) <- c("row1", "row2", "row3", "row4", "row5")
+my_data
+```
+
+> **Note: **
+>
+> + **cbind()**: menggabungkan objek `R` berdasarkan kolom
+> + **rbind()**: menggabungkan objek `R` berdasarkan baris
+> + **rownames()**: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks
+> + **colnames()**: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks
+
+Kita dapat melakukan tranpose (merotasi matriks sehingga kolom menjadi baris dan sebaliknya) menggunakan fungsi `t()`. Berikut adalah contoh penerapannya:
+
+```{r}
+t(my_data)
+```
+
+Selain melalui pembentukan sejumlah objek vektor, kita juga dapat membuat matriks menggunakan fungsi `matrix()`. Secara sederhana fungsi tersebut dapat dituliskan sebagai berikut:
+
+```{r, results='hide'}
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
+       dimnames = NULL)
+```
+
+> **Note: **
+>
+> + **data**: vektor data opsional
+> + **nrow**, **ncol**: jumlah baris dan kolom yang diinginkan, masing-masing.
+> + **byrow**: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.
+> + **dimnames**: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.
+
+Dalam kode `R` di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini `nrow = 3`). `R` akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen `byrow = FALSE`. Jika kita ingin mengisi matriks dengan baris, gunakan `byrow = TRUE`. Berikut adalah contoh pembuatan matriks menggunakan fungsi `matrix()`.
+
+```{r}
+data <- matrix(
+           data = c(1,2,3, 11,12,13), 
+           nrow = 2, byrow = TRUE,
+           dimnames = list(c("row1", "row2"), c("C.1", "C.2", "C.3"))
+           )
+data
+```
+
+Untuk mengetahui dimensi dari suatu matriks, kita dapat menggunakan fungsi `ncol()` untuk mengetahui jumlah kolom matriks dan `nrow()` untuk mengetahui jumlah baris pada matriks. Berikut adalah contoh penerapannya:
+
+```{r}
+# mengetahui jumlah kolom
+ncol(my_data)
+
+# mengetahui jumlah baris
+nrow(my_data)
+```
+
+Jika ingin memperoleh ringkasan terkait dimensi matriks kita juga dapat mengunakan fungsi `dim()` untuk mengetahui jumlah baris dan kolom matriks. Berikut adalah contoh penerapannya:
+
+```{r}
+dim(my_data) # jumlah baris dan kolom
+```
+
+### Subset Pada Matriks
+
+Sama dengan vektor, subset juga dapat dilakukan pada matriks. Bedanya subset dilakukan berdasarkan baris dan kolom pada matriks.
+
+* **Memilih baris/kolom** berdasarkan pengindeksan positif
+
+baris atau kolom dapat diseleksi menggunakan format `data[row, col]`. Cara selesi ini sama dengan vektor, bedanya kita harus menetukan baris dan kolom dari data yang akan kita pilih. Berikut adalah contoh penerapannya:
+
+```{r}
+# Pilih baris ke-2
+my_data[2,]
+
+# Pilih baris 2 sampai 4
+my_data[2:4,]
+
+# Pilih baris 2 dan 4
+my_data[c(2,4),]
+
+# Pilih baris 2 dan kolom 3
+my_data[2, 3]
+
+```
+
+* **Pilih berdasarkan nama baris/kolom**
+
+Berikut adalah contoh subset berdasarkan nama baris atau kolom.
+
+```{r}
+# Pilih baris 1 dan kolom 3
+my_data["row1","col3"]
+
+# Pilih baris 1 sampai 4 dan kolom 3
+baris <- c("row1","row2","row3")
+my_data[baris, "col3"]
+```
+
+* **Kecualikan baris/kolom** dengan pengindeksan negatif
+
+Sama seperti vektor pengecualian data dapat dilakukan di matriks menggunakan pengindeksan negatif. Berikut cara melakukannya:
+
+```{r}
+# Kecualikan baris 2 dan 3 serta kolom 3
+my_data[-c(2,3), -3]
+
+```
+
+* **Pilihan dengan logik**
+
+Dalam kode `R` di bawah ini, misalkan kita ingin hanya menyimpan baris di mana col3> = 4:
+
+```{r}
+col3 <- my_data[, "col3"]
+my_data[col3 >= 4, ]
+```
+
+### Perhitungan Menggunakan Matriks
+_
+Kita juga dapat melakukan operasi matematika pada matriks. Pada operasi matematika pada matriks proses yang terjadi bisa lebih kompleks dibanding pada vektor, dimana kita dapat melakukan operasi untuk memperoleh gambaran data pada tiap kolom atau baris.
+
+Berikut adalah contoh operasi matematika sederhana pada matriks:
+
+```{r}
+# mengalikan masing-masing elemen matriks dengan 2
+my_data*2
+
+# memperoleh nilai log basis 2 pada masing-masing elemen matriks
+log2(my_data)
+```
+
+Seperti yang telah penulis jelaskan sebelumnya, kita juga dapat melakukan operasi matematika untuk memperoleh hasil penjumlahan elemen pada tiap baris atau kolom dengan menggunakan fungsi `rowSums()` untuk baris dan `colSums()` untuk kolom.
+
+```{r}
+# Total pada tiap kolom
+colSums(my_data)
+
+# Total pada tiap baris
+rowSums(my_data)
+```
+
+Jika kita tertarik untuk mencari nilai rata-rata tiap baris arau kolom kita juga dapat menggunakan fungsi `rowMeans()` atau `colMeans()`. Berikut adalah contoh penerapannya:
+
+```{r}
+# Rata-rata tiap baris
+rowMeans(my_data)
+
+# Rata-rata tiap kolom
+colMeans(my_data)
+```
+
+Kita juga dapat melakukan perhitungan statistika lainnya menggunakan fungsi `apply()`. Berikut adalah format sederhananya:
+
+```{r, echo=FALSE}
+x <- my_data
+FUN <- mean
+MARGIN <-1
+```
+
+```{r, results='hide'}
+apply(x, MARGIN, FUN)
+```
+
+> **Note: **
+>
+> * x : data matriks
+> * MARGIN : Nilai yang dapat digunakan adalah 1 (untuk operasi pada baris) dan 2 (untuk operasi pada kolom)
+> * FUN : fungsi yang diterapkan pada baris atau kolom
+
+untuk mengetahui fungsi (`FUN`) apa saja yang dapat diterapkan pada fungsi `apply()` jalankan sintaks bantuan berikut:
+
+```{r, results='hide', eval=FALSE}
+help(apply)
+```
+
+Berikut adalah contoh penerapannya:
+
+```{r}
+# Rata-rata pada tiap baris
+apply(my_data, 1, mean)
+
+# Median pada tiap kolom
+apply(my_data, 2, median)
+```
+
+## Faktor
+
+Dalam bahasa `R` , faktor merupakan verktor dengan level. Level disimpan sebagai `R` Character. Jika kita menggunakan SPSS maka factor ini akan sama dengan jenis data numerik atau ordinal.
+
+Faktor merepresentasikan kategori atau grup pada data. Untuk membuat faktor pada `R`, kita dapat menggunakan fungsi `factor()`.
+
+### Membuat Variabel Faktor
+
+Berikut adalah contoh sintaks pembuatan variabel faktor.
+
+```{r}
+# membuat variabel faktor
+faktor <- factor(c(1,2,1,2))
+faktor
+
+```
+
+Pada sintaks tersebut objek faktor terdiri atas dua buah kategori atau pada `R` disebut sebagai **factor levels**. Kita dapat mengecek factor levels menggunakan fungsi `levels()`.
+
+```{r}
+levels(faktor)
+```
+
+Kita juga dapat memberikan label atau mengubah level pada faktor. Berikut adalah contoh bagaimana kita melakukannya:
+
+```{r}
+# Ubah level
+levels(faktor) <- c("baik","tidak_baik")
+faktor
+
+# Ubah urutan level
+faktor <- factor(faktor,
+                 levels = c("tidak_baik","baik"))
+faktor
+```
+
+> **Note: **
+>
+> * Fungsi `is.factor()` dapat digunakan untuk mengecek apakah sebuah variabel adalah faktor. Hasil yang dimunculkan dapat berupa TRUE (jika faktor) atau FALSE (jika bukan)
+> * Fungsi `as.factor()` dapat digunakan untuk merubah sebuah variabel menjadi faktor.
+
+```{r}
+# Cek jika objek faktor adalah faktor
+is.factor(faktor)
+
+# Cek jika objek Jumlah adalah faktor
+is.factor(Jumlah)
+
+# Ubah objek Jumlah menjadi faktor
+as.factor(Jumlah)
+```
+
+### Perhitungan Menggunakan Faktor
+
+Jika kita ingin mengetahui jumlah masing-masing observasi pada masing-masing faktor, kita dapat menggunakan fungsi `summary()`. Berikut adalah contoh penerapannya:
+
+```{r}
+summary(faktor)
+```
+
+Pada contoh perhitungan menggunakan vektor kita telah membuat objek `pendapatan`. Pada objek tersebut kita ingin menghitung nilai rata-rata pendapatan berdasarkan objek faktor. Untuk melakukannya kita dapat menggunakan fungsi `tapply()`.
+
+```{r}
+pendapatan
+faktor
+
+# Rata-rata pendapatan dan simpan sebagai objek dengan nama:
+# mean_pendapatan
+mean_pendapatan <- tapply(pendapatan, faktor, mean)
+mean_pendapatan
+
+# Hitung ukuran/panjang masing-masing grup
+tapply(pendapatan, faktor, length)
+```
+
+Untuk mengetahui jumlah masing-masing observasi masing-masing factor levels kita juga dapat menggunakan fungsi `table()`. Fungsi tersebut akan membuat frekuensi tabel pada masing-masing factor levels atau yang dikenal sebagai *contingency table*.
+
+```{r}
+table(faktor)
+
+# Cross-tabulation antara
+# faktor dan pendapatan
+table(pendapatan, faktor)
+```
+
+## Data Frames
+
+Data frame merupakan kumpulan vektor dengan panjang sama atau dapat pula dikatan sebagai matriks yang memiliki kolom dengan jenis data yang berbeda-beda (numerik, karakter, logical). Pada data frame terdapat baris dan kolom. Baris disebut sebagai observasi, sedangkan kolom disebut sebagai variabel. Sehingga dapat dikatakan bahwa setiap observasi akan memiliki satu atau beberapa variabel.
+
+### Membuat Data Frame
+
+Data frame dapat dibuat menggunakan fungsi `data.frame()`. Berikut adalah contoh cara membuat data frame:
+
+```{r}
+# Membuat data frame
+nama <- c("Andi","Rizal","Ani","Ina")
+pendapatan <- c(1000, 2000, 3500, 500)
+tinggi <- c(160, 155, 170, 146)
+usia <- c(35, 40, 25, 27)
+menikah <- c(TRUE, FALSE, TRUE, TRUE)
+
+data_teman <- data.frame(nama = nama,
+                         gaji = pendapatan,
+                         tinggi = tinggi,
+                         menikah = menikah)
+
+data_teman
+
+```
+
+Untuk mengecek apakah objek `data_teman` merupakan data frame, kita dapat menggunakan fungsi `is.data.frame()`. Jika hasilnya TRUE, maka objek tersebut adalah data frame. Berikut adalah contoh penerapannya:
+
+```{r}
+is.data.frame(data_teman)
+```
+
+> **Note: ** untuk konversi objek menjadi data frame, kita dapat menjalankan fungsi `as.data.frame()`.
+
+### Subset Pada Data Frame
+
+Subset pada data frame sebenarnya tidak berbeda dengan subset pada matriks. Bedanya adalah kita juga bisa melakukan subset langsung terhadap nama variabel menggunakan dollar sign. Untuk lebih memahaminya berikut adalah jenis subset pada data frame.
+
+* **Pengindeksan positif** menggunakan nama dan lokasi.
+
+```{r}
+# Subset menggunakan dollar sign
+data_teman$nama
+
+# atau 
+data_teman[, "nama"]
+
+# subset baris 1 sampai 3 serta kolom 1 dan 3
+data_teman[1:3, c(1,3)]
+
+```
+
+* **Pengindeksan negatif**
+
+```{r}
+# Kecualikan kolom nama
+data_teman[,-1]
+```
+
+* **Pengideksan berdasarkan karakteristik**
+
+Kita ingin memilih data dengan kriteria teman yang telah menikah
+
+```{r}
+data_teman[data_teman$menikah==TRUE, ]
+
+# Tampilkan hanya kolom nama dan gaji untuk yang telah menikah
+data_teman[data_teman$menikah==TRUE, 1:2]
+```
+
+kita juga dapat menggunakan fungsi `subset()` agar lebih mudah. Berikut adalah contoh penerapannya:
+```{r}
+# subset terhadap teman yang berusia >=30 tahun
+subset(data_teman, usia>=30)
+```
+
+Opsi lain adalah menggunakan fungsi `attach()` dan `detach()`. Fungsi `attach()` mengambil data frame dan membuat kolomnya dapat diakses hanya dengan memberikan nama mereka.
+
+```{r}
+# attach data frame
+attach(data_teman)
+
+# ==== memulai data manipulation ====
+data_teman[usia>=30]
+# ==== mengakhiri data manipulation ====
+# detach data frame
+
+detach(data_teman)
+```
+
+### Memperluas Data Frame
+
+Kita dapat juga memperluas data frame dengan cara menambahkan variabel atau kolombaru pada data frame. Pada contoh kali ini penulis akan menambahkan kolom pendidikan terakhir pada objek `data_teman`. Berikut adalah sintaks yang digunakan.
+
+```{r}
+# membuat vektor pendidikan
+pendidikan <- c("S1","S2","D3","D1")
+
+# menambahkan variabel pendidikan pada data frame
+data_teman$pendidikan <- pendidikan
+
+```
+
+```{r, eval=FALSE}
+# atau
+cbind(data_teman, pendidikan=pendidikan)
+```
+
+
+### Perhitungan Pada Data Frame
+
+Perhitungan pada variabel numerik data frame pada dasarnya sama dengan perhitungan pada matriks. kita dapat menggunakan fungsi `rowSums()`, `colSums()`, `rowMeans()` dan `apply()`. Proses perhitungan dan manipulasi pada data frame akan dibahas pada sesi yang lain secara lebih detail.
+
+## List
+
+List adalah kumpulan objek yang diurutkan, yang dapat berupa vektor, matriks, data frame, dll. Dengan kata lain, daftar dapat berisi semua jenis objek `R`.
+
+### Membuat List
+
+List dapat dibuat menggunakan fungsi `list()`. Berikut disajikan contoh sebuah list sebuah keluarga:
+
+```{r}
+# Membuat list keluarga
+keluarga <- list(
+  ayah = "Budi",
+  usia_ayah = 48,
+  ibu  = "Ani",
+  usia_ibu = "47",
+  anak = c("Andi", "Adi"),
+  usia_anak = c(15,10)
+  )
+
+# Print
+keluarga
+
+# Nama elemen dalam list
+names(keluarga)
+
+# Jumlah elemen pada list
+length(keluarga)
+```
+
+### Subset List
+
+Kita dapat memilih sebuah elemen pada list dengan menggunakan nama elemen atau indeks dari elemen tersebut. Berikut adalah contoh penerapannya:
+
+```{r}
+# Subset berdasarkan nama
+# mengambil elemen usia_ayah
+keluarga$usia_ayah
+
+# Atau
+keluarga[["usia_ayah"]]
+
+# Subset berdasarkan indeks
+keluarga[[2]]
+
+# subset elemen pertama pada keluarga[[5]]
+keluarga[[5]][1]
+```
+
+### Memperluas List
+
+Kita juga dapat menambahkan elemen pada list yang telah kita buat. Pada contoh list sebelumnya penulis akan menambahkan elemen keluarga yang lain seperti berikut:
+
+```{r}
+# Menambahkan kakek dan nenek pada list
+keluarga$kakek <- "Suprapto"
+keluarga$nenek <- "Sri"
+
+# Print
+keluarga
+```
+
+Kita juga dapat menggabungkan beberapa list menjadi satu. Berikut adalah format sederhana bagaimana cara menggabungkan beberapa list menjadi satu:
+
+```{r, eval=FALSE}
+list_baru <- c(list_a, list_b, list_c, ...)
+```
+
+## Loop
+
+*Loop* merupakan kode program yang berulang-ulang. *Loop* berguna saat kita ingin melakukan sebuah perintah yang perlu dijalankan berulang-ulang seperti melakukan perhitungan maupaun melakukan visualisasi terhadap banyak variabel secara serentak. Hal ini tentu saja membantu kita karena kita tidak perlu menulis sejumlah sintaks yang berulang-ulang. Kita hanya perlu mengatur *statement* berdasarkan hasil yang kita harapkan.
+
+Pada `R` bentuk *loop* dapat bermacam-macam ("*for loop*","*while loop*", dll). `R` menyederhanakan bentuk *loop* ini dengan menyediakan sejumlah fungsi seperti `apply()`,`tapply()`, dll. Sehingga `loop` jarang sekali muncul dalam kode `R`. Sehingga `R` sering disebut sebagai *loopless loop*. 
+
+Meski *loop* jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat *loop* yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure \@ref(fig:loop)
+
+```{r loop, echo=FALSE, fig.cap='Diagram umum loop (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "skema_loop.png"
+include_graphics(img1_path)
+
+```
+
+### For Loop
+
+Mengulangi sebuah *statement* atau sekelompok *statement* sebanyak nilai yang ditentukan di awal. Jadi operasi akan terus dilakukan sampai dengan jumlah yang telah ditetapkan di awal atau dengan kata lain tes kondisi (Jika jumlah pengulangan telah cukup) hanya akan dilakukan di akhir. Secara sederhana bentuk dari *for loop* dapat dituliskan sebagai berikut:
+
+```{r, eval=FALSE}
+for (value in vector){
+  statements
+}
+```
+
+
+Berikut adalah contoh sintaks penerapan *for loop*:
+
+```{r}
+# Membuat vektor numerik
+vektor <- c(1:5)
+
+# loop 
+for(i in vektor){
+  print(i)
+}
+
+```
+
+*Loop* akan dimulai dari blok *statement for* sampai dengan  `print(i)`. Berdasarkan *loop* pada contoh tersebut, *loop* hanya dilakukan sebanyak 5 kali sesuai dengan jumlah vektor yang ada.
+
+### While Loop
+
+*While loop* merupakan loop yang digunakan ketika kita telah menetapkan *stop condition* sebelumnya. Blok *statement*/kode yang sama akan terus dijalankan sampai *stop condition* ini tercapai. *Stop condition* akan di cek sebelum melakukan proses *loop*. Berikut adalah pola dari *while loop* dapat dituliskan sebagai berikut:
+
+```{r, eval=FALSE}
+while (test_expression){
+  statement
+}
+```
+
+Berikut adalah contoh penerapan dari *while loop*:
+
+```{r}
+coba <- c("Contoh")
+counter <- 1
+
+# loop
+while (counter<5){
+  # print vektor
+  print(coba)
+  # tambahkan nilai counter sehingga proses terus berlangsung sampai counter = 5 
+  counter <- counter + 1
+}
+```
+
+*Loop* akan dimulai dari blok *statement while* sampai dengan *counter* <- 1. *Loop* hanya akan dilakukan sepanjang nilai *counter* < 5. 
+
+### Repeat Loop
+
+*Repeat loop* akan menjalankan *statement*/kode yang sama berulang-ulang hingga *stop condition* tercapai. Berikut adalah pola dari *repeat loop*.
+
+```{r, eval=FALSE}
+repeat {
+  commands
+  if(condition){
+    break
+  }
+}
+```
+
+Berikut adalah contoh penerapan dari *repeat loop*:
+
+```{r}
+coba <- c("contoh")
+counter <- 1
+repeat {
+  print(coba)
+  counter <- counter + 1
+  if(counter < 5){
+break
+  }
+}
+```
+
+*Loop* akan dimulai dari blok *statement while* sampai dengan *break*. *Loop* hanya akan dilakukan sepanjang nilai *counter* < 5. Hasil yang diperoleh berbeda dengan *while loop*, dimana kita memperoleh 4 buah kata "contoh". Hal ini disebabkan karena *repeat loop* melakukan pengecekan *stop condition* tidak di awal loop seperti *while loop* sehingga berapapun nilainya, selama nilainya sesuai dengan *stop condition* maka *loop* akan dihentikan. Hal ini berbeda dengan *while loop* dimana proses dilakukan berulang-ulang sampai jumlahnya mendekati *stop condition*.
+
+### Break
+
+*Break* sebenarnya bukan bagian dari *loop*, namun sering digunakan dalam *loop*. *Break* dapat digunakan pada *loop* manakala dirasa perlu, yaitu saat kondisi yang disyaratkan pada *break* tercapai.
+
+Berikut adalah contoh penerapan *break* pada beberapa jenis *loop*.
+
+```{r}
+# for loop
+a = c(2,4,6,8,10,12,14)
+for(i in a){
+  if(i>8){
+    break
+  }
+  print(i)
+}
+
+# while loop
+a = 2
+b = 4
+while(a<7){
+  print(a)
+  a = a +1
+  if(b+a>10){
+    break
+  }
+}
+
+# repeat loop
+a = 1
+repeat{
+  print(a)
+  a = a+1
+  if(a>6){
+    break
+  }
+}
+```
+
+## Decision Making
+
+*Decicion Making* atau sering disebut sebagai *if then else statement* merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada `R`.
+
+**Table 5** Daftar percabangan pada `R`
+
+**Statement**          | **Keterangan**
+-----------------------|--------------------------------------------------------------------------------------------------------------------------
+*if statement*         | *if statement* hanya terdiri atas sebuah ekspresi *Boolean*, dan diikuti satu atau lebih *statement*
+*if...else statement*  | *if else statement* terdiri atas beberapa buah ekspresi *Boolean*. Ekspressi *Boolean* berikutnya akan dijalankan jika ekspresi *Boolan  sebelumnya bernilai FALSE
+*switch statement*     | *switch statement* digunakan untuk mengevaluasi sebuah variabel beberapa pilihan
+
+
+### if statement
+
+Pola *if statement* disajikan pada Figure \@ref(fig:ifstatement)
+
+```{r ifstatement, echo=FALSE, fig.cap='Diagram if statement (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "ifstatement.png"
+include_graphics(img1_path)
+
+```
+
+Berikut adalah contoh penerapan *if statement*:
+
+```{r}
+x <- c(1:5)
+if(is.vector(x)){
+  print("x adalah sebuah vector")
+}
+```
+
+
+### if else statement
+
+Pola dari *if else statement* disajikan pada Figure \@ref(fig:ifelse)
+
+```{r ifelse, echo=FALSE, fig.cap='Diagram if else statement (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "ifelse.png"
+include_graphics(img1_path)
+
+```
+
+Berikut adalah contoh penerapan *if else statement*:
+
+```{r}
+x <- c("Andi","Iwan", "Adi")
+if("Rina" %in% x){
+  print("Rina ditemukan")
+} else if("Adi" %in% x){
+  print("Adi ditemukan")
+} else{
+  print("tidak ada yang ditemukan")
+}
+```
+
+
+### switch statement
+
+Pola dari *switch statement* disajikan pada Figure \@ref(fig:switch)
+
+```{r switch, echo=FALSE, fig.cap='Diagram switch statement (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "switch.png"
+include_graphics(img1_path)
+
+```
+
+Berikut adalah contoh penerapan *switch statement*:
+
+```{r}
+y = 3
+
+x = switch(
+  y,
+  "Selamat Pagi",
+  "Selamat Siang",
+  "Selamat Sore",
+  "Selamat Malam"
+)
+
+print(x)
+```
+
+
+## Fungsi
+
+Fungsi merupakan sekumpulan instruksi atau *statement* yang dapat melakukan tugas khusus. Sebagai contoh fungsi perkalian untuk menyelesaikan operasi perkalian, fungsi pemangkatan hanya untuk operasi pemangkatan, dll.
+
+Pada `R` terdapat 2 jenis fungsi, yaitu: *build in fuction* dan *user define function*. *build in fnction* merupakan fungsi bawaan `R` saat pertama kita menginstall `R`. Contohnya adalah `mean()`, `sum()`, `ls()`, `rm()`, dll. Sedangkan *user define fuction* merupakan fungsi-fungsi yang dibuat sendiri oleh pengguna.
+
+Fungsi-fungsi buatan pengguna haruslah dideklarasikan (dibuat) terlebih dahulu sebelum dapat dijalankan. Pola pembentukan fungsi adalah sebagai berikut:
+
+```{r, eval=FALSE}
+function_name <- function(argument_1, argument_2, ...){
+  function body
+}
+```
+
+> **Note: **
+>
+> -  **function_name** : Nama dari fungsi `R`. `R` akan menyimpan fungsi tersebut sebagai objek
+> -  **argument_1, argument_2,...** : *Argument* bersifat opsional (tidak wajib). *Argument* dapat digunakan untuk memberi inputan kepada fungsi
+> -  **function body** : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.
+> -  **return** : Fungsi ada yang memiliki *output* atau *return value* ada juga yang tidak. Jika fungsi memiliki *return value* maka *return value* dapat diproses lebih lanjut
+
+Berikut adalah contoh penerapan *user define function*:
+
+```{r}
+# Fungsi tanpa argument
+bilang <- function(){
+  print("Hello World!!")
+}
+
+# Print
+bilang()
+
+# Fungsi dengan argumen
+tambah <- function(a,b){
+  print(a+b)
+}
+
+# Print
+tambah(5,3)
+
+# Fungsi dengan return value
+kali <- function(a,b){
+  return(a*b)
+}
+
+# Print
+kali(4,3)
+```
+
+
+**Referensi**
+
+1. Primartha, R. 2018. **Belajar Machine Learning Teori dan Praktik**. Penerbit Informatika : Bandung.
+2. Rosadi,D. 2016. **Analisis Statistika dengan R**. Gadjah Mada University Press: Yogyakarta.
+3. STHDA. **Easy R Programming Basics**. <http://www.sthda.com/english/wiki/easy-r-programming-basics>
+4. Venables, W.N. Smith D.M. and R Core Team. 2018. **An Introduction to R**. R Manuals.
+5. The R Core Team. 2018. **R: A Language and Environment for Statistical Computing**. R Manuals.
+
+
+

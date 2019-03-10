@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 6 Working Directory | Statistika Lingkungan Menggunakan R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 6 Working Directory | Statistika Lingkungan Menggunakan R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Working Directory | Statistika Lingkungan Menggunakan R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Moh. Rosidi">
+
+
+<meta name="date" content="2019-03-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="menginstall-r-dan-rstudio.html">
+<link rel="next" href="fasilitas-help.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="chapter" data-level="1" data-path="sejarah-r.html"><a href="sejarah-r.html"><i class="fa fa-check"></i><b>1</b> Sejarah R</a></li>
+<li class="chapter" data-level="2" data-path="fitur-dan-karakteristik-r.html"><a href="fitur-dan-karakteristik-r.html"><i class="fa fa-check"></i><b>2</b> Fitur dan Karakteristik R</a></li>
+<li class="chapter" data-level="3" data-path="kelebihan-dan-kekurangan-r.html"><a href="kelebihan-dan-kekurangan-r.html"><i class="fa fa-check"></i><b>3</b> Kelebihan dan Kekurangan R</a></li>
+<li class="chapter" data-level="4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>4</b> RStudio</a></li>
+<li class="chapter" data-level="5" data-path="menginstall-r-dan-rstudio.html"><a href="menginstall-r-dan-rstudio.html"><i class="fa fa-check"></i><b>5</b> Menginstall R dan RStudio</a></li>
+<li class="chapter" data-level="6" data-path="working-directory.html"><a href="working-directory.html"><i class="fa fa-check"></i><b>6</b> Working Directory</a><ul>
+<li class="chapter" data-level="6.1" data-path="working-directory.html"><a href="working-directory.html#mengubah-lokasi-working-directory"><i class="fa fa-check"></i><b>6.1</b> Mengubah Lokasi Working Directory</a></li>
+<li class="chapter" data-level="6.2" data-path="working-directory.html"><a href="working-directory.html#mengubah-lokasi-working-directory-default"><i class="fa fa-check"></i><b>6.2</b> Mengubah Lokasi Working Directory Default</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fasilitas-help.html"><a href="fasilitas-help.html"><i class="fa fa-check"></i><b>7</b> Fasilitas Help</a><ul>
+<li class="chapter" data-level="7.1" data-path="fasilitas-help.html"><a href="fasilitas-help.html#mencari-help-dari-suatu-perintah-tertentu"><i class="fa fa-check"></i><b>7.1</b> Mencari Help dari Suatu Perintah Tertentu</a></li>
+<li class="chapter" data-level="7.2" data-path="fasilitas-help.html"><a href="fasilitas-help.html#general-help"><i class="fa fa-check"></i><b>7.2</b> General Help</a></li>
+<li class="chapter" data-level="7.3" data-path="fasilitas-help.html"><a href="fasilitas-help.html#fasilitas-help-lainnya"><i class="fa fa-check"></i><b>7.3</b> Fasilitas Help Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>8</b> Literature</a></li>
+<li class="chapter" data-level="9" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>9</b> Methods</a></li>
+<li class="chapter" data-level="10" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>10</b> Applications</a><ul>
+<li class="chapter" data-level="10.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>10.1</b> Example one</a></li>
+<li class="chapter" data-level="10.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>10.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>11</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistika Lingkungan Menggunakan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="working-directory" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Working Directory</h1>
+<p>Setiap pengguna akan bekerja pada tempat khusus yang disebut sebagai <em>working directory</em>. <em>working directory</em> merupakan sebuah folder dimana <code>R</code> akan membaca dan menyimpan file kerja kita. Pada pengguna <code>windows</code>, <em>working directory</em> secara default pada saat pertama kali menginstall <code>R</code> terletak pada folder <code>c:\\Document</code>.</p>
+<div id="mengubah-lokasi-working-directory" class="section level2">
+<h2><span class="header-section-number">6.1</span> Mengubah Lokasi Working Directory</h2>
+<p>Kita dapat mengubah lokasi <em>working directory</em> berdasarkan lokasi yang kita inginkan, misalnya letak data yang akan kita olah tidak ada pada folder default atau kita ingin pekerjaan kita terkait <code>R</code> dapat berlangsung pada satu folder khusus.</p>
+<p>Berikut adalah cara mengubah <em>working directory</em> pada <code>R</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Buatlah folder pada drive (kita bisa membuat folder pada selain drive c) dan namai dengan nama yang kalian inginkan. Pada tutorial ini penulis menggunakan nama folder <code>R</code>.</li>
+<li>Jika pengguna menggunakan <code>RStudio</code>, pada menu <code>RStudio</code> pilih <strong>Session &gt; Set Working Directory &gt; Chooses Directory</strong>. Proses tersebut ditampilkan pada Figure <a href="working-directory.html#fig:working">6.1</a></li>
+<li>Pilih folder yang telah dibuat pada step 1 sebagai *working directory.</li>
+</ol>
+<blockquote>
+<p><strong>Note: </strong> Data atau file yang hendak dibaca selama proses kerja pada <code>R</code> harus selalu diletakkan pada working directory. Jika tidak maka data atau file tidak akan terbaca.</p>
+</blockquote>
+<p>Untuk mengecek apakah proses perubahan telah terjadi, kita dapat mengeceknya dengan menjalankan perintah berikut untuk melihat lokasi <em>working directory</em> kita yang baru.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:working"></span>
+<img src="/working.png" alt="Mengubah working directory."  />
+<p class="caption">
+Figure 6.1: Mengubah working directory.
+</p>
+</div>
+<p>Selain itu kita dapat mengubah <em>working directory</em> menggunakan perintah berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ubah working directori pada folder R</span>
+<span class="kw">setwd</span>(<span class="st">&quot;/Documents/R&quot;</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong> Pada proses pengisian lokasi folder pastikan pemisah pada lokasi folder menggunakan tanda “/” bukan “&quot;</p>
+</blockquote>
+</div>
+<div id="mengubah-lokasi-working-directory-default" class="section level2">
+<h2><span class="header-section-number">6.2</span> Mengubah Lokasi Working Directory Default</h2>
+<p>Pada proses yang telah penulis jelaskan sebelumnya. Proses perubahan <em>working directory</em> hanya berlaku pada saat pekerjaan tersebut dilakukan. Setelah pekerjaan selesai dan kita menjalankan kembali <code>R</code> maka <em>working directory</em> akan kembali secara default pada working directory lama.</p>
+<p>Untuk membuat lokasi default <em>working directory</em> pindah, kita dapat melakukannya dengan memilih pada menu: <strong>Tools &gt; Global options &gt; pada “General” klik pada “Browse” dan pilih lokasi working directory yang diinginkan</strong>. Proses tersebut ditampilkan pada Figure <a href="working-directory.html#fig:default">6.2</a></p>
+<div class="figure" style="text-align: center"><span id="fig:default"></span>
+<img src="/default.png" alt="Merubah working directory melalui Global options."  />
+<p class="caption">
+Figure 6.2: Merubah working directory melalui Global options.
+</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="menginstall-r-dan-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fasilitas-help.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["EnvStat.pdf", "EnvStat.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

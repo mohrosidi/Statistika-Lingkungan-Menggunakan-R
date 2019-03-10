@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 2 Sintaks Bahasa R | Statistika Lingkungan Menggunakan R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 2 Sintaks Bahasa R | Statistika Lingkungan Menggunakan R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Sintaks Bahasa R | Statistika Lingkungan Menggunakan R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Moh. Rosidi">
+
+
+<meta name="date" content="2019-03-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="mengenal-bahasa-r.html">
+<link rel="next" href="methods.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistika Lingkungan Menggunakan R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="chapter" data-level="1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html"><i class="fa fa-check"></i><b>1</b> Mengenal Bahasa R</a><ul>
+<li class="chapter" data-level="1.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#sejarah-r"><i class="fa fa-check"></i><b>1.1</b> Sejarah R</a></li>
+<li class="chapter" data-level="1.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fitur-dan-karakteristik-r"><i class="fa fa-check"></i><b>1.2</b> Fitur dan Karakteristik R</a></li>
+<li class="chapter" data-level="1.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#kelebihan-dan-kekurangan-r"><i class="fa fa-check"></i><b>1.3</b> Kelebihan dan Kekurangan R</a></li>
+<li class="chapter" data-level="1.4" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#rstudio"><i class="fa fa-check"></i><b>1.4</b> RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#menginstall-r-dan-rstudio"><i class="fa fa-check"></i><b>1.5</b> Menginstall R dan RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#working-directory"><i class="fa fa-check"></i><b>1.6</b> Working Directory</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory"><i class="fa fa-check"></i><b>1.6.1</b> Mengubah Lokasi Working Directory</a></li>
+<li class="chapter" data-level="1.6.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory-default"><i class="fa fa-check"></i><b>1.6.2</b> Mengubah Lokasi Working Directory Default</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help"><i class="fa fa-check"></i><b>1.7</b> Fasilitas Help</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mencari-help-dari-suatu-perintah-tertentu"><i class="fa fa-check"></i><b>1.7.1</b> Mencari Help dari Suatu Perintah Tertentu</a></li>
+<li class="chapter" data-level="1.7.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#general-help"><i class="fa fa-check"></i><b>1.7.2</b> General Help</a></li>
+<li class="chapter" data-level="1.7.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help-lainnya"><i class="fa fa-check"></i><b>1.7.3</b> Fasilitas Help Lainnya</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html"><i class="fa fa-check"></i><b>2</b> Sintaks Bahasa R</a><ul>
+<li class="chapter" data-level="2.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-aritmatika"><i class="fa fa-check"></i><b>2.1</b> Operator Aritmatika</a></li>
+<li class="chapter" data-level="2.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi-aritmetik"><i class="fa fa-check"></i><b>2.2</b> Fungsi Aritmetik</a></li>
+<li class="chapter" data-level="2.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-relasi"><i class="fa fa-check"></i><b>2.3</b> Operator Relasi</a></li>
+<li class="chapter" data-level="2.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-logika"><i class="fa fa-check"></i><b>2.4</b> Operator Logika</a></li>
+<li class="chapter" data-level="2.5" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memasukkan-nilai-kedalam-variabel"><i class="fa fa-check"></i><b>2.5</b> Memasukkan Nilai Kedalam Variabel</a></li>
+<li class="chapter" data-level="2.6" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#tipe-data"><i class="fa fa-check"></i><b>2.6</b> Tipe Data</a></li>
+<li class="chapter" data-level="2.7" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#vektor"><i class="fa fa-check"></i><b>2.7</b> Vektor</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-vektor"><i class="fa fa-check"></i><b>2.7.1</b> Membuat vektor</a></li>
+<li class="chapter" data-level="2.7.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#missing-values"><i class="fa fa-check"></i><b>2.7.2</b> Missing Values</a></li>
+<li class="chapter" data-level="2.7.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-vektor"><i class="fa fa-check"></i><b>2.7.3</b> Subset Pada Vektor</a></li>
+<li class="chapter" data-level="2.7.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-vektor"><i class="fa fa-check"></i><b>2.7.4</b> Perhitungan Menggunakan Vektor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#matriks"><i class="fa fa-check"></i><b>2.8</b> Matriks</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-matriks"><i class="fa fa-check"></i><b>2.8.1</b> Membuat matriks</a></li>
+<li class="chapter" data-level="2.8.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-matriks"><i class="fa fa-check"></i><b>2.8.2</b> Subset Pada Matriks</a></li>
+<li class="chapter" data-level="2.8.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-matriks"><i class="fa fa-check"></i><b>2.8.3</b> Perhitungan Menggunakan Matriks</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#faktor"><i class="fa fa-check"></i><b>2.9</b> Faktor</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-variabel-faktor"><i class="fa fa-check"></i><b>2.9.1</b> Membuat Variabel Faktor</a></li>
+<li class="chapter" data-level="2.9.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-faktor"><i class="fa fa-check"></i><b>2.9.2</b> Perhitungan Menggunakan Faktor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#data-frames"><i class="fa fa-check"></i><b>2.10</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-data-frame"><i class="fa fa-check"></i><b>2.10.1</b> Membuat Data Frame</a></li>
+<li class="chapter" data-level="2.10.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-data-frame"><i class="fa fa-check"></i><b>2.10.2</b> Subset Pada Data Frame</a></li>
+<li class="chapter" data-level="2.10.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-data-frame"><i class="fa fa-check"></i><b>2.10.3</b> Memperluas Data Frame</a></li>
+<li class="chapter" data-level="2.10.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-pada-data-frame"><i class="fa fa-check"></i><b>2.10.4</b> Perhitungan Pada Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#list"><i class="fa fa-check"></i><b>2.11</b> List</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-list"><i class="fa fa-check"></i><b>2.11.1</b> Membuat List</a></li>
+<li class="chapter" data-level="2.11.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-list"><i class="fa fa-check"></i><b>2.11.2</b> Subset List</a></li>
+<li class="chapter" data-level="2.11.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-list"><i class="fa fa-check"></i><b>2.11.3</b> Memperluas List</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#loop"><i class="fa fa-check"></i><b>2.12</b> Loop</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#for-loop"><i class="fa fa-check"></i><b>2.12.1</b> For Loop</a></li>
+<li class="chapter" data-level="2.12.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#while-loop"><i class="fa fa-check"></i><b>2.12.2</b> While Loop</a></li>
+<li class="chapter" data-level="2.12.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#repeat-loop"><i class="fa fa-check"></i><b>2.12.3</b> Repeat Loop</a></li>
+<li class="chapter" data-level="2.12.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#break"><i class="fa fa-check"></i><b>2.12.4</b> Break</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#decision-making"><i class="fa fa-check"></i><b>2.13</b> Decision Making</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-statement"><i class="fa fa-check"></i><b>2.13.1</b> if statement</a></li>
+<li class="chapter" data-level="2.13.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-else-statement"><i class="fa fa-check"></i><b>2.13.2</b> if else statement</a></li>
+<li class="chapter" data-level="2.13.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#switch-statement"><i class="fa fa-check"></i><b>2.13.3</b> switch statement</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi"><i class="fa fa-check"></i><b>2.14</b> Fungsi</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistika Lingkungan Menggunakan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sintaks-bahasa-r" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Sintaks Bahasa R</h1>
+<div id="operator-aritmatika" class="section level2">
+<h2><span class="header-section-number">2.1</span> Operator Aritmatika</h2>
+<p>Proses perhitungan akan ditangani oleh fungsi khusus. <code>R</code> akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">+</span><span class="dv">4</span><span class="op">*</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>Bandingkan dengan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span><span class="op">+</span><span class="dv">4</span>)<span class="op">*</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<blockquote>
+<p><code>R</code> dapat digunakan sebagai kalkulator</p>
+</blockquote>
+<p>Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, <code>R</code> akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.</p>
+<p>Operator aritmatika yang disediakan <code>R</code> adalah sebagai berikut:</p>
+<p><strong>Table 1</strong> Operator Aritmatika <code>R</code></p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="84%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Simbol</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td><em>Addition</em>, untuk operasi penjumlahan</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td><em>Substraction</em>, untuk operasi pengurangan</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td><em>Multiplication</em>, untuk operasi pembagian</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td><em>Division</em>, untuk operasi pembagian</td>
+</tr>
+<tr class="odd">
+<td>^</td>
+<td><em>Eksponentiation</em>, untuk operasi pemangkatan</td>
+</tr>
+<tr class="even">
+<td>%%</td>
+<td><em>Modulus</em>, Untuk mencari sisa pembagian</td>
+</tr>
+<tr class="odd">
+<td>%/%</td>
+<td><em>Integer</em>, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian</td>
+</tr>
+</tbody>
+</table>
+<p>Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Addition</span>
+<span class="dv">5</span><span class="op">+</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Substraction</span>
+<span class="dv">5</span><span class="op">-</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Multiplication</span>
+<span class="dv">5</span><span class="op">*</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Division</span>
+<span class="dv">5</span><span class="op">/</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 1.666667</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Eksponetiation</span>
+<span class="dv">5</span><span class="op">^</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 125</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Modulus</span>
+<span class="dv">5</span><span class="op">%%</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Integer</span>
+<span class="dv">5</span><span class="op">%/%</span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<blockquote>
+<p><em>Note: </em> Pada <code>R</code> tanda <code>#</code> berfungsi menambahkan keterangan untuk menjelaskan sebuah sintaks pada <code>R</code>.</p>
+</blockquote>
+</div>
+<div id="fungsi-aritmetik" class="section level2">
+<h2><span class="header-section-number">2.2</span> Fungsi Aritmetik</h2>
+<p>Selain fungsi operator aritmetik, pada <code>R</code> juga telah tersedia fungsi aritmetik yang lain seperti logaritmik, ekponensial, trigonometri, dll.</p>
+<ol style="list-style-type: decimal">
+<li>Logaritma dan eksponensial</li>
+</ol>
+<p>Untuk contoh fungsi logaritmik dan eksponensial jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log2</span>(<span class="dv">8</span>) <span class="co"># logaritma basis 2 untuk 8</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log10</span>(<span class="dv">8</span>) <span class="co"># logaritma basis 10 untuk 8</span></code></pre></div>
+<pre><code>## [1] 0.90309</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="dv">8</span>) <span class="co"># eksponensial 8</span></code></pre></div>
+<pre><code>## [1] 2980.958</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Fungsi trigonometri</li>
+</ol>
+<p>fungsi trigonometri yang ditampilkan seperti sin,cos, tan, dll.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cos</span>(x) <span class="co"># cos x</span>
+<span class="kw">sin</span>(x) <span class="co"># Sin x</span>
+<span class="kw">tan</span>(x) <span class="co"># Tan x</span>
+<span class="kw">acos</span>(x) <span class="co"># arc-cos x</span>
+<span class="kw">asin</span>(x) <span class="co"># arc-sin x</span>
+<span class="kw">atan</span>(x) <span class="co">#arc-tan x</span></code></pre></div>
+<blockquote>
+<p><strong>Note: </strong> x dalam fungsi trigonometri memiliki satuan radian</p>
+</blockquote>
+<p>Berikut adalah salah satu contoh penggunaannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cos</span>(pi)</code></pre></div>
+<pre><code>## [1] -1</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Fungsi matematik lainnya</li>
+</ol>
+<p>Fungsi lainnya yang dapat digunakan adalah fungsi absolut, akar kuadrat, dll. Berikut adalah contoh sintaks penggunaan fungsi absolut dan akar kuadrat.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abs</span>(<span class="op">-</span><span class="dv">2</span>) <span class="co"># nilai absolut -2</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">4</span>) <span class="co"># akar kuadrat 4</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="operator-relasi" class="section level2">
+<h2><span class="header-section-number">2.3</span> Operator Relasi</h2>
+<p>Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan <code>R</code> disajikan pada Table 2.</p>
+<p><strong>Table 2</strong> Operator Relasi <code>R</code></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Simbol</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“&gt;”</td>
+<td>Lebih besar dari</td>
+</tr>
+<tr class="even">
+<td>“&lt;”</td>
+<td>Lebih Kecil dari</td>
+</tr>
+<tr class="odd">
+<td>“==”</td>
+<td>Sama dengan</td>
+</tr>
+<tr class="even">
+<td>“&gt;=”</td>
+<td>Lebih besar sama dengan</td>
+</tr>
+<tr class="odd">
+<td>“&lt;=”</td>
+<td>Lebih kecil sama dengan</td>
+</tr>
+<tr class="even">
+<td>“!=”</td>
+<td>Tidak sama dengan</td>
+</tr>
+</tbody>
+</table>
+<p>Berikut adalah penerapan operator pada tabel tersebut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">34</span>
+y &lt;-<span class="st"> </span><span class="dv">35</span>
+
+<span class="co"># Operator &gt;</span>
+x <span class="op">&gt;</span><span class="st"> </span>y</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Operator &lt;</span>
+x <span class="op">&lt;</span><span class="st"> </span>y</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># operator ==</span>
+x <span class="op">==</span><span class="st"> </span>y</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Operator &gt;=</span>
+x <span class="op">&gt;=</span><span class="st"> </span>y</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Operator &lt;=</span>
+x <span class="op">&lt;=</span><span class="st"> </span>y</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Operator !=</span>
+x <span class="op">!=</span><span class="st"> </span>y</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="operator-logika" class="section level2">
+<h2><span class="header-section-number">2.4</span> Operator Logika</h2>
+<p>Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika <code>TRUE</code>. Operator logika yang disediakan <code>R</code> dapat dilihat pada Table 3.</p>
+<p><strong>Table 3</strong> Operator logika <code>R</code></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Simbol</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&amp;&amp;</td>
+<td>Operator logika AND</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>!</td>
+<td>Opeartor logika NOT</td>
+</tr>
+<tr class="even">
+<td>&amp;</td>
+<td>Operator logika AND element wise</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Operator logika OR element wise</td>
+</tr>
+</tbody>
+</table>
+<p>Penerapannya terdapat pada sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)
+t &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>,<span class="ot">FALSE</span>,<span class="ot">FALSE</span>)
+
+<span class="co"># Operator &amp;&amp;</span>
+<span class="kw">print</span>(v<span class="op">&amp;&amp;</span>t)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Operator ||</span>
+<span class="kw">print</span>(v<span class="op">||</span>t)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Operator !</span>
+<span class="kw">print</span>(<span class="op">!</span>v)</code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># operator &amp;</span>
+<span class="kw">print</span>(v<span class="op">&amp;</span>t)</code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Operator |</span>
+<span class="kw">print</span>(v<span class="op">|</span>t)</code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<p>operator &amp; dan | akan mengecek logika tiap elemen pada vektor secara berpesangan (sesuai urutan dari kiri ke kanan).</p>
+<p>Operator %% dan || hanya mengecek dari kiri ke kanan pada observasi pertama. Misal saat menggunakan &amp;&amp; jika observasi pertama TRUE maka observasi pertama pada vektor lainnya akan dicek, namun jika observasi pertama FALSE maka proses akan segera dihentikan dan menghasilkan FALSE.</p>
+</blockquote>
+</div>
+<div id="memasukkan-nilai-kedalam-variabel" class="section level2">
+<h2><span class="header-section-number">2.5</span> Memasukkan Nilai Kedalam Variabel</h2>
+<p>Variabel pada <code>R</code> dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Harga sebuah lemon adalah 500 rupiah</span>
+lemon &lt;-<span class="st"> </span><span class="dv">500</span>
+
+<span class="co"># Atau</span>
+<span class="dv">500</span> -&gt;<span class="st"> </span>lemon
+
+<span class="co"># dapat juga menggunakan tanda &quot;=&quot;</span>
+lemon =<span class="st"> </span><span class="dv">500</span></code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ol style="list-style-type: decimal">
+<li><p><code>R</code> memungkinkan penggunaan &lt;-,-&gt;, atau = sebagai perintah pengisi nilai variabel</p></li>
+<li><p><code>R</code> bersifat <em>case-sensitive</em>. Maksudnya adalah variabel Lemon tidak sama dengan lemon (Besar kecil huruf berpengaruh)</p></li>
+</ol>
+</blockquote>
+<p>Untuk mengetahui nilai dari objek <code>lemon</code> kita dapat menggunakan fungsi <code>print()</code> atau mengetikkan nama objeknya secara langsung.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Menggunakan fungsi print()</span>
+<span class="kw">print</span>(lemon)</code></pre></div>
+<pre><code>## [1] 500</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Atau</span>
+lemon</code></pre></div>
+<pre><code>## [1] 500</code></pre>
+<p><code>R</code> akan menyimpan variabel <code>lemon</code> sebagai objek pada memori. Sehingga kita dapat melakukan operasi terhadap objek tersebut seperti mengalikannya atau menjumlahkannya dengan bilangan lain. Sebagai contoh jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Operasi perkalian terhadap objek lemon</span>
+<span class="dv">5</span><span class="op">*</span>lemon</code></pre></div>
+<pre><code>## [1] 2500</code></pre>
+<p>Kita dapat juga mengubah nilai dari objek <code>lemon</code> dengan cara menginput nilai baru terhadap objek yang sama. <code>R</code> secara otomatis akan menggatikan nilai sebelumnya. Untuk lebih memahaminya jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lemon &lt;-<span class="st"> </span><span class="dv">1000</span>
+
+<span class="co"># Print lemon</span>
+<span class="kw">print</span>(lemon)</code></pre></div>
+<pre><code>## [1] 1000</code></pre>
+<p>Untuk lebih memahaminya berikut adalah sintaks untuk menghitung volume suatu objek.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Dimensi objek</span>
+panjang &lt;-<span class="st"> </span><span class="dv">10</span>
+lebar &lt;-<span class="st"> </span><span class="dv">5</span>
+tinggi &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="co"># Menghitung volume</span>
+volume &lt;-<span class="st"> </span>panjang<span class="op">*</span>lebar<span class="op">*</span>tinggi
+
+<span class="co"># Print objek volume</span>
+<span class="kw">print</span>(volume)</code></pre></div>
+<pre><code>## [1] 250</code></pre>
+<p>Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi <code>ls()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
+<pre><code>##  [1] &quot;A&quot;         &quot;B&quot;         &quot;img1_path&quot; &quot;lebar&quot;     &quot;lemon&quot;    
+##  [6] &quot;panjang&quot;   &quot;t&quot;         &quot;tinggi&quot;    &quot;v&quot;         &quot;volume&quot;   
+## [11] &quot;x&quot;         &quot;xm&quot;        &quot;y&quot;</code></pre>
+<blockquote>
+<p>Kumpulan objek yang telah tersimpan dalam memori disebut sebagai <strong>workspace</strong></p>
+</blockquote>
+<p>Untuk menghapus objek pada memori kita dapat menggunakan fungsi <code>rm()</code>. Pada sintaks berikut penulis hendak menghapus objek <code>lemon</code> dan <code>volume</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Menghapus objek lemon dan volume</span>
+<span class="kw">rm</span>(lemon, volume)
+
+<span class="co"># Tampilkan kembali objek yang tersisa</span>
+<span class="kw">ls</span>()</code></pre></div>
+<pre><code>##  [1] &quot;A&quot;         &quot;B&quot;         &quot;img1_path&quot; &quot;lebar&quot;     &quot;panjang&quot;  
+##  [6] &quot;t&quot;         &quot;tinggi&quot;    &quot;v&quot;         &quot;x&quot;         &quot;xm&quot;       
+## [11] &quot;y&quot;</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.</p>
+</blockquote>
+</div>
+<div id="tipe-data" class="section level2">
+<h2><span class="header-section-number">2.6</span> Tipe Data</h2>
+<p>Data pada <code>R</code> dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada <code>R</code> disajikan pada Table 4.</p>
+<p><strong>Table 4</strong> Tipe Data <code>R</code></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Tipe Data</strong></th>
+<th><strong>Contoh</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Logical</td>
+<td>TRUE, FALSE</td>
+<td>Nilai Boolean</td>
+</tr>
+<tr class="even">
+<td>Numeric</td>
+<td>12.3, 5, 999</td>
+<td>Segala jenis angka</td>
+</tr>
+<tr class="odd">
+<td>Integer</td>
+<td>23L, 97L, 3L</td>
+<td>Bilangan integer (bilangan bulat)</td>
+</tr>
+<tr class="even">
+<td>Complex</td>
+<td>2i, 3i, 9i</td>
+<td>Bilangan kompleks</td>
+</tr>
+<tr class="odd">
+<td>Character</td>
+<td>‘a’, “b”, “123”</td>
+<td>Karakter dan string</td>
+</tr>
+<tr class="even">
+<td>Raw</td>
+<td>Identik dengan “hello”</td>
+<td>Segala jenis data yang disimpan sebagai raw bytes</td>
+</tr>
+</tbody>
+</table>
+<p>Sintaks berikut adalah contoh dari tipe data pada <code>R</code>. Untuk mengetahui tipa data suatu objek kita dapat menggunakan perintah <code>class()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Logical</span>
+apel &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+<span class="kw">class</span>(apel)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Numeric</span>
+x &lt;-<span class="st"> </span><span class="fl">2.3</span>
+<span class="kw">class</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Integer</span>
+y &lt;-<span class="st"> </span>2L
+<span class="kw">class</span>(y)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compleks</span>
+z &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">+</span>2i
+<span class="kw">class</span>(z)</code></pre></div>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># string</span>
+w &lt;-<span class="st"> &quot;saya&quot;</span>
+<span class="kw">class</span>(w)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Raw</span>
+xy &lt;-<span class="st"> </span><span class="kw">charToRaw</span>(<span class="st">&quot;hello world&quot;</span>)
+<span class="kw">class</span>(xy)</code></pre></div>
+<pre><code>## [1] &quot;raw&quot;</code></pre>
+<p>Keenam jenis data tersebut disebut sebagai tipe data atomik. Hal ini disebabkan karena hanya dapat menangani satu tipe data saja. Misalnya hanya numeric atau hanya integer.</p>
+<p>Selain menggunakan fungsi <code>class()</code>, kita dapat pula menggunakan fungsi <code>is_numeric()</code>, <code>is.character()</code>, <code>is.logical()</code>, dan sebagainya berdasarkan jenis data apa yang ingin kita cek. Berbeda dengan fungsi <code>class()</code>, ouput yang dihasilkan pada fungsi seperti <code>is_numeric()</code> adalah nilai Boolean sehingga fungsi ini hanya digunakan untuk mengecek apakah jenis data pada objek sama seperti yang kita pikirkan. Sebagai contoh disajikan pada sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="dv">25</span>
+
+<span class="co"># Cek apakah objek berisi data numerik</span>
+<span class="kw">is.numeric</span>(data)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cek apakah objek adalah karakter</span>
+<span class="kw">is.character</span>(data)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Kita juga dapat mengubah jenis data menjadi jenis lainnya seperti integer menjadi numerik atau sebaliknya. Fungsi yang digunakan adalah <code>as.numeric()</code> jika ingin mengubah suatu jenis data menjadi numerik. Fungsi lainnya juga dapat digunakan sesuai dengan kita ingin mengubah jenis data objek menjadi jenis data lainnya.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Integer</span>
+apel &lt;-<span class="st"> </span>2L
+
+<span class="co"># Ubah menjadi numerik</span>
+<span class="kw">as.numeric</span>(apel)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cek</span>
+<span class="kw">is.numeric</span>(apel)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Logical</span>
+nangka &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+
+<span class="co"># Ubah logical menjadi numeric</span>
+<span class="kw">as.numeric</span>(nangka)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Karakter</span>
+minum &lt;-<span class="st"> &quot;minum&quot;</span>
+
+<span class="co"># ubah karakter menjadi numerik</span>
+<span class="kw">as.numeric</span>(minum)</code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Konversi karakter menjadi numerik akan menghasilkan output NA (<em>not available</em>). <code>R</code> tidak mengetahui bagaimana cara merubah karakter menjadi bentuk numerik.</p>
+</blockquote>
+<p>Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik <em>double quote</em> (“”) maupun <em>single quote</em> (’’).Jika pada teks yang kita tuliskan mengandung <em>quote</em> maka kita harus menghentikannya menggunakan tanda (  ). Sbegai contoh kita ingin menuliskan `<strong>My friend’s name is “Adi”</strong>, pada sintaks akan dituliskan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&#39;My friend\`s name is &quot;Adi&quot;&#39;</span></code></pre></div>
+<pre><code>## [1] &quot;My friend`s name is \&quot;Adi\&quot;&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Atau</span>
+
+<span class="st">&quot;My friend&#39;s name </span><span class="ch">\&quot;</span><span class="st">Adi</span><span class="ch">\&quot;</span><span class="st">&quot;</span></code></pre></div>
+<pre><code>## [1] &quot;My friend&#39;s name \&quot;Adi\&quot;&quot;</code></pre>
+</div>
+<div id="vektor" class="section level2">
+<h2><span class="header-section-number">2.7</span> Vektor</h2>
+<p>Vektor merupakan kombinasi berbagai nilai (numerik, karakter, logical, dan sebagainya berdasarkan jenis input data) pada objek yang sma. Pada contoh kasus berikut, pembaca akan memiliki sesuai jenis data input yaitu<strong>vektor numerik</strong>, <strong>vector karakter</strong>, <strong>vektor logical</strong>, dll.</p>
+<div id="membuat-vektor" class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Membuat vektor</h3>
+<p>Vektor dibuat dengan menggunakan fungsi <code>c()</code>(concatenate) seperti yang disajikan pada sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor numerik</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="fl">3.5</span>,<span class="dv">4</span>,<span class="dv">7</span>)
+x <span class="co"># print vektor</span></code></pre></div>
+<pre><code>## [1] 3.0 3.5 4.0 7.0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor karakter</span>
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Apel&quot;</span>, <span class="st">&quot;Jeruk&quot;</span>, <span class="st">&quot;Rambutan&quot;</span>, <span class="st">&quot;Salak&quot;</span>)
+y <span class="co"># print vektor</span></code></pre></div>
+<pre><code>## [1] &quot;Apel&quot;     &quot;Jeruk&quot;    &quot;Rambutan&quot; &quot;Salak&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor logical</span>
+t &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>, <span class="st">&quot;TRUE&quot;</span>)
+t <span class="co"># print vektor</span></code></pre></div>
+<pre><code>## [1] &quot;TRUE&quot;  &quot;FALSE&quot; &quot;TRUE&quot;</code></pre>
+<p>selain menginput nilai pada vektor, kita juga dapat memberi nama nilai setiap vektor menggunakan fungsi <code>names()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Membuat vektor jumlah buah yang dibeli</span>
+Jumlah &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)
+<span class="kw">names</span>(Jumlah) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Apel&quot;</span>, <span class="st">&quot;Jeruk&quot;</span>, <span class="st">&quot;Rambutan&quot;</span>, <span class="st">&quot;Salak&quot;</span>)
+
+<span class="co"># Atau</span>
+Jumlah &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Apel=</span><span class="dv">5</span>, <span class="dt">Jeruk=</span><span class="dv">5</span>, <span class="dt">Rambutan=</span><span class="dv">6</span>, <span class="dt">Salak=</span><span class="dv">7</span>)
+
+<span class="co"># Print</span>
+Jumlah</code></pre></div>
+<pre><code>##     Apel    Jeruk Rambutan    Salak 
+##        5        5        6        7</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Vektor hanya dapat memuat satu buah jenis data. Vektor hanya dapat mengandung jenis data numerik saja, karakter saja, dll.</p>
+</blockquote>
+<p>Untuk menentukan panjang sebuah vektor kita dapat menggunakan fungsi <code>lenght()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(Jumlah)</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="missing-values" class="section level3">
+<h3><span class="header-section-number">2.7.2</span> Missing Values</h3>
+<p>Seringkali nilai pada vektor kita tidak lengkap atau terdapat nilai yang hilang (<em>missing value</em>) pada vektor. <em>Missing value</em> pada <code>R</code> dilambangkan oleh <code>NA</code>(<em>not available</em>). Berikut adalah contoh vektor dengan <em>missing value</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Jumlah &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Apel=</span><span class="dv">5</span>, <span class="dt">Jeruk=</span><span class="ot">NA</span>, <span class="dt">Rambutan=</span><span class="dv">6</span>, <span class="dt">Salak=</span><span class="dv">7</span>)</code></pre></div>
+<p>Untuk mengecek apakah dalam objek terdapat <em>missing value</em> dapat menggunakan fungsi <code>is.na()</code>. ouput dari fungsi tersebut adalah nilai Boolean. Jika terdapat <em>Missing value</em>, maka output yang dihasilkan akan memberikan nilai <code>TRUE</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.na</span>(Jumlah)</code></pre></div>
+<pre><code>##     Apel    Jeruk Rambutan    Salak 
+##    FALSE     TRUE    FALSE    FALSE</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<p>Selain NA terdapat NaN (<em>not a number</em>) sebagai <em>missing value8</em>. Nilai tersebut muncul ketika fungsi matematika yang digunakan pada proses perhitungan tidak bekerja sebagaimana mestinya. Contoh: 0/0 = NaN</p>
+<p><code>is.na()</code> juga akan menghasilkan nilai <code>TRUE</code> pada NaN. Untuk membedakannya dengan NA dapat digunakan fungsi <code>is.nan()</code>.</p>
+</blockquote>
+</div>
+<div id="subset-pada-vektor" class="section level3">
+<h3><span class="header-section-number">2.7.3</span> Subset Pada Vektor</h3>
+<p><em>Subseting vector</em> terdiri atas tiga jenis, yaitu: <em>positive indexing</em>, <em>Negative Indexing</em>, dan .</p>
+<ul>
+<li><strong>Positive indexing</strong>: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Subset vektor pada urutan kedua</span>
+Jumlah[<span class="dv">2</span>]</code></pre></div>
+<pre><code>## Jeruk 
+##    NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Subset vektor pada urutan 2 dan 4</span>
+Jumlah[<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</code></pre></div>
+<pre><code>## Jeruk Salak 
+##    NA     7</code></pre>
+<p>Selain melalui urutan (indeks), kita juga dapat melakukan subset berdasarkan nama elemen vektornya.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Jumlah[<span class="st">&quot;Jeruk&quot;</span>]</code></pre></div>
+<pre><code>## Jeruk 
+##    NA</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Indeks pada <code>R</code> dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]</p>
+</blockquote>
+<ul>
+<li><strong>Negative indexing</strong>: mengecualikan (<em>exclude</em>) elemen vektor.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mengecualikan elemen vektor 2 dan 4</span>
+Jumlah[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</code></pre></div>
+<pre><code>##     Apel Rambutan 
+##        5        6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mengecualikan elemen vektor 1 sampai 3</span>
+Jumlah[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)]</code></pre></div>
+<pre><code>## Salak 
+##     7</code></pre>
+<ul>
+<li><strong>Subset berdasarkan vektor logical</strong>: Hanya, elemen-elemen yang nilai yang bersesuaian dalam vektor pemilihan bernilai TRUE, akan disimpan dalam subset.</li>
+</ul>
+<blockquote>
+<p><strong>Note: </strong> panjang vektor yang digunakan untuk subset harus sama.</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Jumlah &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Apel=</span><span class="dv">5</span>, <span class="dt">Jeruk=</span><span class="ot">NA</span>, <span class="dt">Rambutan=</span><span class="dv">6</span>, <span class="dt">Salak=</span><span class="dv">7</span>)
+
+<span class="co"># selecting vector</span>
+merah &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)
+
+<span class="co"># Subset</span>
+Jumlah[merah<span class="op">==</span><span class="ot">TRUE</span>]</code></pre></div>
+<pre><code>##     Apel Rambutan 
+##        5        6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Subset untuk elemen vektor bukan missing value</span>
+Jumlah[<span class="op">!</span><span class="kw">is.na</span>(Jumlah)]</code></pre></div>
+<pre><code>##     Apel Rambutan    Salak 
+##        5        6        7</code></pre>
+</div>
+<div id="perhitungan-menggunakan-vektor" class="section level3">
+<h3><span class="header-section-number">2.7.4</span> Perhitungan Menggunakan Vektor</h3>
+<p>Jika Anda melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pendapatan &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2000</span>, <span class="dv">1800</span>, <span class="dv">2500</span>, <span class="dv">3000</span>)
+<span class="kw">names</span>(pendapatan) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Andi&quot;</span>, <span class="st">&quot;Joni&quot;</span>, <span class="st">&quot;Lina&quot;</span>, <span class="st">&quot;Rani&quot;</span>)
+pendapatan</code></pre></div>
+<pre><code>## Andi Joni Lina Rani 
+## 2000 1800 2500 3000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Kalikan pendapatan dengan 3</span>
+pendapatan<span class="op">*</span><span class="dv">3</span></code></pre></div>
+<pre><code>## Andi Joni Lina Rani 
+## 6000 5400 7500 9000</code></pre>
+<p>Seperti yang dapat dilihat, <code>R</code> mengalikan setiap elemen dengan bilangan pengali.</p>
+<p>Kita juga dapat mengalikan vektor dengan vektor lainnya.Contohnya disajikan pada sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor dengan panjang sama dengan dengan vektor pendapatan</span>
+coefs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="fl">1.5</span>, <span class="dv">1</span>, <span class="dv">3</span>)
+
+<span class="co"># Mengalikan pendapatan dengan vektor coefs</span>
+pendapatan<span class="op">*</span>coefs</code></pre></div>
+<pre><code>## Andi Joni Lina Rani 
+## 4000 2700 2500 9000</code></pre>
+<p>Berdasarkan sintaks tersebut dapat terlihat bahwa operasi matematik terhadap masing-masing vektor dapat berlangsung jika panjang vektornya sama.</p>
+<p>Berikut adalah fungsi lain yang dapat digunakan pada operasi matematika vektor.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(x) <span class="co"># memperoleh nilai maksimum x</span>
+<span class="kw">min</span>(x) <span class="co"># memperoleh nilai minimum x</span>
+<span class="kw">range</span>(x) <span class="co"># memperoleh range vektor x</span>
+<span class="kw">length</span>(x) <span class="co"># memperoleh jumlah elemen vektor x</span>
+<span class="kw">sum</span>(x) <span class="co"># memperoleh total penjumlahan elemen vektor x</span>
+<span class="kw">prod</span>(x) <span class="co"># memeperoleh produk elemen vektor x</span>
+<span class="kw">mean</span>(x) <span class="co"># memperoleh nilai rata-rata seluruh elemen vektor x</span>
+<span class="kw">sd</span>(x) <span class="co"># standar deviasi vektor x</span>
+<span class="kw">var</span>(x) <span class="co"># varian vektor x</span>
+<span class="kw">sort</span>(x) <span class="co"># mengurutkan elemen vektor x dari yang terbesar</span></code></pre></div>
+<p>Contoh penggunaan fungsi tersebut disajikan beberapa pada sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Menghitung range pendapatan</span>
+<span class="kw">range</span>(pendapatan)</code></pre></div>
+<pre><code>## [1] 1800 3000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># menghitung rata-rata dan standar deviasi pendapatan</span>
+<span class="kw">mean</span>(pendapatan)</code></pre></div>
+<pre><code>## [1] 2325</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(pendapatan)</code></pre></div>
+<pre><code>## [1] 537.7422</code></pre>
+</div>
+</div>
+<div id="matriks" class="section level2">
+<h2><span class="header-section-number">2.8</span> Matriks</h2>
+<p>Matriks seperti Excel sheet yang berisi banyak baris dan kolom (kumpulan bebrapa vektor). Matriks digunakan untuk menggabungkan vektor dengan tipe yang sama, yang bisa berupa numerik, karakter, atau logis. Matriks digunakan untuk menyimpan tabel data dalam R. Baris-baris matriks pada umumnya adalah individu / pengamatan dan kolom adalah variabel.</p>
+<div id="membuat-matriks" class="section level3">
+<h3><span class="header-section-number">2.8.1</span> Membuat matriks</h3>
+<p>Untuk membuat matriks kita dapat menggunakan fungsi <code>cbind()</code> atau <code>rbind()</code>. Berikut adalah contoh sintaks untuk membuat matriks.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor numerik</span>
+col1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)
+col2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">8</span>)
+col3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">7</span>)
+
+<span class="co"># menggabungkan vektor berdasarkan kolom</span>
+my_data &lt;-<span class="st"> </span><span class="kw">cbind</span>(col1, col2, col3)
+my_data</code></pre></div>
+<pre><code>##      col1 col2 col3
+## [1,]    5    2    7
+## [2,]    6    4    3
+## [3,]    7    5    4
+## [4,]    8    9    8
+## [5,]    9    8    7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mengubah atau menambahkan nama baris</span>
+<span class="kw">rownames</span>(my_data) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;row1&quot;</span>, <span class="st">&quot;row2&quot;</span>, <span class="st">&quot;row3&quot;</span>, <span class="st">&quot;row4&quot;</span>, <span class="st">&quot;row5&quot;</span>)
+my_data</code></pre></div>
+<pre><code>##      col1 col2 col3
+## row1    5    2    7
+## row2    6    4    3
+## row3    7    5    4
+## row4    8    9    8
+## row5    9    8    7</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>cbind()</strong>: menggabungkan objek <code>R</code> berdasarkan kolom</li>
+<li><strong>rbind()</strong>: menggabungkan objek <code>R</code> berdasarkan baris</li>
+<li><strong>rownames()</strong>: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks</li>
+<li><strong>colnames()</strong>: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks</li>
+</ul>
+</blockquote>
+<p>Kita dapat melakukan tranpose (merotasi matriks sehingga kolom menjadi baris dan sebaliknya) menggunakan fungsi <code>t()</code>. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t</span>(my_data)</code></pre></div>
+<pre><code>##      row1 row2 row3 row4 row5
+## col1    5    6    7    8    9
+## col2    2    4    5    9    8
+## col3    7    3    4    8    7</code></pre>
+<p>Selain melalui pembentukan sejumlah objek vektor, kita juga dapat membuat matriks menggunakan fungsi <code>matrix()</code>. Secara sederhana fungsi tersebut dapat dituliskan sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="ot">NA</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">byrow =</span> <span class="ot">FALSE</span>,
+       <span class="dt">dimnames =</span> <span class="ot">NULL</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: vektor data opsional</li>
+<li><strong>nrow</strong>, <strong>ncol</strong>: jumlah baris dan kolom yang diinginkan, masing-masing.</li>
+<li><strong>byrow</strong>: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.</li>
+<li><strong>dimnames</strong>: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.</li>
+</ul>
+</blockquote>
+<p>Dalam kode <code>R</code> di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini <code>nrow = 3</code>). <code>R</code> akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen <code>byrow = FALSE</code>. Jika kita ingin mengisi matriks dengan baris, gunakan <code>byrow = TRUE</code>. Berikut adalah contoh pembuatan matriks menggunakan fungsi <code>matrix()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="kw">matrix</span>(
+           <span class="dt">data =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>), 
+           <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>,
+           <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;row1&quot;</span>, <span class="st">&quot;row2&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;C.1&quot;</span>, <span class="st">&quot;C.2&quot;</span>, <span class="st">&quot;C.3&quot;</span>))
+           )
+data</code></pre></div>
+<pre><code>##      C.1 C.2 C.3
+## row1   1   2   3
+## row2  11  12  13</code></pre>
+<p>Untuk mengetahui dimensi dari suatu matriks, kita dapat menggunakan fungsi <code>ncol()</code> untuk mengetahui jumlah kolom matriks dan <code>nrow()</code> untuk mengetahui jumlah baris pada matriks. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mengetahui jumlah kolom</span>
+<span class="kw">ncol</span>(my_data)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mengetahui jumlah baris</span>
+<span class="kw">nrow</span>(my_data)</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>Jika ingin memperoleh ringkasan terkait dimensi matriks kita juga dapat mengunakan fungsi <code>dim()</code> untuk mengetahui jumlah baris dan kolom matriks. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(my_data) <span class="co"># jumlah baris dan kolom</span></code></pre></div>
+<pre><code>## [1] 5 3</code></pre>
+</div>
+<div id="subset-pada-matriks" class="section level3">
+<h3><span class="header-section-number">2.8.2</span> Subset Pada Matriks</h3>
+<p>Sama dengan vektor, subset juga dapat dilakukan pada matriks. Bedanya subset dilakukan berdasarkan baris dan kolom pada matriks.</p>
+<ul>
+<li><strong>Memilih baris/kolom</strong> berdasarkan pengindeksan positif</li>
+</ul>
+<p>baris atau kolom dapat diseleksi menggunakan format <code>data[row, col]</code>. Cara selesi ini sama dengan vektor, bedanya kita harus menetukan baris dan kolom dari data yang akan kita pilih. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pilih baris ke-2</span>
+my_data[<span class="dv">2</span>,]</code></pre></div>
+<pre><code>## col1 col2 col3 
+##    6    4    3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pilih baris 2 sampai 4</span>
+my_data[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>,]</code></pre></div>
+<pre><code>##      col1 col2 col3
+## row2    6    4    3
+## row3    7    5    4
+## row4    8    9    8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pilih baris 2 dan 4</span>
+my_data[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>),]</code></pre></div>
+<pre><code>##      col1 col2 col3
+## row2    6    4    3
+## row4    8    9    8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pilih baris 2 dan kolom 3</span>
+my_data[<span class="dv">2</span>, <span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<ul>
+<li><strong>Pilih berdasarkan nama baris/kolom</strong></li>
+</ul>
+<p>Berikut adalah contoh subset berdasarkan nama baris atau kolom.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pilih baris 1 dan kolom 3</span>
+my_data[<span class="st">&quot;row1&quot;</span>,<span class="st">&quot;col3&quot;</span>]</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pilih baris 1 sampai 4 dan kolom 3</span>
+baris &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;row1&quot;</span>,<span class="st">&quot;row2&quot;</span>,<span class="st">&quot;row3&quot;</span>)
+my_data[baris, <span class="st">&quot;col3&quot;</span>]</code></pre></div>
+<pre><code>## row1 row2 row3 
+##    7    3    4</code></pre>
+<ul>
+<li><strong>Kecualikan baris/kolom</strong> dengan pengindeksan negatif</li>
+</ul>
+<p>Sama seperti vektor pengecualian data dapat dilakukan di matriks menggunakan pengindeksan negatif. Berikut cara melakukannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Kecualikan baris 2 dan 3 serta kolom 3</span>
+my_data[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="op">-</span><span class="dv">3</span>]</code></pre></div>
+<pre><code>##      col1 col2
+## row1    5    2
+## row4    8    9
+## row5    9    8</code></pre>
+<ul>
+<li><strong>Pilihan dengan logik</strong></li>
+</ul>
+<p>Dalam kode <code>R</code> di bawah ini, misalkan kita ingin hanya menyimpan baris di mana col3&gt; = 4:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">col3 &lt;-<span class="st"> </span>my_data[, <span class="st">&quot;col3&quot;</span>]
+my_data[col3 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span>, ]</code></pre></div>
+<pre><code>##      col1 col2 col3
+## row1    5    2    7
+## row3    7    5    4
+## row4    8    9    8
+## row5    9    8    7</code></pre>
+</div>
+<div id="perhitungan-menggunakan-matriks" class="section level3">
+<h3><span class="header-section-number">2.8.3</span> Perhitungan Menggunakan Matriks</h3>
+<p>_ Kita juga dapat melakukan operasi matematika pada matriks. Pada operasi matematika pada matriks proses yang terjadi bisa lebih kompleks dibanding pada vektor, dimana kita dapat melakukan operasi untuk memperoleh gambaran data pada tiap kolom atau baris.</p>
+<p>Berikut adalah contoh operasi matematika sederhana pada matriks:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mengalikan masing-masing elemen matriks dengan 2</span>
+my_data<span class="op">*</span><span class="dv">2</span></code></pre></div>
+<pre><code>##      col1 col2 col3
+## row1   10    4   14
+## row2   12    8    6
+## row3   14   10    8
+## row4   16   18   16
+## row5   18   16   14</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memperoleh nilai log basis 2 pada masing-masing elemen matriks</span>
+<span class="kw">log2</span>(my_data)</code></pre></div>
+<pre><code>##          col1     col2     col3
+## row1 2.321928 1.000000 2.807355
+## row2 2.584963 2.000000 1.584963
+## row3 2.807355 2.321928 2.000000
+## row4 3.000000 3.169925 3.000000
+## row5 3.169925 3.000000 2.807355</code></pre>
+<p>Seperti yang telah penulis jelaskan sebelumnya, kita juga dapat melakukan operasi matematika untuk memperoleh hasil penjumlahan elemen pada tiap baris atau kolom dengan menggunakan fungsi <code>rowSums()</code> untuk baris dan <code>colSums()</code> untuk kolom.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Total pada tiap kolom</span>
+<span class="kw">colSums</span>(my_data)</code></pre></div>
+<pre><code>## col1 col2 col3 
+##   35   28   29</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Total pada tiap baris</span>
+<span class="kw">rowSums</span>(my_data)</code></pre></div>
+<pre><code>## row1 row2 row3 row4 row5 
+##   14   13   16   25   24</code></pre>
+<p>Jika kita tertarik untuk mencari nilai rata-rata tiap baris arau kolom kita juga dapat menggunakan fungsi <code>rowMeans()</code> atau <code>colMeans()</code>. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Rata-rata tiap baris</span>
+<span class="kw">rowMeans</span>(my_data)</code></pre></div>
+<pre><code>##     row1     row2     row3     row4     row5 
+## 4.666667 4.333333 5.333333 8.333333 8.000000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Rata-rata tiap kolom</span>
+<span class="kw">colMeans</span>(my_data)</code></pre></div>
+<pre><code>## col1 col2 col3 
+##  7.0  5.6  5.8</code></pre>
+<p>Kita juga dapat melakukan perhitungan statistika lainnya menggunakan fungsi <code>apply()</code>. Berikut adalah format sederhananya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(x, MARGIN, FUN)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li>x : data matriks</li>
+<li>MARGIN : Nilai yang dapat digunakan adalah 1 (untuk operasi pada baris) dan 2 (untuk operasi pada kolom)</li>
+<li>FUN : fungsi yang diterapkan pada baris atau kolom</li>
+</ul>
+</blockquote>
+<p>untuk mengetahui fungsi (<code>FUN</code>) apa saja yang dapat diterapkan pada fungsi <code>apply()</code> jalankan sintaks bantuan berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(apply)</code></pre></div>
+<p>Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Rata-rata pada tiap baris</span>
+<span class="kw">apply</span>(my_data, <span class="dv">1</span>, mean)</code></pre></div>
+<pre><code>##     row1     row2     row3     row4     row5 
+## 4.666667 4.333333 5.333333 8.333333 8.000000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Median pada tiap kolom</span>
+<span class="kw">apply</span>(my_data, <span class="dv">2</span>, median)</code></pre></div>
+<pre><code>## col1 col2 col3 
+##    7    5    7</code></pre>
+</div>
+</div>
+<div id="faktor" class="section level2">
+<h2><span class="header-section-number">2.9</span> Faktor</h2>
+<p>Dalam bahasa <code>R</code> , faktor merupakan verktor dengan level. Level disimpan sebagai <code>R</code> Character. Jika kita menggunakan SPSS maka factor ini akan sama dengan jenis data numerik atau ordinal.</p>
+<p>Faktor merepresentasikan kategori atau grup pada data. Untuk membuat faktor pada <code>R</code>, kita dapat menggunakan fungsi <code>factor()</code>.</p>
+<div id="membuat-variabel-faktor" class="section level3">
+<h3><span class="header-section-number">2.9.1</span> Membuat Variabel Faktor</h3>
+<p>Berikut adalah contoh sintaks pembuatan variabel faktor.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat variabel faktor</span>
+faktor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>))
+faktor</code></pre></div>
+<pre><code>## [1] 1 2 1 2
+## Levels: 1 2</code></pre>
+<p>Pada sintaks tersebut objek faktor terdiri atas dua buah kategori atau pada <code>R</code> disebut sebagai <strong>factor levels</strong>. Kita dapat mengecek factor levels menggunakan fungsi <code>levels()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(faktor)</code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot;</code></pre>
+<p>Kita juga dapat memberikan label atau mengubah level pada faktor. Berikut adalah contoh bagaimana kita melakukannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ubah level</span>
+<span class="kw">levels</span>(faktor) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;baik&quot;</span>,<span class="st">&quot;tidak_baik&quot;</span>)
+faktor</code></pre></div>
+<pre><code>## [1] baik       tidak_baik baik       tidak_baik
+## Levels: baik tidak_baik</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ubah urutan level</span>
+faktor &lt;-<span class="st"> </span><span class="kw">factor</span>(faktor,
+                 <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;tidak_baik&quot;</span>,<span class="st">&quot;baik&quot;</span>))
+faktor</code></pre></div>
+<pre><code>## [1] baik       tidak_baik baik       tidak_baik
+## Levels: tidak_baik baik</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li>Fungsi <code>is.factor()</code> dapat digunakan untuk mengecek apakah sebuah variabel adalah faktor. Hasil yang dimunculkan dapat berupa TRUE (jika faktor) atau FALSE (jika bukan)</li>
+<li>Fungsi <code>as.factor()</code> dapat digunakan untuk merubah sebuah variabel menjadi faktor.</li>
+</ul>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cek jika objek faktor adalah faktor</span>
+<span class="kw">is.factor</span>(faktor)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cek jika objek Jumlah adalah faktor</span>
+<span class="kw">is.factor</span>(Jumlah)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ubah objek Jumlah menjadi faktor</span>
+<span class="kw">as.factor</span>(Jumlah)</code></pre></div>
+<pre><code>##     Apel    Jeruk Rambutan    Salak 
+##        5     &lt;NA&gt;        6        7 
+## Levels: 5 6 7</code></pre>
+</div>
+<div id="perhitungan-menggunakan-faktor" class="section level3">
+<h3><span class="header-section-number">2.9.2</span> Perhitungan Menggunakan Faktor</h3>
+<p>Jika kita ingin mengetahui jumlah masing-masing observasi pada masing-masing faktor, kita dapat menggunakan fungsi <code>summary()</code>. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(faktor)</code></pre></div>
+<pre><code>## tidak_baik       baik 
+##          2          2</code></pre>
+<p>Pada contoh perhitungan menggunakan vektor kita telah membuat objek <code>pendapatan</code>. Pada objek tersebut kita ingin menghitung nilai rata-rata pendapatan berdasarkan objek faktor. Untuk melakukannya kita dapat menggunakan fungsi <code>tapply()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pendapatan</code></pre></div>
+<pre><code>## Andi Joni Lina Rani 
+## 2000 1800 2500 3000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">faktor</code></pre></div>
+<pre><code>## [1] baik       tidak_baik baik       tidak_baik
+## Levels: tidak_baik baik</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Rata-rata pendapatan dan simpan sebagai objek dengan nama:</span>
+<span class="co"># mean_pendapatan</span>
+mean_pendapatan &lt;-<span class="st"> </span><span class="kw">tapply</span>(pendapatan, faktor, mean)
+mean_pendapatan</code></pre></div>
+<pre><code>## tidak_baik       baik 
+##       2400       2250</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Hitung ukuran/panjang masing-masing grup</span>
+<span class="kw">tapply</span>(pendapatan, faktor, length)</code></pre></div>
+<pre><code>## tidak_baik       baik 
+##          2          2</code></pre>
+<p>Untuk mengetahui jumlah masing-masing observasi masing-masing factor levels kita juga dapat menggunakan fungsi <code>table()</code>. Fungsi tersebut akan membuat frekuensi tabel pada masing-masing factor levels atau yang dikenal sebagai <em>contingency table</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(faktor)</code></pre></div>
+<pre><code>## faktor
+## tidak_baik       baik 
+##          2          2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cross-tabulation antara</span>
+<span class="co"># faktor dan pendapatan</span>
+<span class="kw">table</span>(pendapatan, faktor)</code></pre></div>
+<pre><code>##           faktor
+## pendapatan tidak_baik baik
+##       1800          1    0
+##       2000          0    1
+##       2500          0    1
+##       3000          1    0</code></pre>
+</div>
+</div>
+<div id="data-frames" class="section level2">
+<h2><span class="header-section-number">2.10</span> Data Frames</h2>
+<p>Data frame merupakan kumpulan vektor dengan panjang sama atau dapat pula dikatan sebagai matriks yang memiliki kolom dengan jenis data yang berbeda-beda (numerik, karakter, logical). Pada data frame terdapat baris dan kolom. Baris disebut sebagai observasi, sedangkan kolom disebut sebagai variabel. Sehingga dapat dikatakan bahwa setiap observasi akan memiliki satu atau beberapa variabel.</p>
+<div id="membuat-data-frame" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> Membuat Data Frame</h3>
+<p>Data frame dapat dibuat menggunakan fungsi <code>data.frame()</code>. Berikut adalah contoh cara membuat data frame:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Membuat data frame</span>
+nama &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Andi&quot;</span>,<span class="st">&quot;Rizal&quot;</span>,<span class="st">&quot;Ani&quot;</span>,<span class="st">&quot;Ina&quot;</span>)
+pendapatan &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">3500</span>, <span class="dv">500</span>)
+tinggi &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">160</span>, <span class="dv">155</span>, <span class="dv">170</span>, <span class="dv">146</span>)
+usia &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">25</span>, <span class="dv">27</span>)
+menikah &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>)
+
+data_teman &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">nama =</span> nama,
+                         <span class="dt">gaji =</span> pendapatan,
+                         <span class="dt">tinggi =</span> tinggi,
+                         <span class="dt">menikah =</span> menikah)
+
+data_teman</code></pre></div>
+<pre><code>##    nama gaji tinggi menikah
+## 1  Andi 1000    160    TRUE
+## 2 Rizal 2000    155   FALSE
+## 3   Ani 3500    170    TRUE
+## 4   Ina  500    146    TRUE</code></pre>
+<p>Untuk mengecek apakah objek <code>data_teman</code> merupakan data frame, kita dapat menggunakan fungsi <code>is.data.frame()</code>. Jika hasilnya TRUE, maka objek tersebut adalah data frame. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.data.frame</span>(data_teman)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<blockquote>
+<p><strong>Note: </strong> untuk konversi objek menjadi data frame, kita dapat menjalankan fungsi <code>as.data.frame()</code>.</p>
+</blockquote>
+</div>
+<div id="subset-pada-data-frame" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> Subset Pada Data Frame</h3>
+<p>Subset pada data frame sebenarnya tidak berbeda dengan subset pada matriks. Bedanya adalah kita juga bisa melakukan subset langsung terhadap nama variabel menggunakan dollar sign. Untuk lebih memahaminya berikut adalah jenis subset pada data frame.</p>
+<ul>
+<li><strong>Pengindeksan positif</strong> menggunakan nama dan lokasi.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Subset menggunakan dollar sign</span>
+data_teman<span class="op">$</span>nama</code></pre></div>
+<pre><code>## [1] Andi  Rizal Ani   Ina  
+## Levels: Andi Ani Ina Rizal</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau </span>
+data_teman[, <span class="st">&quot;nama&quot;</span>]</code></pre></div>
+<pre><code>## [1] Andi  Rizal Ani   Ina  
+## Levels: Andi Ani Ina Rizal</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subset baris 1 sampai 3 serta kolom 1 dan 3</span>
+data_teman[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</code></pre></div>
+<pre><code>##    nama tinggi
+## 1  Andi    160
+## 2 Rizal    155
+## 3   Ani    170</code></pre>
+<ul>
+<li><strong>Pengindeksan negatif</strong></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Kecualikan kolom nama</span>
+data_teman[,<span class="op">-</span><span class="dv">1</span>]</code></pre></div>
+<pre><code>##   gaji tinggi menikah
+## 1 1000    160    TRUE
+## 2 2000    155   FALSE
+## 3 3500    170    TRUE
+## 4  500    146    TRUE</code></pre>
+<ul>
+<li><strong>Pengideksan berdasarkan karakteristik</strong></li>
+</ul>
+<p>Kita ingin memilih data dengan kriteria teman yang telah menikah</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_teman[data_teman<span class="op">$</span>menikah<span class="op">==</span><span class="ot">TRUE</span>, ]</code></pre></div>
+<pre><code>##   nama gaji tinggi menikah
+## 1 Andi 1000    160    TRUE
+## 3  Ani 3500    170    TRUE
+## 4  Ina  500    146    TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Tampilkan hanya kolom nama dan gaji untuk yang telah menikah</span>
+data_teman[data_teman<span class="op">$</span>menikah<span class="op">==</span><span class="ot">TRUE</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</code></pre></div>
+<pre><code>##   nama gaji
+## 1 Andi 1000
+## 3  Ani 3500
+## 4  Ina  500</code></pre>
+<p>kita juga dapat menggunakan fungsi <code>subset()</code> agar lebih mudah. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subset terhadap teman yang berusia &gt;=30 tahun</span>
+<span class="kw">subset</span>(data_teman, usia<span class="op">&gt;=</span><span class="dv">30</span>)</code></pre></div>
+<pre><code>##    nama gaji tinggi menikah
+## 1  Andi 1000    160    TRUE
+## 2 Rizal 2000    155   FALSE</code></pre>
+<p>Opsi lain adalah menggunakan fungsi <code>attach()</code> dan <code>detach()</code>. Fungsi <code>attach()</code> mengambil data frame dan membuat kolomnya dapat diakses hanya dengan memberikan nama mereka.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># attach data frame</span>
+<span class="kw">attach</span>(data_teman)</code></pre></div>
+<pre><code>## The following objects are masked _by_ .GlobalEnv:
+## 
+##     menikah, nama, tinggi</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ==== memulai data manipulation ====</span>
+data_teman[usia<span class="op">&gt;=</span><span class="dv">30</span>]</code></pre></div>
+<pre><code>##    nama gaji
+## 1  Andi 1000
+## 2 Rizal 2000
+## 3   Ani 3500
+## 4   Ina  500</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ==== mengakhiri data manipulation ====</span>
+<span class="co"># detach data frame</span>
+
+<span class="kw">detach</span>(data_teman)</code></pre></div>
+</div>
+<div id="memperluas-data-frame" class="section level3">
+<h3><span class="header-section-number">2.10.3</span> Memperluas Data Frame</h3>
+<p>Kita dapat juga memperluas data frame dengan cara menambahkan variabel atau kolombaru pada data frame. Pada contoh kali ini penulis akan menambahkan kolom pendidikan terakhir pada objek <code>data_teman</code>. Berikut adalah sintaks yang digunakan.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor pendidikan</span>
+pendidikan &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;S1&quot;</span>,<span class="st">&quot;S2&quot;</span>,<span class="st">&quot;D3&quot;</span>,<span class="st">&quot;D1&quot;</span>)
+
+<span class="co"># menambahkan variabel pendidikan pada data frame</span>
+data_teman<span class="op">$</span>pendidikan &lt;-<span class="st"> </span>pendidikan</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
+<span class="kw">cbind</span>(data_teman, <span class="dt">pendidikan=</span>pendidikan)</code></pre></div>
+</div>
+<div id="perhitungan-pada-data-frame" class="section level3">
+<h3><span class="header-section-number">2.10.4</span> Perhitungan Pada Data Frame</h3>
+<p>Perhitungan pada variabel numerik data frame pada dasarnya sama dengan perhitungan pada matriks. kita dapat menggunakan fungsi <code>rowSums()</code>, <code>colSums()</code>, <code>rowMeans()</code> dan <code>apply()</code>. Proses perhitungan dan manipulasi pada data frame akan dibahas pada sesi yang lain secara lebih detail.</p>
+</div>
+</div>
+<div id="list" class="section level2">
+<h2><span class="header-section-number">2.11</span> List</h2>
+<p>List adalah kumpulan objek yang diurutkan, yang dapat berupa vektor, matriks, data frame, dll. Dengan kata lain, daftar dapat berisi semua jenis objek <code>R</code>.</p>
+<div id="membuat-list" class="section level3">
+<h3><span class="header-section-number">2.11.1</span> Membuat List</h3>
+<p>List dapat dibuat menggunakan fungsi <code>list()</code>. Berikut disajikan contoh sebuah list sebuah keluarga:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Membuat list keluarga</span>
+keluarga &lt;-<span class="st"> </span><span class="kw">list</span>(
+  <span class="dt">ayah =</span> <span class="st">&quot;Budi&quot;</span>,
+  <span class="dt">usia_ayah =</span> <span class="dv">48</span>,
+  <span class="dt">ibu  =</span> <span class="st">&quot;Ani&quot;</span>,
+  <span class="dt">usia_ibu =</span> <span class="st">&quot;47&quot;</span>,
+  <span class="dt">anak =</span> <span class="kw">c</span>(<span class="st">&quot;Andi&quot;</span>, <span class="st">&quot;Adi&quot;</span>),
+  <span class="dt">usia_anak =</span> <span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">10</span>)
+  )
+
+<span class="co"># Print</span>
+keluarga</code></pre></div>
+<pre><code>## $ayah
+## [1] &quot;Budi&quot;
+## 
+## $usia_ayah
+## [1] 48
+## 
+## $ibu
+## [1] &quot;Ani&quot;
+## 
+## $usia_ibu
+## [1] &quot;47&quot;
+## 
+## $anak
+## [1] &quot;Andi&quot; &quot;Adi&quot; 
+## 
+## $usia_anak
+## [1] 15 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Nama elemen dalam list</span>
+<span class="kw">names</span>(keluarga)</code></pre></div>
+<pre><code>## [1] &quot;ayah&quot;      &quot;usia_ayah&quot; &quot;ibu&quot;       &quot;usia_ibu&quot;  &quot;anak&quot;      &quot;usia_anak&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Jumlah elemen pada list</span>
+<span class="kw">length</span>(keluarga)</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="subset-list" class="section level3">
+<h3><span class="header-section-number">2.11.2</span> Subset List</h3>
+<p>Kita dapat memilih sebuah elemen pada list dengan menggunakan nama elemen atau indeks dari elemen tersebut. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Subset berdasarkan nama</span>
+<span class="co"># mengambil elemen usia_ayah</span>
+keluarga<span class="op">$</span>usia_ayah</code></pre></div>
+<pre><code>## [1] 48</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Atau</span>
+keluarga[[<span class="st">&quot;usia_ayah&quot;</span>]]</code></pre></div>
+<pre><code>## [1] 48</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Subset berdasarkan indeks</span>
+keluarga[[<span class="dv">2</span>]]</code></pre></div>
+<pre><code>## [1] 48</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subset elemen pertama pada keluarga[[5]]</span>
+keluarga[[<span class="dv">5</span>]][<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;Andi&quot;</code></pre>
+</div>
+<div id="memperluas-list" class="section level3">
+<h3><span class="header-section-number">2.11.3</span> Memperluas List</h3>
+<p>Kita juga dapat menambahkan elemen pada list yang telah kita buat. Pada contoh list sebelumnya penulis akan menambahkan elemen keluarga yang lain seperti berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Menambahkan kakek dan nenek pada list</span>
+keluarga<span class="op">$</span>kakek &lt;-<span class="st"> &quot;Suprapto&quot;</span>
+keluarga<span class="op">$</span>nenek &lt;-<span class="st"> &quot;Sri&quot;</span>
+
+<span class="co"># Print</span>
+keluarga</code></pre></div>
+<pre><code>## $ayah
+## [1] &quot;Budi&quot;
+## 
+## $usia_ayah
+## [1] 48
+## 
+## $ibu
+## [1] &quot;Ani&quot;
+## 
+## $usia_ibu
+## [1] &quot;47&quot;
+## 
+## $anak
+## [1] &quot;Andi&quot; &quot;Adi&quot; 
+## 
+## $usia_anak
+## [1] 15 10
+## 
+## $kakek
+## [1] &quot;Suprapto&quot;
+## 
+## $nenek
+## [1] &quot;Sri&quot;</code></pre>
+<p>Kita juga dapat menggabungkan beberapa list menjadi satu. Berikut adalah format sederhana bagaimana cara menggabungkan beberapa list menjadi satu:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">list_baru &lt;-<span class="st"> </span><span class="kw">c</span>(list_a, list_b, list_c, ...)</code></pre></div>
+</div>
+</div>
+<div id="loop" class="section level2">
+<h2><span class="header-section-number">2.12</span> Loop</h2>
+<p><em>Loop</em> merupakan kode program yang berulang-ulang. <em>Loop</em> berguna saat kita ingin melakukan sebuah perintah yang perlu dijalankan berulang-ulang seperti melakukan perhitungan maupaun melakukan visualisasi terhadap banyak variabel secara serentak. Hal ini tentu saja membantu kita karena kita tidak perlu menulis sejumlah sintaks yang berulang-ulang. Kita hanya perlu mengatur <em>statement</em> berdasarkan hasil yang kita harapkan.</p>
+<p>Pada <code>R</code> bentuk <em>loop</em> dapat bermacam-macam (“<em>for loop</em>”,“<em>while loop</em>”, dll). <code>R</code> menyederhanakan bentuk <em>loop</em> ini dengan menyediakan sejumlah fungsi seperti <code>apply()</code>,<code>tapply()</code>, dll. Sehingga <code>loop</code> jarang sekali muncul dalam kode <code>R</code>. Sehingga <code>R</code> sering disebut sebagai <em>loopless loop</em>.</p>
+<p>Meski <em>loop</em> jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat <em>loop</em> yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure <a href="sintaks-bahasa-r.html#fig:loop">2.1</a></p>
+<div class="figure" style="text-align: center"><span id="fig:loop"></span>
+<img src="skema_loop.png" alt="Diagram umum loop (sumber: Primartha, 2018)." width="280" />
+<p class="caption">
+Figure 2.1: Diagram umum loop (sumber: Primartha, 2018).
+</p>
+</div>
+<div id="for-loop" class="section level3">
+<h3><span class="header-section-number">2.12.1</span> For Loop</h3>
+<p>Mengulangi sebuah <em>statement</em> atau sekelompok <em>statement</em> sebanyak nilai yang ditentukan di awal. Jadi operasi akan terus dilakukan sampai dengan jumlah yang telah ditetapkan di awal atau dengan kata lain tes kondisi (Jika jumlah pengulangan telah cukup) hanya akan dilakukan di akhir. Secara sederhana bentuk dari <em>for loop</em> dapat dituliskan sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (value <span class="cf">in</span> vector){
+  statements
+}</code></pre></div>
+<p>Berikut adalah contoh sintaks penerapan <em>for loop</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Membuat vektor numerik</span>
+vektor &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)
+
+<span class="co"># loop </span>
+<span class="cf">for</span>(i <span class="cf">in</span> vektor){
+  <span class="kw">print</span>(i)
+}</code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5</code></pre>
+<p><em>Loop</em> akan dimulai dari blok <em>statement for</em> sampai dengan <code>print(i)</code>. Berdasarkan <em>loop</em> pada contoh tersebut, <em>loop</em> hanya dilakukan sebanyak 5 kali sesuai dengan jumlah vektor yang ada.</p>
+</div>
+<div id="while-loop" class="section level3">
+<h3><span class="header-section-number">2.12.2</span> While Loop</h3>
+<p><em>While loop</em> merupakan loop yang digunakan ketika kita telah menetapkan <em>stop condition</em> sebelumnya. Blok <em>statement</em>/kode yang sama akan terus dijalankan sampai <em>stop condition</em> ini tercapai. <em>Stop condition</em> akan di cek sebelum melakukan proses <em>loop</em>. Berikut adalah pola dari <em>while loop</em> dapat dituliskan sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">while</span> (test_expression){
+  statement
+}</code></pre></div>
+<p>Berikut adalah contoh penerapan dari <em>while loop</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coba &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Contoh&quot;</span>)
+counter &lt;-<span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># loop</span>
+<span class="cf">while</span> (counter<span class="op">&lt;</span><span class="dv">5</span>){
+  <span class="co"># print vektor</span>
+  <span class="kw">print</span>(coba)
+  <span class="co"># tambahkan nilai counter sehingga proses terus berlangsung sampai counter = 5 </span>
+  counter &lt;-<span class="st"> </span>counter <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+}</code></pre></div>
+<pre><code>## [1] &quot;Contoh&quot;
+## [1] &quot;Contoh&quot;
+## [1] &quot;Contoh&quot;
+## [1] &quot;Contoh&quot;</code></pre>
+<p><em>Loop</em> akan dimulai dari blok <em>statement while</em> sampai dengan <em>counter</em> &lt;- 1. <em>Loop</em> hanya akan dilakukan sepanjang nilai <em>counter</em> &lt; 5.</p>
+</div>
+<div id="repeat-loop" class="section level3">
+<h3><span class="header-section-number">2.12.3</span> Repeat Loop</h3>
+<p><em>Repeat loop</em> akan menjalankan <em>statement</em>/kode yang sama berulang-ulang hingga <em>stop condition</em> tercapai. Berikut adalah pola dari <em>repeat loop</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">repeat</span> {
+  commands
+  <span class="cf">if</span>(condition){
+    <span class="cf">break</span>
+  }
+}</code></pre></div>
+<p>Berikut adalah contoh penerapan dari <em>repeat loop</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coba &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;contoh&quot;</span>)
+counter &lt;-<span class="st"> </span><span class="dv">1</span>
+<span class="cf">repeat</span> {
+  <span class="kw">print</span>(coba)
+  counter &lt;-<span class="st"> </span>counter <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+  <span class="cf">if</span>(counter <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>){
+<span class="cf">break</span>
+  }
+}</code></pre></div>
+<pre><code>## [1] &quot;contoh&quot;</code></pre>
+<p><em>Loop</em> akan dimulai dari blok <em>statement while</em> sampai dengan <em>break</em>. <em>Loop</em> hanya akan dilakukan sepanjang nilai <em>counter</em> &lt; 5. Hasil yang diperoleh berbeda dengan <em>while loop</em>, dimana kita memperoleh 4 buah kata “contoh”. Hal ini disebabkan karena <em>repeat loop</em> melakukan pengecekan <em>stop condition</em> tidak di awal loop seperti <em>while loop</em> sehingga berapapun nilainya, selama nilainya sesuai dengan <em>stop condition</em> maka <em>loop</em> akan dihentikan. Hal ini berbeda dengan <em>while loop</em> dimana proses dilakukan berulang-ulang sampai jumlahnya mendekati <em>stop condition</em>.</p>
+</div>
+<div id="break" class="section level3">
+<h3><span class="header-section-number">2.12.4</span> Break</h3>
+<p><em>Break</em> sebenarnya bukan bagian dari <em>loop</em>, namun sering digunakan dalam <em>loop</em>. <em>Break</em> dapat digunakan pada <em>loop</em> manakala dirasa perlu, yaitu saat kondisi yang disyaratkan pada <em>break</em> tercapai.</p>
+<p>Berikut adalah contoh penerapan <em>break</em> pada beberapa jenis <em>loop</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># for loop</span>
+a =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">14</span>)
+<span class="cf">for</span>(i <span class="cf">in</span> a){
+  <span class="cf">if</span>(i<span class="op">&gt;</span><span class="dv">8</span>){
+    <span class="cf">break</span>
+  }
+  <span class="kw">print</span>(i)
+}</code></pre></div>
+<pre><code>## [1] 2
+## [1] 4
+## [1] 6
+## [1] 8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># while loop</span>
+a =<span class="st"> </span><span class="dv">2</span>
+b =<span class="st"> </span><span class="dv">4</span>
+<span class="cf">while</span>(a<span class="op">&lt;</span><span class="dv">7</span>){
+  <span class="kw">print</span>(a)
+  a =<span class="st"> </span>a <span class="op">+</span><span class="dv">1</span>
+  <span class="cf">if</span>(b<span class="op">+</span>a<span class="op">&gt;</span><span class="dv">10</span>){
+    <span class="cf">break</span>
+  }
+}</code></pre></div>
+<pre><code>## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># repeat loop</span>
+a =<span class="st"> </span><span class="dv">1</span>
+<span class="cf">repeat</span>{
+  <span class="kw">print</span>(a)
+  a =<span class="st"> </span>a<span class="op">+</span><span class="dv">1</span>
+  <span class="cf">if</span>(a<span class="op">&gt;</span><span class="dv">6</span>){
+    <span class="cf">break</span>
+  }
+}</code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6</code></pre>
+</div>
+</div>
+<div id="decision-making" class="section level2">
+<h2><span class="header-section-number">2.13</span> Decision Making</h2>
+<p><em>Decicion Making</em> atau sering disebut sebagai <em>if then else statement</em> merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada <code>R</code>.</p>
+<p><strong>Table 5</strong> Daftar percabangan pada <code>R</code></p>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="83%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Statement</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>if statement</em></td>
+<td><em>if statement</em> hanya terdiri atas sebuah ekspresi <em>Boolean</em>, dan diikuti satu atau lebih <em>statement</em></td>
+</tr>
+<tr class="even">
+<td><em>if…else statement</em></td>
+<td><em>if else statement</em> terdiri atas beberapa buah ekspresi <em>Boolean</em>. Ekspressi <em>Boolean</em> berikutnya akan dijalankan jika ekspresi *Boolan sebelumnya bernilai FALSE</td>
+</tr>
+<tr class="odd">
+<td><em>switch statement</em></td>
+<td><em>switch statement</em> digunakan untuk mengevaluasi sebuah variabel beberapa pilihan</td>
+</tr>
+</tbody>
+</table>
+<div id="if-statement" class="section level3">
+<h3><span class="header-section-number">2.13.1</span> if statement</h3>
+<p>Pola <em>if statement</em> disajikan pada Figure <a href="sintaks-bahasa-r.html#fig:ifstatement">2.2</a></p>
+<div class="figure" style="text-align: center"><span id="fig:ifstatement"></span>
+<img src="ifstatement.png" alt="Diagram if statement (sumber: Primartha, 2018)." width="210" />
+<p class="caption">
+Figure 2.2: Diagram if statement (sumber: Primartha, 2018).
+</p>
+</div>
+<p>Berikut adalah contoh penerapan <em>if statement</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)
+<span class="cf">if</span>(<span class="kw">is.vector</span>(x)){
+  <span class="kw">print</span>(<span class="st">&quot;x adalah sebuah vector&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;x adalah sebuah vector&quot;</code></pre>
+</div>
+<div id="if-else-statement" class="section level3">
+<h3><span class="header-section-number">2.13.2</span> if else statement</h3>
+<p>Pola dari <em>if else statement</em> disajikan pada Figure <a href="sintaks-bahasa-r.html#fig:ifelse">2.3</a></p>
+<div class="figure" style="text-align: center"><span id="fig:ifelse"></span>
+<img src="ifelse.png" alt="Diagram if else statement (sumber: Primartha, 2018)." width="217" />
+<p class="caption">
+Figure 2.3: Diagram if else statement (sumber: Primartha, 2018).
+</p>
+</div>
+<p>Berikut adalah contoh penerapan <em>if else statement</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Andi&quot;</span>,<span class="st">&quot;Iwan&quot;</span>, <span class="st">&quot;Adi&quot;</span>)
+<span class="cf">if</span>(<span class="st">&quot;Rina&quot;</span> <span class="op">%in%</span><span class="st"> </span>x){
+  <span class="kw">print</span>(<span class="st">&quot;Rina ditemukan&quot;</span>)
+} <span class="cf">else</span> <span class="cf">if</span>(<span class="st">&quot;Adi&quot;</span> <span class="op">%in%</span><span class="st"> </span>x){
+  <span class="kw">print</span>(<span class="st">&quot;Adi ditemukan&quot;</span>)
+} <span class="cf">else</span>{
+  <span class="kw">print</span>(<span class="st">&quot;tidak ada yang ditemukan&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;Adi ditemukan&quot;</code></pre>
+</div>
+<div id="switch-statement" class="section level3">
+<h3><span class="header-section-number">2.13.3</span> switch statement</h3>
+<p>Pola dari <em>switch statement</em> disajikan pada Figure <a href="sintaks-bahasa-r.html#fig:switch">2.4</a></p>
+<div class="figure" style="text-align: center"><span id="fig:switch"></span>
+<img src="switch.png" alt="Diagram switch statement (sumber: Primartha, 2018)." width="234" />
+<p class="caption">
+Figure 2.4: Diagram switch statement (sumber: Primartha, 2018).
+</p>
+</div>
+<p>Berikut adalah contoh penerapan <em>switch statement</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y =<span class="st"> </span><span class="dv">3</span>
+
+x =<span class="st"> </span><span class="cf">switch</span>(
+  y,
+  <span class="st">&quot;Selamat Pagi&quot;</span>,
+  <span class="st">&quot;Selamat Siang&quot;</span>,
+  <span class="st">&quot;Selamat Sore&quot;</span>,
+  <span class="st">&quot;Selamat Malam&quot;</span>
+)
+
+<span class="kw">print</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;Selamat Sore&quot;</code></pre>
+</div>
+</div>
+<div id="fungsi" class="section level2">
+<h2><span class="header-section-number">2.14</span> Fungsi</h2>
+<p>Fungsi merupakan sekumpulan instruksi atau <em>statement</em> yang dapat melakukan tugas khusus. Sebagai contoh fungsi perkalian untuk menyelesaikan operasi perkalian, fungsi pemangkatan hanya untuk operasi pemangkatan, dll.</p>
+<p>Pada <code>R</code> terdapat 2 jenis fungsi, yaitu: <em>build in fuction</em> dan <em>user define function</em>. <em>build in fnction</em> merupakan fungsi bawaan <code>R</code> saat pertama kita menginstall <code>R</code>. Contohnya adalah <code>mean()</code>, <code>sum()</code>, <code>ls()</code>, <code>rm()</code>, dll. Sedangkan <em>user define fuction</em> merupakan fungsi-fungsi yang dibuat sendiri oleh pengguna.</p>
+<p>Fungsi-fungsi buatan pengguna haruslah dideklarasikan (dibuat) terlebih dahulu sebelum dapat dijalankan. Pola pembentukan fungsi adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">function_name &lt;-<span class="st"> </span><span class="cf">function</span>(argument_<span class="dv">1</span>, argument_<span class="dv">2</span>, ...){
+  <span class="cf">function</span> body
+}</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>function_name</strong> : Nama dari fungsi <code>R</code>. <code>R</code> akan menyimpan fungsi tersebut sebagai objek</li>
+<li><strong>argument_1, argument_2,…</strong> : <em>Argument</em> bersifat opsional (tidak wajib). <em>Argument</em> dapat digunakan untuk memberi inputan kepada fungsi</li>
+<li><strong>function body</strong> : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.</li>
+<li><strong>return</strong> : Fungsi ada yang memiliki <em>output</em> atau <em>return value</em> ada juga yang tidak. Jika fungsi memiliki <em>return value</em> maka <em>return value</em> dapat diproses lebih lanjut</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapan <em>user define function</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fungsi tanpa argument</span>
+bilang &lt;-<span class="st"> </span><span class="cf">function</span>(){
+  <span class="kw">print</span>(<span class="st">&quot;Hello World!!&quot;</span>)
+}
+
+<span class="co"># Print</span>
+<span class="kw">bilang</span>()</code></pre></div>
+<pre><code>## [1] &quot;Hello World!!&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fungsi dengan argumen</span>
+tambah &lt;-<span class="st"> </span><span class="cf">function</span>(a,b){
+  <span class="kw">print</span>(a<span class="op">+</span>b)
+}
+
+<span class="co"># Print</span>
+<span class="kw">tambah</span>(<span class="dv">5</span>,<span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fungsi dengan return value</span>
+kali &lt;-<span class="st"> </span><span class="cf">function</span>(a,b){
+  <span class="kw">return</span>(a<span class="op">*</span>b)
+}
+
+<span class="co"># Print</span>
+<span class="kw">kali</span>(<span class="dv">4</span>,<span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p><strong>Referensi</strong></p>
+<ol style="list-style-type: decimal">
+<li>Primartha, R. 2018. <strong>Belajar Machine Learning Teori dan Praktik</strong>. Penerbit Informatika : Bandung.</li>
+<li>Rosadi,D. 2016. <strong>Analisis Statistika dengan R</strong>. Gadjah Mada University Press: Yogyakarta.</li>
+<li>STHDA. <strong>Easy R Programming Basics</strong>. <a href="http://www.sthda.com/english/wiki/easy-r-programming-basics" class="uri">http://www.sthda.com/english/wiki/easy-r-programming-basics</a></li>
+<li>Venables, W.N. Smith D.M. and R Core Team. 2018. <strong>An Introduction to R</strong>. R Manuals.</li>
+<li>The R Core Team. 2018. <strong>R: A Language and Environment for Statistical Computing</strong>. R Manuals.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mengenal-bahasa-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["EnvStat.pdf", "EnvStat.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

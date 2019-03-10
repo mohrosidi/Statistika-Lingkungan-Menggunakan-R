@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 7 Fasilitas Help | Statistika Lingkungan Menggunakan R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 7 Fasilitas Help | Statistika Lingkungan Menggunakan R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Fasilitas Help | Statistika Lingkungan Menggunakan R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Moh. Rosidi">
+
+
+<meta name="date" content="2019-03-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="working-directory.html">
+<link rel="next" href="literature.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="chapter" data-level="1" data-path="sejarah-r.html"><a href="sejarah-r.html"><i class="fa fa-check"></i><b>1</b> Sejarah R</a></li>
+<li class="chapter" data-level="2" data-path="fitur-dan-karakteristik-r.html"><a href="fitur-dan-karakteristik-r.html"><i class="fa fa-check"></i><b>2</b> Fitur dan Karakteristik R</a></li>
+<li class="chapter" data-level="3" data-path="kelebihan-dan-kekurangan-r.html"><a href="kelebihan-dan-kekurangan-r.html"><i class="fa fa-check"></i><b>3</b> Kelebihan dan Kekurangan R</a></li>
+<li class="chapter" data-level="4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>4</b> RStudio</a></li>
+<li class="chapter" data-level="5" data-path="menginstall-r-dan-rstudio.html"><a href="menginstall-r-dan-rstudio.html"><i class="fa fa-check"></i><b>5</b> Menginstall R dan RStudio</a></li>
+<li class="chapter" data-level="6" data-path="working-directory.html"><a href="working-directory.html"><i class="fa fa-check"></i><b>6</b> Working Directory</a><ul>
+<li class="chapter" data-level="6.1" data-path="working-directory.html"><a href="working-directory.html#mengubah-lokasi-working-directory"><i class="fa fa-check"></i><b>6.1</b> Mengubah Lokasi Working Directory</a></li>
+<li class="chapter" data-level="6.2" data-path="working-directory.html"><a href="working-directory.html#mengubah-lokasi-working-directory-default"><i class="fa fa-check"></i><b>6.2</b> Mengubah Lokasi Working Directory Default</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fasilitas-help.html"><a href="fasilitas-help.html"><i class="fa fa-check"></i><b>7</b> Fasilitas Help</a><ul>
+<li class="chapter" data-level="7.1" data-path="fasilitas-help.html"><a href="fasilitas-help.html#mencari-help-dari-suatu-perintah-tertentu"><i class="fa fa-check"></i><b>7.1</b> Mencari Help dari Suatu Perintah Tertentu</a></li>
+<li class="chapter" data-level="7.2" data-path="fasilitas-help.html"><a href="fasilitas-help.html#general-help"><i class="fa fa-check"></i><b>7.2</b> General Help</a></li>
+<li class="chapter" data-level="7.3" data-path="fasilitas-help.html"><a href="fasilitas-help.html#fasilitas-help-lainnya"><i class="fa fa-check"></i><b>7.3</b> Fasilitas Help Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>8</b> Literature</a></li>
+<li class="chapter" data-level="9" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>9</b> Methods</a></li>
+<li class="chapter" data-level="10" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>10</b> Applications</a><ul>
+<li class="chapter" data-level="10.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>10.1</b> Example one</a></li>
+<li class="chapter" data-level="10.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>10.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>11</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistika Lingkungan Menggunakan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fasilitas-help" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Fasilitas Help</h1>
+<p>Agar dapat menggunakan <code>R</code> dengan secara lebih baik, pengetahuan untuk mengakses fasilitas <em>help</em> in cukup penting untuk disampaikan. Adapun cara yang dapat digunakan adalah sebagai berikut.</p>
+<div id="mencari-help-dari-suatu-perintah-tertentu" class="section level2">
+<h2><span class="header-section-number">7.1</span> Mencari Help dari Suatu Perintah Tertentu</h2>
+<p>Untuk memperoleh bantuan terkait suatu perintah tertentu kita dapat menggunakan fungsi <code>help()</code>. Secara umum format yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(nama_perintah)</code></pre></div>
+<p>atau dapat juga menggunakan tanda tanya (?) pada awal <code>nama_perintah</code> seperti berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?nama_perintah</code></pre></div>
+<p>Misalkan kita kebingungan terkait bagaimana cara menuliskan perintah untuk menghitung rata-rata suatu vektor. Kita dapat mengetikkan perintah berikut untuk mengakses fasilitas <em>help</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(mean)
+
+<span class="co">#atau</span>
+?mean</code></pre></div>
+<p>Perintah tersebut akan memunculkan hasil berupa dokumentasi yang ditampilkan pada Figure <a href="fasilitas-help.html#fig:meandoc">7.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:meandoc"></span>
+<img src="/meandoc.png" alt="Jendela help dokumentasi fungsi mean()."  />
+<p class="caption">
+Figure 7.1: Jendela help dokumentasi fungsi mean().
+</p>
+</div>
+<p>Keterangan pada jendela pada Figure <a href="fasilitas-help.html#fig:meandoc">7.1</a> adalah sebagia berikut:</p>
+<ol style="list-style-type: decimal">
+<li>Pada bagian jendela kiri atas jendela <em>help</em>, diberikan keterangan nama dari perintah yang sedang ditampilkan.</li>
+<li>Selanjutnya, pada bagian atas dokumen, ditampilkan infomasi terkait nama perintah, dan nama <em>library</em> yang memuat perintah tersebut. Pada gambar diatas informasi terkait perintah dan nama <em>library</em> ditunjukkan pada teks <code>mean {base}</code> yang menunjukkan perintah <code>mean()</code> pada paket (<em>library</em>) <em>base</em> (paket bawaan <code>R</code>).</li>
+<li>Setiap jendela <em>help</em> dari suatu perintah tertentu selanjutnya akan memuat bagian-bagian berikut:</li>
+</ol>
+<ul>
+<li><em>Title</em></li>
+<li><em>Description</em> : deskripsi singkat tentang perintah.</li>
+<li><em>Usage</em> : menampilkan sintaks perintah untuk penggunaan perintah tersebut.</li>
+<li><em>Arguments</em> : keterangan mengenai <em>argument/input</em>yang diperlukan pada perintah tersebut.</li>
+<li><em>Details</em> : keterangan lebih lengkap lengkap tentang perintah tersebut.</li>
+<li><em>Value</em> : keterangan tentang <em>output</em> suatu perintah dapat diperoleh pada bagian ini.</li>
+<li><em>Author(s)</em> : memberikan keterangan tentang <em>Author</em> dari perintah tersebut.</li>
+<li><em>References</em> : seringkali referensi yang dapat digunakan untuk memperoleh keterangan lebih lanjut terhadap suatu perintah ditampilkan pada bagian ini.</li>
+<li><em>See also</em>: bagian ini berisikan daftar perintah/fungsi yang berhubungan erat dengan perintah tersebut.</li>
+<li><em>Example</em> : berisikan contoh-contoh penggunaan perintah tersebut.</li>
+</ul>
+<p>Kita juga dapat melihat contoh penggunaan dari perintah tersebut. Untuk melakukannya kita dapat menggunakan fungsi <code>example()</code>. Fungsi tersebut akan menampilkan contoh kode penerapan dari fungsi yang kita inginkan. Secara sederhana fungsi tersebut dapat dituliskan sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">example</span>(nama_perintah)</code></pre></div>
+<p>Untuk mengetahui contoh kode fungsi <code>mean()</code>, ketikkan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">example</span>(mean)</code></pre></div>
+<pre><code>## 
+## mean&gt; x &lt;- c(0:10, 50)
+## 
+## mean&gt; xm &lt;- mean(x)
+## 
+## mean&gt; c(xm, mean(x, trim = 0.10))
+## [1] 8.75 5.50</code></pre>
+<p>kita juga dapat mencoba kode yang dihasilkan pada console <code>R</code>. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Menghitung rata-rata bilangan 1 sampai 10 dan 50</span>
+<span class="co"># membuat vektor</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">50</span>)
+
+<span class="co"># Print</span>
+x</code></pre></div>
+<pre><code>##  [1]  0  1  2  3  4  5  6  7  8  9 10 50</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mean</span>
+<span class="kw">mean</span>(x)</code></pre></div>
+<pre><code>## [1] 8.75</code></pre>
+<p>Pembaca dapat mencoba melakukanya sendiri dengan mengganti nilai yang telah ada serta mencoba contoh kode yang lain.</p>
+</div>
+<div id="general-help" class="section level2">
+<h2><span class="header-section-number">7.2</span> General Help</h2>
+<p>Kita juga dapat membaca beberapa dokumen manual yang ada pada <code>R</code>. Untuk melakukannya jalankan perintah berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help.start</span>()</code></pre></div>
+<p>Output yang dihasilkan berupa link pada sejumlah dokumen yang dapat kita klik. Tampilan halaman yang dihasilkan disajikan pada Figure <a href="fasilitas-help.html#fig:generalhelp">7.2</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:generalhelp"></span>
+<img src="/generalhelp.png" alt="Jendela general help dokumentasi fungsi mean()."  />
+<p class="caption">
+Figure 7.2: Jendela general help dokumentasi fungsi mean().
+</p>
+</div>
+</div>
+<div id="fasilitas-help-lainnya" class="section level2">
+<h2><span class="header-section-number">7.3</span> Fasilitas Help Lainnya</h2>
+<p>Selain yang telah penulis sebutkan sebelumnya. Kita juga dapat memanfaatkan fasilitas <em>help</em> lainnya melalui fungsi <code>apropos()</code> dan <code>help.search()</code>.</p>
+<p><code>apropos ()</code>: mengembalikan daftar objek, berisi pola yang pembaca cari, dengan pencocokan sebagian. Ini berguna ketika pembaca tidak ingat persis nama fungsi yang akan digunakan. Berikut adalah contoh ketika penulis ingin mengetahui fungsi yang digunakan untuk menghitung median.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apropos</span>(<span class="st">&quot;med&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;.rs.emptyNamedList&quot;    &quot;.rs.namedVectorAsList&quot; &quot;elNamed&quot;              
+## [4] &quot;elNamed&lt;-&quot;             &quot;median&quot;                &quot;median.default&quot;       
+## [7] &quot;medpolish&quot;             &quot;runmed&quot;</code></pre>
+<p><em>List</em> yang dihasilkan berupa fungsi-fungsi yang memiliki elemen kata “med”. Berdasarkan pencaria tersebut penulis dapat mencoba menggunakan fungsi “median” untuk menghitung median.</p>
+<p><code>help.search ()</code> (sebagai alternatif ??): mencari dokumentasi yang cocok dengan karakter yang diberikan dengan cara yang berbeda. Ini mengembalikan daftar fungsi yang mengandung istilah yang pembaca cari dengan deskripsi singkat dari fungsi.</p>
+<p>Berikut adalah contoh penerapan dari fungsi tersebut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help.search</span>(<span class="st">&quot;mean&quot;</span>)
+
+<span class="co"># atau</span>
+??mean</code></pre></div>
+<p>*Output yang dihasilkan akan tampak seperti pada Figure <a href="fasilitas-help.html#fig:helpsearch">7.3</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:helpsearch"></span>
+<img src="/helpsearch.png" alt="Jendela help search dokumentasi fungsi mean()."  />
+<p class="caption">
+Figure 7.3: Jendela help search dokumentasi fungsi mean().
+</p>
+</div>
+<p><strong>Referensi</strong></p>
+<ol style="list-style-type: decimal">
+<li>Primartha, R. 2018. <strong>Belajar Machine Learning Teori dan Praktik</strong>. Penerbit Informatika : Bandung</li>
+<li>Rosadi,D. 2016. <strong>Analisis Statistika dengan R</strong>. Gadjah Mada University Press: Yogyakarta</li>
+<li>STHDA. Running RStudio and Setting Up Your Working Directory - Easy R Programming .<a href="http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory" class="uri">http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory</a></li>
+<li>STDHA. <strong>Getting Help With Functions In R Programming</strong>. <a href="http://www.sthda.com/english/wiki/getting-help-with-functions-in-r-programming" class="uri">http://www.sthda.com/english/wiki/getting-help-with-functions-in-r-programming</a> .</li>
+<li>Venables, W.N. Smith D.M. and R Core Team. 2018. <strong>An Introduction to R</strong>. R Manuals.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="working-directory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["EnvStat.pdf", "EnvStat.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
