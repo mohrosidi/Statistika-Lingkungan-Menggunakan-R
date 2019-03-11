@@ -25,7 +25,7 @@
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-10">
+<meta name="date" content="2019-03-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -120,6 +120,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.7.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#general-help"><i class="fa fa-check"></i><b>1.7.2</b> General Help</a></li>
 <li class="chapter" data-level="1.7.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help-lainnya"><i class="fa fa-check"></i><b>1.7.3</b> Fasilitas Help Lainnya</a></li>
 </ul></li>
+<li class="chapter" data-level="1.8" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#referensi"><i class="fa fa-check"></i><b>1.8</b> Referensi</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html"><i class="fa fa-check"></i><b>2</b> Sintaks Bahasa R</a><ul>
 <li class="chapter" data-level="2.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-aritmatika"><i class="fa fa-check"></i><b>2.1</b> Operator Aritmatika</a></li>
@@ -166,6 +167,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.13.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#switch-statement"><i class="fa fa-check"></i><b>2.13.3</b> switch statement</a></li>
 </ul></li>
 <li class="chapter" data-level="2.14" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi"><i class="fa fa-check"></i><b>2.14</b> Fungsi</a></li>
+<li class="chapter" data-level="2.15" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#referensi-1"><i class="fa fa-check"></i><b>2.15</b> Referensi</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
@@ -723,7 +725,7 @@ Jumlah[<span class="op">!</span><span class="kw">is.na</span>(Jumlah)]</code></p
 </div>
 <div id="perhitungan-menggunakan-vektor" class="section level3">
 <h3><span class="header-section-number">2.7.4</span> Perhitungan Menggunakan Vektor</h3>
-<p>Jika Anda melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:</p>
+<p>Jika pembaca melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pendapatan &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2000</span>, <span class="dv">1800</span>, <span class="dv">2500</span>, <span class="dv">3000</span>)
 <span class="kw">names</span>(pendapatan) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Andi&quot;</span>, <span class="st">&quot;Joni&quot;</span>, <span class="st">&quot;Lina&quot;</span>, <span class="st">&quot;Rani&quot;</span>)
 pendapatan</code></pre></div>
@@ -1264,7 +1266,7 @@ keluarga</code></pre></div>
 <p>Pada <code>R</code> bentuk <em>loop</em> dapat bermacam-macam (“<em>for loop</em>”,“<em>while loop</em>”, dll). <code>R</code> menyederhanakan bentuk <em>loop</em> ini dengan menyediakan sejumlah fungsi seperti <code>apply()</code>,<code>tapply()</code>, dll. Sehingga <code>loop</code> jarang sekali muncul dalam kode <code>R</code>. Sehingga <code>R</code> sering disebut sebagai <em>loopless loop</em>.</p>
 <p>Meski <em>loop</em> jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat <em>loop</em> yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure <a href="sintaks-bahasa-r.html#fig:loop">2.1</a></p>
 <div class="figure" style="text-align: center"><span id="fig:loop"></span>
-<img src="skema_loop.png" alt="Diagram umum loop (sumber: Primartha, 2018)." width="280" />
+<img src="skema_loop.png" alt="Diagram umum loop (sumber: Primartha, 2018)." width="40%" />
 <p class="caption">
 Figure 2.1: Diagram umum loop (sumber: Primartha, 2018).
 </p>
@@ -1417,7 +1419,7 @@ a =<span class="st"> </span><span class="dv">1</span>
 <h3><span class="header-section-number">2.13.1</span> if statement</h3>
 <p>Pola <em>if statement</em> disajikan pada Figure <a href="sintaks-bahasa-r.html#fig:ifstatement">2.2</a></p>
 <div class="figure" style="text-align: center"><span id="fig:ifstatement"></span>
-<img src="ifstatement.png" alt="Diagram if statement (sumber: Primartha, 2018)." width="210" />
+<img src="ifstatement.png" alt="Diagram if statement (sumber: Primartha, 2018)." width="40%" />
 <p class="caption">
 Figure 2.2: Diagram if statement (sumber: Primartha, 2018).
 </p>
@@ -1433,7 +1435,7 @@ Figure 2.2: Diagram if statement (sumber: Primartha, 2018).
 <h3><span class="header-section-number">2.13.2</span> if else statement</h3>
 <p>Pola dari <em>if else statement</em> disajikan pada Figure <a href="sintaks-bahasa-r.html#fig:ifelse">2.3</a></p>
 <div class="figure" style="text-align: center"><span id="fig:ifelse"></span>
-<img src="ifelse.png" alt="Diagram if else statement (sumber: Primartha, 2018)." width="217" />
+<img src="ifelse.png" alt="Diagram if else statement (sumber: Primartha, 2018)." width="40%" />
 <p class="caption">
 Figure 2.3: Diagram if else statement (sumber: Primartha, 2018).
 </p>
@@ -1453,7 +1455,7 @@ Figure 2.3: Diagram if else statement (sumber: Primartha, 2018).
 <h3><span class="header-section-number">2.13.3</span> switch statement</h3>
 <p>Pola dari <em>switch statement</em> disajikan pada Figure <a href="sintaks-bahasa-r.html#fig:switch">2.4</a></p>
 <div class="figure" style="text-align: center"><span id="fig:switch"></span>
-<img src="switch.png" alt="Diagram switch statement (sumber: Primartha, 2018)." width="234" />
+<img src="switch.png" alt="Diagram switch statement (sumber: Primartha, 2018)." width="40%" />
 <p class="caption">
 Figure 2.4: Diagram switch statement (sumber: Primartha, 2018).
 </p>
@@ -1515,7 +1517,9 @@ kali &lt;-<span class="st"> </span><span class="cf">function</span>(a,b){
 <span class="co"># Print</span>
 <span class="kw">kali</span>(<span class="dv">4</span>,<span class="dv">3</span>)</code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<p><strong>Referensi</strong></p>
+</div>
+<div id="referensi-1" class="section level2">
+<h2><span class="header-section-number">2.15</span> Referensi</h2>
 <ol style="list-style-type: decimal">
 <li>Primartha, R. 2018. <strong>Belajar Machine Learning Teori dan Praktik</strong>. Penerbit Informatika : Bandung.</li>
 <li>Rosadi,D. 2016. <strong>Analisis Statistika dengan R</strong>. Gadjah Mada University Press: Yogyakarta.</li>

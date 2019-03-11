@@ -158,7 +158,7 @@ Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau com
 ||             | Operator logika OR
 !              | Opeartor logika NOT
 &              | Operator logika AND element wise
-|              | Operator logika OR element wise
+ |             | Operator logika OR element wise
 
 Penerapannya terdapat pada sintaks berikut:
 
@@ -484,7 +484,7 @@ Jumlah[!is.na(Jumlah)]
 
 ### Perhitungan Menggunakan Vektor
 
-Jika Anda melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:
+Jika pembaca melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:
 
 ```{r}
 pendapatan <- c(2000, 1800, 2500, 3000)
@@ -1008,7 +1008,7 @@ Pada `R` bentuk *loop* dapat bermacam-macam ("*for loop*","*while loop*", dll). 
 
 Meski *loop* jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat *loop* yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure \@ref(fig:loop)
 
-```{r loop, echo=FALSE, fig.cap='Diagram umum loop (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+```{r loop, echo=FALSE, fig.cap='Diagram umum loop (sumber: Primartha, 2018).', tidy=FALSE, out.width='40%', fig.align='center'}
 library(knitr)
 img1_path <- "skema_loop.png"
 include_graphics(img1_path)
@@ -1152,7 +1152,7 @@ repeat{
 
 Pola *if statement* disajikan pada Figure \@ref(fig:ifstatement)
 
-```{r ifstatement, echo=FALSE, fig.cap='Diagram if statement (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+```{r ifstatement, echo=FALSE, fig.cap='Diagram if statement (sumber: Primartha, 2018).', tidy=FALSE, out.width='40%', fig.align='center'}
 library(knitr)
 img1_path <- "ifstatement.png"
 include_graphics(img1_path)
@@ -1173,7 +1173,7 @@ if(is.vector(x)){
 
 Pola dari *if else statement* disajikan pada Figure \@ref(fig:ifelse)
 
-```{r ifelse, echo=FALSE, fig.cap='Diagram if else statement (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+```{r ifelse, echo=FALSE, fig.cap='Diagram if else statement (sumber: Primartha, 2018).', tidy=FALSE, out.width='40%', fig.align='center'}
 library(knitr)
 img1_path <- "ifelse.png"
 include_graphics(img1_path)
@@ -1198,7 +1198,7 @@ if("Rina" %in% x){
 
 Pola dari *switch statement* disajikan pada Figure \@ref(fig:switch)
 
-```{r switch, echo=FALSE, fig.cap='Diagram switch statement (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+```{r switch, echo=FALSE, fig.cap='Diagram switch statement (sumber: Primartha, 2018).', tidy=FALSE, out.width='40%', fig.align='center'}
 library(knitr)
 img1_path <- "switch.png"
 include_graphics(img1_path)
@@ -1272,7 +1272,7 @@ kali(4,3)
 ```
 
 
-**Referensi**
+##Referensi
 
 1. Primartha, R. 2018. **Belajar Machine Learning Teori dan Praktik**. Penerbit Informatika : Bandung.
 2. Rosadi,D. 2016. **Analisis Statistika dengan R**. Gadjah Mada University Press: Yogyakarta.
