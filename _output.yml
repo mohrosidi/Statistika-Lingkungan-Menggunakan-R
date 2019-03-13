@@ -5,7 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Statistika Lingkungan Menggunakan R</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:

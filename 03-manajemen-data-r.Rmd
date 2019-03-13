@@ -1,0 +1,505 @@
+# Manajemen Data R
+
+## Import File
+
+Pada sesi bagian ini penulis akan menjelaskan cara mengimport file pada `R`. File yang diimport ke dalam `R` terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
+
+Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library `readr` serta kelebihan dari metode import data yang digunakan. Berikut adalah cara mengimport data berbagai format pada `R`.
+
+> **Note: ** Pastikan kita telah mengatur lokasi *working directory* pada tempat dimana lokasi file yang akan kita baca berada untuk mempermudah dalam melakukan import file.
+
+### Import File Menggunakan Fungsi Bawaan R
+
+Fungsi bawaan `R` secara umum hanya dapat membaca data dengan format TXT dan CSV. Pada `RStudio` fungsi ini bertambah dengan adanya library tambahan yang telah terinstall di `RStudio` untuk membaca file dengan format EXCEL, SPSS, SAS dan STATA.
+
+Secara umum fungsi yang digunakan untuk membaca data dengan format tabel seperti TXT dan CSV adalah fungsi`read.table()`. Berikut adalah list fungsi dasar lainnya untuk membaca file dengan format TXT dan CSV pada `R`:
+
+- **read.csv()**: untuk membaca file dengan format *comma separated value*(".csv").
+- **read.csv2()**: varian yang digunakan jika pada file ".csv" yang akan dibaca mengandung koma (",") sebagai desimal dan semicolon (";") sebagai pemisah antar variabel atau kolom.
+- **read.delim()**: untuk membaca file dengan format *tab-separated value*(".txt").
+- **read.delim2()**: membaca file dengan format ".txt" dengan tanda koma (",") sebagai penujuk bilangan desimal.
+
+Masing-masing fungsi diatas dapat dituliskan kedalam `R` dengan format sebagai berikut:
+
+```{r, eval=FALSE}
+# Membaca tabular data pada  R
+read.table(file, header = FALSE, sep = "", dec = ".")
+# Membaca"comma separated value" files (".csv")
+read.csv(file, header = TRUE, sep = ",", dec = ".", ...)
+# atau gunakan read.csv2 jika tanda desimal pada data adalah "," dan pemisah kolom adalah ";"
+read.csv2(file, header = TRUE, sep = ";", dec = ",", ...)
+# MembacaTAB delimited files
+read.delim(file, header = TRUE, sep = "\t", dec = ".", ...)
+read.delim2(file, header = TRUE, sep = "\t", dec = ",", ...)
+```
+
+> **Note: **
+>
+> - **file**: nama file diakhiri dengan format file (misal: "nama_file.txt") yang akan di import ke dalam file. Dapat pula diisi lokasi file tersebut berada, misal:(C:/Users/My PC/Documents/nama_file.txt atau .csv)
+> - **sep**: pemisah antar kolom. "\t" digunakan untuk tab-delimited file.
+> - **header**: nilai logik. jika TRUE, maka `read.table()` akan menganggap bahwa file yang akan dibaca pada baris pertama file merupakan header data. 
+> - **dec**: karakter yang digunakan sebagai penunjuk desimal pada data.
+
+Untuk info lebih lanjut terkait fungsi-fungsi tersebut dan contoh bagaimana menggunakannya, pembaca dapat mengakses fitur batuan dari fungsi tersebut menggunakan sintaks berikut:
+
+```{r, eval=FALSE}
+# mengakses menu bantuan
+?read.table
+?read.csv
+?read.csv2
+?read.delim
+?read.delim2
+```
+
+Misalkan penulis memiliki data pada file bernama "mtcars.csv" dengan desimal berupa titik pada datanya. Penulsi ingin membaca file tersebut, maka penulis akan menuliskan sintaks berikut:
+
+```{r, eval=FALSE}
+data <- read.csv("mtcars.csv")
+```
+
+Secara default perintah tersebut akan membaca baris pertama data sebagai header serta data berupa karakter menjadi factor. Untuk mencegah agar data berupa karakter menjadi faktor, perintah tersebut dapat ditambahkan parameter `stringAsFactor = FALSE`.
+
+Kita juga dapat memilih file yang akan kita baca secara interakti. Misal pada *working directory* terdapat beberapa file yang akan kita baca. Kita ingin melihat file dengan format tertentu yang hendak kita baca, namun kita malas mengecek file explorer pada windows. Untuk mengatasi masalah tersebut, kita dapat menggunakan fungsi `file.choose()` pada `R`. Fungsi tersebut akan menampilkan jendela windows explores sehingga kita dapat memilih file apa yang hendak dibaca. Berikut adalah contoh penerapannya:
+
+```{r, eval=FALSE}
+data <- read.csv(file.choose())
+```
+
+> **Note: ** pastikan format file yang dibaca sama dengan fungsi import yang digunakan.
+
+Kita juga dapat membaca file dari internet. Untuk melakukannya kit hanya perlu meng-copy url file tersebut. Berikut adalah contoh file yang dibaca dari internet:
+
+```{r}
+# Membaca file dari internet
+data <- read.delim("http://www.sthda.com/upload/boxplot_format.txt")
+
+# mengecek 6 observasi awal
+head(data)
+```
+
+### Membaca File CSV dan TXT Menggunakan Library readr
+
+Pada bagian sebelumnya kita telah belajar bagaimana cara membaca file dengan format CSV dan TXT menggunakan paket dasar `R`. Pada bagian ini penulis akan menjelaskan bagaimana cara membaca file dengan format TXT dan CSV pada `R` menggunakan paket `readr`.
+
+`readr` dikembangkan oleh Hadley Wickham. paket `readr` memberikan solusi cepat dan ramah untuk membaca delimited file ke dalam `R`.
+
+Dibandingkan dengan paket dasar `R`, `readr` memiliki kelebihan sebagai berikut:
+
+- Mampu membaca file 10x lebih cepat dibandingkan pada paket bawaan `R`.
+- Menampilkan *progress bar* yang bermanfaat jika proses pemuatan berlangsung agak lama.
+- semua fungsi bekerja dengan cara yang persis sama dengan paket bawaan `R`.
+
+Untuk dapat menggunakan `readr`, kita perlu menginstall paketnya terlebih dahulu. Untuk melakukannya jalankan sintaks berikut:
+
+```{r, eval=FALSE}
+# Menginstall paket
+install.packages("readr")
+
+# Memuat paket
+library(readr)
+```
+
+Berikut adalah format bebrapa fungsi yang dapat digunakan:
+
+```{r, eval=FALSE}
+# Fungsi umum (membaca TXT dan CSV) dapat juga membaca flat file dan tsv
+read_delim(file, delim, col_names = TRUE)
+# Membaca comma (",") separated values
+read_csv(file, col_names = TRUE)
+# Membaca semicolon (";") separated values
+read_csv2(file, col_names = TRUE)
+# Membaca tab separated values
+read_tsv(file, col_names = TRUE)
+```
+
+> **Note: **
+>
+> - **file**: path file, koneksi atau raw vector. File yang berakhiran .gz, .bz2, .xz, atau .zip akan secara otomatis tidak terkompresi. File yang dimulai dengan "http: //", "https: //", "ftp: //", atau "ftps: //" akan diunduh secara otomatis. File gz jarak jauh juga dapat diunduh & didekompresi secara otomatis.
+> - **delim**: karakter yang membatasi tiap nilai pada file.
+> - **col_names**: nilai logik. Jika TRUE, maka baris pertama akan menjadi header.
+
+Berikut adalah contoh bagaimana cara membaca file menggunakan fungsi pada paket `readr`:
+
+```{r, eval=FALSE}
+# Membaca file lokal
+data <- read_csv("mtcars.csv")
+
+# atau
+data <- read_csv(file.choose())
+
+# Membaca dari internet
+data <- read_tsv("http://www.sthda.com/upload/boxplot_format.txt")
+
+```
+
+Kita juga dapat menspesifikasi jenis data pada kolom yang akan dibaca. Keuntungan dari penentuan jenis kolom (tipe data) akan memastikan data yang telah dibaca tidak salah berdasarkan jenis data pada masing-masing kolom.
+
+Beberapa format jenis kolom yang tersedia pada `readr` adalah sebagi berikut:
+
+- **col_integer()**: untuk menentukan integer (alias = "i").
+- **col_double()**: untuk menentukan kolom sebagai jenis data double (alias = "d").
+- **col_logical()**: untuk menentukan variabel logis (alias = "l").
+- **col_character()**: meninggalkan string apa adanya.Tidak mengonversinya menjadi faktor (alias = "c").
+- **col_factor()**: untuk menentukan variabel faktor (atau pengelompokan) (alias = "f")
+- **col_skip()**: untuk mengabaikan kolom (alias = "-" atau "_")
+- **col_date()** (alias = "D"), **col_datetime()** (alias = "T") dan **col_time()** ("t") untuk menentukan tanggal, waktu tanggal, dan waktu.
+
+Berikut adalah contoh penerapannya:
+```{r, eval=FALSE}
+data <- read_csv("my_file.csv", col_types = cols(
+  x = "i", # kolom integer
+  treatment = "c" # kolom karakter/string
+))
+```
+
+### Import File Excel Pada R
+
+Keunggulan penggunaan excel sebagai format penyimpan data adalah kita dapat menyimpan banyak data dan memisahkannya pada lembar (*sheet*) yang berbeda sebagai suatu data yang independen dibandingkan pembacaan pada file csv yang hanya berisikan satu tabel data saja tiap file.
+
+Pada `R` kita dapat melakukan pembacaan file menggunakan berbagai macam cara seperti menggunakan paket bawaan `R` maupun menggunakan library yang perlu kita install. Berikut adalah beberapa cara membaca file excel pada `R`.
+
+a. Mengkonversi terlebih dahulu satu sheet excel yang akan kita baca menjadi format ".csv" maupun ".txt" sehingga dapat dibaca seperti pada sub-bab 3.1.1.
+
+b. Menyalin data dari excel dan mengimport data pada `R`.
+
+Cara ini sedikit mirip dengan cara sebelumnya, dimana kita perlu membuka file excel dan melakukan **select** dan **copy** (ctrl+c) tabel data yang hendak dibaca. Data tersebut selanjutnya akan tersimpan pada **clipboard**.
+
+Data yang telah tersalin selanjutnya diimport ke `R` dengan mengetikkan sintaks berikut:
+
+```{r, eval=FALSE}
+data <- read.table(file= "clipboard",
+                   sep = "\t", header = TRUE)
+```
+
+Cara ini merupakan cara yang paling sering penulis gunakan. Kelemahan penggunaan cara ini adalah ketika kita melakukan proses **select** dan **copy** (ctrl+c) tabel yang jumlahnya sangat banyak dan terdapat teks-teks penjelasan terkait tabel data pada lembar kerja excel yang tidak ingin kita sertakan akan memakan waktu yang lebih lama pada proses **select**.
+
+c. Mengimport data menggunakan library readxl.
+
+Paket `readxl`, yang dikembangkan oleh Hadley Wickham, dapat digunakan untuk dengan mudah mengimpor file Excel (xls | xlsx) ke `R` tanpa ada ketergantungan eksternal.
+
+Untuk dapat menggunakan library `readxl` kita harus menginstallnya terlebih dahulu menggunakan sintaks berikut:
+
+```{r, eval=FALSE}
+# Instal paket
+install.packages("readxl")
+
+# memuat paket
+library(readxl)
+```
+
+Berikut adalah contoh cara mengimport data dengan format xls atau xlsx pada `R`.
+
+```{r, eval=FALSE}
+# Tentukan sheet dengan nama sheet pada file
+data <- read_excel("my_file.xlsx", sheet = "data")
+
+# Tentukan sheet berdasarkan indeks sheet
+data <- read_excel("my_file.xlsx", sheet = 2) # membaca sheet ke-2
+```
+
+d. Mengimport data menggunakan library xlsx
+
+Paket `xlsx`, solusi berbasis `java`, adalah salah satu paket `R` yang ampuh untuk membaca, menulis, dan memformat file Excel. Untuk dapat menggunakannya kita harus menginstall dan memuatnya terlebih dahulu. Berikut sintaks yang digunakan:
+
+```{r, eval=FALSE}
+# Menginstall paket
+install.packages("xlsx")
+
+# Memuat paket
+library(xlsx)
+```
+
+Terdapat dua buah fungsi yang disediakan pada paket tersebut yaitu `read.xlsx()` dan `read.xlsx2()`. Perbedaan keduanya adalah `read.xlsx2()` digunakan pada file data dengan ukuran yang besar serta proses pembacaan data yang lebih cepat dibandingkan dengan `read.xlsx()`. Fromat yang digunakan untuk kedua fungsi tersebut disajikan sebagai berikut:
+
+```{r, eval=FALSE}
+read.xlsx(file, sheetIndex, header=TRUE)
+read.xlsx2(file, sheetIndex, header=TRUE)
+```
+
+> **Note: **
+>
+> - **file**: nama atau lokasi file berada
+> - **sheetIndex**: Indeks dari sheet yang hendak dibaca
+> - **header**: nilai logik. Jika bernilai TRUE, maka baris pertama dari sheet menjadi header.
+
+Berikut adalah contoh penggunaanya:
+
+```{r, eval=FALSE}
+data <- read.xlsx(file.choose(), 1) # membaca sheet 1
+```
+
+> **Note: ** kita juga dapat membaca file dari internet seperti pada sub-bab 3.1.1.
+
+### Membaca File Dari Format Aplikasi Statistik
+
+Untuk membaca file yang berasal dari format aplikasi statistik seperti SPSS, SAS, dan STATA kita perlu menginstal dan memuat paket-paket yang dibutuhkan sesuai dengan file yang akan kita install. Berikut adalah sintaks bagaimana cara mengimport file dari berbagai format aplikasi statistik.
+
+```{r, eval=FALSE}
+# membaca file SPSS
+install.packages("Hmisc") # menginstall paket
+library(Hmisc) # memuat paket
+# simpan SPSS dataset pada transport format
+get file='c:\mydata.sav'.
+export outfile='c:\mydata.por'. 
+data <- spss.get("c:\mydata.por", use.value.labels= TRUE) 
+# use.value.labels digunakan untuk mengubah label menjadi factor
+
+
+# membaca file SAS
+install.packages("Hmisc") # menginstall paket
+library(Hmisc) # memuat paket
+# simpan SAS dataset pada transport format
+libname out xport 'c:/mydata.xpt';
+data out.mydata;
+set sasuser.mydata;
+run;
+data <- sasxport.get("c:/mydata.xpt") 
+# Variabel yang berupa karakter akan dikonversi menjadi factor
+
+
+# membaca file STATA
+install.packages("foreign") # menginstall paket
+library(foreign) # memuat paket
+data <- read.dta("c:/mydata.dta")
+
+```
+
+## Eksport File
+
+Setelah kita melakukan analisa dan telah memperoleh hasil yang kita inginkan dan memperoleh data frame berupa hasil prediksi suatu model atau data yang telah dibersihakan, kita ingin melakukan pelaporan dalam bentuk file dengan format seperti EXCEL, CSV atau TXT. Untuk melakukannya kita perlu melakukan eksport data yang telah dihasilkan.
+
+Pada bagian ini penulis akan menjelaskan bagaimana cara mengeksport data dari `R` kedalam format TXT, CSV, maupun EXCEL. Sebenarnya `R` memungkinkan untuk melakukan eksport dalam format lain seperti RDA maupun RDS yang tidak dibahas dalam buku ini karena berada diluar lingkup buku ini.
+
+### Eksport Data Menjadi Format TXT dan CSV
+
+Terdapat dua cara untuk melakukan ekport data dari `R` menjadi format TXT atau CSV, yaitu melalui paket dasar `R` maupun menggunakan library `readr`. Kedua cara tersebut memiliki sejumlah kemiripan dari segi fungsi, namun berbeda dari segi kecepatan eksport.
+
+Fungsi dasar yang digunakan pada `R` untuk melakukan eksport file kedalam format TXT dan CSv adalah `write.tabel()`. Format umum yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+write.table(x, file, sep= " ", dec = ",",
+            row.names = TRUE, col.names = TRUE)
+```
+
+> **Note: **
+>
+> - **x**: matriks atau data frame yang akan ditulis.
+> - **file**: karakter yang menentukan nama file yang dihasilkan.
+> - **sep**: string pemisah bidang atau kolom, mis., sep = “\ t” (untuk nilai yang dipisahkan tab).
+> - **dec**: string yang akan digunakan sebagai pemisah desimal. Standarnya adalah “.”.
+> - **row.names**: nilai logik yang menunjukkan apakah nama baris x harus ditulis bersama dengan x, atau vektor karakter nama baris yang akan ditulis.
+> - **col.names**: baik nilai logik yang menunjukkan apakah nama kolom x harus ditulis bersama dengan x, atau vektor karakter nama kolom yang akan ditulis. Jika `col.names = NA` dan `row.names = TRUE` ditambahkan nama kolom kosong, yang merupakan konvensi yang digunakan untuk file CSV untuk dibaca oleh spreadsheet.
+
+Selain menggunakan fungsi tersebut, untuk eksport ke dalam format CSV juga dapa menggunakan fungsi `write.csv()` atau `write.csv2()`. Berikut adalah format yang digunakan:
+
+```{r, eval=FALSE}
+write.csv(data, file="data.csv")
+write.csv2(data, file="data.csv")
+```
+
+Secara penampakan kedua fungsi tersebut pada dasarnya sama dengan fungsi `write.table()`, bedanya adalah kedua fungsi tersebut spesifik digunakan untuk eksport file kedalam format CSV.
+
+> **Note: **
+> 
+> - **write.csv()** menggunakan "." sebagai titik desimal serta "," sebagai pemisah antar kolom data.
+> - **write.csv2()** menggunakan "," sebagai titik desimal serta ";" sebagai pemisah antar kolom data.
+
+Misalkan kita ingin melakukan eksport data objek `mtcars` kedalam format CSV. Untuk melakukannya dapat dilakukan dengan sintaks berikut:
+
+```{r, eval=FALSE}
+write.csv(mtcars, file="mtcars.csv", row.names = FALSE)
+```
+
+> **Note: ** Hasil ekspoet ditampilkan pada *working directory*
+
+Kita juga dapat menggunakan fungsi `write_delim()` dari library `readr` untuk melakukan eksport data kedalam format CSV atau TXT. Berdasarkan format file yang hendak dihasilkan kita juga dapat menggunakan fungsi `write_csv()` atau `write_tsv()`. Berikut adalah penjelasan terkait kedua fungsi tersebut:
+
+- **write_csv()**: untuk mengeksport kedalam format CSV.
+- **write_tsv()**: untuk mengeksport kedalam format TXT.
+
+Format sederhana ketiga fungsi fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+# Fungsi umum
+write_delim(x, path, delim = " ")
+# Write comma (",") separated value files
+write_csv(file, path)
+# Write tab ("\t") separated value files
+write_tsv(file, path)
+```
+
+> **Note: **
+>
+> - **x**: data frame yang akan ditulis
+> - **path**: path ke file hasil (dapat berupa nama file disertai ekstensi file yang akan dibuat)
+> - **delim**: Delimiter digunakan untuk memisahkan nilai. Harus karakter tunggal.
+
+Berikut adalah contoh penerapan dari fungsi tersebut:
+
+```{r, eval=FALSE}
+# memuat mtcars data
+data(mtcars)
+library(readr)
+
+# eksport mtcars menjadi tsv atau txt
+write_tsv(mtcars, path = "mtcars.txt")
+
+# eksport mycars menjadi csv
+write_csv(mtcars, path = "mtcars.csv")
+```
+
+### Eksport Data Menjadi Format Excel
+
+Untuk mengeksport data menjadi format EXCEL (".xls" atau ".xlsx") kita dapat menggunakan fungsi `write.xlsx()` dan `write.xlsx2()` dari library `xlsx`. Berikut adalah format sederhana yanga digunakan:
+
+```{r, eval=FALSE}
+write.xlsx(x, file, sheetName = "Sheet1", 
+  col.names = TRUE, row.names = TRUE, append = FALSE)
+write.xlsx2(x, file, sheetName = "Sheet1",
+  col.names = TRUE, row.names = TRUE, append = FALSE)
+```
+
+> **Note: **
+>
+> - **x**: sebuah data frame untuk ditulis ke dalam worksheet.
+> - **file**: path ke file output.
+> - **sheetName**: string karakter yang digunakan untuk nama sheet.
+> - **col.names, row.names**: nilai logik yang menentukan apakah nama kolom / nama baris x akan ditulis ke file.
+> - **append**: nilai logis yang menunjukkan apakah x harus ditambahkan ke file yang ada.
+
+Berikut adalah contoh penerapannya:
+
+```{r, eval=FALSE}
+library("xlsx")
+# Menuliskan dataset pertama pada workbook
+write.xlsx(USArrests, file = "myworkbook.xlsx",
+      sheetName = "USA-ARRESTS", append = FALSE)
+# Menambahkan dataset kedua pada workbook
+write.xlsx(mtcars, file = "myworkbook.xlsx", 
+           sheetName="MTCARS", append=TRUE)
+# Menambahkan dataset kedua pada workbook
+write.xlsx(iris, file = "myworkbook.xlsx",
+           sheetName="IRIS", append=TRUE)
+```
+
+## Tibble Data Format
+
+Tibble adalah data frame yang menyediakan metode print yang lebih bagus, berguna saat bekerja dengan kumpulan data besar. Pada bagian ini penulis akan menjelaskan penggunaan tibble sebagai alternatif kita dalam berinteraksi dengan data frame.
+
+Untuk membuat tibble kita perlu menginstall dan memuat library `tibble` yang dikembangkan oleh **Hadley Wichham**. Berikut adalah sintaks yang digunakan:
+
+```{r, eval=FALSE}
+# menginstall paket
+install.packages("tibble")
+
+# memuat paket
+library(tibble)
+```
+
+### Membuat Tibble
+
+Untuk dapat membuat tibble kita dapat melakukan konversi data frame yang sudah ada menjadi tibble menggunakan fungsi `as_tibble()`. Berikut adalah contoh bagaimana membuat tibble mengunakan data `iris`:
+
+```{r, echo=FALSE}
+library(tibble)
+```
+
+
+```{r}
+# memuat data mtcars
+data("iris")
+
+# print
+head(iris, 10)
+
+# konversi mtcars menjadi tibble
+iris_tbl <- as_tibble(iris)
+
+# print
+iris_tbl
+```
+
+> **Note: ** Kita dapat mengkonversi tibble menjadi data frame menggunakan fungsi `as.data.frame()`
+
+Secara default saat kita print tibble, maka akan dimunculkan 10 observasi pertama. Pada data frame biasa jika kita print data tersebut maka seluruh observasi akan ditampilkan.
+
+Penggunaan tibble ini cenderung menguntungkan saat kita bekerja dengan jumlah data yang besar dan ingin mengecek observasi yang ada. Hal ini berbeda dengan data frame biasa dimana untuk mengecek observasi awal kita perlu menggunakan fungsi `head()` agar seluruh data tidak ditampilkan. Sehingga penggunaan tibble cenderung membuat proses analisa menjadi lebih rapi.
+
+Kita juga dapat membuat tibble dari kumpulan sejumlah vektor menggunakan fungsi `tibble()`. `tibble()` akan secara otomatis mendaur ulang input dengan panjang 1 (variabel `y`), dan memungkinkan kita untuk merujuk ke variabel yang baru saja kita buat, seperti yang ditunjukkan pada sintaks berikut:
+
+```{r}
+tibble(
+  x = 1:20,
+  y = 1,
+  z = 2*x+5*y
+)
+```
+
+Jika pembaca telah mulai familiar dengan fungsi `data.frame()`, perlu diingat bahwa `tibble()` melakukan lebih sedikit: tidak pernah mengubah jenis input (mis., tidak pernah mengubah string menjadi faktor!), tidak pernah mengubah nama variabel, dan tidak pernah membuat nama baris seperti yang biasa terjadi saat kita menggunakan fungsi `data.frame()`.
+
+Cara lain yang dapat digunakan untuk membuat tibble adalah dengan menggunakan fungsi `tribble()` yang merupakan singkatan dari *transposed tibble*. `tribble()` dikustomisasi untuk entri data dalam kode: judul kolom didefinisikan oleh rumus (yaitu, mereka mulai dengan ~), dan entri dipisahkan oleh koma. Hal ini memungkinkan untuk menata sejumlah kecil data dalam bentuk yang mudah dibaca. Berikut adalah contoh penerapannya:
+
+```{r}
+tribble(
+  ~x, ~y, ~z,
+  #--/--/----
+  "a", 2, 5,
+  "b", 5, 7
+)
+```
+
+Penambahahan komen (#--/--/----) dilakukan untuk memperjelas posisi dari header sehingga meminimalisir kesalahan dalam input data.
+
+### Tibble vs Data Frame
+
+terdapat dua buah perbedaan utama antara tibble dan data frame , yaitu: *printing* dan *subsetting*.
+
+a. **Printing**
+
+Tibbles memiliki metode print halus yang hanya menampilkan 10 baris pertama observasi, dan semua kolom yang sesuai dengan lebar layar. Ini membuatnya lebih mudah untuk bekerja dengan data besar. Selain namanya, setiap kolom melaporkan jenis datanya, fitur bagus yang dipinjam dari fungsi `str()`. Berikut adalah contohnya:
+
+```{r}
+tribble(
+  ~x, ~y, ~z,
+  #--/---/--------
+  "a", 2.1, FALSE,
+  "b", 5.5, TRUE
+)
+```
+
+Tibbles dirancang agar kita tidak secara sengaja menampilkan data yang sangat banyak saat melakukan perintah `print()`. Tetapi terkadang kita membutuhkan lebih banyak output daripada tampilan default. Ada beberapa opsi yang dapat membantu.
+
+Pertama, kita dapat secara eksplisit melakukan print data frame dan mengontrol jumlah baris (n) dan lebar tampilan. `width = Inf` akan menampilkan semua kolom. Berikut adalah contoh penerapannya
+
+```{r}
+print(iris_tbl, n=15, width=Inf)
+```
+
+Kita juga dapat mengontrol print default dengan melakukan pengaturan menggunakan fungsi `options()`. Berikut adalah contoh penerapannya:
+
+- **options(tibble.print_max= n, tibble.print_min= m)**: jika terdapat lebih dari "m" baris, print hanya sejumlah "n" baris.
+- **options(dplyr.print_min = Inf)**: untuk selalu menampilkan seluruh baris. Perlu diingat fungsi ini dapat digunakan saat kita telah memuat library `dplyr`.
+- **options(tibble.width = Inf)**: menampilkan seluruh kolom tanpa mempedulikan lebar tampilan layar.
+
+Cara terakhir untuk menampilkan seluruh observasi adalh dengan fungsi `view()`. Berikut adalah contoh penerapannya pada data `iris_tbl`:
+
+```{r, eval=FALSE}
+view(iris_tbl)
+```
+
+b. **Subsetting**
+
+Sejauh ini semua alat yang kita pelajari telah bekerja dengan data frame yang lengkap. Jika kita ingin mengeluarkan variabel tunggal, kita memerlukan beberapa alat baru, dollar sign (`$`) dan [[. [[dapat mengekstraksi berdasarkan nama atau posisi; `$` hanya mengekstraksi berdasarkan nama. Berikut adalah contoh penerapannya:
+
+```{r}
+# print tibble
+iris_tbl
+
+# subset berdasarkan nama kolom
+iris_tbl$Sepal.Length
+
+#subset berdasarkan posisi
+iris_tbl[[1]]
+```
+
+Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah melakukan *partial matching*, dan mereka akan menghasilkan peringatan jika kolom yang kita coba akses tidak ada.

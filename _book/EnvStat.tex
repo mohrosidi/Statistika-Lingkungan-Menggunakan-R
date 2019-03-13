@@ -125,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-03-11}
+    \date{2019-03-13}
 
 \usepackage{booktabs}
 
@@ -3649,9 +3649,1066 @@ Berikut adalah contoh penerapan \emph{user define function}:
   Statistical Computing}. R Manuals.
 \end{enumerate}
 
-\chapter{Methods}\label{methods}
+\chapter{Manajemen Data R}\label{manajemen-data-r}
 
-We describe our methods in this chapter.
+\section{Import File}\label{import-file}
+
+Pada sesi bagian ini penulis akan menjelaskan cara mengimport file pada
+\texttt{R}. File yang diimport ke dalam \texttt{R} terdiri atas file
+yang sering digunakan pada saat akan melakukan analisis data, antara
+lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
+
+Pada bagian ini akan dijelaskan pula bagaimana melakukan import data
+menggunakan library \texttt{readr} serta kelebihan dari metode import
+data yang digunakan. Berikut adalah cara mengimport data berbagai format
+pada \texttt{R}.
+
+\begin{quote}
+\textbf{Note: } Pastikan kita telah mengatur lokasi \emph{working
+directory} pada tempat dimana lokasi file yang akan kita baca berada
+untuk mempermudah dalam melakukan import file.
+\end{quote}
+
+\subsection{Import File Menggunakan Fungsi Bawaan
+R}\label{import-file-menggunakan-fungsi-bawaan-r}
+
+Fungsi bawaan \texttt{R} secara umum hanya dapat membaca data dengan
+format TXT dan CSV. Pada \texttt{RStudio} fungsi ini bertambah dengan
+adanya library tambahan yang telah terinstall di \texttt{RStudio} untuk
+membaca file dengan format EXCEL, SPSS, SAS dan STATA.
+
+Secara umum fungsi yang digunakan untuk membaca data dengan format tabel
+seperti TXT dan CSV adalah fungsi\texttt{read.table()}. Berikut adalah
+list fungsi dasar lainnya untuk membaca file dengan format TXT dan CSV
+pada \texttt{R}:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{read.csv()}: untuk membaca file dengan format \emph{comma
+  separated value}(``.csv'').
+\item
+  \textbf{read.csv2()}: varian yang digunakan jika pada file ``.csv''
+  yang akan dibaca mengandung koma (``,'') sebagai desimal dan semicolon
+  (``;'') sebagai pemisah antar variabel atau kolom.
+\item
+  \textbf{read.delim()}: untuk membaca file dengan format
+  \emph{tab-separated value}(``.txt'').
+\item
+  \textbf{read.delim2()}: membaca file dengan format ``.txt'' dengan
+  tanda koma (``,'') sebagai penujuk bilangan desimal.
+\end{itemize}
+
+Masing-masing fungsi diatas dapat dituliskan kedalam \texttt{R} dengan
+format sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Membaca tabular data pada  R}
+\KeywordTok{read.table}\NormalTok{(file, }\DataTypeTok{header =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{, }\DataTypeTok{dec =} \StringTok{"."}\NormalTok{)}
+\CommentTok{# Membaca"comma separated value" files (".csv")}
+\KeywordTok{read.csv}\NormalTok{(file, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep =} \StringTok{","}\NormalTok{, }\DataTypeTok{dec =} \StringTok{"."}\NormalTok{, ...)}
+\CommentTok{# atau gunakan read.csv2 jika tanda desimal pada data adalah "," dan pemisah kolom adalah ";"}
+\KeywordTok{read.csv2}\NormalTok{(file, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep =} \StringTok{";"}\NormalTok{, }\DataTypeTok{dec =} \StringTok{","}\NormalTok{, ...)}
+\CommentTok{# MembacaTAB delimited files}
+\KeywordTok{read.delim}\NormalTok{(file, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\DataTypeTok{dec =} \StringTok{"."}\NormalTok{, ...)}
+\KeywordTok{read.delim2}\NormalTok{(file, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\DataTypeTok{dec =} \StringTok{","}\NormalTok{, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{file}: nama file diakhiri dengan format file (misal:
+  ``nama\_file.txt'') yang akan di import ke dalam file. Dapat pula
+  diisi lokasi file tersebut berada, misal:(C:/Users/My
+  PC/Documents/nama\_file.txt atau .csv)
+\item
+  \textbf{sep}: pemisah antar kolom. ``\t'' digunakan untuk
+  tab-delimited file.
+\item
+  \textbf{header}: nilai logik. jika TRUE, maka \texttt{read.table()}
+  akan menganggap bahwa file yang akan dibaca pada baris pertama file
+  merupakan header data.
+\item
+  \textbf{dec}: karakter yang digunakan sebagai penunjuk desimal pada
+  data.
+\end{itemize}
+\end{quote}
+
+Untuk info lebih lanjut terkait fungsi-fungsi tersebut dan contoh
+bagaimana menggunakannya, pembaca dapat mengakses fitur batuan dari
+fungsi tersebut menggunakan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# mengakses menu bantuan}
+\NormalTok{?read.table}
+\NormalTok{?read.csv}
+\NormalTok{?read.csv2}
+\NormalTok{?read.delim}
+\NormalTok{?read.delim2}
+\end{Highlighting}
+\end{Shaded}
+
+Misalkan penulis memiliki data pada file bernama ``mtcars.csv'' dengan
+desimal berupa titik pada datanya. Penulsi ingin membaca file tersebut,
+maka penulis akan menuliskan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"mtcars.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Secara default perintah tersebut akan membaca baris pertama data sebagai
+header serta data berupa karakter menjadi factor. Untuk mencegah agar
+data berupa karakter menjadi faktor, perintah tersebut dapat ditambahkan
+parameter \texttt{stringAsFactor\ =\ FALSE}.
+
+Kita juga dapat memilih file yang akan kita baca secara interakti. Misal
+pada \emph{working directory} terdapat beberapa file yang akan kita
+baca. Kita ingin melihat file dengan format tertentu yang hendak kita
+baca, namun kita malas mengecek file explorer pada windows. Untuk
+mengatasi masalah tersebut, kita dapat menggunakan fungsi
+\texttt{file.choose()} pada \texttt{R}. Fungsi tersebut akan menampilkan
+jendela windows explores sehingga kita dapat memilih file apa yang
+hendak dibaca. Berikut adalah contoh penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{file.choose}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: } pastikan format file yang dibaca sama dengan fungsi
+import yang digunakan.
+\end{quote}
+
+Kita juga dapat membaca file dari internet. Untuk melakukannya kit hanya
+perlu meng-copy url file tersebut. Berikut adalah contoh file yang
+dibaca dari internet:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Membaca file dari internet}
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read.delim}\NormalTok{(}\StringTok{"http://www.sthda.com/upload/boxplot_format.txt"}\NormalTok{)}
+
+\CommentTok{# mengecek 6 observasi awal}
+\KeywordTok{head}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Nom variable Group
+## 1 IND1       10     A
+## 2 IND2        7     A
+## 3 IND3       20     A
+## 4 IND4       14     A
+## 5 IND5       14     A
+## 6 IND6       12     A
+\end{verbatim}
+
+\subsection{Membaca File CSV dan TXT Menggunakan Library
+readr}\label{membaca-file-csv-dan-txt-menggunakan-library-readr}
+
+Pada bagian sebelumnya kita telah belajar bagaimana cara membaca file
+dengan format CSV dan TXT menggunakan paket dasar \texttt{R}. Pada
+bagian ini penulis akan menjelaskan bagaimana cara membaca file dengan
+format TXT dan CSV pada \texttt{R} menggunakan paket \texttt{readr}.
+
+\texttt{readr} dikembangkan oleh Hadley Wickham. paket \texttt{readr}
+memberikan solusi cepat dan ramah untuk membaca delimited file ke dalam
+\texttt{R}.
+
+Dibandingkan dengan paket dasar \texttt{R}, \texttt{readr} memiliki
+kelebihan sebagai berikut:
+
+\begin{itemize}
+\tightlist
+\item
+  Mampu membaca file 10x lebih cepat dibandingkan pada paket bawaan
+  \texttt{R}.
+\item
+  Menampilkan \emph{progress bar} yang bermanfaat jika proses pemuatan
+  berlangsung agak lama.
+\item
+  semua fungsi bekerja dengan cara yang persis sama dengan paket bawaan
+  \texttt{R}.
+\end{itemize}
+
+Untuk dapat menggunakan \texttt{readr}, kita perlu menginstall paketnya
+terlebih dahulu. Untuk melakukannya jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Menginstall paket}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"readr"}\NormalTok{)}
+
+\CommentTok{# Memuat paket}
+\KeywordTok{library}\NormalTok{(readr)}
+\end{Highlighting}
+\end{Shaded}
+
+Berikut adalah format bebrapa fungsi yang dapat digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Fungsi umum (membaca TXT dan CSV) dapat juga membaca flat file dan tsv}
+\KeywordTok{read_delim}\NormalTok{(file, delim, }\DataTypeTok{col_names =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# Membaca comma (",") separated values}
+\KeywordTok{read_csv}\NormalTok{(file, }\DataTypeTok{col_names =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# Membaca semicolon (";") separated values}
+\KeywordTok{read_csv2}\NormalTok{(file, }\DataTypeTok{col_names =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# Membaca tab separated values}
+\KeywordTok{read_tsv}\NormalTok{(file, }\DataTypeTok{col_names =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{file}: path file, koneksi atau raw vector. File yang
+  berakhiran .gz, .bz2, .xz, atau .zip akan secara otomatis tidak
+  terkompresi. File yang dimulai dengan ``http: //'', ``https: //'',
+  ``ftp: //'', atau ``ftps: //'' akan diunduh secara otomatis. File gz
+  jarak jauh juga dapat diunduh \& didekompresi secara otomatis.
+\item
+  \textbf{delim}: karakter yang membatasi tiap nilai pada file.
+\item
+  \textbf{col\_names}: nilai logik. Jika TRUE, maka baris pertama akan
+  menjadi header.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh bagaimana cara membaca file menggunakan fungsi
+pada paket \texttt{readr}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Membaca file lokal}
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"mtcars.csv"}\NormalTok{)}
+
+\CommentTok{# atau}
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\KeywordTok{file.choose}\NormalTok{())}
+
+\CommentTok{# Membaca dari internet}
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read_tsv}\NormalTok{(}\StringTok{"http://www.sthda.com/upload/boxplot_format.txt"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Kita juga dapat menspesifikasi jenis data pada kolom yang akan dibaca.
+Keuntungan dari penentuan jenis kolom (tipe data) akan memastikan data
+yang telah dibaca tidak salah berdasarkan jenis data pada masing-masing
+kolom.
+
+Beberapa format jenis kolom yang tersedia pada \texttt{readr} adalah
+sebagi berikut:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{col\_integer()}: untuk menentukan integer (alias = ``i'').
+\item
+  \textbf{col\_double()}: untuk menentukan kolom sebagai jenis data
+  double (alias = ``d'').
+\item
+  \textbf{col\_logical()}: untuk menentukan variabel logis (alias =
+  ``l'').
+\item
+  \textbf{col\_character()}: meninggalkan string apa adanya.Tidak
+  mengonversinya menjadi faktor (alias = ``c'').
+\item
+  \textbf{col\_factor()}: untuk menentukan variabel faktor (atau
+  pengelompokan) (alias = ``f'')
+\item
+  \textbf{col\_skip()}: untuk mengabaikan kolom (alias = ``-'' atau
+  ``\_``)
+\item
+  \textbf{col\_date()} (alias = ``D''), \textbf{col\_datetime()} (alias
+  = ``T'') dan \textbf{col\_time()} (``t'') untuk menentukan tanggal,
+  waktu tanggal, dan waktu.
+\end{itemize}
+
+Berikut adalah contoh penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"my_file.csv"}\NormalTok{, }\DataTypeTok{col_types =} \KeywordTok{cols}\NormalTok{(}
+  \DataTypeTok{x =} \StringTok{"i"}\NormalTok{, }\CommentTok{# kolom integer}
+  \DataTypeTok{treatment =} \StringTok{"c"} \CommentTok{# kolom karakter/string}
+\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Import File Excel Pada R}\label{import-file-excel-pada-r}
+
+Keunggulan penggunaan excel sebagai format penyimpan data adalah kita
+dapat menyimpan banyak data dan memisahkannya pada lembar (\emph{sheet})
+yang berbeda sebagai suatu data yang independen dibandingkan pembacaan
+pada file csv yang hanya berisikan satu tabel data saja tiap file.
+
+Pada \texttt{R} kita dapat melakukan pembacaan file menggunakan berbagai
+macam cara seperti menggunakan paket bawaan \texttt{R} maupun
+menggunakan library yang perlu kita install. Berikut adalah beberapa
+cara membaca file excel pada \texttt{R}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Mengkonversi terlebih dahulu satu sheet excel yang akan kita baca
+  menjadi format ``.csv'' maupun ``.txt'' sehingga dapat dibaca seperti
+  pada sub-bab 3.1.1.
+\item
+  Menyalin data dari excel dan mengimport data pada \texttt{R}.
+\end{enumerate}
+
+Cara ini sedikit mirip dengan cara sebelumnya, dimana kita perlu membuka
+file excel dan melakukan \textbf{select} dan \textbf{copy} (ctrl+c)
+tabel data yang hendak dibaca. Data tersebut selanjutnya akan tersimpan
+pada \textbf{clipboard}.
+
+Data yang telah tersalin selanjutnya diimport ke \texttt{R} dengan
+mengetikkan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=} \StringTok{"clipboard"}\NormalTok{,}
+                   \DataTypeTok{sep =} \StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Cara ini merupakan cara yang paling sering penulis gunakan. Kelemahan
+penggunaan cara ini adalah ketika kita melakukan proses \textbf{select}
+dan \textbf{copy} (ctrl+c) tabel yang jumlahnya sangat banyak dan
+terdapat teks-teks penjelasan terkait tabel data pada lembar kerja excel
+yang tidak ingin kita sertakan akan memakan waktu yang lebih lama pada
+proses \textbf{select}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Mengimport data menggunakan library readxl.
+\end{enumerate}
+
+Paket \texttt{readxl}, yang dikembangkan oleh Hadley Wickham, dapat
+digunakan untuk dengan mudah mengimpor file Excel (xls \textbar{} xlsx)
+ke \texttt{R} tanpa ada ketergantungan eksternal.
+
+Untuk dapat menggunakan library \texttt{readxl} kita harus
+menginstallnya terlebih dahulu menggunakan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Instal paket}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"readxl"}\NormalTok{)}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(readxl)}
+\end{Highlighting}
+\end{Shaded}
+
+Berikut adalah contoh cara mengimport data dengan format xls atau xlsx
+pada \texttt{R}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Tentukan sheet dengan nama sheet pada file}
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"my_file.xlsx"}\NormalTok{, }\DataTypeTok{sheet =} \StringTok{"data"}\NormalTok{)}
+
+\CommentTok{# Tentukan sheet berdasarkan indeks sheet}
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"my_file.xlsx"}\NormalTok{, }\DataTypeTok{sheet =} \DecValTok{2}\NormalTok{) }\CommentTok{# membaca sheet ke-2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Mengimport data menggunakan library xlsx
+\end{enumerate}
+
+Paket \texttt{xlsx}, solusi berbasis \texttt{java}, adalah salah satu
+paket \texttt{R} yang ampuh untuk membaca, menulis, dan memformat file
+Excel. Untuk dapat menggunakannya kita harus menginstall dan memuatnya
+terlebih dahulu. Berikut sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Menginstall paket}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"xlsx"}\NormalTok{)}
+
+\CommentTok{# Memuat paket}
+\KeywordTok{library}\NormalTok{(xlsx)}
+\end{Highlighting}
+\end{Shaded}
+
+Terdapat dua buah fungsi yang disediakan pada paket tersebut yaitu
+\texttt{read.xlsx()} dan \texttt{read.xlsx2()}. Perbedaan keduanya
+adalah \texttt{read.xlsx2()} digunakan pada file data dengan ukuran yang
+besar serta proses pembacaan data yang lebih cepat dibandingkan dengan
+\texttt{read.xlsx()}. Fromat yang digunakan untuk kedua fungsi tersebut
+disajikan sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{read.xlsx}\NormalTok{(file, sheetIndex, }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{read.xlsx2}\NormalTok{(file, sheetIndex, }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{file}: nama atau lokasi file berada
+\item
+  \textbf{sheetIndex}: Indeks dari sheet yang hendak dibaca
+\item
+  \textbf{header}: nilai logik. Jika bernilai TRUE, maka baris pertama
+  dari sheet menjadi header.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penggunaanya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read.xlsx}\NormalTok{(}\KeywordTok{file.choose}\NormalTok{(), }\DecValTok{1}\NormalTok{) }\CommentTok{# membaca sheet 1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: } kita juga dapat membaca file dari internet seperti pada
+sub-bab 3.1.1.
+\end{quote}
+
+\subsection{Membaca File Dari Format Aplikasi
+Statistik}\label{membaca-file-dari-format-aplikasi-statistik}
+
+Untuk membaca file yang berasal dari format aplikasi statistik seperti
+SPSS, SAS, dan STATA kita perlu menginstal dan memuat paket-paket yang
+dibutuhkan sesuai dengan file yang akan kita install. Berikut adalah
+sintaks bagaimana cara mengimport file dari berbagai format aplikasi
+statistik.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membaca file SPSS}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"Hmisc"}\NormalTok{) }\CommentTok{# menginstall paket}
+\KeywordTok{library}\NormalTok{(Hmisc) }\CommentTok{# memuat paket}
+\CommentTok{# simpan SPSS dataset pada transport format}
+\NormalTok{get file=}\StringTok{'c:\textbackslash{}mydata.sav'}\NormalTok{.}
+\NormalTok{export outfile=}\StringTok{'c:\textbackslash{}mydata.por'}\NormalTok{. }
+\NormalTok{data <-}\StringTok{ }\KeywordTok{spss.get}\NormalTok{(}\StringTok{"c:\textbackslash{}mydata.por"}\NormalTok{, }\DataTypeTok{use.value.labels=} \OtherTok{TRUE}\NormalTok{) }
+\CommentTok{# use.value.labels digunakan untuk mengubah label menjadi factor}
+
+
+\CommentTok{# membaca file SAS}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"Hmisc"}\NormalTok{) }\CommentTok{# menginstall paket}
+\KeywordTok{library}\NormalTok{(Hmisc) }\CommentTok{# memuat paket}
+\CommentTok{# simpan SAS dataset pada transport format}
+\NormalTok{libname out xport }\StringTok{'c:/mydata.xpt'}\NormalTok{;}
+\NormalTok{data out.mydata;}
+\NormalTok{set sasuser.mydata;}
+\NormalTok{run;}
+\NormalTok{data <-}\StringTok{ }\KeywordTok{sasxport.get}\NormalTok{(}\StringTok{"c:/mydata.xpt"}\NormalTok{) }
+\CommentTok{# Variabel yang berupa karakter akan dikonversi menjadi factor}
+
+
+\CommentTok{# membaca file STATA}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"foreign"}\NormalTok{) }\CommentTok{# menginstall paket}
+\KeywordTok{library}\NormalTok{(foreign) }\CommentTok{# memuat paket}
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read.dta}\NormalTok{(}\StringTok{"c:/mydata.dta"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Eksport File}\label{eksport-file}
+
+Setelah kita melakukan analisa dan telah memperoleh hasil yang kita
+inginkan dan memperoleh data frame berupa hasil prediksi suatu model
+atau data yang telah dibersihakan, kita ingin melakukan pelaporan dalam
+bentuk file dengan format seperti EXCEL, CSV atau TXT. Untuk
+melakukannya kita perlu melakukan eksport data yang telah dihasilkan.
+
+Pada bagian ini penulis akan menjelaskan bagaimana cara mengeksport data
+dari \texttt{R} kedalam format TXT, CSV, maupun EXCEL. Sebenarnya
+\texttt{R} memungkinkan untuk melakukan eksport dalam format lain
+seperti RDA maupun RDS yang tidak dibahas dalam buku ini karena berada
+diluar lingkup buku ini.
+
+\subsection{Eksport Data Menjadi Format TXT dan
+CSV}\label{eksport-data-menjadi-format-txt-dan-csv}
+
+Terdapat dua cara untuk melakukan ekport data dari \texttt{R} menjadi
+format TXT atau CSV, yaitu melalui paket dasar \texttt{R} maupun
+menggunakan library \texttt{readr}. Kedua cara tersebut memiliki
+sejumlah kemiripan dari segi fungsi, namun berbeda dari segi kecepatan
+eksport.
+
+Fungsi dasar yang digunakan pada \texttt{R} untuk melakukan eksport file
+kedalam format TXT dan CSv adalah \texttt{write.tabel()}. Format umum
+yang digunakan adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.table}\NormalTok{(x, file, }\DataTypeTok{sep=} \StringTok{" "}\NormalTok{, }\DataTypeTok{dec =} \StringTok{","}\NormalTok{,}
+            \DataTypeTok{row.names =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{col.names =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: matriks atau data frame yang akan ditulis.
+\item
+  \textbf{file}: karakter yang menentukan nama file yang dihasilkan.
+\item
+  \textbf{sep}: string pemisah bidang atau kolom, mis., sep = ``~t''
+  (untuk nilai yang dipisahkan tab).
+\item
+  \textbf{dec}: string yang akan digunakan sebagai pemisah desimal.
+  Standarnya adalah ``.''.
+\item
+  \textbf{row.names}: nilai logik yang menunjukkan apakah nama baris x
+  harus ditulis bersama dengan x, atau vektor karakter nama baris yang
+  akan ditulis.
+\item
+  \textbf{col.names}: baik nilai logik yang menunjukkan apakah nama
+  kolom x harus ditulis bersama dengan x, atau vektor karakter nama
+  kolom yang akan ditulis. Jika \texttt{col.names\ =\ NA} dan
+  \texttt{row.names\ =\ TRUE} ditambahkan nama kolom kosong, yang
+  merupakan konvensi yang digunakan untuk file CSV untuk dibaca oleh
+  spreadsheet.
+\end{itemize}
+\end{quote}
+
+Selain menggunakan fungsi tersebut, untuk eksport ke dalam format CSV
+juga dapa menggunakan fungsi \texttt{write.csv()} atau
+\texttt{write.csv2()}. Berikut adalah format yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.csv}\NormalTok{(data, }\DataTypeTok{file=}\StringTok{"data.csv"}\NormalTok{)}
+\KeywordTok{write.csv2}\NormalTok{(data, }\DataTypeTok{file=}\StringTok{"data.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Secara penampakan kedua fungsi tersebut pada dasarnya sama dengan fungsi
+\texttt{write.table()}, bedanya adalah kedua fungsi tersebut spesifik
+digunakan untuk eksport file kedalam format CSV.
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{write.csv()} menggunakan ``.'' sebagai titik desimal serta
+  ``,'' sebagai pemisah antar kolom data.
+\item
+  \textbf{write.csv2()} menggunakan ``,'' sebagai titik desimal serta
+  ``;'' sebagai pemisah antar kolom data.
+\end{itemize}
+\end{quote}
+
+Misalkan kita ingin melakukan eksport data objek \texttt{mtcars} kedalam
+format CSV. Untuk melakukannya dapat dilakukan dengan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.csv}\NormalTok{(mtcars, }\DataTypeTok{file=}\StringTok{"mtcars.csv"}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: } Hasil ekspoet ditampilkan pada \emph{working directory}
+\end{quote}
+
+Kita juga dapat menggunakan fungsi \texttt{write\_delim()} dari library
+\texttt{readr} untuk melakukan eksport data kedalam format CSV atau TXT.
+Berdasarkan format file yang hendak dihasilkan kita juga dapat
+menggunakan fungsi \texttt{write\_csv()} atau \texttt{write\_tsv()}.
+Berikut adalah penjelasan terkait kedua fungsi tersebut:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{write\_csv()}: untuk mengeksport kedalam format CSV.
+\item
+  \textbf{write\_tsv()}: untuk mengeksport kedalam format TXT.
+\end{itemize}
+
+Format sederhana ketiga fungsi fungsi tersebut adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Fungsi umum}
+\KeywordTok{write_delim}\NormalTok{(x, path, }\DataTypeTok{delim =} \StringTok{" "}\NormalTok{)}
+\CommentTok{# Write comma (",") separated value files}
+\KeywordTok{write_csv}\NormalTok{(file, path)}
+\CommentTok{# Write tab ("\textbackslash{}t") separated value files}
+\KeywordTok{write_tsv}\NormalTok{(file, path)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: data frame yang akan ditulis
+\item
+  \textbf{path}: path ke file hasil (dapat berupa nama file disertai
+  ekstensi file yang akan dibuat)
+\item
+  \textbf{delim}: Delimiter digunakan untuk memisahkan nilai. Harus
+  karakter tunggal.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penerapan dari fungsi tersebut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat mtcars data}
+\KeywordTok{data}\NormalTok{(mtcars)}
+\KeywordTok{library}\NormalTok{(readr)}
+
+\CommentTok{# eksport mtcars menjadi tsv atau txt}
+\KeywordTok{write_tsv}\NormalTok{(mtcars, }\DataTypeTok{path =} \StringTok{"mtcars.txt"}\NormalTok{)}
+
+\CommentTok{# eksport mycars menjadi csv}
+\KeywordTok{write_csv}\NormalTok{(mtcars, }\DataTypeTok{path =} \StringTok{"mtcars.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Eksport Data Menjadi Format
+Excel}\label{eksport-data-menjadi-format-excel}
+
+Untuk mengeksport data menjadi format EXCEL (``.xls'' atau ``.xlsx'')
+kita dapat menggunakan fungsi \texttt{write.xlsx()} dan
+\texttt{write.xlsx2()} dari library \texttt{xlsx}. Berikut adalah format
+sederhana yanga digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.xlsx}\NormalTok{(x, file, }\DataTypeTok{sheetName =} \StringTok{"Sheet1"}\NormalTok{, }
+  \DataTypeTok{col.names =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{append =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{write.xlsx2}\NormalTok{(x, file, }\DataTypeTok{sheetName =} \StringTok{"Sheet1"}\NormalTok{,}
+  \DataTypeTok{col.names =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{append =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: sebuah data frame untuk ditulis ke dalam worksheet.
+\item
+  \textbf{file}: path ke file output.
+\item
+  \textbf{sheetName}: string karakter yang digunakan untuk nama sheet.
+\item
+  \textbf{col.names, row.names}: nilai logik yang menentukan apakah nama
+  kolom / nama baris x akan ditulis ke file.
+\item
+  \textbf{append}: nilai logis yang menunjukkan apakah x harus
+  ditambahkan ke file yang ada.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(}\StringTok{"xlsx"}\NormalTok{)}
+\CommentTok{# Menuliskan dataset pertama pada workbook}
+\KeywordTok{write.xlsx}\NormalTok{(USArrests, }\DataTypeTok{file =} \StringTok{"myworkbook.xlsx"}\NormalTok{,}
+      \DataTypeTok{sheetName =} \StringTok{"USA-ARRESTS"}\NormalTok{, }\DataTypeTok{append =} \OtherTok{FALSE}\NormalTok{)}
+\CommentTok{# Menambahkan dataset kedua pada workbook}
+\KeywordTok{write.xlsx}\NormalTok{(mtcars, }\DataTypeTok{file =} \StringTok{"myworkbook.xlsx"}\NormalTok{, }
+           \DataTypeTok{sheetName=}\StringTok{"MTCARS"}\NormalTok{, }\DataTypeTok{append=}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# Menambahkan dataset kedua pada workbook}
+\KeywordTok{write.xlsx}\NormalTok{(iris, }\DataTypeTok{file =} \StringTok{"myworkbook.xlsx"}\NormalTok{,}
+           \DataTypeTok{sheetName=}\StringTok{"IRIS"}\NormalTok{, }\DataTypeTok{append=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Tibble Data Format}\label{tibble-data-format}
+
+Tibble adalah data frame yang menyediakan metode print yang lebih bagus,
+berguna saat bekerja dengan kumpulan data besar. Pada bagian ini penulis
+akan menjelaskan penggunaan tibble sebagai alternatif kita dalam
+berinteraksi dengan data frame.
+
+Untuk membuat tibble kita perlu menginstall dan memuat library
+\texttt{tibble} yang dikembangkan oleh \textbf{Hadley Wichham}. Berikut
+adalah sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menginstall paket}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"tibble"}\NormalTok{)}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(tibble)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Membuat Tibble}\label{membuat-tibble}
+
+Untuk dapat membuat tibble kita dapat melakukan konversi data frame yang
+sudah ada menjadi tibble menggunakan fungsi \texttt{as\_tibble()}.
+Berikut adalah contoh bagaimana membuat tibble mengunakan data
+\texttt{iris}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat data mtcars}
+\KeywordTok{data}\NormalTok{(}\StringTok{"iris"}\NormalTok{)}
+
+\CommentTok{# print}
+\KeywordTok{head}\NormalTok{(iris, }\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# konversi mtcars menjadi tibble}
+\NormalTok{iris_tbl <-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(iris)}
+
+\CommentTok{# print}
+\NormalTok{iris_tbl}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows
+\end{verbatim}
+
+\begin{quote}
+\textbf{Note: } Kita dapat mengkonversi tibble menjadi data frame
+menggunakan fungsi \texttt{as.data.frame()}
+\end{quote}
+
+Secara default saat kita print tibble, maka akan dimunculkan 10
+observasi pertama. Pada data frame biasa jika kita print data tersebut
+maka seluruh observasi akan ditampilkan.
+
+Penggunaan tibble ini cenderung menguntungkan saat kita bekerja dengan
+jumlah data yang besar dan ingin mengecek observasi yang ada. Hal ini
+berbeda dengan data frame biasa dimana untuk mengecek observasi awal
+kita perlu menggunakan fungsi \texttt{head()} agar seluruh data tidak
+ditampilkan. Sehingga penggunaan tibble cenderung membuat proses analisa
+menjadi lebih rapi.
+
+Kita juga dapat membuat tibble dari kumpulan sejumlah vektor menggunakan
+fungsi \texttt{tibble()}. \texttt{tibble()} akan secara otomatis mendaur
+ulang input dengan panjang 1 (variabel \texttt{y}), dan memungkinkan
+kita untuk merujuk ke variabel yang baru saja kita buat, seperti yang
+ditunjukkan pada sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tibble}\NormalTok{(}
+  \DataTypeTok{x =} \DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{,}
+  \DataTypeTok{y =} \DecValTok{1}\NormalTok{,}
+  \DataTypeTok{z =} \DecValTok{2}\OperatorTok{*}\NormalTok{x}\OperatorTok{+}\DecValTok{5}\OperatorTok{*}\NormalTok{y}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 20 x 3
+##        x     y     z
+##    <int> <dbl> <dbl>
+##  1     1     1     7
+##  2     2     1     9
+##  3     3     1    11
+##  4     4     1    13
+##  5     5     1    15
+##  6     6     1    17
+##  7     7     1    19
+##  8     8     1    21
+##  9     9     1    23
+## 10    10     1    25
+## 11    11     1    27
+## 12    12     1    29
+## 13    13     1    31
+## 14    14     1    33
+## 15    15     1    35
+## 16    16     1    37
+## 17    17     1    39
+## 18    18     1    41
+## 19    19     1    43
+## 20    20     1    45
+\end{verbatim}
+
+Jika pembaca telah mulai familiar dengan fungsi \texttt{data.frame()},
+perlu diingat bahwa \texttt{tibble()} melakukan lebih sedikit: tidak
+pernah mengubah jenis input (mis., tidak pernah mengubah string menjadi
+faktor!), tidak pernah mengubah nama variabel, dan tidak pernah membuat
+nama baris seperti yang biasa terjadi saat kita menggunakan fungsi
+\texttt{data.frame()}.
+
+Cara lain yang dapat digunakan untuk membuat tibble adalah dengan
+menggunakan fungsi \texttt{tribble()} yang merupakan singkatan dari
+\emph{transposed tibble}. \texttt{tribble()} dikustomisasi untuk entri
+data dalam kode: judul kolom didefinisikan oleh rumus (yaitu, mereka
+mulai dengan \textasciitilde{}), dan entri dipisahkan oleh koma. Hal ini
+memungkinkan untuk menata sejumlah kecil data dalam bentuk yang mudah
+dibaca. Berikut adalah contoh penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tribble}\NormalTok{(}
+  \OperatorTok{~}\NormalTok{x, }\OperatorTok{~}\NormalTok{y, }\OperatorTok{~}\NormalTok{z,}
+  \CommentTok{#--/--/----}
+  \StringTok{"a"}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{,}
+  \StringTok{"b"}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   x         y     z
+##   <chr> <dbl> <dbl>
+## 1 a         2     5
+## 2 b         5     7
+\end{verbatim}
+
+Penambahahan komen (\#--/--/----) dilakukan untuk memperjelas posisi
+dari header sehingga meminimalisir kesalahan dalam input data.
+
+\subsection{Tibble vs Data Frame}\label{tibble-vs-data-frame}
+
+terdapat dua buah perbedaan utama antara tibble dan data frame , yaitu:
+\emph{printing} dan \emph{subsetting}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \textbf{Printing}
+\end{enumerate}
+
+Tibbles memiliki metode print halus yang hanya menampilkan 10 baris
+pertama observasi, dan semua kolom yang sesuai dengan lebar layar. Ini
+membuatnya lebih mudah untuk bekerja dengan data besar. Selain namanya,
+setiap kolom melaporkan jenis datanya, fitur bagus yang dipinjam dari
+fungsi \texttt{str()}. Berikut adalah contohnya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tribble}\NormalTok{(}
+  \OperatorTok{~}\NormalTok{x, }\OperatorTok{~}\NormalTok{y, }\OperatorTok{~}\NormalTok{z,}
+  \CommentTok{#--/---/--------}
+  \StringTok{"a"}\NormalTok{, }\FloatTok{2.1}\NormalTok{, }\OtherTok{FALSE}\NormalTok{,}
+  \StringTok{"b"}\NormalTok{, }\FloatTok{5.5}\NormalTok{, }\OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   x         y z    
+##   <chr> <dbl> <lgl>
+## 1 a       2.1 FALSE
+## 2 b       5.5 TRUE
+\end{verbatim}
+
+Tibbles dirancang agar kita tidak secara sengaja menampilkan data yang
+sangat banyak saat melakukan perintah \texttt{print()}. Tetapi terkadang
+kita membutuhkan lebih banyak output daripada tampilan default. Ada
+beberapa opsi yang dapat membantu.
+
+Pertama, kita dapat secara eksplisit melakukan print data frame dan
+mengontrol jumlah baris (n) dan lebar tampilan. \texttt{width\ =\ Inf}
+akan menampilkan semua kolom. Berikut adalah contoh penerapannya
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(iris_tbl, }\DataTypeTok{n=}\DecValTok{15}\NormalTok{, }\DataTypeTok{width=}\OtherTok{Inf}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## 11          5.4         3.7          1.5         0.2 setosa 
+## 12          4.8         3.4          1.6         0.2 setosa 
+## 13          4.8         3            1.4         0.1 setosa 
+## 14          4.3         3            1.1         0.1 setosa 
+## 15          5.8         4            1.2         0.2 setosa 
+## # ... with 135 more rows
+\end{verbatim}
+
+Kita juga dapat mengontrol print default dengan melakukan pengaturan
+menggunakan fungsi \texttt{options()}. Berikut adalah contoh
+penerapannya:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{options(tibble.print\_max= n, tibble.print\_min= m)}: jika
+  terdapat lebih dari ``m'' baris, print hanya sejumlah ``n'' baris.
+\item
+  \textbf{options(dplyr.print\_min = Inf)}: untuk selalu menampilkan
+  seluruh baris. Perlu diingat fungsi ini dapat digunakan saat kita
+  telah memuat library \texttt{dplyr}.
+\item
+  \textbf{options(tibble.width = Inf)}: menampilkan seluruh kolom tanpa
+  mempedulikan lebar tampilan layar.
+\end{itemize}
+
+Cara terakhir untuk menampilkan seluruh observasi adalh dengan fungsi
+\texttt{view()}. Berikut adalah contoh penerapannya pada data
+\texttt{iris\_tbl}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{view}\NormalTok{(iris_tbl)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Subsetting}
+\end{enumerate}
+
+Sejauh ini semua alat yang kita pelajari telah bekerja dengan data frame
+yang lengkap. Jika kita ingin mengeluarkan variabel tunggal, kita
+memerlukan beberapa alat baru, dollar sign (\texttt{\$}) dan {[}{[}.
+{[}{[}dapat mengekstraksi berdasarkan nama atau posisi; \texttt{\$}
+hanya mengekstraksi berdasarkan nama. Berikut adalah contoh
+penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# print tibble}
+\NormalTok{iris_tbl}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# subset berdasarkan nama kolom}
+\NormalTok{iris_tbl}\OperatorTok{$}\NormalTok{Sepal.Length}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
+##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
+##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
+##  [52] 6.4 6.9 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8
+##  [69] 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4
+##  [86] 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8
+## [103] 7.1 6.3 6.5 7.6 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7
+## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
+## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#subset berdasarkan posisi}
+\NormalTok{iris_tbl[[}\DecValTok{1}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
+##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
+##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
+##  [52] 6.4 6.9 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8
+##  [69] 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4
+##  [86] 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8
+## [103] 7.1 6.3 6.5 7.6 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7
+## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
+## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9
+\end{verbatim}
+
+Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah
+melakukan \emph{partial matching}, dan mereka akan menghasilkan
+peringatan jika kolom yang kita coba akses tidak ada.
 
 \chapter{Applications}\label{applications}
 
