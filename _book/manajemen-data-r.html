@@ -25,7 +25,7 @@
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-13">
+<meta name="date" content="2019-03-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -183,6 +183,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-data-format"><i class="fa fa-check"></i><b>3.3</b> Tibble Data Format</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membuat-tibble"><i class="fa fa-check"></i><b>3.3.1</b> Membuat Tibble</a></li>
 <li class="chapter" data-level="3.3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-vs-data-frame"><i class="fa fa-check"></i><b>3.3.2</b> Tibble vs Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#merapikan-data"><i class="fa fa-check"></i><b>3.4</b> Merapikan Data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#gather"><i class="fa fa-check"></i><b>3.4.1</b> Gather</a></li>
+<li class="chapter" data-level="3.4.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#spread"><i class="fa fa-check"></i><b>3.4.2</b> Spread</a></li>
+<li class="chapter" data-level="3.4.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#separate"><i class="fa fa-check"></i><b>3.4.3</b> Separate</a></li>
+<li class="chapter" data-level="3.4.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#unite"><i class="fa fa-check"></i><b>3.4.4</b> Unite</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
@@ -708,6 +714,320 @@ iris_tbl[[<span class="dv">1</span>]]</code></pre></div>
 ## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
 ## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
 <p>Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah melakukan <em>partial matching</em>, dan mereka akan menghasilkan peringatan jika kolom yang kita coba akses tidak ada.</p>
+</div>
+</div>
+<div id="merapikan-data" class="section level2">
+<h2><span class="header-section-number">3.4</span> Merapikan Data</h2>
+<p>Sebelum memulai analisa terhadap data yang kita miliki, umumnya kita akan merapikan data yang akan kita gunakan. Tujuannya adalah agar data yang akan digunakan sudah siap untuk dilakukan analisa dengan software tertentu seperti <code>R</code>, dimana pada dataset perlu jelas antara variabel dan nilai (<em>value</em>), serta untuk mempermudah dalah memperoleh informasi pada data. Berikut adalah beberapa contoh dataset yang dapat pembaca cermati terkait manakah data yang telah rapi (<em>tidy data</em>) dan mana yang belum (<em>messy data</em>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install paket dataset EDAWR</span>
+<span class="co"># install.packages(&quot;devtools&quot;)</span>
+<span class="co"># devtools::install_github(&quot;rstudio/EDAWR&quot;)</span>
+
+<span class="co"># hilangkan tanda # jika pembaca belum menginstall</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(EDAWR)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;EDAWR&#39;</code></pre>
+<pre><code>## The following objects are masked _by_ &#39;.GlobalEnv&#39;:
+## 
+##     a, b, y, z</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat dataset</span>
+storms</code></pre></div>
+<pre><code>##     storm wind pressure       date
+## 1 Alberto  110     1007 2000-08-03
+## 2    Alex   45     1009 1998-07-27
+## 3 Allison   65     1005 1995-06-03
+## 4     Ana   40     1013 1997-06-30
+## 5  Arlene   50     1010 1999-06-11
+## 6  Arthur   45     1010 1996-06-17</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cases</code></pre></div>
+<pre><code>##   country  2011  2012  2013
+## 1      FR  7000  6900  7000
+## 2      DE  5800  6000  6200
+## 3      US 15000 14000 13000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pollution</code></pre></div>
+<pre><code>##       city  size amount
+## 1 New York large     23
+## 2 New York small     14
+## 3   London large     22
+## 4   London small     16
+## 5  Beijing large    121
+## 6  Beijing small     56</code></pre>
+<p>Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu terlebih dahulu apa saja syarat suatu dataset dikatakan rapi (<em>tidy</em>). Berikut adalah syaratnya:</p>
+<ul>
+<li>Setiap variabel harus memiliki kolomnya sendiri</li>
+<li>Setiap observasi harus memiliki barisnya sendiri</li>
+<li>Setiap nilai berada pada sel tersendiri</li>
+</ul>
+<p>Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan <em>tidy</em>. Ketiga syarat tersebut dapat divisualisasikan melalui Figure <a href="manajemen-data-r.html#fig:tidy">3.1</a></p>
+<div class="figure" style="text-align: center"><span id="fig:tidy"></span>
+<img src="tidy.png" alt="Visualisasi 3 rule tidy data" width="293" />
+<p class="caption">
+Figure 3.1: Visualisasi 3 rule tidy data
+</p>
+</div>
+<p>Pada dataset <code>storms</code> terdapat 4 buah kolom dan 6 buah baris. Masing-masing kolom menyatakan variabel pada masing-masing observasi seperti nama badai , kecepatan angin, tekanan dan waktu . Ketiga syarat kerapihan data sudah terpenuhi pada data tersebut sehingga kita bisa melakukan analisa terhadap data tersebut, misalnya kecepatan angin dan tekanan pada masing-masing badai. Selain itu kita juga dapat dengan mudah menginput variabel baru pada dataset tersebut, misal: rasio (kecepatan angin/tekanan).</p>
+<p>Berikut adalah contoh bagaimana kita dapat dengan mudah menarik nilai variabel pada masing-masing kolom dan membentuk variabel baru pada dataset tersebut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subset variabel</span>
+storms<span class="op">$</span>storm</code></pre></div>
+<pre><code>## [1] &quot;Alberto&quot; &quot;Alex&quot;    &quot;Allison&quot; &quot;Ana&quot;     &quot;Arlene&quot;  &quot;Arthur&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">storms<span class="op">$</span>wind</code></pre></div>
+<pre><code>## [1] 110  45  65  40  50  45</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">storms<span class="op">$</span>pressure</code></pre></div>
+<pre><code>## [1] 1007 1009 1005 1013 1010 1010</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">storms<span class="op">$</span>date</code></pre></div>
+<pre><code>## [1] &quot;2000-08-03&quot; &quot;1998-07-27&quot; &quot;1995-06-03&quot; &quot;1997-06-30&quot; &quot;1999-06-11&quot;
+## [6] &quot;1996-06-17&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat variabel baru</span>
+storms_new &lt;-<span class="st"> </span>storms
+storms_new<span class="op">$</span>ratio &lt;-<span class="st"> </span>storms_new<span class="op">$</span>wind<span class="op">/</span>storms_new<span class="op">$</span>pressure
+storms_new</code></pre></div>
+<pre><code>##     storm wind pressure       date      ratio
+## 1 Alberto  110     1007 2000-08-03 0.10923535
+## 2    Alex   45     1009 1998-07-27 0.04459861
+## 3 Allison   65     1005 1995-06-03 0.06467662
+## 4     Ana   40     1013 1997-06-30 0.03948667
+## 5  Arlene   50     1010 1999-06-11 0.04950495
+## 6  Arthur   45     1010 1996-06-17 0.04455446</code></pre>
+<p>Pada dataset <code>cases</code> terdapat 3 buah kolom dan 3 baris. Pada kolom pertama berupa kode Negara, sedangkan kolom sisanya merupakan tahun. Jika kita perhatikan dengan seksama dataset tersebut merupakan sebuah <em>contingency table</em> dimana tabel tersebut menyatakan frekuensi kejadian pada tahun tertentu dan negara tertentu. Dataset tersebut belum dapat dikatan <em>tidy</em> karena kolom <code>2011</code> sampai <code>2013</code> merupakan sebuah nilai dari observasi dan bukan sebuah variabel sehingga dataset tersebut masih tergolong dataset <em>messy</em>. Selain itu sangat sulit untuk dilakukan penarikan terhadap nilai pada setiap kolom serta pembentukan variabel baru sebagai pendukung analisa juga sulit dilakukan. Berikut adalah contoh melakukan penarikan nilai / subset pada masing variabel:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cases<span class="op">$</span>country</code></pre></div>
+<pre><code>## [1] &quot;FR&quot; &quot;DE&quot; &quot;US&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(cases[<span class="op">-</span><span class="dv">1</span>])</code></pre></div>
+<pre><code>## [1] &quot;2011&quot; &quot;2012&quot; &quot;2013&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unlist</span>(cases[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</code></pre></div>
+<pre><code>## 20111 20112 20113 20121 20122 20123 20131 20132 20133 
+##  7000  5800 15000  6900  6000 14000  7000  6200 13000</code></pre>
+<p>Pada dataset <code>pollution</code>terdapat 3 buah kolom dan 6 baris. Masing-masing kolom menyatakan lokasi berupa nama kota, keterangan ukuran partikel, serta nilai dari ukuran partikel. Beberapa dari kita mungkin menganggap dataset ini telah memenuhi syarat kerapihan data. Namun, coba kita cermati jika mita ingin membuat variabel baru terkait dengan berapa rentang ukuran partikel (range ukuran partikel) pada masing-masing kota. Hal tersebut tentu sangat sulit dilakukan pada dataset tersebut, namun dataset tersebut memungkinkan kita dengan mudah mengambil nilai dari masing-masing variabelnya seperti contoh berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pollution<span class="op">$</span>city</code></pre></div>
+<pre><code>## [1] &quot;New York&quot; &quot;New York&quot; &quot;London&quot;   &quot;London&quot;   &quot;Beijing&quot;  &quot;Beijing&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pollution<span class="op">$</span>size</code></pre></div>
+<pre><code>## [1] &quot;large&quot; &quot;small&quot; &quot;large&quot; &quot;small&quot; &quot;large&quot; &quot;small&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pollution<span class="op">$</span>amount</code></pre></div>
+<pre><code>## [1]  23  14  22  16 121  56</code></pre>
+<p>Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjelaskan bagaiman cara melakukan perapihan data menggunakan library <code>tidyr</code>. Sebelum kita melakukannya berikut adalah sintaks untuk menginstall library tersebut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat paket</span>
+<span class="kw">library</span>(tidyr)</code></pre></div>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.3</code></pre>
+<div id="gather" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Gather</h3>
+<p>Pada dataset <code>cases</code> kolom <code>2011</code> sampai <code>2013</code> perlu dijadikan satu variabel yaitu tahun. untuk melakukannya kita dapat menggunakan fungsi <code>gather()</code>. Secara sederhana fungsi tersebut dapat dituliskan dengan format sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gather</span>(data, key, value, ...)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: data frame</li>
+<li><strong>key, value</strong>: nama kunci dan kolom nilai yang akan dibuat di output</li>
+<li><strong>…</strong>: Spesifikasi kolom untuk dikumpulkan. Nilai yang diizinkan adalah:
+<ul>
+<li>nama variabel</li>
+<li>jika kita ingin memilih semua variabel antara a dan e, gunakan a:e</li>
+<li>jika kita ingin mengecualikan nama kolom y gunakan -y</li>
+<li>untuk opsi lainnya, lihat: <code>dplyr::select()</code></li>
+</ul></li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapannya pada dataset <code>cases</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ubah dataset cases menjadi tibble simpan sebagai objek cases_new</span>
+<span class="kw">library</span>(tibble)
+cases_tbl &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(cases)
+
+<span class="co"># print</span>
+cases_tbl</code></pre></div>
+<pre><code>## # A tibble: 3 x 4
+##   country `2011` `2012` `2013`
+##   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 FR        7000   6900   7000
+## 2 DE        5800   6000   6200
+## 3 US       15000  14000  13000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># gather</span>
+cases_new &lt;-<span class="st"> </span><span class="kw">gather</span>(cases_tbl, 
+                    <span class="co"># variabel kunci</span>
+                    <span class="dt">key =</span> <span class="st">&quot;year&quot;</span>,
+                    <span class="co"># nilai variabel</span>
+                    <span class="dt">value =</span> <span class="st">&quot;frequency&quot;</span>,
+                    <span class="co"># kecualikan kolom country</span>
+                    <span class="op">-</span>country)
+
+<span class="co"># print</span>
+cases_new</code></pre></div>
+<pre><code>## # A tibble: 9 x 3
+##   country year  frequency
+##   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;
+## 1 FR      2011       7000
+## 2 DE      2011       5800
+## 3 US      2011      15000
+## 4 FR      2012       6900
+## 5 DE      2012       6000
+## 6 US      2012      14000
+## 7 FR      2013       7000
+## 8 DE      2013       6200
+## 9 US      2013      13000</code></pre>
+<p>Berdasarkan hasil yang diperoleh terlihat bahwa variabel tahun memiliki jenis data karakter. Jenis data ini masih belum sesuai sehingga perlu dikonversi agar menjadi jenis data numerik (<em>dbl = double</em>). Untuk melakukannya jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ubah jenis variabel tahun menjadi numerik</span>
+cases_new<span class="op">$</span>year &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(cases_new<span class="op">$</span>year)
+cases_new</code></pre></div>
+<pre><code>## # A tibble: 9 x 3
+##   country  year frequency
+##   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1 FR       2011      7000
+## 2 DE       2011      5800
+## 3 US       2011     15000
+## 4 FR       2012      6900
+## 5 DE       2012      6000
+## 6 US       2012     14000
+## 7 FR       2013      7000
+## 8 DE       2013      6200
+## 9 US       2013     13000</code></pre>
+<p>Data yang diperoleh sekaran telah rapi (<em>tidy</em>), sehingga sudah siap untuk dilakukan analisa data.</p>
+</div>
+<div id="spread" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Spread</h3>
+<p>Fungsi <code>spread()</code> berkebalikan dengan <code>gather()</code>. Fungsi <code>gather()</code> menggabungkan beberapa kolom menjadi 2 buah kolom kolom kunci sedangkan <code>spread()</code> merubah dua kolom menjadi beberapa kolom. Format sederhanya adalah sebagai berikut:</p>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: data frame</li>
+<li><strong>key</strong>: nama kolom yang akan dijadikan heading pada kolom baru</li>
+<li><strong>value</strong>: nama kolom yang nilainya akan mengisi setiap sel</li>
+</ul>
+</blockquote>
+<p>Pada contoh kasus pada data <code>pollution</code>, kita dapat memisahkan kolom 2 menjadi kolom baru yaitu kolom <code>big size</code> dan <code>small size</code>. Untuk melakukannya jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merubah objek pollution menjadi tibble</span>
+pollution_tbl &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(pollution)
+
+<span class="co"># print</span>
+pollution_tbl</code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   city     size  amount
+##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;
+## 1 New York large     23
+## 2 New York small     14
+## 3 London   large     22
+## 4 London   small     16
+## 5 Beijing  large    121
+## 6 Beijing  small     56</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># spread</span>
+pollution_new &lt;-<span class="st"> </span><span class="kw">spread</span>(pollution_tbl,
+                        <span class="dt">key =</span> size,
+                        <span class="dt">value =</span> amount)
+
+<span class="co">#print</span>
+pollution_new</code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   city     large small
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1 Beijing    121    56
+## 2 London      22    16
+## 3 New York    23    14</code></pre>
+<p>Terlihat bahwa data <code>pollution</code> tampak memnuhi syarat kerapihan data (<em>tidy</em>). Kita sekarang dapat menginput variabel baru dan melakukan analisa terhadap data tersebut. Berikut adalah contoh penerapannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># input variabel range (large-small)</span>
+pollution_new<span class="op">$</span>range &lt;-<span class="st"> </span>pollution_new<span class="op">$</span>large <span class="op">-</span><span class="st"> </span>pollution_new<span class="op">$</span>small
+
+<span class="co"># print</span>
+pollution_new</code></pre></div>
+<pre><code>## # A tibble: 3 x 4
+##   city     large small range
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Beijing    121    56    65
+## 2 London      22    16     6
+## 3 New York    23    14     9</code></pre>
+<p>Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran partikel terbesar berada di Kota Beijing.</p>
+</div>
+<div id="separate" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Separate</h3>
+<p>Fungsi <code>separate()</code> merupakan fungsi yang digunakan untuk memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi ini berbeda dengan fungsi sebelumnya seperti <code>gather()</code> dan <code>spread()</code> yang menggabung atau memisahkan 2 atau beberapa kolom. Format sederhana fungsi <code>separate()</code> adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">separate</span>(data, col, into, <span class="dt">sep =</span> <span class="st">&quot;[^[:alnum:]]+&quot;</span>, <span class="dt">convert=</span> <span class="ot">TRUE</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: data frame.</li>
+<li><strong>col</strong>: Nama kolom yang tidak dikutip.</li>
+<li><strong>into</strong>: Vektor karakter menentukan nama variabel baru yang akan dibuat.</li>
+<li><strong>sep</strong>: Pemisah antar kolom:</li>
+<li>Jika karakter, diartikan sebagai ekspresi reguler. Jika numerik, diartikan sebagai posisi untuk dibelah. Nilai-nilai positif mulai dari 1 di ujung kiri string; nilai negatif mulai dari -1 di ujung kanan string.</li>
+<li><strong>convert</strong>: nilai logik. Jika bernilai TRUE maka kolom baru yang akan diperoleh akan dikonversi berdasarkan jenis data yang seharusnya.</li>
+</ul>
+</blockquote>
+<p>Pada dataset <code>storms</code> kita ingin memisahkan kolom <code>date</code> menjadi beberapa kolom seperti <code>year</code>, <code>month</code>, dan <code>day</code>, Kita dapat menggunakan fungsi <code>separate()</code> untuk memisahkan nilai pada kolom tersebut berdasarkan karakter pemisah pada nilai kolom tersebut dalam hal ini adalah “-”. Berikut adalah cara melakukannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merubah storms menjadi tibble</span>
+storms_tbl &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(storms)
+
+<span class="co"># print</span>
+storms_tbl</code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   storm    wind pressure date      
+##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;date&gt;    
+## 1 Alberto   110     1007 2000-08-03
+## 2 Alex       45     1009 1998-07-27
+## 3 Allison    65     1005 1995-06-03
+## 4 Ana        40     1013 1997-06-30
+## 5 Arlene     50     1010 1999-06-11
+## 6 Arthur     45     1010 1996-06-17</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># separate</span>
+storms_new &lt;-<span class="st"> </span><span class="kw">separate</span>(storms_tbl,
+                       <span class="dt">col =</span> date,
+                       <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;year&quot;</span>,<span class="st">&quot;month&quot;</span>,<span class="st">&quot;days&quot;</span>),
+                       <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>,
+                       <span class="dt">convert =</span> <span class="ot">TRUE</span>)
+
+<span class="co"># print</span>
+storms_new</code></pre></div>
+<pre><code>## # A tibble: 6 x 6
+##   storm    wind pressure  year month  days
+##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1 Alberto   110     1007  2000     8     3
+## 2 Alex       45     1009  1998     7    27
+## 3 Allison    65     1005  1995     6     3
+## 4 Ana        40     1013  1997     6    30
+## 5 Arlene     50     1010  1999     6    11
+## 6 Arthur     45     1010  1996     6    17</code></pre>
+<p>Berdasarkan hasil yang diperoleh terlihat bahwa data telah terpisah dengan benar yang ditunjukkan dari nilai yang terpisah dan jenis data yang dihasilkan.</p>
+</div>
+<div id="unite" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Unite</h3>
+<p>Fungsi <code>unite()</code> merupakan kebalikan dari fungsi <code>separate()</code>, dimana fungsi ini menggabungkan sejumlah kolom menjadi 1 kolom. Format sederhana untuk melakukanya disajikan sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unite</span>(data, col, ..., <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: data frame.</li>
+<li><strong>col</strong>: nama kolom baru (tanpa tanda kutip) untuk ditambahkan.</li>
+<li><strong>sep</strong>: pemisah yang akan digunakan pada antar nilai.</li>
+</ul>
+</blockquote>
+<p>Pada dataset <code>storms_new</code> kita ingin menggabungkan kembali kolom <code>year</code>, <code>month</code>, dan <code>days</code> dengan karakter pemisah “/”. Berikut adalah cara melakukannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># unite</span>
+storms_old &lt;-<span class="st"> </span><span class="kw">unite</span>(storms_new,
+                   <span class="dt">col =</span> <span class="st">&quot;date&quot;</span>,
+                   year, month, days,
+                   <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)
+
+<span class="co"># print</span>
+storms_old</code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   storm    wind pressure date     
+##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;chr&gt;    
+## 1 Alberto   110     1007 2000-8-3 
+## 2 Alex       45     1009 1998-7-27
+## 3 Allison    65     1005 1995-6-3 
+## 4 Ana        40     1013 1997-6-30
+## 5 Arlene     50     1010 1999-6-11
+## 6 Arthur     45     1010 1996-6-17</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ubah jenis kolom menjadi date</span>
+storms_old<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(storms_old<span class="op">$</span>date)
+
+<span class="co"># print</span>
+storms_old</code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   storm    wind pressure date      
+##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;date&gt;    
+## 1 Alberto   110     1007 2000-08-03
+## 2 Alex       45     1009 1998-07-27
+## 3 Allison    65     1005 1995-06-03
+## 4 Ana        40     1013 1997-06-30
+## 5 Arlene     50     1010 1999-06-11
+## 6 Arthur     45     1010 1996-06-17</code></pre>
 
 </div>
 </div>

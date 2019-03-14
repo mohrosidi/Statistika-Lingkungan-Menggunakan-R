@@ -125,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-03-13}
+    \date{2019-03-14}
 
 \usepackage{booktabs}
 
@@ -4709,6 +4709,676 @@ penerapannya:
 Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah
 melakukan \emph{partial matching}, dan mereka akan menghasilkan
 peringatan jika kolom yang kita coba akses tidak ada.
+
+\section{Merapikan Data}\label{merapikan-data}
+
+Sebelum memulai analisa terhadap data yang kita miliki, umumnya kita
+akan merapikan data yang akan kita gunakan. Tujuannya adalah agar data
+yang akan digunakan sudah siap untuk dilakukan analisa dengan software
+tertentu seperti \texttt{R}, dimana pada dataset perlu jelas antara
+variabel dan nilai (\emph{value}), serta untuk mempermudah dalah
+memperoleh informasi pada data. Berikut adalah beberapa contoh dataset
+yang dapat pembaca cermati terkait manakah data yang telah rapi
+(\emph{tidy data}) dan mana yang belum (\emph{messy data}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Install paket dataset EDAWR}
+\CommentTok{# install.packages("devtools")}
+\CommentTok{# devtools::install_github("rstudio/EDAWR")}
+
+\CommentTok{# hilangkan tanda # jika pembaca belum menginstall}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(EDAWR)}
+\CommentTok{# memuat dataset}
+\NormalTok{storms}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     storm wind pressure       date
+## 1 Alberto  110     1007 2000-08-03
+## 2    Alex   45     1009 1998-07-27
+## 3 Allison   65     1005 1995-06-03
+## 4     Ana   40     1013 1997-06-30
+## 5  Arlene   50     1010 1999-06-11
+## 6  Arthur   45     1010 1996-06-17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cases}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   country  2011  2012  2013
+## 1      FR  7000  6900  7000
+## 2      DE  5800  6000  6200
+## 3      US 15000 14000 13000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pollution}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       city  size amount
+## 1 New York large     23
+## 2 New York small     14
+## 3   London large     22
+## 4   London small     16
+## 5  Beijing large    121
+## 6  Beijing small     56
+\end{verbatim}
+
+Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu
+terlebih dahulu apa saja syarat suatu dataset dikatakan rapi
+(\emph{tidy}). Berikut adalah syaratnya:
+
+\begin{itemize}
+\tightlist
+\item
+  Setiap variabel harus memiliki kolomnya sendiri
+\item
+  Setiap observasi harus memiliki barisnya sendiri
+\item
+  Setiap nilai berada pada sel tersendiri
+\end{itemize}
+
+Ketiga syarat tersebut saling berhubungan sehingga jika salah satu
+syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan
+\emph{tidy}. Ketiga syarat tersebut dapat divisualisasikan melalui
+Figure \ref{fig:tidy}
+
+\begin{figure}
+
+{\centering \includegraphics[width=8.14in]{tidy} 
+
+}
+
+\caption{Visualisasi 3 rule tidy data}\label{fig:tidy}
+\end{figure}
+
+Pada dataset \texttt{storms} terdapat 4 buah kolom dan 6 buah baris.
+Masing-masing kolom menyatakan variabel pada masing-masing observasi
+seperti nama badai , kecepatan angin, tekanan dan waktu . Ketiga syarat
+kerapihan data sudah terpenuhi pada data tersebut sehingga kita bisa
+melakukan analisa terhadap data tersebut, misalnya kecepatan angin dan
+tekanan pada masing-masing badai. Selain itu kita juga dapat dengan
+mudah menginput variabel baru pada dataset tersebut, misal: rasio
+(kecepatan angin/tekanan).
+
+Berikut adalah contoh bagaimana kita dapat dengan mudah menarik nilai
+variabel pada masing-masing kolom dan membentuk variabel baru pada
+dataset tersebut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# subset variabel}
+\NormalTok{storms}\OperatorTok{$}\NormalTok{storm}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Alberto" "Alex"    "Allison" "Ana"     "Arlene"  "Arthur"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{storms}\OperatorTok{$}\NormalTok{wind}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 110  45  65  40  50  45
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{storms}\OperatorTok{$}\NormalTok{pressure}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1007 1009 1005 1013 1010 1010
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{storms}\OperatorTok{$}\NormalTok{date}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2000-08-03" "1998-07-27" "1995-06-03" "1997-06-30" "1999-06-11"
+## [6] "1996-06-17"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat variabel baru}
+\NormalTok{storms_new <-}\StringTok{ }\NormalTok{storms}
+\NormalTok{storms_new}\OperatorTok{$}\NormalTok{ratio <-}\StringTok{ }\NormalTok{storms_new}\OperatorTok{$}\NormalTok{wind}\OperatorTok{/}\NormalTok{storms_new}\OperatorTok{$}\NormalTok{pressure}
+\NormalTok{storms_new}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     storm wind pressure       date      ratio
+## 1 Alberto  110     1007 2000-08-03 0.10923535
+## 2    Alex   45     1009 1998-07-27 0.04459861
+## 3 Allison   65     1005 1995-06-03 0.06467662
+## 4     Ana   40     1013 1997-06-30 0.03948667
+## 5  Arlene   50     1010 1999-06-11 0.04950495
+## 6  Arthur   45     1010 1996-06-17 0.04455446
+\end{verbatim}
+
+Pada dataset \texttt{cases} terdapat 3 buah kolom dan 3 baris. Pada
+kolom pertama berupa kode Negara, sedangkan kolom sisanya merupakan
+tahun. Jika kita perhatikan dengan seksama dataset tersebut merupakan
+sebuah \emph{contingency table} dimana tabel tersebut menyatakan
+frekuensi kejadian pada tahun tertentu dan negara tertentu. Dataset
+tersebut belum dapat dikatan \emph{tidy} karena kolom \texttt{2011}
+sampai \texttt{2013} merupakan sebuah nilai dari observasi dan bukan
+sebuah variabel sehingga dataset tersebut masih tergolong dataset
+\emph{messy}. Selain itu sangat sulit untuk dilakukan penarikan terhadap
+nilai pada setiap kolom serta pembentukan variabel baru sebagai
+pendukung analisa juga sulit dilakukan. Berikut adalah contoh melakukan
+penarikan nilai / subset pada masing variabel:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cases}\OperatorTok{$}\NormalTok{country}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "FR" "DE" "US"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{names}\NormalTok{(cases[}\OperatorTok{-}\DecValTok{1}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2011" "2012" "2013"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{unlist}\NormalTok{(cases[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{, }\DecValTok{2}\OperatorTok{:}\DecValTok{4}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 20111 20112 20113 20121 20122 20123 20131 20132 20133 
+##  7000  5800 15000  6900  6000 14000  7000  6200 13000
+\end{verbatim}
+
+Pada dataset \texttt{pollution}terdapat 3 buah kolom dan 6 baris.
+Masing-masing kolom menyatakan lokasi berupa nama kota, keterangan
+ukuran partikel, serta nilai dari ukuran partikel. Beberapa dari kita
+mungkin menganggap dataset ini telah memenuhi syarat kerapihan data.
+Namun, coba kita cermati jika mita ingin membuat variabel baru terkait
+dengan berapa rentang ukuran partikel (range ukuran partikel) pada
+masing-masing kota. Hal tersebut tentu sangat sulit dilakukan pada
+dataset tersebut, namun dataset tersebut memungkinkan kita dengan mudah
+mengambil nilai dari masing-masing variabelnya seperti contoh berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pollution}\OperatorTok{$}\NormalTok{city}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "New York" "New York" "London"   "London"   "Beijing"  "Beijing"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pollution}\OperatorTok{$}\NormalTok{size}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "large" "small" "large" "small" "large" "small"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pollution}\OperatorTok{$}\NormalTok{amount}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  23  14  22  16 121  56
+\end{verbatim}
+
+Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan
+menjelaskan bagaiman cara melakukan perapihan data menggunakan library
+\texttt{tidyr}. Sebelum kita melakukannya berikut adalah sintaks untuk
+menginstall library tersebut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"tidyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(tidyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Gather}\label{gather}
+
+Pada dataset \texttt{cases} kolom \texttt{2011} sampai \texttt{2013}
+perlu dijadikan satu variabel yaitu tahun. untuk melakukannya kita dapat
+menggunakan fungsi \texttt{gather()}. Secara sederhana fungsi tersebut
+dapat dituliskan dengan format sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{gather}\NormalTok{(data, key, value, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data}: data frame
+\item
+  \textbf{key, value}: nama kunci dan kolom nilai yang akan dibuat di
+  output
+\item
+  \textbf{\ldots{}}: Spesifikasi kolom untuk dikumpulkan. Nilai yang
+  diizinkan adalah:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    nama variabel
+  \item
+    jika kita ingin memilih semua variabel antara a dan e, gunakan a:e
+  \item
+    jika kita ingin mengecualikan nama kolom y gunakan -y
+  \item
+    untuk opsi lainnya, lihat: \texttt{dplyr::select()}
+  \end{itemize}
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penerapannya pada dataset \texttt{cases}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ubah dataset cases menjadi tibble simpan sebagai objek cases_new}
+\KeywordTok{library}\NormalTok{(tibble)}
+\NormalTok{cases_tbl <-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(cases)}
+
+\CommentTok{# print}
+\NormalTok{cases_tbl}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 4
+##   country `2011` `2012` `2013`
+##   <chr>    <dbl>  <dbl>  <dbl>
+## 1 FR        7000   6900   7000
+## 2 DE        5800   6000   6200
+## 3 US       15000  14000  13000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# gather}
+\NormalTok{cases_new <-}\StringTok{ }\KeywordTok{gather}\NormalTok{(cases_tbl, }
+                    \CommentTok{# variabel kunci}
+                    \DataTypeTok{key =} \StringTok{"year"}\NormalTok{,}
+                    \CommentTok{# nilai variabel}
+                    \DataTypeTok{value =} \StringTok{"frequency"}\NormalTok{,}
+                    \CommentTok{# kecualikan kolom country}
+                    \OperatorTok{-}\NormalTok{country)}
+
+\CommentTok{# print}
+\NormalTok{cases_new}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 9 x 3
+##   country year  frequency
+##   <chr>   <chr>     <dbl>
+## 1 FR      2011       7000
+## 2 DE      2011       5800
+## 3 US      2011      15000
+## 4 FR      2012       6900
+## 5 DE      2012       6000
+## 6 US      2012      14000
+## 7 FR      2013       7000
+## 8 DE      2013       6200
+## 9 US      2013      13000
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh terlihat bahwa variabel tahun memiliki
+jenis data karakter. Jenis data ini masih belum sesuai sehingga perlu
+dikonversi agar menjadi jenis data numerik (\emph{dbl = double}). Untuk
+melakukannya jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ubah jenis variabel tahun menjadi numerik}
+\NormalTok{cases_new}\OperatorTok{$}\NormalTok{year <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(cases_new}\OperatorTok{$}\NormalTok{year)}
+\NormalTok{cases_new}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 9 x 3
+##   country  year frequency
+##   <chr>   <dbl>     <dbl>
+## 1 FR       2011      7000
+## 2 DE       2011      5800
+## 3 US       2011     15000
+## 4 FR       2012      6900
+## 5 DE       2012      6000
+## 6 US       2012     14000
+## 7 FR       2013      7000
+## 8 DE       2013      6200
+## 9 US       2013     13000
+\end{verbatim}
+
+Data yang diperoleh sekaran telah rapi (\emph{tidy}), sehingga sudah
+siap untuk dilakukan analisa data.
+
+\subsection{Spread}\label{spread}
+
+Fungsi \texttt{spread()} berkebalikan dengan \texttt{gather()}. Fungsi
+\texttt{gather()} menggabungkan beberapa kolom menjadi 2 buah kolom
+kolom kunci sedangkan \texttt{spread()} merubah dua kolom menjadi
+beberapa kolom. Format sederhanya adalah sebagai berikut:
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data}: data frame
+\item
+  \textbf{key}: nama kolom yang akan dijadikan heading pada kolom baru
+\item
+  \textbf{value}: nama kolom yang nilainya akan mengisi setiap sel
+\end{itemize}
+\end{quote}
+
+Pada contoh kasus pada data \texttt{pollution}, kita dapat memisahkan
+kolom 2 menjadi kolom baru yaitu kolom \texttt{big\ size} dan
+\texttt{small\ size}. Untuk melakukannya jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# merubah objek pollution menjadi tibble}
+\NormalTok{pollution_tbl <-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(pollution)}
+
+\CommentTok{# print}
+\NormalTok{pollution_tbl}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   city     size  amount
+##   <chr>    <chr>  <dbl>
+## 1 New York large     23
+## 2 New York small     14
+## 3 London   large     22
+## 4 London   small     16
+## 5 Beijing  large    121
+## 6 Beijing  small     56
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# spread}
+\NormalTok{pollution_new <-}\StringTok{ }\KeywordTok{spread}\NormalTok{(pollution_tbl,}
+                        \DataTypeTok{key =}\NormalTok{ size,}
+                        \DataTypeTok{value =}\NormalTok{ amount)}
+
+\CommentTok{#print}
+\NormalTok{pollution_new}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 3
+##   city     large small
+##   <chr>    <dbl> <dbl>
+## 1 Beijing    121    56
+## 2 London      22    16
+## 3 New York    23    14
+\end{verbatim}
+
+Terlihat bahwa data \texttt{pollution} tampak memnuhi syarat kerapihan
+data (\emph{tidy}). Kita sekarang dapat menginput variabel baru dan
+melakukan analisa terhadap data tersebut. Berikut adalah contoh
+penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# input variabel range (large-small)}
+\NormalTok{pollution_new}\OperatorTok{$}\NormalTok{range <-}\StringTok{ }\NormalTok{pollution_new}\OperatorTok{$}\NormalTok{large }\OperatorTok{-}\StringTok{ }\NormalTok{pollution_new}\OperatorTok{$}\NormalTok{small}
+
+\CommentTok{# print}
+\NormalTok{pollution_new}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 4
+##   city     large small range
+##   <chr>    <dbl> <dbl> <dbl>
+## 1 Beijing    121    56    65
+## 2 London      22    16     6
+## 3 New York    23    14     9
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran
+partikel terbesar berada di Kota Beijing.
+
+\subsection{Separate}\label{separate}
+
+Fungsi \texttt{separate()} merupakan fungsi yang digunakan untuk
+memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom
+berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi
+ini berbeda dengan fungsi sebelumnya seperti \texttt{gather()} dan
+\texttt{spread()} yang menggabung atau memisahkan 2 atau beberapa kolom.
+Format sederhana fungsi \texttt{separate()} adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{separate}\NormalTok{(data, col, into, }\DataTypeTok{sep =} \StringTok{"[^[:alnum:]]+"}\NormalTok{, }\DataTypeTok{convert=} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data}: data frame.
+\item
+  \textbf{col}: Nama kolom yang tidak dikutip.
+\item
+  \textbf{into}: Vektor karakter menentukan nama variabel baru yang akan
+  dibuat.
+\item
+  \textbf{sep}: Pemisah antar kolom:
+\item
+  Jika karakter, diartikan sebagai ekspresi reguler. Jika numerik,
+  diartikan sebagai posisi untuk dibelah. Nilai-nilai positif mulai dari
+  1 di ujung kiri string; nilai negatif mulai dari -1 di ujung kanan
+  string.
+\item
+  \textbf{convert}: nilai logik. Jika bernilai TRUE maka kolom baru yang
+  akan diperoleh akan dikonversi berdasarkan jenis data yang seharusnya.
+\end{itemize}
+\end{quote}
+
+Pada dataset \texttt{storms} kita ingin memisahkan kolom \texttt{date}
+menjadi beberapa kolom seperti \texttt{year}, \texttt{month}, dan
+\texttt{day}, Kita dapat menggunakan fungsi \texttt{separate()} untuk
+memisahkan nilai pada kolom tersebut berdasarkan karakter pemisah pada
+nilai kolom tersebut dalam hal ini adalah ``-''. Berikut adalah cara
+melakukannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# merubah storms menjadi tibble}
+\NormalTok{storms_tbl <-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(storms)}
+
+\CommentTok{# print}
+\NormalTok{storms_tbl}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   storm    wind pressure date      
+##   <chr>   <int>    <int> <date>    
+## 1 Alberto   110     1007 2000-08-03
+## 2 Alex       45     1009 1998-07-27
+## 3 Allison    65     1005 1995-06-03
+## 4 Ana        40     1013 1997-06-30
+## 5 Arlene     50     1010 1999-06-11
+## 6 Arthur     45     1010 1996-06-17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# separate}
+\NormalTok{storms_new <-}\StringTok{ }\KeywordTok{separate}\NormalTok{(storms_tbl,}
+                       \DataTypeTok{col =}\NormalTok{ date,}
+                       \DataTypeTok{into =} \KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{,}\StringTok{"month"}\NormalTok{,}\StringTok{"days"}\NormalTok{),}
+                       \DataTypeTok{sep =} \StringTok{"-"}\NormalTok{,}
+                       \DataTypeTok{convert =} \OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# print}
+\NormalTok{storms_new}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 6
+##   storm    wind pressure  year month  days
+##   <chr>   <int>    <int> <int> <int> <int>
+## 1 Alberto   110     1007  2000     8     3
+## 2 Alex       45     1009  1998     7    27
+## 3 Allison    65     1005  1995     6     3
+## 4 Ana        40     1013  1997     6    30
+## 5 Arlene     50     1010  1999     6    11
+## 6 Arthur     45     1010  1996     6    17
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh terlihat bahwa data telah terpisah
+dengan benar yang ditunjukkan dari nilai yang terpisah dan jenis data
+yang dihasilkan.
+
+\subsection{Unite}\label{unite}
+
+Fungsi \texttt{unite()} merupakan kebalikan dari fungsi
+\texttt{separate()}, dimana fungsi ini menggabungkan sejumlah kolom
+menjadi 1 kolom. Format sederhana untuk melakukanya disajikan sebagai
+berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{unite}\NormalTok{(data, col, ..., }\DataTypeTok{sep =} \StringTok{"_"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data}: data frame.
+\item
+  \textbf{col}: nama kolom baru (tanpa tanda kutip) untuk ditambahkan.
+\item
+  \textbf{sep}: pemisah yang akan digunakan pada antar nilai.
+\end{itemize}
+\end{quote}
+
+Pada dataset \texttt{storms\_new} kita ingin menggabungkan kembali kolom
+\texttt{year}, \texttt{month}, dan \texttt{days} dengan karakter pemisah
+``/''. Berikut adalah cara melakukannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# unite}
+\NormalTok{storms_old <-}\StringTok{ }\KeywordTok{unite}\NormalTok{(storms_new,}
+                   \DataTypeTok{col =} \StringTok{"date"}\NormalTok{,}
+\NormalTok{                   year, month, days,}
+                   \DataTypeTok{sep =} \StringTok{"-"}\NormalTok{)}
+
+\CommentTok{# print}
+\NormalTok{storms_old}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   storm    wind pressure date     
+##   <chr>   <int>    <int> <chr>    
+## 1 Alberto   110     1007 2000-8-3 
+## 2 Alex       45     1009 1998-7-27
+## 3 Allison    65     1005 1995-6-3 
+## 4 Ana        40     1013 1997-6-30
+## 5 Arlene     50     1010 1999-6-11
+## 6 Arthur     45     1010 1996-6-17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# ubah jenis kolom menjadi date}
+\NormalTok{storms_old}\OperatorTok{$}\NormalTok{date <-}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(storms_old}\OperatorTok{$}\NormalTok{date)}
+
+\CommentTok{# print}
+\NormalTok{storms_old}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   storm    wind pressure date      
+##   <chr>   <int>    <int> <date>    
+## 1 Alberto   110     1007 2000-08-03
+## 2 Alex       45     1009 1998-07-27
+## 3 Allison    65     1005 1995-06-03
+## 4 Ana        40     1013 1997-06-30
+## 5 Arlene     50     1010 1999-06-11
+## 6 Arthur     45     1010 1996-06-17
+\end{verbatim}
 
 \chapter{Applications}\label{applications}
 
