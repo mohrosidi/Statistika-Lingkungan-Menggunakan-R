@@ -125,9 +125,8 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-03-14}
+    \date{2019-03-16}
 
-\usepackage{booktabs}
 
 \begin{document}
 \maketitle
@@ -4734,23 +4733,24 @@ yang dapat pembaca cermati terkait manakah data yang telah rapi
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(EDAWR)}
-\CommentTok{# memuat dataset}
-\NormalTok{storms}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##     storm wind pressure       date
-## 1 Alberto  110     1007 2000-08-03
-## 2    Alex   45     1009 1998-07-27
-## 3 Allison   65     1005 1995-06-03
-## 4     Ana   40     1013 1997-06-30
-## 5  Arlene   50     1010 1999-06-11
-## 6  Arthur   45     1010 1996-06-17
+## 
+## Attaching package: 'EDAWR'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked _by_ '.GlobalEnv':
+## 
+##     a, b, y, z
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# memuat dataset}
+\NormalTok{storms <-}\StringTok{ }\NormalTok{EDAWR}\OperatorTok{::}\NormalTok{storms}
 \NormalTok{cases}
 \end{Highlighting}
 \end{Shaded}
@@ -4982,6 +4982,10 @@ menginstall library tersebut:
 \KeywordTok{library}\NormalTok{(tidyr)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyr' was built under R version 3.5.3
+\end{verbatim}
 
 \subsection{Gather}\label{gather}
 
@@ -5379,6 +5383,1087 @@ Pada dataset \texttt{storms\_new} kita ingin menggabungkan kembali kolom
 ## 5 Arlene     50     1010 1999-06-11
 ## 6 Arthur     45     1010 1996-06-17
 \end{verbatim}
+
+\section{Transformasi Data}\label{transformasi-data}
+
+Data frame merupakan struktur data utama dalam statistik dan dalam
+\texttt{R}. Struktur dasar data frame ialah ada satu observasi tiap
+baris dan setiap kolom mewakili variabel, ukuran, fitur, atau
+karakteristik pengamatan itu yang telah dijelaskan pada bagian
+sebelumya. \texttt{R} memiliki implementasi internal data frame yang
+kemungkinan besar akan kita gunakan paling sering. Namun, ada paket di
+CRAN yang mengimplementasikan data frame layaknya basis data relasional
+yang memungkinkan kita untuk beroperasi pada data frame yang sangat
+besar.
+
+Mengingat pentingnya mengelola dat frame, penting bagi kita untuk
+memiliki alat yang baik untuk melakukannya. \texttt{R} memiliki beberapa
+paket seperti fungsi \texttt{subset()} dan penggunaan operator ``{[}''
+dan ``\$'' untuk mengekstrak himpunan bagian dari frame data. Namun,
+operasi lain, seperti pemfilteran, pengurutan, dan pengelompokan data,
+seringkali dapat menjadi operasi yang membosankan di \texttt{R} yang
+sintaksisnya tidak terlalu intuitif. Paket \texttt{dplyr} dirancang
+untuk mengurangi banyak masalah ini dan menyediakan serangkaian
+rutinitas yang dioptimalkan secara khusus untuk menangani data frame.
+
+\subsection{Paket dplyr}\label{paket-dplyr}
+
+Paket \texttt{dplyr} dikembangkan oleh \textbf{Hadley Wickham} dari
+\textbf{RStudio} dan merupakan versi yang dioptimalkan dari paket
+\texttt{plyr}-nya. Paket \texttt{dplyr} tidak menyediakan fungsionalitas
+baru untuk \texttt{R} sendiri, dalam arti bahwa semua yang dilakukan
+\texttt{dplyr} sudah dapat dilakukan dengan fungsi basis \texttt{R},
+tetapi sangat menyederhanakan fungsi yang ada di \texttt{R}.
+
+Salah satu kontribusi penting dari paket \texttt{dplyr} adalah ia
+menyediakan ``\emph{grammar}'' (khususnya, kata kerja) untuk manipulasi
+data dan untuk beroperasi pada data frame. Melalui \emph{grammar} ini,
+kita dapat berkomunikasi dengan masuk akal apa yang telah kita lakukan
+terhadap data frame dapat pula dipahami orang lain (dengan asumsi mereka
+juga tahu \emph{grammar}-nya). Hal ini berguna karena memberikan
+abstraksi untuk manipulasi data yang sebelumnya tidak ada. Kontribusi
+lain yang bermanfaat adalah bahwa fungsi \texttt{dplyr} sangat cepat,
+karena banyak operasi utama dikodekan dalam C++.
+
+Pada bagian ini pembaca akan belajar \textbf{6} fungsi utama yang ada
+pada paket \texttt{dplyr}. Fungsi tersebut antara lain:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Mengambil sejumlah observasi berdasarkan nilainya (\texttt{filter()}).
+\item
+  Mengurutkan kembali baris data frame berdasarkan nilai pada sebuah
+  atau beberapa variabel (\texttt{arrange()}).
+\item
+  Mengambil atau subset terhadap sebuah atau beberapa variabel
+  berdasarkan nama variabel/kolom (\texttt{select()}).
+\item
+  Membuat variabel baru atau menambahkan kolom baru (\texttt{mutate()}).
+\item
+  Membuat ringkasan terhadap data frame (\texttt{summarize()})
+\item
+  Mengelompokkan operasi berdasarkan grup data (\texttt{group\_by()}).
+\end{enumerate}
+
+Keseluruhan fungsi tersebut format fungsi yang seragam, yaitu:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Argumen pertama adalah data frame.
+\item
+  Argumen selanjutnya adalah deskripsi yang akan dilakukan terhadap data
+  frame (filter, pengurutan kembali, membuat ringkasan, dll) menggunakan
+  nama variabel (tanpa tanda kutip).
+\item
+  Hasil operasi yang diperoleh adalah data frame baru.
+\end{enumerate}
+
+Untuk menginstall dan memuat paket \texttt{dplyr} jalankan sintaks
+berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Memasang paket}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{filter()}\label{filter}
+
+Fungsi \texttt{filter()} digunakan untuk mengekstrak himpunan bagian
+(subset) baris dari data frame. Fungsi ini mirip dengan fungsi
+\texttt{subset()} yang ada di \texttt{R}. Secara sederhana format fungsi
+\texttt{filter()} dapat dituliskan sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filter}\NormalTok{(data, ....)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data} : data frame
+\item
+  \textbf{\ldots{}.} : Predikat logis didefinisikan dalam istilah
+  variabel dalam \textbf{data}. Beberapa kondisi digabungkan dengan \&
+  (lihat Chapter 2 opeator relasi dan operator logika. Hanya baris
+  tempat kondisi bernilai TRUE disimpan.
+\end{itemize}
+\end{quote}
+
+Misalkan kita akan melakukan melakukan filter terhadap data frame
+\texttt{pollution\_tbl} terhadap variabel \texttt{size} dengan kriteria
+\texttt{large} dan \texttt{amount} \textgreater{} 12. Berikut adalah
+sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filter}\NormalTok{(pollution_tbl, size}\OperatorTok{==}\StringTok{"large"} \OperatorTok{&}\StringTok{ }\NormalTok{amount }\OperatorTok{>}\StringTok{ }\DecValTok{12}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 3
+##   city     size  amount
+##   <chr>    <chr>  <dbl>
+## 1 New York large     23
+## 2 London   large     22
+## 3 Beijing  large    121
+\end{verbatim}
+
+Jika menggunakan paket dasar \texttt{R}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{subset}\NormalTok{(pollution_tbl,size}\OperatorTok{==}\StringTok{"large"} \OperatorTok{&}\StringTok{ }\NormalTok{amount }\OperatorTok{>}\StringTok{ }\DecValTok{12}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 3
+##   city     size  amount
+##   <chr>    <chr>  <dbl>
+## 1 New York large     23
+## 2 London   large     22
+## 3 Beijing  large    121
+\end{verbatim}
+
+Operator ``\textgreater{}'' merupakan operator relasi (lihat chapter 2:
+operator relasi). Operator tersebut banyak digunakan untuk melakukan
+filter terhadap variabel/kolom yang mengandung nilai numerik.
+
+Operator ``=='' merupakan operator logika (lihat chapter 2: operator
+logika). Operator tersebut digunakan untuk melakukan filter terhadap
+sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang
+dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan.
+Untuk lebih memahami penerapan masing-masing operator logika pada proses
+filter perhatikan Figure \ref{fig:filter} berikut:
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.57in]{filter} 
+
+}
+
+\caption{Diagram operasi Boolean}\label{fig:filter}
+\end{figure}
+
+\begin{quote}
+\textbf{Note: } Bagian yang di arsir adalah observasi yang akan
+ditampilkan pada output.
+\end{quote}
+
+Salah satu bagian terpenting dan paling sering penulis gunakan pada
+fungsi ini memfilter \emph{missing value} (melihat observasi yang
+mengandung \emph{missing value} atau tidak melibatkan \emph{missing
+value}). Berikut adalah contoh filter terhadap data pada
+\texttt{pollution\_tbl} yang tidak mengandung \emph{missing value} dan
+nilai \texttt{amount}\textgreater{}0.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filter}\NormalTok{(pollution_tbl,}\OperatorTok{!}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(amount)}\OperatorTok{|}\NormalTok{amount}\OperatorTok{<=}\DecValTok{0}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   city     size  amount
+##   <chr>    <chr>  <dbl>
+## 1 New York large     23
+## 2 New York small     14
+## 3 London   large     22
+## 4 London   small     16
+## 5 Beijing  large    121
+## 6 Beijing  small     56
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh seluruh data tidak ada yang di drop
+sehingga dapat disimpulkan bahwa data tersebut tidak mengandung
+\emph{missing value} dan nol.
+
+\subsection{arrange()}\label{arrange}
+
+Fungsi \texttt{arrange()} bekerja mirip dengan fungsi \texttt{filter()}
+kecuali bahwa alih-alih memilih baris, fungsi ini mengubah urutan
+observasinya (mengurutkan dari yang terbesar atau sebaliknya).
+Dibutuhkan data frame dan sekumpulan nama kolom (atau ekspresi yang
+lebih rumit) untuk dipesan. Jika kita memberikan lebih dari satu nama
+kolom pada fungsi, setiap kolom tambahan akan digunakan untuk menentukan
+urutan nilai yang sama berdasarkan nilai kolom sebelumnya.
+
+Fungsi \texttt{arrange()} mirip dengan fungsi \texttt{order()} pada
+paket dasar \texttt{R}. Format sederhana fungsi ini adalah sebagai
+berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{arrange}\NormalTok{(data, ....)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data} : data frame
+\item
+  \textbf{\ldots{}.} : daftar nama variabel yang tidak dikutip yang
+  dipisahkan tanda koma, atau ekspresi yang melibatkan nama variabel.
+  Gunakan \texttt{desc()} untuk mengurutkan variabel dalam urutan
+  menurun.
+\end{itemize}
+\end{quote}
+
+Misalkan kita ingin melihat urutan mobil pada data \texttt{mtcars}
+berdasarkan penggunaan bahan bakar (\texttt{mpg}) dan bobot mobil
+(\texttt{wt}) tersebut. Berikut adalah sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(}\StringTok{"mtcars"}\NormalTok{)}
+
+\CommentTok{# Ubah mtcars menjadi tibble}
+\NormalTok{mtcars<-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(mtcars)}
+
+\KeywordTok{arrange}\NormalTok{(mtcars, mpg, wt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+##  1  10.4     8  472    205  2.93  5.25  18.0     0     0     3     4
+##  2  10.4     8  460    215  3     5.42  17.8     0     0     3     4
+##  3  13.3     8  350    245  3.73  3.84  15.4     0     0     3     4
+##  4  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  5  14.7     8  440    230  3.23  5.34  17.4     0     0     3     4
+##  6  15       8  301    335  3.54  3.57  14.6     0     1     5     8
+##  7  15.2     8  304    150  3.15  3.44  17.3     0     0     3     2
+##  8  15.2     8  276.   180  3.07  3.78  18       0     0     3     3
+##  9  15.5     8  318    150  2.76  3.52  16.9     0     0     3     2
+## 10  15.8     8  351    264  4.22  3.17  14.5     0     1     5     4
+## # ... with 22 more rows
+\end{verbatim}
+
+Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil
+untuk kedua variabel tersebut jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{arrange}\NormalTok{(mtcars, }\KeywordTok{desc}\NormalTok{(mpg), }\KeywordTok{desc}\NormalTok{(wt))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+##  1  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1
+##  2  32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1
+##  3  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2
+##  4  30.4     4  95.1   113  3.77  1.51  16.9     1     1     5     2
+##  5  27.3     4  79      66  4.08  1.94  18.9     1     1     4     1
+##  6  26       4 120.     91  4.43  2.14  16.7     0     1     5     2
+##  7  24.4     4 147.     62  3.69  3.19  20       1     0     4     2
+##  8  22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2
+##  9  22.8     4 108      93  3.85  2.32  18.6     1     1     4     1
+## 10  21.5     4 120.     97  3.7   2.46  20.0     1     0     3     1
+## # ... with 22 more rows
+\end{verbatim}
+
+Jika menggunakan fungsi \texttt{order()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{attach}\NormalTok{(mtcars)}
+\CommentTok{# urutan dari kecil ke besar}
+\NormalTok{mtcars[}\KeywordTok{order}\NormalTok{(mpg, wt), ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+##  1  10.4     8  472    205  2.93  5.25  18.0     0     0     3     4
+##  2  10.4     8  460    215  3     5.42  17.8     0     0     3     4
+##  3  13.3     8  350    245  3.73  3.84  15.4     0     0     3     4
+##  4  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  5  14.7     8  440    230  3.23  5.34  17.4     0     0     3     4
+##  6  15       8  301    335  3.54  3.57  14.6     0     1     5     8
+##  7  15.2     8  304    150  3.15  3.44  17.3     0     0     3     2
+##  8  15.2     8  276.   180  3.07  3.78  18       0     0     3     3
+##  9  15.5     8  318    150  2.76  3.52  16.9     0     0     3     2
+## 10  15.8     8  351    264  4.22  3.17  14.5     0     1     5     4
+## # ... with 22 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# urutan dari besar ke kecil}
+\NormalTok{mtcars[}\KeywordTok{order}\NormalTok{(}\OperatorTok{-}\NormalTok{mpg, }\OperatorTok{-}\NormalTok{wt), ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+##  1  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1
+##  2  32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1
+##  3  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2
+##  4  30.4     4  95.1   113  3.77  1.51  16.9     1     1     5     2
+##  5  27.3     4  79      66  4.08  1.94  18.9     1     1     4     1
+##  6  26       4 120.     91  4.43  2.14  16.7     0     1     5     2
+##  7  24.4     4 147.     62  3.69  3.19  20       1     0     4     2
+##  8  22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2
+##  9  22.8     4 108      93  3.85  2.32  18.6     1     1     4     1
+## 10  21.5     4 120.     97  3.7   2.46  20.0     1     0     3     1
+## # ... with 22 more rows
+\end{verbatim}
+
+\begin{quote}
+\textbf{Note: } \emph{missing value} akan selalu diurutkan pada
+observasi terakhir baik menggunakan urutan dari terbesar ke terkecil
+maupun sebaliknya.
+\end{quote}
+
+\subsection{select()}\label{select}
+
+Fungsi \texttt{select()} dapat digunakan untuk memilih kolom dari data
+frame yang ingin kita fokuskan. Seringkali kita memiliki data frame yang
+besar yang berisi semua data, tetapi setiap analisis yang diberikan
+hanya menggunakan subset variabel atau pengamatan. Fungsi
+\texttt{select()} memungkinkan kita untuk mendapatkan beberapa kolom
+yang mungkin kita butuhkan.
+
+Fungsi \texttt{select()} memiliki kesamaan dengan subset menggunakan
+tanda ``{[}'' dan ``\$''. Perbedaanya adalah kita dapat melakukan hal
+lebih melalui fungsi ini seperti memilih berdasarkan kriteria tertentu
+menggunakan fungsi bantuan sebagai berikut:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{starts\_with("abcd")}, pilih kolom yang memiliki awalan
+  ``abcd''.
+\item
+  \texttt{end\_with("abcd")}, pilih kolom yang memiliki akhiran
+  ``abcd''.
+\item
+  \texttt{contains("abcd")}, pilih kolom yang mengandung nama ``abcd''
+\item
+  \texttt{matches("(.)\textbackslash{}\textbackslash{}1")}, pilih
+  variabel yang mengandung \emph{regular expression}. Fungsi ini memilih
+  variabel yang mengandung perulangan karakter.
+\item
+  \texttt{num\_range("x",\ 1:3)}, cocokkan berdasarkan kolom dengan nama
+  x1,x2,x3.
+\end{enumerate}
+
+Berdasarkan fungsi bantuan tersebut, fungsi \texttt{select()} lebih
+powerfull dibandingkan dengan cara subset biasa serta lebih mudah dalam
+melakukannya. Berikut adalah format dari fungsi \texttt{select()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{select}\NormalTok{(data, ....)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data} : data frame
+\item
+  \textbf{\ldots{}.} : Satu atau lebih ekspresi kutip yang dipisahkan
+  oleh koma. kita dapat memperlakukan nama variabel seperti posisi,
+  sehingga kita dapat menggunakan ekspresi seperti x: y untuk memilih
+  rentang variabel.Nilai positif pilih variabel; nilai negatif drop
+  variabel. Jika ekspresi pertama negatif, \texttt{select()} akan secara
+  otomatis dimulai dengan semua variabel. Gunakan argumen bernama, mis.
+  \texttt{new\_name\ =\ old\_name}, untuk mengganti nama variabel yang
+  dipilih.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penerapan \texttt{selct()} pada data frame
+\texttt{flights}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\CommentTok{# install.packages("nycflights13")}
+
+\CommentTok{# memuat data frame}
+\KeywordTok{library}\NormalTok{(nycflights13)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'nycflights13' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# data}
+\NormalTok{flights}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    <int> <int> <int>    <int>          <int>     <dbl>    <int>
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time <int>,
+## #   arr_delay <dbl>, carrier <chr>, flight <int>, tailnum <chr>,
+## #   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,
+## #   minute <dbl>, time_hour <dttm>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# pilih kolom berdasarkan nama kolom}
+\KeywordTok{select}\NormalTok{(flights, year, month, day)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 3
+##     year month   day
+##    <int> <int> <int>
+##  1  2013     1     1
+##  2  2013     1     1
+##  3  2013     1     1
+##  4  2013     1     1
+##  5  2013     1     1
+##  6  2013     1     1
+##  7  2013     1     1
+##  8  2013     1     1
+##  9  2013     1     1
+## 10  2013     1     1
+## # ... with 336,766 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# pilih seluruh kolom dari year sampai day}
+\KeywordTok{select}\NormalTok{(flights, year}\OperatorTok{:}\NormalTok{day)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 3
+##     year month   day
+##    <int> <int> <int>
+##  1  2013     1     1
+##  2  2013     1     1
+##  3  2013     1     1
+##  4  2013     1     1
+##  5  2013     1     1
+##  6  2013     1     1
+##  7  2013     1     1
+##  8  2013     1     1
+##  9  2013     1     1
+## 10  2013     1     1
+## # ... with 336,766 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# drop kolom dari year sampai day}
+\KeywordTok{select}\NormalTok{(flights, }\OperatorTok{-}\NormalTok{(year}\OperatorTok{:}\NormalTok{day))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 16
+##    dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay
+##       <int>          <int>     <dbl>    <int>          <int>     <dbl>
+##  1      517            515         2      830            819        11
+##  2      533            529         4      850            830        20
+##  3      542            540         2      923            850        33
+##  4      544            545        -1     1004           1022       -18
+##  5      554            600        -6      812            837       -25
+##  6      554            558        -4      740            728        12
+##  7      555            600        -5      913            854        19
+##  8      557            600        -3      709            723       -14
+##  9      557            600        -3      838            846        -8
+## 10      558            600        -2      753            745         8
+## # ... with 336,766 more rows, and 10 more variables: carrier <chr>,
+## #   flight <int>, tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>,
+## #   distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# pilih kolom dengan akhiran time}
+\KeywordTok{select}\NormalTok{(flights, }\KeywordTok{ends_with}\NormalTok{(}\StringTok{"time"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 5
+##    dep_time sched_dep_time arr_time sched_arr_time air_time
+##       <int>          <int>    <int>          <int>    <dbl>
+##  1      517            515      830            819      227
+##  2      533            529      850            830      227
+##  3      542            540      923            850      160
+##  4      544            545     1004           1022      183
+##  5      554            600      812            837      116
+##  6      554            558      740            728      150
+##  7      555            600      913            854      158
+##  8      557            600      709            723       53
+##  9      557            600      838            846      140
+## 10      558            600      753            745      138
+## # ... with 336,766 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# pilih kolom yang mengandung karakter "arr"}
+\KeywordTok{select}\NormalTok{(flights, }\KeywordTok{contains}\NormalTok{(}\StringTok{"arr"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 4
+##    arr_time sched_arr_time arr_delay carrier
+##       <int>          <int>     <dbl> <chr>  
+##  1      830            819        11 UA     
+##  2      850            830        20 UA     
+##  3      923            850        33 AA     
+##  4     1004           1022       -18 B6     
+##  5      812            837       -25 DL     
+##  6      740            728        12 UA     
+##  7      913            854        19 B6     
+##  8      709            723       -14 EV     
+##  9      838            846        -8 B6     
+## 10      753            745         8 AA     
+## # ... with 336,766 more rows
+\end{verbatim}
+
+Kita juga dapat menggunakan fungsi tambahan \texttt{everithing()} yang
+berguna jika kita ingin memindahkan variabel yang menjadi fokus kita ke
+awal data frame tanpa melakukan drop variabel. Berikut adalah contoh
+sintaksnya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# pindahkan kolom yang mengandung time di awal}
+\KeywordTok{select}\NormalTok{(flights, }\KeywordTok{contains}\NormalTok{(}\StringTok{"time"}\NormalTok{), }\KeywordTok{everything}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 19
+##    dep_time sched_dep_time arr_time sched_arr_time air_time
+##       <int>          <int>    <int>          <int>    <dbl>
+##  1      517            515      830            819      227
+##  2      533            529      850            830      227
+##  3      542            540      923            850      160
+##  4      544            545     1004           1022      183
+##  5      554            600      812            837      116
+##  6      554            558      740            728      150
+##  7      555            600      913            854      158
+##  8      557            600      709            723       53
+##  9      557            600      838            846      140
+## 10      558            600      753            745      138
+## # ... with 336,766 more rows, and 14 more variables: time_hour <dttm>,
+## #   year <int>, month <int>, day <int>, dep_delay <dbl>, arr_delay <dbl>,
+## #   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+## #   distance <dbl>, hour <dbl>, minute <dbl>
+\end{verbatim}
+
+\subsection{mutate()}\label{mutate}
+
+Fungsi \texttt{mutate()} ada untuk menghitung transformasi variabel
+dalam data frame. Seringkali, kita ingin membuat variabel baru yang
+berasal dari variabel yang ada dan fungsi \texttt{mutate()} menyediakan
+antarmuka yang bersih untuk melakukan itu. Format yang digunakan adalah
+sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mutate}\NormalTok{(data, ....)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data} : data frame
+\item
+  \textbf{\ldots{}.} : Pasangan nama-nilai ekspresi, masing-masing
+  dengan panjang 1 atau panjang yang sama dengan jumlah baris dalam grup
+  (jika menggunakan group\_by ()) atau di seluruh input (jika tidak
+  menggunakan grup). Nama setiap argumen akan menjadi nama variabel
+  baru, dan nilainya akan menjadi nilai yang sesuai. Gunakan nilai NULL
+  dalam mutasi untuk menjatuhkan drop variabel lama, sehingga variabel
+  baru menimpa variabel yang ada dengan nama yang sama.
+\end{itemize}
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# subset data frame}
+\NormalTok{flights_sml <-}\StringTok{ }\KeywordTok{select}\NormalTok{(flights,}
+\NormalTok{  year}\OperatorTok{:}\NormalTok{day,}
+  \KeywordTok{ends_with}\NormalTok{(}\StringTok{"delay"}\NormalTok{),}
+\NormalTok{  distance,}
+\NormalTok{  air_time}
+\NormalTok{)}
+
+\CommentTok{# mutate()}
+\KeywordTok{mutate}\NormalTok{(flights_sml,}
+  \DataTypeTok{gain =}\NormalTok{ arr_delay }\OperatorTok{-}\StringTok{ }\NormalTok{dep_delay,}
+  \DataTypeTok{hours =}\NormalTok{ air_time }\OperatorTok{/}\StringTok{ }\DecValTok{60}\NormalTok{,}
+  \DataTypeTok{gain_per_hour =}\NormalTok{ gain }\OperatorTok{/}\StringTok{ }\NormalTok{hours}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 10
+##     year month   day dep_delay arr_delay distance air_time  gain hours
+##    <int> <int> <int>     <dbl>     <dbl>    <dbl>    <dbl> <dbl> <dbl>
+##  1  2013     1     1         2        11     1400      227     9 3.78 
+##  2  2013     1     1         4        20     1416      227    16 3.78 
+##  3  2013     1     1         2        33     1089      160    31 2.67 
+##  4  2013     1     1        -1       -18     1576      183   -17 3.05 
+##  5  2013     1     1        -6       -25      762      116   -19 1.93 
+##  6  2013     1     1        -4        12      719      150    16 2.5  
+##  7  2013     1     1        -5        19     1065      158    24 2.63 
+##  8  2013     1     1        -3       -14      229       53   -11 0.883
+##  9  2013     1     1        -3        -8      944      140    -5 2.33 
+## 10  2013     1     1        -2         8      733      138    10 2.3  
+## # ... with 336,766 more rows, and 1 more variable: gain_per_hour <dbl>
+\end{verbatim}
+
+Jika hanya ingin menyisakan variabel output fungsi \texttt{mutate()}
+pada data frame (variabel lain di drop), kita dapat menggunakan fungsi
+\texttt{transmute()}. Berikut adalah contoh sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{transmute}\NormalTok{(flights,}
+  \DataTypeTok{gain =}\NormalTok{ arr_delay }\OperatorTok{-}\StringTok{ }\NormalTok{dep_delay,}
+  \DataTypeTok{hours =}\NormalTok{ air_time }\OperatorTok{/}\StringTok{ }\DecValTok{60}\NormalTok{,}
+  \DataTypeTok{gain_per_hour =}\NormalTok{ gain }\OperatorTok{/}\StringTok{ }\NormalTok{hours}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 3
+##     gain hours gain_per_hour
+##    <dbl> <dbl>         <dbl>
+##  1     9 3.78           2.38
+##  2    16 3.78           4.23
+##  3    31 2.67          11.6 
+##  4   -17 3.05          -5.57
+##  5   -19 1.93          -9.83
+##  6    16 2.5            6.4 
+##  7    24 2.63           9.11
+##  8   -11 0.883        -12.5 
+##  9    -5 2.33          -2.14
+## 10    10 2.3            4.35
+## # ... with 336,766 more rows
+\end{verbatim}
+
+Adapaun fungsi-fungsi dan operator yang dapat digunakan pada
+\texttt{mutate()} untuk membuat variabel baru adalah sebagai berikut:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Operator aritmatik} (+,-,*,/,\^{}, \%/\%, \%\%). operator
+  aritmetik seperti \%/\% dan \%\% sangat berguna dalam memecah integer
+  menjadi beberapa bagian seperti hasil bagi tanpa sisa (\%/\%) dan sisa
+  hasil bagi (\%\%). Berikut adalah contoh penerapannya:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{transmute}\NormalTok{(flights,}
+\NormalTok{  dep_time,}
+  \DataTypeTok{hour =}\NormalTok{ dep_time }\OperatorTok{%/%}\StringTok{ }\DecValTok{100}\NormalTok{,}
+  \DataTypeTok{minute =}\NormalTok{ dep_time }\OperatorTok{%%}\StringTok{ }\DecValTok{100}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 336,776 x 3
+##    dep_time  hour minute
+##       <int> <dbl>  <dbl>
+##  1      517     5     17
+##  2      533     5     33
+##  3      542     5     42
+##  4      544     5     44
+##  5      554     5     54
+##  6      554     5     54
+##  7      555     5     55
+##  8      557     5     57
+##  9      557     5     57
+## 10      558     5     58
+## # ... with 336,766 more rows
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Fungsi aritmetik}
+  (\texttt{log()},\texttt{sin()},\texttt{cos()},dll)
+\item
+  \textbf{Fungsi Offsets} (\texttt{lead()}dan \texttt{lag()}).
+  memungkinkan kita untuk merujuk pada nilai-nilai memimpin atau
+  tertinggal. Berikut adalah contoh penerapannya:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1  2  3  4  5  6  7  8  9 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{lag}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] NA  1  2  3  4  5  6  7  8  9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{lead}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  2  3  4  5  6  7  8  9 10 NA
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{Fungsi kumulatif}
+  (\texttt{cumsum()},\texttt{cumprod()},\texttt{cummin()},\texttt{cummax()},
+  dan \texttt{cummean()}). Jika kita membutuhkan agregat bergulir (mis.,
+  Jumlah yang dihitung di atas jendela bergulir). Berikut adalah contoh
+  penerapannya:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1  2  3  4  5  6  7  8  9 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cumsum}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1  3  6 10 15 21 28 36 45 55
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cummean}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  \textbf{Operator logik} (\textless{}, \textless{}=, \textgreater{},
+  \textgreater{}=, !=). Jika kita melakukan urutan operasi logis yang
+  kompleks, seringkali ide yang baik untuk menyimpan nilai sementara
+  dalam variabel baru sehingga kita dapat memeriksa bahwa setiap langkah
+  berfungsi seperti yang diharapkan.
+\item
+  Rangking (\texttt{min\_rank()}, \texttt{row\_number()},
+  \texttt{dense\_rank()}, \texttt{percent\_rank()},
+  \texttt{cume\_dist()}dan \texttt{ntile()}).
+\end{enumerate}
+
+\subsection{summarize() dan group\_by()}\label{summarize-dan-group_by}
+
+Kita dapat membuat ringkasan data menggunakan fungsi
+\texttt{summarize()}. Fungsi tersebut akan merubah data frame menjadi
+sebuah baris berisi ringkasan data yang kita inginkan. Berikut adalh
+contoh penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summarize}\NormalTok{(flights, }\DataTypeTok{delay =} \KeywordTok{mean}\NormalTok{(dep_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   delay
+##   <dbl>
+## 1  12.6
+\end{verbatim}
+
+FUngsi ini akan lebih berguna saat digunakan dengan fungsi
+\texttt{group\_by()} sehingga dapat diperoleh ringkasan data pada setiap
+grup. berikut adalah contoh penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{by_day <-}\StringTok{ }\KeywordTok{group_by}\NormalTok{(flights, year, month, day)}
+    \KeywordTok{summarize}\NormalTok{(by_day, }\DataTypeTok{delay =} \KeywordTok{mean}\NormalTok{(dep_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 365 x 4
+## # Groups:   year, month [12]
+##     year month   day delay
+##    <int> <int> <int> <dbl>
+##  1  2013     1     1 11.5 
+##  2  2013     1     2 13.9 
+##  3  2013     1     3 11.0 
+##  4  2013     1     4  8.95
+##  5  2013     1     5  5.73
+##  6  2013     1     6  7.15
+##  7  2013     1     7  5.42
+##  8  2013     1     8  2.55
+##  9  2013     1     9  2.28
+## 10  2013     1    10  2.84
+## # ... with 355 more rows
+\end{verbatim}
+
+\subsection{Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe
+(\%\textgreater{}\%)}\label{mengkombinasikan-beberapa-operasi-menggunakan-operator-pipe}
+
+Operator pipa (\%\textgreater{}\%) sangat berguna untuk merangkai
+bersama beberapa fungsi \texttt{dplyr} dalam suatu urutan operasi.
+Perhatikan contoh sebelumnya dimana setiap kali kita ingin menerapkan
+lebih dari satu fungsi, urutannya akan dimulai dalam urutan panggilan
+fungsi bersarang yang sulit dibaca. Secara ringkas dapat kita tulis
+sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{third}\NormalTok{(}\KeywordTok{second}\NormalTok{(}\KeywordTok{first}\NormalTok{(x)))}
+\end{Highlighting}
+\end{Shaded}
+
+Jika dituliskan menggunakan operator pipa akan menghasilkan sintak
+berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{first}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{second}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{third}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Dengan menuliskannya melalui cara tersebut kita dapat membacanya lebih
+mudah.
+
+Misal kita ingin mengetahui hubungan antara variabel jarak
+(\texttt{dist}) terhadap rata-rata delay (\texttt{arr\_delay}).
+Langkah-langkah untuk melakukannya dengan menggunakan operator pipa
+adalah sebagai berikut:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Kelompokkan penerbangan berdasarkan destinasinya
+  (\texttt{group\_by()}).
+\item
+  Hitung ringkasan data berdasarkan jarak, rata-rata delay, dan jumlah
+  penerbangan.
+\item
+  Lakukan filter untuk membuang \emph{noisy point} (jika diperlukan).
+  Dalam hal ini jumlah penerbangan \textgreater{} 20 dan tujuan
+  penerbangan Honolulu (``HNL'') adalah \emph{outlier} atau \emph{noisy
+  point}.
+\end{enumerate}
+
+Berikut adalah sintaks untuk melakukannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Tanpa pipe operator}
+\NormalTok{by_dest <-}\StringTok{ }\KeywordTok{group_by}\NormalTok{(flights, dest)}
+\NormalTok{delay <-}\StringTok{ }\KeywordTok{summarize}\NormalTok{(by_dest,}
+  \DataTypeTok{count =} \KeywordTok{n}\NormalTok{(),}
+  \DataTypeTok{dist =} \KeywordTok{mean}\NormalTok{(distance, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{),}
+  \DataTypeTok{delay =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{delay <-}\StringTok{ }\KeywordTok{filter}\NormalTok{(delay, count }\OperatorTok{>}\StringTok{ }\DecValTok{20}\NormalTok{, dest }\OperatorTok{!=}\StringTok{ "HNL"}\NormalTok{)}
+
+\CommentTok{# Dengan pipe operator}
+\KeywordTok{library}\NormalTok{(magrittr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'magrittr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:tidyr':
+## 
+##     extract
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{delays <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(dest) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}
+  \DataTypeTok{count =} \KeywordTok{n}\NormalTok{(),}
+  \DataTypeTok{dist =} \KeywordTok{mean}\NormalTok{(distance, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{),}
+  \DataTypeTok{delay =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  ) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(count }\OperatorTok{>}\StringTok{ }\DecValTok{20}\NormalTok{, dest }\OperatorTok{!=}\StringTok{ "HNL"}\NormalTok{)}
+
+\CommentTok{# Print}
+\NormalTok{delays}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 96 x 4
+##    dest  count  dist delay
+##    <chr> <int> <dbl> <dbl>
+##  1 ABQ     254 1826   4.38
+##  2 ACK     265  199   4.85
+##  3 ALB     439  143  14.4 
+##  4 ATL   17215  757. 11.3 
+##  5 AUS    2439 1514.  6.02
+##  6 AVL     275  584.  8.00
+##  7 BDL     443  116   7.05
+##  8 BGR     375  378   8.03
+##  9 BHM     297  866. 16.9 
+## 10 BNA    6333  758. 11.8 
+## # ... with 86 more rows
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'ggplot2'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'mtcars':
+## 
+##     mpg
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/distvsave-1} 
+
+}
+
+\caption{Jarak vs rata-rata delay}\label{fig:distvsave}
+\end{figure}
+
+Berdasarkan Figure \ref{fig:distvsave}, rata-rata delay meningkat
+seiring dengan pertambahan jarak penerbangan.
+
+\section{Referensi}\label{referensi-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Wickham, H. Grolemund G. 2016. \textbf{R For Data Science: Import,
+  Tidy, Transform, Visualize, And Model Data}. O'Reilly Media, Inc.
+\item
+  Peng, R.D. 2015. \textbf{Exploratory Data Analysis with R}. Leanpub
+  book.
+\item
+  Dplyr Documentation. \url{https://dplyr.tidyverse.org/}
+\item
+  Quick-R. \textbf{Data Input}.
+  \url{https://www.statmethods.net/input/index.html}
+\item
+  Quick-R. \textbf{Data Management}.
+  \url{https://www.statmethods.net/management/index.html}
+\item
+  STHDA. \textbf{Importing Data Into R }.
+  \url{http://www.sthda.com/english/wiki/importing-data-into-r}
+\item
+  STHDA. \textbf{Exporting Data From R}.
+  \url{http://www.sthda.com/english/wiki/exporting-data-from-r}
+\end{enumerate}
 
 \chapter{Applications}\label{applications}
 

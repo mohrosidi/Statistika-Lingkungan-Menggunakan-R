@@ -1279,6 +1279,3 @@ kali(4,3)
 3. STHDA. **Easy R Programming Basics**. <http://www.sthda.com/english/wiki/easy-r-programming-basics>
 4. Venables, W.N. Smith D.M. and R Core Team. 2018. **An Introduction to R**. R Manuals.
 5. The R Core Team. 2018. **R: A Language and Environment for Statistical Computing**. R Manuals.
-
-
-
