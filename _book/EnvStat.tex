@@ -125,8 +125,9 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-03-16}
+    \date{2019-03-20}
 
+\usepackage{booktabs}
 
 \begin{document}
 \maketitle
@@ -701,7 +702,7 @@ menghitung median.
 
 \begin{verbatim}
 ## [1] "elNamed"        "elNamed<-"      "median"         "median.default"
-## [5] "medpolish"      "runmed"
+## [5] "median_hilow"   "medpolish"      "runmed"
 \end{verbatim}
 
 \emph{List} yang dihasilkan berupa fungsi-fungsi yang memiliki elemen
@@ -4733,22 +4734,6 @@ yang dapat pembaca cermati terkait manakah data yang telah rapi
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(EDAWR)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'EDAWR'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked _by_ '.GlobalEnv':
-## 
-##     a, b, y, z
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# memuat dataset}
 \NormalTok{storms <-}\StringTok{ }\NormalTok{EDAWR}\OperatorTok{::}\NormalTok{storms}
 \NormalTok{cases}
@@ -4982,10 +4967,6 @@ menginstall library tersebut:
 \KeywordTok{library}\NormalTok{(tidyr)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'tidyr' was built under R version 3.5.3
-\end{verbatim}
 
 \subsection{Gather}\label{gather}
 
@@ -5821,15 +5802,7 @@ Berikut adalah contoh penerapan \texttt{selct()} pada data frame
 
 \CommentTok{# memuat data frame}
 \KeywordTok{library}\NormalTok{(nycflights13)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'nycflights13' was built under R version 3.5.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# data}
 \NormalTok{flights}
 \end{Highlighting}
@@ -6364,22 +6337,6 @@ Berikut adalah sintaks untuk melakukannya:
 
 \CommentTok{# Dengan pipe operator}
 \KeywordTok{library}\NormalTok{(magrittr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'magrittr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:tidyr':
-## 
-##     extract
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{delays <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(dest) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarize}\NormalTok{(}
@@ -6409,17 +6366,6 @@ Berikut adalah sintaks untuk melakukannya:
 ##  9 BHM     297  866. 16.9 
 ## 10 BNA    6333  758. 11.8 
 ## # ... with 86 more rows
-\end{verbatim}
-
-\begin{verbatim}
-## 
-## Attaching package: 'ggplot2'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'mtcars':
-## 
-##     mpg
 \end{verbatim}
 
 \begin{verbatim}
@@ -6465,13 +6411,702 @@ seiring dengan pertambahan jarak penerbangan.
   \url{http://www.sthda.com/english/wiki/exporting-data-from-r}
 \end{enumerate}
 
-\chapter{Applications}\label{applications}
+\chapter{Visualisasi Data Menggunakan Fungsi Dasar
+R}\label{visualisasi-data-menggunakan-fungsi-dasar-r}
 
-Some \emph{significant} applications are demonstrated in this chapter.
+\section{Visualisasi Data Menggunakan Fungsi
+plot()}\label{visualisasi-data-menggunakan-fungsi-plot}
 
-\section{Example one}\label{example-one}
+Fungsi \texttt{plot()} merupakan fungsi umum yang digunakan untuk
+membuat plot pada \texttt{R}. Format dasarnya adalah sebagai berikut:
 
-\section{Example two}\label{example-two}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(x, y, }\DataTypeTok{type=}\StringTok{"p"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x dan y}: titik koordinat plot Berupa variabel dengan panjang
+  atau jumlah observasi yang sama.
+\item
+  \textbf{type}: jenis grafik yang hendak dibuat. Nilai yang dapat
+  dimasukkan antara lain:
+\item
+  type=``p'' : membuat plot titik atau scatterplot. Nilai ini merupakan
+  default pada fungsi \texttt{plot()}.
+\item
+  type=``l'' : membuat plot garis.
+\item
+  type=``b'' : membuat plot titik yang terhubung dengan garis.
+\item
+  type=``o'' : membuat plot titik yang ditimpa oleh garis.
+\item
+  type=``h'' : membuat plot garis vertikal dari titik ke garis y=0.
+\item
+  type=``s'' : membuat fungsi tangga.
+\item
+  type=``n'' : tidak membuat grafik plot sama sekali, kecuali plot dari
+  axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang
+  diikuti oleh sekelompok plot tambahan.
+\end{itemize}
+\end{quote}
+
+Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk
+masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil
+plot yang disajikan pada Figure \ref{fig:plot}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat vektor data }
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{); y <-}\StringTok{ }\NormalTok{x}\OperatorTok{^}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membagi jendela grafik menajdi 4 baris dan 2 kolom}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+
+\CommentTok{# loop}
+\NormalTok{type <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"p"}\NormalTok{,}\StringTok{"l"}\NormalTok{,}\StringTok{"b"}\NormalTok{,}\StringTok{"o"}\NormalTok{,}\StringTok{"h"}\NormalTok{,}\StringTok{"s"}\NormalTok{,}\StringTok{"n"}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ type)\{}
+  \KeywordTok{plot}\NormalTok{(x,y, }\DataTypeTok{type=}\NormalTok{ i,}
+       \DataTypeTok{main=} \KeywordTok{paste}\NormalTok{(}\StringTok{"type="}\NormalTok{, i))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/plot-1} 
+
+}
+
+\caption{Plot berbagai jenis setting type}\label{fig:plot}
+\end{figure}
+
+Pada contoh selanjutnya akan dilakukan plot terhadap dataset
+\texttt{trees}. Untuk memuatnya jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tibble)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat dataset}
+\NormalTok{trees <-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(trees)}
+
+\CommentTok{# print }
+\NormalTok{trees}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 31 x 3
+##    Girth Height Volume
+##    <dbl>  <dbl>  <dbl>
+##  1   8.3     70   10.3
+##  2   8.6     65   10.3
+##  3   8.8     63   10.2
+##  4  10.5     72   16.4
+##  5  10.7     81   18.8
+##  6  10.8     83   19.7
+##  7  11       66   15.6
+##  8  11       75   18.2
+##  9  11.1     80   22.6
+## 10  11.2     75   19.9
+## # ... with 21 more rows
+\end{verbatim}
+
+Pada dataset tersebut kita ingin membuat scatterplot untuk melihat
+korelasi antara variabel \texttt{Height} dan \texttt{Volume}. Untuk
+melakukannya jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(trees}\OperatorTok{$}\NormalTok{Height, trees}\OperatorTok{$}\NormalTok{Volume)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# atau }
+\KeywordTok{with}\NormalTok{(trees, }\KeywordTok{plot}\NormalTok{(Height, Volume))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/scatter-1} 
+
+}
+
+\caption{Scatterplot Height vs Volume}\label{fig:scatter}
+\end{figure}
+
+Kita juga dapat menggunakan formula untuk membuat scatterplot pada
+Figure \ref{fig:scatter}. Berikut adalah contoh sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\NormalTok{trees}\OperatorTok{$}\NormalTok{Height}
+\NormalTok{y <-}\StringTok{ }\NormalTok{trees}\OperatorTok{$}\NormalTok{Volume}
+
+\KeywordTok{plot}\NormalTok{(y}\OperatorTok{~}\NormalTok{x)}
+\end{Highlighting}
+\end{Shaded}
+
+Fungsi \texttt{plot()} juga dapat digunakan untuk membentuk matriks
+scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh
+dataset kedalam fungsi \texttt{plot()}. Berikut adalah sintaks dan
+output yang dihasilkan berupa Figure \ref{fig:scatter2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(trees)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/scatter2-1} 
+
+}
+
+\caption{Matriks scatterplot dataset trees}\label{fig:scatter2}
+\end{figure}
+
+Selain itu jika kita memasukkan objek \texttt{lm()} yang merupakan
+fungsi untuk melakukan operasi regresi linier pada fungsi
+\texttt{plot()}, output yang dihasilkan berupa plot diagnostik yang
+berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh
+sintaks dan output yang dihasilkan pada Figure \ref{fig:diag}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membagi jendela grafik menjadi 2 baris dan 2 kolom}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+
+\CommentTok{# plot}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{lm}\NormalTok{(Volume}\OperatorTok{~}\NormalTok{Height, }\DataTypeTok{data=}\NormalTok{trees))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/diag-1} 
+
+}
+
+\caption{Plot diagnostik regresi linier}\label{fig:diag}
+\end{figure}
+
+Selain objek-objek tersebut, fungsi \texttt{plot()} akan banyak
+digunakan dalam analisis statistika kita pada chapter lainnya.
+
+\section{Matriks Scatterplot}\label{matriks-scatterplot}
+
+Pada bagian sebelumnya kita telah belajar bagaimana membuat matriks
+scatterplot mengggunakan fungsi \texttt{plot()}. Pada bagian ini kita
+akan belajar cara membuat matriks scatterplot menggunakan fungsi
+\texttt{pairs()}. Secara umum format fungsi dituliskan sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pairs}\NormalTok{(data, }\DataTypeTok{lower.panel=}\OtherTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data}: data frame
+\item
+  \textbf{lower.panel}: menampilkan atau tidak menampilkan panel bawah
+\end{itemize}
+\end{quote}
+
+Untuk lebih memahami penggunaan fungsi tersebut, berikut akan disajikan
+contoh penggunaannya pada dataset \texttt{iris}. Sebelum melakukannya
+jalankan sintaks berikut untuk memuat dataset:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat dataset irir}
+\NormalTok{iris <-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(iris)}
+
+\CommentTok{# print}
+\NormalTok{iris}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows
+\end{verbatim}
+
+Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek
+\texttt{iris} kedalam fungsi \texttt{pairs()}. Berikut adalah sintaks
+yang digunakan dan output yang dihasilkan pada Figure \ref{fig:matscat}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pairs}\NormalTok{(iris)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat-1} 
+
+}
+
+\caption{Matriks scatterplot iris}\label{fig:matscat}
+\end{figure}
+
+Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk
+melakukannya kita perlu memasukkan parameter \texttt{lower.panel=NULL}.
+Output yang dihasilkan akan tampak seperti pada Figure
+\ref{fig:matscat2}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pairs}\NormalTok{(iris, }\DataTypeTok{lower.panel=}\OtherTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat2-1} 
+
+}
+
+\caption{Matriks scatterplot iris tanpa panel bawah}\label{fig:matscat2}
+\end{figure}
+
+Kita dapat merubah warna titik berdasarkan factor \texttt{Species}.
+Langkah pertama yang perlu dilakukan adalah melakukan drop variabel
+\texttt{Species} pada dataset dan memasukkan objek baru tanpa variabel
+tersebut kedalam fungsi \texttt{pairs()}. Warna berdasarkan grup
+diberikan dengan menambahkan parameter \texttt{col=} pada fungsi
+\texttt{pairs()}. Berikut adalah contoh penerapannya dan output yang
+dihasilkan pada Figure \ref{fig:matscat3}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# drop variabel Species}
+\CommentTok{# simpan dataset baru pada objek iris2}
+\NormalTok{iris2 <-}\StringTok{ }\NormalTok{iris[ ,}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{]}
+
+\CommentTok{# print}
+\NormalTok{iris2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 150 x 4
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width
+##           <dbl>       <dbl>        <dbl>       <dbl>
+##  1          5.1         3.5          1.4         0.2
+##  2          4.9         3            1.4         0.2
+##  3          4.7         3.2          1.3         0.2
+##  4          4.6         3.1          1.5         0.2
+##  5          5           3.6          1.4         0.2
+##  6          5.4         3.9          1.7         0.4
+##  7          4.6         3.4          1.4         0.3
+##  8          5           3.4          1.5         0.2
+##  9          4.4         2.9          1.4         0.2
+## 10          4.9         3.1          1.5         0.1
+## # ... with 140 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# spesifikasi vaktor warna titik berdasarkan spesies}
+\NormalTok{my_col <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"#00AFBB"}\NormalTok{, }\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{)}
+
+\CommentTok{# plot}
+\KeywordTok{pairs}\NormalTok{(iris2, }\DataTypeTok{lower.panel=}\OtherTok{NULL}\NormalTok{,}
+      \CommentTok{# spesifikasi warna}
+      \DataTypeTok{col=}\NormalTok{ my_col[iris}\OperatorTok{$}\NormalTok{Species])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat3-1} 
+
+}
+
+\caption{Matriks scatterplot iris tanpa panel bawah}\label{fig:matscat3}
+\end{figure}
+
+Kita juga dapat mengganti panel bawah menjadi nilai korelasi antar
+variabel. Untuk melakukannya kita perlu mendefinisikan sebuah fungsi
+untuk panel bawah dan panel atas (jika ingin warna titik berdasarkan
+factor). Setelah fungsi panel bawah dan atas didefinisikan, langkah
+selanjutnya adalah melakukan memasukkan nilainya kedalam fungsi
+\texttt{pairs()}. Berikut adalah sintaks yang digunakan serta output
+yang dihasilkan pada Figure \ref{fig:matscat4}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat fungsi untuk menghitung}
+\CommentTok{# nilai korelasi yang ditempatkan pada panel bawah}
+\NormalTok{panel.cor <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
+    \CommentTok{# definisi parameter grafik }
+\NormalTok{    usr <-}\StringTok{ }\KeywordTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{); }\KeywordTok{on.exit}\NormalTok{(}\KeywordTok{par}\NormalTok{(usr))}
+    \KeywordTok{par}\NormalTok{(}\DataTypeTok{usr =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+    \CommentTok{# menghitung koefisien korelas}
+\NormalTok{    r <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{cor}\NormalTok{(x, y), }\DataTypeTok{digits=}\DecValTok{2}\NormalTok{)}
+    \CommentTok{# menambahkan text berdasarkan koefisien korelasi}
+\NormalTok{    txt <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"R = "}\NormalTok{, r)}
+    \CommentTok{# mengatur besar text sesuai besarnya nilai korelasi}
+\NormalTok{    cex.cor <-}\StringTok{ }\FloatTok{0.8}\OperatorTok{/}\KeywordTok{strwidth}\NormalTok{(txt)}
+    \KeywordTok{text}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{, txt, }\DataTypeTok{cex =}\NormalTok{ cex.cor }\OperatorTok{*}\StringTok{ }\KeywordTok{abs}\NormalTok{(r))}
+\NormalTok{\}}
+
+\CommentTok{# kustomisasi panel atas agar}
+\CommentTok{# warna titik berdasarkan factor}
+\NormalTok{my_col <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"#00AFBB"}\NormalTok{, }\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{)}
+\NormalTok{upper.panel<-}\ControlFlowTok{function}\NormalTok{(x, y)\{}
+  \KeywordTok{points}\NormalTok{(x,y, }\DataTypeTok{col =}\NormalTok{ my_col[iris}\OperatorTok{$}\NormalTok{Species])}
+\NormalTok{\}}
+
+\KeywordTok{pairs}\NormalTok{(iris2,}
+      \DataTypeTok{lower.panel=}\NormalTok{ panel.cor,}
+      \DataTypeTok{upper.panel=}\NormalTok{ upper.panel)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat4-1} 
+
+}
+
+\caption{Matriks scatterplot iris dengan koefisien korelasi}\label{fig:matscat4}
+\end{figure}
+
+Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita
+dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan
+scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada
+panel atas dan memasukkannya pada parameter \texttt{upper.panel=}.
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan
+pada Figure \ref{fig:matscat5}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# kustomisasi panel atas}
+\NormalTok{upper.panel<-}\ControlFlowTok{function}\NormalTok{(x, y)\{}
+  \KeywordTok{points}\NormalTok{(x,y, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"#00AFBB"}\NormalTok{, }\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{)[iris}\OperatorTok{$}\NormalTok{Species])}
+\NormalTok{  r <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{cor}\NormalTok{(x, y), }\DataTypeTok{digits=}\DecValTok{2}\NormalTok{)}
+\NormalTok{  txt <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"R = "}\NormalTok{, r)}
+\NormalTok{  usr <-}\StringTok{ }\KeywordTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{); }\KeywordTok{on.exit}\NormalTok{(}\KeywordTok{par}\NormalTok{(usr))}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{usr =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+  \KeywordTok{text}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{0.9}\NormalTok{, txt)}
+\NormalTok{\}}
+
+\CommentTok{# plot}
+\KeywordTok{pairs}\NormalTok{(iris2, }\DataTypeTok{lower.panel =} \OtherTok{NULL}\NormalTok{, }
+      \DataTypeTok{upper.panel =}\NormalTok{ upper.panel)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat5-1} 
+
+}
+
+\caption{Matriks scatterplot iris dengan koefisien korelasi di panel atas}\label{fig:matscat5}
+\end{figure}
+
+\section{Box plot}\label{box-plot}
+
+Box plot pada \texttt{R} dapat dibuat menggunakan fungsi
+\texttt{boxplot()}. Berikut adalah sintaks untuk membuat boxplot
+variabel \texttt{Sepal.Lenght} pada dataset \texttt{iris} dan output
+yang dihasilkan pada Figure \ref{fig:boxplot}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Sepal.Length)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/boxplot-1} 
+
+}
+
+\caption{Boxplot variabel Sepal.Length}\label{fig:boxplot}
+\end{figure}
+
+Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna
+untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada
+sintaks berikut dibuat boxplot berdasarkan variabel \texttt{Species}.
+Output yang dihasilkan disajikan pada Figure \ref{fig:boxplot2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Sepal.Length}\OperatorTok{~}\NormalTok{iris}\OperatorTok{$}\NormalTok{Species)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/boxplot2-1} 
+
+}
+
+\caption{Boxplot berdasarkan variabel species}\label{fig:boxplot2}
+\end{figure}
+
+Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut
+adalah contoh sintaks yang digunakan untuk melakukannya dan output yang
+dihasilkan disajikan pada Figure \ref{fig:boxplot3}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Sepal.Length}\OperatorTok{~}\NormalTok{iris}\OperatorTok{$}\NormalTok{Species,}
+        \CommentTok{# ubah warna outline menjadi steelblue}
+        \DataTypeTok{border =} \StringTok{"steelblue"}\NormalTok{,}
+        \CommentTok{# ubah warna box berdasarkan grup}
+        \DataTypeTok{col=} \KeywordTok{c}\NormalTok{(}\StringTok{"#999999"}\NormalTok{, }\StringTok{"#E69F00"}\NormalTok{, }\StringTok{"#56B4E9"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/boxplot3-1} 
+
+}
+
+\caption{Boxplot dengan warna berdasarkan spesies}\label{fig:boxplot3}
+\end{figure}
+
+Kita juga dapat membuat boxplot pada \emph{multiple group}. Data yang
+digunakan untuk contoh tersebut adalah dataset \texttt{ToothGrowth}.
+Berikut adalah sintaks untuk memuat dataset tersebut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat dataset sebagai tibble}
+\NormalTok{ToothGrowth <-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(ToothGrowth)}
+
+\CommentTok{# print}
+\NormalTok{ToothGrowth}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 60 x 3
+##      len supp   dose
+##    <dbl> <fct> <dbl>
+##  1   4.2 VC      0.5
+##  2  11.5 VC      0.5
+##  3   7.3 VC      0.5
+##  4   5.8 VC      0.5
+##  5   6.4 VC      0.5
+##  6  10   VC      0.5
+##  7  11.2 VC      0.5
+##  8  11.2 VC      0.5
+##  9   5.2 VC      0.5
+## 10   7   VC      0.5
+## # ... with 50 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# ubah variable dose menjadi factor}
+\NormalTok{ToothGrowth}\OperatorTok{$}\NormalTok{dose <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(ToothGrowth}\OperatorTok{$}\NormalTok{dose)}
+
+\CommentTok{# print}
+\NormalTok{ToothGrowth}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 60 x 3
+##      len supp  dose 
+##    <dbl> <fct> <fct>
+##  1   4.2 VC    0.5  
+##  2  11.5 VC    0.5  
+##  3   7.3 VC    0.5  
+##  4   5.8 VC    0.5  
+##  5   6.4 VC    0.5  
+##  6  10   VC    0.5  
+##  7  11.2 VC    0.5  
+##  8  11.2 VC    0.5  
+##  9   5.2 VC    0.5  
+## 10   7   VC    0.5  
+## # ... with 50 more rows
+\end{verbatim}
+
+Contoh sintaks dan output boxplot \emph{multiple group} disajikan pada
+Figure \ref{fig:boxplot4}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(len }\OperatorTok{~}\StringTok{ }\NormalTok{supp}\OperatorTok{*}\NormalTok{dose, }\DataTypeTok{data =}\NormalTok{ ToothGrowth,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"white"}\NormalTok{, }\StringTok{"steelblue"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/boxplot4-1} 
+
+}
+
+\caption{Boxplot multiple group}\label{fig:boxplot4}
+\end{figure}
+
+\section{Bar Plot}\label{bar-plot}
+
+Barplot pada \texttt{R} dapat dibuat menggunakan fungsi
+\texttt{barplot()}. Untuk lebih memahaminya berikut disajikan contoh
+barplot menggunakan dataset \texttt{VADeaths}. Untuk memuatnya jalankan
+sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{VADeaths}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Rural Male Rural Female Urban Male Urban Female
+## 50-54       11.7          8.7       15.4          8.4
+## 55-59       18.1         11.7       24.3         13.6
+## 60-64       26.9         20.3       37.0         19.3
+## 65-69       41.0         30.9       54.6         35.1
+## 70-74       66.0         54.3       71.1         50.0
+\end{verbatim}
+
+Contoh bar plot untuk variabel \texttt{Rural\ Male} disajikan pada
+Figure \ref{fig:barplot}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{barplot}\NormalTok{(VADeaths[, }\StringTok{"Rural Male"}\NormalTok{], }\DataTypeTok{main=}\StringTok{"a"}\NormalTok{)}
+\KeywordTok{barplot}\NormalTok{(VADeaths[, }\StringTok{"Rural Male"}\NormalTok{], }\DataTypeTok{main=}\StringTok{"b"}\NormalTok{, }\DataTypeTok{horiz=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barplot-1} 
+
+}
+
+\caption{a. bar plot vertikal; b. bar plot horizontal}\label{fig:barplot}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Kita dapat mengubah warna pada masing-masing bar, baik outline bar
+maupun box pada bar. Selain itu kita juga dapat mengubah nama grup yang
+telah dihasilkan sebelumnya. Berikut sintaks untuk melakukannya dan
+output yang dihasilkan pada Figure \ref{fig:barplot2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(VADeaths[, }\StringTok{"Rural Male"}\NormalTok{],}
+        \CommentTok{# ubah warna ouline menjadi steelblue}
+        \DataTypeTok{border=}\StringTok{"steelblue"}\NormalTok{,}
+        \CommentTok{# ubah wana box}
+        \DataTypeTok{col=} \KeywordTok{c}\NormalTok{(}\StringTok{"grey"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{, }\StringTok{"steelblue"}\NormalTok{, }\StringTok{"green"}\NormalTok{, }\StringTok{"orange"}\NormalTok{),}
+        \CommentTok{# ubah nama grup dari A sampai E}
+        \DataTypeTok{names.arg =}\NormalTok{ LETTERS[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{],}
+        \CommentTok{# ubah orientasi menajadi horizontal}
+        \DataTypeTok{horiz=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barplot2-1} 
+
+}
+
+\caption{Kustomisasi bar plot}\label{fig:barplot2}
+\end{figure}
+
+Untuk bar plot dengan \emph{multiple group}, tersedia dua pengaturan
+posisi yaitu \emph{stacked bar plot}(menunjukkan proporsi penyusun pada
+masing-masing grup) dan \emph{grouped bar plot}(melihat perbedaan
+individual pada masing-masing grup). Pada Figure \ref{fig:barplot3} dan
+Figure \ref{fig:barplot4} , disajikan kedua jenis bar plot tersebut.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# staked}
+\KeywordTok{barplot}\NormalTok{(VADeaths,}
+         \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"mistyrose"}\NormalTok{, }\StringTok{"lightcyan"}\NormalTok{, }
+                 \StringTok{"lavender"}\NormalTok{, }\StringTok{"cornsilk"}\NormalTok{),}
+        \DataTypeTok{legend =} \KeywordTok{rownames}\NormalTok{(VADeaths))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barplot3-1} 
+
+}
+
+\caption{Stacked bar plot}\label{fig:barplot3}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# grouped}
+\KeywordTok{barplot}\NormalTok{(VADeaths,}
+         \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"mistyrose"}\NormalTok{, }\StringTok{"lightcyan"}\NormalTok{, }
+                 \StringTok{"lavender"}\NormalTok{, }\StringTok{"cornsilk"}\NormalTok{),}
+        \DataTypeTok{legend =} \KeywordTok{rownames}\NormalTok{(VADeaths), }\DataTypeTok{beside =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barplot4-1} 
+
+}
+
+\caption{Grouped bar plot}\label{fig:barplot4}
+\end{figure}
 
 \chapter{Final Words}\label{final-words}
 

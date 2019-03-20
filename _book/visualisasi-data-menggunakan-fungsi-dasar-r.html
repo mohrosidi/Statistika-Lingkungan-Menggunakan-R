@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 4 Visualisasi Data Menggunakan Fungsi Dasar R | Statistika Lingkungan Menggunakan R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 4 Visualisasi Data Menggunakan Fungsi Dasar R | Statistika Lingkungan Menggunakan R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Visualisasi Data Menggunakan Fungsi Dasar R | Statistika Lingkungan Menggunakan R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Moh. Rosidi">
+
+
+<meta name="date" content="2019-03-20">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="manajemen-data-r.html">
+<link rel="next" href="final-words.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistika Lingkungan Menggunakan R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="chapter" data-level="1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html"><i class="fa fa-check"></i><b>1</b> Mengenal Bahasa R</a><ul>
+<li class="chapter" data-level="1.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#sejarah-r"><i class="fa fa-check"></i><b>1.1</b> Sejarah R</a></li>
+<li class="chapter" data-level="1.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fitur-dan-karakteristik-r"><i class="fa fa-check"></i><b>1.2</b> Fitur dan Karakteristik R</a></li>
+<li class="chapter" data-level="1.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#kelebihan-dan-kekurangan-r"><i class="fa fa-check"></i><b>1.3</b> Kelebihan dan Kekurangan R</a></li>
+<li class="chapter" data-level="1.4" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#rstudio"><i class="fa fa-check"></i><b>1.4</b> RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#menginstall-r-dan-rstudio"><i class="fa fa-check"></i><b>1.5</b> Menginstall R dan RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#working-directory"><i class="fa fa-check"></i><b>1.6</b> Working Directory</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory"><i class="fa fa-check"></i><b>1.6.1</b> Mengubah Lokasi Working Directory</a></li>
+<li class="chapter" data-level="1.6.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory-default"><i class="fa fa-check"></i><b>1.6.2</b> Mengubah Lokasi Working Directory Default</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help"><i class="fa fa-check"></i><b>1.7</b> Fasilitas Help</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mencari-help-dari-suatu-perintah-tertentu"><i class="fa fa-check"></i><b>1.7.1</b> Mencari Help dari Suatu Perintah Tertentu</a></li>
+<li class="chapter" data-level="1.7.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#general-help"><i class="fa fa-check"></i><b>1.7.2</b> General Help</a></li>
+<li class="chapter" data-level="1.7.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help-lainnya"><i class="fa fa-check"></i><b>1.7.3</b> Fasilitas Help Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#referensi"><i class="fa fa-check"></i><b>1.8</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html"><i class="fa fa-check"></i><b>2</b> Sintaks Bahasa R</a><ul>
+<li class="chapter" data-level="2.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-aritmatika"><i class="fa fa-check"></i><b>2.1</b> Operator Aritmatika</a></li>
+<li class="chapter" data-level="2.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi-aritmetik"><i class="fa fa-check"></i><b>2.2</b> Fungsi Aritmetik</a></li>
+<li class="chapter" data-level="2.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-relasi"><i class="fa fa-check"></i><b>2.3</b> Operator Relasi</a></li>
+<li class="chapter" data-level="2.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-logika"><i class="fa fa-check"></i><b>2.4</b> Operator Logika</a></li>
+<li class="chapter" data-level="2.5" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memasukkan-nilai-kedalam-variabel"><i class="fa fa-check"></i><b>2.5</b> Memasukkan Nilai Kedalam Variabel</a></li>
+<li class="chapter" data-level="2.6" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#tipe-data"><i class="fa fa-check"></i><b>2.6</b> Tipe Data</a></li>
+<li class="chapter" data-level="2.7" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#vektor"><i class="fa fa-check"></i><b>2.7</b> Vektor</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-vektor"><i class="fa fa-check"></i><b>2.7.1</b> Membuat vektor</a></li>
+<li class="chapter" data-level="2.7.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#missing-values"><i class="fa fa-check"></i><b>2.7.2</b> Missing Values</a></li>
+<li class="chapter" data-level="2.7.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-vektor"><i class="fa fa-check"></i><b>2.7.3</b> Subset Pada Vektor</a></li>
+<li class="chapter" data-level="2.7.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-vektor"><i class="fa fa-check"></i><b>2.7.4</b> Perhitungan Menggunakan Vektor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#matriks"><i class="fa fa-check"></i><b>2.8</b> Matriks</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-matriks"><i class="fa fa-check"></i><b>2.8.1</b> Membuat matriks</a></li>
+<li class="chapter" data-level="2.8.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-matriks"><i class="fa fa-check"></i><b>2.8.2</b> Subset Pada Matriks</a></li>
+<li class="chapter" data-level="2.8.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-matriks"><i class="fa fa-check"></i><b>2.8.3</b> Perhitungan Menggunakan Matriks</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#faktor"><i class="fa fa-check"></i><b>2.9</b> Faktor</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-variabel-faktor"><i class="fa fa-check"></i><b>2.9.1</b> Membuat Variabel Faktor</a></li>
+<li class="chapter" data-level="2.9.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-faktor"><i class="fa fa-check"></i><b>2.9.2</b> Perhitungan Menggunakan Faktor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#data-frames"><i class="fa fa-check"></i><b>2.10</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-data-frame"><i class="fa fa-check"></i><b>2.10.1</b> Membuat Data Frame</a></li>
+<li class="chapter" data-level="2.10.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-data-frame"><i class="fa fa-check"></i><b>2.10.2</b> Subset Pada Data Frame</a></li>
+<li class="chapter" data-level="2.10.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-data-frame"><i class="fa fa-check"></i><b>2.10.3</b> Memperluas Data Frame</a></li>
+<li class="chapter" data-level="2.10.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-pada-data-frame"><i class="fa fa-check"></i><b>2.10.4</b> Perhitungan Pada Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#list"><i class="fa fa-check"></i><b>2.11</b> List</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-list"><i class="fa fa-check"></i><b>2.11.1</b> Membuat List</a></li>
+<li class="chapter" data-level="2.11.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-list"><i class="fa fa-check"></i><b>2.11.2</b> Subset List</a></li>
+<li class="chapter" data-level="2.11.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-list"><i class="fa fa-check"></i><b>2.11.3</b> Memperluas List</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#loop"><i class="fa fa-check"></i><b>2.12</b> Loop</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#for-loop"><i class="fa fa-check"></i><b>2.12.1</b> For Loop</a></li>
+<li class="chapter" data-level="2.12.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#while-loop"><i class="fa fa-check"></i><b>2.12.2</b> While Loop</a></li>
+<li class="chapter" data-level="2.12.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#repeat-loop"><i class="fa fa-check"></i><b>2.12.3</b> Repeat Loop</a></li>
+<li class="chapter" data-level="2.12.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#break"><i class="fa fa-check"></i><b>2.12.4</b> Break</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#decision-making"><i class="fa fa-check"></i><b>2.13</b> Decision Making</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-statement"><i class="fa fa-check"></i><b>2.13.1</b> if statement</a></li>
+<li class="chapter" data-level="2.13.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-else-statement"><i class="fa fa-check"></i><b>2.13.2</b> if else statement</a></li>
+<li class="chapter" data-level="2.13.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#switch-statement"><i class="fa fa-check"></i><b>2.13.3</b> switch statement</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi"><i class="fa fa-check"></i><b>2.14</b> Fungsi</a></li>
+<li class="chapter" data-level="2.15" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#referensi-1"><i class="fa fa-check"></i><b>2.15</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html"><i class="fa fa-check"></i><b>3</b> Manajemen Data R</a><ul>
+<li class="chapter" data-level="3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file"><i class="fa fa-check"></i><b>3.1</b> Import File</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-menggunakan-fungsi-bawaan-r"><i class="fa fa-check"></i><b>3.1.1</b> Import File Menggunakan Fungsi Bawaan R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-csv-dan-txt-menggunakan-library-readr"><i class="fa fa-check"></i><b>3.1.2</b> Membaca File CSV dan TXT Menggunakan Library readr</a></li>
+<li class="chapter" data-level="3.1.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-excel-pada-r"><i class="fa fa-check"></i><b>3.1.3</b> Import File Excel Pada R</a></li>
+<li class="chapter" data-level="3.1.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-dari-format-aplikasi-statistik"><i class="fa fa-check"></i><b>3.1.4</b> Membaca File Dari Format Aplikasi Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-file"><i class="fa fa-check"></i><b>3.2</b> Eksport File</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-txt-dan-csv"><i class="fa fa-check"></i><b>3.2.1</b> Eksport Data Menjadi Format TXT dan CSV</a></li>
+<li class="chapter" data-level="3.2.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-excel"><i class="fa fa-check"></i><b>3.2.2</b> Eksport Data Menjadi Format Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-data-format"><i class="fa fa-check"></i><b>3.3</b> Tibble Data Format</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membuat-tibble"><i class="fa fa-check"></i><b>3.3.1</b> Membuat Tibble</a></li>
+<li class="chapter" data-level="3.3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-vs-data-frame"><i class="fa fa-check"></i><b>3.3.2</b> Tibble vs Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#merapikan-data"><i class="fa fa-check"></i><b>3.4</b> Merapikan Data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#gather"><i class="fa fa-check"></i><b>3.4.1</b> Gather</a></li>
+<li class="chapter" data-level="3.4.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#spread"><i class="fa fa-check"></i><b>3.4.2</b> Spread</a></li>
+<li class="chapter" data-level="3.4.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#separate"><i class="fa fa-check"></i><b>3.4.3</b> Separate</a></li>
+<li class="chapter" data-level="3.4.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#unite"><i class="fa fa-check"></i><b>3.4.4</b> Unite</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#transformasi-data"><i class="fa fa-check"></i><b>3.5</b> Transformasi Data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#paket-dplyr"><i class="fa fa-check"></i><b>3.5.1</b> Paket dplyr</a></li>
+<li class="chapter" data-level="3.5.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#filter"><i class="fa fa-check"></i><b>3.5.2</b> filter()</a></li>
+<li class="chapter" data-level="3.5.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#arrange"><i class="fa fa-check"></i><b>3.5.3</b> arrange()</a></li>
+<li class="chapter" data-level="3.5.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#select"><i class="fa fa-check"></i><b>3.5.4</b> select()</a></li>
+<li class="chapter" data-level="3.5.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mutate"><i class="fa fa-check"></i><b>3.5.5</b> mutate()</a></li>
+<li class="chapter" data-level="3.5.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#summarize-dan-group_by"><i class="fa fa-check"></i><b>3.5.6</b> summarize() dan group_by()</a></li>
+<li class="chapter" data-level="3.5.7" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mengkombinasikan-beberapa-operasi-menggunakan-operator-pipe"><i class="fa fa-check"></i><b>3.5.7</b> Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%&gt;%)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#referensi-2"><i class="fa fa-check"></i><b>3.6</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html"><i class="fa fa-check"></i><b>4</b> Visualisasi Data Menggunakan Fungsi Dasar R</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#visualisasi-data-menggunakan-fungsi-plot"><i class="fa fa-check"></i><b>4.1</b> Visualisasi Data Menggunakan Fungsi plot()</a></li>
+<li class="chapter" data-level="4.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot"><i class="fa fa-check"></i><b>4.2</b> Matriks Scatterplot</a></li>
+<li class="chapter" data-level="4.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot"><i class="fa fa-check"></i><b>4.3</b> Box plot</a></li>
+<li class="chapter" data-level="4.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#bar-plot"><i class="fa fa-check"></i><b>4.4</b> Bar Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistika Lingkungan Menggunakan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualisasi-data-menggunakan-fungsi-dasar-r" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Visualisasi Data Menggunakan Fungsi Dasar R</h1>
+<div id="visualisasi-data-menggunakan-fungsi-plot" class="section level2">
+<h2><span class="header-section-number">4.1</span> Visualisasi Data Menggunakan Fungsi plot()</h2>
+<p>Fungsi <code>plot()</code> merupakan fungsi umum yang digunakan untuk membuat plot pada <code>R</code>. Format dasarnya adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x, y, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x dan y</strong>: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.</li>
+<li><strong>type</strong>: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:</li>
+<li>type=“p” : membuat plot titik atau scatterplot. Nilai ini merupakan default pada fungsi <code>plot()</code>.</li>
+<li>type=“l” : membuat plot garis.</li>
+<li>type=“b” : membuat plot titik yang terhubung dengan garis.</li>
+<li>type=“o” : membuat plot titik yang ditimpa oleh garis.</li>
+<li>type=“h” : membuat plot garis vertikal dari titik ke garis y=0.</li>
+<li>type=“s” : membuat fungsi tangga.</li>
+<li>type=“n” : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.</li>
+</ul>
+</blockquote>
+<p>Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:plot">4.1</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor data </span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>); y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membagi jendela grafik menajdi 4 baris dan 2 kolom</span>
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))
+
+<span class="co"># loop</span>
+type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;p&quot;</span>,<span class="st">&quot;l&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;o&quot;</span>,<span class="st">&quot;h&quot;</span>,<span class="st">&quot;s&quot;</span>,<span class="st">&quot;n&quot;</span>)
+<span class="cf">for</span> (i <span class="cf">in</span> type){
+  <span class="kw">plot</span>(x,y, <span class="dt">type=</span> i,
+       <span class="dt">main=</span> <span class="kw">paste</span>(<span class="st">&quot;type=&quot;</span>, i))
+}</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:plot"></span>
+<img src="EnvStat_files/figure-html/plot-1.png" alt="Plot berbagai jenis setting type" width="80%" />
+<p class="caption">
+Figure 4.1: Plot berbagai jenis setting type
+</p>
+</div>
+<p>Pada contoh selanjutnya akan dilakukan plot terhadap dataset <code>trees</code>. Untuk memuatnya jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tibble)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat dataset</span>
+trees &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(trees)
+
+<span class="co"># print </span>
+trees</code></pre></div>
+<pre><code>## # A tibble: 31 x 3
+##    Girth Height Volume
+##    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1   8.3     70   10.3
+##  2   8.6     65   10.3
+##  3   8.8     63   10.2
+##  4  10.5     72   16.4
+##  5  10.7     81   18.8
+##  6  10.8     83   19.7
+##  7  11       66   15.6
+##  8  11       75   18.2
+##  9  11.1     80   22.6
+## 10  11.2     75   19.9
+## # ... with 21 more rows</code></pre>
+<p>Pada dataset tersebut kita ingin membuat scatterplot untuk melihat korelasi antara variabel <code>Height</code> dan <code>Volume</code>. Untuk melakukannya jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(trees<span class="op">$</span>Height, trees<span class="op">$</span>Volume)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau </span>
+<span class="kw">with</span>(trees, <span class="kw">plot</span>(Height, Volume))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:scatter"></span>
+<img src="EnvStat_files/figure-html/scatter-1.png" alt="Scatterplot Height vs Volume" width="70%" />
+<p class="caption">
+Figure 4.2: Scatterplot Height vs Volume
+</p>
+</div>
+<p>Kita juga dapat menggunakan formula untuk membuat scatterplot pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:scatter">4.2</a>. Berikut adalah contoh sintaks yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>trees<span class="op">$</span>Height
+y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume
+
+<span class="kw">plot</span>(y<span class="op">~</span>x)</code></pre></div>
+<p>Fungsi <code>plot()</code> juga dapat digunakan untuk membentuk matriks scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh dataset kedalam fungsi <code>plot()</code>. Berikut adalah sintaks dan output yang dihasilkan berupa Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:scatter2">4.3</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(trees)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:scatter2"></span>
+<img src="EnvStat_files/figure-html/scatter2-1.png" alt="Matriks scatterplot dataset trees" width="80%" />
+<p class="caption">
+Figure 4.3: Matriks scatterplot dataset trees
+</p>
+</div>
+<p>Selain itu jika kita memasukkan objek <code>lm()</code> yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi <code>plot()</code>, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:diag">4.4</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membagi jendela grafik menjadi 2 baris dan 2 kolom</span>
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+
+<span class="co"># plot</span>
+<span class="kw">plot</span>(<span class="kw">lm</span>(Volume<span class="op">~</span>Height, <span class="dt">data=</span>trees))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:diag"></span>
+<img src="EnvStat_files/figure-html/diag-1.png" alt="Plot diagnostik regresi linier" width="80%" />
+<p class="caption">
+Figure 4.4: Plot diagnostik regresi linier
+</p>
+</div>
+<p>Selain objek-objek tersebut, fungsi <code>plot()</code> akan banyak digunakan dalam analisis statistika kita pada chapter lainnya.</p>
+</div>
+<div id="matriks-scatterplot" class="section level2">
+<h2><span class="header-section-number">4.2</span> Matriks Scatterplot</h2>
+<p>Pada bagian sebelumnya kita telah belajar bagaimana membuat matriks scatterplot mengggunakan fungsi <code>plot()</code>. Pada bagian ini kita akan belajar cara membuat matriks scatterplot menggunakan fungsi <code>pairs()</code>. Secara umum format fungsi dituliskan sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(data, <span class="dt">lower.panel=</span><span class="ot">NULL</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: data frame</li>
+<li><strong>lower.panel</strong>: menampilkan atau tidak menampilkan panel bawah</li>
+</ul>
+</blockquote>
+<p>Untuk lebih memahami penggunaan fungsi tersebut, berikut akan disajikan contoh penggunaannya pada dataset <code>iris</code>. Sebelum melakukannya jalankan sintaks berikut untuk memuat dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat dataset irir</span>
+iris &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(iris)
+
+<span class="co"># print</span>
+iris</code></pre></div>
+<pre><code>## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows</code></pre>
+<p>Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek <code>iris</code> kedalam fungsi <code>pairs()</code>. Berikut adalah sintaks yang digunakan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat">4.5</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(iris)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:matscat"></span>
+<img src="EnvStat_files/figure-html/matscat-1.png" alt="Matriks scatterplot iris" width="80%" />
+<p class="caption">
+Figure 4.5: Matriks scatterplot iris
+</p>
+</div>
+<p>Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter <code>lower.panel=NULL</code>. Output yang dihasilkan akan tampak seperti pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat2">4.6</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(iris, <span class="dt">lower.panel=</span><span class="ot">NULL</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:matscat2"></span>
+<img src="EnvStat_files/figure-html/matscat2-1.png" alt="Matriks scatterplot iris tanpa panel bawah" width="80%" />
+<p class="caption">
+Figure 4.6: Matriks scatterplot iris tanpa panel bawah
+</p>
+</div>
+<p>Kita dapat merubah warna titik berdasarkan factor <code>Species</code>. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel <code>Species</code> pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi <code>pairs()</code>. Warna berdasarkan grup diberikan dengan menambahkan parameter <code>col=</code> pada fungsi <code>pairs()</code>. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat3">4.7</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># drop variabel Species</span>
+<span class="co"># simpan dataset baru pada objek iris2</span>
+iris2 &lt;-<span class="st"> </span>iris[ ,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]
+
+<span class="co"># print</span>
+iris2</code></pre></div>
+<pre><code>## # A tibble: 150 x 4
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+##  1          5.1         3.5          1.4         0.2
+##  2          4.9         3            1.4         0.2
+##  3          4.7         3.2          1.3         0.2
+##  4          4.6         3.1          1.5         0.2
+##  5          5           3.6          1.4         0.2
+##  6          5.4         3.9          1.7         0.4
+##  7          4.6         3.4          1.4         0.3
+##  8          5           3.4          1.5         0.2
+##  9          4.4         2.9          1.4         0.2
+## 10          4.9         3.1          1.5         0.1
+## # ... with 140 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># spesifikasi vaktor warna titik berdasarkan spesies</span>
+my_col &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)
+
+<span class="co"># plot</span>
+<span class="kw">pairs</span>(iris2, <span class="dt">lower.panel=</span><span class="ot">NULL</span>,
+      <span class="co"># spesifikasi warna</span>
+      <span class="dt">col=</span> my_col[iris<span class="op">$</span>Species])</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:matscat3"></span>
+<img src="EnvStat_files/figure-html/matscat3-1.png" alt="Matriks scatterplot iris tanpa panel bawah" width="80%" />
+<p class="caption">
+Figure 4.7: Matriks scatterplot iris tanpa panel bawah
+</p>
+</div>
+<p>Kita juga dapat mengganti panel bawah menjadi nilai korelasi antar variabel. Untuk melakukannya kita perlu mendefinisikan sebuah fungsi untuk panel bawah dan panel atas (jika ingin warna titik berdasarkan factor). Setelah fungsi panel bawah dan atas didefinisikan, langkah selanjutnya adalah melakukan memasukkan nilainya kedalam fungsi <code>pairs()</code>. Berikut adalah sintaks yang digunakan serta output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat4">4.8</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat fungsi untuk menghitung</span>
+<span class="co"># nilai korelasi yang ditempatkan pada panel bawah</span>
+panel.cor &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){
+    <span class="co"># definisi parameter grafik </span>
+    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))
+    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))
+    <span class="co"># menghitung koefisien korelas</span>
+    r &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">cor</span>(x, y), <span class="dt">digits=</span><span class="dv">2</span>)
+    <span class="co"># menambahkan text berdasarkan koefisien korelasi</span>
+    txt &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R = &quot;</span>, r)
+    <span class="co"># mengatur besar text sesuai besarnya nilai korelasi</span>
+    cex.cor &lt;-<span class="st"> </span><span class="fl">0.8</span><span class="op">/</span><span class="kw">strwidth</span>(txt)
+    <span class="kw">text</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, txt, <span class="dt">cex =</span> cex.cor <span class="op">*</span><span class="st"> </span><span class="kw">abs</span>(r))
+}
+
+<span class="co"># kustomisasi panel atas agar</span>
+<span class="co"># warna titik berdasarkan factor</span>
+my_col &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)
+upper.panel&lt;-<span class="cf">function</span>(x, y){
+  <span class="kw">points</span>(x,y, <span class="dt">col =</span> my_col[iris<span class="op">$</span>Species])
+}
+
+<span class="kw">pairs</span>(iris2,
+      <span class="dt">lower.panel=</span> panel.cor,
+      <span class="dt">upper.panel=</span> upper.panel)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:matscat4"></span>
+<img src="EnvStat_files/figure-html/matscat4-1.png" alt="Matriks scatterplot iris dengan koefisien korelasi" width="80%" />
+<p class="caption">
+Figure 4.8: Matriks scatterplot iris dengan koefisien korelasi
+</p>
+</div>
+<p>Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter <code>upper.panel=</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat5">4.9</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># kustomisasi panel atas</span>
+upper.panel&lt;-<span class="cf">function</span>(x, y){
+  <span class="kw">points</span>(x,y, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)[iris<span class="op">$</span>Species])
+  r &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">cor</span>(x, y), <span class="dt">digits=</span><span class="dv">2</span>)
+  txt &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R = &quot;</span>, r)
+  usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))
+  <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))
+  <span class="kw">text</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>, txt)
+}
+
+<span class="co"># plot</span>
+<span class="kw">pairs</span>(iris2, <span class="dt">lower.panel =</span> <span class="ot">NULL</span>, 
+      <span class="dt">upper.panel =</span> upper.panel)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:matscat5"></span>
+<img src="EnvStat_files/figure-html/matscat5-1.png" alt="Matriks scatterplot iris dengan koefisien korelasi di panel atas" width="80%" />
+<p class="caption">
+Figure 4.9: Matriks scatterplot iris dengan koefisien korelasi di panel atas
+</p>
+</div>
+</div>
+<div id="box-plot" class="section level2">
+<h2><span class="header-section-number">4.3</span> Box plot</h2>
+<p>Box plot pada <code>R</code> dapat dibuat menggunakan fungsi <code>boxplot()</code>. Berikut adalah sintaks untuk membuat boxplot variabel <code>Sepal.Lenght</code> pada dataset <code>iris</code> dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot">4.10</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:boxplot"></span>
+<img src="EnvStat_files/figure-html/boxplot-1.png" alt="Boxplot variabel Sepal.Length" width="70%" />
+<p class="caption">
+Figure 4.10: Boxplot variabel Sepal.Length
+</p>
+</div>
+<p>Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel <code>Species</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot2">4.11</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(iris<span class="op">$</span>Sepal.Length<span class="op">~</span>iris<span class="op">$</span>Species)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:boxplot2"></span>
+<img src="EnvStat_files/figure-html/boxplot2-1.png" alt="Boxplot berdasarkan variabel species" width="70%" />
+<p class="caption">
+Figure 4.11: Boxplot berdasarkan variabel species
+</p>
+</div>
+<p>Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut adalah contoh sintaks yang digunakan untuk melakukannya dan output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot3">4.12</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(iris<span class="op">$</span>Sepal.Length<span class="op">~</span>iris<span class="op">$</span>Species,
+        <span class="co"># ubah warna outline menjadi steelblue</span>
+        <span class="dt">border =</span> <span class="st">&quot;steelblue&quot;</span>,
+        <span class="co"># ubah warna box berdasarkan grup</span>
+        <span class="dt">col=</span> <span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#56B4E9&quot;</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:boxplot3"></span>
+<img src="EnvStat_files/figure-html/boxplot3-1.png" alt="Boxplot dengan warna berdasarkan spesies" width="70%" />
+<p class="caption">
+Figure 4.12: Boxplot dengan warna berdasarkan spesies
+</p>
+</div>
+<p>Kita juga dapat membuat boxplot pada <em>multiple group</em>. Data yang digunakan untuk contoh tersebut adalah dataset <code>ToothGrowth</code>. Berikut adalah sintaks untuk memuat dataset tersebut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat dataset sebagai tibble</span>
+ToothGrowth &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ToothGrowth)
+
+<span class="co"># print</span>
+ToothGrowth</code></pre></div>
+<pre><code>## # A tibble: 60 x 3
+##      len supp   dose
+##    &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt;
+##  1   4.2 VC      0.5
+##  2  11.5 VC      0.5
+##  3   7.3 VC      0.5
+##  4   5.8 VC      0.5
+##  5   6.4 VC      0.5
+##  6  10   VC      0.5
+##  7  11.2 VC      0.5
+##  8  11.2 VC      0.5
+##  9   5.2 VC      0.5
+## 10   7   VC      0.5
+## # ... with 50 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ubah variable dose menjadi factor</span>
+ToothGrowth<span class="op">$</span>dose &lt;-<span class="st"> </span><span class="kw">as.factor</span>(ToothGrowth<span class="op">$</span>dose)
+
+<span class="co"># print</span>
+ToothGrowth</code></pre></div>
+<pre><code>## # A tibble: 60 x 3
+##      len supp  dose 
+##    &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;
+##  1   4.2 VC    0.5  
+##  2  11.5 VC    0.5  
+##  3   7.3 VC    0.5  
+##  4   5.8 VC    0.5  
+##  5   6.4 VC    0.5  
+##  6  10   VC    0.5  
+##  7  11.2 VC    0.5  
+##  8  11.2 VC    0.5  
+##  9   5.2 VC    0.5  
+## 10   7   VC    0.5  
+## # ... with 50 more rows</code></pre>
+<p>Contoh sintaks dan output boxplot <em>multiple group</em> disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot4">4.13</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>supp<span class="op">*</span>dose, <span class="dt">data =</span> ToothGrowth,
+        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;steelblue&quot;</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:boxplot4"></span>
+<img src="EnvStat_files/figure-html/boxplot4-1.png" alt="Boxplot multiple group" width="70%" />
+<p class="caption">
+Figure 4.13: Boxplot multiple group
+</p>
+</div>
+</div>
+<div id="bar-plot" class="section level2">
+<h2><span class="header-section-number">4.4</span> Bar Plot</h2>
+<p>Barplot pada <code>R</code> dapat dibuat menggunakan fungsi <code>barplot()</code>. Untuk lebih memahaminya berikut disajikan contoh barplot menggunakan dataset <code>VADeaths</code>. Untuk memuatnya jalankan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">VADeaths</code></pre></div>
+<pre><code>##       Rural Male Rural Female Urban Male Urban Female
+## 50-54       11.7          8.7       15.4          8.4
+## 55-59       18.1         11.7       24.3         13.6
+## 60-64       26.9         20.3       37.0         19.3
+## 65-69       41.0         30.9       54.6         35.1
+## 70-74       66.0         54.3       71.1         50.0</code></pre>
+<p>Contoh bar plot untuk variabel <code>Rural Male</code> disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot">4.14</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+<span class="kw">barplot</span>(VADeaths[, <span class="st">&quot;Rural Male&quot;</span>], <span class="dt">main=</span><span class="st">&quot;a&quot;</span>)
+<span class="kw">barplot</span>(VADeaths[, <span class="st">&quot;Rural Male&quot;</span>], <span class="dt">main=</span><span class="st">&quot;b&quot;</span>, <span class="dt">horiz=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:barplot"></span>
+<img src="EnvStat_files/figure-html/barplot-1.png" alt="a. bar plot vertikal; b. bar plot horizontal" width="70%" />
+<p class="caption">
+Figure 4.14: a. bar plot vertikal; b. bar plot horizontal
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
+<p>Kita dapat mengubah warna pada masing-masing bar, baik outline bar maupun box pada bar. Selain itu kita juga dapat mengubah nama grup yang telah dihasilkan sebelumnya. Berikut sintaks untuk melakukannya dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot2">4.15</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(VADeaths[, <span class="st">&quot;Rural Male&quot;</span>],
+        <span class="co"># ubah warna ouline menjadi steelblue</span>
+        <span class="dt">border=</span><span class="st">&quot;steelblue&quot;</span>,
+        <span class="co"># ubah wana box</span>
+        <span class="dt">col=</span> <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;steelblue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;orange&quot;</span>),
+        <span class="co"># ubah nama grup dari A sampai E</span>
+        <span class="dt">names.arg =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>],
+        <span class="co"># ubah orientasi menajadi horizontal</span>
+        <span class="dt">horiz=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:barplot2"></span>
+<img src="EnvStat_files/figure-html/barplot2-1.png" alt="Kustomisasi bar plot" width="70%" />
+<p class="caption">
+Figure 4.15: Kustomisasi bar plot
+</p>
+</div>
+<p>Untuk bar plot dengan <em>multiple group</em>, tersedia dua pengaturan posisi yaitu <em>stacked bar plot</em>(menunjukkan proporsi penyusun pada masing-masing grup) dan <em>grouped bar plot</em>(melihat perbedaan individual pada masing-masing grup). Pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot3">4.16</a> dan Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot4">4.17</a> , disajikan kedua jenis bar plot tersebut.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># staked</span>
+<span class="kw">barplot</span>(VADeaths,
+         <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;mistyrose&quot;</span>, <span class="st">&quot;lightcyan&quot;</span>, 
+                 <span class="st">&quot;lavender&quot;</span>, <span class="st">&quot;cornsilk&quot;</span>),
+        <span class="dt">legend =</span> <span class="kw">rownames</span>(VADeaths))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:barplot3"></span>
+<img src="EnvStat_files/figure-html/barplot3-1.png" alt="Stacked bar plot" width="70%" />
+<p class="caption">
+Figure 4.16: Stacked bar plot
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># grouped</span>
+<span class="kw">barplot</span>(VADeaths,
+         <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;mistyrose&quot;</span>, <span class="st">&quot;lightcyan&quot;</span>, 
+                 <span class="st">&quot;lavender&quot;</span>, <span class="st">&quot;cornsilk&quot;</span>),
+        <span class="dt">legend =</span> <span class="kw">rownames</span>(VADeaths), <span class="dt">beside =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:barplot4"></span>
+<img src="EnvStat_files/figure-html/barplot4-1.png" alt="Grouped bar plot" width="70%" />
+<p class="caption">
+Figure 4.17: Grouped bar plot
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="manajemen-data-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["EnvStat.pdf", "EnvStat.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
