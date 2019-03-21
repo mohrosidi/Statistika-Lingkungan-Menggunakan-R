@@ -125,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-03-20}
+    \date{2019-03-21}
 
 \usepackage{booktabs}
 
@@ -7107,6 +7107,1269 @@ Figure \ref{fig:barplot4} , disajikan kedua jenis bar plot tersebut.
 
 \caption{Grouped bar plot}\label{fig:barplot4}
 \end{figure}
+
+\section{Line Plot}\label{line-plot}
+
+Line plot pada \texttt{R} dapat dibentuk menggunakan fungsi
+\texttt{plot()}. Selain itu fungsi \texttt{lines()} dapat pula digunakan
+untuk menambahkan line plot pada grafik. Berikut adalah sintaks untuk
+membuat line plot dan outputnya pada Figure \ref{fig:line}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Membuat vektor data}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\DecValTok{2}\OperatorTok{*}\NormalTok{x}
+\NormalTok{z <-}\StringTok{ }\NormalTok{x}\OperatorTok{^}\DecValTok{2}
+
+\CommentTok{# Membuat line plot x vs y}
+\KeywordTok{plot}\NormalTok{(y}\OperatorTok{~}\NormalTok{x, }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{,}
+     \DataTypeTok{lty=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
+
+\CommentTok{# Menambahkan line plot x vs z}
+\KeywordTok{lines}\NormalTok{(z}\OperatorTok{~}\NormalTok{x, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{,}
+      \DataTypeTok{lty=}\DecValTok{2}\NormalTok{,}
+      \DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+
+\CommentTok{# Menambahkan legend}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"topleft"}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{"Line 1"}\NormalTok{, }\StringTok{"Line 2"}\NormalTok{),}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\DataTypeTok{lty =} \DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/line-1} 
+
+}
+
+\caption{Line plot}\label{fig:line}
+\end{figure}
+
+\section{Pie Chart}\label{pie-chart}
+
+Pie chart digunakan untuk membuat visualisasi proporsi pada sebuah data.
+Pie chart pada \texttt{R} dibuat menggunakan fungsi \texttt{pie()}.
+Berikut adalah sintaks untuk membuat pie chart dan output yang
+dihasilkan pada Figure \ref{fig:pie}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\KeywordTok{pie}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\DecValTok{280}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{20}\NormalTok{),}
+  \KeywordTok{c}\NormalTok{(}\StringTok{'Sky'}\NormalTok{, }\StringTok{'Sunny side of pyramid'}\NormalTok{, }\StringTok{'Shady side of pyramid'}\NormalTok{),}
+  \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{'#0292D8'}\NormalTok{, }\StringTok{'#F7EA39'}\NormalTok{, }\StringTok{'#C4B632'}\NormalTok{),}
+  \DataTypeTok{init.angle =} \OperatorTok{-}\DecValTok{50}\NormalTok{, }\DataTypeTok{border =} \OtherTok{NA}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/pie-1} 
+
+}
+
+\caption{Pie chart}\label{fig:pie}
+\end{figure}
+
+\section{Histogram dan Density Plot}\label{histogram-dan-density-plot}
+
+Fungsi \texttt{hist()} dapat digunakan untuk membuat histogram pada
+\texttt{R}. Secara sederhana fungsi tersebut didefinisikan sebagai
+berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{breaks=}\StringTok{"Sturges"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik
+\item
+  \textbf{breaks}: \emph{breakpoints} antar sel histogram.
+\end{itemize}
+\end{quote}
+
+Pada dataset \texttt{trees} akan dibuat histogram variabel
+\texttt{Height}. Untuk melakukannya jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(trees}\OperatorTok{$}\NormalTok{Height)}
+\end{Highlighting}
+\end{Shaded}
+
+Output yang dihasilkan disajikan pada Figure \ref{fig:hist}:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/hist-1} 
+
+}
+
+\caption{Histogram}\label{fig:hist}
+\end{figure}
+
+Density plot pada \texttt{R} dapat dibuat menggunakan fungsi
+\texttt{density()}. Berbeda dengan fungsi \texttt{hist()}, fungsi ini
+tidak langsung menghasilkan grafik densitas. Fungsi \texttt{density()}
+hanya menghitung kernel densitas pada data. Densitas yang telah dihitung
+selanjutnya diplotkan menggunakan fungsi \texttt{plot()}. Berikut adalah
+sintaks dan output yang dihasilkan pada Figure \ref{fig:dens}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menghitung kernel density}
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{density}\NormalTok{(trees}\OperatorTok{$}\NormalTok{Height)}
+
+\CommentTok{# plot densitas dengan outline merah}
+\KeywordTok{plot}\NormalTok{(dens,}\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/dens-1} 
+
+}
+
+\caption{Density plot}\label{fig:dens}
+\end{figure}
+
+Kita juga dapat menambahkan grafik densitas pada histogram sehingga
+mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu
+mengubah kernel histigram dari frekuensi menjadi density dengan
+menambahkan argumen \texttt{freq=FALSE} pada fungsi \texttt{hist()}.
+Selanjutnya tambahkan fungsi \texttt{polygon()} untuk memplotkan grafik
+densitas. Berikut adalah sintak dan output yang dihasilkan pada Figure
+\ref{fig:denshist}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menghitung kernel density}
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{density}\NormalTok{(trees}\OperatorTok{$}\NormalTok{Height)}
+
+\CommentTok{# histogram}
+\KeywordTok{hist}\NormalTok{(trees}\OperatorTok{$}\NormalTok{Height, }\DataTypeTok{freq=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{col=}\StringTok{"steelblue"}\NormalTok{)}
+
+\CommentTok{# tambahkan density plot}
+\KeywordTok{polygon}\NormalTok{(dens, }\DataTypeTok{border=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/denshist-1} 
+
+}
+
+\caption{Density plot dan histogram}\label{fig:denshist}
+\end{figure}
+
+\section{QQ Plot}\label{qq-plot}
+
+QQ plot digunakan untuk mengecek distribusi suatu data apakah
+berdistribusi normal atau tidak. Pada \texttt{R} QQ plot dibuat
+menggunakan 2 fungsi yaitu: \texttt{qqnorm()} dan \texttt{qqline()}.
+Fungsi \texttt{qqnorm()} digunakan untuk memproduksi normal QQ plot
+suatu variabel. Sedangkan fungsi \texttt{qqline()} digunakan untuk
+membuat garis referensi distiribusi normal. Suatu distribusi dikatan
+normal jika titik observasi yang dihasilkan mengikuti garis referensi
+tersebut.
+
+Berikut adalah cara membuat QQ plot menggunakan variabel \texttt{Volume}
+pada dataset \texttt{trees}. Output yang dihasilkan disajikan pada
+Figure \ref{fig:qq}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{qqnorm}\NormalTok{(trees}\OperatorTok{$}\NormalTok{Volume)}
+\KeywordTok{qqline}\NormalTok{(trees}\OperatorTok{$}\NormalTok{Volume, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/qq-1} 
+
+}
+
+\caption{QQ plot}\label{fig:qq}
+\end{figure}
+
+\section{Dot Chart}\label{dot-chart}
+
+Fungsi \texttt{dotchart()} pada \texttt{R} digunakan untuk membuat dot
+chart. Format yang digunakan adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dotchart}\NormalTok{(x, }\DataTypeTok{labels =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{groups =} \OtherTok{NULL}\NormalTok{, }
+         \DataTypeTok{gcolor =} \KeywordTok{par}\NormalTok{(}\StringTok{"fg"}\NormalTok{), }\DataTypeTok{color =} \KeywordTok{par}\NormalTok{(}\StringTok{"fg"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor atau matriks numerik.
+\item
+  \textbf{labels}: vektor label untuk tiap titik.
+\item
+  \textbf{groups}: grouping variabel yang mengindikasikan bagaimana
+  \textbf{x} dikelompokkan.
+\item
+  \textbf{gcolor}: warna yang digunakan pada label grup dan nilai
+  observasi.
+\item
+  \textbf{color}: warna yang digunakan untuk titik dan label.
+\end{itemize}
+\end{quote}
+
+Pada contoh berikut disajikan cara membuat dot chart pada dataset
+\texttt{mtcars} untuk melihat mobil yang paling hemat bahan bakar
+berdasarkan variabel \texttt{mpg} dan jumlah silinder (\texttt{cyl}).
+Berikut sintaks yang digunakan dan output yang dihasilkan pada Figure
+\ref{fig:dot}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# mengurutkan dataset mtcars berdasarkan variabel mpg}
+\NormalTok{mtcars <-}\StringTok{ }\NormalTok{mtcars[}\KeywordTok{order}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg), ]}
+
+\CommentTok{# mengubah variabel cyl menjadi factor}
+\NormalTok{grps <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{cyl)}
+
+\CommentTok{# membuat vektor warna berdasarkan jumlah grup}
+\NormalTok{my_cols <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"#999999"}\NormalTok{, }\StringTok{"#E69F00"}\NormalTok{, }\StringTok{"#56B4E9"}\NormalTok{)}
+
+\CommentTok{# plot}
+\KeywordTok{dotchart}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg, }\DataTypeTok{labels =} \KeywordTok{row.names}\NormalTok{(mtcars),}
+         \DataTypeTok{groups =}\NormalTok{ grps, }\DataTypeTok{gcolor =}\NormalTok{ my_cols,}
+         \DataTypeTok{color =}\NormalTok{ my_cols[grps],}
+         \DataTypeTok{cex =} \FloatTok{0.6}\NormalTok{,  }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"mpg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/dot-1} 
+
+}
+
+\caption{Dot chart}\label{fig:dot}
+\end{figure}
+
+\section{Kustomisasi Parameter
+Grafik}\label{kustomisasi-parameter-grafik}
+
+Pada bagian ini penulis akan menjelaskan cara untuk kustomisasi
+parameter grafik seperti:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  menambahkan judul, legend, teks, axis, dan garis.
+\item
+  mengubah skala axis, simbol plot, jenis garis, dan warna.
+\end{enumerate}
+
+\subsection{Menambahkan Judul}\label{menambahkan-judul}
+
+Pada grafik di \texttt{R}, kita dapat menambahkan judul dengan dua cara,
+yaitu: pada plot melalui parameter dan melalui fungsi plot(). Kedua cara
+tersebut tidak berbeda satu sama lain pada parameter input.
+
+Untuk menambahkan judul pada plot secara langsung, kita dapat
+menggunakan argumen tambahan sebagai berikut:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \textbf{main}: teks untuk judul.
+\item
+  \textbf{xlab}: teks untuk keterangan axis X.
+\item
+  \textbf{ylab}: teks untuk keterangan axis y.
+\item
+  \textbf{sub}: teks untuk sub-judul.
+\end{enumerate}
+
+Berikut contoh sintaks penerapan masing-masing argumen tersebut beserta
+dengan output yang dihasilkan pada Figure \ref{fig:title}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menambahkan judul}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{), }\DataTypeTok{main=}\StringTok{"Main title"}\NormalTok{,}
+        \DataTypeTok{xlab=}\StringTok{"X axis title"}\NormalTok{,}
+        \DataTypeTok{ylab=}\StringTok{"Y axis title"}\NormalTok{,}
+        \DataTypeTok{sub=}\StringTok{"Sub-title"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/title-1} 
+
+}
+
+\caption{Menambahkan Judul}\label{fig:title}
+\end{figure}
+
+kita juga dapat melakukan kustomisasi pada warna, \emph{font style}, dan
+ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul,
+kita dapat menambahkan argumen sebagai berikut:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \textbf{col.main}: warna untuk judul.
+\item
+  \textbf{col.lab}: warna untuk keterangan axis.
+\item
+  \textbf{col.sub}: warna untuk sub-judul
+\end{enumerate}
+
+Untuk kustomisasi font judul, kita dapat menambahkan argumen berikut:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \textbf{font.main}: \emph{font style} untuk judul.
+\item
+  \textbf{font.lab}: \emph{font style} untuk keterangan axis.
+\item
+  \textbf{font.sub}: \emph{font style} untuk sub-judul.
+\end{enumerate}
+
+\begin{quote}
+\textbf{Note: }
+
+Nilai yang dapat dimasukkan antara lain:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{1}: untuk teks normal.
+\item
+  \textbf{2}: untuk teks cetak tebal.
+\item
+  \textbf{3}: untuk teks cetak miring.
+\item
+  \textbf{4}: untuk teks cetak tebal dan miring.
+\item
+  \textbf{5}: untuk font simbol.
+\end{itemize}
+\end{quote}
+
+Sedangkan untuk ukuran font, kita dapat menambahkan variabel berikut:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \textbf{cex.main}: ukuran teks judul.
+\item
+  \textbf{cex.lab}: ukuran teks keterangan axis.
+\item
+  \textbf{cex.sub}: ukuran teks sub-judul.
+\end{enumerate}
+
+Berikut sintaks penerapan seluruh argumen tersebut beserta output yang
+dihasilkan pada Figure \ref{fig:title2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menambahkan judul}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{), }
+        \CommentTok{# menambahkan judul}
+        \DataTypeTok{main=}\StringTok{"Main title"}\NormalTok{,}
+        \DataTypeTok{xlab=}\StringTok{"X axis title"}\NormalTok{,}
+        \DataTypeTok{ylab=}\StringTok{"Y axis title"}\NormalTok{,}
+        \DataTypeTok{sub=}\StringTok{"Sub-title"}\NormalTok{,}
+        \CommentTok{# kustomisasi warna font}
+        \DataTypeTok{col.main=}\StringTok{"red"}\NormalTok{, }
+        \DataTypeTok{col.lab=}\StringTok{"blue"}\NormalTok{, }
+        \DataTypeTok{col.sub=}\StringTok{"black"}\NormalTok{,}
+        \CommentTok{# kustomisasi font style}
+        \DataTypeTok{font.main=}\DecValTok{4}\NormalTok{, }
+        \DataTypeTok{font.lab=}\DecValTok{4}\NormalTok{, }
+        \DataTypeTok{font.sub=}\DecValTok{4}\NormalTok{,}
+        \CommentTok{# kustomisasi ukuran font}
+        \DataTypeTok{cex.main=}\DecValTok{2}\NormalTok{, }
+        \DataTypeTok{cex.lab=}\FloatTok{1.7}\NormalTok{, }
+        \DataTypeTok{cex.sub=}\FloatTok{1.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/title2-1} 
+
+}
+
+\caption{Menambahkan Judul (2)}\label{fig:title2}
+\end{figure}
+
+Kita telah belajar bagaimana menambahkan judul langsung pada fungsi
+plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat
+menambahkan judul melalui fungsi \texttt{title()}. argumen yang
+dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan
+judul secara langsung pada plot. Berikut adalah contoh sintaks dan
+output yang dihasilkan pada Figure \ref{fig:title3}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menambahkan judul}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{8}\NormalTok{))}
+
+\CommentTok{# menambahkan judul}
+\KeywordTok{title}\NormalTok{(}\DataTypeTok{main=}\StringTok{"Main title"}\NormalTok{,}
+      \DataTypeTok{xlab=}\StringTok{"X axis title"}\NormalTok{,}
+      \DataTypeTok{ylab=}\StringTok{"Y axis title"}\NormalTok{,}
+      \DataTypeTok{sub=}\StringTok{"Sub-title"}\NormalTok{,}
+      \CommentTok{# kustomisasi warna font}
+      \DataTypeTok{col.main=}\StringTok{"red"}\NormalTok{, }
+      \DataTypeTok{col.lab=}\StringTok{"blue"}\NormalTok{, }
+      \DataTypeTok{col.sub=}\StringTok{"black"}\NormalTok{,}
+      \CommentTok{# kustomisasi font style}
+      \DataTypeTok{font.main=}\DecValTok{4}\NormalTok{, }
+      \DataTypeTok{font.lab=}\DecValTok{4}\NormalTok{, }
+      \DataTypeTok{font.sub=}\DecValTok{4}\NormalTok{,}
+      \CommentTok{# kustomisasi ukuran font}
+      \DataTypeTok{cex.main=}\DecValTok{2}\NormalTok{, }
+      \DataTypeTok{cex.lab=}\FloatTok{1.7}\NormalTok{, }
+      \DataTypeTok{cex.sub=}\FloatTok{1.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/title3-1} 
+
+}
+
+\caption{Menambahkan Judul (3)}\label{fig:title3}
+\end{figure}
+
+\subsection{Menambahkan Legend}\label{menambahkan-legend}
+
+Fungsi \texttt{legend()} pada \texttt{R} dapat digunakan untuk
+menambahkan legend pada grafik. Format sederhananya adalah sebagai
+berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{legend}\NormalTok{(x, }\DataTypeTok{y=}\OtherTok{NULL}\NormalTok{, legend, fill, col, bg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x} dan \textbf{y}: koordinat yang digunakan untuk posisi
+  legend.
+\item
+  \textbf{legend}: teks pada legend
+\item
+  \textbf{fill}: warna yang digunakan untuk mengisi box disamping teks
+  legend.
+\item
+  \textbf{col}: warna garis dan titik disamping teks legend.
+\item
+  \textbf{bg}: warna latar belakang legend box.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada
+Figure \ref{fig:legend}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat vektor numerik}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\NormalTok{x}\OperatorTok{^}\DecValTok{2}
+\NormalTok{z <-}\StringTok{ }\NormalTok{x}\OperatorTok{*}\DecValTok{2}
+
+\CommentTok{# membuat line plot}
+\KeywordTok{plot}\NormalTok{(x,y, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{# menambahkan line plot}
+\KeywordTok{lines}\NormalTok{(x,z, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{2}\NormalTok{)}
+
+\CommentTok{# menambahkan legend}
+\KeywordTok{legend}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{95}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{"Line 1"}\NormalTok{, }\StringTok{"Line 2"}\NormalTok{),}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\DataTypeTok{lty=}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/legend-1} 
+
+}
+
+\caption{Menambahkan legend}\label{fig:legend}
+\end{figure}
+
+Kita dapat menambahkan judul, merubah font, dan merubah warna backgroud
+pada legend. Argumen yang ditambahkan pada legend adalah sebagai
+berikut:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \textbf{title}: Judul legend
+\item
+  \textbf{text.font}: integer yang menunjukkan \emph{font style} pada
+  teks legend. Nilai yang dapat dimasukkan adalah sebagai berikut:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{1}: normal
+  \item
+    \textbf{2}: cetak tebal
+  \item
+    \textbf{3}: cetak miring
+  \item
+    \textbf{4}: cetak tebal dan miring.
+  \end{itemize}
+\item
+  \textbf{bg}: warna background legend box.
+\end{enumerate}
+
+Berikut adalah penerapan sintaks dan output yang dihasilkan pada Figure
+\ref{fig:legend2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat line plot}
+\KeywordTok{plot}\NormalTok{(x,y, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{# menambahkan line plot}
+\KeywordTok{lines}\NormalTok{(x,z, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{2}\NormalTok{)}
+
+\CommentTok{# menambahkan legend}
+\KeywordTok{legend}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{95}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{"Line 1"}\NormalTok{, }\StringTok{"Line 2"}\NormalTok{),}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\DataTypeTok{lty=}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.8}\NormalTok{,}
+       \DataTypeTok{title=}\StringTok{"Line types"}\NormalTok{, }\DataTypeTok{text.font=}\DecValTok{4}\NormalTok{, }\DataTypeTok{bg=}\StringTok{'lightblue'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/legend2-1} 
+
+}
+
+\caption{Menambahkan legend (2)}\label{fig:legend2}
+\end{figure}
+
+Kita dapat melakukan kustomisasi pada border dari legend melalui argumen
+\texttt{box.lty=}(jenis garis), \texttt{box.lwd=}(ukuran garis), dan
+\texttt{box.col=}(warna box). Berikut adalah penerapan argumen tersebut
+beserta output yang dihasilkan pada Figure \ref{fig:legend3}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat line plot}
+\KeywordTok{plot}\NormalTok{(x,y, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{# menambahkan line plot}
+\KeywordTok{lines}\NormalTok{(x,z, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{2}\NormalTok{)}
+
+\CommentTok{# menambahkan legend}
+\KeywordTok{legend}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{95}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{"Line 1"}\NormalTok{, }\StringTok{"Line 2"}\NormalTok{),}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\DataTypeTok{lty=}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.8}\NormalTok{,}
+       \DataTypeTok{title=}\StringTok{"Line types"}\NormalTok{, }\DataTypeTok{text.font=}\DecValTok{4}\NormalTok{, }\DataTypeTok{bg=}\StringTok{'white'}\NormalTok{,}
+       \DataTypeTok{box.lty=}\DecValTok{2}\NormalTok{, }\DataTypeTok{box.lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{box.col=}\StringTok{"steelblue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/legend3-1} 
+
+}
+
+\caption{Menambahkan legend (3)}\label{fig:legend3}
+\end{figure}
+
+Selain menggunakan koordinat, kita juga dapat melakukan kustomisasi
+posisi legend menggunakan \emph{keyword} seperti:
+bottomright``,''bottom``,''bottomleft``,''left``,''topleft``,''top``,''topright``,''right"
+and ``center''. Sejumlah kustomisasi legend berdasarkan \emph{keyword}
+disajikan pada Figure \ref{fig:legend4}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# plot}
+\KeywordTok{plot}\NormalTok{(x,y, }\DataTypeTok{type =} \StringTok{"n"}\NormalTok{)}
+
+\CommentTok{# posisi kiri atas, inset =0.05}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"topleft"}\NormalTok{,}
+  \DataTypeTok{legend =} \StringTok{"(x,y)"}\NormalTok{,}
+  \DataTypeTok{title =} \StringTok{"topleft, inset = .05"}\NormalTok{,}
+  \DataTypeTok{inset =} \FloatTok{0.05}\NormalTok{)}
+\CommentTok{# posisi atas}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"top"}\NormalTok{,}
+       \DataTypeTok{legend =} \StringTok{"(x,y)"}\NormalTok{,}
+       \DataTypeTok{title =} \StringTok{"top"}\NormalTok{)}
+\CommentTok{# posisi kanan atas inset = .02}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{,}
+       \DataTypeTok{legend =} \StringTok{"(x,y)"}\NormalTok{,}
+       \DataTypeTok{title =} \StringTok{"topright, inset = .02"}\NormalTok{,}
+       \DataTypeTok{inset =} \FloatTok{0.02}\NormalTok{)}
+\CommentTok{# posisi kiri}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"left"}\NormalTok{,}
+       \DataTypeTok{legend =} \StringTok{"(x,y)"}\NormalTok{,}
+       \DataTypeTok{title =} \StringTok{"left"}\NormalTok{)}
+\CommentTok{# posisi tengah}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"center"}\NormalTok{,}
+       \DataTypeTok{legend =} \StringTok{"(x,y)"}\NormalTok{,}
+       \DataTypeTok{title =} \StringTok{"center"}\NormalTok{)}
+\CommentTok{# posisi kanan}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"right"}\NormalTok{,}
+       \DataTypeTok{legend =} \StringTok{"(x,y)"}\NormalTok{,}
+       \DataTypeTok{title =} \StringTok{"right"}\NormalTok{)}
+\CommentTok{# posisi kiri bawah}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"bottomleft"}\NormalTok{,}
+       \DataTypeTok{legend =} \StringTok{"(x,y)"}\NormalTok{,}
+       \DataTypeTok{title =} \StringTok{"bottomleft"}\NormalTok{)}
+\CommentTok{# posisi bawah}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"bottom"}\NormalTok{,}
+       \DataTypeTok{legend =} \StringTok{"(x,y)"}\NormalTok{,}
+       \DataTypeTok{title =} \StringTok{"bottom"}\NormalTok{)}
+\CommentTok{# posisi kanan bawah}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"bottomright"}\NormalTok{,}
+       \DataTypeTok{legend =} \StringTok{"(x,y)"}\NormalTok{,}
+       \DataTypeTok{title =} \StringTok{"bottomright"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/legend4-1} 
+
+}
+
+\caption{Kustomisasi posisi legend}\label{fig:legend4}
+\end{figure}
+
+\subsection{Menambahkan Teks Pada
+Grafik}\label{menambahkan-teks-pada-grafik}
+
+Teks pada grafik dapat kita tambahkan baik sebagai keterangan yang
+menunjukkan label suatu observasi, keterangan tambahan disekitar bingkai
+grafik, maupun sebuah persamaan yang ada pada bidang grafik. Untuk
+menambahkannya kita dapat menggunakan dua buah fungsi yaitu:
+\texttt{text()} dan \texttt{mtext()}.
+
+FUngsi \texttt{text()} berguna untuk menambahkan teks di dalam bidang
+grafik seperti label titik observasi dan persamaan di dalam bidang
+grafik. Format yang digunakan adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{text}\NormalTok{(x, y, labels)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x} dan \textbf{y}: vektor numerik yang menunjukkan koordinat
+  posisi teks.
+\item
+  \textbf{labels}: vektor karakter yang menunjukkan teks yang hendak
+  ditulis.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh sintaks untuk memberi label pada sejumlah data
+yang memiliki kriteria yang kita inginkan dan output yang dihasilkan
+pada Figure \ref{fig:text}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# tandai observasi yang memiliki nilai}
+\CommentTok{# mpg < 15 dan wt > 5}
+\NormalTok{d <-}\StringTok{ }\NormalTok{mtcars[mtcars}\OperatorTok{$}\NormalTok{wt }\OperatorTok{>=}\StringTok{ }\DecValTok{5} \OperatorTok{&}\StringTok{ }\NormalTok{mtcars}\OperatorTok{$}\NormalTok{mpg }\OperatorTok{<=}\StringTok{ }\DecValTok{15}\NormalTok{, ]}
+
+
+\CommentTok{# plot}
+\KeywordTok{plot}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{wt, mtcars}\OperatorTok{$}\NormalTok{mpg, }\DataTypeTok{main=}\StringTok{"Milage vs. Car Weight"}\NormalTok{,}
+      \DataTypeTok{xlab=}\StringTok{"Weight"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Miles/(US) gallon"}\NormalTok{)}
+
+\CommentTok{# menambahkan text}
+\KeywordTok{text}\NormalTok{(d}\OperatorTok{$}\NormalTok{wt, d}\OperatorTok{$}\NormalTok{mpg,  }\KeywordTok{row.names}\NormalTok{(d),}
+     \DataTypeTok{cex=}\FloatTok{0.65}\NormalTok{, }\DataTypeTok{pos=}\DecValTok{3}\NormalTok{,}\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/text-1} 
+
+}
+
+\caption{Menambahkan teks}\label{fig:text}
+\end{figure}
+
+Sedangkan sintaks berikut adalah contoh bagaimana menambahkan persamaan
+kedalam bidang grafik dan output yang dihasilkan pada Figure
+\ref{fig:text2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }
+     \DataTypeTok{main=}\StringTok{"text(...) examples}\CharTok{\textbackslash{}n}\StringTok{~~~~~~~~~~~"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\KeywordTok{expression}\NormalTok{(}\KeywordTok{hat}\NormalTok{(beta) }\OperatorTok{==}\StringTok{ }\NormalTok{(X}\OperatorTok{^}\NormalTok{t }\OperatorTok{*}\StringTok{ }\NormalTok{X)}\OperatorTok{^}\NormalTok{\{}\OperatorTok{-}\DecValTok{1}\NormalTok{\} }\OperatorTok{*}\StringTok{ }\NormalTok{X}\OperatorTok{^}\NormalTok{t }\OperatorTok{*}\StringTok{ }\NormalTok{y))}
+\KeywordTok{text}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{4}\NormalTok{, }\KeywordTok{expression}\NormalTok{(}\KeywordTok{bar}\NormalTok{(x) }\OperatorTok{==}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{frac}\NormalTok{(x[i], n), i}\OperatorTok{==}\DecValTok{1}\NormalTok{, n)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/text2-1} 
+
+}
+
+\caption{Menambahkan teks (2)}\label{fig:text2}
+\end{figure}
+
+Fungsi \texttt{mtext()} berguna untuk menambahkan teks pada frame
+sekitar bidang grafik. Format yang digunakan adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mtext}\NormalTok{(text, }\DataTypeTok{side=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{text}: teks yang akan ditulis.
+\item
+  \textbf{side}: integer yang menunjukkan lokasi teks yang akan ditulis.
+  Nilai yang dapat dimasukkan antara lain:
+\item
+  \textbf{1}: bawah
+\item
+  \textbf{2}: kiri
+\item
+  \textbf{3}: atas
+\item
+  \textbf{4}: kanan.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penerapan dan output yang dihasilkan pada Figure
+\ref{fig:text3}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }
+     \DataTypeTok{main=}\StringTok{"mtext(...) examples}\CharTok{\textbackslash{}n}\StringTok{~~~~~~~~~~~"}\NormalTok{)}
+\KeywordTok{mtext}\NormalTok{(}\StringTok{"Magic function"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/text3-1} 
+
+}
+
+\caption{Menambahkan teks (3)}\label{fig:text3}
+\end{figure}
+
+\subsection{Menambahkan Garis Pada
+Plot}\label{menambahkan-garis-pada-plot}
+
+Fungsi \texttt{abline()} dapat digunakan untuk menamabahkan garis pada
+plot. Garis yang ditambahkan dapat berupa garis vertikal, horizontal,
+maupun garis regresi. Format yang digunakan adalah sebagi berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v=}\NormalTok{y)}
+\end{Highlighting}
+\end{Shaded}
+
+Berikut adalah contoh sintaks bagaimana menambahkan garis pada sebuah
+plot dan output yang dihasilkan disajikan pada Figure \ref{fig:abline}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat plot}
+\KeywordTok{plot}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{wt, mtcars}\OperatorTok{$}\NormalTok{mpg, }\DataTypeTok{main=}\StringTok{"Milage vs. Car Weight"}\NormalTok{,}
+      \DataTypeTok{xlab=}\StringTok{"Weight"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Miles/(US) gallon"}\NormalTok{)}
+
+\CommentTok{# menambahkan garis vertikal di titik rata-rata weight}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v=}\KeywordTok{mean}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{wt), }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{2}\NormalTok{)}
+
+\CommentTok{# menambahkan garis horizontal di titik rata-rata  mpg}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h=}\KeywordTok{mean}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg), }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{3}\NormalTok{)}
+
+\CommentTok{# menambahkan garis regresi}
+\KeywordTok{abline}\NormalTok{(}\KeywordTok{lm}\NormalTok{(mpg}\OperatorTok{~}\NormalTok{wt, }\DataTypeTok{data=}\NormalTok{mtcars), }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/abline-1} 
+
+}
+
+\caption{Menambahkan garis}\label{fig:abline}
+\end{figure}
+
+\subsection{Merubah Simbol plot dan Jenis
+Garis}\label{merubah-simbol-plot-dan-jenis-garis}
+
+Simbol plot (jenis titik) dapat diubah dengan menambahkan argumen
+\texttt{pch=} pada plot. Nilai yang dimasukkan pada argumen tersebut
+adalah integer dengan kemungkinan nilai sebagai berikut:
+
+\begin{itemize}
+\tightlist
+\item
+  pch = 0,square
+\item
+  pch = 1,circle (default)
+\item
+  pch = 2,triangle point up
+\item
+  pch = 3,plus
+\item
+  pch = 4,cross
+\item
+  pch = 5,diamond
+\item
+  pch = 6,triangle point down
+\item
+  pch = 7,square cross
+\item
+  pch = 8,star
+\item
+  pch = 9,diamond plus
+\item
+  pch = 10,circle plus
+\item
+  pch = 11,triangles up and down
+\item
+  pch = 12,square plus
+\item
+  pch = 13,circle cross
+\item
+  pch = 14,square and triangle down
+\item
+  pch = 15, filled square
+\item
+  pch = 16, filled circle
+\item
+  pch = 17, filled triangle point-up
+\item
+  pch = 18, filled diamond
+\item
+  pch = 19, solid circle
+\item
+  pch = 20,bullet (smaller circle)
+\item
+  pch = 21, filled circle blue
+\item
+  pch = 22, filled square blue
+\item
+  pch = 23, filled diamond blue
+\item
+  pch = 24, filled triangle point-up blue
+\item
+  pch = 25, filled triangle point down blue
+\end{itemize}
+
+Untuk lebih memahami bentuk simbol tersebut, penulis akan menyajikan
+sintaks yang menampilkan seluruh simbol tersebut pada satu grafik.
+Output yang dihasilkan disajikan pada Figure \ref{fig:symbol}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{generateRPointShapes<-}\ControlFlowTok{function}\NormalTok{()\{}
+  \CommentTok{# menentukan parameter plot}
+\NormalTok{  oldPar<-}\KeywordTok{par}\NormalTok{()}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{font=}\DecValTok{2}\NormalTok{, }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+  \CommentTok{# produksi titik axis}
+\NormalTok{  y=}\KeywordTok{rev}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{6}\NormalTok{),}\KeywordTok{rep}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{5}\NormalTok{)))}
+\NormalTok{  x=}\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{5}\NormalTok{),}\DecValTok{6}\NormalTok{)}
+  \CommentTok{# plot seluruh titik dan label}
+  \KeywordTok{plot}\NormalTok{(x, y, }\DataTypeTok{pch =} \DecValTok{0}\OperatorTok{:}\DecValTok{25}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{1.5}\NormalTok{, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FloatTok{5.5}\NormalTok{), }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FloatTok{6.5}\NormalTok{), }
+       \DataTypeTok{axes=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{bg=}\StringTok{"blue"}\NormalTok{)}
+  \KeywordTok{text}\NormalTok{(x, y, }\DataTypeTok{labels=}\DecValTok{0}\OperatorTok{:}\DecValTok{25}\NormalTok{, }\DataTypeTok{pos=}\DecValTok{3}\NormalTok{)}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\NormalTok{oldPar}\OperatorTok{$}\NormalTok{mar,}\DataTypeTok{font=}\NormalTok{oldPar}\OperatorTok{$}\NormalTok{font )}
+\NormalTok{\}}
+
+\CommentTok{# Print}
+\KeywordTok{generateRPointShapes}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/symbol-1} 
+
+}
+
+\caption{Symbol plot}\label{fig:symbol}
+\end{figure}
+
+Pada \texttt{R} kita juga dapat mengatur jenis garis yang akan
+ditampilkan pada plot dengan menambahkan argumen \texttt{lty=}
+(\emph{line type}) pada fungsi plot. Nilai yang dapat dimasukkan adalah
+nilai integer. Keterangan masing-masing nilai tersebut adalah sebagai
+berikut:
+
+\begin{itemize}
+\tightlist
+\item
+  lty = 0, blank
+\item
+  lty = 1, solid (default)
+\item
+  lty = 2, dashed
+\item
+  lty = 3, dotted
+\item
+  lty = 4, dotdash
+\item
+  lty = 5, longdash
+\item
+  lty = 6, twodash
+\end{itemize}
+
+Untuk lebih memahaminya, pada sintaks berikut disajikan plot seluruh
+jenis garis tersebut beserta output yang dihasilkannya pada Figure
+\ref{fig:lty}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{generateRLineTypes<-}\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  oldPar<-}\KeywordTok{par}\NormalTok{()}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{font=}\DecValTok{2}\NormalTok{, }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+  \KeywordTok{plot}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DataTypeTok{pch=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{6}\NormalTok{), }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.7}\NormalTok{), }\DataTypeTok{axes =} \OtherTok{FALSE}\NormalTok{ ,}\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{0}\OperatorTok{:}\DecValTok{6}\NormalTok{) }\KeywordTok{lines}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{,}\FloatTok{0.7}\NormalTok{), }\KeywordTok{c}\NormalTok{(i,i), }\DataTypeTok{lty=}\NormalTok{i, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{)}
+  \KeywordTok{text}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\FloatTok{0.1}\NormalTok{,}\DecValTok{6}\NormalTok{), }\DecValTok{0}\OperatorTok{:}\DecValTok{6}\NormalTok{, }
+       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"0.'blank'"}\NormalTok{, }\StringTok{"1.'solid'"}\NormalTok{, }\StringTok{"2.'dashed'"}\NormalTok{, }\StringTok{"3.'dotted'"}\NormalTok{, }
+                \StringTok{"4.'dotdash'"}\NormalTok{, }\StringTok{"5.'longdash'"}\NormalTok{, }\StringTok{"6.'twodash'"}\NormalTok{))}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\NormalTok{oldPar}\OperatorTok{$}\NormalTok{mar,}\DataTypeTok{font=}\NormalTok{oldPar}\OperatorTok{$}\NormalTok{font )}
+\NormalTok{\}}
+\KeywordTok{generateRLineTypes}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/lty-1} 
+
+}
+
+\caption{Line type}\label{fig:lty}
+\end{figure}
+
+\subsection{Mengatur Axis Plot}\label{mengatur-axis-plot}
+
+Kita dapat melakukan pengaturan lebih jauh terhadap axis, seperti:
+menambahkan axis tambahan pada atas dan bawah frame, mengubah rentang
+nilai axis, serta kustomisasi \emph{tick mark} pada nilai axis. Hal ini
+diperlukan karena fungsi grafik dasar \texttt{R} tidak dapat mengatur
+axis secara otomatis saat plot baru ditambahkan pada plot pertama dan
+rentang nilai plot baru lebih besar dibanding plot pertama, sehingga
+sebagian nilai plot baru tidak ditampilkan pada hasil akhir.
+
+Untuk menambahkan axis pada \texttt{R} kita dapat menambahkan fungsi
+\texttt{axis()} setelah plot dilakukan. Format yang digunakan adalah
+sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{axis}\NormalTok{(side, }\DataTypeTok{at=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{labels=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{side}: nilai integer yang mengidikasikan posisi axix yang
+  hendak ditambahkan. Nilai yang dapat dimasukkan adalah sebagai
+  berikut:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{1}: bawah
+  \item
+    \textbf{2}: kiri
+  \item
+    \textbf{3}: atas
+  \item
+    \textbf{4}: kanan.
+  \end{itemize}
+\item
+  \textbf{at}: titik dimana \emph{tick-mark} hendak digambarkan. Nilai
+  yang dapat dimasukkan sama dengan \textbf{side}.
+\item
+  \textbf{labels}: Teks label \emph{tick-mark}. Dapat juga secara logis
+  menentukan apakah anotasi harus dibuat pada \emph{tick mark}.
+\end{itemize}
+\end{quote}
+
+Berikut contoh sintaks penerapan fungsi tersebut dan output yang
+dihasilkan pada Figure \ref{fig:axis}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat vektor numerik}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\NormalTok{x}\OperatorTok{^}\DecValTok{2}
+
+\CommentTok{# plot}
+\KeywordTok{plot}\NormalTok{(x, y, }\DataTypeTok{pch=}\DecValTok{18}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{,}
+     \DataTypeTok{frame=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{xaxt=}\StringTok{"n"}\NormalTok{) }\CommentTok{# Remove x axis}
+
+\CommentTok{# menambahkan axis}
+\CommentTok{# bawah}
+\KeywordTok{axis}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{, LETTERS[}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{], }\DataTypeTok{col.axis=}\StringTok{"blue"}\NormalTok{)}
+\CommentTok{# atas}
+\KeywordTok{axis}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DataTypeTok{col =} \StringTok{"darkgreen"}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{lwd =} \FloatTok{0.5}\NormalTok{)}
+\CommentTok{# kanan}
+\KeywordTok{axis}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DataTypeTok{col =} \StringTok{"violet"}\NormalTok{, }\DataTypeTok{col.axis =} \StringTok{"dark violet"}\NormalTok{, }\DataTypeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/axis-1} 
+
+}
+
+\caption{Menambahkan axis}\label{fig:axis}
+\end{figure}
+
+Kita dapat mengubah rentang nilai pada axis menggunakan fungsi
+\texttt{xlim()} dan \texttt{ylim()} yang menyatakan vektor nilai masimum
+dan minimum rentang. Selain itu kita dapat juga melakukan tranformasi
+baik pada sumbu x dan sumbu y. Berikut adalah argumen yang dapat
+ditambahkan pada fungsi grafik:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{xlim}: limit nilai sumbu x dengan format:
+  \texttt{xlim(min,\ max)}.
+\item
+  \textbf{ylim}: limit nilai sumbu x dengan format:
+  \texttt{ylim(min,\ max)}.
+\end{itemize}
+
+Untuk transformasi skala log, kita dapat menambahkan argumen berikut:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{log=``x''}: transformasi log sumbu x.
+\item
+  \textbf{log=``y''}: transformasi log sumbu y.
+\item
+  \textbf{log=``xy''}: transformasi log sumbu x dan y.
+\end{itemize}
+
+Berikut adalah contoh sintaks penerapan argumen tersebut beserta output
+yang dihasilkan pada Figure \ref{fig:axis2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membagi jendela grafik menjadi 1 baris dan 3 kolom}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+
+\CommentTok{# membuat vektor numerik}
+\NormalTok{x<-}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{); y<-x}\OperatorTok{*}\NormalTok{x}
+
+\CommentTok{# simple plot}
+\KeywordTok{plot}\NormalTok{(x, y)}
+
+\CommentTok{# plot dengan pengaturan rentang skala}
+\KeywordTok{plot}\NormalTok{(x, y, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{15}\NormalTok{), }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{150}\NormalTok{))}
+
+\CommentTok{# plot dengan transformasi skala log}
+\KeywordTok{plot}\NormalTok{(x, y, }\DataTypeTok{log=}\StringTok{"y"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/axis2-1} 
+
+}
+
+\caption{Mengubah rentang dan skala axis}\label{fig:axis2}
+\end{figure}
+
+Kita dapat melakukan kustomisasi pada \emph{tick mark}. Kustomisasi yang
+dapat dilakukan adalah merubah warna, \emph{font style}, ukuran font,
+orientasi, serta menyembunyikan \emph{tick mark}.
+
+Argumen yang ditambahkan adalah sebagai berikut:
+
+\begin{itemize}
+\item
+  \textbf{col.axis}: warna \emph{tick mark}.
+\item
+  \textbf{font.axis}: integer yang menunjukkan \emph{font style}. Sama
+  dengan pengaturan judul.
+\item
+  \textbf{cex.axis}: pengaturan ukuran \emph{tick mark}.
+\item
+  \textbf{las}: mengatur orientasi \emph{tick mark}. Nilai yang dapat
+  dimasukkan adalah sebagai berikut:
+\item
+  \textbf{0}: paralel terhadap posisi axis (default)
+\item
+  \textbf{1}: selalu horizontal
+\item
+  \textbf{2}: selalu perpendikular dengan posisi axis
+\item
+  \textbf{3}: selalu vertikal
+\item
+  \textbf{xaxt} dan \textbf{yaxt}: karakter untuk menunjukkan apakah
+  axis akan ditampilkan atau tidak. nilai dapat berupa ``n''(sembunyika)
+  dan ``s''(tampilkan).
+\end{itemize}
+
+Berikut adalah contoh penerapan argumen tersebut beserta output pada
+Figure \ref{fig:axis3}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat vektor numerik}
+\NormalTok{x<-}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{); y<-x}\OperatorTok{*}\NormalTok{x}
+
+\CommentTok{# plot}
+\KeywordTok{plot}\NormalTok{(x,y,}
+     \CommentTok{# warna}
+     \DataTypeTok{col.axis=}\StringTok{"red"}\NormalTok{,}
+     \CommentTok{# font style}
+     \DataTypeTok{font.axis=}\DecValTok{2}\NormalTok{,}
+     \CommentTok{# ukuran}
+     \DataTypeTok{cex=}\FloatTok{1.5}\NormalTok{,}
+     \CommentTok{# orientasi}
+     \DataTypeTok{las=}\DecValTok{3}\NormalTok{,}
+     \CommentTok{# sembunyikan sumbu x}
+     \DataTypeTok{xaxt=}\StringTok{"n"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/axis3-1} 
+
+}
+
+\caption{Kustomisasi tick mark}\label{fig:axis3}
+\end{figure}
+
+\subsection{Mengatur Warna}\label{mengatur-warna}
+
+Pada fungsi dasar \texttt{R}, warna dapat diatur dengan mengetikkan nama
+warna maupun kode hexadesimal. Selain itu kita juga dapat menamambahkan
+warna lain melalui library lain yang tidak dijelaskan pada chapter ini.
+
+Untuk penggunaan warna hexadesima kita perlu mengetikkan ``\#'' yang
+diukuti oleh 6 kode warna. Untuk memperlajari kode-kode dan warna yang
+dihasilkan, silahkan pembaca mengunjungi situs
+\url{http://www.visibone.com/}.
+
+Pada sintaks berikut disajikan visualisasi nama-nama warna bawaan yang
+ada pada \texttt{R}. Output yang dihasilkan disajikan pada Figure
+\ref{fig:color}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{showCols <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{cl=}\KeywordTok{colors}\NormalTok{(), }\DataTypeTok{bg =} \StringTok{"grey"}\NormalTok{,}
+                     \DataTypeTok{cex =} \FloatTok{0.75}\NormalTok{, }\DataTypeTok{rot =} \DecValTok{30}\NormalTok{) \{}
+\NormalTok{    m <-}\StringTok{ }\KeywordTok{ceiling}\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(n <-}\KeywordTok{length}\NormalTok{(cl)))}
+    \KeywordTok{length}\NormalTok{(cl) <-}\StringTok{ }\NormalTok{m}\OperatorTok{*}\NormalTok{m; cm <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(cl, m)}
+    \KeywordTok{require}\NormalTok{(}\StringTok{"grid"}\NormalTok{)}
+    \KeywordTok{grid.newpage}\NormalTok{(); vp <-}\StringTok{ }\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{w =}\NormalTok{ .}\DecValTok{92}\NormalTok{, }\DataTypeTok{h =}\NormalTok{ .}\DecValTok{92}\NormalTok{)}
+    \KeywordTok{grid.rect}\NormalTok{(}\DataTypeTok{gp=}\KeywordTok{gpar}\NormalTok{(}\DataTypeTok{fill=}\NormalTok{bg))}
+    \KeywordTok{grid.text}\NormalTok{(cm, }\DataTypeTok{x =} \KeywordTok{col}\NormalTok{(cm)}\OperatorTok{/}\NormalTok{m, }\DataTypeTok{y =} \KeywordTok{rev}\NormalTok{(}\KeywordTok{row}\NormalTok{(cm))}\OperatorTok{/}\NormalTok{m, }\DataTypeTok{rot =}\NormalTok{ rot,}
+              \DataTypeTok{vp=}\NormalTok{vp, }\DataTypeTok{gp=}\KeywordTok{gpar}\NormalTok{(}\DataTypeTok{cex =}\NormalTok{ cex, }\DataTypeTok{col =}\NormalTok{ cm))}
+\NormalTok{\}}
+
+\CommentTok{# print 60 nama warna pertama}
+\KeywordTok{showCols}\NormalTok{(}\DataTypeTok{bg=}\StringTok{"gray20"}\NormalTok{, }\DataTypeTok{cl=}\KeywordTok{colors}\NormalTok{()[}\DecValTok{1}\OperatorTok{:}\DecValTok{60}\NormalTok{], }\DataTypeTok{rot=}\DecValTok{30}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/color-1} 
+
+}
+
+\caption{Nama warna}\label{fig:color}
+\end{figure}
+
+\section{Referensi}\label{referensi-3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Maindonald, J.H. 2008. \textbf{Using R for Data Analysis and Graphics
+  Introduction, Code and Commentary}. Centre for Mathematics and Its
+  Applications Australian National University.
+\item
+  Scherber, C. 2007. \textbf{An introduction to statistical data
+  analysis using R}. R\_Manual Goettingen.
+\item
+  Venables, W.N. Smith D.M. and R Core Team. 2018. \textbf{An
+  Introduction to R}. R Manuals.
+\item
+  STHDA. \textbf{R Base Graphs}.
+  \url{http://www.sthda.com/english/wiki/r-base-graphs}
+\end{enumerate}
 
 \chapter{Final Words}\label{final-words}
 
