@@ -20,9 +20,8 @@ Bandingkan dengan sintaks berikut:
 
 Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, `R` akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian. 
 
-Operator aritmatika yang disediakan `R` adalah sebagai berikut:
+Operator aritmatika yang disediakan `R` disajikan pada Table \@ref(tab:oparitmatika):
 
-**Table 1** Operator Aritmatika `R`
 
 **Simbol**     | **Keterangan**
 ---------------|--------------------------------------------------------------------------------------
@@ -33,6 +32,8 @@ Operator aritmatika yang disediakan `R` adalah sebagai berikut:
 ^              | *Eksponentiation*, untuk operasi pemangkatan
 %%             | *Modulus*, Untuk mencari sisa pembagian
 %/%            | *Integer*, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian
+
+: (\#tab:oparitmatika) Operator Aritmatika `R`.
 
 Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.
 
@@ -109,9 +110,7 @@ sqrt(4) # akar kuadrat 4
 
 ## Operator Relasi
 
-Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan `R` disajikan pada Table 2.
-
-**Table 2** Operator Relasi `R`
+Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan `R` disajikan pada Table \@ref(tab:oprelasi).
 
 **Simbol**     | **Keterangan**           
 ---------------|---------------------------
@@ -121,6 +120,8 @@ Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. O
 ">="           | Lebih besar sama dengan
 "<="           | Lebih kecil sama dengan
 "!="           | Tidak sama dengan
+
+: (\#tab:oprelasi) Operator Relasi `R`.
 
 Berikut adalah penerapan operator pada tabel tersebut:
 
@@ -150,9 +151,7 @@ x != y
 
 ## Operator Logika
 
-Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika `TRUE`. Operator logika yang disediakan `R` dapat dilihat pada Table 3.
-
-**Table 3** Operator logika `R`
+Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika `TRUE`. Operator logika yang disediakan `R` dapat dilihat pada Table \@ref(tab:oplogika).
 
 **Simbol**     | **Keterangan**           
 ---------------|----------------------------------
@@ -160,7 +159,9 @@ Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau com
 ||             | Operator logika OR
 !              | Opeartor logika NOT
 &              | Operator logika AND element wise
- |             | Operator logika OR element wise
+|              | Operator logika OR element wise
+ 
+: (\#tab:oplogika) Operator logika `R`.
 
 Penerapannya terdapat pada sintaks berikut:
 
@@ -275,9 +276,7 @@ ls()
 
 ## Tipe Data
 
-Data pada `R` dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada `R` disajikan pada Table 4.
-
-**Table 4** Tipe Data `R`
+Data pada `R` dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada `R` disajikan pada Table \@ref(tab:tipedata).
 
 **Tipe Data**  | **Contoh**              | **Keterangan**
 ---------------|-------------------------|--------------------------------------------------
@@ -287,6 +286,8 @@ Integer        | 23L, 97L, 3L            | Bilangan integer (bilangan bulat)
 Complex        | 2i, 3i, 9i              | Bilangan kompleks
 Character      | 'a', "b", "123"         | Karakter dan string
 Raw            | Identik dengan "hello"  | Segala jenis data yang disimpan sebagai raw bytes
+
+: (\#tab:tipedata) Tipe Data `R`.
 
 Sintaks berikut adalah contoh dari tipe data pada `R`. Untuk mengetahui tipa data suatu objek kita dapat menggunakan perintah `class()`
 
@@ -1139,9 +1140,7 @@ repeat{
 
 ## Decision Making
 
-*Decicion Making* atau sering disebut sebagai *if then else statement* merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada `R`.
-
-**Table 5** Daftar percabangan pada `R`
+*Decicion Making* atau sering disebut sebagai *if then else statement* merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table \@ref(tab:percabangan) disajikan daftar percabangan yang digunakan pada `R`.
 
 **Statement**          | **Keterangan**
 -----------------------|--------------------------------------------------------------------------------------------------------------------------
@@ -1149,6 +1148,7 @@ repeat{
 *if...else statement*  | *if else statement* terdiri atas beberapa buah ekspresi *Boolean*. Ekspressi *Boolean* berikutnya akan dijalankan jika ekspresi *Boolan  sebelumnya bernilai FALSE
 *switch statement*     | *switch statement* digunakan untuk mengevaluasi sebuah variabel beberapa pilihan
 
+: (\#tab:percabangan) Daftar percabangan pada `R`.
 
 ### if statement
 

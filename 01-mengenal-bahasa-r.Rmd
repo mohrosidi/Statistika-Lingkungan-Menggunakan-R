@@ -1,3 +1,5 @@
+# (PART\*) Bahasa Pemrograman R {-}
+
 # Mengenal Bahasa R 
 
 Dewasa ini tersedia banyak sekali *software* yang dapat digunakan untuk membantu kita dalam melakukan analisa data. *software* yang digunakan dapat berupa *software* berbayar atau gratis.

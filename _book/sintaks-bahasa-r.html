@@ -12,7 +12,7 @@
   <meta property="og:title" content="Chapter 2 Sintaks Bahasa R | Statistika Lingkungan Menggunakan R" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="cover.png" />
   <meta property="og:description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan" />
   
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="Chapter 2 Sintaks Bahasa R | Statistika Lingkungan Menggunakan R" />
   
   <meta name="twitter:description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan" />
-  
+  <meta name="twitter:image" content="cover.png" />
 
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-22">
+<meta name="date" content="2019-03-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,13 +34,13 @@
   
 <link rel="prev" href="mengenal-bahasa-r.html">
 <link rel="next" href="manajemen-data-r.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -105,6 +105,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="part"><span><b>Bahasa Pemrograman R</b></span></li>
 <li class="chapter" data-level="1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html"><i class="fa fa-check"></i><b>1</b> Mengenal Bahasa R</a><ul>
 <li class="chapter" data-level="1.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#sejarah-r"><i class="fa fa-check"></i><b>1.1</b> Sejarah R</a></li>
 <li class="chapter" data-level="1.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fitur-dan-karakteristik-r"><i class="fa fa-check"></i><b>1.2</b> Fitur dan Karakteristik R</a></li>
@@ -201,6 +202,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#referensi-2"><i class="fa fa-check"></i><b>3.6</b> Referensi</a></li>
 </ul></li>
+<li class="part"><span><b>Visualisasi Data - R</b></span></li>
 <li class="chapter" data-level="4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html"><i class="fa fa-check"></i><b>4</b> Visualisasi Data Menggunakan Fungsi Dasar R</a><ul>
 <li class="chapter" data-level="4.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#visualisasi-data-menggunakan-fungsi-plot"><i class="fa fa-check"></i><b>4.1</b> Visualisasi Data Menggunakan Fungsi plot()</a></li>
 <li class="chapter" data-level="4.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot"><i class="fa fa-check"></i><b>4.2</b> Matriks Scatterplot</a></li>
@@ -266,9 +268,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><code>R</code> dapat digunakan sebagai kalkulator</p>
 </blockquote>
 <p>Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, <code>R</code> akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.</p>
-<p>Operator aritmatika yang disediakan <code>R</code> adalah sebagai berikut:</p>
-<p><strong>Table 1</strong> Operator Aritmatika <code>R</code></p>
+<p>Operator aritmatika yang disediakan <code>R</code> disajikan pada Table <a href="sintaks-bahasa-r.html#tab:oparitmatika">2.1</a>:</p>
 <table>
+<caption><span id="tab:oparitmatika">Table 2.1: </span> Operator Aritmatika <code>R</code>.</caption>
 <colgroup>
 <col width="15%" />
 <col width="84%" />
@@ -322,7 +324,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] 15</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Division</span>
 <span class="dv">5</span><span class="op">/</span><span class="dv">3</span></code></pre></div>
-<pre><code>## [1] 1.666667</code></pre>
+<pre><code>## [1] 1.667</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Eksponetiation</span>
 <span class="dv">5</span><span class="op">^</span><span class="dv">3</span></code></pre></div>
 <pre><code>## [1] 125</code></pre>
@@ -346,9 +348,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log2</span>(<span class="dv">8</span>) <span class="co"># logaritma basis 2 untuk 8</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log10</span>(<span class="dv">8</span>) <span class="co"># logaritma basis 10 untuk 8</span></code></pre></div>
-<pre><code>## [1] 0.90309</code></pre>
+<pre><code>## [1] 0.9031</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="dv">8</span>) <span class="co"># eksponensial 8</span></code></pre></div>
-<pre><code>## [1] 2980.958</code></pre>
+<pre><code>## [1] 2981</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Fungsi trigonometri</li>
 </ol>
@@ -376,9 +378,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="operator-relasi" class="section level2">
 <h2><span class="header-section-number">2.3</span> Operator Relasi</h2>
-<p>Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan <code>R</code> disajikan pada Table 2.</p>
-<p><strong>Table 2</strong> Operator Relasi <code>R</code></p>
+<p>Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan <code>R</code> disajikan pada Table <a href="sintaks-bahasa-r.html#tab:oprelasi">2.2</a>.</p>
 <table>
+<caption><span id="tab:oprelasi">Table 2.2: </span> Operator Relasi <code>R</code>.</caption>
 <thead>
 <tr class="header">
 <th><strong>Simbol</strong></th>
@@ -437,9 +439,9 @@ x <span class="op">!=</span><span class="st"> </span>y</code></pre></div>
 </div>
 <div id="operator-logika" class="section level2">
 <h2><span class="header-section-number">2.4</span> Operator Logika</h2>
-<p>Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika <code>TRUE</code>. Operator logika yang disediakan <code>R</code> dapat dilihat pada Table 3.</p>
-<p><strong>Table 3</strong> Operator logika <code>R</code></p>
+<p>Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika <code>TRUE</code>. Operator logika yang disediakan <code>R</code> dapat dilihat pada Table <a href="sintaks-bahasa-r.html#tab:oplogika">2.3</a>.</p>
 <table>
+<caption><span id="tab:oplogika">Table 2.3: </span> Operator logika <code>R</code>.</caption>
 <thead>
 <tr class="header">
 <th><strong>Simbol</strong></th>
@@ -543,9 +545,10 @@ volume &lt;-<span class="st"> </span>panjang<span class="op">*</span>lebar<span 
 <pre><code>## [1] 250</code></pre>
 <p>Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi <code>ls()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
-<pre><code>##  [1] &quot;A&quot;         &quot;B&quot;         &quot;img1_path&quot; &quot;lebar&quot;     &quot;lemon&quot;    
-##  [6] &quot;panjang&quot;   &quot;t&quot;         &quot;tinggi&quot;    &quot;v&quot;         &quot;volume&quot;   
-## [11] &quot;x&quot;         &quot;xm&quot;        &quot;y&quot;</code></pre>
+<pre><code>##  [1] &quot;A&quot;         &quot;B&quot;         &quot;img1_path&quot; &quot;lebar&quot;    
+##  [5] &quot;lemon&quot;     &quot;panjang&quot;   &quot;t&quot;         &quot;tinggi&quot;   
+##  [9] &quot;v&quot;         &quot;volume&quot;    &quot;x&quot;         &quot;xm&quot;       
+## [13] &quot;y&quot;</code></pre>
 <blockquote>
 <p>Kumpulan objek yang telah tersimpan dalam memori disebut sebagai <strong>workspace</strong></p>
 </blockquote>
@@ -555,18 +558,18 @@ volume &lt;-<span class="st"> </span>panjang<span class="op">*</span>lebar<span 
 
 <span class="co"># Tampilkan kembali objek yang tersisa</span>
 <span class="kw">ls</span>()</code></pre></div>
-<pre><code>##  [1] &quot;A&quot;         &quot;B&quot;         &quot;img1_path&quot; &quot;lebar&quot;     &quot;panjang&quot;  
-##  [6] &quot;t&quot;         &quot;tinggi&quot;    &quot;v&quot;         &quot;x&quot;         &quot;xm&quot;       
-## [11] &quot;y&quot;</code></pre>
+<pre><code>##  [1] &quot;A&quot;         &quot;B&quot;         &quot;img1_path&quot; &quot;lebar&quot;    
+##  [5] &quot;panjang&quot;   &quot;t&quot;         &quot;tinggi&quot;    &quot;v&quot;        
+##  [9] &quot;x&quot;         &quot;xm&quot;        &quot;y&quot;</code></pre>
 <blockquote>
 <p><strong>Note: </strong> Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.</p>
 </blockquote>
 </div>
 <div id="tipe-data" class="section level2">
 <h2><span class="header-section-number">2.6</span> Tipe Data</h2>
-<p>Data pada <code>R</code> dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada <code>R</code> disajikan pada Table 4.</p>
-<p><strong>Table 4</strong> Tipe Data <code>R</code></p>
+<p>Data pada <code>R</code> dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada <code>R</code> disajikan pada Table <a href="sintaks-bahasa-r.html#tab:tipedata">2.4</a>.</p>
 <table>
+<caption><span id="tab:tipedata">Table 2.4: </span> Tipe Data <code>R</code>.</caption>
 <thead>
 <tr class="header">
 <th><strong>Tipe Data</strong></th>
@@ -820,7 +823,7 @@ pendapatan<span class="op">*</span>coefs</code></pre></div>
 <span class="kw">mean</span>(pendapatan)</code></pre></div>
 <pre><code>## [1] 2325</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(pendapatan)</code></pre></div>
-<pre><code>## [1] 537.7422</code></pre>
+<pre><code>## [1] 537.7</code></pre>
 </div>
 </div>
 <div id="matriks" class="section level2">
@@ -973,12 +976,12 @@ my_data<span class="op">*</span><span class="dv">2</span></code></pre></div>
 ## row5   18   16   14</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memperoleh nilai log basis 2 pada masing-masing elemen matriks</span>
 <span class="kw">log2</span>(my_data)</code></pre></div>
-<pre><code>##          col1     col2     col3
-## row1 2.321928 1.000000 2.807355
-## row2 2.584963 2.000000 1.584963
-## row3 2.807355 2.321928 2.000000
-## row4 3.000000 3.169925 3.000000
-## row5 3.169925 3.000000 2.807355</code></pre>
+<pre><code>##       col1  col2  col3
+## row1 2.322 1.000 2.807
+## row2 2.585 2.000 1.585
+## row3 2.807 2.322 2.000
+## row4 3.000 3.170 3.000
+## row5 3.170 3.000 2.807</code></pre>
 <p>Seperti yang telah penulis jelaskan sebelumnya, kita juga dapat melakukan operasi matematika untuk memperoleh hasil penjumlahan elemen pada tiap baris atau kolom dengan menggunakan fungsi <code>rowSums()</code> untuk baris dan <code>colSums()</code> untuk kolom.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Total pada tiap kolom</span>
 <span class="kw">colSums</span>(my_data)</code></pre></div>
@@ -991,8 +994,8 @@ my_data<span class="op">*</span><span class="dv">2</span></code></pre></div>
 <p>Jika kita tertarik untuk mencari nilai rata-rata tiap baris arau kolom kita juga dapat menggunakan fungsi <code>rowMeans()</code> atau <code>colMeans()</code>. Berikut adalah contoh penerapannya:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Rata-rata tiap baris</span>
 <span class="kw">rowMeans</span>(my_data)</code></pre></div>
-<pre><code>##     row1     row2     row3     row4     row5 
-## 4.666667 4.333333 5.333333 8.333333 8.000000</code></pre>
+<pre><code>##  row1  row2  row3  row4  row5 
+## 4.667 4.333 5.333 8.333 8.000</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Rata-rata tiap kolom</span>
 <span class="kw">colMeans</span>(my_data)</code></pre></div>
 <pre><code>## col1 col2 col3 
@@ -1012,8 +1015,8 @@ my_data<span class="op">*</span><span class="dv">2</span></code></pre></div>
 <p>Berikut adalah contoh penerapannya:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Rata-rata pada tiap baris</span>
 <span class="kw">apply</span>(my_data, <span class="dv">1</span>, mean)</code></pre></div>
-<pre><code>##     row1     row2     row3     row4     row5 
-## 4.666667 4.333333 5.333333 8.333333 8.000000</code></pre>
+<pre><code>##  row1  row2  row3  row4  row5 
+## 4.667 4.333 5.333 8.333 8.000</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Median pada tiap kolom</span>
 <span class="kw">apply</span>(my_data, <span class="dv">2</span>, median)</code></pre></div>
 <pre><code>## col1 col2 col3 
@@ -1258,7 +1261,8 @@ keluarga</code></pre></div>
 ## [1] 15 10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Nama elemen dalam list</span>
 <span class="kw">names</span>(keluarga)</code></pre></div>
-<pre><code>## [1] &quot;ayah&quot;      &quot;usia_ayah&quot; &quot;ibu&quot;       &quot;usia_ibu&quot;  &quot;anak&quot;      &quot;usia_anak&quot;</code></pre>
+<pre><code>## [1] &quot;ayah&quot;      &quot;usia_ayah&quot; &quot;ibu&quot;       &quot;usia_ibu&quot; 
+## [5] &quot;anak&quot;      &quot;usia_anak&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Jumlah elemen pada list</span>
 <span class="kw">length</span>(keluarga)</code></pre></div>
 <pre><code>## [1] 6</code></pre>
@@ -1443,9 +1447,9 @@ a =<span class="st"> </span><span class="dv">1</span>
 </div>
 <div id="decision-making" class="section level2">
 <h2><span class="header-section-number">2.13</span> Decision Making</h2>
-<p><em>Decicion Making</em> atau sering disebut sebagai <em>if then else statement</em> merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada <code>R</code>.</p>
-<p><strong>Table 5</strong> Daftar percabangan pada <code>R</code></p>
+<p><em>Decicion Making</em> atau sering disebut sebagai <em>if then else statement</em> merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table <a href="sintaks-bahasa-r.html#tab:percabangan">2.5</a> disajikan daftar percabangan yang digunakan pada <code>R</code>.</p>
 <table>
+<caption><span id="tab:percabangan">Table 2.5: </span> Daftar percabangan pada <code>R</code>.</caption>
 <colgroup>
 <col width="16%" />
 <col width="83%" />
@@ -1595,13 +1599,13 @@ kali &lt;-<span class="st"> </span><span class="cf">function</span>(a,b){
 <a href="manajemen-data-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

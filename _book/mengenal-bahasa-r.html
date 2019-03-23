@@ -12,7 +12,7 @@
   <meta property="og:title" content="Chapter 1 Mengenal Bahasa R | Statistika Lingkungan Menggunakan R" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="cover.png" />
   <meta property="og:description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan" />
   
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="Chapter 1 Mengenal Bahasa R | Statistika Lingkungan Menggunakan R" />
   
   <meta name="twitter:description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan" />
-  
+  <meta name="twitter:image" content="cover.png" />
 
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-22">
+<meta name="date" content="2019-03-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,13 +34,13 @@
   
 <link rel="prev" href="index.html">
 <link rel="next" href="sintaks-bahasa-r.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -105,6 +105,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="part"><span><b>Bahasa Pemrograman R</b></span></li>
 <li class="chapter" data-level="1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html"><i class="fa fa-check"></i><b>1</b> Mengenal Bahasa R</a><ul>
 <li class="chapter" data-level="1.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#sejarah-r"><i class="fa fa-check"></i><b>1.1</b> Sejarah R</a></li>
 <li class="chapter" data-level="1.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fitur-dan-karakteristik-r"><i class="fa fa-check"></i><b>1.2</b> Fitur dan Karakteristik R</a></li>
@@ -201,6 +202,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#referensi-2"><i class="fa fa-check"></i><b>3.6</b> Referensi</a></li>
 </ul></li>
+<li class="part"><span><b>Visualisasi Data - R</b></span></li>
 <li class="chapter" data-level="4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html"><i class="fa fa-check"></i><b>4</b> Visualisasi Data Menggunakan Fungsi Dasar R</a><ul>
 <li class="chapter" data-level="4.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#visualisasi-data-menggunakan-fungsi-plot"><i class="fa fa-check"></i><b>4.1</b> Visualisasi Data Menggunakan Fungsi plot()</a></li>
 <li class="chapter" data-level="4.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot"><i class="fa fa-check"></i><b>4.2</b> Matriks Scatterplot</a></li>
@@ -462,8 +464,8 @@ Figure 1.7: Jendela general help dokumentasi fungsi mean().
 <p>Selain yang telah penulis sebutkan sebelumnya. Kita juga dapat memanfaatkan fasilitas <em>help</em> lainnya melalui fungsi <code>apropos()</code> dan <code>help.search()</code>.</p>
 <p><code>apropos ()</code>: mengembalikan daftar objek, berisi pola yang pembaca cari, dengan pencocokan sebagian. Ini berguna ketika pembaca tidak ingat persis nama fungsi yang akan digunakan. Berikut adalah contoh ketika penulis ingin mengetahui fungsi yang digunakan untuk menghitung median.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apropos</span>(<span class="st">&quot;med&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;elNamed&quot;        &quot;elNamed&lt;-&quot;      &quot;median&quot;         &quot;median.default&quot;
-## [5] &quot;medpolish&quot;      &quot;runmed&quot;</code></pre>
+<pre><code>## [1] &quot;elNamed&quot;        &quot;elNamed&lt;-&quot;      &quot;median&quot;        
+## [4] &quot;median.default&quot; &quot;medpolish&quot;      &quot;runmed&quot;</code></pre>
 <p><em>List</em> yang dihasilkan berupa fungsi-fungsi yang memiliki elemen kata “med”. Berdasarkan pencaria tersebut penulis dapat mencoba menggunakan fungsi “median” untuk menghitung median.</p>
 <p><code>help.search ()</code> (sebagai alternatif ??): mencari dokumentasi yang cocok dengan karakter yang diberikan dengan cara yang berbeda. Ini mengembalikan daftar fungsi yang mengandung istilah yang pembaca cari dengan deskripsi singkat dari fungsi.</p>
 <p>Berikut adalah contoh penerapan dari fungsi tersebut:</p>
@@ -501,13 +503,13 @@ Figure 1.8: Jendela help search dokumentasi fungsi mean().
 <a href="sintaks-bahasa-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
