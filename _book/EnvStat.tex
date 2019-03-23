@@ -125,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-03-21}
+    \date{2019-03-22}
 
 \usepackage{booktabs}
 
@@ -149,6 +149,24 @@ Sehingga dapat mengurangi ketergantungan pada penggunaan aplikasi yang
 berlisensi.
 
 \chapter{Mengenal Bahasa R}\label{mengenal-bahasa-r}
+
+Dewasa ini tersedia banyak sekali \emph{software} yang dapat digunakan
+untuk membantu kita dalam melakukan analisa data. \emph{software} yang
+digunakan dapat berupa \emph{software} berbayar atau gratis.
+
+\texttt{R} merupakan merupakan salah satu \emph{software} gratis yang
+sangat populer di Indonesia. Kemudahan penggunaan serta banyaknya
+besarnya dukungan komunitas membuat \texttt{R} menjadi salah satu bahasa
+pemrograman paling populer di dunia.
+
+Paket yang disediakan untuk analisis statistika juga sangat lengkap dan
+terus bertambah setiap saat. Hal ini membuat \texttt{R} banyak digunakan
+oleh para analis data.
+
+Pada \emph{chapter} ini penulis akan memperkenalkan kepada pembaca
+mengenai bahasa pemrograman \texttt{R}. Mulai dari sejarah, cara
+instalasi sampai dengan bagaimana kita memanfaatkan fitur dasar bantuan
+untuk menggali lebih jauh tentang fungsi-fungsi \texttt{R}.
 
 \section{Sejarah R}\label{sejarah-r}
 
@@ -701,8 +719,10 @@ menghitung median.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "elNamed"        "elNamed<-"      "median"         "median.default"
-## [5] "median_hilow"   "medpolish"      "runmed"
+##  [1] "elNamed"         "elNamed<-"       "interp.median"  
+##  [4] "median"          "median.default"  "median_hilow"   
+##  [7] "mediate"         "mediate.diagram" "medpolish"      
+## [10] "runmed"
 \end{verbatim}
 
 \emph{List} yang dihasilkan berupa fungsi-fungsi yang memiliki elemen
@@ -762,6 +782,13 @@ Berikut adalah contoh penerapan dari fungsi tersebut:
 \end{enumerate}
 
 \chapter{Sintaks Bahasa R}\label{sintaks-bahasa-r}
+
+Pada \emph{chapter} ini penulis hendak mengajak pembaca lebih familiar
+dengan sintaks atau perintah yang ada pada \texttt{R}. Pembaca akan
+mempelajari penggunaan operator dalam melakukan operasi pengolahan data
+pada \texttt{R}, jenis data yang ada pada \texttt{R}, sampai dengan
+bagaimana kita melakukan proses \emph{decision making} menggunakan
+\texttt{R}.
 
 \section{Operator Aritmatika}\label{operator-aritmatika}
 
@@ -3651,6 +3678,14 @@ Berikut adalah contoh penerapan \emph{user define function}:
 
 \chapter{Manajemen Data R}\label{manajemen-data-r}
 
+Data manajemen merupakan bagian penting dalam setiap proses analisa
+data. Proses import dan eksport data pada berbagai format penting untuk
+dipelajari. Selain itu, proses perapihan data sebelum analisa menjadi
+bagian yang harus ada pada awal proses analisa. Proses-proses tersebut
+akan kita ulas secara mendalam pada \emph{chapter} ini.\emph{Chapter}
+ini juga akan membahas bagaimana kita dapat melakukan sejumlah
+manipulasi data untuk memperoleh informasi lebih yang terkandung pada.
+
 \section{Import File}\label{import-file}
 
 Pada sesi bagian ini penulis akan menjelaskan cara mengimport file pada
@@ -6414,6 +6449,22 @@ seiring dengan pertambahan jarak penerbangan.
 \chapter{Visualisasi Data Menggunakan Fungsi Dasar
 R}\label{visualisasi-data-menggunakan-fungsi-dasar-r}
 
+Visualisasi data merupakan bagian yang sangat penting untuk
+mengkomunikasikan hasil analisa yang telah kita lakukan. Selain itu,
+komunikasi juga membantu kita untuk memperoleh gambaran terkait data
+selama proses analisa data sehingga membantu kita dalam memutuskan
+metode analisa apa yang dapat kita terapkan pada data tersebut.
+
+\texttt{R} memiliki library visualisasi yang sangat beragam, baik yang
+merupakan fungsi dasar pada \texttt{R} maupun dari sumber lain seperti
+ggplot dan lattice. Seluruh library visualisasi tersebut memiliki
+kelebihan dan kekurangannya masing-masing.
+
+Pada \emph{chapter} ini kita tidak akan membahas seluruh library
+tersebut. Kita akab berfokus pada fungsi visualisasi dasar bawaan dari
+\texttt{R}. kita akan mempelajari mengenai jenis visualisasi data sampai
+dengan melakukan kustomisasi pada parameter grafik yang kita buat.
+
 \section{Visualisasi Data Menggunakan Fungsi
 plot()}\label{visualisasi-data-menggunakan-fungsi-plot}
 
@@ -8349,6 +8400,199 @@ ada pada \texttt{R}. Output yang dihasilkan disajikan pada Figure
 }
 
 \caption{Nama warna}\label{fig:color}
+\end{figure}
+
+\section{Alternatif Library Dasar
+Lain}\label{alternatif-library-dasar-lain}
+
+Kita juga dapat melakukan visualisasi menggunakan library lain yang
+memiliki tampilan mirip dengan fungsi visualisasi dasar \texttt{R}.
+Bedanya adalah library-library ini memberikan fungsi tambahan sehingga
+visualisasi yang dihasilkan menjadi lebih praktis.
+
+\subsection{Scatterplot Menggunakan Library
+car}\label{scatterplot-menggunakan-library-car}
+
+Library \texttt{car} menyediakan alternatif lain visualisasi menggunakan
+scatterplot. Berikut adalah contoh sintaks dan output yang dihasilkan
+pada Figure \ref{fig:carscatter}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\CommentTok{# install.packages("car")}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(car)}
+
+\CommentTok{# plot}
+\KeywordTok{scatterplot}\NormalTok{(Volume}\OperatorTok{~}\NormalTok{Height, }\DataTypeTok{data=}\NormalTok{trees)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/carscatter-1} 
+
+}
+
+\caption{Enhanced scatterplot}\label{fig:carscatter}
+\end{figure}
+
+Pada grafik tersebut terkandung beberapa elemen penting, yaitu:
+
+\begin{itemize}
+\tightlist
+\item
+  titik observasi
+\item
+  garis regresi (garis lurus)
+\item
+  non-parametric regression smooth (\emph{dashed line})
+\item
+  garis smoothed conditional (\emph{point dashed line})
+\item
+  box plot masing-masing variabel.
+\end{itemize}
+
+\subsection{Matriks Scatterplot Menggunakan Library
+psych}\label{matriks-scatterplot-menggunakan-library-psych}
+
+FUngsi \texttt{pairs.panels()} pada library \texttt{psych} dapat
+digunakan untuk membuat matriks scatterplot. Grafik yang dihasilkan juga
+lebih ringkas dan menampilkan fungsional lain pada bagian diagonal lain
+berupa histogram dan density plot yang dapat menunjukkan distribusi dari
+variabel yang ada. Selain itu pada fungsionalitas grafik juga dapat
+ditingkatkan dengan penambahan nilai korelasi antar variabel yang secara
+default ditambahkan pada panel atas. Berikut adalah contoh sintaks dan
+output yang dihasilkan pada Figure \ref{fig:psychscatter}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\CommentTok{# install.packages("psych")}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(psych)}
+
+\CommentTok{# plot}
+\KeywordTok{pairs.panels}\NormalTok{(trees, }
+             \DataTypeTok{method =} \StringTok{"pearson"}\NormalTok{, }\CommentTok{# metode korelasi}
+             \DataTypeTok{hist.col =} \StringTok{"grey"}\NormalTok{,}
+             \DataTypeTok{density =} \OtherTok{TRUE}\NormalTok{,  }\CommentTok{# menampilkan plot densitas}
+             \DataTypeTok{ellipses =} \OtherTok{FALSE}\NormalTok{, }\CommentTok{# menampilkancorrelation ellipses}
+             \DataTypeTok{lm =} \OtherTok{TRUE} \CommentTok{# menampilkan garis regresi linier}
+\NormalTok{             )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/psychscatter-1} 
+
+}
+
+\caption{Enhanced scatterplot matrices}\label{fig:psychscatter}
+\end{figure}
+
+\subsection{Box Plot Menggunakan Library
+gplots}\label{box-plot-menggunakan-library-gplots}
+
+Fungsi \texttt{boxplot2()} pada paket \texttt{gplots} memberikan
+fungsionalitas lebih dibandingkan box plot yang dihasilkan dari fungsi
+dasar \texttt{R}. Plot yang dihasilkan akan menampilkan jumlah observasi
+pada tiap box. Berikut adalah contoh sintask penerapan dan output yang
+dihasilkan pada Figure \ref{fig:gplotsboxplot2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\CommentTok{# install.packages("gplots")}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(gplots)}
+
+\CommentTok{# plot}
+\KeywordTok{boxplot2}\NormalTok{(len }\OperatorTok{~}\StringTok{ }\NormalTok{dose, }\DataTypeTok{data =}\NormalTok{ ToothGrowth)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gplotsboxplot2-1} 
+
+}
+
+\caption{Enhanced box plot}\label{fig:gplotsboxplot2}
+\end{figure}
+
+\subsection{QQ Plot Menggunakan Library
+car}\label{qq-plot-menggunakan-library-car}
+
+Fungsi \texttt{qqPlot()} pada library \texttt{car} dapat pula digunakan
+untuk membuat qq plot. Kelebihannya adalah qqplot yang dihasilkan akan
+dilengkapi dengan garis referensi yang memudahkan dalam membaca apakah
+data masih dalam rentang distribusi normal atau tidak. Selain itu, untuk
+membuatnya juga hanya diperlukan satu perintah saja. Hal ini tentu
+berbeda ketika kita menggunakan fungsi dasar \texttt{R}. Berikut adalah
+contoh sintask penerapan dan output yang dihasilkan pada Figure
+\ref{fig:carqqplot}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\CommentTok{# install.packages("car")}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(car)}
+
+\CommentTok{# plot}
+\KeywordTok{qqPlot}\NormalTok{(trees}\OperatorTok{$}\NormalTok{Height)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/carqqplot-1} 
+
+}
+
+\caption{Enhanced qq plot}\label{fig:carqqplot}
+\end{figure}
+
+\begin{verbatim}
+## [1]  3 20
+\end{verbatim}
+
+\subsection{Plot Group Means Menggunakan Library
+gplots}\label{plot-group-means-menggunakan-library-gplots}
+
+Plot ini akan sering kita gunakan saat melakukan analisis statistik
+menggunakan anova baik anova satu arah maupun dua arah. Plot ini berguna
+untuk melihat adanya interaksi antar faktor saat melakukan analisis
+anova dua arah. Berikut adalah contoh sintask penerapan dan output yang
+dihasilkan pada Figure \ref{fig:plotmeans}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\CommentTok{# install.packages("gplots")}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(gplots)}
+
+\CommentTok{# plot}
+\KeywordTok{plotmeans}\NormalTok{(len }\OperatorTok{~}\StringTok{ }\NormalTok{dose, }\DataTypeTok{data =}\NormalTok{ ToothGrowth)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/plotmeans-1} 
+
+}
+
+\caption{Plot group means}\label{fig:plotmeans}
 \end{figure}
 
 \section{Referensi}\label{referensi-3}

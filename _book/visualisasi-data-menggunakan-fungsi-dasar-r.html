@@ -6,26 +6,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Chapter 4 Visualisasi Data Menggunakan Fungsi Dasar R | Statistika Lingkungan Menggunakan R</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Chapter 4 Visualisasi Data Menggunakan Fungsi Dasar R | Statistika Lingkungan Menggunakan R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan" />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 4 Visualisasi Data Menggunakan Fungsi Dasar R | Statistika Lingkungan Menggunakan R" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan" />
   
 
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-21">
+<meta name="date" content="2019-03-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -220,7 +220,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.10.6" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-axis-plot"><i class="fa fa-check"></i><b>4.10.6</b> Mengatur Axis Plot</a></li>
 <li class="chapter" data-level="4.10.7" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-warna"><i class="fa fa-check"></i><b>4.10.7</b> Mengatur Warna</a></li>
 </ul></li>
-<li class="chapter" data-level="4.11" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#referensi-3"><i class="fa fa-check"></i><b>4.11</b> Referensi</a></li>
+<li class="chapter" data-level="4.11" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#alternatif-library-dasar-lain"><i class="fa fa-check"></i><b>4.11</b> Alternatif Library Dasar Lain</a><ul>
+<li class="chapter" data-level="4.11.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#scatterplot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.1</b> Scatterplot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot-menggunakan-library-psych"><i class="fa fa-check"></i><b>4.11.2</b> Matriks Scatterplot Menggunakan Library psych</a></li>
+<li class="chapter" data-level="4.11.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.3</b> Box Plot Menggunakan Library gplots</a></li>
+<li class="chapter" data-level="4.11.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#qq-plot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.4</b> QQ Plot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#plot-group-means-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.5</b> Plot Group Means Menggunakan Library gplots</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#referensi-3"><i class="fa fa-check"></i><b>4.12</b> Referensi</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -246,6 +253,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="visualisasi-data-menggunakan-fungsi-dasar-r" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Visualisasi Data Menggunakan Fungsi Dasar R</h1>
+<p>Visualisasi data merupakan bagian yang sangat penting untuk mengkomunikasikan hasil analisa yang telah kita lakukan. Selain itu, komunikasi juga membantu kita untuk memperoleh gambaran terkait data selama proses analisa data sehingga membantu kita dalam memutuskan metode analisa apa yang dapat kita terapkan pada data tersebut.</p>
+<p><code>R</code> memiliki library visualisasi yang sangat beragam, baik yang merupakan fungsi dasar pada <code>R</code> maupun dari sumber lain seperti ggplot dan lattice. Seluruh library visualisasi tersebut memiliki kelebihan dan kekurangannya masing-masing.</p>
+<p>Pada <em>chapter</em> ini kita tidak akan membahas seluruh library tersebut. Kita akab berfokus pada fungsi visualisasi dasar bawaan dari <code>R</code>. kita akan mempelajari mengenai jenis visualisasi data sampai dengan melakukan kustomisasi pada parameter grafik yang kita buat.</p>
 <div id="visualisasi-data-menggunakan-fungsi-plot" class="section level2">
 <h2><span class="header-section-number">4.1</span> Visualisasi Data Menggunakan Fungsi plot()</h2>
 <p>Fungsi <code>plot()</code> merupakan fungsi umum yang digunakan untuk membuat plot pada <code>R</code>. Format dasarnya adalah sebagai berikut:</p>
@@ -1309,8 +1319,117 @@ Figure 4.41: Nama warna
 </div>
 </div>
 </div>
+<div id="alternatif-library-dasar-lain" class="section level2">
+<h2><span class="header-section-number">4.11</span> Alternatif Library Dasar Lain</h2>
+<p>Kita juga dapat melakukan visualisasi menggunakan library lain yang memiliki tampilan mirip dengan fungsi visualisasi dasar <code>R</code>. Bedanya adalah library-library ini memberikan fungsi tambahan sehingga visualisasi yang dihasilkan menjadi lebih praktis.</p>
+<div id="scatterplot-menggunakan-library-car" class="section level3">
+<h3><span class="header-section-number">4.11.1</span> Scatterplot Menggunakan Library car</h3>
+<p>Library <code>car</code> menyediakan alternatif lain visualisasi menggunakan scatterplot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:carscatter">4.42</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
+<span class="co"># install.packages(&quot;car&quot;)</span>
+
+<span class="co"># memuat paket</span>
+<span class="kw">library</span>(car)</code></pre></div>
+<pre><code>## Warning: package &#39;car&#39; was built under R version 3.5.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
+<span class="kw">scatterplot</span>(Volume<span class="op">~</span>Height, <span class="dt">data=</span>trees)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:carscatter"></span>
+<img src="EnvStat_files/figure-html/carscatter-1.png" alt="Enhanced scatterplot" width="70%" />
+<p class="caption">
+Figure 4.42: Enhanced scatterplot
+</p>
+</div>
+<p>Pada grafik tersebut terkandung beberapa elemen penting, yaitu:</p>
+<ul>
+<li>titik observasi</li>
+<li>garis regresi (garis lurus)</li>
+<li>non-parametric regression smooth (<em>dashed line</em>)</li>
+<li>garis smoothed conditional (<em>point dashed line</em>)</li>
+<li>box plot masing-masing variabel.</li>
+</ul>
+</div>
+<div id="matriks-scatterplot-menggunakan-library-psych" class="section level3">
+<h3><span class="header-section-number">4.11.2</span> Matriks Scatterplot Menggunakan Library psych</h3>
+<p>FUngsi <code>pairs.panels()</code> pada library <code>psych</code> dapat digunakan untuk membuat matriks scatterplot. Grafik yang dihasilkan juga lebih ringkas dan menampilkan fungsional lain pada bagian diagonal lain berupa histogram dan density plot yang dapat menunjukkan distribusi dari variabel yang ada. Selain itu pada fungsionalitas grafik juga dapat ditingkatkan dengan penambahan nilai korelasi antar variabel yang secara default ditambahkan pada panel atas. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:psychscatter">4.43</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
+<span class="co"># install.packages(&quot;psych&quot;)</span>
+
+<span class="co"># memuat paket</span>
+<span class="kw">library</span>(psych)</code></pre></div>
+<pre><code>## Warning: package &#39;psych&#39; was built under R version 3.5.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
+<span class="kw">pairs.panels</span>(trees, 
+             <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="co"># metode korelasi</span>
+             <span class="dt">hist.col =</span> <span class="st">&quot;grey&quot;</span>,
+             <span class="dt">density =</span> <span class="ot">TRUE</span>,  <span class="co"># menampilkan plot densitas</span>
+             <span class="dt">ellipses =</span> <span class="ot">FALSE</span>, <span class="co"># menampilkancorrelation ellipses</span>
+             <span class="dt">lm =</span> <span class="ot">TRUE</span> <span class="co"># menampilkan garis regresi linier</span>
+             )</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:psychscatter"></span>
+<img src="EnvStat_files/figure-html/psychscatter-1.png" alt="Enhanced scatterplot matrices" width="70%" />
+<p class="caption">
+Figure 4.43: Enhanced scatterplot matrices
+</p>
+</div>
+</div>
+<div id="box-plot-menggunakan-library-gplots" class="section level3">
+<h3><span class="header-section-number">4.11.3</span> Box Plot Menggunakan Library gplots</h3>
+<p>Fungsi <code>boxplot2()</code> pada paket <code>gplots</code> memberikan fungsionalitas lebih dibandingkan box plot yang dihasilkan dari fungsi dasar <code>R</code>. Plot yang dihasilkan akan menampilkan jumlah observasi pada tiap box. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:gplotsboxplot2">4.44</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
+<span class="co"># install.packages(&quot;gplots&quot;)</span>
+
+<span class="co"># memuat paket</span>
+<span class="kw">library</span>(gplots)</code></pre></div>
+<pre><code>## Warning: package &#39;gplots&#39; was built under R version 3.5.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
+<span class="kw">boxplot2</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:gplotsboxplot2"></span>
+<img src="EnvStat_files/figure-html/gplotsboxplot2-1.png" alt="Enhanced box plot" width="70%" />
+<p class="caption">
+Figure 4.44: Enhanced box plot
+</p>
+</div>
+</div>
+<div id="qq-plot-menggunakan-library-car" class="section level3">
+<h3><span class="header-section-number">4.11.4</span> QQ Plot Menggunakan Library car</h3>
+<p>Fungsi <code>qqPlot()</code> pada library <code>car</code> dapat pula digunakan untuk membuat qq plot. Kelebihannya adalah qqplot yang dihasilkan akan dilengkapi dengan garis referensi yang memudahkan dalam membaca apakah data masih dalam rentang distribusi normal atau tidak. Selain itu, untuk membuatnya juga hanya diperlukan satu perintah saja. Hal ini tentu berbeda ketika kita menggunakan fungsi dasar <code>R</code>. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:carqqplot">4.45</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
+<span class="co"># install.packages(&quot;car&quot;)</span>
+
+<span class="co"># memuat paket</span>
+<span class="kw">library</span>(car)
+
+<span class="co"># plot</span>
+<span class="kw">qqPlot</span>(trees<span class="op">$</span>Height)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:carqqplot"></span>
+<img src="EnvStat_files/figure-html/carqqplot-1.png" alt="Enhanced qq plot" width="70%" />
+<p class="caption">
+Figure 4.45: Enhanced qq plot
+</p>
+</div>
+<pre><code>## [1]  3 20</code></pre>
+</div>
+<div id="plot-group-means-menggunakan-library-gplots" class="section level3">
+<h3><span class="header-section-number">4.11.5</span> Plot Group Means Menggunakan Library gplots</h3>
+<p>Plot ini akan sering kita gunakan saat melakukan analisis statistik menggunakan anova baik anova satu arah maupun dua arah. Plot ini berguna untuk melihat adanya interaksi antar faktor saat melakukan analisis anova dua arah. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:plotmeans">4.46</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
+<span class="co"># install.packages(&quot;gplots&quot;)</span>
+
+<span class="co"># memuat paket</span>
+<span class="kw">library</span>(gplots)
+
+<span class="co"># plot</span>
+<span class="kw">plotmeans</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:plotmeans"></span>
+<img src="EnvStat_files/figure-html/plotmeans-1.png" alt="Plot group means" width="70%" />
+<p class="caption">
+Figure 4.46: Plot group means
+</p>
+</div>
+</div>
+</div>
 <div id="referensi-3" class="section level2">
-<h2><span class="header-section-number">4.11</span> Referensi</h2>
+<h2><span class="header-section-number">4.12</span> Referensi</h2>
 <ol style="list-style-type: decimal">
 <li>Maindonald, J.H. 2008. <strong>Using R for Data Analysis and Graphics Introduction, Code and Commentary</strong>. Centre for Mathematics and Its Applications Australian National University.</li>
 <li>Scherber, C. 2007. <strong>An introduction to statistical data analysis using R</strong>. R_Manual Goettingen.</li>

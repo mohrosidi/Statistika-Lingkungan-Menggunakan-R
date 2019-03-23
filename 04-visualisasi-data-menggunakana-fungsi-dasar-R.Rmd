@@ -1,5 +1,11 @@
 # Visualisasi Data Menggunakan Fungsi Dasar R
 
+Visualisasi data merupakan bagian yang sangat penting untuk mengkomunikasikan hasil analisa yang telah kita lakukan. Selain itu, komunikasi juga membantu kita untuk memperoleh gambaran terkait data selama proses analisa data sehingga membantu kita dalam memutuskan metode analisa apa yang dapat kita terapkan pada data tersebut.
+
+`R` memiliki library visualisasi yang sangat beragam, baik yang merupakan fungsi dasar pada `R` maupun dari sumber lain seperti ggplot dan lattice. Seluruh library visualisasi tersebut memiliki kelebihan dan kekurangannya masing-masing.
+
+Pada *chapter* ini kita tidak akan membahas seluruh library tersebut. Kita akab berfokus pada fungsi visualisasi dasar bawaan dari `R`. kita akan mempelajari mengenai jenis visualisasi data sampai dengan melakukan kustomisasi pada parameter grafik yang kita buat.
+
 ## Visualisasi Data Menggunakan Fungsi plot()
 
 Fungsi `plot()` merupakan fungsi umum yang digunakan untuk membuat plot pada `R`. Format dasarnya adalah sebagai berikut:
@@ -969,6 +975,101 @@ showCols <- function(cl=colors(), bg = "grey",
 
 # print 60 nama warna pertama
 showCols(bg="gray20", cl=colors()[1:60], rot=30, cex=0.9)
+```
+
+## Alternatif Library Dasar Lain
+
+Kita juga dapat melakukan visualisasi menggunakan library lain yang memiliki tampilan mirip dengan fungsi visualisasi dasar `R`. Bedanya adalah library-library ini memberikan fungsi tambahan sehingga visualisasi yang dihasilkan menjadi lebih praktis.
+
+### Scatterplot Menggunakan Library car
+
+Library `car` menyediakan alternatif lain visualisasi menggunakan scatterplot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:carscatter):
+
+```{r carscatter,fig.cap='Enhanced scatterplot', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+# memasang paket
+# install.packages("car")
+
+# memuat paket
+library(car)
+
+# plot
+scatterplot(Volume~Height, data=trees)
+
+```
+
+Pada grafik tersebut terkandung beberapa elemen penting, yaitu:
+
+- titik observasi
+- garis regresi (garis lurus)
+- non-parametric regression smooth (*dashed line*)
+- garis smoothed conditional (*point dashed line*)
+- box plot masing-masing variabel.
+
+### Matriks Scatterplot Menggunakan Library psych
+
+FUngsi `pairs.panels()` pada library `psych` dapat digunakan untuk membuat matriks scatterplot. Grafik yang dihasilkan juga lebih ringkas dan menampilkan fungsional lain pada bagian diagonal lain berupa histogram dan density plot yang dapat menunjukkan distribusi dari variabel yang ada. Selain itu pada fungsionalitas grafik juga dapat ditingkatkan dengan penambahan nilai korelasi antar variabel yang secara default ditambahkan pada panel atas. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:psychscatter):
+
+```{r psychscatter,fig.cap='Enhanced scatterplot matrices', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+# memasang paket
+# install.packages("psych")
+
+# memuat paket
+library(psych)
+
+# plot
+pairs.panels(trees, 
+             method = "pearson", # metode korelasi
+             hist.col = "grey",
+             density = TRUE,  # menampilkan plot densitas
+             ellipses = FALSE, # menampilkancorrelation ellipses
+             lm = TRUE # menampilkan garis regresi linier
+             )
+```
+
+### Box Plot Menggunakan Library gplots
+
+Fungsi `boxplot2()` pada paket `gplots` memberikan fungsionalitas lebih dibandingkan box plot yang dihasilkan dari fungsi dasar `R`. Plot yang dihasilkan akan menampilkan jumlah observasi pada tiap box. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure \@ref(fig:gplotsboxplot2):
+
+```{r gplotsboxplot2,fig.cap='Enhanced box plot', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+# memasang paket
+# install.packages("gplots")
+
+# memuat paket
+library(gplots)
+
+# plot
+boxplot2(len ~ dose, data = ToothGrowth)
+```
+
+### QQ Plot Menggunakan Library car
+
+Fungsi `qqPlot()` pada library `car` dapat pula digunakan untuk membuat qq plot. Kelebihannya adalah qqplot yang dihasilkan akan dilengkapi dengan garis referensi yang memudahkan dalam membaca apakah data masih dalam rentang distribusi normal atau tidak. Selain itu, untuk membuatnya juga hanya diperlukan satu perintah saja. Hal ini tentu berbeda ketika kita menggunakan fungsi dasar `R`. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure \@ref(fig:carqqplot):
+
+```{r carqqplot,fig.cap='Enhanced qq plot', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+# memasang paket
+# install.packages("car")
+
+# memuat paket
+library(car)
+
+# plot
+qqPlot(trees$Height)
+```
+
+### Plot Group Means Menggunakan Library gplots
+
+Plot ini akan sering kita gunakan saat melakukan analisis statistik menggunakan anova baik anova satu arah maupun dua arah. Plot ini berguna untuk melihat adanya interaksi antar faktor saat melakukan analisis anova dua arah. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure \@ref(fig:plotmeans):
+
+```{r plotmeans,fig.cap='Plot group means', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+# memasang paket
+# install.packages("gplots")
+
+# memuat paket
+library(gplots)
+
+# plot
+plotmeans(len ~ dose, data = ToothGrowth)
+
 ```
 
 ## Referensi
