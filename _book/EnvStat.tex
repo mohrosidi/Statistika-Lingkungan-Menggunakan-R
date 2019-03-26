@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-03-23}
+    \date{2019-03-26}
 
 \usepackage{booktabs}
 
@@ -8714,9 +8714,935 @@ dihasilkan pada Figure \ref{fig:plotmeans}:
   \url{http://www.sthda.com/english/wiki/r-base-graphs}
 \end{enumerate}
 
-\chapter{Final Words}\label{final-words}
+\chapter{Visualisasi Data Menggunakan
+GGPLOT}\label{visualisasi-data-menggunakan-ggplot}
 
-We have finished a nice book.
+Library \texttt{ggplot2} merupakan implementasi dari \emph{The Grammar
+of Graphics} yang ditulis oleh \textbf{Leland Wilkinson}.
+\texttt{ggplot2} merupakan library yang dikembangkan oleh \textbf{Hadley
+Wicham} ketika ia sedang menempuh kuliah di \textbf{Lowa State
+Universuty} dan masih dikembangkan hingga sekarang.
+
+\texttt{ggplot2} merupakan paket visualisasi yang powerfull. Kita dapat
+menggunakannya bersamaan dengan \emph{piping operator} yang disediakan
+oleh paket \texttt{dplyr} sehingga menambah kemudahan kita dalam
+melakukan analisis data.
+
+Grafik \texttt{ggplot2} terdiri dari sejumlah komponen kunci. Berikut
+adalah sejumlah komponen kunci yang membentuk grafik \texttt{ggplot2}.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data frame}: menyimpan semua data yang akan ditampilkan di
+  plot.
+\item
+  \textbf{aesthetic mapping}: menggambarkan bagaimana data dipetakan ke
+  warna, ukuran, bentuk, lokasi. Dalam plot diberikan pada fungsi
+  \texttt{aes()}
+\item
+  \textbf{geoms}: objek geometris seperti titik, garis, bentuk.
+\item
+  \textbf{facets}: menjelaskan bagaimana plot bersyarat / panel harus
+  dibangun.
+\item
+  \textbf{stats}: transformasi statistik seperti binning, quantiles,
+  smoothing.
+\item
+  \textbf{scales}: skala apa yang digunakan oleh \emph{aesthetic map}
+  (contoh: pria = merah, wanita = biru).
+\item
+  \textbf{coordinate system}: menggambarkan sistem di mana lokasi geom
+  akan digambarkan.
+\end{itemize}
+
+Sebelum kita mulai memcoba melakukan visualisasi data menggunakan
+\texttt{ggplot2}, kita perlu menginstall dan memuat terlebih dahulu
+library \texttt{ggplot2}. Berikut adalah sintaks yang digunakan untuk
+menginstall dan memuat paket \texttt{ggplot2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\CommentTok{# install.packages('ggplot2')}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+Dataset yang akan kita gunakan adalah dataset \texttt{gapminder}.
+Dataset ini berisi data demografi penduduk dari berbagai negara dan
+benua. Untuk dapat menggunakannya kita perlu menginstall dan memuatnya
+terlebih dahulu. Berikut adalah sintaks untuk menginstall dan memuat
+dataset tersebut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\CommentTok{# install.packages("gapminder")}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(gapminder)}
+
+\CommentTok{# memuat paket dplyr dan tibble}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(tibble)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# melihat struktur dataset}
+\KeywordTok{glimpse}\NormalTok{(gapminder)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Observations: 1,704
+## Variables: 6
+## $ country   <fct> Afghanistan, Afghanistan, Afghan...
+## $ continent <fct> Asia, Asia, Asia, Asia, Asia, As...
+## $ year      <int> 1952, 1957, 1962, 1967, 1972, 19...
+## $ lifeExp   <dbl> 28.80, 30.33, 32.00, 34.02, 36.0...
+## $ pop       <int> 8425333, 9240934, 10267083, 1153...
+## $ gdpPercap <dbl> 779.4, 820.9, 853.1, 836.2, 740....
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# melihat variabel year}
+\KeywordTok{unique}\NormalTok{(gapminder}\OperatorTok{$}\NormalTok{year)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997
+## [11] 2002 2007
+\end{verbatim}
+
+Dataset gapminder memiliki 6 variabel dan 1704 observasi. 20 observasi
+pertama dataset gapminder dapat dilihat pada Table \ref{tab:gapminder}
+
+\begin{table}[t]
+
+\caption{\label{tab:gapminder}20 observasi pertama dataset gapminder}
+\centering
+\begin{tabular}{l|l|r|r|r|r}
+\hline
+country & continent & year & lifeExp & pop & gdpPercap\\
+\hline
+Afghanistan & Asia & 1952 & 28.80 & 8425333 & 779.4\\
+\hline
+Afghanistan & Asia & 1957 & 30.33 & 9240934 & 820.9\\
+\hline
+Afghanistan & Asia & 1962 & 32.00 & 10267083 & 853.1\\
+\hline
+Afghanistan & Asia & 1967 & 34.02 & 11537966 & 836.2\\
+\hline
+Afghanistan & Asia & 1972 & 36.09 & 13079460 & 740.0\\
+\hline
+Afghanistan & Asia & 1977 & 38.44 & 14880372 & 786.1\\
+\hline
+Afghanistan & Asia & 1982 & 39.85 & 12881816 & 978.0\\
+\hline
+Afghanistan & Asia & 1987 & 40.82 & 13867957 & 852.4\\
+\hline
+Afghanistan & Asia & 1992 & 41.67 & 16317921 & 649.3\\
+\hline
+Afghanistan & Asia & 1997 & 41.76 & 22227415 & 635.3\\
+\hline
+Afghanistan & Asia & 2002 & 42.13 & 25268405 & 726.7\\
+\hline
+Afghanistan & Asia & 2007 & 43.83 & 31889923 & 974.6\\
+\hline
+Albania & Europe & 1952 & 55.23 & 1282697 & 1601.1\\
+\hline
+Albania & Europe & 1957 & 59.28 & 1476505 & 1942.3\\
+\hline
+Albania & Europe & 1962 & 64.82 & 1728137 & 2312.9\\
+\hline
+Albania & Europe & 1967 & 66.22 & 1984060 & 2760.2\\
+\hline
+Albania & Europe & 1972 & 67.69 & 2263554 & 3313.4\\
+\hline
+Albania & Europe & 1977 & 68.93 & 2509048 & 3533.0\\
+\hline
+Albania & Europe & 1982 & 70.42 & 2780097 & 3630.9\\
+\hline
+Albania & Europe & 1987 & 72.00 & 3075321 & 3738.9\\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Scatterplot}\label{scatterplot}
+
+Scatterplot dapat dibuat pada \texttt{ggplot2} menggunakan fungsi
+\texttt{geom\_point()}. Format sederhananya dituliskan sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(...))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(size, color, shape)}
+\end{Highlighting}
+\end{Shaded}
+
+Berikut adalah contoh sederhana scatterplot variabel \texttt{lifeExp}
+terhadap variabel \texttt{gdpPercap}. Output yang dihasilkan disajikan
+pada Figure \ref{fig:ggscatter}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap}\label{fig:ggscatter}
+\end{figure}
+
+Kita dapat mengubah warna, jenis, dan ukuran titik pada scatterplot.
+Pengubahan warna dan jenis titik berguna untuk menunjukkan grup data
+pada grafik. Sedangkan perubahan ukuran titik sangat berguna untuk
+menunjukkan nilai variabel lain khususnya variabel kontinyu pada sebuah
+titik. Berikut adalah contoh penerapannya. Output yang dihasilkan
+disajikan pada Figure \ref{fig:ggscatter2} sampai dengan Figure
+\ref{fig:ggscatter4}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap,lifeExp, }\DataTypeTok{color=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# merubah sumbu x kedalam fungsi log}
+\StringTok{  }\KeywordTok{scale_x_log10}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter2-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap tiap benua (1)}\label{fig:ggscatter2}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap,lifeExp, }\DataTypeTok{shape=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# merubah sumbu x kedalam fungsi log}
+\StringTok{  }\KeywordTok{scale_x_log10}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter3-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap tiap benua (2)}\label{fig:ggscatter3}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap,lifeExp, }
+                      \DataTypeTok{size=}\NormalTok{pop, }\DataTypeTok{color=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# merubah sumbu x kedalam fungsi log}
+\StringTok{  }\KeywordTok{scale_x_log10}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter4-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua}\label{fig:ggscatter4}
+\end{figure}
+
+Untuk menujukkan asosiasi antara dua variabel kontinyu kita juga dapat
+menambahkan garis regresi dan confidence interval garis regresinya.
+Fungsi yang digunakan adalah \texttt{geom\_smooth()}. Secara default
+fungsi tersebut akan membuat garis loess regression pada grafik. Agar
+dapat membuat garis regresi linier kita perlu menambahkan argumen
+\texttt{method="lm"}. Selain itu, jika kita tidak ingin menampilkan
+garis confidence interval kita dapat menambahkan argumen
+\texttt{se=FALSE}. Format sederhananya disajikan pada sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method=}\StringTok{"auto"}\NormalTok{, }\DataTypeTok{se=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{fullrange=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{level=}\FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\item
+  \textbf{method}: metode penghalusan yang digunakan. Nilai yang dapat
+  dimasukkan adalah lm, glm, gam, loess, rlm.
+\item
+  method=``loess'': merupakan nilai default pada fungsi dan menghasilkan
+  metode penghalusan loess regression.
+\item
+  method=``lm'': menghasilkan metode penghalusan regresi linier. Kita
+  juga dapat melakukan spesifikasi terhadap fungsi persamaan regresi
+  yang digunakan dengan menambahkan argumen
+  formula=y\textasciitilde{}x\ldots{}.
+\item
+  \textbf{se}: nilai logis. Jika TRUE garis confidence interval akan
+  ditampilkan sepanjang garis penghalusan.
+\item
+  \textbf{fullrange}: nilai logis. Jika TRUE kecocokan mencakup seluruh
+  plot.
+\item
+  level: level confidence interal yang digunakan. Secara default
+  bernilai 0.95.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh sintaks penerapan pada variabel \texttt{gdpPercap}
+dan \texttt{lifeExp}. Output yang dihasilkan disajikan pada Figure
+\ref{fig:ggscatter5}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap,lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# merubah sumbu x kedalam fungsi log}
+\StringTok{  }\KeywordTok{scale_x_log10}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan smoothing method}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method=}\StringTok{"lm"}\NormalTok{, }\DataTypeTok{level=}\FloatTok{0.99}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter5-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier}\label{fig:ggscatter5}
+\end{figure}
+
+\section{Box Plot dan Violin Plot}\label{box-plot-dan-violin-plot}
+
+Box plot merupakan visualisasi yang powerful dalam menggambarkan
+distribusi data, melihat adanya outlier, serta membandingkan distribusi
+antar data. Format visualisasi dapat dituliskan sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(...))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{outlier.colour=}\StringTok{"black"}\NormalTok{, }
+                            \DataTypeTok{outlier.shape=}\DecValTok{16}\NormalTok{,}
+                            \DataTypeTok{outlier.size=}\DecValTok{2}\NormalTok{, }
+                            \DataTypeTok{notch=}\OtherTok{FALSE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{outlier.colour, outlier.shape, outlier.size}: Warna, bentuk
+  dan ukuran untuk titik-titik outlier.
+\item
+  \textbf{notch}: nilai logis. Jika TRUE, buat \textbf{notched box
+  plot}. \emph{Notch} menunjukkan \emph{confidence interval} di sekitar
+  median yang biasanya didasarkan pada median
+  \(\pm1,58\cdot\frac{\left(IQR\right)}{\sqrt{\left(n\right)}}\).
+  \emph{Notch} digunakan untuk membandingkan kelompok; jika takik dua
+  kotak tidak tumpang tindih, ini adalah bukti kuat bahwa median
+  berbeda.
+\end{itemize}
+\end{quote}
+
+Berikut merupakan contoh visualisasi variabel \texttt{lifeExp} pada
+dataset \texttt{gapminder}. Output yang dihasilkan disajikan pada Figure
+\ref{fig:ggboxplot}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(}\StringTok{""}\NormalTok{, lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggboxplot-1} 
+
+}
+
+\caption{Box plot variabel lifeExp}\label{fig:ggboxplot}
+\end{figure}
+
+Kita dapat melakukan visualisasi bagi setiap kelompok data. Pada sintaks
+berikut visualisasi dilakukan untuk variabel \texttt{lifeExp} pada tiap
+\texttt{continent}. Pada contoh berikut akan ditampilkan cara
+menmabahkan titik rata-rata dan warna pada masing-masing grup. Output
+yang dihasilkan disajikan pada Figure \ref{fig:ggboxplot2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(continent, lifeExp, }\DataTypeTok{color=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{stat_summary}\NormalTok{(}\DataTypeTok{fun.y=}\NormalTok{mean, }\DataTypeTok{geom=}\StringTok{"point"}\NormalTok{, }
+               \DataTypeTok{shape=}\DecValTok{23}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{color=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggboxplot2-1} 
+
+}
+
+\caption{Box plot variabel lifeExp pada tiap continent}\label{fig:ggboxplot2}
+\end{figure}
+
+Misalkan kita ingin mengetahui perubahan distribusi dari variabel
+\texttt{lifeExp} pada masing-masing \texttt{continet} pada tahun 1952
+dan 2007. Untuk melakukannya kita perlu melakukan subset pada dataset
+\texttt{gapminder} untuk memfilter data pada tahun 1952 dan 2007. Data
+selanjutnya dilakukan input kedalam fungsi \texttt{ggplot()}. Berikut
+adalah contoh sintaks yang digunakan. Output yang dihasilkan disajikan
+pada Figure \ref{fig:ggboxplot3}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(year}\OperatorTok{==}\DecValTok{1952} \OperatorTok{|}\StringTok{ }\NormalTok{year}\OperatorTok{==}\DecValTok{2007}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, lifeExp, }\DataTypeTok{fill=}\KeywordTok{factor}\NormalTok{(year)))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{notch=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggboxplot3-1} 
+
+}
+
+\caption{Box plot variabel lifeExp pada tiap continent (1952 dan 2007)}\label{fig:ggboxplot3}
+\end{figure}
+
+Berdasarkan Figure \ref{fig:ggboxplot3} terlihat bahwa usia harapan
+hidup pada tiap benua meningkat sejak tahun 1952 sampai 2007. Selain
+itu, peningkatan tersebut bersifat signifikan yang ditunjukkan dari
+tidak adanya \emph{notch} yang saling overlap pada masing-masing benua.
+
+Untuk lebih detailnya kita akan coba melakukan visualisasi pada benua
+Asia untuk melihat perubahan variabel \texttt{lifeExp}. Berikut adalah
+sintaks yang digunakan dan output yang dihasilkan disajikan pada Figure
+\ref{fig:ggboxplot4}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(continent}\OperatorTok{==}\StringTok{"Asia"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\KeywordTok{factor}\NormalTok{(year), lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggboxplot4-1} 
+
+}
+
+\caption{Box plot variabel lifeExp Benua Asia}\label{fig:ggboxplot4}
+\end{figure}
+
+Violin plot memiliki kesamaan dengan box plot. Perbedaanya terletak pada
+violin plot tidak hanya menyajikan data titik-titikkuartil data, namun
+violin plot juga menampilkan kernel probabilitas distibusi data. Fungsi
+yang digunakan untuk membuatnya adalah \texttt{geom\_violin()}.
+
+Pada dataset \texttt{gapminder} kita ingin meisualisasikan distribusi
+\texttt{lifeExp} pada masing-masing \texttt{continent}. Berikut adalah
+contoh sintaks untuk membuat visualisasi dasar violin plot. Output yang
+dihasilkan disajikan pada Figure \ref{fig:ggviolin}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, lifeExp, }\DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# violin plot}
+\StringTok{  }\KeywordTok{geom_violin}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggviolin-1} 
+
+}
+
+\caption{Violin plot variabel lifeExp pada masing-masing benua}\label{fig:ggviolin}
+\end{figure}
+
+Kita juga dapat melakukan modifikasi terhadap violin plot tersebut
+seperti penambahan titik kuartil, titik mean dan modifikasi terhadap
+warna tampilaknnya. COntoh sintaksnya dan output disajikan pada Figure
+\ref{fig:ggviolin2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, lifeExp, }\DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# violin plot}
+\StringTok{  }\KeywordTok{geom_violin}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan boxplot dengan lebar 0.1}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{width=}\FloatTok{0.1}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"white"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan titik mean}
+\StringTok{  }\KeywordTok{stat_summary}\NormalTok{(}\DataTypeTok{fun.y=}\NormalTok{mean, }\DataTypeTok{geom=}\StringTok{"point"}\NormalTok{,}
+               \CommentTok{# ukuran dan jenis titik}
+               \DataTypeTok{size=}\DecValTok{1}\NormalTok{, }\DataTypeTok{shape=}\DecValTok{23}\NormalTok{,}
+               \CommentTok{# warna titik}
+               \DataTypeTok{color=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"white"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggviolin2-1} 
+
+}
+
+\caption{Violin plot variabel lifeExp pada masing-masing benua (2)}\label{fig:ggviolin2}
+\end{figure}
+
+\section{Bar Plot}\label{bar-plot-1}
+
+Pada \texttt{ggplot2} bar plot dapat dibuat menggunakan fungsi
+\texttt{geom\_bar()}. Untuk membuat bar plot, langkah pertama yang perlu
+dilakukan adalah membuat tabulasi data variabel terlebih dahulu. Berikut
+adalah contoh sintaks untuk membuat bar plot dari rata-rata
+\texttt{lifeExp} pada masing-masing \texttt{continent}. Output yang
+dihasilkan disajikan pada Figure \ref{fig:ggbar}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# kelompokkan berdasarkan continet}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(continent)}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# membuat ringkasan data}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_lifeExp=}\KeywordTok{mean}\NormalTok{(lifeExp))}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# urutkan dari yang terbesar}
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(mean_lifeExp))}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# plot}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, mean_lifeExp))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# membuat bar plot berdasarkan nilai observasi}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggbar-1} 
+
+}
+
+\caption{Bar plot rata-rata lifeExp masing-masing benua}\label{fig:ggbar}
+\end{figure}
+
+Kita juga dapat membuat bar plot dengan garis confidence interval. Untuk
+melakukannya kita perlu terlebih dahulu menghitung standard error dari
+data. Standard error selanjutnya digunakan untuk menghitung nilai atas
+dan bawah dari nilai rata-rata. Berikut adalah contoh visualisasi bar
+plot dengan confidence interval (Figure \ref{fig:ggbar2}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# kelompokkan berdasarkan continet}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(continent)}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# membuat ringkasan data}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_lifeExp=}\KeywordTok{mean}\NormalTok{(lifeExp),}
+            \DataTypeTok{n=}\KeywordTok{n}\NormalTok{(), }\DataTypeTok{sd=}\KeywordTok{sd}\NormalTok{(lifeExp), }
+            \DataTypeTok{se=}\NormalTok{sd}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n))}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# plot}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, mean_lifeExp))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# membuat bar plot}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{, }\DataTypeTok{color=}\StringTok{"white"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan error bar}
+\StringTok{  }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin=}\NormalTok{mean_lifeExp}\OperatorTok{-}\NormalTok{se,}
+                    \DataTypeTok{ymax=}\NormalTok{mean_lifeExp}\OperatorTok{+}\NormalTok{se),}
+                \DataTypeTok{width=}\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggbar2-1} 
+
+}
+
+\caption{Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval}\label{fig:ggbar2}
+\end{figure}
+
+Kita juga dapat melakukannya pada visualisasi data beberapa grup.
+Berikut adalah contoh sintaks dan output (Figure \ref{fig:ggbar3}) bar
+plot dengan beberapa grup:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# filter data tahun 1952 dan 2007}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(year}\OperatorTok{==}\DecValTok{1952}\OperatorTok{|}\NormalTok{year}\OperatorTok{==}\DecValTok{2007}\NormalTok{)}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# Ubah year menjadi factor}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{year=}\KeywordTok{as.factor}\NormalTok{(year))}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# kelompokkan berdasarkan continet}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(continent,year)}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# membuat ringkasan data}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_lifeExp=}\KeywordTok{mean}\NormalTok{(lifeExp),}
+            \DataTypeTok{n=}\KeywordTok{n}\NormalTok{(), }\DataTypeTok{sd=}\KeywordTok{sd}\NormalTok{(lifeExp), }
+            \DataTypeTok{se=}\NormalTok{sd}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n))}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# plot}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, mean_lifeExp, }
+             \DataTypeTok{fill=}\NormalTok{year))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# membuat bar plot}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{, }
+           \DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{())}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan error bar}
+\StringTok{  }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin=}\NormalTok{mean_lifeExp}\OperatorTok{-}\NormalTok{se,}
+                    \DataTypeTok{ymax=}\NormalTok{mean_lifeExp}\OperatorTok{+}\NormalTok{se),}
+                \DataTypeTok{width=}\FloatTok{0.2}\NormalTok{,}
+                \DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.9}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggbar3-1} 
+
+}
+
+\caption{Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval}\label{fig:ggbar3}
+\end{figure}
+
+\section{Line Plot}\label{line-plot-1}
+
+Line plot dapat digunakan untuk menunjukkan adanya perubahan pada selang
+waktu tertentu. Pada \texttt{ggplot2}, line plot dapat dibuat
+menggunakan fungsi \texttt{geom\_line()}. Berikut adalah contoh sintaks
+dan grafik (Figure \ref{fig:ggline}) untuk membuat line plot:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# kelompokkan data berdasarkan year dan continent}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(year,continent)}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# ringkasan data}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_lifeExp=}\KeywordTok{mean}\NormalTok{(lifeExp))}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# plot}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(year, mean_lifeExp, }
+             \DataTypeTok{linetype=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# membuat line plot}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan point}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggline-1} 
+
+}
+
+\caption{Line plot lifeExp masing-masing benua }\label{fig:ggline}
+\end{figure}
+
+Kita juga dapat menambahkan error bar pada line plot. Berikut adalah
+contoh sintak dan grafik (Figure \ref{fig:ggline2}) yang dihasilkan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# filter benua asia}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(continent}\OperatorTok{==}\StringTok{"Asia"}\NormalTok{)}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# kelompokkan data berdasarkan year dan continent}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(year)}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# ringkasan data}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_lifeExp=}\KeywordTok{mean}\NormalTok{(lifeExp), }
+            \DataTypeTok{sd=}\KeywordTok{sd}\NormalTok{(lifeExp))}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# plot}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(year, mean_lifeExp))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# membuat line plot}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan point}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size=}\DecValTok{2}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan error bar}
+\StringTok{  }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin=}\NormalTok{mean_lifeExp}\OperatorTok{-}\NormalTok{sd,}
+                    \DataTypeTok{ymax=}\NormalTok{mean_lifeExp}\OperatorTok{+}\NormalTok{sd),}
+                \DataTypeTok{width=}\FloatTok{0.2}\NormalTok{, }\DataTypeTok{color=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggline2-1} 
+
+}
+
+\caption{Histogram lifeExp }\label{fig:ggline2}
+\end{figure}
+
+\section{Pie Chart}\label{pie-chart-1}
+
+Pie chart pada \texttt{ggplot2} dapat dibuat menggunakan fungsi
+\texttt{geom\_bar()} dan \texttt{coord\_polar()}.Berikut adalah contoh
+sintaks yang digunakan dan output (Figure \ref{fig:ggpie}) yang
+dihasilkan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{total <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(gapminder}\OperatorTok{$}\NormalTok{pop)}
+\NormalTok{gapminder}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# kelompokkan berdasarkan continent}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(continent)}\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# ringkasan data }
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{pop=}\KeywordTok{sum}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(pop)), }\DataTypeTok{percent=}\NormalTok{(pop}\OperatorTok{/}\NormalTok{total)}\OperatorTok{*}\DecValTok{100}\NormalTok{)}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\StringTok{""}\NormalTok{, percent, }\DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{coord_polar}\NormalTok{(}\StringTok{"y"}\NormalTok{, }\DataTypeTok{start=}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggpie-1} 
+
+}
+
+\caption{Pie chart pop}\label{fig:ggpie}
+\end{figure}
+
+\section{Histogram dan Desity Plot}\label{histogram-dan-desity-plot}
+
+Histogram pada \texttt{ggplot2} dapat dibuat dengan fungsi
+\texttt{geom\_histogram()}. Berikut adalah sintaks untuk membuat
+hitogram pada variabel \texttt{lifeExp}. Output yang dihasilkan
+disajikan pada Figure \ref{fig:gghist}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gghist-1} 
+
+}
+
+\caption{Histogram lifeExp }\label{fig:gghist}
+\end{figure}
+
+Kita dapat membuat grafik histogram berdasarkan grup data. Pada contoh
+sebelumnya dibuat histogram berdasarkan variabel \texttt{continent}.
+Berikut adalah sintaks dan output yang dihasilkan pada Figure
+\ref{fig:gghist2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(lifeExp, }\DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{alpha=}\FloatTok{0.5}\NormalTok{, }
+                 \CommentTok{# atur posisi agar sesuai grup}
+                 \DataTypeTok{position=}\StringTok{"identity"}\NormalTok{,}
+                 \DataTypeTok{color=}\StringTok{"black"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gghist2-1} 
+
+}
+
+\caption{Histogram lifeExp berdasarkan benua}\label{fig:gghist2}
+\end{figure}
+
+Density plot dapat dibuat dengan menggunakan fungsi
+\texttt{geom\_density()}. Berikut adalah contoh sintaks untuk membuat
+density plot variabel \texttt{lifeExp}. Output yang dihasilkan disajikan
+pada Figure \ref{fig:ggdens}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggdens-1} 
+
+}
+
+\caption{Density plot lifeExp }\label{fig:ggdens}
+\end{figure}
+
+Kita juga dapat membuat grafik density berdasarkan grup data. Pada
+contoh sebelumnya dibuat density plot berdasarkan variabel
+\texttt{continent}. Berikut adalah sintaks dan output yang dihasilkan
+pada Figure \ref{fig:ggdens2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(lifeExp, }\DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{alpha=}\FloatTok{0.5}\NormalTok{, }
+                 \CommentTok{# atur posisi agar sesuai grup}
+                 \DataTypeTok{position=}\StringTok{"identity"}\NormalTok{,}
+                 \DataTypeTok{color=}\StringTok{"black"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggdens2-1} 
+
+}
+
+\caption{Density plot lifeExp berdasarkan benua}\label{fig:ggdens2}
+\end{figure}
+
+Jika dinginkan kita juga dapat menambahkan density plot pada histogram.
+Pada Figure \ref{fig:hist} ditambahkan density plot sehingga dihasilkan
+output seperti Figure \ref{fig:ggdenshist}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{..density..),}
+                 \CommentTok{# spesifikasi warna bar}
+                 \DataTypeTok{color=}\StringTok{"black"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"white"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggdenshist-1} 
+
+}
+
+\caption{histogram dan density plot lifeExp }\label{fig:ggdenshist}
+\end{figure}
+
+\section{QQ Plot}\label{qq-plot-1}
+
+QQ plot pada paket \texttt{ggplot2} dapat dibuat dengan menggunakan
+fungsi \texttt{stat\_qq()}. Berikut adalah contoh sintaks untuk
+melakukannya. Output yang dihasilkan disajikna pada Figure
+\ref{fig:ggqq}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{sample=}\NormalTok{lifeExp))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# qq plot}
+\StringTok{  }\KeywordTok{stat_qq}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# garis referensi}
+\StringTok{  }\KeywordTok{stat_qq_line}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggqq-1} 
+
+}
+
+\caption{QQ plot variabel lifeExp}\label{fig:ggqq}
+\end{figure}
+
+\section{Dot Plot}\label{dot-plot}
+
+Dot plot dapat dibuat menggunakan fungsi \texttt{geom\_dotplot} atau
+\texttt{geom\_jitter()}. Perbedaan keduanya adalah
+\texttt{geom\_jitter()} menambahkan \emph{noise} pada plot sehingga
+mencegah terjadinya \emph{overplotting}. Berikut adalah contoh sintaks
+untuk membuat dotplot pada multiple group dan output yang dihasilkan
+pada Figure \ref{fig:dotplot}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(year}\OperatorTok{==}\DecValTok{1952} \OperatorTok{|}\StringTok{ }\NormalTok{year}\OperatorTok{==}\DecValTok{2007}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, lifeExp, }\DataTypeTok{fill=}\KeywordTok{factor}\NormalTok{(year)))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_dotplot}\NormalTok{(}\DataTypeTok{binaxis=}\StringTok{"y"}\NormalTok{, }
+               \CommentTok{# spesifikasi posisi plot}
+               \DataTypeTok{stackdir=}\StringTok{"center"}\NormalTok{,}
+               \DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.8}\NormalTok{),}
+               \DataTypeTok{size=}\FloatTok{0.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Ignoring unknown parameters: size
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/dotplot-1} 
+
+}
+
+\caption{Dot plot variabel lifeExp masing-masing benua (1952-2007)}\label{fig:dotplot}
+\end{figure}
+
+Kita juga dapat menambahkan plot dari dari plot yang sudah ada seperti
+box plot atau violin plot. Berikut adalah contoh sintaks dan output yang
+dihasilkan pada Figure \ref{fig:dotplot2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(year}\OperatorTok{==}\DecValTok{1952} \OperatorTok{|}\StringTok{ }\NormalTok{year}\OperatorTok{==}\DecValTok{2007}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, lifeExp, }\DataTypeTok{fill=}\KeywordTok{factor}\NormalTok{(year)))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# box plot dibawah}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.8}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# dot plot diatas}
+\StringTok{  }\KeywordTok{geom_dotplot}\NormalTok{(}\DataTypeTok{binaxis=}\StringTok{"y"}\NormalTok{, }
+               \CommentTok{# spesifikasi posisi plot}
+               \DataTypeTok{stackdir=}\StringTok{"center"}\NormalTok{,}
+               \DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/dotplot2-1} 
+
+}
+
+\caption{Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)}\label{fig:dotplot2}
+\end{figure}
 
 \bibliography{book.bib,packages.bib}
 

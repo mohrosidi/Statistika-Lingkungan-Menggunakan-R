@@ -1,0 +1,436 @@
+# Visualisasi Data Menggunakan GGPLOT
+
+Library `ggplot2` merupakan implementasi dari *The Grammar of Graphics* yang ditulis oleh **Leland Wilkinson**. `ggplot2` merupakan library yang dikembangkan oleh **Hadley Wicham** ketika ia sedang menempuh kuliah di **Lowa State Universuty** dan masih dikembangkan hingga sekarang.
+
+`ggplot2` merupakan paket visualisasi yang powerfull. Kita dapat menggunakannya bersamaan dengan *piping operator* yang disediakan oleh paket `dplyr` sehingga menambah kemudahan kita dalam melakukan analisis data.
+
+Grafik `ggplot2` terdiri dari sejumlah komponen kunci. Berikut adalah sejumlah komponen kunci yang membentuk grafik `ggplot2`.
+
+- **data frame**: menyimpan semua data yang akan ditampilkan di plot.
+- **aesthetic mapping**: menggambarkan bagaimana data dipetakan ke warna, ukuran, bentuk, lokasi. Dalam plot diberikan pada fungsi `aes()`
+- **geoms**: objek geometris seperti titik, garis, bentuk.
+- **facets**: menjelaskan bagaimana plot bersyarat / panel harus dibangun.
+- **stats**: transformasi statistik seperti binning, quantiles, smoothing.
+- **scales**: skala apa yang digunakan oleh *aesthetic map* (contoh: pria = merah, wanita = biru).
+- **coordinate system**: menggambarkan sistem di mana lokasi geom akan digambarkan.
+
+Sebelum kita mulai memcoba melakukan visualisasi data menggunakan `ggplot2`, kita perlu menginstall dan memuat terlebih dahulu library `ggplot2`. Berikut adalah sintaks yang digunakan untuk menginstall dan memuat paket `ggplot2`:
+
+```{r, message=FALSE}
+# memasang paket
+# install.packages('ggplot2')
+
+# memuat paket
+library(ggplot2)
+```
+
+Dataset yang akan kita gunakan adalah dataset `gapminder`. Dataset ini berisi data demografi penduduk dari berbagai negara dan benua. Untuk dapat menggunakannya kita perlu menginstall dan memuatnya terlebih dahulu. Berikut adalah sintaks untuk menginstall dan memuat dataset tersebut:
+
+```{r, message=FALSE}
+# memasang paket
+# install.packages("gapminder")
+
+# memuat paket
+library(gapminder)
+
+# memuat paket dplyr dan tibble
+library(dplyr)
+library(tibble)
+```
+
+```{r}
+# melihat struktur dataset
+glimpse(gapminder)
+
+# melihat variabel year
+unique(gapminder$year)
+```
+
+Dataset gapminder memiliki 6 variabel dan 1704 observasi. 20 observasi pertama dataset gapminder dapat dilihat pada Table \@ref(tab:gapminder)
+
+```{r gapminder, echo=FALSE}
+knitr::kable(
+  head(gapminder, 20), caption = '20 observasi pertama dataset gapminder'
+)
+```
+
+## Scatterplot
+
+Scatterplot dapat dibuat pada `ggplot2` menggunakan fungsi `geom_point()`. Format sederhananya dituliskan sebagai berikut:
+
+```{r, eval=FALSE}
+ggplot(data, aes(...))+
+  geom_point(size, color, shape)
+
+```
+
+Berikut adalah contoh sederhana scatterplot variabel `lifeExp` terhadap variabel `gdpPercap`. Output yang dihasilkan disajikan pada Figure \@ref(fig:ggscatter):
+
+```{r ggscatter,fig.cap='Scatterplot lifeExp vs gdpPercap', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  geom_point()
+```
+
+Kita dapat mengubah warna, jenis, dan ukuran titik pada scatterplot. Pengubahan warna dan jenis titik berguna untuk menunjukkan grup data pada grafik. Sedangkan perubahan ukuran titik sangat berguna untuk menunjukkan nilai variabel lain khususnya variabel kontinyu pada sebuah titik. Berikut adalah contoh penerapannya. Output yang dihasilkan disajikan pada Figure \@ref(fig:ggscatter2) sampai dengan Figure \@ref(fig:ggscatter4):
+
+```{r ggscatter2,fig.cap='Scatterplot lifeExp vs gdpPercap tiap benua (1)', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(gdpPercap,lifeExp, color=continent))+
+  geom_point()+
+  # merubah sumbu x kedalam fungsi log
+  scale_x_log10()
+``` 
+
+```{r ggscatter3,fig.cap='Scatterplot lifeExp vs gdpPercap tiap benua (2)', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(gdpPercap,lifeExp, shape=continent))+
+  geom_point()+
+  # merubah sumbu x kedalam fungsi log
+  scale_x_log10()
+``` 
+
+```{r ggscatter4,fig.cap='Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(gdpPercap,lifeExp, 
+                      size=pop, color=continent))+
+  geom_point()+
+  # merubah sumbu x kedalam fungsi log
+  scale_x_log10()
+``` 
+
+Untuk menujukkan asosiasi antara dua variabel kontinyu kita juga dapat menambahkan garis regresi dan confidence interval garis regresinya. Fungsi yang digunakan adalah `geom_smooth()`. Secara default fungsi tersebut akan membuat garis loess regression pada grafik. Agar dapat membuat garis regresi linier kita perlu menambahkan argumen `method="lm"`. Selain itu, jika kita tidak ingin menampilkan garis confidence interval kita dapat menambahkan argumen `se=FALSE`. Format sederhananya disajikan pada sintaks berikut:
+
+```{r, eval=FALSE}
+geom_smooth(method="auto", se=TRUE, fullrange=FALSE, level=0.95)
+```
+
+> **Note: **
+>
+> - **method**: metode penghalusan yang digunakan. Nilai yang dapat dimasukkan adalah lm, glm, gam, loess, rlm.
+> 
+>    + method="loess": merupakan nilai default pada fungsi dan menghasilkan metode penghalusan loess regression.
+>    + method="lm": menghasilkan metode penghalusan regresi linier. Kita juga dapat melakukan spesifikasi terhadap fungsi persamaan regresi yang digunakan dengan menambahkan argumen formula=y~x....
+>
+> - **se**: nilai logis. Jika TRUE garis confidence interval akan ditampilkan sepanjang garis penghalusan.
+> - **fullrange**: nilai logis. Jika TRUE kecocokan mencakup seluruh plot.
+> - level: level confidence interal yang digunakan. Secara default bernilai 0.95.
+
+Berikut adalah contoh sintaks penerapan pada variabel `gdpPercap` dan `lifeExp`. Output yang dihasilkan disajikan pada Figure \@ref(fig:ggscatter5):
+
+```{r ggscatter5,fig.cap='Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(gdpPercap,lifeExp))+
+  geom_point()+
+  # merubah sumbu x kedalam fungsi log
+  scale_x_log10()+
+  # menambahkan smoothing method
+  geom_smooth(method="lm", level=0.99)
+``` 
+
+## Box Plot dan Violin Plot
+
+Box plot merupakan visualisasi yang powerful dalam menggambarkan distribusi data, melihat adanya outlier, serta membandingkan distribusi antar data. Format visualisasi dapat dituliskan sebagai berikut:
+
+```{r, eval=FALSE}
+ggplot(data, aes(...))+
+  geom_boxplot(geom_boxplot(outlier.colour="black", 
+                            outlier.shape=16,
+                            outlier.size=2, 
+                            notch=FALSE))
+```
+
+> **Note: **
+>
+> - **outlier.colour, outlier.shape, outlier.size**: Warna, bentuk dan ukuran untuk titik-titik outlier.
+> - **notch**: nilai logis. Jika TRUE, buat **notched box plot**. *Notch* menunjukkan *confidence interval* di sekitar median yang biasanya didasarkan pada median $\pm1,58\cdot\frac{\left(IQR\right)}{\sqrt{\left(n\right)}}$. *Notch* digunakan untuk membandingkan kelompok; jika takik dua kotak tidak tumpang tindih, ini adalah bukti kuat bahwa median berbeda.
+
+Berikut merupakan contoh visualisasi variabel `lifeExp` pada dataset `gapminder`. Output yang dihasilkan disajikan pada Figure \@ref(fig:ggboxplot):
+
+```{r ggboxplot,fig.cap='Box plot variabel lifeExp', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes("", lifeExp))+
+  geom_boxplot()
+```
+
+Kita dapat melakukan visualisasi bagi setiap kelompok data. Pada sintaks berikut visualisasi dilakukan untuk variabel `lifeExp` pada tiap `continent`. Pada contoh berikut akan ditampilkan cara menmabahkan titik rata-rata dan warna pada masing-masing grup. Output yang dihasilkan disajikan pada Figure \@ref(fig:ggboxplot2):
+
+```{r ggboxplot2,fig.cap='Box plot variabel lifeExp pada tiap continent', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(continent, lifeExp, color=continent))+
+  geom_boxplot()+
+  stat_summary(fun.y=mean, geom="point", 
+               shape=23, size=3, color="red")
+```
+
+
+Misalkan kita ingin mengetahui perubahan distribusi dari variabel `lifeExp` pada masing-masing `continet` pada tahun 1952 dan 2007. Untuk melakukannya kita perlu melakukan subset pada dataset `gapminder` untuk memfilter data pada tahun 1952 dan 2007. Data selanjutnya dilakukan input kedalam fungsi `ggplot()`. Berikut adalah contoh sintaks yang digunakan. Output yang dihasilkan disajikan pada Figure \@ref(fig:ggboxplot3):
+
+```{r ggboxplot3,fig.cap='Box plot variabel lifeExp pada tiap continent (1952 dan 2007)', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  filter(year==1952 | year==2007) %>%
+  ggplot(aes(continent, lifeExp, fill=factor(year)))+
+  geom_boxplot(notch=TRUE)
+```
+
+Berdasarkan Figure \@ref(fig:ggboxplot3) terlihat bahwa usia harapan hidup pada tiap benua meningkat sejak tahun 1952 sampai 2007. Selain itu, peningkatan tersebut bersifat signifikan yang ditunjukkan dari tidak adanya *notch* yang saling overlap pada masing-masing benua.
+
+Untuk lebih detailnya kita akan coba melakukan visualisasi pada benua Asia untuk melihat perubahan variabel `lifeExp`. Berikut adalah sintaks yang digunakan dan output yang dihasilkan disajikan pada Figure \@ref(fig:ggboxplot4):
+
+```{r ggboxplot4,fig.cap='Box plot variabel lifeExp Benua Asia', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  filter(continent=="Asia") %>%
+  ggplot(aes(factor(year), lifeExp))+
+  geom_boxplot()
+```
+
+Violin plot memiliki kesamaan dengan box plot. Perbedaanya terletak pada violin plot tidak hanya menyajikan data titik-titikkuartil data, namun violin plot juga menampilkan kernel probabilitas distibusi data. Fungsi yang digunakan untuk membuatnya adalah `geom_violin()`.
+
+Pada dataset `gapminder` kita ingin meisualisasikan distribusi `lifeExp` pada masing-masing `continent`. Berikut adalah contoh sintaks untuk membuat visualisasi dasar violin plot. Output yang dihasilkan disajikan pada Figure \@ref(fig:ggviolin):
+
+```{r ggviolin,fig.cap='Violin plot variabel lifeExp pada masing-masing benua', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  ggplot(aes(continent, lifeExp, fill=continent))+
+  # violin plot
+  geom_violin()
+```
+
+Kita juga dapat melakukan modifikasi terhadap violin plot tersebut seperti penambahan titik kuartil, titik mean dan modifikasi terhadap warna tampilaknnya. COntoh sintaksnya dan output disajikan pada Figure \@ref(fig:ggviolin2):
+
+```{r ggviolin2,fig.cap='Violin plot variabel lifeExp pada masing-masing benua (2)', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  ggplot(aes(continent, lifeExp, fill=continent))+
+  # violin plot
+  geom_violin()+
+  # menambahkan boxplot dengan lebar 0.1
+  geom_boxplot(width=0.1, fill="white")+
+  # menambahkan titik mean
+  stat_summary(fun.y=mean, geom="point",
+               # ukuran dan jenis titik
+               size=1, shape=23,
+               # warna titik
+               color="red", fill="white")
+```
+
+## Bar Plot
+
+Pada `ggplot2` bar plot dapat dibuat menggunakan fungsi `geom_bar()`. Untuk membuat bar plot, langkah pertama yang perlu dilakukan adalah membuat tabulasi data variabel terlebih dahulu. Berikut adalah contoh sintaks untuk membuat bar plot dari rata-rata `lifeExp` pada masing-masing `continent`. Output yang dihasilkan disajikan pada Figure \@ref(fig:ggbar):
+
+```{r ggbar,fig.cap='Bar plot rata-rata lifeExp masing-masing benua', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  # kelompokkan berdasarkan continet
+  group_by(continent)%>%
+  # membuat ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp))%>%
+  # urutkan dari yang terbesar
+  arrange(desc(mean_lifeExp))%>%
+  # plot
+  ggplot(aes(continent, mean_lifeExp))+
+  # membuat bar plot berdasarkan nilai observasi
+  geom_bar(stat="identity")
+  
+```
+
+Kita juga dapat membuat bar plot dengan garis confidence interval. Untuk melakukannya kita perlu terlebih dahulu menghitung standard error dari data. Standard error selanjutnya digunakan untuk menghitung nilai atas dan bawah dari nilai rata-rata. Berikut adalah contoh visualisasi bar plot dengan confidence interval (Figure \@ref(fig:ggbar2)):
+
+```{r ggbar2,fig.cap='Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  # kelompokkan berdasarkan continet
+  group_by(continent)%>%
+  # membuat ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp),
+            n=n(), sd=sd(lifeExp), 
+            se=sd/sqrt(n))%>%
+  # plot
+  ggplot(aes(continent, mean_lifeExp))+
+  # membuat bar plot
+  geom_bar(stat="identity", color="white")+
+  # menambahkan error bar
+  geom_errorbar(aes(ymin=mean_lifeExp-se,
+                    ymax=mean_lifeExp+se),
+                width=0.2)
+                
+```
+
+Kita juga dapat melakukannya pada visualisasi data beberapa grup. Berikut adalah contoh sintaks dan output (Figure \@ref(fig:ggbar3)) bar plot dengan beberapa grup:
+
+```{r ggbar3,fig.cap='Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  # filter data tahun 1952 dan 2007
+  filter(year==1952|year==2007)%>%
+  # Ubah year menjadi factor
+  mutate(year=as.factor(year))%>%
+  # kelompokkan berdasarkan continet
+  group_by(continent,year)%>%
+  # membuat ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp),
+            n=n(), sd=sd(lifeExp), 
+            se=sd/sqrt(n))%>%
+  # plot
+  ggplot(aes(continent, mean_lifeExp, 
+             fill=year))+
+  # membuat bar plot
+  geom_bar(stat="identity", 
+           position=position_dodge())+
+  # menambahkan error bar
+  geom_errorbar(aes(ymin=mean_lifeExp-se,
+                    ymax=mean_lifeExp+se),
+                width=0.2,
+                position=position_dodge(0.9))
+                
+```
+
+## Line Plot
+
+Line plot dapat digunakan untuk menunjukkan adanya perubahan pada selang waktu tertentu. Pada `ggplot2`, line plot dapat dibuat menggunakan fungsi `geom_line()`. Berikut adalah contoh sintaks dan grafik (Figure \@ref(fig:ggline)) untuk membuat line plot:
+
+```{r ggline,fig.cap='Line plot lifeExp masing-masing benua ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder%>%
+  # kelompokkan data berdasarkan year dan continent
+  group_by(year,continent)%>%
+  # ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp))%>%
+  # plot
+  ggplot(aes(year, mean_lifeExp, 
+             linetype=continent))+
+  # membuat line plot
+  geom_line()+
+  # menambahkan point
+  geom_point()
+  
+```
+
+Kita juga dapat menambahkan error bar pada line plot. Berikut adalah contoh sintak dan grafik (Figure \@ref(fig:ggline2)) yang dihasilkan:
+
+```{r ggline2,fig.cap='Histogram lifeExp ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder%>%
+  # filter benua asia
+  filter(continent=="Asia")%>%
+  # kelompokkan data berdasarkan year dan continent
+  group_by(year)%>%
+  # ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp), 
+            sd=sd(lifeExp))%>%
+  # plot
+  ggplot(aes(year, mean_lifeExp))+
+  # membuat line plot
+  geom_line()+
+  # menambahkan point
+  geom_point(size=2)+
+  # menambahkan error bar
+  geom_errorbar(aes(ymin=mean_lifeExp-sd,
+                    ymax=mean_lifeExp+sd),
+                width=0.2, color="red")
+  
+```
+
+## Pie Chart
+
+Pie chart pada `ggplot2` dapat dibuat menggunakan fungsi `geom_bar()` dan `coord_polar()`.Berikut adalah contoh sintaks yang digunakan dan output (Figure \@ref(fig:ggpie)) yang dihasilkan:
+
+```{r ggpie, fig.cap='Pie chart pop', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+total <- sum(gapminder$pop)
+gapminder%>%
+  # kelompokkan berdasarkan continent
+  group_by(continent)%>%
+  # ringkasan data 
+  summarize(pop=sum(as.numeric(pop)), percent=(pop/total)*100)%>%
+  ggplot(aes(x="", percent, fill=continent))+
+  geom_bar(stat="identity")+
+  coord_polar("y", start=0)
+
+```
+
+
+## Histogram dan Desity Plot
+
+Histogram pada `ggplot2` dapat dibuat dengan fungsi `geom_histogram()`. Berikut adalah sintaks untuk membuat hitogram pada variabel `lifeExp`. Output yang dihasilkan disajikan pada Figure \@ref(fig:gghist):
+
+```{r gghist,fig.cap='Histogram lifeExp ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  ggplot(aes(lifeExp))+
+  geom_histogram()
+  
+```
+
+Kita dapat membuat grafik histogram berdasarkan grup data. Pada contoh sebelumnya dibuat histogram berdasarkan variabel `continent`. Berikut adalah sintaks dan output yang dihasilkan pada Figure \@ref(fig:gghist2):
+
+```{r gghist2,fig.cap='Histogram lifeExp berdasarkan benua', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  ggplot(aes(lifeExp, fill=continent))+
+  geom_histogram(alpha=0.5, 
+                 # atur posisi agar sesuai grup
+                 position="identity",
+                 color="black")
+  
+```
+
+Density plot dapat dibuat dengan menggunakan fungsi `geom_density()`. Berikut adalah contoh sintaks untuk membuat density plot variabel `lifeExp`. Output yang dihasilkan disajikan pada Figure \@ref(fig:ggdens):
+
+```{r ggdens,fig.cap='Density plot lifeExp ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  ggplot(aes(lifeExp))+
+  geom_density()
+  
+```
+
+Kita juga dapat membuat grafik density berdasarkan grup data. Pada contoh sebelumnya dibuat density plot berdasarkan variabel `continent`. Berikut adalah sintaks dan output yang dihasilkan pada Figure \@ref(fig:ggdens2):
+
+```{r ggdens2,fig.cap='Density plot lifeExp berdasarkan benua', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  ggplot(aes(lifeExp, fill=continent))+
+  geom_density(alpha=0.5, 
+                 # atur posisi agar sesuai grup
+                 position="identity",
+                 color="black")
+  
+```
+
+Jika dinginkan kita juga dapat menambahkan density plot pada histogram. Pada Figure \@ref(fig:hist) ditambahkan density plot sehingga dihasilkan output seperti Figure \@ref(fig:ggdenshist).
+
+```{r ggdenshist,fig.cap='histogram dan density plot lifeExp ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  ggplot(aes(lifeExp))+
+  geom_histogram(aes(y=..density..),
+                 # spesifikasi warna bar
+                 color="black", fill="white")+
+  geom_density(fill="red", alpha=0.3)
+  
+```
+
+## QQ Plot
+
+QQ plot pada paket `ggplot2` dapat dibuat dengan menggunakan fungsi `stat_qq()`. Berikut adalah contoh sintaks untuk melakukannya. Output yang dihasilkan disajikna pada Figure \@ref(fig:ggqq).
+
+```{r ggqq,fig.cap='QQ plot variabel lifeExp', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(sample=lifeExp))+
+  # qq plot
+  stat_qq()+
+  # garis referensi
+  stat_qq_line()
+```
+
+## Dot Plot
+
+Dot plot dapat dibuat menggunakan fungsi `geom_dotplot` atau `geom_jitter()`. Perbedaan keduanya adalah `geom_jitter()` menambahkan *noise* pada plot sehingga mencegah terjadinya *overplotting*. Berikut adalah contoh sintaks untuk membuat dotplot pada multiple group dan output yang dihasilkan pada Figure \@ref(fig:dotplot):
+
+```{r dotplot,fig.cap='Dot plot variabel lifeExp masing-masing benua (1952-2007)', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  filter(year==1952 | year==2007) %>%
+  ggplot(aes(continent, lifeExp, fill=factor(year)))+
+  geom_dotplot(binaxis="y", 
+               # spesifikasi posisi plot
+               stackdir="center",
+               position=position_dodge(0.8),
+               size=0.1)
+```
+
+Kita juga dapat menambahkan plot dari dari plot yang sudah ada seperti box plot atau violin plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:dotplot2):
+
+```{r dotplot2,fig.cap='Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+gapminder %>%
+  filter(year==1952 | year==2007) %>%
+  ggplot(aes(continent, lifeExp, fill=factor(year)))+
+  # box plot dibawah
+  geom_boxplot(position=position_dodge(0.8))+
+  # dot plot diatas
+  geom_dotplot(binaxis="y", 
+               # spesifikasi posisi plot
+               stackdir="center",
+               position=position_dodge(0.8))
+  
+```
+

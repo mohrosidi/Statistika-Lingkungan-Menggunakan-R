@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 5 Visualisasi Data Menggunakan GGPLOT | Statistika Lingkungan Menggunakan R</title>
+  <meta name="description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 5 Visualisasi Data Menggunakan GGPLOT | Statistika Lingkungan Menggunakan R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="cover.png" />
+  <meta property="og:description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Visualisasi Data Menggunakan GGPLOT | Statistika Lingkungan Menggunakan R" />
+  
+  <meta name="twitter:description" content="Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan" />
+  <meta name="twitter:image" content="cover.png" />
+
+<meta name="author" content="Moh. Rosidi">
+
+
+<meta name="date" content="2019-03-26">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="visualisasi-data-menggunakan-fungsi-dasar-r.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistika Lingkungan Menggunakan R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="part"><span><b>Bahasa Pemrograman R</b></span></li>
+<li class="chapter" data-level="1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html"><i class="fa fa-check"></i><b>1</b> Mengenal Bahasa R</a><ul>
+<li class="chapter" data-level="1.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#sejarah-r"><i class="fa fa-check"></i><b>1.1</b> Sejarah R</a></li>
+<li class="chapter" data-level="1.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fitur-dan-karakteristik-r"><i class="fa fa-check"></i><b>1.2</b> Fitur dan Karakteristik R</a></li>
+<li class="chapter" data-level="1.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#kelebihan-dan-kekurangan-r"><i class="fa fa-check"></i><b>1.3</b> Kelebihan dan Kekurangan R</a></li>
+<li class="chapter" data-level="1.4" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#rstudio"><i class="fa fa-check"></i><b>1.4</b> RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#menginstall-r-dan-rstudio"><i class="fa fa-check"></i><b>1.5</b> Menginstall R dan RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#working-directory"><i class="fa fa-check"></i><b>1.6</b> Working Directory</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory"><i class="fa fa-check"></i><b>1.6.1</b> Mengubah Lokasi Working Directory</a></li>
+<li class="chapter" data-level="1.6.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory-default"><i class="fa fa-check"></i><b>1.6.2</b> Mengubah Lokasi Working Directory Default</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help"><i class="fa fa-check"></i><b>1.7</b> Fasilitas Help</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mencari-help-dari-suatu-perintah-tertentu"><i class="fa fa-check"></i><b>1.7.1</b> Mencari Help dari Suatu Perintah Tertentu</a></li>
+<li class="chapter" data-level="1.7.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#general-help"><i class="fa fa-check"></i><b>1.7.2</b> General Help</a></li>
+<li class="chapter" data-level="1.7.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help-lainnya"><i class="fa fa-check"></i><b>1.7.3</b> Fasilitas Help Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#referensi"><i class="fa fa-check"></i><b>1.8</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html"><i class="fa fa-check"></i><b>2</b> Sintaks Bahasa R</a><ul>
+<li class="chapter" data-level="2.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-aritmatika"><i class="fa fa-check"></i><b>2.1</b> Operator Aritmatika</a></li>
+<li class="chapter" data-level="2.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi-aritmetik"><i class="fa fa-check"></i><b>2.2</b> Fungsi Aritmetik</a></li>
+<li class="chapter" data-level="2.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-relasi"><i class="fa fa-check"></i><b>2.3</b> Operator Relasi</a></li>
+<li class="chapter" data-level="2.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-logika"><i class="fa fa-check"></i><b>2.4</b> Operator Logika</a></li>
+<li class="chapter" data-level="2.5" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memasukkan-nilai-kedalam-variabel"><i class="fa fa-check"></i><b>2.5</b> Memasukkan Nilai Kedalam Variabel</a></li>
+<li class="chapter" data-level="2.6" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#tipe-data"><i class="fa fa-check"></i><b>2.6</b> Tipe Data</a></li>
+<li class="chapter" data-level="2.7" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#vektor"><i class="fa fa-check"></i><b>2.7</b> Vektor</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-vektor"><i class="fa fa-check"></i><b>2.7.1</b> Membuat vektor</a></li>
+<li class="chapter" data-level="2.7.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#missing-values"><i class="fa fa-check"></i><b>2.7.2</b> Missing Values</a></li>
+<li class="chapter" data-level="2.7.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-vektor"><i class="fa fa-check"></i><b>2.7.3</b> Subset Pada Vektor</a></li>
+<li class="chapter" data-level="2.7.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-vektor"><i class="fa fa-check"></i><b>2.7.4</b> Perhitungan Menggunakan Vektor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#matriks"><i class="fa fa-check"></i><b>2.8</b> Matriks</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-matriks"><i class="fa fa-check"></i><b>2.8.1</b> Membuat matriks</a></li>
+<li class="chapter" data-level="2.8.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-matriks"><i class="fa fa-check"></i><b>2.8.2</b> Subset Pada Matriks</a></li>
+<li class="chapter" data-level="2.8.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-matriks"><i class="fa fa-check"></i><b>2.8.3</b> Perhitungan Menggunakan Matriks</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#faktor"><i class="fa fa-check"></i><b>2.9</b> Faktor</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-variabel-faktor"><i class="fa fa-check"></i><b>2.9.1</b> Membuat Variabel Faktor</a></li>
+<li class="chapter" data-level="2.9.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-faktor"><i class="fa fa-check"></i><b>2.9.2</b> Perhitungan Menggunakan Faktor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#data-frames"><i class="fa fa-check"></i><b>2.10</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-data-frame"><i class="fa fa-check"></i><b>2.10.1</b> Membuat Data Frame</a></li>
+<li class="chapter" data-level="2.10.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-data-frame"><i class="fa fa-check"></i><b>2.10.2</b> Subset Pada Data Frame</a></li>
+<li class="chapter" data-level="2.10.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-data-frame"><i class="fa fa-check"></i><b>2.10.3</b> Memperluas Data Frame</a></li>
+<li class="chapter" data-level="2.10.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-pada-data-frame"><i class="fa fa-check"></i><b>2.10.4</b> Perhitungan Pada Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#list"><i class="fa fa-check"></i><b>2.11</b> List</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-list"><i class="fa fa-check"></i><b>2.11.1</b> Membuat List</a></li>
+<li class="chapter" data-level="2.11.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-list"><i class="fa fa-check"></i><b>2.11.2</b> Subset List</a></li>
+<li class="chapter" data-level="2.11.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-list"><i class="fa fa-check"></i><b>2.11.3</b> Memperluas List</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#loop"><i class="fa fa-check"></i><b>2.12</b> Loop</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#for-loop"><i class="fa fa-check"></i><b>2.12.1</b> For Loop</a></li>
+<li class="chapter" data-level="2.12.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#while-loop"><i class="fa fa-check"></i><b>2.12.2</b> While Loop</a></li>
+<li class="chapter" data-level="2.12.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#repeat-loop"><i class="fa fa-check"></i><b>2.12.3</b> Repeat Loop</a></li>
+<li class="chapter" data-level="2.12.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#break"><i class="fa fa-check"></i><b>2.12.4</b> Break</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#decision-making"><i class="fa fa-check"></i><b>2.13</b> Decision Making</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-statement"><i class="fa fa-check"></i><b>2.13.1</b> if statement</a></li>
+<li class="chapter" data-level="2.13.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-else-statement"><i class="fa fa-check"></i><b>2.13.2</b> if else statement</a></li>
+<li class="chapter" data-level="2.13.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#switch-statement"><i class="fa fa-check"></i><b>2.13.3</b> switch statement</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi"><i class="fa fa-check"></i><b>2.14</b> Fungsi</a></li>
+<li class="chapter" data-level="2.15" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#referensi-1"><i class="fa fa-check"></i><b>2.15</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html"><i class="fa fa-check"></i><b>3</b> Manajemen Data R</a><ul>
+<li class="chapter" data-level="3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file"><i class="fa fa-check"></i><b>3.1</b> Import File</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-menggunakan-fungsi-bawaan-r"><i class="fa fa-check"></i><b>3.1.1</b> Import File Menggunakan Fungsi Bawaan R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-csv-dan-txt-menggunakan-library-readr"><i class="fa fa-check"></i><b>3.1.2</b> Membaca File CSV dan TXT Menggunakan Library readr</a></li>
+<li class="chapter" data-level="3.1.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-excel-pada-r"><i class="fa fa-check"></i><b>3.1.3</b> Import File Excel Pada R</a></li>
+<li class="chapter" data-level="3.1.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-dari-format-aplikasi-statistik"><i class="fa fa-check"></i><b>3.1.4</b> Membaca File Dari Format Aplikasi Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-file"><i class="fa fa-check"></i><b>3.2</b> Eksport File</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-txt-dan-csv"><i class="fa fa-check"></i><b>3.2.1</b> Eksport Data Menjadi Format TXT dan CSV</a></li>
+<li class="chapter" data-level="3.2.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-excel"><i class="fa fa-check"></i><b>3.2.2</b> Eksport Data Menjadi Format Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-data-format"><i class="fa fa-check"></i><b>3.3</b> Tibble Data Format</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membuat-tibble"><i class="fa fa-check"></i><b>3.3.1</b> Membuat Tibble</a></li>
+<li class="chapter" data-level="3.3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-vs-data-frame"><i class="fa fa-check"></i><b>3.3.2</b> Tibble vs Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#merapikan-data"><i class="fa fa-check"></i><b>3.4</b> Merapikan Data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#gather"><i class="fa fa-check"></i><b>3.4.1</b> Gather</a></li>
+<li class="chapter" data-level="3.4.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#spread"><i class="fa fa-check"></i><b>3.4.2</b> Spread</a></li>
+<li class="chapter" data-level="3.4.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#separate"><i class="fa fa-check"></i><b>3.4.3</b> Separate</a></li>
+<li class="chapter" data-level="3.4.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#unite"><i class="fa fa-check"></i><b>3.4.4</b> Unite</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#transformasi-data"><i class="fa fa-check"></i><b>3.5</b> Transformasi Data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#paket-dplyr"><i class="fa fa-check"></i><b>3.5.1</b> Paket dplyr</a></li>
+<li class="chapter" data-level="3.5.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#filter"><i class="fa fa-check"></i><b>3.5.2</b> filter()</a></li>
+<li class="chapter" data-level="3.5.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#arrange"><i class="fa fa-check"></i><b>3.5.3</b> arrange()</a></li>
+<li class="chapter" data-level="3.5.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#select"><i class="fa fa-check"></i><b>3.5.4</b> select()</a></li>
+<li class="chapter" data-level="3.5.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mutate"><i class="fa fa-check"></i><b>3.5.5</b> mutate()</a></li>
+<li class="chapter" data-level="3.5.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#summarize-dan-group_by"><i class="fa fa-check"></i><b>3.5.6</b> summarize() dan group_by()</a></li>
+<li class="chapter" data-level="3.5.7" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mengkombinasikan-beberapa-operasi-menggunakan-operator-pipe"><i class="fa fa-check"></i><b>3.5.7</b> Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%&gt;%)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#referensi-2"><i class="fa fa-check"></i><b>3.6</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Visualisasi Data - R</b></span></li>
+<li class="chapter" data-level="4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html"><i class="fa fa-check"></i><b>4</b> Visualisasi Data Menggunakan Fungsi Dasar R</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#visualisasi-data-menggunakan-fungsi-plot"><i class="fa fa-check"></i><b>4.1</b> Visualisasi Data Menggunakan Fungsi plot()</a></li>
+<li class="chapter" data-level="4.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot"><i class="fa fa-check"></i><b>4.2</b> Matriks Scatterplot</a></li>
+<li class="chapter" data-level="4.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot"><i class="fa fa-check"></i><b>4.3</b> Box plot</a></li>
+<li class="chapter" data-level="4.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#bar-plot"><i class="fa fa-check"></i><b>4.4</b> Bar Plot</a></li>
+<li class="chapter" data-level="4.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#line-plot"><i class="fa fa-check"></i><b>4.5</b> Line Plot</a></li>
+<li class="chapter" data-level="4.6" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#pie-chart"><i class="fa fa-check"></i><b>4.6</b> Pie Chart</a></li>
+<li class="chapter" data-level="4.7" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#histogram-dan-density-plot"><i class="fa fa-check"></i><b>4.7</b> Histogram dan Density Plot</a></li>
+<li class="chapter" data-level="4.8" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#qq-plot"><i class="fa fa-check"></i><b>4.8</b> QQ Plot</a></li>
+<li class="chapter" data-level="4.9" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#dot-chart"><i class="fa fa-check"></i><b>4.9</b> Dot Chart</a></li>
+<li class="chapter" data-level="4.10" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#kustomisasi-parameter-grafik"><i class="fa fa-check"></i><b>4.10</b> Kustomisasi Parameter Grafik</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-judul"><i class="fa fa-check"></i><b>4.10.1</b> Menambahkan Judul</a></li>
+<li class="chapter" data-level="4.10.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-legend"><i class="fa fa-check"></i><b>4.10.2</b> Menambahkan Legend</a></li>
+<li class="chapter" data-level="4.10.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-teks-pada-grafik"><i class="fa fa-check"></i><b>4.10.3</b> Menambahkan Teks Pada Grafik</a></li>
+<li class="chapter" data-level="4.10.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-garis-pada-plot"><i class="fa fa-check"></i><b>4.10.4</b> Menambahkan Garis Pada Plot</a></li>
+<li class="chapter" data-level="4.10.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#merubah-simbol-plot-dan-jenis-garis"><i class="fa fa-check"></i><b>4.10.5</b> Merubah Simbol plot dan Jenis Garis</a></li>
+<li class="chapter" data-level="4.10.6" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-axis-plot"><i class="fa fa-check"></i><b>4.10.6</b> Mengatur Axis Plot</a></li>
+<li class="chapter" data-level="4.10.7" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-warna"><i class="fa fa-check"></i><b>4.10.7</b> Mengatur Warna</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#alternatif-library-dasar-lain"><i class="fa fa-check"></i><b>4.11</b> Alternatif Library Dasar Lain</a><ul>
+<li class="chapter" data-level="4.11.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#scatterplot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.1</b> Scatterplot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot-menggunakan-library-psych"><i class="fa fa-check"></i><b>4.11.2</b> Matriks Scatterplot Menggunakan Library psych</a></li>
+<li class="chapter" data-level="4.11.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.3</b> Box Plot Menggunakan Library gplots</a></li>
+<li class="chapter" data-level="4.11.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#qq-plot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.4</b> QQ Plot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#plot-group-means-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.5</b> Plot Group Means Menggunakan Library gplots</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#referensi-3"><i class="fa fa-check"></i><b>4.12</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html"><i class="fa fa-check"></i><b>5</b> Visualisasi Data Menggunakan GGPLOT</a><ul>
+<li class="chapter" data-level="5.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#scatterplot"><i class="fa fa-check"></i><b>5.1</b> Scatterplot</a></li>
+<li class="chapter" data-level="5.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#box-plot-dan-violin-plot"><i class="fa fa-check"></i><b>5.2</b> Box Plot dan Violin Plot</a></li>
+<li class="chapter" data-level="5.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#bar-plot-1"><i class="fa fa-check"></i><b>5.3</b> Bar Plot</a></li>
+<li class="chapter" data-level="5.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#line-plot-1"><i class="fa fa-check"></i><b>5.4</b> Line Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#pie-chart-1"><i class="fa fa-check"></i><b>5.5</b> Pie Chart</a></li>
+<li class="chapter" data-level="5.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#histogram-dan-desity-plot"><i class="fa fa-check"></i><b>5.6</b> Histogram dan Desity Plot</a></li>
+<li class="chapter" data-level="5.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#qq-plot-1"><i class="fa fa-check"></i><b>5.7</b> QQ Plot</a></li>
+<li class="chapter" data-level="5.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#dot-plot"><i class="fa fa-check"></i><b>5.8</b> Dot Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistika Lingkungan Menggunakan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualisasi-data-menggunakan-ggplot" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Visualisasi Data Menggunakan GGPLOT</h1>
+<p>Library <code>ggplot2</code> merupakan implementasi dari <em>The Grammar of Graphics</em> yang ditulis oleh <strong>Leland Wilkinson</strong>. <code>ggplot2</code> merupakan library yang dikembangkan oleh <strong>Hadley Wicham</strong> ketika ia sedang menempuh kuliah di <strong>Lowa State Universuty</strong> dan masih dikembangkan hingga sekarang.</p>
+<p><code>ggplot2</code> merupakan paket visualisasi yang powerfull. Kita dapat menggunakannya bersamaan dengan <em>piping operator</em> yang disediakan oleh paket <code>dplyr</code> sehingga menambah kemudahan kita dalam melakukan analisis data.</p>
+<p>Grafik <code>ggplot2</code> terdiri dari sejumlah komponen kunci. Berikut adalah sejumlah komponen kunci yang membentuk grafik <code>ggplot2</code>.</p>
+<ul>
+<li><strong>data frame</strong>: menyimpan semua data yang akan ditampilkan di plot.</li>
+<li><strong>aesthetic mapping</strong>: menggambarkan bagaimana data dipetakan ke warna, ukuran, bentuk, lokasi. Dalam plot diberikan pada fungsi <code>aes()</code></li>
+<li><strong>geoms</strong>: objek geometris seperti titik, garis, bentuk.</li>
+<li><strong>facets</strong>: menjelaskan bagaimana plot bersyarat / panel harus dibangun.</li>
+<li><strong>stats</strong>: transformasi statistik seperti binning, quantiles, smoothing.</li>
+<li><strong>scales</strong>: skala apa yang digunakan oleh <em>aesthetic map</em> (contoh: pria = merah, wanita = biru).</li>
+<li><strong>coordinate system</strong>: menggambarkan sistem di mana lokasi geom akan digambarkan.</li>
+</ul>
+<p>Sebelum kita mulai memcoba melakukan visualisasi data menggunakan <code>ggplot2</code>, kita perlu menginstall dan memuat terlebih dahulu library <code>ggplot2</code>. Berikut adalah sintaks yang digunakan untuk menginstall dan memuat paket <code>ggplot2</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
+<span class="co"># install.packages(&#39;ggplot2&#39;)</span>
+
+<span class="co"># memuat paket</span>
+<span class="kw">library</span>(ggplot2)</code></pre></div>
+<p>Dataset yang akan kita gunakan adalah dataset <code>gapminder</code>. Dataset ini berisi data demografi penduduk dari berbagai negara dan benua. Untuk dapat menggunakannya kita perlu menginstall dan memuatnya terlebih dahulu. Berikut adalah sintaks untuk menginstall dan memuat dataset tersebut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
+<span class="co"># install.packages(&quot;gapminder&quot;)</span>
+
+<span class="co"># memuat paket</span>
+<span class="kw">library</span>(gapminder)</code></pre></div>
+<pre><code>## Warning: package &#39;gapminder&#39; was built under R version
+## 3.5.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat paket dplyr dan tibble</span>
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(tibble)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># melihat struktur dataset</span>
+<span class="kw">glimpse</span>(gapminder)</code></pre></div>
+<pre><code>## Observations: 1,704
+## Variables: 6
+## $ country   &lt;fct&gt; Afghanistan, Afghanistan, Afghan...
+## $ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, As...
+## $ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 19...
+## $ lifeExp   &lt;dbl&gt; 28.80, 30.33, 32.00, 34.02, 36.0...
+## $ pop       &lt;int&gt; 8425333, 9240934, 10267083, 1153...
+## $ gdpPercap &lt;dbl&gt; 779.4, 820.9, 853.1, 836.2, 740....</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># melihat variabel year</span>
+<span class="kw">unique</span>(gapminder<span class="op">$</span>year)</code></pre></div>
+<pre><code>##  [1] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997
+## [11] 2002 2007</code></pre>
+<p>Dataset gapminder memiliki 6 variabel dan 1704 observasi. 20 observasi pertama dataset gapminder dapat dilihat pada Table <a href="visualisasi-data-menggunakan-ggplot.html#tab:gapminder">5.1</a></p>
+<table>
+<caption><span id="tab:gapminder">Table 5.1: </span>20 observasi pertama dataset gapminder</caption>
+<thead>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1952</td>
+<td align="right">28.80</td>
+<td align="right">8425333</td>
+<td align="right">779.4</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1957</td>
+<td align="right">30.33</td>
+<td align="right">9240934</td>
+<td align="right">820.9</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1962</td>
+<td align="right">32.00</td>
+<td align="right">10267083</td>
+<td align="right">853.1</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1967</td>
+<td align="right">34.02</td>
+<td align="right">11537966</td>
+<td align="right">836.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1972</td>
+<td align="right">36.09</td>
+<td align="right">13079460</td>
+<td align="right">740.0</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1977</td>
+<td align="right">38.44</td>
+<td align="right">14880372</td>
+<td align="right">786.1</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1982</td>
+<td align="right">39.85</td>
+<td align="right">12881816</td>
+<td align="right">978.0</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1987</td>
+<td align="right">40.82</td>
+<td align="right">13867957</td>
+<td align="right">852.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1992</td>
+<td align="right">41.67</td>
+<td align="right">16317921</td>
+<td align="right">649.3</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1997</td>
+<td align="right">41.76</td>
+<td align="right">22227415</td>
+<td align="right">635.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">2002</td>
+<td align="right">42.13</td>
+<td align="right">25268405</td>
+<td align="right">726.7</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">2007</td>
+<td align="right">43.83</td>
+<td align="right">31889923</td>
+<td align="right">974.6</td>
+</tr>
+<tr class="odd">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1952</td>
+<td align="right">55.23</td>
+<td align="right">1282697</td>
+<td align="right">1601.1</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1957</td>
+<td align="right">59.28</td>
+<td align="right">1476505</td>
+<td align="right">1942.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1962</td>
+<td align="right">64.82</td>
+<td align="right">1728137</td>
+<td align="right">2312.9</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1967</td>
+<td align="right">66.22</td>
+<td align="right">1984060</td>
+<td align="right">2760.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1972</td>
+<td align="right">67.69</td>
+<td align="right">2263554</td>
+<td align="right">3313.4</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1977</td>
+<td align="right">68.93</td>
+<td align="right">2509048</td>
+<td align="right">3533.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1982</td>
+<td align="right">70.42</td>
+<td align="right">2780097</td>
+<td align="right">3630.9</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1987</td>
+<td align="right">72.00</td>
+<td align="right">3075321</td>
+<td align="right">3738.9</td>
+</tr>
+</tbody>
+</table>
+<div id="scatterplot" class="section level2">
+<h2><span class="header-section-number">5.1</span> Scatterplot</h2>
+<p>Scatterplot dapat dibuat pada <code>ggplot2</code> menggunakan fungsi <code>geom_point()</code>. Format sederhananya dituliskan sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(...))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(size, color, shape)</code></pre></div>
+<p>Berikut adalah contoh sederhana scatterplot variabel <code>lifeExp</code> terhadap variabel <code>gdpPercap</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggscatter">5.1</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap, lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter"></span>
+<img src="EnvStat_files/figure-html/ggscatter-1.png" alt="Scatterplot lifeExp vs gdpPercap" width="70%" />
+<p class="caption">
+Figure 5.1: Scatterplot lifeExp vs gdpPercap
+</p>
+</div>
+<p>Kita dapat mengubah warna, jenis, dan ukuran titik pada scatterplot. Pengubahan warna dan jenis titik berguna untuk menunjukkan grup data pada grafik. Sedangkan perubahan ukuran titik sangat berguna untuk menunjukkan nilai variabel lain khususnya variabel kontinyu pada sebuah titik. Berikut adalah contoh penerapannya. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggscatter2">5.2</a> sampai dengan Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggscatter4">5.4</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap,lifeExp, <span class="dt">color=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># merubah sumbu x kedalam fungsi log</span>
+<span class="st">  </span><span class="kw">scale_x_log10</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter2"></span>
+<img src="EnvStat_files/figure-html/ggscatter2-1.png" alt="Scatterplot lifeExp vs gdpPercap tiap benua (1)" width="70%" />
+<p class="caption">
+Figure 5.2: Scatterplot lifeExp vs gdpPercap tiap benua (1)
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap,lifeExp, <span class="dt">shape=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># merubah sumbu x kedalam fungsi log</span>
+<span class="st">  </span><span class="kw">scale_x_log10</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter3"></span>
+<img src="EnvStat_files/figure-html/ggscatter3-1.png" alt="Scatterplot lifeExp vs gdpPercap tiap benua (2)" width="70%" />
+<p class="caption">
+Figure 5.3: Scatterplot lifeExp vs gdpPercap tiap benua (2)
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap,lifeExp, 
+                      <span class="dt">size=</span>pop, <span class="dt">color=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># merubah sumbu x kedalam fungsi log</span>
+<span class="st">  </span><span class="kw">scale_x_log10</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter4"></span>
+<img src="EnvStat_files/figure-html/ggscatter4-1.png" alt="Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua" width="70%" />
+<p class="caption">
+Figure 5.4: Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua
+</p>
+</div>
+<p>Untuk menujukkan asosiasi antara dua variabel kontinyu kita juga dapat menambahkan garis regresi dan confidence interval garis regresinya. Fungsi yang digunakan adalah <code>geom_smooth()</code>. Secara default fungsi tersebut akan membuat garis loess regression pada grafik. Agar dapat membuat garis regresi linier kita perlu menambahkan argumen <code>method=&quot;lm&quot;</code>. Selain itu, jika kita tidak ingin menampilkan garis confidence interval kita dapat menambahkan argumen <code>se=FALSE</code>. Format sederhananya disajikan pada sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;auto&quot;</span>, <span class="dt">se=</span><span class="ot">TRUE</span>, <span class="dt">fullrange=</span><span class="ot">FALSE</span>, <span class="dt">level=</span><span class="fl">0.95</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><p><strong>method</strong>: metode penghalusan yang digunakan. Nilai yang dapat dimasukkan adalah lm, glm, gam, loess, rlm.</p></li>
+<li>method=“loess”: merupakan nilai default pada fungsi dan menghasilkan metode penghalusan loess regression.</li>
+<li><p>method=“lm”: menghasilkan metode penghalusan regresi linier. Kita juga dapat melakukan spesifikasi terhadap fungsi persamaan regresi yang digunakan dengan menambahkan argumen formula=y~x….</p></li>
+<li><strong>se</strong>: nilai logis. Jika TRUE garis confidence interval akan ditampilkan sepanjang garis penghalusan.</li>
+<li><strong>fullrange</strong>: nilai logis. Jika TRUE kecocokan mencakup seluruh plot.</li>
+<li><p>level: level confidence interal yang digunakan. Secara default bernilai 0.95.</p></li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh sintaks penerapan pada variabel <code>gdpPercap</code> dan <code>lifeExp</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggscatter5">5.5</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap,lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># merubah sumbu x kedalam fungsi log</span>
+<span class="st">  </span><span class="kw">scale_x_log10</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan smoothing method</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">level=</span><span class="fl">0.99</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter5"></span>
+<img src="EnvStat_files/figure-html/ggscatter5-1.png" alt="Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier" width="70%" />
+<p class="caption">
+Figure 5.5: Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier
+</p>
+</div>
+</div>
+<div id="box-plot-dan-violin-plot" class="section level2">
+<h2><span class="header-section-number">5.2</span> Box Plot dan Violin Plot</h2>
+<p>Box plot merupakan visualisasi yang powerful dalam menggambarkan distribusi data, melihat adanya outlier, serta membandingkan distribusi antar data. Format visualisasi dapat dituliskan sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(...))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">geom_boxplot</span>(<span class="dt">outlier.colour=</span><span class="st">&quot;black&quot;</span>, 
+                            <span class="dt">outlier.shape=</span><span class="dv">16</span>,
+                            <span class="dt">outlier.size=</span><span class="dv">2</span>, 
+                            <span class="dt">notch=</span><span class="ot">FALSE</span>))</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>outlier.colour, outlier.shape, outlier.size</strong>: Warna, bentuk dan ukuran untuk titik-titik outlier.</li>
+<li><strong>notch</strong>: nilai logis. Jika TRUE, buat <strong>notched box plot</strong>. <em>Notch</em> menunjukkan <em>confidence interval</em> di sekitar median yang biasanya didasarkan pada median <span class="math inline">\(\pm1,58\cdot\frac{\left(IQR\right)}{\sqrt{\left(n\right)}}\)</span>. <em>Notch</em> digunakan untuk membandingkan kelompok; jika takik dua kotak tidak tumpang tindih, ini adalah bukti kuat bahwa median berbeda.</li>
+</ul>
+</blockquote>
+<p>Berikut merupakan contoh visualisasi variabel <code>lifeExp</code> pada dataset <code>gapminder</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggboxplot">5.6</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggboxplot"></span>
+<img src="EnvStat_files/figure-html/ggboxplot-1.png" alt="Box plot variabel lifeExp" width="70%" />
+<p class="caption">
+Figure 5.6: Box plot variabel lifeExp
+</p>
+</div>
+<p>Kita dapat melakukan visualisasi bagi setiap kelompok data. Pada sintaks berikut visualisasi dilakukan untuk variabel <code>lifeExp</code> pada tiap <code>continent</code>. Pada contoh berikut akan ditampilkan cara menmabahkan titik rata-rata dan warna pada masing-masing grup. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggboxplot2">5.7</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, lifeExp, <span class="dt">color=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y=</span>mean, <span class="dt">geom=</span><span class="st">&quot;point&quot;</span>, 
+               <span class="dt">shape=</span><span class="dv">23</span>, <span class="dt">size=</span><span class="dv">3</span>, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggboxplot2"></span>
+<img src="EnvStat_files/figure-html/ggboxplot2-1.png" alt="Box plot variabel lifeExp pada tiap continent" width="70%" />
+<p class="caption">
+Figure 5.7: Box plot variabel lifeExp pada tiap continent
+</p>
+</div>
+<p>Misalkan kita ingin mengetahui perubahan distribusi dari variabel <code>lifeExp</code> pada masing-masing <code>continet</code> pada tahun 1952 dan 2007. Untuk melakukannya kita perlu melakukan subset pada dataset <code>gapminder</code> untuk memfilter data pada tahun 1952 dan 2007. Data selanjutnya dilakukan input kedalam fungsi <code>ggplot()</code>. Berikut adalah contoh sintaks yang digunakan. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggboxplot3">5.8</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">1952</span> <span class="op">|</span><span class="st"> </span>year<span class="op">==</span><span class="dv">2007</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, lifeExp, <span class="dt">fill=</span><span class="kw">factor</span>(year)))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">notch=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggboxplot3"></span>
+<img src="EnvStat_files/figure-html/ggboxplot3-1.png" alt="Box plot variabel lifeExp pada tiap continent (1952 dan 2007)" width="70%" />
+<p class="caption">
+Figure 5.8: Box plot variabel lifeExp pada tiap continent (1952 dan 2007)
+</p>
+</div>
+<p>Berdasarkan Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggboxplot3">5.8</a> terlihat bahwa usia harapan hidup pada tiap benua meningkat sejak tahun 1952 sampai 2007. Selain itu, peningkatan tersebut bersifat signifikan yang ditunjukkan dari tidak adanya <em>notch</em> yang saling overlap pada masing-masing benua.</p>
+<p>Untuk lebih detailnya kita akan coba melakukan visualisasi pada benua Asia untuk melihat perubahan variabel <code>lifeExp</code>. Berikut adalah sintaks yang digunakan dan output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggboxplot4">5.9</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(continent<span class="op">==</span><span class="st">&quot;Asia&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">factor</span>(year), lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggboxplot4"></span>
+<img src="EnvStat_files/figure-html/ggboxplot4-1.png" alt="Box plot variabel lifeExp Benua Asia" width="70%" />
+<p class="caption">
+Figure 5.9: Box plot variabel lifeExp Benua Asia
+</p>
+</div>
+<p>Violin plot memiliki kesamaan dengan box plot. Perbedaanya terletak pada violin plot tidak hanya menyajikan data titik-titikkuartil data, namun violin plot juga menampilkan kernel probabilitas distibusi data. Fungsi yang digunakan untuk membuatnya adalah <code>geom_violin()</code>.</p>
+<p>Pada dataset <code>gapminder</code> kita ingin meisualisasikan distribusi <code>lifeExp</code> pada masing-masing <code>continent</code>. Berikut adalah contoh sintaks untuk membuat visualisasi dasar violin plot. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggviolin">5.10</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, lifeExp, <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="co"># violin plot</span>
+<span class="st">  </span><span class="kw">geom_violin</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggviolin"></span>
+<img src="EnvStat_files/figure-html/ggviolin-1.png" alt="Violin plot variabel lifeExp pada masing-masing benua" width="70%" />
+<p class="caption">
+Figure 5.10: Violin plot variabel lifeExp pada masing-masing benua
+</p>
+</div>
+<p>Kita juga dapat melakukan modifikasi terhadap violin plot tersebut seperti penambahan titik kuartil, titik mean dan modifikasi terhadap warna tampilaknnya. COntoh sintaksnya dan output disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggviolin2">5.11</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, lifeExp, <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="co"># violin plot</span>
+<span class="st">  </span><span class="kw">geom_violin</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan boxplot dengan lebar 0.1</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width=</span><span class="fl">0.1</span>, <span class="dt">fill=</span><span class="st">&quot;white&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan titik mean</span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y=</span>mean, <span class="dt">geom=</span><span class="st">&quot;point&quot;</span>,
+               <span class="co"># ukuran dan jenis titik</span>
+               <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">shape=</span><span class="dv">23</span>,
+               <span class="co"># warna titik</span>
+               <span class="dt">color=</span><span class="st">&quot;red&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;white&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggviolin2"></span>
+<img src="EnvStat_files/figure-html/ggviolin2-1.png" alt="Violin plot variabel lifeExp pada masing-masing benua (2)" width="70%" />
+<p class="caption">
+Figure 5.11: Violin plot variabel lifeExp pada masing-masing benua (2)
+</p>
+</div>
+</div>
+<div id="bar-plot-1" class="section level2">
+<h2><span class="header-section-number">5.3</span> Bar Plot</h2>
+<p>Pada <code>ggplot2</code> bar plot dapat dibuat menggunakan fungsi <code>geom_bar()</code>. Untuk membuat bar plot, langkah pertama yang perlu dilakukan adalah membuat tabulasi data variabel terlebih dahulu. Berikut adalah contoh sintaks untuk membuat bar plot dari rata-rata <code>lifeExp</code> pada masing-masing <code>continent</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggbar">5.12</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># kelompokkan berdasarkan continet</span>
+<span class="st">  </span><span class="kw">group_by</span>(continent)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># membuat ringkasan data</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_lifeExp=</span><span class="kw">mean</span>(lifeExp))<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># urutkan dari yang terbesar</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_lifeExp))<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># plot</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, mean_lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="co"># membuat bar plot berdasarkan nilai observasi</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggbar"></span>
+<img src="EnvStat_files/figure-html/ggbar-1.png" alt="Bar plot rata-rata lifeExp masing-masing benua" width="70%" />
+<p class="caption">
+Figure 5.12: Bar plot rata-rata lifeExp masing-masing benua
+</p>
+</div>
+<p>Kita juga dapat membuat bar plot dengan garis confidence interval. Untuk melakukannya kita perlu terlebih dahulu menghitung standard error dari data. Standard error selanjutnya digunakan untuk menghitung nilai atas dan bawah dari nilai rata-rata. Berikut adalah contoh visualisasi bar plot dengan confidence interval (Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggbar2">5.13</a>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># kelompokkan berdasarkan continet</span>
+<span class="st">  </span><span class="kw">group_by</span>(continent)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># membuat ringkasan data</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_lifeExp=</span><span class="kw">mean</span>(lifeExp),
+            <span class="dt">n=</span><span class="kw">n</span>(), <span class="dt">sd=</span><span class="kw">sd</span>(lifeExp), 
+            <span class="dt">se=</span>sd<span class="op">/</span><span class="kw">sqrt</span>(n))<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># plot</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, mean_lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="co"># membuat bar plot</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">color=</span><span class="st">&quot;white&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan error bar</span>
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin=</span>mean_lifeExp<span class="op">-</span>se,
+                    <span class="dt">ymax=</span>mean_lifeExp<span class="op">+</span>se),
+                <span class="dt">width=</span><span class="fl">0.2</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggbar2"></span>
+<img src="EnvStat_files/figure-html/ggbar2-1.png" alt="Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval" width="70%" />
+<p class="caption">
+Figure 5.13: Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval
+</p>
+</div>
+<p>Kita juga dapat melakukannya pada visualisasi data beberapa grup. Berikut adalah contoh sintaks dan output (Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggbar3">5.14</a>) bar plot dengan beberapa grup:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># filter data tahun 1952 dan 2007</span>
+<span class="st">  </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">1952</span><span class="op">|</span>year<span class="op">==</span><span class="dv">2007</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Ubah year menjadi factor</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year=</span><span class="kw">as.factor</span>(year))<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># kelompokkan berdasarkan continet</span>
+<span class="st">  </span><span class="kw">group_by</span>(continent,year)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># membuat ringkasan data</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_lifeExp=</span><span class="kw">mean</span>(lifeExp),
+            <span class="dt">n=</span><span class="kw">n</span>(), <span class="dt">sd=</span><span class="kw">sd</span>(lifeExp), 
+            <span class="dt">se=</span>sd<span class="op">/</span><span class="kw">sqrt</span>(n))<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># plot</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, mean_lifeExp, 
+             <span class="dt">fill=</span>year))<span class="op">+</span>
+<span class="st">  </span><span class="co"># membuat bar plot</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, 
+           <span class="dt">position=</span><span class="kw">position_dodge</span>())<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan error bar</span>
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin=</span>mean_lifeExp<span class="op">-</span>se,
+                    <span class="dt">ymax=</span>mean_lifeExp<span class="op">+</span>se),
+                <span class="dt">width=</span><span class="fl">0.2</span>,
+                <span class="dt">position=</span><span class="kw">position_dodge</span>(<span class="fl">0.9</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggbar3"></span>
+<img src="EnvStat_files/figure-html/ggbar3-1.png" alt="Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval" width="70%" />
+<p class="caption">
+Figure 5.14: Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval
+</p>
+</div>
+</div>
+<div id="line-plot-1" class="section level2">
+<h2><span class="header-section-number">5.4</span> Line Plot</h2>
+<p>Line plot dapat digunakan untuk menunjukkan adanya perubahan pada selang waktu tertentu. Pada <code>ggplot2</code>, line plot dapat dibuat menggunakan fungsi <code>geom_line()</code>. Berikut adalah contoh sintaks dan grafik (Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggline">5.15</a>) untuk membuat line plot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># kelompokkan data berdasarkan year dan continent</span>
+<span class="st">  </span><span class="kw">group_by</span>(year,continent)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># ringkasan data</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_lifeExp=</span><span class="kw">mean</span>(lifeExp))<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># plot</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(year, mean_lifeExp, 
+             <span class="dt">linetype=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="co"># membuat line plot</span>
+<span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan point</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggline"></span>
+<img src="EnvStat_files/figure-html/ggline-1.png" alt="Line plot lifeExp masing-masing benua " width="70%" />
+<p class="caption">
+Figure 5.15: Line plot lifeExp masing-masing benua
+</p>
+</div>
+<p>Kita juga dapat menambahkan error bar pada line plot. Berikut adalah contoh sintak dan grafik (Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggline2">5.16</a>) yang dihasilkan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># filter benua asia</span>
+<span class="st">  </span><span class="kw">filter</span>(continent<span class="op">==</span><span class="st">&quot;Asia&quot;</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># kelompokkan data berdasarkan year dan continent</span>
+<span class="st">  </span><span class="kw">group_by</span>(year)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># ringkasan data</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_lifeExp=</span><span class="kw">mean</span>(lifeExp), 
+            <span class="dt">sd=</span><span class="kw">sd</span>(lifeExp))<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># plot</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(year, mean_lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="co"># membuat line plot</span>
+<span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan point</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">2</span>)<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan error bar</span>
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin=</span>mean_lifeExp<span class="op">-</span>sd,
+                    <span class="dt">ymax=</span>mean_lifeExp<span class="op">+</span>sd),
+                <span class="dt">width=</span><span class="fl">0.2</span>, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggline2"></span>
+<img src="EnvStat_files/figure-html/ggline2-1.png" alt="Histogram lifeExp " width="70%" />
+<p class="caption">
+Figure 5.16: Histogram lifeExp
+</p>
+</div>
+</div>
+<div id="pie-chart-1" class="section level2">
+<h2><span class="header-section-number">5.5</span> Pie Chart</h2>
+<p>Pie chart pada <code>ggplot2</code> dapat dibuat menggunakan fungsi <code>geom_bar()</code> dan <code>coord_polar()</code>.Berikut adalah contoh sintaks yang digunakan dan output (Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggpie">5.17</a>) yang dihasilkan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">total &lt;-<span class="st"> </span><span class="kw">sum</span>(gapminder<span class="op">$</span>pop)
+gapminder<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># kelompokkan berdasarkan continent</span>
+<span class="st">  </span><span class="kw">group_by</span>(continent)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># ringkasan data </span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">pop=</span><span class="kw">sum</span>(<span class="kw">as.numeric</span>(pop)), <span class="dt">percent=</span>(pop<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="st">&quot;&quot;</span>, percent, <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_polar</span>(<span class="st">&quot;y&quot;</span>, <span class="dt">start=</span><span class="dv">0</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggpie"></span>
+<img src="EnvStat_files/figure-html/ggpie-1.png" alt="Pie chart pop" width="70%" />
+<p class="caption">
+Figure 5.17: Pie chart pop
+</p>
+</div>
+</div>
+<div id="histogram-dan-desity-plot" class="section level2">
+<h2><span class="header-section-number">5.6</span> Histogram dan Desity Plot</h2>
+<p>Histogram pada <code>ggplot2</code> dapat dibuat dengan fungsi <code>geom_histogram()</code>. Berikut adalah sintaks untuk membuat hitogram pada variabel <code>lifeExp</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:gghist">5.18</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:gghist"></span>
+<img src="EnvStat_files/figure-html/gghist-1.png" alt="Histogram lifeExp " width="70%" />
+<p class="caption">
+Figure 5.18: Histogram lifeExp
+</p>
+</div>
+<p>Kita dapat membuat grafik histogram berdasarkan grup data. Pada contoh sebelumnya dibuat histogram berdasarkan variabel <code>continent</code>. Berikut adalah sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:gghist2">5.19</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(lifeExp, <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">alpha=</span><span class="fl">0.5</span>, 
+                 <span class="co"># atur posisi agar sesuai grup</span>
+                 <span class="dt">position=</span><span class="st">&quot;identity&quot;</span>,
+                 <span class="dt">color=</span><span class="st">&quot;black&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:gghist2"></span>
+<img src="EnvStat_files/figure-html/gghist2-1.png" alt="Histogram lifeExp berdasarkan benua" width="70%" />
+<p class="caption">
+Figure 5.19: Histogram lifeExp berdasarkan benua
+</p>
+</div>
+<p>Density plot dapat dibuat dengan menggunakan fungsi <code>geom_density()</code>. Berikut adalah contoh sintaks untuk membuat density plot variabel <code>lifeExp</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggdens">5.20</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggdens"></span>
+<img src="EnvStat_files/figure-html/ggdens-1.png" alt="Density plot lifeExp " width="70%" />
+<p class="caption">
+Figure 5.20: Density plot lifeExp
+</p>
+</div>
+<p>Kita juga dapat membuat grafik density berdasarkan grup data. Pada contoh sebelumnya dibuat density plot berdasarkan variabel <code>continent</code>. Berikut adalah sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggdens2">5.21</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(lifeExp, <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha=</span><span class="fl">0.5</span>, 
+                 <span class="co"># atur posisi agar sesuai grup</span>
+                 <span class="dt">position=</span><span class="st">&quot;identity&quot;</span>,
+                 <span class="dt">color=</span><span class="st">&quot;black&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggdens2"></span>
+<img src="EnvStat_files/figure-html/ggdens2-1.png" alt="Density plot lifeExp berdasarkan benua" width="70%" />
+<p class="caption">
+Figure 5.21: Density plot lifeExp berdasarkan benua
+</p>
+</div>
+<p>Jika dinginkan kita juga dapat menambahkan density plot pada histogram. Pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:hist">4.20</a> ditambahkan density plot sehingga dihasilkan output seperti Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggdenshist">5.22</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..),
+                 <span class="co"># spesifikasi warna bar</span>
+                 <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;white&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="st">&quot;red&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.3</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggdenshist"></span>
+<img src="EnvStat_files/figure-html/ggdenshist-1.png" alt="histogram dan density plot lifeExp " width="70%" />
+<p class="caption">
+Figure 5.22: histogram dan density plot lifeExp
+</p>
+</div>
+</div>
+<div id="qq-plot-1" class="section level2">
+<h2><span class="header-section-number">5.7</span> QQ Plot</h2>
+<p>QQ plot pada paket <code>ggplot2</code> dapat dibuat dengan menggunakan fungsi <code>stat_qq()</code>. Berikut adalah contoh sintaks untuk melakukannya. Output yang dihasilkan disajikna pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggqq">5.23</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(<span class="dt">sample=</span>lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="co"># qq plot</span>
+<span class="st">  </span><span class="kw">stat_qq</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># garis referensi</span>
+<span class="st">  </span><span class="kw">stat_qq_line</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggqq"></span>
+<img src="EnvStat_files/figure-html/ggqq-1.png" alt="QQ plot variabel lifeExp" width="70%" />
+<p class="caption">
+Figure 5.23: QQ plot variabel lifeExp
+</p>
+</div>
+</div>
+<div id="dot-plot" class="section level2">
+<h2><span class="header-section-number">5.8</span> Dot Plot</h2>
+<p>Dot plot dapat dibuat menggunakan fungsi <code>geom_dotplot</code> atau <code>geom_jitter()</code>. Perbedaan keduanya adalah <code>geom_jitter()</code> menambahkan <em>noise</em> pada plot sehingga mencegah terjadinya <em>overplotting</em>. Berikut adalah contoh sintaks untuk membuat dotplot pada multiple group dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:dotplot">5.24</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">1952</span> <span class="op">|</span><span class="st"> </span>year<span class="op">==</span><span class="dv">2007</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, lifeExp, <span class="dt">fill=</span><span class="kw">factor</span>(year)))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis=</span><span class="st">&quot;y&quot;</span>, 
+               <span class="co"># spesifikasi posisi plot</span>
+               <span class="dt">stackdir=</span><span class="st">&quot;center&quot;</span>,
+               <span class="dt">position=</span><span class="kw">position_dodge</span>(<span class="fl">0.8</span>),
+               <span class="dt">size=</span><span class="fl">0.1</span>)</code></pre></div>
+<pre><code>## Warning: Ignoring unknown parameters: size</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:dotplot"></span>
+<img src="EnvStat_files/figure-html/dotplot-1.png" alt="Dot plot variabel lifeExp masing-masing benua (1952-2007)" width="70%" />
+<p class="caption">
+Figure 5.24: Dot plot variabel lifeExp masing-masing benua (1952-2007)
+</p>
+</div>
+<p>Kita juga dapat menambahkan plot dari dari plot yang sudah ada seperti box plot atau violin plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-ggplot.html#fig:dotplot2">5.25</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">1952</span> <span class="op">|</span><span class="st"> </span>year<span class="op">==</span><span class="dv">2007</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, lifeExp, <span class="dt">fill=</span><span class="kw">factor</span>(year)))<span class="op">+</span>
+<span class="st">  </span><span class="co"># box plot dibawah</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">position=</span><span class="kw">position_dodge</span>(<span class="fl">0.8</span>))<span class="op">+</span>
+<span class="st">  </span><span class="co"># dot plot diatas</span>
+<span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis=</span><span class="st">&quot;y&quot;</span>, 
+               <span class="co"># spesifikasi posisi plot</span>
+               <span class="dt">stackdir=</span><span class="st">&quot;center&quot;</span>,
+               <span class="dt">position=</span><span class="kw">position_dodge</span>(<span class="fl">0.8</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:dotplot2"></span>
+<img src="EnvStat_files/figure-html/dotplot2-1.png" alt="Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)" width="70%" />
+<p class="caption">
+Figure 5.25: Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualisasi-data-menggunakan-fungsi-dasar-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["EnvStat.pdf", "EnvStat.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
