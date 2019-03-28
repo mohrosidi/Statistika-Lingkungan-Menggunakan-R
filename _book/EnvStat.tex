@@ -10672,12 +10672,210 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x00000000294b44f0>
+## <bytecode: 0x0000000018d13e60>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
 Berdasarkan output yang disajikan kita dapat merubah sejumlah argumen
 seperti base size, color, base\_family, dll.
+
+\subsection{Penskalaan dan Transformasi
+Axis}\label{penskalaan-dan-transformasi-axis}
+
+Pada bagian ini penulis akan menjelaskan bagaimana cara melakukan
+modifikasi terhadap sumbu x dan y seperti menetapkan limit nilai
+maksimum dan minimum axis serta melakukan transformasi pada tiap axis.
+
+Untuk mengatur rentang nilai axis, kita dapat melakukannya dengan fungsi
+sebagai berikut:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{xlim()} dan \textbf{ylim()}: mengatur limit aksis sumbu x dan
+  y.
+\item
+  \textbf{expand\_limits()}: mengatur limit sumbu x dan y sekaligus
+  dapat mengatur intercept kedua sumbu tersebut.
+\item
+  \textbf{scale\_x\_continous()} dan \textbf{scale\_y\_continous()}:
+  megatur limit axis termasuk axis tick dan label.
+\end{itemize}
+
+Pada contoh berikut akan disajikan cara mengatur limit axis dengan
+menggunakan \texttt{xlim()} dan \texttt{ylim()} serta menggunakan
+\texttt{expand\_limits()}. Output yang dihasilkan disajikan pada Gambar
+\ref{fig:gglimits}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(continent}\OperatorTok{==}\StringTok{"Europe"}\NormalTok{)}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_wsj}\NormalTok{(}\DataTypeTok{base_size=}\DecValTok{7}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title=}\StringTok{"GDP per Capita vs Life Expectancy"}\NormalTok{,}
+       \DataTypeTok{y=}\StringTok{"Life Expectancy"}\NormalTok{,}
+       \DataTypeTok{x=}\StringTok{"GDP per Capita (US Dollar)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\CommentTok{# mengatur limit axis}
+\StringTok{  }\KeywordTok{expand_limits}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{55000}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{90}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# atau}
+\NormalTok{gapminder}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(continent}\OperatorTok{==}\StringTok{"Europe"}\NormalTok{)}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_wsj}\NormalTok{(}\DataTypeTok{base_size=}\DecValTok{7}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title=}\StringTok{"GDP per Capita vs Life Expectancy"}\NormalTok{,}
+       \DataTypeTok{y=}\StringTok{"Life Expectancy"}\NormalTok{,}
+       \DataTypeTok{x=}\StringTok{"GDP per Capita (US Dollar)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\CommentTok{# mengatur limit axis}
+\StringTok{  }\KeywordTok{xlim}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{55000}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylim}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{90}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglimits-1} 
+
+}
+
+\caption{Scatterplot dengan axis limits }\label{fig:gglimits}
+\end{figure}
+
+Kita juga dapat menggunakan fungsi \texttt{scale\_x\_continuous()} dan
+\texttt{scale\_y\_continuous()} untuk mengatur limit axis ,\emph{axis
+tick} dan label. Format yang digunakan adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{scale_x_continuous}\NormalTok{(name, breaks, labels, limits, trans)}
+\KeywordTok{scale_y_continuous}\NormalTok{(name, breaks, labels, limits, trans)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\item
+  \textbf{name}: label axis sumbu x dan y.
+\item
+  \textbf{breaks}: untuk mengontrol jeda dalam panduan (\emph{axis
+  tick}, garis grid, \ldots{}). Di antara nilai-nilai yang mungkin,
+  adalah sebagai berikut:
+\item
+  NULL: menyembunyikan seluruh breaks.
+\item
+  \textbf{waiver()}: komputasi break default.
+\item
+  vektor numerik atau karakter untuk menspesifikasikan break yang akan
+  ditampilkan.
+\item
+  \textbf{labels}: label axis. Nilai yang dapat dimasukkan antara lain;
+\item
+  NULL: tanpa label.
+\item
+  \textbf{waiver()}: label default.
+\item
+  vektor karakter yang digunakan untuk spesifikasi label break.
+\item
+  \textbf{limits}: vektor numerik untuk spesifikasi limit sumbu x dan y.
+\item
+  \textbf{trans}: transformasi axis. Nilai yang dapat digunakan adalah
+  ``log2'', ``log10'', dll.
+\end{itemize}
+\end{quote}
+
+Pada contoh berikut disajikan contoh mengatur limit axis dan label axis
+menggunakan fungsi \texttt{scale\_x\_continous()} dan
+\texttt{scale\_y\_continous()}. Grafik yang dihasilkan akan tampak
+seperti Gambar \ref{fig:gglimits2}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# atau}
+\NormalTok{gapminder}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(continent}\OperatorTok{==}\StringTok{"Asia"}\NormalTok{)}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_wsj}\NormalTok{(}\DataTypeTok{base_size=}\DecValTok{7}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"GDP per Capita vs Life Expectancy"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\CommentTok{# spesifikasi limit dan label axis}
+\StringTok{  }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{name=}\StringTok{"GDP per Capita"}\NormalTok{, }
+                     \DataTypeTok{limits=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{125000}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{name=}\StringTok{"Life Expectancy"}\NormalTok{,}
+                     \DataTypeTok{limits=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{100}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglimits2-1} 
+
+}
+
+\caption{Scatterplot dengan axis limits (2) }\label{fig:gglimits2}
+\end{figure}
+
+Tranformasi axis dapat dilakukan dengan fungsi bawaan dari
+\texttt{ggplot2}. Fungsi transformasi bawaan berupa transformasi log dan
+sqrt. Berikut adalah fungsi bawaan untuk transformasi tersebut:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{scale\_x\_log10()} dan \textbf{scale\_y\_log10()}:
+  transformasi log basis 10.
+\item
+  \textbf{scale\_x\_sqrt()} dan \textbf{scale\_y\_sqrt()}: transformasi
+  akar kuadrat.
+\item
+  \textbf{scale\_x\_reverse()} dan \textbf{scale\_x\_reverse()}:
+  membalikkan koordinat.
+\item
+  \textbf{coord\_trans(x=``log10'', y=``log10'')}: memungkinkan
+  transformasi untuk kedua axis sesuai fungsi yang diinputkan pada sumbu
+  x dan sumbu y seperti ``log2'', ``log10'', ``sqrt'', dll.
+\item
+  \textbf{scale\_x\_continuous(trans=``log2'')} dan
+  \textbf{scale\_y\_continuous(trans=``log2'')}: nilai lain yang dapat
+  diinputkan adalah ``log10''.
+\end{itemize}
+
+Pada contoh berikut disajikan contoh transformasi sumbu x menggunakan
+fungsi \texttt{scale\_x\_log10()}. Grafik yang dihasilkan akan tampak
+seperti Gambar \ref{fig:gglimits3}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# atau}
+\NormalTok{gapminder}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(continent}\OperatorTok{==}\StringTok{"Europe"}\NormalTok{)}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_wsj}\NormalTok{(}\DataTypeTok{base_size=}\DecValTok{7}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title=}\StringTok{"log(GDP per Capita) vs Life Expectancy"}\NormalTok{,}
+       \DataTypeTok{y=}\StringTok{"Life Expectancy"}\NormalTok{,}
+       \DataTypeTok{x=}\StringTok{"GDP per Capita (US Dollar)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\CommentTok{# transformasi sumbu x}
+\StringTok{  }\KeywordTok{scale_x_log10}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglimits3-1} 
+
+}
+
+\caption{Scatterplot dengan transformasi axis }\label{fig:gglimits3}
+\end{figure}
 
 \bibliography{book.bib,packages.bib}
 

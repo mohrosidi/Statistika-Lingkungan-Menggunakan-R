@@ -937,3 +937,114 @@ theme_wsj
 
 Berdasarkan output yang disajikan kita dapat merubah sejumlah argumen seperti base size, color, base_family, dll.
 
+### Penskalaan dan Transformasi Axis
+
+Pada bagian ini penulis akan menjelaskan bagaimana cara melakukan modifikasi terhadap sumbu x dan y seperti menetapkan limit nilai maksimum dan minimum axis serta melakukan transformasi pada tiap axis.
+
+Untuk mengatur rentang nilai axis, kita dapat melakukannya dengan fungsi sebagai berikut:
+
+- **xlim()** dan **ylim()**: mengatur limit aksis sumbu x dan y.
+- **expand_limits()**: mengatur limit sumbu x dan y sekaligus dapat mengatur intercept kedua sumbu tersebut.
+- **scale_x_continous()** dan **scale_y_continous()**: megatur limit axis termasuk axis tick dan label.
+
+Pada contoh berikut akan disajikan cara mengatur limit axis dengan menggunakan `xlim()` dan `ylim()` serta menggunakan `expand_limits()`. Output yang dihasilkan disajikan pada Gambar \@ref(fig:gglimits).
+
+```{r, eval=FALSE}
+gapminder%>%
+  filter(continent=="Europe")%>%
+  ggplot(aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_wsj(base_size=7)+
+  labs(title="GDP per Capita vs Life Expectancy",
+       y="Life Expectancy",
+       x="GDP per Capita (US Dollar)")+
+  # mengatur limit axis
+  expand_limits(x=c(0, 55000), y=c(0, 90))
+
+```
+
+```{r gglimits, fig.cap='Scatterplot dengan axis limits ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+# atau
+gapminder%>%
+  filter(continent=="Europe")%>%
+  ggplot(aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_wsj(base_size=7)+
+  labs(title="GDP per Capita vs Life Expectancy",
+       y="Life Expectancy",
+       x="GDP per Capita (US Dollar)")+
+  # mengatur limit axis
+  xlim(0,55000)+
+  ylim(0,90)
+
+```
+
+Kita juga dapat menggunakan fungsi `scale_x_continuous()` dan `scale_y_continuous()` untuk mengatur limit axis ,*axis tick* dan label. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+scale_x_continuous(name, breaks, labels, limits, trans)
+scale_y_continuous(name, breaks, labels, limits, trans)
+```
+
+> **Note: **
+>
+> - **name**: label axis sumbu x dan y.
+> - **breaks**: untuk mengontrol jeda dalam panduan (*axis tick*, garis grid, ...). Di antara nilai-nilai yang mungkin, adalah sebagai berikut:
+>
+>   + NULL: menyembunyikan seluruh breaks.
+>   + **waiver()**: komputasi break default.
+>   + vektor numerik atau karakter untuk menspesifikasikan break yang akan ditampilkan.
+>
+> - **labels**: label axis. Nilai yang dapat dimasukkan antara lain;
+>   + NULL: tanpa label.
+>   + **waiver()**: label default.
+>   + vektor karakter yang digunakan untuk spesifikasi label break.
+>
+> - **limits**: vektor numerik untuk spesifikasi limit sumbu x dan y.
+> - **trans**: transformasi axis. Nilai yang dapat digunakan adalah "log2", "log10", dll.
+
+Pada contoh berikut disajikan contoh mengatur limit axis dan label axis menggunakan fungsi `scale_x_continous()` dan `scale_y_continous()`. Grafik yang dihasilkan akan tampak seperti Gambar \@ref(fig:gglimits2).
+
+```{r gglimits2, fig.cap='Scatterplot dengan axis limits (2) ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+# atau
+gapminder%>%
+  filter(continent=="Asia")%>%
+  ggplot(aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_wsj(base_size=7)+
+  ggtitle("GDP per Capita vs Life Expectancy")+
+  # spesifikasi limit dan label axis
+  scale_x_continuous(name="GDP per Capita", 
+                     limits=c(0, 125000))+
+  scale_y_continuous(name="Life Expectancy",
+                     limits=c(0,100))
+       
+
+```
+
+Tranformasi axis dapat dilakukan dengan fungsi bawaan dari `ggplot2`. Fungsi transformasi bawaan berupa transformasi log dan sqrt. Berikut adalah fungsi bawaan untuk transformasi tersebut:
+
+- **scale_x_log10()** dan **scale_y_log10()**: transformasi log basis 10.
+- **scale_x_sqrt()** dan **scale_y_sqrt()**: transformasi akar kuadrat.
+- **scale_x_reverse()** dan **scale_x_reverse()**: membalikkan koordinat.
+- **coord_trans(x="log10", y="log10")**: memungkinkan transformasi untuk kedua axis sesuai fungsi yang diinputkan pada sumbu x dan sumbu y seperti “log2”, “log10”, “sqrt”, dll.
+- **scale_x_continuous(trans="log2")** dan **scale_y_continuous(trans="log2")**: nilai lain yang dapat diinputkan adalah "log10".
+
+Pada contoh berikut disajikan contoh transformasi sumbu x menggunakan fungsi `scale_x_log10()`. Grafik yang dihasilkan akan tampak seperti Gambar \@ref(fig:gglimits3).
+
+```{r gglimits3, fig.cap='Scatterplot dengan transformasi axis ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+# atau
+gapminder%>%
+  filter(continent=="Europe")%>%
+  ggplot(aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_wsj(base_size=7)+
+  labs(title="log(GDP per Capita) vs Life Expectancy",
+       y="Life Expectancy",
+       x="GDP per Capita (US Dollar)")+
+  # transformasi sumbu x
+  scale_x_log10()
+```
+
+
+

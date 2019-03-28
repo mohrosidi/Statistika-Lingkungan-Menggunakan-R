@@ -248,6 +248,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.10.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-jenis-garis"><i class="fa fa-check"></i><b>5.10.5</b> Kustomisasi Jenis Garis</a></li>
 <li class="chapter" data-level="5.10.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-label-pada-titik-observasi-dan-bidang-plot"><i class="fa fa-check"></i><b>5.10.6</b> Menambahkan Label Pada Titik Observasi dan Bidang Plot</a></li>
 <li class="chapter" data-level="5.10.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tema-pada-plot"><i class="fa fa-check"></i><b>5.10.7</b> Kustomisasi Tema Pada Plot</a></li>
+<li class="chapter" data-level="5.10.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#penskalaan-dan-transformasi-axis"><i class="fa fa-check"></i><b>5.10.8</b> Penskalaan dan Transformasi Axis</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -1470,9 +1471,112 @@ Gambar 5.53: Scatterplot dengan tema Wall Street Journal
 ##             plot.title = element_text(hjust = 0, face = &quot;bold&quot;), 
 ##             plot.margin = unit(c(1, 1, 1, 1), &quot;lines&quot;), strip.background = element_rect())
 ## }
-## &lt;bytecode: 0x00000000294b44f0&gt;
+## &lt;bytecode: 0x0000000018d13e60&gt;
 ## &lt;environment: namespace:ggthemes&gt;</code></pre>
 <p>Berdasarkan output yang disajikan kita dapat merubah sejumlah argumen seperti base size, color, base_family, dll.</p>
+</div>
+<div id="penskalaan-dan-transformasi-axis" class="section level3">
+<h3><span class="header-section-number">5.10.8</span> Penskalaan dan Transformasi Axis</h3>
+<p>Pada bagian ini penulis akan menjelaskan bagaimana cara melakukan modifikasi terhadap sumbu x dan y seperti menetapkan limit nilai maksimum dan minimum axis serta melakukan transformasi pada tiap axis.</p>
+<p>Untuk mengatur rentang nilai axis, kita dapat melakukannya dengan fungsi sebagai berikut:</p>
+<ul>
+<li><strong>xlim()</strong> dan <strong>ylim()</strong>: mengatur limit aksis sumbu x dan y.</li>
+<li><strong>expand_limits()</strong>: mengatur limit sumbu x dan y sekaligus dapat mengatur intercept kedua sumbu tersebut.</li>
+<li><strong>scale_x_continous()</strong> dan <strong>scale_y_continous()</strong>: megatur limit axis termasuk axis tick dan label.</li>
+</ul>
+<p>Pada contoh berikut akan disajikan cara mengatur limit axis dengan menggunakan <code>xlim()</code> dan <code>ylim()</code> serta menggunakan <code>expand_limits()</code>. Output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:gglimits">5.54</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(continent<span class="op">==</span><span class="st">&quot;Europe&quot;</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(gdpPercap, lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_wsj</span>(<span class="dt">base_size=</span><span class="dv">7</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;GDP per Capita vs Life Expectancy&quot;</span>,
+       <span class="dt">y=</span><span class="st">&quot;Life Expectancy&quot;</span>,
+       <span class="dt">x=</span><span class="st">&quot;GDP per Capita (US Dollar)&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="co"># mengatur limit axis</span>
+<span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">55000</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">90</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
+gapminder<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(continent<span class="op">==</span><span class="st">&quot;Europe&quot;</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(gdpPercap, lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_wsj</span>(<span class="dt">base_size=</span><span class="dv">7</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;GDP per Capita vs Life Expectancy&quot;</span>,
+       <span class="dt">y=</span><span class="st">&quot;Life Expectancy&quot;</span>,
+       <span class="dt">x=</span><span class="st">&quot;GDP per Capita (US Dollar)&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="co"># mengatur limit axis</span>
+<span class="st">  </span><span class="kw">xlim</span>(<span class="dv">0</span>,<span class="dv">55000</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">90</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:gglimits"></span>
+<img src="EnvStat_files/figure-html/gglimits-1.png" alt="Scatterplot dengan axis limits " width="70%" />
+<p class="caption">
+Gambar 5.54: Scatterplot dengan axis limits
+</p>
+</div>
+<p>Kita juga dapat menggunakan fungsi <code>scale_x_continuous()</code> dan <code>scale_y_continuous()</code> untuk mengatur limit axis ,<em>axis tick</em> dan label. Format yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">scale_x_continuous</span>(name, breaks, labels, limits, trans)
+<span class="kw">scale_y_continuous</span>(name, breaks, labels, limits, trans)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>name</strong>: label axis sumbu x dan y.</li>
+<li><p><strong>breaks</strong>: untuk mengontrol jeda dalam panduan (<em>axis tick</em>, garis grid, …). Di antara nilai-nilai yang mungkin, adalah sebagai berikut:</p></li>
+<li>NULL: menyembunyikan seluruh breaks.</li>
+<li><strong>waiver()</strong>: komputasi break default.</li>
+<li><p>vektor numerik atau karakter untuk menspesifikasikan break yang akan ditampilkan.</p></li>
+<li><strong>labels</strong>: label axis. Nilai yang dapat dimasukkan antara lain;</li>
+<li>NULL: tanpa label.</li>
+<li><strong>waiver()</strong>: label default.</li>
+<li><p>vektor karakter yang digunakan untuk spesifikasi label break.</p></li>
+<li><strong>limits</strong>: vektor numerik untuk spesifikasi limit sumbu x dan y.</li>
+<li><p><strong>trans</strong>: transformasi axis. Nilai yang dapat digunakan adalah “log2”, “log10”, dll.</p></li>
+</ul>
+</blockquote>
+<p>Pada contoh berikut disajikan contoh mengatur limit axis dan label axis menggunakan fungsi <code>scale_x_continous()</code> dan <code>scale_y_continous()</code>. Grafik yang dihasilkan akan tampak seperti Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:gglimits2">5.55</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
+gapminder<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(continent<span class="op">==</span><span class="st">&quot;Asia&quot;</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(gdpPercap, lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_wsj</span>(<span class="dt">base_size=</span><span class="dv">7</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;GDP per Capita vs Life Expectancy&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="co"># spesifikasi limit dan label axis</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">name=</span><span class="st">&quot;GDP per Capita&quot;</span>, 
+                     <span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">125000</span>))<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">name=</span><span class="st">&quot;Life Expectancy&quot;</span>,
+                     <span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:gglimits2"></span>
+<img src="EnvStat_files/figure-html/gglimits2-1.png" alt="Scatterplot dengan axis limits (2) " width="70%" />
+<p class="caption">
+Gambar 5.55: Scatterplot dengan axis limits (2)
+</p>
+</div>
+<p>Tranformasi axis dapat dilakukan dengan fungsi bawaan dari <code>ggplot2</code>. Fungsi transformasi bawaan berupa transformasi log dan sqrt. Berikut adalah fungsi bawaan untuk transformasi tersebut:</p>
+<ul>
+<li><strong>scale_x_log10()</strong> dan <strong>scale_y_log10()</strong>: transformasi log basis 10.</li>
+<li><strong>scale_x_sqrt()</strong> dan <strong>scale_y_sqrt()</strong>: transformasi akar kuadrat.</li>
+<li><strong>scale_x_reverse()</strong> dan <strong>scale_x_reverse()</strong>: membalikkan koordinat.</li>
+<li><strong>coord_trans(x=“log10”, y=“log10”)</strong>: memungkinkan transformasi untuk kedua axis sesuai fungsi yang diinputkan pada sumbu x dan sumbu y seperti “log2”, “log10”, “sqrt”, dll.</li>
+<li><strong>scale_x_continuous(trans=“log2”)</strong> dan <strong>scale_y_continuous(trans=“log2”)</strong>: nilai lain yang dapat diinputkan adalah “log10”.</li>
+</ul>
+<p>Pada contoh berikut disajikan contoh transformasi sumbu x menggunakan fungsi <code>scale_x_log10()</code>. Grafik yang dihasilkan akan tampak seperti Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:gglimits3">5.56</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
+gapminder<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(continent<span class="op">==</span><span class="st">&quot;Europe&quot;</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(gdpPercap, lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_wsj</span>(<span class="dt">base_size=</span><span class="dv">7</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;log(GDP per Capita) vs Life Expectancy&quot;</span>,
+       <span class="dt">y=</span><span class="st">&quot;Life Expectancy&quot;</span>,
+       <span class="dt">x=</span><span class="st">&quot;GDP per Capita (US Dollar)&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="co"># transformasi sumbu x</span>
+<span class="st">  </span><span class="kw">scale_x_log10</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:gglimits3"></span>
+<img src="EnvStat_files/figure-html/gglimits3-1.png" alt="Scatterplot dengan transformasi axis " width="70%" />
+<p class="caption">
+Gambar 5.56: Scatterplot dengan transformasi axis
+</p>
+</div>
 
 </div>
 </div>
