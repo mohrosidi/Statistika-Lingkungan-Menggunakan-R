@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-03-28}
+    \date{2019-03-29}
 
 \usepackage{booktabs}
 
@@ -10672,7 +10672,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x0000000018d13e60>
+## <bytecode: 0x0000000018e5f998>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -10876,6 +10876,623 @@ seperti Gambar \ref{fig:gglimits3}.
 
 \caption{Scatterplot dengan transformasi axis }\label{fig:gglimits3}
 \end{figure}
+
+\emph{Tick mark} pada axis juga dapat kita atur menggunakan fungsi
+\texttt{scale\_x\_continous()} dan \texttt{scale\_y\_continous()}. Untuk
+mengubah format dan label \emph{tick mark} kita perlu menginstall dan
+memuat library \texttt{scales} yang berfungsi untuk mengakses fungsi
+pada argumen break. Berikut adalah sintaks yang digunakan beserta output
+yang dihasilkan pada Gambar \ref{fig:gglimits4}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memasang paket}
+\CommentTok{# install.packages("scales")}
+
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(scales)}
+
+\CommentTok{# plot}
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_bw}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# kustomisasi tick mark sumbu y}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{trans=} \KeywordTok{log2_trans}\NormalTok{(),}
+                     \DataTypeTok{breaks=}\KeywordTok{trans_breaks}\NormalTok{(}\StringTok{"log2"}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\DecValTok{2}\OperatorTok{^}\NormalTok{x),}
+                     \DataTypeTok{labels=} \KeywordTok{trans_format}\NormalTok{(}\StringTok{"log2"}\NormalTok{, }\KeywordTok{math_format}\NormalTok{(}\DecValTok{2}\OperatorTok{^}\NormalTok{.x)))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# kustomisasi sumbu x}
+\StringTok{  }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{labels =}\NormalTok{ dollar)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglimits4-1} 
+
+}
+
+\caption{Scatterplot dengan transformasi tick mark axis }\label{fig:gglimits4}
+\end{figure}
+
+\subsection{Kustomisasi Tick Mark
+Axis}\label{kustomisasi-tick-mark-axis}
+
+Pada bagian ini pembaca akan mempelajari bagaimana melakukan kustomisasi
+tampilan \emph{tick mark}. Selain itu kita juga akan belajar bagaimana
+melakukan pengaturan pada garis axis.
+
+Warna, ukuran font, dan tampilan font (\emph{font style}) pada
+\emph{tick mark} dapat diubah menggunakan fungsi \texttt{theme()} dan
+\texttt{element\_text()}. Format yang digunakan adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# x axis tick mark labels}
+\OperatorTok{<}\NormalTok{plot}\OperatorTok{>}\StringTok{ }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x=} \KeywordTok{element_text}\NormalTok{(family, face, colour, size, angle))}
+\CommentTok{# y axis tick mark labels}
+\OperatorTok{<}\NormalTok{plot}\OperatorTok{>}\StringTok{ }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(family, face, colour, size, angle))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{family}: \emph{font family}, seperti: ``sans'',``times new
+  roman'', dll.
+\item
+  \textbf{face}: \emph{font face}, nilai yang mungkin adalah ``plain'',
+  ``italic'', ``bold'' dan ``bold.italic''.
+\item
+  \textbf{color}: warna teks.
+\item
+  \textbf{size}: ukuran teks dalam satuan pts.
+\item
+  \textbf{angle}: sudut kemiringan teks berkisar antara 0 sampai 360.
+\end{itemize}
+\end{quote}
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan
+pada Gambar \ref{fig:ggtick}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(continent, gdpPercap,}
+                      \DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_economist}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_economist}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# kustomisasi tick mark}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }
+                                   \DataTypeTok{color=}\StringTok{"#993333"}\NormalTok{,}
+                                   \DataTypeTok{size=}\DecValTok{10}\NormalTok{, }
+                                   \DataTypeTok{angle=}\DecValTok{30}\NormalTok{),}
+          \DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }
+                                     \DataTypeTok{color=}\StringTok{"#993333"}\NormalTok{,}
+                                     \DataTypeTok{size=}\DecValTok{10}\NormalTok{, }
+                                     \DataTypeTok{angle=}\DecValTok{30}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtick-1} 
+
+}
+
+\caption{Mengubah tampilan dari tick mark}\label{fig:ggtick}
+\end{figure}
+
+Untuk menonaktifkan \emph{tick mark} pada plot kita dapat menggunakan
+fungsi \texttt{element\_blank()}. Berikut adalah sintaks yang digunakan
+beserta output yang dihasilkan pada Gambar \ref{fig:ggtick2}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(continent, gdpPercap,}
+                      \DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_stata}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_stata}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menyembunyikan tick mark dan tick mark label}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x=}\KeywordTok{element_blank}\NormalTok{(),}
+  \DataTypeTok{axis.text.y=}\KeywordTok{element_blank}\NormalTok{(),}
+  \DataTypeTok{axis.ticks=}\KeywordTok{element_blank}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtick2-1} 
+
+}
+
+\caption{Menyembunyikan tampilan dari tick mark}\label{fig:ggtick2}
+\end{figure}
+
+Kita dapat melakukan pengaturan terhadap garis axis menggunakan argumen
+\texttt{axis.lines} dan fungsi \texttt{element\_line}. Berikut adalah
+format yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{<}\NormalTok{plot}\OperatorTok{>}\StringTok{ }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.line =} \KeywordTok{element_line}\NormalTok{(color,size, linetype,}
+\NormalTok{                                        lineend, color))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{color}: warna garis.
+\item
+  \textbf{size}: ukuran garis.
+\item
+  \textbf{linetype}: jenis garis.
+\item
+  \textbf{lineend}: akhir dari garis. Nilai yang dapat dimasukkan antara
+  lain: ``round'', ``butt'' atau ``square''.
+\end{itemize}
+\end{quote}
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan
+pada Gambar \ref{fig:ggtick3}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(continent, gdpPercap,}
+                      \DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_wsj}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_wsj}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# kustomisasi garis axis}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.line =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{colour =} \StringTok{"darkblue"}\NormalTok{, }
+                      \DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{"solid"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtick3-1} 
+
+}
+
+\caption{Kustomisasi tampilan dari garis axis}\label{fig:ggtick3}
+\end{figure}
+
+Kita dapat mengatur \emph{tick} pada axis baik yang memiliki skala
+diskrit maupun kontinyu. Fungsi yang digunakan adalah
+\texttt{scale\_x\_continous()} dan \texttt{scale\_y\_continous()} untuk
+\emph{tick} dengan nilai kontinyu dan \texttt{scale\_x\_discrete()} dan
+\texttt{scale\_y\_discrete()}.
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan
+pada Gambar \ref{fig:ggtick4}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(continent, lifeExp,}
+                      \DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_gdocs}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_gdocs}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# kustomisasi tick mark}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}
+    \CommentTok{# nilai dari 0 sampai 100 tiap 10 tick}
+    \DataTypeTok{breaks=}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{100}\NormalTok{,}\DecValTok{10}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtick4-1} 
+
+}
+
+\caption{Kustomisasi tick mark}\label{fig:ggtick4}
+\end{figure}
+
+\subsection{Menambahkan Garis Lurus Pada
+Plot}\label{menambahkan-garis-lurus-pada-plot}
+
+Fungsi yang dapat digunakan untuk menambahkan garis lurus antara lain:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{geom\_hline()}: menambahkan garis horizontal.
+\item
+  \textbf{geom\_abline()}: menambahkan garis regresi.
+\item
+  \textbf{geom\_vline()}: menambahkan garis vertikal.
+\item
+  \textbf{geom\_segment()}: menambahkan garis segmen.
+\end{itemize}
+
+Format yang digunakan untuk fungsi \texttt{geom\_hline()} dan
+\texttt{geom\_vline()} adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{geom_hline}\NormalTok{(yintercept, linetype, color, size)}
+\KeywordTok{geom_vline}\NormalTok{(xintercept, linetype, color, size)}
+\end{Highlighting}
+\end{Shaded}
+
+Berikut adalah contoh penerapan kedua fungsi tersebut yang disajikan
+pada Gambar \ref{fig:ggvline} dan Gambar \ref{fig:gghline}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(lifeExp, }\DataTypeTok{fill=}\NormalTok{..count..))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_calc}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan garis vertikal}
+\StringTok{  }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept=}\KeywordTok{mean}\NormalTok{(gapminder}\OperatorTok{$}\NormalTok{lifeExp), }
+             \DataTypeTok{linetype=}\StringTok{"twodash"}\NormalTok{,}
+             \DataTypeTok{color=}\StringTok{"red"}\NormalTok{,}
+             \DataTypeTok{size=}\FloatTok{1.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggvline-1} 
+
+}
+
+\caption{Penerapan vline}\label{fig:ggvline}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(continent, lifeExp, }
+                      \DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_calc}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_calc}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan garis horizontal}
+\StringTok{  }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept=}\KeywordTok{mean}\NormalTok{(gapminder}\OperatorTok{$}\NormalTok{lifeExp), }
+             \DataTypeTok{linetype=}\StringTok{"twodash"}\NormalTok{,}
+             \DataTypeTok{color=}\StringTok{"red"}\NormalTok{,}
+             \DataTypeTok{size=}\FloatTok{1.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gghline-1} 
+
+}
+
+\caption{Penerapan hline}\label{fig:gghline}
+\end{figure}
+
+Selain menggunakan fungsi \texttt{geom\_smooth()}, garis regresi dapat
+ditambahkan melalui fungsi `geom\_abline(). Format yang digunakan adalah
+sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{geom_abline}\NormalTok{(intercept, slope, linetype, color, size)}
+\end{Highlighting}
+\end{Shaded}
+
+Untuk membuat garis regresi kita perlu membuat model regresi terlebih
+dahulu menggunakn fungsi \texttt{lm()}. Berikut adalah contoh model yang
+dibuat beserta koefisien regresinya.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat model regresi}
+\NormalTok{mod <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(lifeExp}\OperatorTok{~}\NormalTok{gdpPercap, }\DataTypeTok{data=}\NormalTok{gapminder)}
+
+\CommentTok{# print model}
+\NormalTok{mod}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = lifeExp ~ gdpPercap, data = gapminder)
+## 
+## Coefficients:
+## (Intercept)    gdpPercap  
+##    5.40e+01     7.65e-04
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# koefisien regresi model}
+\NormalTok{coef <-}\StringTok{ }\KeywordTok{coefficients}\NormalTok{(mod)}
+
+\CommentTok{# print koefisien}
+\NormalTok{coef}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## (Intercept)   gdpPercap 
+##   5.396e+01   7.649e-04
+\end{verbatim}
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan
+pada Gambar \ref{fig:ggabline} untuk membuat plot regresi linier.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{shape=}\DecValTok{1}\NormalTok{, }\DataTypeTok{color=}\StringTok{"grey"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_stata}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan garis regresi}
+\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}\DataTypeTok{intercept=}\FloatTok{5.395556e+01}\NormalTok{,}
+         \DataTypeTok{slope=}\FloatTok{7.648826e-04}\NormalTok{,}
+         \DataTypeTok{linetype=}\StringTok{"twodash"}\NormalTok{,}
+             \DataTypeTok{color=}\StringTok{"red"}\NormalTok{,}
+             \DataTypeTok{size=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggabline-1} 
+
+}
+
+\caption{Penerapan abline}\label{fig:ggabline}
+\end{figure}
+
+Kita dapat menambahkan garis segment untuk menunjukkan sebuah observasi.
+Format yang digunakan adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(x, y, xend, yend))}
+\end{Highlighting}
+\end{Shaded}
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan
+pada Gambar \ref{fig:ggsegment} untuk membuat garis segmen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(grid)}
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{shape=}\DecValTok{1}\NormalTok{, }\DataTypeTok{color=}\StringTok{"grey"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_stata}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# menambahkan tanda panah}
+\StringTok{  }\KeywordTok{geom_segment}\NormalTok{(}\DataTypeTok{x=}\DecValTok{70000}\NormalTok{, }\DataTypeTok{y=}\DecValTok{80}\NormalTok{,}
+                   \DataTypeTok{xend=}\DecValTok{60000}\NormalTok{, }\DataTypeTok{yend=}\DecValTok{70}\NormalTok{,}
+                   \DataTypeTok{arrow=}\KeywordTok{arrow}\NormalTok{(}\DataTypeTok{length=}\KeywordTok{unit}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\StringTok{"inches"}\NormalTok{)),}
+               \DataTypeTok{linetype=}\StringTok{"twodash"}\NormalTok{,}
+               \DataTypeTok{color=}\StringTok{"red"}\NormalTok{,}
+               \DataTypeTok{size=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggsegment-1} 
+
+}
+
+\caption{Penerapan garis segmen}\label{fig:ggsegment}
+\end{figure}
+
+\subsection{Melakukan Rotasi Pada
+Grafik}\label{melakukan-rotasi-pada-grafik}
+
+Rotasi grafik atau pembalikan axis dapat dilakukan menggunakan fungsi
+berikut:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{coord\_flip()}: untuk membuat plot horizontal.Rotasi axis
+  sehingga sumbu x dapat menjadi sumbu y dan sebaliknya.
+\item
+  \textbf{scale\_x\_reverse()} dan \textbf{scale\_x\_reverse()}:
+  pembalikan skala pada axis.
+\end{itemize}
+
+Misalkan kita ingin membuat plot horizontal pada box plot sehingga
+mempermudah kita dalam melakukan perbandingan terhadap masing-masing
+grup. Berikut adalah sintaks yang digunakan beserta output yang
+dihasilkan pada Gambar \ref{fig:ggcoord}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(continent, lifeExp, }
+                      \DataTypeTok{fill=}\NormalTok{continent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_economist}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_economist}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# rotasi axis}
+\StringTok{  }\KeywordTok{coord_flip}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggcoord-1} 
+
+}
+
+\caption{Rotasi axis}\label{fig:ggcoord}
+\end{figure}
+
+Kita dapat juga melakukan pembalikan skala pada axis sehingga skala yang
+semula berawal dari min ke max menjadi sebaliknya. Berikut adalah
+sintaks yang digunakan beserta output yang dihasilkan pada Gambar
+\ref{fig:ggyreverse}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(lifeExp, }\DataTypeTok{fill=}\NormalTok{..count..))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_wsj}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# pembalikan sumbu y}
+\StringTok{  }\KeywordTok{scale_y_reverse}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggyreverse-1} 
+
+}
+
+\caption{Pembalikan sumbu y}\label{fig:ggyreverse}
+\end{figure}
+
+\subsection{Facet}\label{facet}
+
+Facet digunakan untuk membagi plot menjadi panel matriks. Setiap panel
+menunjukkan setiap kelompok data. Fungsi facet yang dapat digunakan
+antara lain:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{facet\_grid()}
+\item
+  \textbf{facet\_wrap()}
+\end{itemize}
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan
+pada Gambar \ref{fig:ggfacetgrid} dan Gambar \ref{fig:ggfacetgrid2}
+untuk membuat facet pada satu variabel.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(lifeExp, }\DataTypeTok{fill=}\NormalTok{..count..))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_gdocs}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(.}\OperatorTok{~}\NormalTok{continent)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/ggfacetgrid-1} 
+
+}
+
+\caption{Facet horizontal satu variabel}\label{fig:ggfacetgrid}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(lifeExp, }\DataTypeTok{fill=}\NormalTok{..count..))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_gdocs}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(continent}\OperatorTok{~}\NormalTok{.)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/ggfacetgrid2-1} 
+
+}
+
+\caption{Facet vertikal satu variabel}\label{fig:ggfacetgrid2}
+\end{figure}
+
+Kita dapat pula melakukan facet terhadap dua buah variabel.Berikut
+adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar
+\ref{fig:ggfacetgrid3} untuk membuat facet pada dua variabel.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(year}\OperatorTok{==}\DecValTok{1952}\OperatorTok{|}\NormalTok{year}\OperatorTok{==}\DecValTok{2007}\NormalTok{,}
+\NormalTok{         continent }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Asia"}\NormalTok{,}\StringTok{"Americas"}\NormalTok{))}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, lifeExp, }
+             \DataTypeTok{fill=}\KeywordTok{factor}\NormalTok{(year)))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_stata}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_stata}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(continent}\OperatorTok{~}\KeywordTok{factor}\NormalTok{(year))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/ggfacetgrid3-1} 
+
+}
+
+\caption{Facet dua variabel}\label{fig:ggfacetgrid3}
+\end{figure}
+
+Kita dapat mengatur skala dari axis menggunakan argument sebagai
+berikut:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{free}: skala akan disesuaikan berdasarkan pada setiap axis.
+\item
+  \textbf{free\_x}: skala pada sumbu x akan dibiarkan menyesuaikan
+  secara bebas.
+\item
+  \textbf{free\_y}: skala pada sumbu y akan dibiarkan menyesuaikan
+  secara bebas.
+\item
+  \textbf{fixed} (default): skala axis diseragamkan pada seluruh panel.
+\end{itemize}
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan
+pada Gambar \ref{fig:ggfacetgrid4} untuk membuat facet pada dua variabel
+dengan skala bebas pada sumbu y.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(year}\OperatorTok{==}\DecValTok{1952}\OperatorTok{|}\NormalTok{year}\OperatorTok{==}\DecValTok{2007}\NormalTok{,}
+\NormalTok{         continent }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Asia"}\NormalTok{,}\StringTok{"Americas"}\NormalTok{))}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(continent, lifeExp, }
+             \DataTypeTok{fill=}\KeywordTok{factor}\NormalTok{(year)))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_stata}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_stata}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(continent}\OperatorTok{~}\KeywordTok{factor}\NormalTok{(year), }\DataTypeTok{scales=}\StringTok{"free_y"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/ggfacetgrid4-1} 
+
+}
+
+\caption{Facet dua variabel dengan skala bebas pada sumbu y}\label{fig:ggfacetgrid4}
+\end{figure}
+
+\section{Referensi}\label{referensi-4}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Wickham, H. Grolemund G. 2016. \textbf{R For Data Science: Import,
+  Tidy, Transform, Visualize, And Model Data}. O'Reilly Media, Inc.
+\item
+  Peng, R.D. 2015. \textbf{Exploratory Data Analysis with R}. Leanpub
+  book.
+\item
+  GGPLOT2 Documentation. \url{https://ggplot2.tidyverse.org/}
+\item
+  STHDA. ggplot2 - Essentials.
+  \textless{}www.sthda.com/english/wiki/ggplot2-essentials\textgreater{}
+\end{enumerate}
 
 \bibliography{book.bib,packages.bib}
 

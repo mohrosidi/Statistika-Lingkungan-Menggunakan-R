@@ -1046,5 +1046,319 @@ gapminder%>%
   scale_x_log10()
 ```
 
+*Tick mark* pada axis juga dapat kita atur menggunakan fungsi `scale_x_continous()` dan `scale_y_continous()`. Untuk mengubah format dan label *tick mark* kita perlu menginstall dan memuat library `scales` yang berfungsi untuk mengakses fungsi pada argumen break. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:gglimits4).
 
+```{r gglimits4, fig.cap='Scatterplot dengan transformasi tick mark axis ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+# memasang paket
+# install.packages("scales")
+
+# memuat paket
+library(scales)
+
+# plot
+ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_bw()+
+  # kustomisasi tick mark sumbu y
+  scale_y_continuous(trans= log2_trans(),
+                     breaks=trans_breaks("log2", function(x) 2^x),
+                     labels= trans_format("log2", math_format(2^.x)))+
+  # kustomisasi sumbu x
+  scale_x_continuous(labels = dollar)
+```
+
+### Kustomisasi Tick Mark Axis
+
+Pada bagian ini pembaca akan mempelajari bagaimana melakukan kustomisasi tampilan *tick mark*. Selain itu kita juga akan belajar bagaimana melakukan pengaturan pada garis axis.
+
+Warna, ukuran font, dan tampilan font (*font style*) pada *tick mark* dapat diubah menggunakan fungsi `theme()` dan `element_text()`. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+# x axis tick mark labels
+<plot> + theme(axis.text.x= element_text(family, face, colour, size, angle))
+# y axis tick mark labels
+<plot> + theme(axis.text.y = element_text(family, face, colour, size, angle))
+```
+
+> **Note: **
+>
+> - **family**: *font family*, seperti: "sans","times new roman", dll.
+> - **face**: *font face*, nilai yang mungkin adalah “plain”, “italic”, “bold” dan “bold.italic”.
+> - **color**: warna teks.
+> - **size**: ukuran teks dalam satuan pts.
+> - **angle**: sudut kemiringan teks berkisar antara 0 sampai 360.
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggtick).
+
+```{r ggtick, fig.cap='Mengubah tampilan dari tick mark', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(continent, gdpPercap,
+                      fill=continent))+
+  geom_boxplot()+
+  theme_economist()+
+  scale_fill_economist()+
+  # kustomisasi tick mark
+  theme(axis.text.x = element_text(face="bold", 
+                                   color="#993333",
+                                   size=10, 
+                                   angle=30),
+          axis.text.y = element_text(face="bold", 
+                                     color="#993333",
+                                     size=10, 
+                                     angle=30))
+  
+```
+
+Untuk menonaktifkan *tick mark* pada plot kita dapat menggunakan fungsi `element_blank()`. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggtick2).
+
+```{r ggtick2, fig.cap='Menyembunyikan tampilan dari tick mark', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(continent, gdpPercap,
+                      fill=continent))+
+  geom_boxplot()+
+  theme_stata()+
+  scale_fill_stata()+
+  # menyembunyikan tick mark dan tick mark label
+  theme(axis.text.x=element_blank(),
+  axis.text.y=element_blank(),
+  axis.ticks=element_blank())
+  
+```
+ 
+Kita dapat melakukan pengaturan terhadap garis axis menggunakan argumen `axis.lines` dan fungsi `element_line`. Berikut adalah format yang digunakan:
+
+```{r, eval=FALSE}
+<plot> + theme(axis.line = element_line(color,size, linetype,
+                                        lineend, color))
+```
+
+> **Note: **
+>
+> - **color**: warna garis.
+> - **size**: ukuran garis.
+> - **linetype**: jenis garis.
+> - **lineend**: akhir dari garis. Nilai yang dapat dimasukkan antara lain: “round”, “butt” atau “square”.
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggtick3).
+
+```{r ggtick3, fig.cap='Kustomisasi tampilan dari garis axis', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(continent, gdpPercap,
+                      fill=continent))+
+  geom_boxplot()+
+  theme_wsj()+
+  scale_fill_wsj()+
+  # kustomisasi garis axis
+  theme(axis.line = element_line(colour = "darkblue", 
+                      size = 1, linetype = "solid"))
+  
+```
+
+Kita dapat mengatur *tick* pada axis baik yang memiliki skala diskrit maupun kontinyu. Fungsi yang digunakan adalah `scale_x_continous()` dan `scale_y_continous()` untuk *tick* dengan nilai kontinyu dan `scale_x_discrete()` dan `scale_y_discrete()`.
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggtick4).
+
+```{r ggtick4, fig.cap='Kustomisasi tick mark', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(continent, lifeExp,
+                      fill=continent))+
+  geom_boxplot()+
+  theme_gdocs()+
+  scale_fill_gdocs()+
+  # kustomisasi tick mark
+  scale_y_continuous(
+    # nilai dari 0 sampai 100 tiap 10 tick
+    breaks=seq(0,100,10))
+  
+```
+
+### Menambahkan Garis Lurus Pada Plot
+
+Fungsi yang dapat digunakan untuk menambahkan garis lurus antara lain:
+
+- **geom_hline()**: menambahkan garis horizontal.
+- **geom_abline()**: menambahkan garis regresi.
+- **geom_vline()**: menambahkan garis vertikal.
+- **geom_segment()**: menambahkan garis segmen.
+
+Format yang digunakan untuk fungsi `geom_hline()` dan `geom_vline()` adalah sebagai berikut:
+
+```{r, eval=FALSE}
+geom_hline(yintercept, linetype, color, size)
+geom_vline(xintercept, linetype, color, size)
+```
+
+Berikut adalah contoh penerapan kedua fungsi tersebut yang disajikan pada Gambar \@ref(fig:ggvline) dan Gambar \@ref(fig:gghline):
+
+```{r ggvline, fig.cap='Penerapan vline', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(lifeExp, fill=..count..))+
+  geom_histogram()+
+  theme_calc()+
+  # menambahkan garis vertikal
+  geom_vline(xintercept=mean(gapminder$lifeExp), 
+             linetype="twodash",
+             color="red",
+             size=1.5)
+```
+
+```{r gghline, fig.cap='Penerapan hline', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(continent, lifeExp, 
+                      fill=continent))+
+  geom_boxplot()+
+  theme_calc()+
+  scale_fill_calc()+
+  # menambahkan garis horizontal
+  geom_hline(yintercept=mean(gapminder$lifeExp), 
+             linetype="twodash",
+             color="red",
+             size=1.5)
+```
+
+Selain menggunakan fungsi `geom_smooth()`, garis regresi dapat ditambahkan melalui fungsi `geom_abline(). Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+geom_abline(intercept, slope, linetype, color, size)
+```
+
+Untuk membuat garis regresi kita perlu membuat model regresi terlebih dahulu menggunakn fungsi `lm()`. Berikut adalah contoh model yang dibuat beserta koefisien regresinya.
+
+```{r}
+# membuat model regresi
+mod <- lm(lifeExp~gdpPercap, data=gapminder)
+
+# print model
+mod
+
+# koefisien regresi model
+coef <- coefficients(mod)
+
+# print koefisien
+coef
+```
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggabline) untuk membuat plot regresi linier.
+
+```{r ggabline, fig.cap='Penerapan abline', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  geom_point(shape=1, color="grey")+
+  theme_stata()+
+  # menambahkan garis regresi
+  geom_abline(intercept=5.395556e+01,
+         slope=7.648826e-04,
+         linetype="twodash",
+             color="red",
+             size=1)
+```
+
+Kita dapat menambahkan garis segment untuk menunjukkan sebuah observasi. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+geom_segment(aes(x, y, xend, yend))
+```
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggsegment) untuk membuat garis segmen.
+
+```{r ggsegment, fig.cap='Penerapan garis segmen', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+library(grid)
+ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  geom_point(shape=1, color="grey")+
+  theme_stata()+
+  # menambahkan tanda panah
+  geom_segment(x=70000, y=80,
+                   xend=60000, yend=70,
+                   arrow=arrow(length=unit(0.1, "inches")),
+               linetype="twodash",
+               color="red",
+               size=1)
+```
+
+### Melakukan Rotasi Pada Grafik
+
+Rotasi grafik atau pembalikan axis dapat dilakukan menggunakan fungsi berikut:
+
+- **coord_flip()**: untuk membuat plot horizontal.Rotasi axis sehingga sumbu x dapat menjadi sumbu y dan sebaliknya.
+- **scale_x_reverse()** dan **scale_x_reverse()**: pembalikan skala pada axis.
+
+Misalkan kita ingin membuat plot horizontal pada box plot sehingga mempermudah kita dalam melakukan perbandingan terhadap masing-masing grup. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggcoord).
+
+```{r ggcoord, fig.cap='Rotasi axis', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(continent, lifeExp, 
+                      fill=continent))+
+  geom_boxplot()+
+  theme_economist()+
+  scale_fill_economist()+
+  # rotasi axis
+  coord_flip()
+```
+
+Kita dapat juga melakukan pembalikan skala pada axis sehingga skala yang semula berawal dari min ke max menjadi sebaliknya. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggyreverse).
+
+```{r ggyreverse, fig.cap='Pembalikan sumbu y', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
+ggplot(gapminder, aes(lifeExp, fill=..count..))+
+  geom_histogram()+
+  theme_wsj()+
+  # pembalikan sumbu y
+  scale_y_reverse()
+```
+
+### Facet
+
+Facet digunakan untuk membagi plot menjadi panel matriks. Setiap panel menunjukkan setiap kelompok data. Fungsi facet yang dapat digunakan antara lain:
+
+- **facet_grid()**
+- **facet_wrap()**
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggfacetgrid) dan Gambar \@ref(fig:ggfacetgrid2) untuk membuat facet pada satu variabel.
+
+```{r ggfacetgrid, fig.cap='Facet horizontal satu variabel', tidy=FALSE, fig.align='center', out.width='90%', message=FALSE}
+ggplot(gapminder, aes(lifeExp, fill=..count..))+
+  geom_histogram()+
+  theme_gdocs()+
+  facet_grid(.~continent)
+```
+
+```{r ggfacetgrid2, fig.cap='Facet vertikal satu variabel', tidy=FALSE, fig.align='center', out.width='80%', message=FALSE}
+ggplot(gapminder, aes(lifeExp, fill=..count..))+
+  geom_histogram()+
+  theme_gdocs()+
+  facet_grid(continent~.)
+```
+
+Kita dapat pula melakukan facet terhadap dua buah variabel.Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggfacetgrid3) untuk membuat facet pada dua variabel.
+
+```{r ggfacetgrid3, fig.cap='Facet dua variabel', tidy=FALSE, fig.align='center', out.width='80%', message=FALSE}
+gapminder%>%
+  filter(year==1952|year==2007,
+         continent %in% c("Asia","Americas"))%>%
+  ggplot(aes(continent, lifeExp, 
+             fill=factor(year)))+
+  geom_boxplot()+
+  theme_stata()+
+  scale_fill_stata()+
+  facet_grid(continent~factor(year))
+```
+
+Kita dapat mengatur skala dari axis menggunakan argument sebagai berikut:
+
+- **free**: skala akan disesuaikan berdasarkan pada setiap axis.
+- **free_x**: skala pada sumbu x akan dibiarkan menyesuaikan secara bebas.
+- **free_y**: skala pada sumbu y akan dibiarkan menyesuaikan secara bebas.
+- **fixed** (default): skala axis diseragamkan pada seluruh panel.
+
+Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggfacetgrid4) untuk membuat facet pada dua variabel dengan skala bebas pada sumbu y.
+
+```{r ggfacetgrid4, fig.cap='Facet dua variabel dengan skala bebas pada sumbu y', tidy=FALSE, fig.align='center', out.width='80%', message=FALSE}
+gapminder%>%
+  filter(year==1952|year==2007,
+         continent %in% c("Asia","Americas"))%>%
+  ggplot(aes(continent, lifeExp, 
+             fill=factor(year)))+
+  geom_boxplot()+
+  theme_stata()+
+  scale_fill_stata()+
+  facet_grid(continent~factor(year), scales="free_y")
+```
+
+## Referensi
+
+1. Wickham, H. Grolemund G. 2016. **R For Data Science: Import, Tidy, Transform, Visualize, And Model Data**. O'Reilly Media, Inc.
+2. Peng, R.D. 2015. **Exploratory Data Analysis with R**. Leanpub book.
+3. GGPLOT2 Documentation. <https://ggplot2.tidyverse.org/>
+4. STHDA. ggplot2 - Essentials. <www.sthda.com/english/wiki/ggplot2-essentials>
 

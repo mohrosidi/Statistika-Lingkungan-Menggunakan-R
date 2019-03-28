@@ -25,7 +25,7 @@
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-28">
+<meta name="date" content="2019-03-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -249,7 +249,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.10.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-label-pada-titik-observasi-dan-bidang-plot"><i class="fa fa-check"></i><b>5.10.6</b> Menambahkan Label Pada Titik Observasi dan Bidang Plot</a></li>
 <li class="chapter" data-level="5.10.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tema-pada-plot"><i class="fa fa-check"></i><b>5.10.7</b> Kustomisasi Tema Pada Plot</a></li>
 <li class="chapter" data-level="5.10.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#penskalaan-dan-transformasi-axis"><i class="fa fa-check"></i><b>5.10.8</b> Penskalaan dan Transformasi Axis</a></li>
+<li class="chapter" data-level="5.10.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tick-mark-axis"><i class="fa fa-check"></i><b>5.10.9</b> Kustomisasi Tick Mark Axis</a></li>
+<li class="chapter" data-level="5.10.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-garis-lurus-pada-plot"><i class="fa fa-check"></i><b>5.10.10</b> Menambahkan Garis Lurus Pada Plot</a></li>
+<li class="chapter" data-level="5.10.11" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#melakukan-rotasi-pada-grafik"><i class="fa fa-check"></i><b>5.10.11</b> Melakukan Rotasi Pada Grafik</a></li>
+<li class="chapter" data-level="5.10.12" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#facet"><i class="fa fa-check"></i><b>5.10.12</b> Facet</a></li>
 </ul></li>
+<li class="chapter" data-level="5.11" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#referensi-4"><i class="fa fa-check"></i><b>5.11</b> Referensi</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -1471,7 +1476,7 @@ Gambar 5.53: Scatterplot dengan tema Wall Street Journal
 ##             plot.title = element_text(hjust = 0, face = &quot;bold&quot;), 
 ##             plot.margin = unit(c(1, 1, 1, 1), &quot;lines&quot;), strip.background = element_rect())
 ## }
-## &lt;bytecode: 0x0000000018d13e60&gt;
+## &lt;bytecode: 0x0000000018e5f998&gt;
 ## &lt;environment: namespace:ggthemes&gt;</code></pre>
 <p>Berdasarkan output yang disajikan kita dapat merubah sejumlah argumen seperti base size, color, base_family, dll.</p>
 </div>
@@ -1577,8 +1582,345 @@ gapminder<span class="op">%&gt;%</span>
 Gambar 5.56: Scatterplot dengan transformasi axis
 </p>
 </div>
+<p><em>Tick mark</em> pada axis juga dapat kita atur menggunakan fungsi <code>scale_x_continous()</code> dan <code>scale_y_continous()</code>. Untuk mengubah format dan label <em>tick mark</em> kita perlu menginstall dan memuat library <code>scales</code> yang berfungsi untuk mengakses fungsi pada argumen break. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:gglimits4">5.57</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
+<span class="co"># install.packages(&quot;scales&quot;)</span>
 
+<span class="co"># memuat paket</span>
+<span class="kw">library</span>(scales)</code></pre></div>
+<pre><code>## Warning: package &#39;scales&#39; was built under R version
+## 3.5.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
+<span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap, lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># kustomisasi tick mark sumbu y</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span> <span class="kw">log2_trans</span>(),
+                     <span class="dt">breaks=</span><span class="kw">trans_breaks</span>(<span class="st">&quot;log2&quot;</span>, <span class="cf">function</span>(x) <span class="dv">2</span><span class="op">^</span>x),
+                     <span class="dt">labels=</span> <span class="kw">trans_format</span>(<span class="st">&quot;log2&quot;</span>, <span class="kw">math_format</span>(<span class="dv">2</span><span class="op">^</span>.x)))<span class="op">+</span>
+<span class="st">  </span><span class="co"># kustomisasi sumbu x</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">labels =</span> dollar)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:gglimits4"></span>
+<img src="EnvStat_files/figure-html/gglimits4-1.png" alt="Scatterplot dengan transformasi tick mark axis " width="70%" />
+<p class="caption">
+Gambar 5.57: Scatterplot dengan transformasi tick mark axis
+</p>
 </div>
+</div>
+<div id="kustomisasi-tick-mark-axis" class="section level3">
+<h3><span class="header-section-number">5.10.9</span> Kustomisasi Tick Mark Axis</h3>
+<p>Pada bagian ini pembaca akan mempelajari bagaimana melakukan kustomisasi tampilan <em>tick mark</em>. Selain itu kita juga akan belajar bagaimana melakukan pengaturan pada garis axis.</p>
+<p>Warna, ukuran font, dan tampilan font (<em>font style</em>) pada <em>tick mark</em> dapat diubah menggunakan fungsi <code>theme()</code> dan <code>element_text()</code>. Format yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># x axis tick mark labels</span>
+<span class="op">&lt;</span>plot<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span> <span class="kw">element_text</span>(family, face, colour, size, angle))
+<span class="co"># y axis tick mark labels</span>
+<span class="op">&lt;</span>plot<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(family, face, colour, size, angle))</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>family</strong>: <em>font family</em>, seperti: “sans”,“times new roman”, dll.</li>
+<li><strong>face</strong>: <em>font face</em>, nilai yang mungkin adalah “plain”, “italic”, “bold” dan “bold.italic”.</li>
+<li><strong>color</strong>: warna teks.</li>
+<li><strong>size</strong>: ukuran teks dalam satuan pts.</li>
+<li><strong>angle</strong>: sudut kemiringan teks berkisar antara 0 sampai 360.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggtick">5.58</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, gdpPercap,
+                      <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_economist</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_economist</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># kustomisasi tick mark</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, 
+                                   <span class="dt">color=</span><span class="st">&quot;#993333&quot;</span>,
+                                   <span class="dt">size=</span><span class="dv">10</span>, 
+                                   <span class="dt">angle=</span><span class="dv">30</span>),
+          <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, 
+                                     <span class="dt">color=</span><span class="st">&quot;#993333&quot;</span>,
+                                     <span class="dt">size=</span><span class="dv">10</span>, 
+                                     <span class="dt">angle=</span><span class="dv">30</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggtick"></span>
+<img src="EnvStat_files/figure-html/ggtick-1.png" alt="Mengubah tampilan dari tick mark" width="70%" />
+<p class="caption">
+Gambar 5.58: Mengubah tampilan dari tick mark
+</p>
+</div>
+<p>Untuk menonaktifkan <em>tick mark</em> pada plot kita dapat menggunakan fungsi <code>element_blank()</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggtick2">5.59</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, gdpPercap,
+                      <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_stata</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_stata</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># menyembunyikan tick mark dan tick mark label</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span><span class="kw">element_blank</span>(),
+  <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(),
+  <span class="dt">axis.ticks=</span><span class="kw">element_blank</span>())</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggtick2"></span>
+<img src="EnvStat_files/figure-html/ggtick2-1.png" alt="Menyembunyikan tampilan dari tick mark" width="70%" />
+<p class="caption">
+Gambar 5.59: Menyembunyikan tampilan dari tick mark
+</p>
+</div>
+<p>Kita dapat melakukan pengaturan terhadap garis axis menggunakan argumen <code>axis.lines</code> dan fungsi <code>element_line</code>. Berikut adalah format yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&lt;</span>plot<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.line =</span> <span class="kw">element_line</span>(color,size, linetype,
+                                        lineend, color))</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>color</strong>: warna garis.</li>
+<li><strong>size</strong>: ukuran garis.</li>
+<li><strong>linetype</strong>: jenis garis.</li>
+<li><strong>lineend</strong>: akhir dari garis. Nilai yang dapat dimasukkan antara lain: “round”, “butt” atau “square”.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggtick3">5.60</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, gdpPercap,
+                      <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_wsj</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_wsj</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># kustomisasi garis axis</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.line =</span> <span class="kw">element_line</span>(<span class="dt">colour =</span> <span class="st">&quot;darkblue&quot;</span>, 
+                      <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">linetype =</span> <span class="st">&quot;solid&quot;</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggtick3"></span>
+<img src="EnvStat_files/figure-html/ggtick3-1.png" alt="Kustomisasi tampilan dari garis axis" width="70%" />
+<p class="caption">
+Gambar 5.60: Kustomisasi tampilan dari garis axis
+</p>
+</div>
+<p>Kita dapat mengatur <em>tick</em> pada axis baik yang memiliki skala diskrit maupun kontinyu. Fungsi yang digunakan adalah <code>scale_x_continous()</code> dan <code>scale_y_continous()</code> untuk <em>tick</em> dengan nilai kontinyu dan <code>scale_x_discrete()</code> dan <code>scale_y_discrete()</code>.</p>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggtick4">5.61</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, lifeExp,
+                      <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_gdocs</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_gdocs</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># kustomisasi tick mark</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(
+    <span class="co"># nilai dari 0 sampai 100 tiap 10 tick</span>
+    <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggtick4"></span>
+<img src="EnvStat_files/figure-html/ggtick4-1.png" alt="Kustomisasi tick mark" width="70%" />
+<p class="caption">
+Gambar 5.61: Kustomisasi tick mark
+</p>
+</div>
+</div>
+<div id="menambahkan-garis-lurus-pada-plot" class="section level3">
+<h3><span class="header-section-number">5.10.10</span> Menambahkan Garis Lurus Pada Plot</h3>
+<p>Fungsi yang dapat digunakan untuk menambahkan garis lurus antara lain:</p>
+<ul>
+<li><strong>geom_hline()</strong>: menambahkan garis horizontal.</li>
+<li><strong>geom_abline()</strong>: menambahkan garis regresi.</li>
+<li><strong>geom_vline()</strong>: menambahkan garis vertikal.</li>
+<li><strong>geom_segment()</strong>: menambahkan garis segmen.</li>
+</ul>
+<p>Format yang digunakan untuk fungsi <code>geom_hline()</code> dan <code>geom_vline()</code> adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geom_hline</span>(yintercept, linetype, color, size)
+<span class="kw">geom_vline</span>(xintercept, linetype, color, size)</code></pre></div>
+<p>Berikut adalah contoh penerapan kedua fungsi tersebut yang disajikan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggvline">5.62</a> dan Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:gghline">5.63</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(lifeExp, <span class="dt">fill=</span>..count..))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_calc</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan garis vertikal</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="kw">mean</span>(gapminder<span class="op">$</span>lifeExp), 
+             <span class="dt">linetype=</span><span class="st">&quot;twodash&quot;</span>,
+             <span class="dt">color=</span><span class="st">&quot;red&quot;</span>,
+             <span class="dt">size=</span><span class="fl">1.5</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggvline"></span>
+<img src="EnvStat_files/figure-html/ggvline-1.png" alt="Penerapan vline" width="70%" />
+<p class="caption">
+Gambar 5.62: Penerapan vline
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, lifeExp, 
+                      <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_calc</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_calc</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan garis horizontal</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="kw">mean</span>(gapminder<span class="op">$</span>lifeExp), 
+             <span class="dt">linetype=</span><span class="st">&quot;twodash&quot;</span>,
+             <span class="dt">color=</span><span class="st">&quot;red&quot;</span>,
+             <span class="dt">size=</span><span class="fl">1.5</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:gghline"></span>
+<img src="EnvStat_files/figure-html/gghline-1.png" alt="Penerapan hline" width="70%" />
+<p class="caption">
+Gambar 5.63: Penerapan hline
+</p>
+</div>
+<p>Selain menggunakan fungsi <code>geom_smooth()</code>, garis regresi dapat ditambahkan melalui fungsi `geom_abline(). Format yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geom_abline</span>(intercept, slope, linetype, color, size)</code></pre></div>
+<p>Untuk membuat garis regresi kita perlu membuat model regresi terlebih dahulu menggunakn fungsi <code>lm()</code>. Berikut adalah contoh model yang dibuat beserta koefisien regresinya.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat model regresi</span>
+mod &lt;-<span class="st"> </span><span class="kw">lm</span>(lifeExp<span class="op">~</span>gdpPercap, <span class="dt">data=</span>gapminder)
+
+<span class="co"># print model</span>
+mod</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = lifeExp ~ gdpPercap, data = gapminder)
+## 
+## Coefficients:
+## (Intercept)    gdpPercap  
+##    5.40e+01     7.65e-04</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># koefisien regresi model</span>
+coef &lt;-<span class="st"> </span><span class="kw">coefficients</span>(mod)
+
+<span class="co"># print koefisien</span>
+coef</code></pre></div>
+<pre><code>## (Intercept)   gdpPercap 
+##   5.396e+01   7.649e-04</code></pre>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggabline">5.64</a> untuk membuat plot regresi linier.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap, lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;grey&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_stata</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan garis regresi</span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept=</span><span class="fl">5.395556e+01</span>,
+         <span class="dt">slope=</span><span class="fl">7.648826e-04</span>,
+         <span class="dt">linetype=</span><span class="st">&quot;twodash&quot;</span>,
+             <span class="dt">color=</span><span class="st">&quot;red&quot;</span>,
+             <span class="dt">size=</span><span class="dv">1</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggabline"></span>
+<img src="EnvStat_files/figure-html/ggabline-1.png" alt="Penerapan abline" width="70%" />
+<p class="caption">
+Gambar 5.64: Penerapan abline
+</p>
+</div>
+<p>Kita dapat menambahkan garis segment untuk menunjukkan sebuah observasi. Format yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geom_segment</span>(<span class="kw">aes</span>(x, y, xend, yend))</code></pre></div>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggsegment">5.65</a> untuk membuat garis segmen.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(grid)
+<span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap, lifeExp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;grey&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_stata</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># menambahkan tanda panah</span>
+<span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">x=</span><span class="dv">70000</span>, <span class="dt">y=</span><span class="dv">80</span>,
+                   <span class="dt">xend=</span><span class="dv">60000</span>, <span class="dt">yend=</span><span class="dv">70</span>,
+                   <span class="dt">arrow=</span><span class="kw">arrow</span>(<span class="dt">length=</span><span class="kw">unit</span>(<span class="fl">0.1</span>, <span class="st">&quot;inches&quot;</span>)),
+               <span class="dt">linetype=</span><span class="st">&quot;twodash&quot;</span>,
+               <span class="dt">color=</span><span class="st">&quot;red&quot;</span>,
+               <span class="dt">size=</span><span class="dv">1</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggsegment"></span>
+<img src="EnvStat_files/figure-html/ggsegment-1.png" alt="Penerapan garis segmen" width="70%" />
+<p class="caption">
+Gambar 5.65: Penerapan garis segmen
+</p>
+</div>
+</div>
+<div id="melakukan-rotasi-pada-grafik" class="section level3">
+<h3><span class="header-section-number">5.10.11</span> Melakukan Rotasi Pada Grafik</h3>
+<p>Rotasi grafik atau pembalikan axis dapat dilakukan menggunakan fungsi berikut:</p>
+<ul>
+<li><strong>coord_flip()</strong>: untuk membuat plot horizontal.Rotasi axis sehingga sumbu x dapat menjadi sumbu y dan sebaliknya.</li>
+<li><strong>scale_x_reverse()</strong> dan <strong>scale_x_reverse()</strong>: pembalikan skala pada axis.</li>
+</ul>
+<p>Misalkan kita ingin membuat plot horizontal pada box plot sehingga mempermudah kita dalam melakukan perbandingan terhadap masing-masing grup. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggcoord">5.66</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, lifeExp, 
+                      <span class="dt">fill=</span>continent))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_economist</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_economist</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># rotasi axis</span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggcoord"></span>
+<img src="EnvStat_files/figure-html/ggcoord-1.png" alt="Rotasi axis" width="70%" />
+<p class="caption">
+Gambar 5.66: Rotasi axis
+</p>
+</div>
+<p>Kita dapat juga melakukan pembalikan skala pada axis sehingga skala yang semula berawal dari min ke max menjadi sebaliknya. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggyreverse">5.67</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(lifeExp, <span class="dt">fill=</span>..count..))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_wsj</span>()<span class="op">+</span>
+<span class="st">  </span><span class="co"># pembalikan sumbu y</span>
+<span class="st">  </span><span class="kw">scale_y_reverse</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggyreverse"></span>
+<img src="EnvStat_files/figure-html/ggyreverse-1.png" alt="Pembalikan sumbu y" width="70%" />
+<p class="caption">
+Gambar 5.67: Pembalikan sumbu y
+</p>
+</div>
+</div>
+<div id="facet" class="section level3">
+<h3><span class="header-section-number">5.10.12</span> Facet</h3>
+<p>Facet digunakan untuk membagi plot menjadi panel matriks. Setiap panel menunjukkan setiap kelompok data. Fungsi facet yang dapat digunakan antara lain:</p>
+<ul>
+<li><strong>facet_grid()</strong></li>
+<li><strong>facet_wrap()</strong></li>
+</ul>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggfacetgrid">5.68</a> dan Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggfacetgrid2">5.69</a> untuk membuat facet pada satu variabel.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(lifeExp, <span class="dt">fill=</span>..count..))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_gdocs</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(.<span class="op">~</span>continent)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggfacetgrid"></span>
+<img src="EnvStat_files/figure-html/ggfacetgrid-1.png" alt="Facet horizontal satu variabel" width="90%" />
+<p class="caption">
+Gambar 5.68: Facet horizontal satu variabel
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(lifeExp, <span class="dt">fill=</span>..count..))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_gdocs</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(continent<span class="op">~</span>.)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggfacetgrid2"></span>
+<img src="EnvStat_files/figure-html/ggfacetgrid2-1.png" alt="Facet vertikal satu variabel" width="80%" />
+<p class="caption">
+Gambar 5.69: Facet vertikal satu variabel
+</p>
+</div>
+<p>Kita dapat pula melakukan facet terhadap dua buah variabel.Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggfacetgrid3">5.70</a> untuk membuat facet pada dua variabel.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">1952</span><span class="op">|</span>year<span class="op">==</span><span class="dv">2007</span>,
+         continent <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Asia&quot;</span>,<span class="st">&quot;Americas&quot;</span>))<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, lifeExp, 
+             <span class="dt">fill=</span><span class="kw">factor</span>(year)))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_stata</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_stata</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(continent<span class="op">~</span><span class="kw">factor</span>(year))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggfacetgrid3"></span>
+<img src="EnvStat_files/figure-html/ggfacetgrid3-1.png" alt="Facet dua variabel" width="80%" />
+<p class="caption">
+Gambar 5.70: Facet dua variabel
+</p>
+</div>
+<p>Kita dapat mengatur skala dari axis menggunakan argument sebagai berikut:</p>
+<ul>
+<li><strong>free</strong>: skala akan disesuaikan berdasarkan pada setiap axis.</li>
+<li><strong>free_x</strong>: skala pada sumbu x akan dibiarkan menyesuaikan secara bebas.</li>
+<li><strong>free_y</strong>: skala pada sumbu y akan dibiarkan menyesuaikan secara bebas.</li>
+<li><strong>fixed</strong> (default): skala axis diseragamkan pada seluruh panel.</li>
+</ul>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggfacetgrid4">5.71</a> untuk membuat facet pada dua variabel dengan skala bebas pada sumbu y.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">1952</span><span class="op">|</span>year<span class="op">==</span><span class="dv">2007</span>,
+         continent <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Asia&quot;</span>,<span class="st">&quot;Americas&quot;</span>))<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(continent, lifeExp, 
+             <span class="dt">fill=</span><span class="kw">factor</span>(year)))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_stata</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_stata</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(continent<span class="op">~</span><span class="kw">factor</span>(year), <span class="dt">scales=</span><span class="st">&quot;free_y&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ggfacetgrid4"></span>
+<img src="EnvStat_files/figure-html/ggfacetgrid4-1.png" alt="Facet dua variabel dengan skala bebas pada sumbu y" width="80%" />
+<p class="caption">
+Gambar 5.71: Facet dua variabel dengan skala bebas pada sumbu y
+</p>
+</div>
+</div>
+</div>
+<div id="referensi-4" class="section level2">
+<h2><span class="header-section-number">5.11</span> Referensi</h2>
+<ol style="list-style-type: decimal">
+<li>Wickham, H. Grolemund G. 2016. <strong>R For Data Science: Import, Tidy, Transform, Visualize, And Model Data</strong>. O’Reilly Media, Inc.</li>
+<li>Peng, R.D. 2015. <strong>Exploratory Data Analysis with R</strong>. Leanpub book.</li>
+<li>GGPLOT2 Documentation. <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a></li>
+<li>STHDA. ggplot2 - Essentials. &lt;www.sthda.com/english/wiki/ggplot2-essentials&gt;</li>
+</ol>
+
 </div>
 </div>
             </section>
