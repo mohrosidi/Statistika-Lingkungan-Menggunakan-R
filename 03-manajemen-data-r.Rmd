@@ -533,7 +533,7 @@ Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu terlebih dah
 - Setiap observasi harus memiliki barisnya sendiri
 - Setiap nilai berada pada sel tersendiri
 
-Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan *tidy*. Ketiga syarat tersebut dapat divisualisasikan melalui Figure \@ref(fig:tidy)
+Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan *tidy*. Ketiga syarat tersebut dapat divisualisasikan melalui Gambar \@ref(fig:tidy)
 
 ```{r tidy, echo=FALSE, fig.cap='Visualisasi 3 rule tidy data', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
 library(knitr)
@@ -819,7 +819,7 @@ subset(pollution_tbl,size=="large" & amount > 12)
 
 Operator ">" merupakan operator relasi (lihat chapter 2: operator relasi). Operator tersebut banyak digunakan untuk melakukan filter terhadap variabel/kolom yang mengandung nilai numerik.
 
-Operator "==" merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Figure \@ref(fig:filter) berikut:
+Operator "==" merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Gambar \@ref(fig:filter) berikut:
 
 ```{r filter, echo=FALSE, fig.cap='Diagram operasi Boolean', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
 library(knitr)
@@ -1095,7 +1095,7 @@ geom_point(aes(size = count), alpha = 1/3) +
 geom_smooth(se = FALSE)
 ```
 
-Berdasarkan Figure \@ref(fig:distvsave), rata-rata delay meningkat seiring dengan pertambahan jarak penerbangan.
+Berdasarkan Gambar \@ref(fig:distvsave), rata-rata delay meningkat seiring dengan pertambahan jarak penerbangan.
 
 ## Referensi
 

@@ -25,7 +25,7 @@
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-26">
+<meta name="date" content="2019-03-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -88,7 +88,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -240,6 +239,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#histogram-dan-desity-plot"><i class="fa fa-check"></i><b>5.6</b> Histogram dan Desity Plot</a></li>
 <li class="chapter" data-level="5.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#qq-plot-1"><i class="fa fa-check"></i><b>5.7</b> QQ Plot</a></li>
 <li class="chapter" data-level="5.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#dot-plot"><i class="fa fa-check"></i><b>5.8</b> Dot Plot</a></li>
+<li class="chapter" data-level="5.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#ecdf-plot"><i class="fa fa-check"></i><b>5.9</b> ECDF Plot</a></li>
+<li class="chapter" data-level="5.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#parameter-grafik"><i class="fa fa-check"></i><b>5.10</b> Parameter Grafik</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-judul-grafik-keterangan-axis-dan-legend"><i class="fa fa-check"></i><b>5.10.1</b> Merubah Judul Grafik, Keterangan Axis dan Legend</a></li>
+<li class="chapter" data-level="5.10.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-tampilan-dan-posisi-legend"><i class="fa fa-check"></i><b>5.10.2</b> Merubah Tampilan dan Posisi Legend</a></li>
+<li class="chapter" data-level="5.10.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-warana-pada-grafik-secara-otomatis-dan-manual"><i class="fa fa-check"></i><b>5.10.3</b> Merubah Warana Pada Grafik Secara Otomatis dan Manual</a></li>
+<li class="chapter" data-level="5.10.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-titik"><i class="fa fa-check"></i><b>5.10.4</b> Kustomisasi Titik</a></li>
+<li class="chapter" data-level="5.10.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-jenis-garis"><i class="fa fa-check"></i><b>5.10.5</b> Kustomisasi Jenis Garis</a></li>
+<li class="chapter" data-level="5.10.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-label-pada-titik-observasi-dan-bidang-plot"><i class="fa fa-check"></i><b>5.10.6</b> Menambahkan Label Pada Titik Observasi dan Bidang Plot</a></li>
+<li class="chapter" data-level="5.10.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tema-pada-plot"><i class="fa fa-check"></i><b>5.10.7</b> Kustomisasi Tema Pada Plot</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -277,9 +286,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><code>R</code> dapat digunakan sebagai kalkulator</p>
 </blockquote>
 <p>Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, <code>R</code> akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.</p>
-<p>Operator aritmatika yang disediakan <code>R</code> disajikan pada Table <a href="sintaks-bahasa-r.html#tab:oparitmatika">2.1</a>:</p>
+<p>Operator aritmatika yang disediakan <code>R</code> disajikan pada Tabel <a href="sintaks-bahasa-r.html#tab:oparitmatika">2.1</a>:</p>
 <table>
-<caption><span id="tab:oparitmatika">Table 2.1: </span> Operator Aritmatika <code>R</code>.</caption>
+<caption><span id="tab:oparitmatika">Tabel 2.1: </span> Operator Aritmatika <code>R</code>.</caption>
 <colgroup>
 <col width="15%" />
 <col width="84%" />
@@ -387,9 +396,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="operator-relasi" class="section level2">
 <h2><span class="header-section-number">2.3</span> Operator Relasi</h2>
-<p>Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan <code>R</code> disajikan pada Table <a href="sintaks-bahasa-r.html#tab:oprelasi">2.2</a>.</p>
+<p>Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan <code>R</code> disajikan pada Tabel <a href="sintaks-bahasa-r.html#tab:oprelasi">2.2</a>.</p>
 <table>
-<caption><span id="tab:oprelasi">Table 2.2: </span> Operator Relasi <code>R</code>.</caption>
+<caption><span id="tab:oprelasi">Tabel 2.2: </span> Operator Relasi <code>R</code>.</caption>
 <thead>
 <tr class="header">
 <th><strong>Simbol</strong></th>
@@ -448,9 +457,9 @@ x <span class="op">!=</span><span class="st"> </span>y</code></pre></div>
 </div>
 <div id="operator-logika" class="section level2">
 <h2><span class="header-section-number">2.4</span> Operator Logika</h2>
-<p>Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika <code>TRUE</code>. Operator logika yang disediakan <code>R</code> dapat dilihat pada Table <a href="sintaks-bahasa-r.html#tab:oplogika">2.3</a>.</p>
+<p>Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika <code>TRUE</code>. Operator logika yang disediakan <code>R</code> dapat dilihat pada Tabel <a href="sintaks-bahasa-r.html#tab:oplogika">2.3</a>.</p>
 <table>
-<caption><span id="tab:oplogika">Table 2.3: </span> Operator logika <code>R</code>.</caption>
+<caption><span id="tab:oplogika">Tabel 2.3: </span> Operator logika <code>R</code>.</caption>
 <thead>
 <tr class="header">
 <th><strong>Simbol</strong></th>
@@ -576,9 +585,9 @@ volume &lt;-<span class="st"> </span>panjang<span class="op">*</span>lebar<span 
 </div>
 <div id="tipe-data" class="section level2">
 <h2><span class="header-section-number">2.6</span> Tipe Data</h2>
-<p>Data pada <code>R</code> dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada <code>R</code> disajikan pada Table <a href="sintaks-bahasa-r.html#tab:tipedata">2.4</a>.</p>
+<p>Data pada <code>R</code> dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada <code>R</code> disajikan pada Tabel <a href="sintaks-bahasa-r.html#tab:tipedata">2.4</a>.</p>
 <table>
-<caption><span id="tab:tipedata">Table 2.4: </span> Tipe Data <code>R</code>.</caption>
+<caption><span id="tab:tipedata">Tabel 2.4: </span> Tipe Data <code>R</code>.</caption>
 <thead>
 <tr class="header">
 <th><strong>Tipe Data</strong></th>
@@ -1333,11 +1342,11 @@ keluarga</code></pre></div>
 <h2><span class="header-section-number">2.12</span> Loop</h2>
 <p><em>Loop</em> merupakan kode program yang berulang-ulang. <em>Loop</em> berguna saat kita ingin melakukan sebuah perintah yang perlu dijalankan berulang-ulang seperti melakukan perhitungan maupaun melakukan visualisasi terhadap banyak variabel secara serentak. Hal ini tentu saja membantu kita karena kita tidak perlu menulis sejumlah sintaks yang berulang-ulang. Kita hanya perlu mengatur <em>statement</em> berdasarkan hasil yang kita harapkan.</p>
 <p>Pada <code>R</code> bentuk <em>loop</em> dapat bermacam-macam (“<em>for loop</em>”,“<em>while loop</em>”, dll). <code>R</code> menyederhanakan bentuk <em>loop</em> ini dengan menyediakan sejumlah fungsi seperti <code>apply()</code>,<code>tapply()</code>, dll. Sehingga <code>loop</code> jarang sekali muncul dalam kode <code>R</code>. Sehingga <code>R</code> sering disebut sebagai <em>loopless loop</em>.</p>
-<p>Meski <em>loop</em> jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat <em>loop</em> yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure <a href="sintaks-bahasa-r.html#fig:loop">2.1</a></p>
+<p>Meski <em>loop</em> jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat <em>loop</em> yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Gambar <a href="sintaks-bahasa-r.html#fig:loop">2.1</a></p>
 <div class="figure" style="text-align: center"><span id="fig:loop"></span>
 <img src="skema_loop.png" alt="Diagram umum loop (sumber: Primartha, 2018)." width="40%" />
 <p class="caption">
-Figure 2.1: Diagram umum loop (sumber: Primartha, 2018).
+Gambar 2.1: Diagram umum loop (sumber: Primartha, 2018).
 </p>
 </div>
 <div id="for-loop" class="section level3">
@@ -1456,9 +1465,9 @@ a =<span class="st"> </span><span class="dv">1</span>
 </div>
 <div id="decision-making" class="section level2">
 <h2><span class="header-section-number">2.13</span> Decision Making</h2>
-<p><em>Decicion Making</em> atau sering disebut sebagai <em>if then else statement</em> merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table <a href="sintaks-bahasa-r.html#tab:percabangan">2.5</a> disajikan daftar percabangan yang digunakan pada <code>R</code>.</p>
+<p><em>Decicion Making</em> atau sering disebut sebagai <em>if then else statement</em> merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Tabel <a href="sintaks-bahasa-r.html#tab:percabangan">2.5</a> disajikan daftar percabangan yang digunakan pada <code>R</code>.</p>
 <table>
-<caption><span id="tab:percabangan">Table 2.5: </span> Daftar percabangan pada <code>R</code>.</caption>
+<caption><span id="tab:percabangan">Tabel 2.5: </span> Daftar percabangan pada <code>R</code>.</caption>
 <colgroup>
 <col width="16%" />
 <col width="83%" />
@@ -1486,11 +1495,11 @@ a =<span class="st"> </span><span class="dv">1</span>
 </table>
 <div id="if-statement" class="section level3">
 <h3><span class="header-section-number">2.13.1</span> if statement</h3>
-<p>Pola <em>if statement</em> disajikan pada Figure <a href="sintaks-bahasa-r.html#fig:ifstatement">2.2</a></p>
+<p>Pola <em>if statement</em> disajikan pada Gambar <a href="sintaks-bahasa-r.html#fig:ifstatement">2.2</a></p>
 <div class="figure" style="text-align: center"><span id="fig:ifstatement"></span>
 <img src="ifstatement.png" alt="Diagram if statement (sumber: Primartha, 2018)." width="40%" />
 <p class="caption">
-Figure 2.2: Diagram if statement (sumber: Primartha, 2018).
+Gambar 2.2: Diagram if statement (sumber: Primartha, 2018).
 </p>
 </div>
 <p>Berikut adalah contoh penerapan <em>if statement</em>:</p>
@@ -1502,11 +1511,11 @@ Figure 2.2: Diagram if statement (sumber: Primartha, 2018).
 </div>
 <div id="if-else-statement" class="section level3">
 <h3><span class="header-section-number">2.13.2</span> if else statement</h3>
-<p>Pola dari <em>if else statement</em> disajikan pada Figure <a href="sintaks-bahasa-r.html#fig:ifelse">2.3</a></p>
+<p>Pola dari <em>if else statement</em> disajikan pada Gambar <a href="sintaks-bahasa-r.html#fig:ifelse">2.3</a></p>
 <div class="figure" style="text-align: center"><span id="fig:ifelse"></span>
 <img src="ifelse.png" alt="Diagram if else statement (sumber: Primartha, 2018)." width="40%" />
 <p class="caption">
-Figure 2.3: Diagram if else statement (sumber: Primartha, 2018).
+Gambar 2.3: Diagram if else statement (sumber: Primartha, 2018).
 </p>
 </div>
 <p>Berikut adalah contoh penerapan <em>if else statement</em>:</p>
@@ -1522,11 +1531,11 @@ Figure 2.3: Diagram if else statement (sumber: Primartha, 2018).
 </div>
 <div id="switch-statement" class="section level3">
 <h3><span class="header-section-number">2.13.3</span> switch statement</h3>
-<p>Pola dari <em>switch statement</em> disajikan pada Figure <a href="sintaks-bahasa-r.html#fig:switch">2.4</a></p>
+<p>Pola dari <em>switch statement</em> disajikan pada Gambar <a href="sintaks-bahasa-r.html#fig:switch">2.4</a></p>
 <div class="figure" style="text-align: center"><span id="fig:switch"></span>
 <img src="switch.png" alt="Diagram switch statement (sumber: Primartha, 2018)." width="40%" />
 <p class="caption">
-Figure 2.4: Diagram switch statement (sumber: Primartha, 2018).
+Gambar 2.4: Diagram switch statement (sumber: Primartha, 2018).
 </p>
 </div>
 <p>Berikut adalah contoh penerapan <em>switch statement</em>:</p>

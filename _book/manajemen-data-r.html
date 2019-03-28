@@ -25,7 +25,7 @@
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-26">
+<meta name="date" content="2019-03-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -88,7 +88,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -240,6 +239,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#histogram-dan-desity-plot"><i class="fa fa-check"></i><b>5.6</b> Histogram dan Desity Plot</a></li>
 <li class="chapter" data-level="5.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#qq-plot-1"><i class="fa fa-check"></i><b>5.7</b> QQ Plot</a></li>
 <li class="chapter" data-level="5.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#dot-plot"><i class="fa fa-check"></i><b>5.8</b> Dot Plot</a></li>
+<li class="chapter" data-level="5.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#ecdf-plot"><i class="fa fa-check"></i><b>5.9</b> ECDF Plot</a></li>
+<li class="chapter" data-level="5.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#parameter-grafik"><i class="fa fa-check"></i><b>5.10</b> Parameter Grafik</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-judul-grafik-keterangan-axis-dan-legend"><i class="fa fa-check"></i><b>5.10.1</b> Merubah Judul Grafik, Keterangan Axis dan Legend</a></li>
+<li class="chapter" data-level="5.10.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-tampilan-dan-posisi-legend"><i class="fa fa-check"></i><b>5.10.2</b> Merubah Tampilan dan Posisi Legend</a></li>
+<li class="chapter" data-level="5.10.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-warana-pada-grafik-secara-otomatis-dan-manual"><i class="fa fa-check"></i><b>5.10.3</b> Merubah Warana Pada Grafik Secara Otomatis dan Manual</a></li>
+<li class="chapter" data-level="5.10.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-titik"><i class="fa fa-check"></i><b>5.10.4</b> Kustomisasi Titik</a></li>
+<li class="chapter" data-level="5.10.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-jenis-garis"><i class="fa fa-check"></i><b>5.10.5</b> Kustomisasi Jenis Garis</a></li>
+<li class="chapter" data-level="5.10.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-label-pada-titik-observasi-dan-bidang-plot"><i class="fa fa-check"></i><b>5.10.6</b> Menambahkan Label Pada Titik Observasi dan Bidang Plot</a></li>
+<li class="chapter" data-level="5.10.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tema-pada-plot"><i class="fa fa-check"></i><b>5.10.7</b> Kustomisasi Tema Pada Plot</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -835,11 +844,11 @@ cases</code></pre></div>
 <li>Setiap observasi harus memiliki barisnya sendiri</li>
 <li>Setiap nilai berada pada sel tersendiri</li>
 </ul>
-<p>Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan <em>tidy</em>. Ketiga syarat tersebut dapat divisualisasikan melalui Figure <a href="manajemen-data-r.html#fig:tidy">3.1</a></p>
+<p>Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan <em>tidy</em>. Ketiga syarat tersebut dapat divisualisasikan melalui Gambar <a href="manajemen-data-r.html#fig:tidy">3.1</a></p>
 <div class="figure" style="text-align: center"><span id="fig:tidy"></span>
 <img src="tidy.png" alt="Visualisasi 3 rule tidy data" width="293" />
 <p class="caption">
-Figure 3.1: Visualisasi 3 rule tidy data
+Gambar 3.1: Visualisasi 3 rule tidy data
 </p>
 </div>
 <p>Pada dataset <code>storms</code> terdapat 4 buah kolom dan 6 buah baris. Masing-masing kolom menyatakan variabel pada masing-masing observasi seperti nama badai , kecepatan angin, tekanan dan waktu . Ketiga syarat kerapihan data sudah terpenuhi pada data tersebut sehingga kita bisa melakukan analisa terhadap data tersebut, misalnya kecepatan angin dan tekanan pada masing-masing badai. Selain itu kita juga dapat dengan mudah menginput variabel baru pada dataset tersebut, misal: rasio (kecepatan angin/tekanan).</p>
@@ -1167,11 +1176,11 @@ storms_old</code></pre></div>
 ## 2 London   large     22
 ## 3 Beijing  large    121</code></pre>
 <p>Operator “&gt;” merupakan operator relasi (lihat chapter 2: operator relasi). Operator tersebut banyak digunakan untuk melakukan filter terhadap variabel/kolom yang mengandung nilai numerik.</p>
-<p>Operator “==” merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Figure <a href="manajemen-data-r.html#fig:filter">3.2</a> berikut:</p>
+<p>Operator “==” merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Gambar <a href="manajemen-data-r.html#fig:filter">3.2</a> berikut:</p>
 <div class="figure" style="text-align: center"><span id="fig:filter"></span>
 <img src="filter.PNG" alt="Diagram operasi Boolean" width="236" />
 <p class="caption">
-Figure 3.2: Diagram operasi Boolean
+Gambar 3.2: Diagram operasi Boolean
 </p>
 </div>
 <blockquote>
@@ -1641,10 +1650,10 @@ delays</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:distvsave"></span>
 <img src="EnvStat_files/figure-html/distvsave-1.png" alt="Jarak vs rata-rata delay" width="70%" />
 <p class="caption">
-Figure 3.3: Jarak vs rata-rata delay
+Gambar 3.3: Jarak vs rata-rata delay
 </p>
 </div>
-<p>Berdasarkan Figure <a href="manajemen-data-r.html#fig:distvsave">3.3</a>, rata-rata delay meningkat seiring dengan pertambahan jarak penerbangan.</p>
+<p>Berdasarkan Gambar <a href="manajemen-data-r.html#fig:distvsave">3.3</a>, rata-rata delay meningkat seiring dengan pertambahan jarak penerbangan.</p>
 </div>
 </div>
 <div id="referensi-2" class="section level2">

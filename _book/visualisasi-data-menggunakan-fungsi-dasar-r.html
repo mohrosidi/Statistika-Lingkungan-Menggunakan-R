@@ -25,7 +25,7 @@
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-26">
+<meta name="date" content="2019-03-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -88,7 +88,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -240,6 +239,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#histogram-dan-desity-plot"><i class="fa fa-check"></i><b>5.6</b> Histogram dan Desity Plot</a></li>
 <li class="chapter" data-level="5.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#qq-plot-1"><i class="fa fa-check"></i><b>5.7</b> QQ Plot</a></li>
 <li class="chapter" data-level="5.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#dot-plot"><i class="fa fa-check"></i><b>5.8</b> Dot Plot</a></li>
+<li class="chapter" data-level="5.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#ecdf-plot"><i class="fa fa-check"></i><b>5.9</b> ECDF Plot</a></li>
+<li class="chapter" data-level="5.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#parameter-grafik"><i class="fa fa-check"></i><b>5.10</b> Parameter Grafik</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-judul-grafik-keterangan-axis-dan-legend"><i class="fa fa-check"></i><b>5.10.1</b> Merubah Judul Grafik, Keterangan Axis dan Legend</a></li>
+<li class="chapter" data-level="5.10.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-tampilan-dan-posisi-legend"><i class="fa fa-check"></i><b>5.10.2</b> Merubah Tampilan dan Posisi Legend</a></li>
+<li class="chapter" data-level="5.10.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-warana-pada-grafik-secara-otomatis-dan-manual"><i class="fa fa-check"></i><b>5.10.3</b> Merubah Warana Pada Grafik Secara Otomatis dan Manual</a></li>
+<li class="chapter" data-level="5.10.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-titik"><i class="fa fa-check"></i><b>5.10.4</b> Kustomisasi Titik</a></li>
+<li class="chapter" data-level="5.10.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-jenis-garis"><i class="fa fa-check"></i><b>5.10.5</b> Kustomisasi Jenis Garis</a></li>
+<li class="chapter" data-level="5.10.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-label-pada-titik-observasi-dan-bidang-plot"><i class="fa fa-check"></i><b>5.10.6</b> Menambahkan Label Pada Titik Observasi dan Bidang Plot</a></li>
+<li class="chapter" data-level="5.10.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tema-pada-plot"><i class="fa fa-check"></i><b>5.10.7</b> Kustomisasi Tema Pada Plot</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -285,7 +294,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>type=“n” : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.</li>
 </ul>
 </blockquote>
-<p>Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:plot">4.1</a>:</p>
+<p>Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:plot">4.1</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor data </span>
 x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>); y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membagi jendela grafik menajdi 4 baris dan 2 kolom</span>
@@ -300,7 +309,7 @@ type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&q
 <div class="figure" style="text-align: center"><span id="fig:plot"></span>
 <img src="EnvStat_files/figure-html/plot-1.png" alt="Plot berbagai jenis setting type" width="80%" />
 <p class="caption">
-Figure 4.1: Plot berbagai jenis setting type
+Gambar 4.1: Plot berbagai jenis setting type
 </p>
 </div>
 <p>Pada contoh selanjutnya akan dilakukan plot terhadap dataset <code>trees</code>. Untuk memuatnya jalankan sintaks berikut:</p>
@@ -331,23 +340,23 @@ trees</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:scatter"></span>
 <img src="EnvStat_files/figure-html/scatter-1.png" alt="Scatterplot Height vs Volume" width="70%" />
 <p class="caption">
-Figure 4.2: Scatterplot Height vs Volume
+Gambar 4.2: Scatterplot Height vs Volume
 </p>
 </div>
-<p>Kita juga dapat menggunakan formula untuk membuat scatterplot pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:scatter">4.2</a>. Berikut adalah contoh sintaks yang digunakan:</p>
+<p>Kita juga dapat menggunakan formula untuk membuat scatterplot pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:scatter">4.2</a>. Berikut adalah contoh sintaks yang digunakan:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>trees<span class="op">$</span>Height
 y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume
 
 <span class="kw">plot</span>(y<span class="op">~</span>x)</code></pre></div>
-<p>Fungsi <code>plot()</code> juga dapat digunakan untuk membentuk matriks scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh dataset kedalam fungsi <code>plot()</code>. Berikut adalah sintaks dan output yang dihasilkan berupa Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:scatter2">4.3</a>:</p>
+<p>Fungsi <code>plot()</code> juga dapat digunakan untuk membentuk matriks scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh dataset kedalam fungsi <code>plot()</code>. Berikut adalah sintaks dan output yang dihasilkan berupa Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:scatter2">4.3</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(trees)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:scatter2"></span>
 <img src="EnvStat_files/figure-html/scatter2-1.png" alt="Matriks scatterplot dataset trees" width="80%" />
 <p class="caption">
-Figure 4.3: Matriks scatterplot dataset trees
+Gambar 4.3: Matriks scatterplot dataset trees
 </p>
 </div>
-<p>Selain itu jika kita memasukkan objek <code>lm()</code> yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi <code>plot()</code>, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:diag">4.4</a>:</p>
+<p>Selain itu jika kita memasukkan objek <code>lm()</code> yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi <code>plot()</code>, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:diag">4.4</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membagi jendela grafik menjadi 2 baris dan 2 kolom</span>
 <span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
 
@@ -356,7 +365,7 @@ Figure 4.3: Matriks scatterplot dataset trees
 <div class="figure" style="text-align: center"><span id="fig:diag"></span>
 <img src="EnvStat_files/figure-html/diag-1.png" alt="Plot diagnostik regresi linier" width="80%" />
 <p class="caption">
-Figure 4.4: Plot diagnostik regresi linier
+Gambar 4.4: Plot diagnostik regresi linier
 </p>
 </div>
 <p>Selain objek-objek tersebut, fungsi <code>plot()</code> akan banyak digunakan dalam analisis statistika kita pada chapter lainnya.</p>
@@ -393,23 +402,23 @@ iris</code></pre></div>
 ## 10          4.9         3.1          1.5         0.1
 ## # ... with 140 more rows, and 1 more variable:
 ## #   Species &lt;fct&gt;</code></pre>
-<p>Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek <code>iris</code> kedalam fungsi <code>pairs()</code>. Berikut adalah sintaks yang digunakan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat">4.5</a>:</p>
+<p>Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek <code>iris</code> kedalam fungsi <code>pairs()</code>. Berikut adalah sintaks yang digunakan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat">4.5</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(iris)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:matscat"></span>
 <img src="EnvStat_files/figure-html/matscat-1.png" alt="Matriks scatterplot iris" width="80%" />
 <p class="caption">
-Figure 4.5: Matriks scatterplot iris
+Gambar 4.5: Matriks scatterplot iris
 </p>
 </div>
-<p>Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter <code>lower.panel=NULL</code>. Output yang dihasilkan akan tampak seperti pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat2">4.6</a>.</p>
+<p>Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter <code>lower.panel=NULL</code>. Output yang dihasilkan akan tampak seperti pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat2">4.6</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(iris, <span class="dt">lower.panel=</span><span class="ot">NULL</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:matscat2"></span>
 <img src="EnvStat_files/figure-html/matscat2-1.png" alt="Matriks scatterplot iris tanpa panel bawah" width="80%" />
 <p class="caption">
-Figure 4.6: Matriks scatterplot iris tanpa panel bawah
+Gambar 4.6: Matriks scatterplot iris tanpa panel bawah
 </p>
 </div>
-<p>Kita dapat merubah warna titik berdasarkan factor <code>Species</code>. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel <code>Species</code> pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi <code>pairs()</code>. Warna berdasarkan grup diberikan dengan menambahkan parameter <code>col=</code> pada fungsi <code>pairs()</code>. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat3">4.7</a>:</p>
+<p>Kita dapat merubah warna titik berdasarkan factor <code>Species</code>. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel <code>Species</code> pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi <code>pairs()</code>. Warna berdasarkan grup diberikan dengan menambahkan parameter <code>col=</code> pada fungsi <code>pairs()</code>. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat3">4.7</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># drop variabel Species</span>
 <span class="co"># simpan dataset baru pada objek iris2</span>
 iris2 &lt;-<span class="st"> </span>iris[ ,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]
@@ -440,10 +449,10 @@ my_col &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">
 <div class="figure" style="text-align: center"><span id="fig:matscat3"></span>
 <img src="EnvStat_files/figure-html/matscat3-1.png" alt="Matriks scatterplot iris tanpa panel bawah" width="80%" />
 <p class="caption">
-Figure 4.7: Matriks scatterplot iris tanpa panel bawah
+Gambar 4.7: Matriks scatterplot iris tanpa panel bawah
 </p>
 </div>
-<p>Kita juga dapat mengganti panel bawah menjadi nilai korelasi antar variabel. Untuk melakukannya kita perlu mendefinisikan sebuah fungsi untuk panel bawah dan panel atas (jika ingin warna titik berdasarkan factor). Setelah fungsi panel bawah dan atas didefinisikan, langkah selanjutnya adalah melakukan memasukkan nilainya kedalam fungsi <code>pairs()</code>. Berikut adalah sintaks yang digunakan serta output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat4">4.8</a>:</p>
+<p>Kita juga dapat mengganti panel bawah menjadi nilai korelasi antar variabel. Untuk melakukannya kita perlu mendefinisikan sebuah fungsi untuk panel bawah dan panel atas (jika ingin warna titik berdasarkan factor). Setelah fungsi panel bawah dan atas didefinisikan, langkah selanjutnya adalah melakukan memasukkan nilainya kedalam fungsi <code>pairs()</code>. Berikut adalah sintaks yang digunakan serta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat4">4.8</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat fungsi untuk menghitung</span>
 <span class="co"># nilai korelasi yang ditempatkan pada panel bawah</span>
 panel.cor &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){
@@ -472,10 +481,10 @@ upper.panel&lt;-<span class="cf">function</span>(x, y){
 <div class="figure" style="text-align: center"><span id="fig:matscat4"></span>
 <img src="EnvStat_files/figure-html/matscat4-1.png" alt="Matriks scatterplot iris dengan koefisien korelasi" width="80%" />
 <p class="caption">
-Figure 4.8: Matriks scatterplot iris dengan koefisien korelasi
+Gambar 4.8: Matriks scatterplot iris dengan koefisien korelasi
 </p>
 </div>
-<p>Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter <code>upper.panel=</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat5">4.9</a>:</p>
+<p>Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter <code>upper.panel=</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:matscat5">4.9</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># kustomisasi panel atas</span>
 upper.panel&lt;-<span class="cf">function</span>(x, y){
   <span class="kw">points</span>(x,y, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)[iris<span class="op">$</span>Species])
@@ -492,29 +501,29 @@ upper.panel&lt;-<span class="cf">function</span>(x, y){
 <div class="figure" style="text-align: center"><span id="fig:matscat5"></span>
 <img src="EnvStat_files/figure-html/matscat5-1.png" alt="Matriks scatterplot iris dengan koefisien korelasi di panel atas" width="80%" />
 <p class="caption">
-Figure 4.9: Matriks scatterplot iris dengan koefisien korelasi di panel atas
+Gambar 4.9: Matriks scatterplot iris dengan koefisien korelasi di panel atas
 </p>
 </div>
 </div>
 <div id="box-plot" class="section level2">
 <h2><span class="header-section-number">4.3</span> Box plot</h2>
-<p>Box plot pada <code>R</code> dapat dibuat menggunakan fungsi <code>boxplot()</code>. Berikut adalah sintaks untuk membuat boxplot variabel <code>Sepal.Lenght</code> pada dataset <code>iris</code> dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot">4.10</a>:</p>
+<p>Box plot pada <code>R</code> dapat dibuat menggunakan fungsi <code>boxplot()</code>. Berikut adalah sintaks untuk membuat boxplot variabel <code>Sepal.Lenght</code> pada dataset <code>iris</code> dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot">4.10</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:boxplot"></span>
 <img src="EnvStat_files/figure-html/boxplot-1.png" alt="Boxplot variabel Sepal.Length" width="70%" />
 <p class="caption">
-Figure 4.10: Boxplot variabel Sepal.Length
+Gambar 4.10: Boxplot variabel Sepal.Length
 </p>
 </div>
-<p>Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel <code>Species</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot2">4.11</a>:</p>
+<p>Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel <code>Species</code>. Output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot2">4.11</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(iris<span class="op">$</span>Sepal.Length<span class="op">~</span>iris<span class="op">$</span>Species)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:boxplot2"></span>
 <img src="EnvStat_files/figure-html/boxplot2-1.png" alt="Boxplot berdasarkan variabel species" width="70%" />
 <p class="caption">
-Figure 4.11: Boxplot berdasarkan variabel species
+Gambar 4.11: Boxplot berdasarkan variabel species
 </p>
 </div>
-<p>Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut adalah contoh sintaks yang digunakan untuk melakukannya dan output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot3">4.12</a>:</p>
+<p>Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut adalah contoh sintaks yang digunakan untuk melakukannya dan output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot3">4.12</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(iris<span class="op">$</span>Sepal.Length<span class="op">~</span>iris<span class="op">$</span>Species,
         <span class="co"># ubah warna outline menjadi steelblue</span>
         <span class="dt">border =</span> <span class="st">&quot;steelblue&quot;</span>,
@@ -523,7 +532,7 @@ Figure 4.11: Boxplot berdasarkan variabel species
 <div class="figure" style="text-align: center"><span id="fig:boxplot3"></span>
 <img src="EnvStat_files/figure-html/boxplot3-1.png" alt="Boxplot dengan warna berdasarkan spesies" width="70%" />
 <p class="caption">
-Figure 4.12: Boxplot dengan warna berdasarkan spesies
+Gambar 4.12: Boxplot dengan warna berdasarkan spesies
 </p>
 </div>
 <p>Kita juga dapat membuat boxplot pada <em>multiple group</em>. Data yang digunakan untuk contoh tersebut adalah dataset <code>ToothGrowth</code>. Berikut adalah sintaks untuk memuat dataset tersebut:</p>
@@ -565,13 +574,13 @@ ToothGrowth</code></pre></div>
 ##  9   5.2 VC    0.5  
 ## 10   7   VC    0.5  
 ## # ... with 50 more rows</code></pre>
-<p>Contoh sintaks dan output boxplot <em>multiple group</em> disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot4">4.13</a>:</p>
+<p>Contoh sintaks dan output boxplot <em>multiple group</em> disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:boxplot4">4.13</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>supp<span class="op">*</span>dose, <span class="dt">data =</span> ToothGrowth,
         <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;steelblue&quot;</span>))</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:boxplot4"></span>
 <img src="EnvStat_files/figure-html/boxplot4-1.png" alt="Boxplot multiple group" width="70%" />
 <p class="caption">
-Figure 4.13: Boxplot multiple group
+Gambar 4.13: Boxplot multiple group
 </p>
 </div>
 </div>
@@ -585,18 +594,18 @@ Figure 4.13: Boxplot multiple group
 ## 60-64       26.9         20.3       37.0         19.3
 ## 65-69       41.0         30.9       54.6         35.1
 ## 70-74       66.0         54.3       71.1         50.0</code></pre>
-<p>Contoh bar plot untuk variabel <code>Rural Male</code> disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot">4.14</a>:</p>
+<p>Contoh bar plot untuk variabel <code>Rural Male</code> disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot">4.14</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
 <span class="kw">barplot</span>(VADeaths[, <span class="st">&quot;Rural Male&quot;</span>], <span class="dt">main=</span><span class="st">&quot;a&quot;</span>)
 <span class="kw">barplot</span>(VADeaths[, <span class="st">&quot;Rural Male&quot;</span>], <span class="dt">main=</span><span class="st">&quot;b&quot;</span>, <span class="dt">horiz=</span><span class="ot">TRUE</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:barplot"></span>
 <img src="EnvStat_files/figure-html/barplot-1.png" alt="a. bar plot vertikal; b. bar plot horizontal" width="70%" />
 <p class="caption">
-Figure 4.14: a. bar plot vertikal; b. bar plot horizontal
+Gambar 4.14: a. bar plot vertikal; b. bar plot horizontal
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
-<p>Kita dapat mengubah warna pada masing-masing bar, baik outline bar maupun box pada bar. Selain itu kita juga dapat mengubah nama grup yang telah dihasilkan sebelumnya. Berikut sintaks untuk melakukannya dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot2">4.15</a>:</p>
+<p>Kita dapat mengubah warna pada masing-masing bar, baik outline bar maupun box pada bar. Selain itu kita juga dapat mengubah nama grup yang telah dihasilkan sebelumnya. Berikut sintaks untuk melakukannya dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot2">4.15</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(VADeaths[, <span class="st">&quot;Rural Male&quot;</span>],
         <span class="co"># ubah warna ouline menjadi steelblue</span>
         <span class="dt">border=</span><span class="st">&quot;steelblue&quot;</span>,
@@ -609,10 +618,10 @@ Figure 4.14: a. bar plot vertikal; b. bar plot horizontal
 <div class="figure" style="text-align: center"><span id="fig:barplot2"></span>
 <img src="EnvStat_files/figure-html/barplot2-1.png" alt="Kustomisasi bar plot" width="70%" />
 <p class="caption">
-Figure 4.15: Kustomisasi bar plot
+Gambar 4.15: Kustomisasi bar plot
 </p>
 </div>
-<p>Untuk bar plot dengan <em>multiple group</em>, tersedia dua pengaturan posisi yaitu <em>stacked bar plot</em>(menunjukkan proporsi penyusun pada masing-masing grup) dan <em>grouped bar plot</em>(melihat perbedaan individual pada masing-masing grup). Pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot3">4.16</a> dan Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot4">4.17</a> , disajikan kedua jenis bar plot tersebut.</p>
+<p>Untuk bar plot dengan <em>multiple group</em>, tersedia dua pengaturan posisi yaitu <em>stacked bar plot</em>(menunjukkan proporsi penyusun pada masing-masing grup) dan <em>grouped bar plot</em>(melihat perbedaan individual pada masing-masing grup). Pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot3">4.16</a> dan Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:barplot4">4.17</a> , disajikan kedua jenis bar plot tersebut.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># staked</span>
 <span class="kw">barplot</span>(VADeaths,
          <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;mistyrose&quot;</span>, <span class="st">&quot;lightcyan&quot;</span>, 
@@ -621,7 +630,7 @@ Figure 4.15: Kustomisasi bar plot
 <div class="figure" style="text-align: center"><span id="fig:barplot3"></span>
 <img src="EnvStat_files/figure-html/barplot3-1.png" alt="Stacked bar plot" width="70%" />
 <p class="caption">
-Figure 4.16: Stacked bar plot
+Gambar 4.16: Stacked bar plot
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># grouped</span>
@@ -632,13 +641,13 @@ Figure 4.16: Stacked bar plot
 <div class="figure" style="text-align: center"><span id="fig:barplot4"></span>
 <img src="EnvStat_files/figure-html/barplot4-1.png" alt="Grouped bar plot" width="70%" />
 <p class="caption">
-Figure 4.17: Grouped bar plot
+Gambar 4.17: Grouped bar plot
 </p>
 </div>
 </div>
 <div id="line-plot" class="section level2">
 <h2><span class="header-section-number">4.5</span> Line Plot</h2>
-<p>Line plot pada <code>R</code> dapat dibentuk menggunakan fungsi <code>plot()</code>. Selain itu fungsi <code>lines()</code> dapat pula digunakan untuk menambahkan line plot pada grafik. Berikut adalah sintaks untuk membuat line plot dan outputnya pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:line">4.18</a>:</p>
+<p>Line plot pada <code>R</code> dapat dibentuk menggunakan fungsi <code>plot()</code>. Selain itu fungsi <code>lines()</code> dapat pula digunakan untuk menambahkan line plot pada grafik. Berikut adalah sintaks untuk membuat line plot dan outputnya pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:line">4.18</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Membuat vektor data</span>
 x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)
 y &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">*</span>x
@@ -660,13 +669,13 @@ z &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</sp
 <div class="figure" style="text-align: center"><span id="fig:line"></span>
 <img src="EnvStat_files/figure-html/line-1.png" alt="Line plot" width="70%" />
 <p class="caption">
-Figure 4.18: Line plot
+Gambar 4.18: Line plot
 </p>
 </div>
 </div>
 <div id="pie-chart" class="section level2">
 <h2><span class="header-section-number">4.6</span> Pie Chart</h2>
-<p>Pie chart digunakan untuk membuat visualisasi proporsi pada sebuah data. Pie chart pada <code>R</code> dibuat menggunakan fungsi <code>pie()</code>. Berikut adalah sintaks untuk membuat pie chart dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:pie">4.19</a>:</p>
+<p>Pie chart digunakan untuk membuat visualisasi proporsi pada sebuah data. Pie chart pada <code>R</code> dibuat menggunakan fungsi <code>pie()</code>. Berikut adalah sintaks untuk membuat pie chart dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:pie">4.19</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))
 <span class="kw">pie</span>(
   <span class="kw">c</span>(<span class="dv">280</span>, <span class="dv">60</span>, <span class="dv">20</span>),
@@ -677,7 +686,7 @@ Figure 4.18: Line plot
 <div class="figure" style="text-align: center"><span id="fig:pie"></span>
 <img src="EnvStat_files/figure-html/pie-1.png" alt="Pie chart" width="70%" />
 <p class="caption">
-Figure 4.19: Pie chart
+Gambar 4.19: Pie chart
 </p>
 </div>
 </div>
@@ -694,14 +703,14 @@ Figure 4.19: Pie chart
 </blockquote>
 <p>Pada dataset <code>trees</code> akan dibuat histogram variabel <code>Height</code>. Untuk melakukannya jalankan sintaks berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(trees<span class="op">$</span>Height)</code></pre></div>
-<p>Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:hist">4.20</a>:</p>
+<p>Output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:hist">4.20</a>:</p>
 <div class="figure" style="text-align: center"><span id="fig:hist"></span>
 <img src="EnvStat_files/figure-html/hist-1.png" alt="Histogram" width="70%" />
 <p class="caption">
-Figure 4.20: Histogram
+Gambar 4.20: Histogram
 </p>
 </div>
-<p>Density plot pada <code>R</code> dapat dibuat menggunakan fungsi <code>density()</code>. Berbeda dengan fungsi <code>hist()</code>, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi <code>density()</code> hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi <code>plot()</code>. Berikut adalah sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:dens">4.21</a>:</p>
+<p>Density plot pada <code>R</code> dapat dibuat menggunakan fungsi <code>density()</code>. Berbeda dengan fungsi <code>hist()</code>, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi <code>density()</code> hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi <code>plot()</code>. Berikut adalah sintaks dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:dens">4.21</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># menghitung kernel density</span>
 dens &lt;-<span class="st"> </span><span class="kw">density</span>(trees<span class="op">$</span>Height)
 
@@ -710,10 +719,10 @@ dens &lt;-<span class="st"> </span><span class="kw">density</span>(trees<span cl
 <div class="figure" style="text-align: center"><span id="fig:dens"></span>
 <img src="EnvStat_files/figure-html/dens-1.png" alt="Density plot" width="70%" />
 <p class="caption">
-Figure 4.21: Density plot
+Gambar 4.21: Density plot
 </p>
 </div>
-<p>Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan argumen <code>freq=FALSE</code> pada fungsi <code>hist()</code>. Selanjutnya tambahkan fungsi <code>polygon()</code> untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:denshist">4.22</a>:</p>
+<p>Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan argumen <code>freq=FALSE</code> pada fungsi <code>hist()</code>. Selanjutnya tambahkan fungsi <code>polygon()</code> untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:denshist">4.22</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># menghitung kernel density</span>
 dens &lt;-<span class="st"> </span><span class="kw">density</span>(trees<span class="op">$</span>Height)
 
@@ -725,20 +734,20 @@ dens &lt;-<span class="st"> </span><span class="kw">density</span>(trees<span cl
 <div class="figure" style="text-align: center"><span id="fig:denshist"></span>
 <img src="EnvStat_files/figure-html/denshist-1.png" alt="Density plot dan histogram" width="70%" />
 <p class="caption">
-Figure 4.22: Density plot dan histogram
+Gambar 4.22: Density plot dan histogram
 </p>
 </div>
 </div>
 <div id="qq-plot" class="section level2">
 <h2><span class="header-section-number">4.8</span> QQ Plot</h2>
 <p>QQ plot digunakan untuk mengecek distribusi suatu data apakah berdistribusi normal atau tidak. Pada <code>R</code> QQ plot dibuat menggunakan 2 fungsi yaitu: <code>qqnorm()</code> dan <code>qqline()</code>. Fungsi <code>qqnorm()</code> digunakan untuk memproduksi normal QQ plot suatu variabel. Sedangkan fungsi <code>qqline()</code> digunakan untuk membuat garis referensi distiribusi normal. Suatu distribusi dikatan normal jika titik observasi yang dihasilkan mengikuti garis referensi tersebut.</p>
-<p>Berikut adalah cara membuat QQ plot menggunakan variabel <code>Volume</code> pada dataset <code>trees</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:qq">4.23</a>.</p>
+<p>Berikut adalah cara membuat QQ plot menggunakan variabel <code>Volume</code> pada dataset <code>trees</code>. Output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:qq">4.23</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqnorm</span>(trees<span class="op">$</span>Volume)
 <span class="kw">qqline</span>(trees<span class="op">$</span>Volume, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:qq"></span>
 <img src="EnvStat_files/figure-html/qq-1.png" alt="QQ plot" width="70%" />
 <p class="caption">
-Figure 4.23: QQ plot
+Gambar 4.23: QQ plot
 </p>
 </div>
 </div>
@@ -757,7 +766,7 @@ Figure 4.23: QQ plot
 <li><strong>color</strong>: warna yang digunakan untuk titik dan label.</li>
 </ul>
 </blockquote>
-<p>Pada contoh berikut disajikan cara membuat dot chart pada dataset <code>mtcars</code> untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel <code>mpg</code> dan jumlah silinder (<code>cyl</code>). Berikut sintaks yang digunakan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:dot">4.24</a>:</p>
+<p>Pada contoh berikut disajikan cara membuat dot chart pada dataset <code>mtcars</code> untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel <code>mpg</code> dan jumlah silinder (<code>cyl</code>). Berikut sintaks yang digunakan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:dot">4.24</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mengurutkan dataset mtcars berdasarkan variabel mpg</span>
 mtcars &lt;-<span class="st"> </span>mtcars[<span class="kw">order</span>(mtcars<span class="op">$</span>mpg), ]
 
@@ -775,7 +784,7 @@ my_cols &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st"
 <div class="figure" style="text-align: center"><span id="fig:dot"></span>
 <img src="EnvStat_files/figure-html/dot-1.png" alt="Dot chart" width="70%" />
 <p class="caption">
-Figure 4.24: Dot chart
+Gambar 4.24: Dot chart
 </p>
 </div>
 </div>
@@ -796,7 +805,7 @@ Figure 4.24: Dot chart
 <li><strong>ylab</strong>: teks untuk keterangan axis y.</li>
 <li><strong>sub</strong>: teks untuk sub-judul.</li>
 </ol>
-<p>Berikut contoh sintaks penerapan masing-masing argumen tersebut beserta dengan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:title">4.25</a>:</p>
+<p>Berikut contoh sintaks penerapan masing-masing argumen tersebut beserta dengan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:title">4.25</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># menambahkan judul</span>
 <span class="kw">barplot</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>), <span class="dt">main=</span><span class="st">&quot;Main title&quot;</span>,
         <span class="dt">xlab=</span><span class="st">&quot;X axis title&quot;</span>,
@@ -805,7 +814,7 @@ Figure 4.24: Dot chart
 <div class="figure" style="text-align: center"><span id="fig:title"></span>
 <img src="EnvStat_files/figure-html/title-1.png" alt="Menambahkan Judul" width="70%" />
 <p class="caption">
-Figure 4.25: Menambahkan Judul
+Gambar 4.25: Menambahkan Judul
 </p>
 </div>
 <p>kita juga dapat melakukan kustomisasi pada warna, <em>font style</em>, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan argumen sebagai berikut:</p>
@@ -837,7 +846,7 @@ Figure 4.25: Menambahkan Judul
 <li><strong>cex.lab</strong>: ukuran teks keterangan axis.</li>
 <li><strong>cex.sub</strong>: ukuran teks sub-judul.</li>
 </ol>
-<p>Berikut sintaks penerapan seluruh argumen tersebut beserta output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:title2">4.26</a>:</p>
+<p>Berikut sintaks penerapan seluruh argumen tersebut beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:title2">4.26</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># menambahkan judul</span>
 <span class="kw">barplot</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>), 
         <span class="co"># menambahkan judul</span>
@@ -860,10 +869,10 @@ Figure 4.25: Menambahkan Judul
 <div class="figure" style="text-align: center"><span id="fig:title2"></span>
 <img src="EnvStat_files/figure-html/title2-1.png" alt="Menambahkan Judul (2)" width="70%" />
 <p class="caption">
-Figure 4.26: Menambahkan Judul (2)
+Gambar 4.26: Menambahkan Judul (2)
 </p>
 </div>
-<p>Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi <code>title()</code>. argumen yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:title3">4.27</a>:</p>
+<p>Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi <code>title()</code>. argumen yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:title3">4.27</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># menambahkan judul</span>
 <span class="kw">barplot</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">8</span>))
 
@@ -887,7 +896,7 @@ Figure 4.26: Menambahkan Judul (2)
 <div class="figure" style="text-align: center"><span id="fig:title3"></span>
 <img src="EnvStat_files/figure-html/title3-1.png" alt="Menambahkan Judul (3)" width="70%" />
 <p class="caption">
-Figure 4.27: Menambahkan Judul (3)
+Gambar 4.27: Menambahkan Judul (3)
 </p>
 </div>
 </div>
@@ -905,7 +914,7 @@ Figure 4.27: Menambahkan Judul (3)
 <li><strong>bg</strong>: warna latar belakang legend box.</li>
 </ul>
 </blockquote>
-<p>Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:legend">4.28</a>:</p>
+<p>Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:legend">4.28</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor numerik</span>
 x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
 y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span>
@@ -923,7 +932,7 @@ z &lt;-<span class="st"> </span>x<span class="op">*</span><span class="dv">2</sp
 <div class="figure" style="text-align: center"><span id="fig:legend"></span>
 <img src="EnvStat_files/figure-html/legend-1.png" alt="Menambahkan legend" width="70%" />
 <p class="caption">
-Figure 4.28: Menambahkan legend
+Gambar 4.28: Menambahkan legend
 </p>
 </div>
 <p>Kita dapat menambahkan judul, merubah font, dan merubah warna backgroud pada legend. Argumen yang ditambahkan pada legend adalah sebagai berikut:</p>
@@ -938,7 +947,7 @@ Figure 4.28: Menambahkan legend
 </ul></li>
 <li><strong>bg</strong>: warna background legend box.</li>
 </ol>
-<p>Berikut adalah penerapan sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:legend2">4.29</a>:</p>
+<p>Berikut adalah penerapan sintaks dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:legend2">4.29</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat line plot</span>
 <span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>)
 
@@ -952,10 +961,10 @@ Figure 4.28: Menambahkan legend
 <div class="figure" style="text-align: center"><span id="fig:legend2"></span>
 <img src="EnvStat_files/figure-html/legend2-1.png" alt="Menambahkan legend (2)" width="70%" />
 <p class="caption">
-Figure 4.29: Menambahkan legend (2)
+Gambar 4.29: Menambahkan legend (2)
 </p>
 </div>
-<p>Kita dapat melakukan kustomisasi pada border dari legend melalui argumen <code>box.lty=</code>(jenis garis), <code>box.lwd=</code>(ukuran garis), dan <code>box.col=</code>(warna box). Berikut adalah penerapan argumen tersebut beserta output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:legend3">4.30</a>:</p>
+<p>Kita dapat melakukan kustomisasi pada border dari legend melalui argumen <code>box.lty=</code>(jenis garis), <code>box.lwd=</code>(ukuran garis), dan <code>box.col=</code>(warna box). Berikut adalah penerapan argumen tersebut beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:legend3">4.30</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat line plot</span>
 <span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>)
 
@@ -970,10 +979,10 @@ Figure 4.29: Menambahkan legend (2)
 <div class="figure" style="text-align: center"><span id="fig:legend3"></span>
 <img src="EnvStat_files/figure-html/legend3-1.png" alt="Menambahkan legend (3)" width="70%" />
 <p class="caption">
-Figure 4.30: Menambahkan legend (3)
+Gambar 4.30: Menambahkan legend (3)
 </p>
 </div>
-<p>Selain menggunakan koordinat, kita juga dapat melakukan kustomisasi posisi legend menggunakan <em>keyword</em> seperti: bottomright“,”bottom“,”bottomleft“,”left“,”topleft“,”top“,”topright“,”right&quot; and “center”. Sejumlah kustomisasi legend berdasarkan <em>keyword</em> disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:legend4">4.31</a>:</p>
+<p>Selain menggunakan koordinat, kita juga dapat melakukan kustomisasi posisi legend menggunakan <em>keyword</em> seperti: bottomright“,”bottom“,”bottomleft“,”left“,”topleft“,”top“,”topright“,”right&quot; and “center”. Sejumlah kustomisasi legend berdasarkan <em>keyword</em> disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:legend4">4.31</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
 <span class="kw">plot</span>(x,y, <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)
 
@@ -1018,7 +1027,7 @@ Figure 4.30: Menambahkan legend (3)
 <div class="figure" style="text-align: center"><span id="fig:legend4"></span>
 <img src="EnvStat_files/figure-html/legend4-1.png" alt="Kustomisasi posisi legend" width="70%" />
 <p class="caption">
-Figure 4.31: Kustomisasi posisi legend
+Gambar 4.31: Kustomisasi posisi legend
 </p>
 </div>
 </div>
@@ -1034,7 +1043,7 @@ Figure 4.31: Kustomisasi posisi legend
 <li><strong>labels</strong>: vektor karakter yang menunjukkan teks yang hendak ditulis.</li>
 </ul>
 </blockquote>
-<p>Berikut adalah contoh sintaks untuk memberi label pada sejumlah data yang memiliki kriteria yang kita inginkan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:text">4.32</a>:</p>
+<p>Berikut adalah contoh sintaks untuk memberi label pada sejumlah data yang memiliki kriteria yang kita inginkan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:text">4.32</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># tandai observasi yang memiliki nilai</span>
 <span class="co"># mpg &lt; 15 dan wt &gt; 5</span>
 d &lt;-<span class="st"> </span>mtcars[mtcars<span class="op">$</span>wt <span class="op">&gt;=</span><span class="st"> </span><span class="dv">5</span> <span class="op">&amp;</span><span class="st"> </span>mtcars<span class="op">$</span>mpg <span class="op">&lt;=</span><span class="st"> </span><span class="dv">15</span>, ]
@@ -1050,10 +1059,10 @@ d &lt;-<span class="st"> </span>mtcars[mtcars<span class="op">$</span>wt <span c
 <div class="figure" style="text-align: center"><span id="fig:text"></span>
 <img src="EnvStat_files/figure-html/text-1.png" alt="Menambahkan teks" width="70%" />
 <p class="caption">
-Figure 4.32: Menambahkan teks
+Gambar 4.32: Menambahkan teks
 </p>
 </div>
-<p>Sedangkan sintaks berikut adalah contoh bagaimana menambahkan persamaan kedalam bidang grafik dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:text2">4.33</a>:</p>
+<p>Sedangkan sintaks berikut adalah contoh bagaimana menambahkan persamaan kedalam bidang grafik dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:text2">4.33</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, 
      <span class="dt">main=</span><span class="st">&quot;text(...) examples</span><span class="ch">\n</span><span class="st">~~~~~~~~~~~&quot;</span>)
 <span class="kw">text</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="kw">expression</span>(<span class="kw">hat</span>(beta) <span class="op">==</span><span class="st"> </span>(X<span class="op">^</span>t <span class="op">*</span><span class="st"> </span>X)<span class="op">^</span>{<span class="op">-</span><span class="dv">1</span>} <span class="op">*</span><span class="st"> </span>X<span class="op">^</span>t <span class="op">*</span><span class="st"> </span>y))
@@ -1061,7 +1070,7 @@ Figure 4.32: Menambahkan teks
 <div class="figure" style="text-align: center"><span id="fig:text2"></span>
 <img src="EnvStat_files/figure-html/text2-1.png" alt="Menambahkan teks (2)" width="70%" />
 <p class="caption">
-Figure 4.33: Menambahkan teks (2)
+Gambar 4.33: Menambahkan teks (2)
 </p>
 </div>
 <p>Fungsi <code>mtext()</code> berguna untuk menambahkan teks pada frame sekitar bidang grafik. Format yang digunakan adalah sebagai berikut:</p>
@@ -1077,14 +1086,14 @@ Figure 4.33: Menambahkan teks (2)
 <li><strong>4</strong>: kanan.</li>
 </ul>
 </blockquote>
-<p>Berikut adalah contoh penerapan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:text3">4.34</a>:</p>
+<p>Berikut adalah contoh penerapan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:text3">4.34</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, 
      <span class="dt">main=</span><span class="st">&quot;mtext(...) examples</span><span class="ch">\n</span><span class="st">~~~~~~~~~~~&quot;</span>)
 <span class="kw">mtext</span>(<span class="st">&quot;Magic function&quot;</span>, <span class="dt">side=</span><span class="dv">3</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:text3"></span>
 <img src="EnvStat_files/figure-html/text3-1.png" alt="Menambahkan teks (3)" width="70%" />
 <p class="caption">
-Figure 4.34: Menambahkan teks (3)
+Gambar 4.34: Menambahkan teks (3)
 </p>
 </div>
 </div>
@@ -1092,7 +1101,7 @@ Figure 4.34: Menambahkan teks (3)
 <h3><span class="header-section-number">4.10.4</span> Menambahkan Garis Pada Plot</h3>
 <p>Fungsi <code>abline()</code> dapat digunakan untuk menamabahkan garis pada plot. Garis yang ditambahkan dapat berupa garis vertikal, horizontal, maupun garis regresi. Format yang digunakan adalah sebagi berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abline</span>(<span class="dt">v=</span>y)</code></pre></div>
-<p>Berikut adalah contoh sintaks bagaimana menambahkan garis pada sebuah plot dan output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:abline">4.35</a>:</p>
+<p>Berikut adalah contoh sintaks bagaimana menambahkan garis pada sebuah plot dan output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:abline">4.35</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat plot</span>
 <span class="kw">plot</span>(mtcars<span class="op">$</span>wt, mtcars<span class="op">$</span>mpg, <span class="dt">main=</span><span class="st">&quot;Milage vs. Car Weight&quot;</span>,
       <span class="dt">xlab=</span><span class="st">&quot;Weight&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Miles/(US) gallon&quot;</span>)
@@ -1108,7 +1117,7 @@ Figure 4.34: Menambahkan teks (3)
 <div class="figure" style="text-align: center"><span id="fig:abline"></span>
 <img src="EnvStat_files/figure-html/abline-1.png" alt="Menambahkan garis" width="70%" />
 <p class="caption">
-Figure 4.35: Menambahkan garis
+Gambar 4.35: Menambahkan garis
 </p>
 </div>
 </div>
@@ -1143,7 +1152,7 @@ Figure 4.35: Menambahkan garis
 <li>pch = 24, filled triangle point-up blue</li>
 <li>pch = 25, filled triangle point down blue</li>
 </ul>
-<p>Untuk lebih memahami bentuk simbol tersebut, penulis akan menyajikan sintaks yang menampilkan seluruh simbol tersebut pada satu grafik. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:symbol">4.36</a>:</p>
+<p>Untuk lebih memahami bentuk simbol tersebut, penulis akan menyajikan sintaks yang menampilkan seluruh simbol tersebut pada satu grafik. Output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:symbol">4.36</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">generateRPointShapes&lt;-<span class="cf">function</span>(){
   <span class="co"># menentukan parameter plot</span>
   oldPar&lt;-<span class="kw">par</span>()
@@ -1163,7 +1172,7 @@ Figure 4.35: Menambahkan garis
 <div class="figure" style="text-align: center"><span id="fig:symbol"></span>
 <img src="EnvStat_files/figure-html/symbol-1.png" alt="Symbol plot" width="70%" />
 <p class="caption">
-Figure 4.36: Symbol plot
+Gambar 4.36: Symbol plot
 </p>
 </div>
 <p>Pada <code>R</code> kita juga dapat mengatur jenis garis yang akan ditampilkan pada plot dengan menambahkan argumen <code>lty=</code> (<em>line type</em>) pada fungsi plot. Nilai yang dapat dimasukkan adalah nilai integer. Keterangan masing-masing nilai tersebut adalah sebagai berikut:</p>
@@ -1176,7 +1185,7 @@ Figure 4.36: Symbol plot
 <li>lty = 5, longdash</li>
 <li>lty = 6, twodash</li>
 </ul>
-<p>Untuk lebih memahaminya, pada sintaks berikut disajikan plot seluruh jenis garis tersebut beserta output yang dihasilkannya pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:lty">4.37</a>:</p>
+<p>Untuk lebih memahaminya, pada sintaks berikut disajikan plot seluruh jenis garis tersebut beserta output yang dihasilkannya pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:lty">4.37</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">generateRLineTypes&lt;-<span class="cf">function</span>(){
   oldPar&lt;-<span class="kw">par</span>()
   <span class="kw">par</span>(<span class="dt">font=</span><span class="dv">2</span>, <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
@@ -1191,7 +1200,7 @@ Figure 4.36: Symbol plot
 <div class="figure" style="text-align: center"><span id="fig:lty"></span>
 <img src="EnvStat_files/figure-html/lty-1.png" alt="Line type" width="70%" />
 <p class="caption">
-Figure 4.37: Line type
+Gambar 4.37: Line type
 </p>
 </div>
 </div>
@@ -1214,7 +1223,7 @@ Figure 4.37: Line type
 <li><strong>labels</strong>: Teks label <em>tick-mark</em>. Dapat juga secara logis menentukan apakah anotasi harus dibuat pada <em>tick mark</em>.</li>
 </ul>
 </blockquote>
-<p>Berikut contoh sintaks penerapan fungsi tersebut dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:axis">4.38</a>:</p>
+<p>Berikut contoh sintaks penerapan fungsi tersebut dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:axis">4.38</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor numerik</span>
 x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)
 y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span>
@@ -1233,7 +1242,7 @@ y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</sp
 <div class="figure" style="text-align: center"><span id="fig:axis"></span>
 <img src="EnvStat_files/figure-html/axis-1.png" alt="Menambahkan axis" width="70%" />
 <p class="caption">
-Figure 4.38: Menambahkan axis
+Gambar 4.38: Menambahkan axis
 </p>
 </div>
 <p>Kita dapat mengubah rentang nilai pada axis menggunakan fungsi <code>xlim()</code> dan <code>ylim()</code> yang menyatakan vektor nilai masimum dan minimum rentang. Selain itu kita dapat juga melakukan tranformasi baik pada sumbu x dan sumbu y. Berikut adalah argumen yang dapat ditambahkan pada fungsi grafik:</p>
@@ -1247,7 +1256,7 @@ Figure 4.38: Menambahkan axis
 <li><strong>log=“y”</strong>: transformasi log sumbu y.</li>
 <li><strong>log=“xy”</strong>: transformasi log sumbu x dan y.</li>
 </ul>
-<p>Berikut adalah contoh sintaks penerapan argumen tersebut beserta output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:axis2">4.39</a>:</p>
+<p>Berikut adalah contoh sintaks penerapan argumen tersebut beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:axis2">4.39</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membagi jendela grafik menjadi 1 baris dan 3 kolom</span>
 <span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))
 
@@ -1265,7 +1274,7 @@ x&lt;-<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</spa
 <div class="figure" style="text-align: center"><span id="fig:axis2"></span>
 <img src="EnvStat_files/figure-html/axis2-1.png" alt="Mengubah rentang dan skala axis" width="80%" />
 <p class="caption">
-Figure 4.39: Mengubah rentang dan skala axis
+Gambar 4.39: Mengubah rentang dan skala axis
 </p>
 </div>
 <p>Kita dapat melakukan kustomisasi pada <em>tick mark</em>. Kustomisasi yang dapat dilakukan adalah merubah warna, <em>font style</em>, ukuran font, orientasi, serta menyembunyikan <em>tick mark</em>.</p>
@@ -1281,7 +1290,7 @@ Figure 4.39: Mengubah rentang dan skala axis
 <li><p><strong>3</strong>: selalu vertikal</p></li>
 <li><p><strong>xaxt</strong> dan <strong>yaxt</strong>: karakter untuk menunjukkan apakah axis akan ditampilkan atau tidak. nilai dapat berupa “n”(sembunyika) dan “s”(tampilkan).</p></li>
 </ul>
-<p>Berikut adalah contoh penerapan argumen tersebut beserta output pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:axis3">4.40</a>:</p>
+<p>Berikut adalah contoh penerapan argumen tersebut beserta output pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:axis3">4.40</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor numerik</span>
 x&lt;-<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>); y&lt;-x<span class="op">*</span>x
 
@@ -1300,7 +1309,7 @@ x&lt;-<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</spa
 <div class="figure" style="text-align: center"><span id="fig:axis3"></span>
 <img src="EnvStat_files/figure-html/axis3-1.png" alt="Kustomisasi tick mark" width="70%" />
 <p class="caption">
-Figure 4.40: Kustomisasi tick mark
+Gambar 4.40: Kustomisasi tick mark
 </p>
 </div>
 </div>
@@ -1308,7 +1317,7 @@ Figure 4.40: Kustomisasi tick mark
 <h3><span class="header-section-number">4.10.7</span> Mengatur Warna</h3>
 <p>Pada fungsi dasar <code>R</code>, warna dapat diatur dengan mengetikkan nama warna maupun kode hexadesimal. Selain itu kita juga dapat menamambahkan warna lain melalui library lain yang tidak dijelaskan pada chapter ini.</p>
 <p>Untuk penggunaan warna hexadesima kita perlu mengetikkan “#” yang diukuti oleh 6 kode warna. Untuk memperlajari kode-kode dan warna yang dihasilkan, silahkan pembaca mengunjungi situs <a href="http://www.visibone.com/" class="uri">http://www.visibone.com/</a>.</p>
-<p>Pada sintaks berikut disajikan visualisasi nama-nama warna bawaan yang ada pada <code>R</code>. Output yang dihasilkan disajikan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:color">4.41</a>:</p>
+<p>Pada sintaks berikut disajikan visualisasi nama-nama warna bawaan yang ada pada <code>R</code>. Output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:color">4.41</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">showCols &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">cl=</span><span class="kw">colors</span>(), <span class="dt">bg =</span> <span class="st">&quot;grey&quot;</span>,
                      <span class="dt">cex =</span> <span class="fl">0.75</span>, <span class="dt">rot =</span> <span class="dv">30</span>) {
     m &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">sqrt</span>(n &lt;-<span class="kw">length</span>(cl)))
@@ -1326,7 +1335,7 @@ Figure 4.40: Kustomisasi tick mark
 <div class="figure" style="text-align: center"><span id="fig:color"></span>
 <img src="EnvStat_files/figure-html/color-1.png" alt="Nama warna" width="70%" />
 <p class="caption">
-Figure 4.41: Nama warna
+Gambar 4.41: Nama warna
 </p>
 </div>
 </div>
@@ -1336,7 +1345,7 @@ Figure 4.41: Nama warna
 <p>Kita juga dapat melakukan visualisasi menggunakan library lain yang memiliki tampilan mirip dengan fungsi visualisasi dasar <code>R</code>. Bedanya adalah library-library ini memberikan fungsi tambahan sehingga visualisasi yang dihasilkan menjadi lebih praktis.</p>
 <div id="scatterplot-menggunakan-library-car" class="section level3">
 <h3><span class="header-section-number">4.11.1</span> Scatterplot Menggunakan Library car</h3>
-<p>Library <code>car</code> menyediakan alternatif lain visualisasi menggunakan scatterplot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:carscatter">4.42</a>:</p>
+<p>Library <code>car</code> menyediakan alternatif lain visualisasi menggunakan scatterplot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:carscatter">4.42</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
 <span class="co"># install.packages(&quot;car&quot;)</span>
 
@@ -1348,7 +1357,7 @@ Figure 4.41: Nama warna
 <div class="figure" style="text-align: center"><span id="fig:carscatter"></span>
 <img src="EnvStat_files/figure-html/carscatter-1.png" alt="Enhanced scatterplot" width="70%" />
 <p class="caption">
-Figure 4.42: Enhanced scatterplot
+Gambar 4.42: Enhanced scatterplot
 </p>
 </div>
 <p>Pada grafik tersebut terkandung beberapa elemen penting, yaitu:</p>
@@ -1362,7 +1371,7 @@ Figure 4.42: Enhanced scatterplot
 </div>
 <div id="matriks-scatterplot-menggunakan-library-psych" class="section level3">
 <h3><span class="header-section-number">4.11.2</span> Matriks Scatterplot Menggunakan Library psych</h3>
-<p>FUngsi <code>pairs.panels()</code> pada library <code>psych</code> dapat digunakan untuk membuat matriks scatterplot. Grafik yang dihasilkan juga lebih ringkas dan menampilkan fungsional lain pada bagian diagonal lain berupa histogram dan density plot yang dapat menunjukkan distribusi dari variabel yang ada. Selain itu pada fungsionalitas grafik juga dapat ditingkatkan dengan penambahan nilai korelasi antar variabel yang secara default ditambahkan pada panel atas. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:psychscatter">4.43</a>:</p>
+<p>FUngsi <code>pairs.panels()</code> pada library <code>psych</code> dapat digunakan untuk membuat matriks scatterplot. Grafik yang dihasilkan juga lebih ringkas dan menampilkan fungsional lain pada bagian diagonal lain berupa histogram dan density plot yang dapat menunjukkan distribusi dari variabel yang ada. Selain itu pada fungsionalitas grafik juga dapat ditingkatkan dengan penambahan nilai korelasi antar variabel yang secara default ditambahkan pada panel atas. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:psychscatter">4.43</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
 <span class="co"># install.packages(&quot;psych&quot;)</span>
 
@@ -1381,13 +1390,13 @@ Figure 4.42: Enhanced scatterplot
 <div class="figure" style="text-align: center"><span id="fig:psychscatter"></span>
 <img src="EnvStat_files/figure-html/psychscatter-1.png" alt="Enhanced scatterplot matrices" width="70%" />
 <p class="caption">
-Figure 4.43: Enhanced scatterplot matrices
+Gambar 4.43: Enhanced scatterplot matrices
 </p>
 </div>
 </div>
 <div id="box-plot-menggunakan-library-gplots" class="section level3">
 <h3><span class="header-section-number">4.11.3</span> Box Plot Menggunakan Library gplots</h3>
-<p>Fungsi <code>boxplot2()</code> pada paket <code>gplots</code> memberikan fungsionalitas lebih dibandingkan box plot yang dihasilkan dari fungsi dasar <code>R</code>. Plot yang dihasilkan akan menampilkan jumlah observasi pada tiap box. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:gplotsboxplot2">4.44</a>:</p>
+<p>Fungsi <code>boxplot2()</code> pada paket <code>gplots</code> memberikan fungsionalitas lebih dibandingkan box plot yang dihasilkan dari fungsi dasar <code>R</code>. Plot yang dihasilkan akan menampilkan jumlah observasi pada tiap box. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:gplotsboxplot2">4.44</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
 <span class="co"># install.packages(&quot;gplots&quot;)</span>
 
@@ -1400,13 +1409,13 @@ Figure 4.43: Enhanced scatterplot matrices
 <div class="figure" style="text-align: center"><span id="fig:gplotsboxplot2"></span>
 <img src="EnvStat_files/figure-html/gplotsboxplot2-1.png" alt="Enhanced box plot" width="70%" />
 <p class="caption">
-Figure 4.44: Enhanced box plot
+Gambar 4.44: Enhanced box plot
 </p>
 </div>
 </div>
 <div id="qq-plot-menggunakan-library-car" class="section level3">
 <h3><span class="header-section-number">4.11.4</span> QQ Plot Menggunakan Library car</h3>
-<p>Fungsi <code>qqPlot()</code> pada library <code>car</code> dapat pula digunakan untuk membuat qq plot. Kelebihannya adalah qqplot yang dihasilkan akan dilengkapi dengan garis referensi yang memudahkan dalam membaca apakah data masih dalam rentang distribusi normal atau tidak. Selain itu, untuk membuatnya juga hanya diperlukan satu perintah saja. Hal ini tentu berbeda ketika kita menggunakan fungsi dasar <code>R</code>. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:carqqplot">4.45</a>:</p>
+<p>Fungsi <code>qqPlot()</code> pada library <code>car</code> dapat pula digunakan untuk membuat qq plot. Kelebihannya adalah qqplot yang dihasilkan akan dilengkapi dengan garis referensi yang memudahkan dalam membaca apakah data masih dalam rentang distribusi normal atau tidak. Selain itu, untuk membuatnya juga hanya diperlukan satu perintah saja. Hal ini tentu berbeda ketika kita menggunakan fungsi dasar <code>R</code>. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:carqqplot">4.45</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
 <span class="co"># install.packages(&quot;car&quot;)</span>
 
@@ -1418,14 +1427,14 @@ Figure 4.44: Enhanced box plot
 <div class="figure" style="text-align: center"><span id="fig:carqqplot"></span>
 <img src="EnvStat_files/figure-html/carqqplot-1.png" alt="Enhanced qq plot" width="70%" />
 <p class="caption">
-Figure 4.45: Enhanced qq plot
+Gambar 4.45: Enhanced qq plot
 </p>
 </div>
 <pre><code>## [1]  3 20</code></pre>
 </div>
 <div id="plot-group-means-menggunakan-library-gplots" class="section level3">
 <h3><span class="header-section-number">4.11.5</span> Plot Group Means Menggunakan Library gplots</h3>
-<p>Plot ini akan sering kita gunakan saat melakukan analisis statistik menggunakan anova baik anova satu arah maupun dua arah. Plot ini berguna untuk melihat adanya interaksi antar faktor saat melakukan analisis anova dua arah. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:plotmeans">4.46</a>:</p>
+<p>Plot ini akan sering kita gunakan saat melakukan analisis statistik menggunakan anova baik anova satu arah maupun dua arah. Plot ini berguna untuk melihat adanya interaksi antar faktor saat melakukan analisis anova dua arah. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:plotmeans">4.46</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
 <span class="co"># install.packages(&quot;gplots&quot;)</span>
 
@@ -1437,7 +1446,7 @@ Figure 4.45: Enhanced qq plot
 <div class="figure" style="text-align: center"><span id="fig:plotmeans"></span>
 <img src="EnvStat_files/figure-html/plotmeans-1.png" alt="Plot group means" width="70%" />
 <p class="caption">
-Figure 4.46: Plot group means
+Gambar 4.46: Plot group means
 </p>
 </div>
 </div>

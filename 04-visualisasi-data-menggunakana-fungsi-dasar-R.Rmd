@@ -28,7 +28,7 @@ plot(x, y, type="p")
 >   + type="s" : membuat fungsi tangga.
 >   + type="n" : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.
 
-Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Figure \@ref(fig:plot):
+Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Gambar \@ref(fig:plot):
 
 ```{r}
 # membuat vektor data 
@@ -77,7 +77,7 @@ plot(trees$Height, trees$Volume)
 with(trees, plot(Height, Volume))
 ```
 
-Kita juga dapat menggunakan formula untuk membuat scatterplot pada Figure \@ref(fig:scatter). Berikut adalah contoh sintaks yang digunakan:
+Kita juga dapat menggunakan formula untuk membuat scatterplot pada Gambar \@ref(fig:scatter). Berikut adalah contoh sintaks yang digunakan:
 
 ```{r, eval=FALSE}
 x <- trees$Height
@@ -86,13 +86,13 @@ y <- trees$Volume
 plot(y~x)
 ```
 
-Fungsi `plot()` juga dapat digunakan untuk membentuk matriks scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh dataset kedalam fungsi `plot()`. Berikut adalah sintaks dan output yang dihasilkan berupa Figure \@ref(fig:scatter2):
+Fungsi `plot()` juga dapat digunakan untuk membentuk matriks scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh dataset kedalam fungsi `plot()`. Berikut adalah sintaks dan output yang dihasilkan berupa Gambar \@ref(fig:scatter2):
 
 ```{r scatter2, fig.cap='Matriks scatterplot dataset trees', tidy=FALSE, fig.align='center', out.width='80%'}
 plot(trees)
 ```
 
-Selain itu jika kita memasukkan objek `lm()` yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi `plot()`, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:diag):
+Selain itu jika kita memasukkan objek `lm()` yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi `plot()`, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar \@ref(fig:diag):
 
 ```{r diag, fig.cap='Plot diagnostik regresi linier', tidy=FALSE, fig.align='center', out.width='80%'}
 # membagi jendela grafik menjadi 2 baris dan 2 kolom
@@ -131,19 +131,19 @@ iris <- as_tibble(iris)
 iris
 ```
 
-Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek `iris` kedalam fungsi `pairs()`. Berikut adalah sintaks yang digunakan dan output yang dihasilkan pada Figure \@ref(fig:matscat):
+Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek `iris` kedalam fungsi `pairs()`. Berikut adalah sintaks yang digunakan dan output yang dihasilkan pada Gambar \@ref(fig:matscat):
 
 ```{r matscat, fig.cap='Matriks scatterplot iris', tidy=FALSE, fig.align='center',out.width='80%'}
 pairs(iris)
 ```
 
-Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter `lower.panel=NULL`. Output yang dihasilkan akan tampak seperti pada Figure \@ref(fig:matscat2).
+Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter `lower.panel=NULL`. Output yang dihasilkan akan tampak seperti pada Gambar \@ref(fig:matscat2).
 
 ```{r matscat2, fig.cap='Matriks scatterplot iris tanpa panel bawah', tidy=FALSE, fig.align='center',out.width='80%'}
 pairs(iris, lower.panel=NULL)
 ```
 
-Kita dapat merubah warna titik berdasarkan factor `Species`. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel `Species` pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi `pairs()`. Warna berdasarkan grup diberikan dengan menambahkan parameter `col= ` pada fungsi `pairs()`. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure \@ref(fig:matscat3):
+Kita dapat merubah warna titik berdasarkan factor `Species`. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel `Species` pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi `pairs()`. Warna berdasarkan grup diberikan dengan menambahkan parameter `col= ` pada fungsi `pairs()`. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Gambar \@ref(fig:matscat3):
 
 ```{r matscat3, fig.cap='Matriks scatterplot iris tanpa panel bawah', tidy=FALSE, fig.align='center', out.width='80%'}
 # drop variabel Species
@@ -162,7 +162,7 @@ pairs(iris2, lower.panel=NULL,
       col= my_col[iris$Species])
 ```
 
-Kita juga dapat mengganti panel bawah menjadi nilai korelasi antar variabel. Untuk melakukannya kita perlu mendefinisikan sebuah fungsi untuk panel bawah dan panel atas (jika ingin warna titik berdasarkan factor). Setelah fungsi panel bawah dan atas didefinisikan, langkah selanjutnya adalah melakukan memasukkan nilainya kedalam fungsi `pairs()`. Berikut adalah sintaks yang digunakan serta output yang dihasilkan pada Figure \@ref(fig:matscat4):
+Kita juga dapat mengganti panel bawah menjadi nilai korelasi antar variabel. Untuk melakukannya kita perlu mendefinisikan sebuah fungsi untuk panel bawah dan panel atas (jika ingin warna titik berdasarkan factor). Setelah fungsi panel bawah dan atas didefinisikan, langkah selanjutnya adalah melakukan memasukkan nilainya kedalam fungsi `pairs()`. Berikut adalah sintaks yang digunakan serta output yang dihasilkan pada Gambar \@ref(fig:matscat4):
 
 ```{r matscat4, fig.cap='Matriks scatterplot iris dengan koefisien korelasi', tidy=FALSE, fig.align='center',out.width='80%'}
 # membuat fungsi untuk menghitung
@@ -192,7 +192,7 @@ pairs(iris2,
       upper.panel= upper.panel)
 ```
 
-Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter `upper.panel= `. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure \@ref(fig:matscat5):
+Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter `upper.panel= `. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:matscat5):
 
 ```{r matscat5, fig.cap='Matriks scatterplot iris dengan koefisien korelasi di panel atas', tidy=FALSE, fig.align='center',out.width='80%'}
 # kustomisasi panel atas
@@ -212,20 +212,20 @@ pairs(iris2, lower.panel = NULL,
 
 ## Box plot
 
-Box plot pada `R` dapat dibuat menggunakan fungsi `boxplot()`. Berikut adalah sintaks untuk membuat boxplot variabel `Sepal.Lenght` pada dataset `iris` dan output yang dihasilkan pada Figure \@ref(fig:boxplot):
+Box plot pada `R` dapat dibuat menggunakan fungsi `boxplot()`. Berikut adalah sintaks untuk membuat boxplot variabel `Sepal.Lenght` pada dataset `iris` dan output yang dihasilkan pada Gambar \@ref(fig:boxplot):
 
 ```{r boxplot, fig.cap='Boxplot variabel Sepal.Length', tidy=FALSE, fig.align='center',out.width='70%'}
 boxplot(iris$Sepal.Length)
 
 ```
 
-Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel `Species`. Output yang dihasilkan disajikan pada Figure \@ref(fig:boxplot2):
+Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel `Species`. Output yang dihasilkan disajikan pada Gambar \@ref(fig:boxplot2):
 
 ```{r boxplot2, fig.cap='Boxplot berdasarkan variabel species', tidy=FALSE, fig.align='center',out.width='70%'}
 boxplot(iris$Sepal.Length~iris$Species)
 ```
 
-Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut adalah contoh sintaks yang digunakan untuk melakukannya dan output yang dihasilkan disajikan pada Figure \@ref(fig:boxplot3):
+Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut adalah contoh sintaks yang digunakan untuk melakukannya dan output yang dihasilkan disajikan pada Gambar \@ref(fig:boxplot3):
 
 ```{r boxplot3, fig.cap='Boxplot dengan warna berdasarkan spesies', tidy=FALSE, fig.align='center',out.width='70%'}
 boxplot(iris$Sepal.Length~iris$Species,
@@ -251,7 +251,7 @@ ToothGrowth$dose <- as.factor(ToothGrowth$dose)
 ToothGrowth
 ```
 
-Contoh sintaks dan output boxplot *multiple group* disajikan pada Figure \@ref(fig:boxplot4):
+Contoh sintaks dan output boxplot *multiple group* disajikan pada Gambar \@ref(fig:boxplot4):
 
 ```{r boxplot4, fig.cap='Boxplot multiple group', tidy=FALSE, fig.align='center',out.width='70%'}
 boxplot(len ~ supp*dose, data = ToothGrowth,
@@ -266,7 +266,7 @@ Barplot pada `R` dapat dibuat menggunakan fungsi `barplot()`. Untuk lebih memaha
 VADeaths
 ```
 
-Contoh bar plot untuk variabel `Rural Male` disajikan pada Figure \@ref(fig:barplot):
+Contoh bar plot untuk variabel `Rural Male` disajikan pada Gambar \@ref(fig:barplot):
 
 ```{r barplot, fig.cap='a. bar plot vertikal; b. bar plot horizontal', tidy=FALSE, fig.align='center',out.width='70%'}
 par(mfrow=c(1,2))
@@ -279,7 +279,7 @@ par(mfrow=c(1,1))
 ```
 
 
-Kita dapat mengubah warna pada masing-masing bar, baik outline bar maupun box pada bar. Selain itu kita juga dapat mengubah nama grup yang telah dihasilkan sebelumnya. Berikut sintaks untuk melakukannya dan output yang dihasilkan pada Figure \@ref(fig:barplot2):
+Kita dapat mengubah warna pada masing-masing bar, baik outline bar maupun box pada bar. Selain itu kita juga dapat mengubah nama grup yang telah dihasilkan sebelumnya. Berikut sintaks untuk melakukannya dan output yang dihasilkan pada Gambar \@ref(fig:barplot2):
 
 ```{r barplot2, fig.cap='Kustomisasi bar plot', tidy=FALSE, fig.align='center',out.width='70%'}
 barplot(VADeaths[, "Rural Male"],
@@ -293,7 +293,7 @@ barplot(VADeaths[, "Rural Male"],
         horiz=TRUE)
 ```
 
-Untuk bar plot dengan *multiple group*, tersedia dua pengaturan posisi yaitu *stacked bar plot*(menunjukkan proporsi penyusun pada masing-masing grup) dan *grouped bar plot*(melihat perbedaan individual pada masing-masing grup). Pada Figure \@ref(fig:barplot3) dan Figure \@ref(fig:barplot4) , disajikan kedua jenis bar plot tersebut.
+Untuk bar plot dengan *multiple group*, tersedia dua pengaturan posisi yaitu *stacked bar plot*(menunjukkan proporsi penyusun pada masing-masing grup) dan *grouped bar plot*(melihat perbedaan individual pada masing-masing grup). Pada Gambar \@ref(fig:barplot3) dan Gambar \@ref(fig:barplot4) , disajikan kedua jenis bar plot tersebut.
 
 ```{r barplot3, fig.cap='Stacked bar plot', tidy=FALSE, fig.align='center', out.width='70%'}
 # staked
@@ -315,7 +315,7 @@ barplot(VADeaths,
 
 ## Line Plot
 
-Line plot pada `R` dapat dibentuk menggunakan fungsi `plot()`. Selain itu fungsi `lines()` dapat pula digunakan untuk menambahkan line plot pada grafik. Berikut adalah sintaks untuk membuat line plot dan outputnya pada Figure \@ref(fig:line):
+Line plot pada `R` dapat dibentuk menggunakan fungsi `plot()`. Selain itu fungsi `lines()` dapat pula digunakan untuk menambahkan line plot pada grafik. Berikut adalah sintaks untuk membuat line plot dan outputnya pada Gambar \@ref(fig:line):
 
 ```{r line, fig.cap='Line plot', tidy=FALSE, fig.align='center', out.width='70%'}
 # Membuat vektor data
@@ -340,7 +340,7 @@ legend("topleft", legend=c("Line 1", "Line 2"),
 
 ## Pie Chart
 
-Pie chart digunakan untuk membuat visualisasi proporsi pada sebuah data. Pie chart pada `R` dibuat menggunakan fungsi `pie()`. Berikut adalah sintaks untuk membuat pie chart dan output yang dihasilkan pada Figure \@ref(fig:pie):
+Pie chart digunakan untuk membuat visualisasi proporsi pada sebuah data. Pie chart pada `R` dibuat menggunakan fungsi `pie()`. Berikut adalah sintaks untuk membuat pie chart dan output yang dihasilkan pada Gambar \@ref(fig:pie):
 
 ```{r pie, fig.cap='Pie chart', tidy=FALSE, fig.align='center', out.width='70%'}
 par(mar = c(0, 1, 0, 1))
@@ -370,13 +370,13 @@ Pada dataset `trees` akan dibuat histogram variabel `Height`. Untuk melakukannya
 hist(trees$Height)
 ```
 
-Output yang dihasilkan disajikan pada Figure \@ref(fig:hist): 
+Output yang dihasilkan disajikan pada Gambar \@ref(fig:hist): 
 
 ```{r hist,fig.cap='Histogram', tidy=FALSE, fig.align='center', echo=FALSE, out.width='70%'}
 hist(trees$Height, col="steelblue")
 ```
 
-Density plot pada `R` dapat dibuat menggunakan fungsi `density()`. Berbeda dengan fungsi `hist()`, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi `density()` hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi `plot()`. Berikut adalah sintaks dan output yang dihasilkan pada  Figure \@ref(fig:dens):
+Density plot pada `R` dapat dibuat menggunakan fungsi `density()`. Berbeda dengan fungsi `hist()`, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi `density()` hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi `plot()`. Berikut adalah sintaks dan output yang dihasilkan pada  Gambar \@ref(fig:dens):
 
 ```{r dens,fig.cap='Density plot', tidy=FALSE, fig.align='center', out.width='70%'}
 # menghitung kernel density
@@ -386,7 +386,7 @@ dens <- density(trees$Height)
 plot(dens,col="red")
 ```
 
-Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan argumen `freq=FALSE` pada fungsi `hist()`. Selanjutnya tambahkan fungsi `polygon()` untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada  Figure \@ref(fig:denshist):
+Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan argumen `freq=FALSE` pada fungsi `hist()`. Selanjutnya tambahkan fungsi `polygon()` untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada  Gambar \@ref(fig:denshist):
 
 ```{r denshist,fig.cap='Density plot dan histogram', tidy=FALSE, fig.align='center', out.width='70%'}
 # menghitung kernel density
@@ -403,7 +403,7 @@ polygon(dens, border="red")
 
 QQ plot digunakan untuk mengecek distribusi suatu data apakah berdistribusi normal atau tidak. Pada `R` QQ plot dibuat menggunakan 2 fungsi yaitu: `qqnorm()` dan `qqline()`. Fungsi `qqnorm()` digunakan untuk memproduksi normal QQ plot suatu variabel. Sedangkan fungsi `qqline()` digunakan untuk membuat garis referensi distiribusi normal. Suatu distribusi dikatan normal jika titik observasi yang dihasilkan mengikuti garis referensi tersebut.
 
-Berikut adalah cara membuat QQ plot menggunakan variabel `Volume` pada dataset `trees`. Output yang dihasilkan disajikan pada Figure \@ref(fig:qq).
+Berikut adalah cara membuat QQ plot menggunakan variabel `Volume` pada dataset `trees`. Output yang dihasilkan disajikan pada Gambar \@ref(fig:qq).
 
 ```{r qq,fig.cap='QQ plot', tidy=FALSE, fig.align='center', out.width='70%'}
 qqnorm(trees$Volume)
@@ -427,7 +427,7 @@ dotchart(x, labels = NULL, groups = NULL,
 > - **gcolor**: warna yang digunakan pada label grup dan nilai observasi.
 > - **color**: warna yang digunakan untuk titik dan label.
 
-Pada contoh berikut disajikan cara membuat dot chart pada dataset `mtcars` untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel `mpg` dan jumlah silinder (`cyl`). Berikut sintaks yang digunakan dan output yang dihasilkan pada Figure \@ref(fig:dot):
+Pada contoh berikut disajikan cara membuat dot chart pada dataset `mtcars` untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel `mpg` dan jumlah silinder (`cyl`). Berikut sintaks yang digunakan dan output yang dihasilkan pada Gambar \@ref(fig:dot):
 
 ```{r dot,fig.cap='Dot chart', tidy=FALSE, fig.align='center', out.width='70%'}
 # mengurutkan dataset mtcars berdasarkan variabel mpg
@@ -464,7 +464,7 @@ b. **xlab**: teks untuk keterangan axis X.
 c. **ylab**: teks untuk keterangan axis y.
 d. **sub**: teks untuk sub-judul.
 
-Berikut contoh sintaks penerapan masing-masing argumen tersebut beserta dengan output yang dihasilkan pada Figure \@ref(fig:title):
+Berikut contoh sintaks penerapan masing-masing argumen tersebut beserta dengan output yang dihasilkan pada Gambar \@ref(fig:title):
 
 ```{r title,fig.cap='Menambahkan Judul', tidy=FALSE, fig.align='center', out.width='70%'}
 # menambahkan judul
@@ -502,7 +502,7 @@ a. **cex.main**: ukuran teks judul.
 b. **cex.lab**: ukuran teks keterangan axis.
 c. **cex.sub**: ukuran teks sub-judul.
 
-Berikut sintaks penerapan seluruh argumen tersebut beserta output yang dihasilkan pada Figure \@ref(fig:title2):
+Berikut sintaks penerapan seluruh argumen tersebut beserta output yang dihasilkan pada Gambar \@ref(fig:title2):
 
 ```{r title2,fig.cap='Menambahkan Judul (2)', tidy=FALSE, fig.align='center', out.width='70%'}
 # menambahkan judul
@@ -526,7 +526,7 @@ barplot(c(2,5),
         cex.sub=1.2)
 ```
 
-Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi `title()`. argumen yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:title3):
+Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi `title()`. argumen yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar \@ref(fig:title3):
 
 ```{r title3,fig.cap='Menambahkan Judul (3)', tidy=FALSE, fig.align='center', out.width='70%'}
 # menambahkan judul
@@ -567,7 +567,7 @@ legend(x, y=NULL, legend, fill, col, bg)
 > - **col**: warna garis dan titik disamping teks legend.
 > - **bg**: warna latar belakang legend box.
 
-Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada Figure \@ref(fig:legend):
+Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada Gambar \@ref(fig:legend):
 
 ```{r legend,fig.cap='Menambahkan legend', tidy=FALSE, fig.align='center', out.width='70%'}
 # membuat vektor numerik
@@ -596,7 +596,7 @@ b. **text.font**: integer yang menunjukkan *font style* pada teks legend. Nilai 
     + **4**: cetak tebal dan miring.
 c. **bg**: warna background legend box.
 
-Berikut adalah penerapan sintaks dan output yang dihasilkan pada Figure \@ref(fig:legend2):
+Berikut adalah penerapan sintaks dan output yang dihasilkan pada Gambar \@ref(fig:legend2):
 
 ```{r legend2,fig.cap='Menambahkan legend (2)', tidy=FALSE, fig.align='center', out.width='70%'}
 # membuat line plot
@@ -611,7 +611,7 @@ legend(1, 95, legend=c("Line 1", "Line 2"),
        title="Line types", text.font=4, bg='lightblue')
 ```
 
-Kita dapat melakukan kustomisasi pada border dari legend melalui argumen `box.lty= `(jenis garis), `box.lwd= `(ukuran garis), dan `box.col= `(warna box). Berikut adalah penerapan argumen tersebut beserta output yang dihasilkan pada Figure \@ref(fig:legend3):
+Kita dapat melakukan kustomisasi pada border dari legend melalui argumen `box.lty= `(jenis garis), `box.lwd= `(ukuran garis), dan `box.col= `(warna box). Berikut adalah penerapan argumen tersebut beserta output yang dihasilkan pada Gambar \@ref(fig:legend3):
 
 ```{r legend3,fig.cap='Menambahkan legend (3)', tidy=FALSE, fig.align='center', out.width='70%'}
 # membuat line plot
@@ -627,7 +627,7 @@ legend(1, 95, legend=c("Line 1", "Line 2"),
        box.lty=2, box.lwd=2, box.col="steelblue")
 ```
 
-Selain menggunakan koordinat, kita juga dapat melakukan kustomisasi posisi legend menggunakan *keyword* seperti: bottomright", "bottom", "bottomleft", "left", "topleft", "top", "topright", "right" and "center". Sejumlah kustomisasi legend berdasarkan *keyword* disajikan pada Figure \@ref(fig:legend4):
+Selain menggunakan koordinat, kita juga dapat melakukan kustomisasi posisi legend menggunakan *keyword* seperti: bottomright", "bottom", "bottomleft", "left", "topleft", "top", "topright", "right" and "center". Sejumlah kustomisasi legend berdasarkan *keyword* disajikan pada Gambar \@ref(fig:legend4):
 
 ```{r legend4,fig.cap='Kustomisasi posisi legend', tidy=FALSE, fig.align='center', out.width='70%'}
 # plot
@@ -688,7 +688,7 @@ text(x, y, labels)
 > - **x** dan **y**: vektor numerik yang menunjukkan koordinat posisi teks.
 > - **labels**: vektor karakter yang menunjukkan teks yang hendak ditulis.
 
-Berikut adalah contoh sintaks untuk memberi label pada sejumlah data yang memiliki kriteria yang kita inginkan dan output yang dihasilkan pada Figure \@ref(fig:text):
+Berikut adalah contoh sintaks untuk memberi label pada sejumlah data yang memiliki kriteria yang kita inginkan dan output yang dihasilkan pada Gambar \@ref(fig:text):
 
 ```{r text,fig.cap='Menambahkan teks', tidy=FALSE, fig.align='center', out.width='70%'}
 
@@ -707,7 +707,7 @@ text(d$wt, d$mpg,  row.names(d),
 
 ```
 
-Sedangkan sintaks berikut adalah contoh bagaimana menambahkan persamaan kedalam bidang grafik dan output yang dihasilkan pada Figure \@ref(fig:text2):
+Sedangkan sintaks berikut adalah contoh bagaimana menambahkan persamaan kedalam bidang grafik dan output yang dihasilkan pada Gambar \@ref(fig:text2):
 
 ```{r text2,fig.cap='Menambahkan teks (2)', tidy=FALSE, fig.align='center', out.width='70%'}
 
@@ -733,7 +733,7 @@ mtext(text, side=3)
 >   + **3**: atas
 >   + **4**: kanan.
 
-Berikut adalah contoh penerapan dan output yang dihasilkan pada Figure \@ref(fig:text3):
+Berikut adalah contoh penerapan dan output yang dihasilkan pada Gambar \@ref(fig:text3):
 
 ```{r text3, fig.cap='Menambahkan teks (3)', tidy=FALSE, fig.align='center', out.width='70%'}
 plot(1:10, 1:10, 
@@ -749,7 +749,7 @@ Fungsi `abline()` dapat digunakan untuk menamabahkan garis pada plot. Garis yang
 abline(v=y)
 ```
 
-Berikut adalah contoh sintaks bagaimana menambahkan garis pada sebuah plot dan output yang dihasilkan disajikan pada Figure \@ref(fig:abline):
+Berikut adalah contoh sintaks bagaimana menambahkan garis pada sebuah plot dan output yang dihasilkan disajikan pada Gambar \@ref(fig:abline):
 
 ```{r abline, fig.cap='Menambahkan garis', tidy=FALSE, fig.align='center', out.width='70%'}
 # membuat plot
@@ -798,7 +798,7 @@ Simbol plot (jenis titik) dapat diubah dengan menambahkan argumen `pch= ` pada p
 - pch = 24, filled triangle point-up blue
 - pch = 25, filled triangle point down blue
 
-Untuk lebih memahami bentuk simbol tersebut, penulis akan menyajikan sintaks yang menampilkan seluruh simbol tersebut pada satu grafik. Output yang dihasilkan disajikan pada Figure \@ref(fig:symbol):
+Untuk lebih memahami bentuk simbol tersebut, penulis akan menyajikan sintaks yang menampilkan seluruh simbol tersebut pada satu grafik. Output yang dihasilkan disajikan pada Gambar \@ref(fig:symbol):
 
 ```{r symbol,fig.cap='Symbol plot', tidy=FALSE, fig.align='center', out.width='70%'}
 generateRPointShapes<-function(){
@@ -829,7 +829,7 @@ Pada `R` kita juga dapat mengatur jenis garis yang akan ditampilkan pada plot de
 - lty = 5, longdash
 - lty = 6, twodash
 
-Untuk lebih memahaminya, pada sintaks berikut disajikan plot seluruh jenis garis tersebut beserta output yang dihasilkannya pada Figure \@ref(fig:lty):
+Untuk lebih memahaminya, pada sintaks berikut disajikan plot seluruh jenis garis tersebut beserta output yang dihasilkannya pada Gambar \@ref(fig:lty):
 
 ```{r lty,fig.cap='Line type', tidy=FALSE, fig.align='center', out.width='70%'}
 generateRLineTypes<-function(){
@@ -865,7 +865,7 @@ axis(side, at=NULL, labels=TRUE)
 > - **at**: titik dimana *tick-mark* hendak digambarkan. Nilai yang dapat dimasukkan sama dengan **side**.
 > - **labels**: Teks label *tick-mark*. Dapat juga secara logis menentukan apakah anotasi harus dibuat pada *tick mark*.
 
-Berikut contoh sintaks penerapan fungsi tersebut dan output yang dihasilkan pada Figure \@ref(fig:axis):
+Berikut contoh sintaks penerapan fungsi tersebut dan output yang dihasilkan pada Gambar \@ref(fig:axis):
 
 ```{r axis,fig.cap='Menambahkan axis', tidy=FALSE, fig.align='center', out.width='70%'}
 # membuat vektor numerik
@@ -896,7 +896,7 @@ Untuk transformasi skala log, kita dapat menambahkan argumen berikut:
 - **log="y"**: transformasi log sumbu y.
 - **log="xy"**: transformasi log sumbu x dan y.
 
-Berikut adalah contoh sintaks penerapan argumen tersebut beserta output yang dihasilkan pada Figure \@ref(fig:axis2):
+Berikut adalah contoh sintaks penerapan argumen tersebut beserta output yang dihasilkan pada Gambar \@ref(fig:axis2):
 
 ```{r axis2,fig.cap='Mengubah rentang dan skala axis', tidy=FALSE, fig.align='center', out.width='80%'}
 # membagi jendela grafik menjadi 1 baris dan 3 kolom
@@ -935,7 +935,7 @@ Argumen yang ditambahkan adalah sebagai berikut:
 
 - **xaxt** dan **yaxt**: karakter untuk menunjukkan apakah axis akan ditampilkan atau tidak. nilai dapat berupa "n"(sembunyika) dan "s"(tampilkan).
 
-Berikut adalah contoh penerapan argumen tersebut beserta output pada Figure \@ref(fig:axis3):
+Berikut adalah contoh penerapan argumen tersebut beserta output pada Gambar \@ref(fig:axis3):
 
 ```{r axis3,fig.cap='Kustomisasi tick mark', tidy=FALSE, fig.align='center', out.width='70%'}
 # membuat vektor numerik
@@ -961,7 +961,7 @@ Pada fungsi dasar `R`, warna dapat diatur dengan mengetikkan nama warna maupun k
 
 Untuk penggunaan warna hexadesima kita perlu mengetikkan "#" yang diukuti oleh 6 kode warna. Untuk memperlajari kode-kode dan warna yang dihasilkan, silahkan pembaca mengunjungi situs <http://www.visibone.com/>.
 
-Pada sintaks berikut disajikan visualisasi nama-nama warna bawaan yang ada pada `R`. Output yang dihasilkan disajikan pada Figure \@ref(fig:color):
+Pada sintaks berikut disajikan visualisasi nama-nama warna bawaan yang ada pada `R`. Output yang dihasilkan disajikan pada Gambar \@ref(fig:color):
 
 ```{r color,fig.cap='Nama warna', tidy=FALSE, fig.align='center', out.width='70%'}
 showCols <- function(cl=colors(), bg = "grey",
@@ -985,7 +985,7 @@ Kita juga dapat melakukan visualisasi menggunakan library lain yang memiliki tam
 
 ### Scatterplot Menggunakan Library car
 
-Library `car` menyediakan alternatif lain visualisasi menggunakan scatterplot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:carscatter):
+Library `car` menyediakan alternatif lain visualisasi menggunakan scatterplot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar \@ref(fig:carscatter):
 
 ```{r carscatter,fig.cap='Enhanced scatterplot', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
 # memasang paket
@@ -1009,7 +1009,7 @@ Pada grafik tersebut terkandung beberapa elemen penting, yaitu:
 
 ### Matriks Scatterplot Menggunakan Library psych
 
-FUngsi `pairs.panels()` pada library `psych` dapat digunakan untuk membuat matriks scatterplot. Grafik yang dihasilkan juga lebih ringkas dan menampilkan fungsional lain pada bagian diagonal lain berupa histogram dan density plot yang dapat menunjukkan distribusi dari variabel yang ada. Selain itu pada fungsionalitas grafik juga dapat ditingkatkan dengan penambahan nilai korelasi antar variabel yang secara default ditambahkan pada panel atas. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:psychscatter):
+FUngsi `pairs.panels()` pada library `psych` dapat digunakan untuk membuat matriks scatterplot. Grafik yang dihasilkan juga lebih ringkas dan menampilkan fungsional lain pada bagian diagonal lain berupa histogram dan density plot yang dapat menunjukkan distribusi dari variabel yang ada. Selain itu pada fungsionalitas grafik juga dapat ditingkatkan dengan penambahan nilai korelasi antar variabel yang secara default ditambahkan pada panel atas. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar \@ref(fig:psychscatter):
 
 ```{r psychscatter,fig.cap='Enhanced scatterplot matrices', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
 # memasang paket
@@ -1030,7 +1030,7 @@ pairs.panels(trees,
 
 ### Box Plot Menggunakan Library gplots
 
-Fungsi `boxplot2()` pada paket `gplots` memberikan fungsionalitas lebih dibandingkan box plot yang dihasilkan dari fungsi dasar `R`. Plot yang dihasilkan akan menampilkan jumlah observasi pada tiap box. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure \@ref(fig:gplotsboxplot2):
+Fungsi `boxplot2()` pada paket `gplots` memberikan fungsionalitas lebih dibandingkan box plot yang dihasilkan dari fungsi dasar `R`. Plot yang dihasilkan akan menampilkan jumlah observasi pada tiap box. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Gambar \@ref(fig:gplotsboxplot2):
 
 ```{r gplotsboxplot2,fig.cap='Enhanced box plot', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
 # memasang paket
@@ -1045,7 +1045,7 @@ boxplot2(len ~ dose, data = ToothGrowth)
 
 ### QQ Plot Menggunakan Library car
 
-Fungsi `qqPlot()` pada library `car` dapat pula digunakan untuk membuat qq plot. Kelebihannya adalah qqplot yang dihasilkan akan dilengkapi dengan garis referensi yang memudahkan dalam membaca apakah data masih dalam rentang distribusi normal atau tidak. Selain itu, untuk membuatnya juga hanya diperlukan satu perintah saja. Hal ini tentu berbeda ketika kita menggunakan fungsi dasar `R`. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure \@ref(fig:carqqplot):
+Fungsi `qqPlot()` pada library `car` dapat pula digunakan untuk membuat qq plot. Kelebihannya adalah qqplot yang dihasilkan akan dilengkapi dengan garis referensi yang memudahkan dalam membaca apakah data masih dalam rentang distribusi normal atau tidak. Selain itu, untuk membuatnya juga hanya diperlukan satu perintah saja. Hal ini tentu berbeda ketika kita menggunakan fungsi dasar `R`. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Gambar \@ref(fig:carqqplot):
 
 ```{r carqqplot,fig.cap='Enhanced qq plot', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
 # memasang paket
@@ -1060,7 +1060,7 @@ qqPlot(trees$Height)
 
 ### Plot Group Means Menggunakan Library gplots
 
-Plot ini akan sering kita gunakan saat melakukan analisis statistik menggunakan anova baik anova satu arah maupun dua arah. Plot ini berguna untuk melihat adanya interaksi antar faktor saat melakukan analisis anova dua arah. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Figure \@ref(fig:plotmeans):
+Plot ini akan sering kita gunakan saat melakukan analisis statistik menggunakan anova baik anova satu arah maupun dua arah. Plot ini berguna untuk melihat adanya interaksi antar faktor saat melakukan analisis anova dua arah. Berikut adalah contoh sintask penerapan dan output yang dihasilkan pada Gambar \@ref(fig:plotmeans):
 
 ```{r plotmeans,fig.cap='Plot group means', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
 # memasang paket

@@ -89,3 +89,31 @@
 \contentsline {figure}{\numberline {5.23}{\ignorespaces QQ plot variabel lifeExp}}{162}{figure.5.23}% 
 \contentsline {figure}{\numberline {5.24}{\ignorespaces Dot plot variabel lifeExp masing-masing benua (1952-2007)}}{163}{figure.5.24}% 
 \contentsline {figure}{\numberline {5.25}{\ignorespaces Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)}}{163}{figure.5.25}% 
+\contentsline {figure}{\numberline {5.26}{\ignorespaces ECDF plot variabel lifeExp}}{164}{figure.5.26}% 
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Mengubah judul grafik dan keterangan axis}}{165}{figure.5.27}% 
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Mengubah keterangan legend pada grafik}}{166}{figure.5.28}% 
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Kustomisasi judul grafik dan keterangan axis}}{167}{figure.5.29}% 
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Kustomisasi posisi legend berdasarkan karakter}}{168}{figure.5.30}% 
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Kustomisasi posisi legend berdasarkan vektor numerik}}{169}{figure.5.31}% 
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Kustomisasi tampilan legend}}{170}{figure.5.32}% 
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Menghilangkan seluruh legend}}{171}{figure.5.33}% 
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Menghilangkan sebagian legend legend}}{172}{figure.5.34}% 
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Merubah warna grup berdasarkan satu warna}}{172}{figure.5.35}% 
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Merubah warna grup secara otomatis}}{173}{figure.5.36}% 
+\contentsline {figure}{\numberline {5.37}{\ignorespaces Merubah pencahayaan dan intensitas warna}}{174}{figure.5.37}% 
+\contentsline {figure}{\numberline {5.38}{\ignorespaces Merubah warna secara manual}}{174}{figure.5.38}% 
+\contentsline {figure}{\numberline {5.39}{\ignorespaces Palet warna RColorBrewer}}{175}{figure.5.39}% 
+\contentsline {figure}{\numberline {5.40}{\ignorespaces Merubah warna menggunakan palet}}{176}{figure.5.40}% 
+\contentsline {figure}{\numberline {5.41}{\ignorespaces Merubah warna menggunakan palet gray}}{177}{figure.5.41}% 
+\contentsline {figure}{\numberline {5.42}{\ignorespaces Kustomisasi jenis, ukuran dan warna titik}}{177}{figure.5.42}% 
+\contentsline {figure}{\numberline {5.43}{\ignorespaces Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara otomatis}}{178}{figure.5.43}% 
+\contentsline {figure}{\numberline {5.44}{\ignorespaces Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara manual}}{179}{figure.5.44}% 
+\contentsline {figure}{\numberline {5.45}{\ignorespaces Kustomisasi jenis, ukuran dan warna garis}}{180}{figure.5.45}% 
+\contentsline {figure}{\numberline {5.46}{\ignorespaces Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara otomatis}}{180}{figure.5.46}% 
+\contentsline {figure}{\numberline {5.47}{\ignorespaces Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara manual}}{181}{figure.5.47}% 
+\contentsline {figure}{\numberline {5.48}{\ignorespaces Scatterplot variabel pop vs gdpPercap}}{182}{figure.5.48}% 
+\contentsline {figure}{\numberline {5.49}{\ignorespaces Scatterplot variabel pop vs gdpPercap dengan label}}{183}{figure.5.49}% 
+\contentsline {figure}{\numberline {5.50}{\ignorespaces Scatterplot variabel pop vs gdpPercap dengan label dan notasi}}{183}{figure.5.50}% 
+\contentsline {figure}{\numberline {5.51}{\ignorespaces Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada tiap panel}}{184}{figure.5.51}% 
+\contentsline {figure}{\numberline {5.52}{\ignorespaces Scatterplot dengan tema black and white}}{185}{figure.5.52}% 
+\contentsline {figure}{\numberline {5.53}{\ignorespaces Scatterplot dengan tema Wall Street Journal}}{186}{figure.5.53}% 

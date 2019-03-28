@@ -25,7 +25,7 @@
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-03-26">
+<meta name="date" content="2019-03-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -88,7 +88,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -240,6 +239,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#histogram-dan-desity-plot"><i class="fa fa-check"></i><b>5.6</b> Histogram dan Desity Plot</a></li>
 <li class="chapter" data-level="5.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#qq-plot-1"><i class="fa fa-check"></i><b>5.7</b> QQ Plot</a></li>
 <li class="chapter" data-level="5.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#dot-plot"><i class="fa fa-check"></i><b>5.8</b> Dot Plot</a></li>
+<li class="chapter" data-level="5.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#ecdf-plot"><i class="fa fa-check"></i><b>5.9</b> ECDF Plot</a></li>
+<li class="chapter" data-level="5.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#parameter-grafik"><i class="fa fa-check"></i><b>5.10</b> Parameter Grafik</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-judul-grafik-keterangan-axis-dan-legend"><i class="fa fa-check"></i><b>5.10.1</b> Merubah Judul Grafik, Keterangan Axis dan Legend</a></li>
+<li class="chapter" data-level="5.10.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-tampilan-dan-posisi-legend"><i class="fa fa-check"></i><b>5.10.2</b> Merubah Tampilan dan Posisi Legend</a></li>
+<li class="chapter" data-level="5.10.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-warana-pada-grafik-secara-otomatis-dan-manual"><i class="fa fa-check"></i><b>5.10.3</b> Merubah Warana Pada Grafik Secara Otomatis dan Manual</a></li>
+<li class="chapter" data-level="5.10.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-titik"><i class="fa fa-check"></i><b>5.10.4</b> Kustomisasi Titik</a></li>
+<li class="chapter" data-level="5.10.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-jenis-garis"><i class="fa fa-check"></i><b>5.10.5</b> Kustomisasi Jenis Garis</a></li>
+<li class="chapter" data-level="5.10.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-label-pada-titik-observasi-dan-bidang-plot"><i class="fa fa-check"></i><b>5.10.6</b> Menambahkan Label Pada Titik Observasi dan Bidang Plot</a></li>
+<li class="chapter" data-level="5.10.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tema-pada-plot"><i class="fa fa-check"></i><b>5.10.7</b> Kustomisasi Tema Pada Plot</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -270,11 +279,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Pada <em>chapter</em> ini penulis akan memperkenalkan kepada pembaca mengenai bahasa pemrograman <code>R</code>. Mulai dari sejarah, cara instalasi sampai dengan bagaimana kita memanfaatkan fitur dasar bantuan untuk menggali lebih jauh tentang fungsi-fungsi <code>R</code>.</p>
 <div id="sejarah-r" class="section level2">
 <h2><span class="header-section-number">1.1</span> Sejarah R</h2>
-<p><code>R</code> Merupakan bahasa yang digunakan dalam komputasi <strong>statistik</strong> yang pertama kali dikembangkan oleh <strong>Ross Ihaka</strong> dan <strong>Robert Gentlement</strong> di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum <code>R</code> dikenal ada <code>S</code> yang dikembangkan oleh <strong>John Chambers</strong> dan rekan-rekan dari <strong>Bell Laboratories</strong> yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah <code>R</code> merupakan sistem komputasi yang bersifat gratis.Logo <code>R</code> dapat dilihat pada Figure <a href="mengenal-bahasa-r.html#fig:Logo">1.1</a>.</p>
+<p><code>R</code> Merupakan bahasa yang digunakan dalam komputasi <strong>statistik</strong> yang pertama kali dikembangkan oleh <strong>Ross Ihaka</strong> dan <strong>Robert Gentlement</strong> di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum <code>R</code> dikenal ada <code>S</code> yang dikembangkan oleh <strong>John Chambers</strong> dan rekan-rekan dari <strong>Bell Laboratories</strong> yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah <code>R</code> merupakan sistem komputasi yang bersifat gratis.Logo <code>R</code> dapat dilihat pada Gambar <a href="mengenal-bahasa-r.html#fig:Logo">1.1</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:Logo"></span>
 <img src="r-icon.png" alt="Logo R." width="40%" />
 <p class="caption">
-Figure 1.1: Logo R.
+Gambar 1.1: Logo R.
 </p>
 </div>
 <p><code>R</code> dapat dibilang merupakan aplikasi sistem <strong>statistik</strong> yang kaya. Hal ini disebabkan banyak sekali paket yang dikembangkan oleh pengembang dan komunitas untuk keperluan analisa statistik seperti <em>linear regression</em>, <em>clustering</em>, <em>statistical test</em>, dll. Selain itu, <code>R</code> juga dapat ditambahkan paket-paket lain yang dapat meningkatkan fiturnya.</p>
@@ -334,17 +343,17 @@ A <span class="op">==</span><span class="st"> </span>B</code></pre></div>
 <li>Ikuti langkah proses pemasangan aplikasi yang ditampilkan dengan klik <code>OK</code> atau <code>Next</code>.</li>
 <li>Apabila pemasangan telah dilakukan, jalankan aplikasi yang telah terpasang untuk menguji jika aplikasi telah berjalan dengan baik.</li>
 </ol>
-<p>Jendela aplikasi yang telah terpasang ditampilkan pada Figure <a href="mengenal-bahasa-r.html#fig:jendela-R">1.2</a> dan Figure <a href="mengenal-bahasa-r.html#fig:jendela-RStudio">1.3</a>.</p>
+<p>Jendela aplikasi yang telah terpasang ditampilkan pada Gambar <a href="mengenal-bahasa-r.html#fig:jendela-R">1.2</a> dan Gambar <a href="mengenal-bahasa-r.html#fig:jendela-RStudio">1.3</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:jendela-R"></span>
 <img src="jendela_r.png" alt="Jendela R." width="80%" />
 <p class="caption">
-Figure 1.2: Jendela R.
+Gambar 1.2: Jendela R.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:jendela-RStudio"></span>
 <img src="jendela_rstudio.png" alt="Jendela RStudio." width="80%" />
 <p class="caption">
-Figure 1.3: Jendela RStudio.
+Gambar 1.3: Jendela RStudio.
 </p>
 </div>
 <blockquote>
@@ -360,7 +369,7 @@ Figure 1.3: Jendela RStudio.
 <p>Berikut adalah cara mengubah <em>working directory</em> pada <code>R</code>.</p>
 <ol style="list-style-type: decimal">
 <li>Buatlah folder pada drive (kita bisa membuat folder pada selain drive c) dan namai dengan nama yang kalian inginkan. Pada tutorial ini penulis menggunakan nama folder <code>R</code>.</li>
-<li>Jika pengguna menggunakan <code>RStudio</code>, pada menu <code>RStudio</code> pilih <strong>Session &gt; Set Working Directory &gt; Chooses Directory</strong>. Proses tersebut ditampilkan pada Figure <a href="mengenal-bahasa-r.html#fig:working">1.4</a></li>
+<li>Jika pengguna menggunakan <code>RStudio</code>, pada menu <code>RStudio</code> pilih <strong>Session &gt; Set Working Directory &gt; Chooses Directory</strong>. Proses tersebut ditampilkan pada Gambar <a href="mengenal-bahasa-r.html#fig:working">1.4</a></li>
 <li>Pilih folder yang telah dibuat pada step 1 sebagai *working directory.</li>
 </ol>
 <blockquote>
@@ -371,7 +380,7 @@ Figure 1.3: Jendela RStudio.
 <div class="figure" style="text-align: center"><span id="fig:working"></span>
 <img src="working.png" alt="Mengubah working directory." width="80%" />
 <p class="caption">
-Figure 1.4: Mengubah working directory.
+Gambar 1.4: Mengubah working directory.
 </p>
 </div>
 <p>Selain itu kita dapat mengubah <em>working directory</em> menggunakan perintah berikut:</p>
@@ -384,11 +393,11 @@ Figure 1.4: Mengubah working directory.
 <div id="mengubah-lokasi-working-directory-default" class="section level3">
 <h3><span class="header-section-number">1.6.2</span> Mengubah Lokasi Working Directory Default</h3>
 <p>Pada proses yang telah penulis jelaskan sebelumnya. Proses perubahan <em>working directory</em> hanya berlaku pada saat pekerjaan tersebut dilakukan. Setelah pekerjaan selesai dan kita menjalankan kembali <code>R</code> maka <em>working directory</em> akan kembali secara default pada working directory lama.</p>
-<p>Untuk membuat lokasi default <em>working directory</em> pindah, kita dapat melakukannya dengan memilih pada menu: <strong>Tools &gt; Global options &gt; pada “General” klik pada “Browse” dan pilih lokasi working directory yang diinginkan</strong>. Proses tersebut ditampilkan pada Figure <a href="mengenal-bahasa-r.html#fig:default">1.5</a></p>
+<p>Untuk membuat lokasi default <em>working directory</em> pindah, kita dapat melakukannya dengan memilih pada menu: <strong>Tools &gt; Global options &gt; pada “General” klik pada “Browse” dan pilih lokasi working directory yang diinginkan</strong>. Proses tersebut ditampilkan pada Gambar <a href="mengenal-bahasa-r.html#fig:default">1.5</a></p>
 <div class="figure" style="text-align: center"><span id="fig:default"></span>
 <img src="default.png" alt="Merubah working directory melalui Global options." width="80%" />
 <p class="caption">
-Figure 1.5: Merubah working directory melalui Global options.
+Gambar 1.5: Merubah working directory melalui Global options.
 </p>
 </div>
 </div>
@@ -407,14 +416,14 @@ Figure 1.5: Merubah working directory melalui Global options.
 
 <span class="co">#atau</span>
 ?mean</code></pre></div>
-<p>Perintah tersebut akan memunculkan hasil berupa dokumentasi yang ditampilkan pada Figure <a href="mengenal-bahasa-r.html#fig:meandoc">1.6</a>.</p>
+<p>Perintah tersebut akan memunculkan hasil berupa dokumentasi yang ditampilkan pada Gambar <a href="mengenal-bahasa-r.html#fig:meandoc">1.6</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:meandoc"></span>
 <img src="meandoc.PNG" alt="Jendela help dokumentasi fungsi mean()." width="50%" />
 <p class="caption">
-Figure 1.6: Jendela help dokumentasi fungsi mean().
+Gambar 1.6: Jendela help dokumentasi fungsi mean().
 </p>
 </div>
-<p>Keterangan pada jendela pada Figure <a href="mengenal-bahasa-r.html#fig:meandoc">1.6</a> adalah sebagia berikut:</p>
+<p>Keterangan pada jendela pada Gambar <a href="mengenal-bahasa-r.html#fig:meandoc">1.6</a> adalah sebagia berikut:</p>
 <ol style="list-style-type: decimal">
 <li>Pada bagian jendela kiri atas jendela <em>help</em>, diberikan keterangan nama dari perintah yang sedang ditampilkan.</li>
 <li>Selanjutnya, pada bagian atas dokumen, ditampilkan infomasi terkait nama perintah, dan nama <em>library</em> yang memuat perintah tersebut. Pada gambar diatas informasi terkait perintah dan nama <em>library</em> ditunjukkan pada teks <code>mean {base}</code> yang menunjukkan perintah <code>mean()</code> pada paket (<em>library</em>) <em>base</em> (paket bawaan <code>R</code>).</li>
@@ -460,11 +469,11 @@ x</code></pre></div>
 <h3><span class="header-section-number">1.7.2</span> General Help</h3>
 <p>Kita juga dapat membaca beberapa dokumen manual yang ada pada <code>R</code>. Untuk melakukannya jalankan perintah berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help.start</span>()</code></pre></div>
-<p>Output yang dihasilkan berupa link pada sejumlah dokumen yang dapat kita klik. Tampilan halaman yang dihasilkan disajikan pada Figure <a href="mengenal-bahasa-r.html#fig:generalhelp">1.7</a>.</p>
+<p>Output yang dihasilkan berupa link pada sejumlah dokumen yang dapat kita klik. Tampilan halaman yang dihasilkan disajikan pada Gambar <a href="mengenal-bahasa-r.html#fig:generalhelp">1.7</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:generalhelp"></span>
 <img src="generalhelp.png" alt="Jendela general help dokumentasi fungsi mean()." width="50%" />
 <p class="caption">
-Figure 1.7: Jendela general help dokumentasi fungsi mean().
+Gambar 1.7: Jendela general help dokumentasi fungsi mean().
 </p>
 </div>
 </div>
@@ -482,11 +491,11 @@ Figure 1.7: Jendela general help dokumentasi fungsi mean().
 
 <span class="co"># atau</span>
 ??mean</code></pre></div>
-<p><em>Output</em> yang dihasilkan akan tampak seperti pada Figure <a href="mengenal-bahasa-r.html#fig:helpsearch">1.8</a>.</p>
+<p><em>Output</em> yang dihasilkan akan tampak seperti pada Gambar <a href="mengenal-bahasa-r.html#fig:helpsearch">1.8</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:helpsearch"></span>
 <img src="helpsearch.png" alt="Jendela help search dokumentasi fungsi mean()." width="50%" />
 <p class="caption">
-Figure 1.8: Jendela help search dokumentasi fungsi mean().
+Gambar 1.8: Jendela help search dokumentasi fungsi mean().
 </p>
 </div>
 </div>

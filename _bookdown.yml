@@ -1,5 +1,9 @@
 book_filename: "EnvStat"
 delete_merged_file: true
 language:
+  label:
+    fig: 'Gambar '
+    tab: 'Tabel '
+    eq: 'Persamaan '
   ui:
     chapter_name: "Chapter "

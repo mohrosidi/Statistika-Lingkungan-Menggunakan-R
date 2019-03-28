@@ -20,7 +20,7 @@ Bandingkan dengan sintaks berikut:
 
 Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, `R` akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian. 
 
-Operator aritmatika yang disediakan `R` disajikan pada Table \@ref(tab:oparitmatika):
+Operator aritmatika yang disediakan `R` disajikan pada Tabel \@ref(tab:oparitmatika):
 
 
 **Simbol**     | **Keterangan**
@@ -110,7 +110,7 @@ sqrt(4) # akar kuadrat 4
 
 ## Operator Relasi
 
-Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan `R` disajikan pada Table \@ref(tab:oprelasi).
+Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan `R` disajikan pada Tabel \@ref(tab:oprelasi).
 
 **Simbol**     | **Keterangan**           
 ---------------|---------------------------
@@ -151,7 +151,7 @@ x != y
 
 ## Operator Logika
 
-Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika `TRUE`. Operator logika yang disediakan `R` dapat dilihat pada Table \@ref(tab:oplogika).
+Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika `TRUE`. Operator logika yang disediakan `R` dapat dilihat pada Tabel \@ref(tab:oplogika).
 
 **Simbol**     | **Keterangan**           
 ---------------|----------------------------------
@@ -276,7 +276,7 @@ ls()
 
 ## Tipe Data
 
-Data pada `R` dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada `R` disajikan pada Table \@ref(tab:tipedata).
+Data pada `R` dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada `R` disajikan pada Tabel \@ref(tab:tipedata).
 
 **Tipe Data**  | **Contoh**              | **Keterangan**
 ---------------|-------------------------|--------------------------------------------------
@@ -1009,7 +1009,7 @@ list_baru <- c(list_a, list_b, list_c, ...)
 
 Pada `R` bentuk *loop* dapat bermacam-macam ("*for loop*","*while loop*", dll). `R` menyederhanakan bentuk *loop* ini dengan menyediakan sejumlah fungsi seperti `apply()`,`tapply()`, dll. Sehingga `loop` jarang sekali muncul dalam kode `R`. Sehingga `R` sering disebut sebagai *loopless loop*. 
 
-Meski *loop* jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat *loop* yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure \@ref(fig:loop)
+Meski *loop* jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat *loop* yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Gambar \@ref(fig:loop)
 
 ```{r loop, echo=FALSE, fig.cap='Diagram umum loop (sumber: Primartha, 2018).', tidy=FALSE, out.width='40%', fig.align='center'}
 library(knitr)
@@ -1140,7 +1140,7 @@ repeat{
 
 ## Decision Making
 
-*Decicion Making* atau sering disebut sebagai *if then else statement* merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table \@ref(tab:percabangan) disajikan daftar percabangan yang digunakan pada `R`.
+*Decicion Making* atau sering disebut sebagai *if then else statement* merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Tabel \@ref(tab:percabangan) disajikan daftar percabangan yang digunakan pada `R`.
 
 **Statement**          | **Keterangan**
 -----------------------|--------------------------------------------------------------------------------------------------------------------------
@@ -1152,7 +1152,7 @@ repeat{
 
 ### if statement
 
-Pola *if statement* disajikan pada Figure \@ref(fig:ifstatement)
+Pola *if statement* disajikan pada Gambar \@ref(fig:ifstatement)
 
 ```{r ifstatement, echo=FALSE, fig.cap='Diagram if statement (sumber: Primartha, 2018).', tidy=FALSE, out.width='40%', fig.align='center'}
 library(knitr)
@@ -1173,7 +1173,7 @@ if(is.vector(x)){
 
 ### if else statement
 
-Pola dari *if else statement* disajikan pada Figure \@ref(fig:ifelse)
+Pola dari *if else statement* disajikan pada Gambar \@ref(fig:ifelse)
 
 ```{r ifelse, echo=FALSE, fig.cap='Diagram if else statement (sumber: Primartha, 2018).', tidy=FALSE, out.width='40%', fig.align='center'}
 library(knitr)
@@ -1198,7 +1198,7 @@ if("Rina" %in% x){
 
 ### switch statement
 
-Pola dari *switch statement* disajikan pada Figure \@ref(fig:switch)
+Pola dari *switch statement* disajikan pada Gambar \@ref(fig:switch)
 
 ```{r switch, echo=FALSE, fig.cap='Diagram switch statement (sumber: Primartha, 2018).', tidy=FALSE, out.width='40%', fig.align='center'}
 library(knitr)
