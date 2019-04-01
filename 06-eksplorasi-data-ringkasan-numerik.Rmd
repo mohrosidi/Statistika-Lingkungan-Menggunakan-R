@@ -1,0 +1,319 @@
+# (PART\*) Statistika Deskriptif - R {-}
+
+<style>
+body{
+text-align: justify}
+</style>
+
+# Ringkasan Numerik
+
+Pada bidang lingkungan kita sering kali menemui sebuah pernyataan "konsentrasi rata-rata TSS pada sungai tersebut adalah 30 mg/l" atau "kedalaman penampang saluran tersebut berkisar antara 1 sampai 2 meter". Kedua pernyataan tersebut merupakan sebuah penyapaian informasi terkait karakteristik data yang ada. Pernyataan yang pertama menyatakan karakteristik nilai pemusatan data, sedangkan yang kedua menyatakan karakteristik sebaran suatu data.
+
+Karakteristik lain yang sering digunakan untuk menjelaskan suatu data adalah bentuk distibusi suatu data dan estimasi nilai ekstrim seperti nilai masimum dan minimum suatu data. Seluruh karakteristik data tersebut perlu dihitung untuk memperoleh informasi numerik pada data.
+
+Pada chapter ini kita akan membahas terkait metode untuk membuat ringkasan dan deksripsi data. Pembahasan akan terdiri dari ukuran nilai pemusatan data, ukuran sebaran atau variabilitas data dan bentuk distribusi data. Selain itu kita akan membahas nilai ekstrim yang ada pada sebuah data dan transformasi data.
+
+## Ukuran Pemusatan Data
+
+Nilai rata-rata (mean) dan nilai tengah (median) merupakan dua nilai yang paling umum digunakan untuk menyatakan lokasi pemusatan data meskipun kedua nilai bukanlah satu atau dua ukuran yang tersedia. Apa sajakah properti dari kedua ukuran tersebut dan kapan salah satu atau keduanya dapat digunakan bersamaan?.
+
+### Metode Klasik-Mean
+
+Nilai mean ($\overline{X}$) diperoleh dengan menjumlahkan seluruh data dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti Persamaan \@ref(eq:mean);
+
+\begin{equation}
+  \overline{X}=\text{}\sum_{_{i=1}}^n\frac{X_i}{n}
+  (\#eq:mean)
+\end{equation}
+
+Nilai mean yang disimbolkan dengan "X bar" merupakan nilai mean untuk sampel. Nilai mean untuk populasi disimbolkan oleh huruf Yunani "mu atau $\mu$".
+
+Pada Persamaan \@ref(eq:mean), jika data terdiri dari banyak grup maka nilai rata-rata dihitung berdasarkan jumlah nilai observasi dikali dengan bobotnya. Nilai mean tersebut disebut sebagai *weighted mean* yang dapat ditulis berdasarkan Persamaan Persamaan \@ref(eq:weightedmean).
+
+\begin{equation}
+  \overline{X}\ =\text{}\sum_{_{i=1}}^n\overline{X_i}\cdot\frac{n_i}{n}
+  (\#eq:weightedmean)
+\end{equation}
+
+dimana $\overline{X_i}$ merupakan nilai rata-rata grup ke-i dan $\frac{n_i}{n}$ merupakan bobot pengali yang berupa rasio antara observasi grup ke-i dengan keseluruhan observasi. 
+
+Kita biasanya akan berhadapan dengan nilai observasi yang baru sehingga nilai mean yang telah ada akan ikut berubah. Perubahan nilai mean tersebut disebabkan karena setiap observasi yang disertakan dalam perhitungan mean memiliki pengaruhnya masing-masing. Jika observasi tersebut cenderung ekstrim besar maka nilai mean akan bergeser menuju kearahnya begitu juga sebaliknya.
+
+Pengaruh dari sebuah nilai observasi ke-j atau $X_j$ dapat dilihat dengan menghitung seluruh observasi secara bersamaan kecuali observasi ke-j pada sebuah grup. Dapat dituliskan pada Persamaan \@ref(eq:influencemean2)
+
+\begin{equation}
+  \overline{X} =\text{}\overline{X_{\left(j\right)}}\ \cdot\frac{\left(n-1\right)}{n}+X_j\cdot\frac{1}{n}
+  (\#eq:influencemean1)
+\end{equation}
+
+\begin{equation}
+  \overline{X} =\overline{X}_{\left(j\right)}+\left(X_j-\overline{X}_{\left(j\right)}\right)\cdot\frac{1}{n}
+  (\#eq:influencemean2)
+\end{equation}
+
+dimana $\overline{X}_{\left(j\right)}$ adalah nilai mean seluruh observasi kecuali $X_j$. Setiap observasi yang mempengaruhi nilai mean keseluruhan ($\overline{X}$) didefinisikan oleh $\left(X_j-\overline{X}_{\left(j\right)}\right)$ sebagai jarak antara observasi tersebut dengan nilai rata-rata yang tidak termasuk observasi tersebut di dalamnya. Sehingga seluruh nilai observasi tidak memiliki pengaruh yang sama terhadap nilai rata-rata seluruh observasi.
+
+*Outlier* merupakan observasi yang memiliki nilai yang ekstrim tinggi atau rendah dibanding seluruh observasi yang ada sehingga memiliki pengaruh yang besar terhadap nilai mean keseluruhan ($\overline{X}$). Pengaruhnya yang sangat besar terhadap nilai rata-rata keseluruhan akan menyebabkan nilai rata-rata akan bergeser ke arah *outlier* tersebut. Selain itu penampilan dari distribusi frekuensi yang terbentuk akan terlihat memiliki ekor yang panjang.
+
+Untuk lebih memahami pengaruh observasi terhadap nilai rata-rata, disajikan dua buah gambar yaitu: Gambar \@ref(fig:mean1) dan Gambar \@ref(fig:mean2)
+
+```{r mean1, echo=FALSE, fig.cap='Nilai mean (segitiga) sebagai titik kesetimbangan pada data.', tidy=FALSE, out.width='70%', fig.align='center'}
+library(knitr)
+img1_path <- "mean1.png"
+include_graphics(img1_path)
+
+```
+
+```{r mean2, echo=FALSE, fig.cap='Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.', tidy=FALSE, out.width='70%', fig.align='center'}
+library(knitr)
+img1_path <- "mean2.png"
+include_graphics(img1_path)
+
+```
+
+Pada Gambar \@ref(fig:mean1) disajikan 7 buah data konsentrasi TSS di suatu sungai. Nilai rata-rata TSS pada sungai tersebut adalah 11 mg/l. Jika kita amati sebagian besar data (6 observasi) berada pada rentang nilai konsentrasi TSS 2 sampai 12 mg/l. Observasi yang lain terletak jauh dari mayoritas observasi lainnya yaitu sebesar 37 mg/l. Observasi yang berbeda secara ekstrim dari nilai secara umum pada suatu data disebut sebagai *outlier*. Nilai *outlier* tersebut menyebabkan nilai rata-rata yang terbentuk tidak representatif terhadap keseluruhan data yang ada dan cenderung menggeser nilai rata-rata mendekati nilai *outlier* tersebut. Nilai observasi yang ekstrim biasanya muncul dari adanya kesalahan perlakuan terhadap sampel seperti botol sampel yang digunakan tidak bersih atau prosedur analisa yang dilakukan tidak standar sehingga memungkinkan adanya partikulat udara yang terukur pada proses penimbangan.
+
+Salah satu cara untuk menangani adanya *outlier* tersebut adalah dengan menghapus observasi yang merupakan *outlier*. Pada Gambar \@ref(fig:mean2) terlihat bahwa penghapusan *outlier* telah menggeser nilai rata-rata ke kiri. Nilai rata-rata yang baru tersebut jika diperhatikan dari Gambar \@ref(fig:mean2) lebih menggambarkan keseluruhan data yang ada. Tidak terlihat adanya nilai yang berada jauh jaraknya dari nilai rata-rata yang baru.
+
+Pada contoh tersebut dapat kita simpulkan bahwa nilai mean sangat sensitif terhadap adanya *outlier*. Pada prakteknya nilai mean tidaklah berdiri sendiri selama proses analisa. Nilai mean memerlukan nilai lain seperti median untuk menganalisa apakah data yang diperoleh tidak simetris yang dapat mengindikasikan adanya outlier.
+
+Pada `R` untuk menghitung nilai rata-rata, kita dapat menggunakan fungsi `mean()`. Format fungsi yang digunakan dituliskan pada persamaan berikut:
+
+```{r, eval=FALSE}
+mean(x, trim = 0, na.rm = FALSE)
+```
+
+> **Note:**
+>
+> - **x**: objek atau vektor numerik.
+> - **trim**: menyatakan fraksi data (berkisar antara 0 sampai 0,5) yang perlu dilakukan pemotongan (*trim*) pada observasi awal dan akhir **x** (yang telah diurutkan) sebelum nilai mean dihitung.
+> **na.rm**: nilai logis yang menyatakan apakan *missing value* perlu disertakan dalam perhitungan atau tidak. Jika disertakan maka output yang akan dihasilkan adalah NA.
+
+**Analisa Nilai Mean Grup Data Tunggal (*Single Group*)**
+
+Untuk lebih memahami penerapannya pada `R`, pada Tabel \@ref(tab:debitsungai) berikut disajikan data terkait debit air suatu sungai.
+
+```{r debitsungai, echo=FALSE}
+library(tibble)
+        
+observasi<-c(1:12)
+sampel<-c(457, 185, 133, 160, 119, 115, 101, 58, 68, 50, 65, 128)
+data<- data.frame("observasi"=observasi,
+                     "debit"=sampel)
+sungai<- as_tibble(data)
+
+knitr::kable(
+  sungai, caption = 'Data Debit Sampel (m3/detik)'
+)
+```
+
+Data pada Tabel \@ref(tab:debitsungai) dapat divisualisasikan seperti pada Gambar \@ref(fig:debitvis):
+
+```{r debitvis,fig.cap='Visualisasi debit sungai pada sampel', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE, echo=FALSE, fig.height=1, fig.width=11}
+library(ggplot2)
+
+# plot
+ggplot(sungai, aes(x=debit, y=..count..))+
+  geom_dotplot(binwidth = 1, dotsize=8, fill="red")+
+  ylim(0,0.01)+
+  theme_classic()+
+  theme(axis.text.y = element_blank())+
+  ylab("")
+  
+```
+
+Berdasarkan Gambar \@ref(fig:debitvis), terdapat *outlier* yang ditunjukkan pada debit sungai yang lebih besar dari 400 m3/detik. Hasil tersebut dapat terjadi salah satunya karena adanya kondisi ekstrim seperti banjir yang menyebabkan sungai meluap atau terjadi kesalahan pengukuran dari alat ukur yang ada di lapangan.
+
+Untuk menghitung nilai rata-rata debit pada data tersebut, masukkan variabel `debit` yang telah penulis simpan sebagai objek `sungai` kedalam fungsi `mean()` seperti berikut:
+
+```{r}
+mean(sungai$debit)
+```
+
+Berdasarkan hasil yang diperoleh, dapat dilihat bahwa nilai rata-rata debit pada sungai tersebut adalah `r mean(sungai$debit)` $m^3/detik$. 
+
+Kita dapat menghitung nilai mean dengan terlebih dahulu menghilangkan *outlier* pada data. Untuk melakukannya kita perlu melakukan subset terhadap data tanpa *outlier* di dalamnya sebelum data tersebut dimasukkan kedalam fungsi mean(). Berikut sintaks yang digunakan untuk melakukan hal tersebut:
+
+```{r}
+# memuat paket
+library(dplyr)
+
+# melakukan filter terhadap data
+sungai_subset<-sungai%>%
+  filter(debit<=400)
+
+# menghitung mean
+mean(sungai_subset$debit)
+```
+
+Berdasarkan hasil yang diperoleh terlihat bahwa nilai rata-rata yang baru lebih kecil dari yang sebelumnya (bergeser ke kiri) dengan nilai mean debit sungai yang baru sebesar `r mean(sungai_subset$debit)` $m^3/detik$. Hal ini terjadi karena pengaruh dari data *outlier* yang telah dihilangkan.
+
+**Analisa Nilai Rata-Rata Berdarsarkan Grup Data**
+
+Pada contoh sebelumnya kita telah melakukan perhitungan nilai mean untuk studi kasus grup tunggal. Pada contoh ini akan disajikan contoh kasus perhitungan nilai mean untuk data berkelompok.
+
+Dataset pada contoh kasus ini diambil dari buku **Statistical Methods in Water Resources**. Data yang digunakan adalah data konsentrasi TDS dan Uranium di airtanah dengan perbedaan konsentrasi bikarbonate dalam air tanah yaitu $\leq 50$% (0) dan $>50$% (1). Dataset yang digunakan disajikan pada Tabel \@ref(tab:gwtdsur).
+
+> **Note: ** data yang digunakan dapat diunduh pada link berikut [google.drive](https://drive.google.com/open?id=1-k_1Fkl2hWmI9ZohG9hWGrqKe4o8GArW). Simpan dataset tersebut pada *working directory* pembaca agar mudah dalam proses membaca data.
+
+
+```{r}
+# memuat library
+library(readxl)
+
+# memuat data excel
+data_gw <- read_excel("hhappc.xls", sheet="appc16")
+
+# membuang kolom ke-4
+data_gw<-data_gw %>%
+  select(TDS, Uranium, Bicarbonate) %>%
+  mutate(Bicarbonate=as.factor(Bicarbonate))
+  
+```
+
+
+```{r gwtdsur}
+knitr::kable(
+  data_gw, caption = 'Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan'
+)
+```
+
+Visualisasi data Tabel \@ref(tab:gwtdsur), disajikan pada  Gambar \@ref(fig:gwvis1):
+
+```{r gwvis1,fig.cap='Visualisasi konsentrasi TDS pada air tanah', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE, echo=FALSE}
+
+library(ggplot2)
+library(ggthemes)
+
+# plot
+ggplot(data_gw, aes(TDS, fill=Bicarbonate))+
+  geom_density(alpha=0.5)+
+  theme_stata()+
+  scale_fill_stata()
+  
+```
+
+```{r gwvis2,fig.cap='Visualisasi konsentrasi Uranium pada air tanah', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE, echo=FALSE}
+# plot
+ggplot(data_gw, aes(Uranium, fill=Bicarbonate))+
+  geom_density(alpha=0.5)+
+  theme_stata()+
+  scale_fill_stata()
+  
+```
+
+Pada dataset tersebut kita ingin melihat apakah terdapat perbedaan antara konsentrasi TDS dan uranium pada kondisi kesadahan bikarbonat $\leq 50$% dan $> 50$%. Untuk melakukannya pada `R` kita perlu mengelompokkan data tersebut terlebih dahulu berdasarkan variabel bikarbonat. Setelah itu nilai rata-rata dapat dihitung. Berikut sintaks yang digunakan:
+
+```{r}
+data_gw %>%
+  group_by(Bicarbonate) %>%
+  summarize(TDS = mean(TDS), Uranium = mean(Uranium))
+```
+
+Berdasarkan hasil yang diperoleh konsentrasi TDS dan Uranium dipengaruhi oleh kesadahan airtanah. Pada konsentrasi Bikarbonate > 50% konsentrasi TDS akan lebih rendah sedangkan konsentrasi Uranium sebaliknya. Untuk menguji apakah nilai tersebut berbeda signifikan, kita perlu melakukan uji hipotesis yang akan dibahas pada Chapter selanjutnya.
+
+### Median Sebagai Ukuran Pemusatan Data yang Resistan
+
+Median atau persentil 50 ($P_{50}$) merupakan nilai pusat dari distribusi suatu data yang telah dirangkin berdasarkan besar nilai orbservasinya. Untuk data dengan jumlah observasi ganjil median adalah titik tengah yang memiliki jumlah observasi yang sama baik di atas nilai media maupun di bawahnya. Untuk data dengan jumlah observasi genap, media merupakan rata-rata dari dua titik observasi pusat. Untuk memperoleh median dari suatu distribusi data, langkah pertama yang perlu dilakukan adalah mengurutkan data dari observasi dengan nilai terkecil sampai dengan yang besar sehingga $x_1$ merupakan observasi terkecil hingga $x_n$ merupakan observasi terbesar. Persamaan \@ref(eq:med1) (untuk data ganjil) dan Persamaan \@ref(eq:med2) (untuk data genap) merupakan persamaan untuk menghitung median berdasarkan jumlah observasi yang ada.
+
+\begin{equation}
+  Median (P_{0.5}) =\frac{X_{\left(n+1\right)}}{2}
+  (\#eq:med1)
+\end{equation} 
+
+\begin{equation}
+  Median (P_{0.5}) =\frac{1}{2}\cdot\left(X_{\left(\frac{n}{2}\right)}+X_{\left(\frac{n}{2}\right)+1}\right)
+  (\#eq:med2)
+\end{equation} 
+
+Median hanya dipengaruhi minimal oleh besarnya nilai observasi tunggal, yang ditentukan semata-mata oleh urutan relatif observasi. Resitensi terhadap efek dari perubahan nilai atau kehadiran pengamatan terpencil (*outlier*) sering merupakan sifat yang diinginkan. Meski demikian median memiliki kelemahan utama yaitu kurang representatif dalam mendeskripsikan rata-rata dari data dibandingkan mean. Hal ini disebabkan karena median tidak menggunakan seluruh nilai yang ada pada data.
+
+**Analisa Nilai Mean Grup Data Tunggal (*Single Group*)**
+
+Kita akan menggunakan kembali data pada Tabel \@ref(tab:debitsungai) untuk menghitung median data tersebut. Pada `R` median dihitung menggunakan fungsi `median()`. Fotmat yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+median(x, na.rm = FALSE)
+```
+
+> **Note:**
+>
+> - **x**: objek atau vektor numerik.
+> - **na.rm**: nilai logis yang menyatakan apaka *missing value* perlu disertakan dalam komputasi atau tidak. 
+
+Untuk data pada Tabel \@ref(tab:debitsungai), median dapat dihitung menggunakan sintaks berikut:
+
+```{r}
+median(sungai$debit)
+```
+
+Berdasarkan hasil komputasi diperoleh median debit sungai sebesar `r median(sungai$debit)` $m^3/detik$. Nilai tersebut tidak berbeda juah dengan nilai mean tanpa *outlier* data sungai sebesar `r mean(sungai_subset$debit)` $m^3/detik$.
+
+Jika kita melakukan perhitungan menggunakan menggunakan data `sungai_subset` (tanpa *outlier*), maka diperoleh `r median(sungai_subset$debit)` $m^3/detik$ yang nilainya juga tidak bergeser jauh dengan median sebelumnya yang membuktikan bahwa median resisten terhadap *outlier*.
+
+**Analisa Nilai Rata-Rata Berdarsarkan Grup Data**
+
+Paca contoh ini kita akan menggunakan kembali data pada Tabel \@ref(tab:gwtdsur). Sintaks berikut adalah cara menghitung median untuk data berkelompok:
+
+```{r}
+data_gw %>%
+  group_by(Bicarbonate) %>%
+  summarize(TDS=median(TDS), Uranium=median(Uranium))
+```
+
+Pada median TDS kita tidak menemui perbedaan dengan nilai rata-ratanya. Hal ini disebabkan karena bentuk distribusinya yang relatif simetris. Sedangkan pada Uranium distribusi yang terbentuk memiliki kemiringan (*skewness*) positif. Hal ini menyebabkan nilai mean yang terbentuk akan sangat dipengaruhi oleh observasi dengan nilai ekstrim yang dimiliki.
+
+### Ukuran Pemusatan Data Lainnya
+
+Ukuran pemusatan data lainnya yang kurang sering digunakan adalah modus, rata-rata geometrik (*geometric mean*), dan *trimmed mean*. Modus merupakan nilai observasi yang sering muncul. Jika kita visualisasikan menggunakan histogram maka modus merupakan bar tertinggi pada histogram. Modus lebih dapat diaplikasikan pada data berkelompok yang nilai observasinya merupakan integer (*finite number*) dibanding data dengan nilai kontinyu. Modus sangat mudah diperoleh, namun sangat buruk sebagai ukuran pemusatan data untuk jenis data kontinyu karena sering bergantung pengelompokan data yang sewenang-wenang atu semaunya.
+
+*Geometric mean* sering digunakan untuk distribusi data memiliki bentuk kemiringan positif. *Geometric mean* merupakan rata-rata logaritmik yang diubah kembali ke unit asalnya. Untuk menghitungnya digunakan Persamaan \@ref(eq:geomean).
+
+\begin{equation}
+  GM = \exp\left(\overline{Y}\right)
+  (\#eq:geomean)
+\end{equation}
+
+dimana
+
+\begin{equation}
+  Y_i = \ln\left(X_i\right)
+  (\#eq:geomean2)
+\end{equation}
+
+Untuk data yang memiliki kemiringan positif, *geometric mean* biasanya cukup dekat dengan median. Bahkan, ketika logaritma data simetris, *geometric mean* adalah estimasi median. Ini karena median dan *geometric mean* sama. Ketika ditransformasikan kembali ke satuan asli, rerata geometris terus menjadi estimasi untuk median, tetapi bukan merupakan estimasi untuk rerata.
+
+Pada `R` *geometric mean* dapat kita hitung menggunakan sintaks fungsi yang kita buat sendiri:
+
+```{r}
+geomean <- function(x){
+  y = log(x)
+  GM = exp(mean(y))
+  print(GM)
+}
+```
+
+Data pada Tabel \@ref(tab:debitsungai) merupakan data dengan kemiringan positif. Nilai *geometric mean* data tersebut dihitung menggunakan sintaks berikut:
+
+```{r}
+geomean(sungai$debit)
+```
+
+Berdasarkan hasil komputasi diperoleh nilai *geometric mean* debit sungai sebesar `r geomean(sungai$debit)` $m^3/detik$. Nilai yang diperoleh tidak berbeda dengan nilai median sebesar `r median(sungai$debit)` $m^3/detik$.
+
+Kompromi antara median dan mean tersedia dengan memotong beberapa observasi terendah dan tertinggi, dan menghitung mean dari apa yang tersisa. Perkiraan pemusatan data seperti itu tidak dipengaruhi oleh observasi yang paling ekstrem (dan mungkin anomali), seperti mean. Namun mereka memungkinkan besarnya sebagian besar nilai untuk mempengaruhi estimasi, tidak seperti median. Estimator ini disebut "*trimmed mean*", dan persentase data yang diinginkan dapat dipangkas. Pemangkasan yang paling umum adalah menghapus 25 persen dari data di setiap ujung - rata-rata yang dihasilkan dari 50 persen pusat data biasanya disebut "*trimmed mean*", tetapi lebih tepatnya 25 persen *trimmed mean*. "*trimmed mean* 0%" adalah mean sampel itu sendiri, sementara memangkas semua kecuali 1 atau 2 nilai pusat menghasilkan median. Persentase pemangkasan harus secara eksplisit dinyatakan saat digunakan. *Trimmed mean* adalah estimator yang resistan, karena tidak sangat dipengaruhi oleh *outlier*, dan bekerja dengan baik untuk berbagai macam bentuk distribusi (normal, lognormal, dll). Ini dapat dianggap sebagai rata-rata tertimbang (*weighted mean*), di mana data di luar 'jendela' cutoff diberi bobot 0, dan mereka yang berada di dalam jendela bobot 1,0 (lihat Gambar \@ref(fig:tm)).
+
+```{r tm, echo=FALSE, fig.cap='Jendela diagram trimmed mean.', tidy=FALSE, out.width='70%', fig.align='center'}
+library(knitr)
+img1_path <- "tm.png"
+include_graphics(img1_path)
+
+```
+
+Pada `R` *trimmed mean* dapat dihitung dengan spesifikasi argumen `trim` pada fungsi `mean()`. Pada data debit sungai (Tabel \@ref(tab:debitsungai)) dihitung *trimmed mean* dengan data yang dipangkas adalah 5% di kedua ujung observasi atau `trim=0.1`.
+
+```{r}
+mean(sungai$debit, trim=0.1)
+```
+
+Nilai yang diperoleh sekarang mendekati nilai median dan *geometric mean* yaitu sebesar `r mean(sungai$debit, trim=0.1)` $m^3/detik$.

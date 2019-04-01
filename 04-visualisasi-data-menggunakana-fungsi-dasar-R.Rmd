@@ -1,5 +1,10 @@
 # (PART\*) Visualisasi Data - R {-}
 
+<style>
+body{
+text-align: justify}
+</style>
+
 # Visualisasi Data Menggunakan Fungsi Dasar R
 
 Visualisasi data merupakan bagian yang sangat penting untuk mengkomunikasikan hasil analisa yang telah kita lakukan. Selain itu, komunikasi juga membantu kita untuk memperoleh gambaran terkait data selama proses analisa data sehingga membantu kita dalam memutuskan metode analisa apa yang dapat kita terapkan pada data tersebut.

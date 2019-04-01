@@ -113,7 +113,7 @@
 \usepackage{titling}
 
 % Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
+\providecommand{\subtitle}[1]{
   \posttitle{
     \begin{center}\large#1\end{center}
     }
@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-03-29}
+    \date{2019-04-01}
 
 \usepackage{booktabs}
 
@@ -10672,7 +10672,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x0000000018e5f998>
+## <bytecode: 0x00000000060499a0>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -11491,8 +11491,716 @@ dengan skala bebas pada sumbu y.
   GGPLOT2 Documentation. \url{https://ggplot2.tidyverse.org/}
 \item
   STHDA. ggplot2 - Essentials.
-  \textless{}www.sthda.com/english/wiki/ggplot2-essentials\textgreater{}
+  \url{https://www.sthda.com/english/wiki/ggplot2-essentials}
 \end{enumerate}
+
+\part*{Statistika Deskriptif -
+R}\label{part-statistika-deskriptif---r}
+\addcontentsline{toc}{part}{Statistika Deskriptif - R}
+
+\chapter{Ringkasan Numerik}\label{ringkasan-numerik}
+
+Pada bidang lingkungan kita sering kali menemui sebuah pernyataan
+``konsentrasi rata-rata TSS pada sungai tersebut adalah 30 mg/l'' atau
+``kedalaman penampang saluran tersebut berkisar antara 1 sampai 2
+meter''. Kedua pernyataan tersebut merupakan sebuah penyapaian informasi
+terkait karakteristik data yang ada. Pernyataan yang pertama menyatakan
+karakteristik nilai pemusatan data, sedangkan yang kedua menyatakan
+karakteristik sebaran suatu data.
+
+Karakteristik lain yang sering digunakan untuk menjelaskan suatu data
+adalah bentuk distibusi suatu data dan estimasi nilai ekstrim seperti
+nilai masimum dan minimum suatu data. Seluruh karakteristik data
+tersebut perlu dihitung untuk memperoleh informasi numerik pada data.
+
+Pada chapter ini kita akan membahas terkait metode untuk membuat
+ringkasan dan deksripsi data. Pembahasan akan terdiri dari ukuran nilai
+pemusatan data, ukuran sebaran atau variabilitas data dan bentuk
+distribusi data. Selain itu kita akan membahas nilai ekstrim yang ada
+pada sebuah data dan transformasi data.
+
+\section{Ukuran Pemusatan Data}\label{ukuran-pemusatan-data}
+
+Nilai rata-rata (mean) dan nilai tengah (median) merupakan dua nilai
+yang paling umum digunakan untuk menyatakan lokasi pemusatan data
+meskipun kedua nilai bukanlah satu atau dua ukuran yang tersedia. Apa
+sajakah properti dari kedua ukuran tersebut dan kapan salah satu atau
+keduanya dapat digunakan bersamaan?.
+
+\subsection{Metode Klasik-Mean}\label{metode-klasik-mean}
+
+Nilai mean (\(\overline{X}\)) diperoleh dengan menjumlahkan seluruh data
+dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti
+Persamaan \eqref{eq:mean};
+
+\begin{equation}
+  \overline{X}=\text{}\sum_{_{i=1}}^n\frac{X_i}{n}
+  \label{eq:mean}
+\end{equation}
+
+Nilai mean yang disimbolkan dengan ``X bar'' merupakan nilai mean untuk
+sampel. Nilai mean untuk populasi disimbolkan oleh huruf Yunani ``mu
+atau \(\mu\)''.
+
+Pada Persamaan \eqref{eq:mean}, jika data terdiri dari banyak grup maka
+nilai rata-rata dihitung berdasarkan jumlah nilai observasi dikali
+dengan bobotnya. Nilai mean tersebut disebut sebagai \emph{weighted
+mean} yang dapat ditulis berdasarkan Persamaan Persamaan
+\eqref{eq:weightedmean}.
+
+\begin{equation}
+  \overline{X}\ =\text{}\sum_{_{i=1}}^n\overline{X_i}\cdot\frac{n_i}{n}
+  \label{eq:weightedmean}
+\end{equation}
+
+dimana \(\overline{X_i}\) merupakan nilai rata-rata grup ke-i dan
+\(\frac{n_i}{n}\) merupakan bobot pengali yang berupa rasio antara
+observasi grup ke-i dengan keseluruhan observasi.
+
+Kita biasanya akan berhadapan dengan nilai observasi yang baru sehingga
+nilai mean yang telah ada akan ikut berubah. Perubahan nilai mean
+tersebut disebabkan karena setiap observasi yang disertakan dalam
+perhitungan mean memiliki pengaruhnya masing-masing. Jika observasi
+tersebut cenderung ekstrim besar maka nilai mean akan bergeser menuju
+kearahnya begitu juga sebaliknya.
+
+Pengaruh dari sebuah nilai observasi ke-j atau \(X_j\) dapat dilihat
+dengan menghitung seluruh observasi secara bersamaan kecuali observasi
+ke-j pada sebuah grup. Dapat dituliskan pada Persamaan
+\eqref{eq:influencemean2}
+
+\begin{equation}
+  \overline{X} =\text{}\overline{X_{\left(j\right)}}\ \cdot\frac{\left(n-1\right)}{n}+X_j\cdot\frac{1}{n}
+  \label{eq:influencemean1}
+\end{equation}
+
+\begin{equation}
+  \overline{X} =\overline{X}_{\left(j\right)}+\left(X_j-\overline{X}_{\left(j\right)}\right)\cdot\frac{1}{n}
+  \label{eq:influencemean2}
+\end{equation}
+
+dimana \(\overline{X}_{\left(j\right)}\) adalah nilai mean seluruh
+observasi kecuali \(X_j\). Setiap observasi yang mempengaruhi nilai mean
+keseluruhan (\(\overline{X}\)) didefinisikan oleh
+\(\left(X_j-\overline{X}_{\left(j\right)}\right)\) sebagai jarak antara
+observasi tersebut dengan nilai rata-rata yang tidak termasuk observasi
+tersebut di dalamnya. Sehingga seluruh nilai observasi tidak memiliki
+pengaruh yang sama terhadap nilai rata-rata seluruh observasi.
+
+\emph{Outlier} merupakan observasi yang memiliki nilai yang ekstrim
+tinggi atau rendah dibanding seluruh observasi yang ada sehingga
+memiliki pengaruh yang besar terhadap nilai mean keseluruhan
+(\(\overline{X}\)). Pengaruhnya yang sangat besar terhadap nilai
+rata-rata keseluruhan akan menyebabkan nilai rata-rata akan bergeser ke
+arah \emph{outlier} tersebut. Selain itu penampilan dari distribusi
+frekuensi yang terbentuk akan terlihat memiliki ekor yang panjang.
+
+Untuk lebih memahami pengaruh observasi terhadap nilai rata-rata,
+disajikan dua buah gambar yaitu: Gambar \ref{fig:mean1} dan Gambar
+\ref{fig:mean2}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{mean1} 
+
+}
+
+\caption{Nilai mean (segitiga) sebagai titik kesetimbangan pada data.}\label{fig:mean1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{mean2} 
+
+}
+
+\caption{Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.}\label{fig:mean2}
+\end{figure}
+
+Pada Gambar \ref{fig:mean1} disajikan 7 buah data konsentrasi TSS di
+suatu sungai. Nilai rata-rata TSS pada sungai tersebut adalah 11 mg/l.
+Jika kita amati sebagian besar data (6 observasi) berada pada rentang
+nilai konsentrasi TSS 2 sampai 12 mg/l. Observasi yang lain terletak
+jauh dari mayoritas observasi lainnya yaitu sebesar 37 mg/l. Observasi
+yang berbeda secara ekstrim dari nilai secara umum pada suatu data
+disebut sebagai \emph{outlier}. Nilai \emph{outlier} tersebut
+menyebabkan nilai rata-rata yang terbentuk tidak representatif terhadap
+keseluruhan data yang ada dan cenderung menggeser nilai rata-rata
+mendekati nilai \emph{outlier} tersebut. Nilai observasi yang ekstrim
+biasanya muncul dari adanya kesalahan perlakuan terhadap sampel seperti
+botol sampel yang digunakan tidak bersih atau prosedur analisa yang
+dilakukan tidak standar sehingga memungkinkan adanya partikulat udara
+yang terukur pada proses penimbangan.
+
+Salah satu cara untuk menangani adanya \emph{outlier} tersebut adalah
+dengan menghapus observasi yang merupakan \emph{outlier}. Pada Gambar
+\ref{fig:mean2} terlihat bahwa penghapusan \emph{outlier} telah
+menggeser nilai rata-rata ke kiri. Nilai rata-rata yang baru tersebut
+jika diperhatikan dari Gambar \ref{fig:mean2} lebih menggambarkan
+keseluruhan data yang ada. Tidak terlihat adanya nilai yang berada jauh
+jaraknya dari nilai rata-rata yang baru.
+
+Pada contoh tersebut dapat kita simpulkan bahwa nilai mean sangat
+sensitif terhadap adanya \emph{outlier}. Pada prakteknya nilai mean
+tidaklah berdiri sendiri selama proses analisa. Nilai mean memerlukan
+nilai lain seperti median untuk menganalisa apakah data yang diperoleh
+tidak simetris yang dapat mengindikasikan adanya outlier.
+
+Pada \texttt{R} untuk menghitung nilai rata-rata, kita dapat menggunakan
+fungsi \texttt{mean()}. Format fungsi yang digunakan dituliskan pada
+persamaan berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{trim =} \DecValTok{0}\NormalTok{, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: objek atau vektor numerik.
+\item
+  \textbf{trim}: menyatakan fraksi data (berkisar antara 0 sampai 0,5)
+  yang perlu dilakukan pemotongan (\emph{trim}) pada observasi awal dan
+  akhir \textbf{x} (yang telah diurutkan) sebelum nilai mean dihitung.
+  \textbf{na.rm}: nilai logis yang menyatakan apakan \emph{missing
+  value} perlu disertakan dalam perhitungan atau tidak. Jika disertakan
+  maka output yang akan dihasilkan adalah NA.
+\end{itemize}
+\end{quote}
+
+\textbf{Analisa Nilai Mean Grup Data Tunggal (\emph{Single Group})}
+
+Untuk lebih memahami penerapannya pada \texttt{R}, pada Tabel
+\ref{tab:debitsungai} berikut disajikan data terkait debit air suatu
+sungai.
+
+\begin{table}[t]
+
+\caption{\label{tab:debitsungai}Data Debit Sampel (m3/detik)}
+\centering
+\begin{tabular}{r|r}
+\hline
+observasi & debit\\
+\hline
+1 & 457\\
+\hline
+2 & 185\\
+\hline
+3 & 133\\
+\hline
+4 & 160\\
+\hline
+5 & 119\\
+\hline
+6 & 115\\
+\hline
+7 & 101\\
+\hline
+8 & 58\\
+\hline
+9 & 68\\
+\hline
+10 & 50\\
+\hline
+11 & 65\\
+\hline
+12 & 128\\
+\hline
+\end{tabular}
+\end{table}
+
+Data pada Tabel \ref{tab:debitsungai} dapat divisualisasikan seperti
+pada Gambar \ref{fig:debitvis}:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/debitvis-1} 
+
+}
+
+\caption{Visualisasi debit sungai pada sampel}\label{fig:debitvis}
+\end{figure}
+
+Berdasarkan Gambar \ref{fig:debitvis}, terdapat \emph{outlier} yang
+ditunjukkan pada debit sungai yang lebih besar dari 400 m3/detik. Hasil
+tersebut dapat terjadi salah satunya karena adanya kondisi ekstrim
+seperti banjir yang menyebabkan sungai meluap atau terjadi kesalahan
+pengukuran dari alat ukur yang ada di lapangan.
+
+Untuk menghitung nilai rata-rata debit pada data tersebut, masukkan
+variabel \texttt{debit} yang telah penulis simpan sebagai objek
+\texttt{sungai} kedalam fungsi \texttt{mean()} seperti berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(sungai}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 136.6
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh, dapat dilihat bahwa nilai rata-rata
+debit pada sungai tersebut adalah 136.5833 \(m^3/detik\).
+
+Kita dapat menghitung nilai mean dengan terlebih dahulu menghilangkan
+\emph{outlier} pada data. Untuk melakukannya kita perlu melakukan subset
+terhadap data tanpa \emph{outlier} di dalamnya sebelum data tersebut
+dimasukkan kedalam fungsi mean(). Berikut sintaks yang digunakan untuk
+melakukan hal tersebut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(dplyr)}
+
+\CommentTok{# melakukan filter terhadap data}
+\NormalTok{sungai_subset<-sungai}\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(debit}\OperatorTok{<=}\DecValTok{400}\NormalTok{)}
+
+\CommentTok{# menghitung mean}
+\KeywordTok{mean}\NormalTok{(sungai_subset}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 107.5
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh terlihat bahwa nilai rata-rata yang
+baru lebih kecil dari yang sebelumnya (bergeser ke kiri) dengan nilai
+mean debit sungai yang baru sebesar 107.4545 \(m^3/detik\). Hal ini
+terjadi karena pengaruh dari data \emph{outlier} yang telah dihilangkan.
+
+\textbf{Analisa Nilai Rata-Rata Berdarsarkan Grup Data}
+
+Pada contoh sebelumnya kita telah melakukan perhitungan nilai mean untuk
+studi kasus grup tunggal. Pada contoh ini akan disajikan contoh kasus
+perhitungan nilai mean untuk data berkelompok.
+
+Dataset pada contoh kasus ini diambil dari buku \textbf{Statistical
+Methods in Water Resources}. Data yang digunakan adalah data konsentrasi
+TDS dan Uranium di airtanah dengan perbedaan konsentrasi bikarbonate
+dalam air tanah yaitu \(\leq 50\)\% (0) dan \(>50\)\% (1). Dataset yang
+digunakan disajikan pada Tabel \ref{tab:gwtdsur}.
+
+\begin{quote}
+\textbf{Note: } data yang digunakan dapat diunduh pada link berikut
+\href{https://drive.google.com/open?id=1-k_1Fkl2hWmI9ZohG9hWGrqKe4o8GArW}{google.drive}.
+Simpan dataset tersebut pada \emph{working directory} pembaca agar mudah
+dalam proses membaca data.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat library}
+\KeywordTok{library}\NormalTok{(readxl)}
+
+\CommentTok{# memuat data excel}
+\NormalTok{data_gw <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"hhappc.xls"}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{"appc16"}\NormalTok{)}
+
+\CommentTok{# membuang kolom ke-4}
+\NormalTok{data_gw<-data_gw }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(TDS, Uranium, Bicarbonate) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Bicarbonate=}\KeywordTok{as.factor}\NormalTok{(Bicarbonate))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
+\NormalTok{  data_gw, }\DataTypeTok{caption =} \StringTok{'Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan'}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[t]
+
+\caption{\label{tab:gwtdsur}Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan}
+\centering
+\begin{tabular}{r|r|l}
+\hline
+TDS & Uranium & Bicarbonate\\
+\hline
+682.6 & 0.9315 & 0\\
+\hline
+819.1 & 1.9380 & 0\\
+\hline
+303.8 & 0.2919 & 0\\
+\hline
+1151.4 & 11.9042 & 0\\
+\hline
+582.4 & 1.5674 & 0\\
+\hline
+1043.4 & 2.0623 & 0\\
+\hline
+634.8 & 3.8858 & 0\\
+\hline
+1087.2 & 0.9772 & 0\\
+\hline
+1123.5 & 1.9354 & 0\\
+\hline
+688.1 & 0.4367 & 0\\
+\hline
+1174.5 & 10.1142 & 0\\
+\hline
+599.5 & 0.7551 & 0\\
+\hline
+1240.8 & 6.8559 & 0\\
+\hline
+538.4 & 0.4806 & 0\\
+\hline
+607.8 & 1.1452 & 0\\
+\hline
+705.9 & 6.0876 & 0\\
+\hline
+1290.6 & 10.8823 & 0\\
+\hline
+526.1 & 0.1473 & 0\\
+\hline
+784.7 & 2.6741 & 0\\
+\hline
+953.1 & 3.0918 & 0\\
+\hline
+1149.3 & 0.7592 & 0\\
+\hline
+1074.2 & 3.7101 & 0\\
+\hline
+1116.6 & 7.2446 & 0\\
+\hline
+301.2 & 5.7129 & 1\\
+\hline
+265.4 & 4.7366 & 1\\
+\hline
+295.9 & 2.8057 & 1\\
+\hline
+442.4 & 5.6290 & 1\\
+\hline
+342.7 & 3.0950 & 1\\
+\hline
+361.3 & 3.5774 & 1\\
+\hline
+262.1 & 1.7711 & 1\\
+\hline
+546.2 & 11.2724 & 1\\
+\hline
+273.9 & 4.9807 & 1\\
+\hline
+281.4 & 4.0833 & 1\\
+\hline
+588.9 & 14.6342 & 1\\
+\hline
+574.1 & 12.3835 & 1\\
+\hline
+307.1 & 1.5291 & 1\\
+\hline
+409.4 & 4.4647 & 1\\
+\hline
+327.1 & 2.4574 & 1\\
+\hline
+425.7 & 6.3042 & 1\\
+\hline
+310.1 & 4.5441 & 1\\
+\hline
+289.8 & 0.9672 & 1\\
+\hline
+408.2 & 2.1568 & 1\\
+\hline
+383.0 & 8.3810 & 1\\
+\hline
+255.2 & 2.7957 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+Visualisasi data Tabel \ref{tab:gwtdsur}, disajikan pada Gambar
+\ref{fig:gwvis1}:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gwvis1-1} 
+
+}
+
+\caption{Visualisasi konsentrasi TDS pada air tanah}\label{fig:gwvis1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gwvis2-1} 
+
+}
+
+\caption{Visualisasi konsentrasi Uranium pada air tanah}\label{fig:gwvis2}
+\end{figure}
+
+Pada dataset tersebut kita ingin melihat apakah terdapat perbedaan
+antara konsentrasi TDS dan uranium pada kondisi kesadahan bikarbonat
+\(\leq 50\)\% dan \(> 50\)\%. Untuk melakukannya pada \texttt{R} kita
+perlu mengelompokkan data tersebut terlebih dahulu berdasarkan variabel
+bikarbonat. Setelah itu nilai rata-rata dapat dihitung. Berikut sintaks
+yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data_gw }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(Bicarbonate) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{TDS =} \KeywordTok{mean}\NormalTok{(TDS), }\DataTypeTok{Uranium =} \KeywordTok{mean}\NormalTok{(Uranium))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   Bicarbonate   TDS Uranium
+##   <fct>       <dbl>   <dbl>
+## 1 0            864.    3.47
+## 2 1            364.    5.16
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh konsentrasi TDS dan Uranium dipengaruhi
+oleh kesadahan airtanah. Pada konsentrasi Bikarbonate \textgreater{}
+50\% konsentrasi TDS akan lebih rendah sedangkan konsentrasi Uranium
+sebaliknya. Untuk menguji apakah nilai tersebut berbeda signifikan, kita
+perlu melakukan uji hipotesis yang akan dibahas pada Chapter
+selanjutnya.
+
+\subsection{Median Sebagai Ukuran Pemusatan Data yang
+Resistan}\label{median-sebagai-ukuran-pemusatan-data-yang-resistan}
+
+Median atau persentil 50 (\(P_{50}\)) merupakan nilai pusat dari
+distribusi suatu data yang telah dirangkin berdasarkan besar nilai
+orbservasinya. Untuk data dengan jumlah observasi ganjil median adalah
+titik tengah yang memiliki jumlah observasi yang sama baik di atas nilai
+media maupun di bawahnya. Untuk data dengan jumlah observasi genap,
+media merupakan rata-rata dari dua titik observasi pusat. Untuk
+memperoleh median dari suatu distribusi data, langkah pertama yang perlu
+dilakukan adalah mengurutkan data dari observasi dengan nilai terkecil
+sampai dengan yang besar sehingga \(x_1\) merupakan observasi terkecil
+hingga \(x_n\) merupakan observasi terbesar. Persamaan \eqref{eq:med1}
+(untuk data ganjil) dan Persamaan \eqref{eq:med2} (untuk data genap)
+merupakan persamaan untuk menghitung median berdasarkan jumlah observasi
+yang ada.
+
+\begin{equation}
+  Median (P_{0.5}) =\frac{X_{\left(n+1\right)}}{2}
+  \label{eq:med1}
+\end{equation}
+
+\begin{equation}
+  Median (P_{0.5}) =\frac{1}{2}\cdot\left(X_{\left(\frac{n}{2}\right)}+X_{\left(\frac{n}{2}\right)+1}\right)
+  \label{eq:med2}
+\end{equation}
+
+Median hanya dipengaruhi minimal oleh besarnya nilai observasi tunggal,
+yang ditentukan semata-mata oleh urutan relatif observasi. Resitensi
+terhadap efek dari perubahan nilai atau kehadiran pengamatan terpencil
+(\emph{outlier}) sering merupakan sifat yang diinginkan. Meski demikian
+median memiliki kelemahan utama yaitu kurang representatif dalam
+mendeskripsikan rata-rata dari data dibandingkan mean. Hal ini
+disebabkan karena median tidak menggunakan seluruh nilai yang ada pada
+data.
+
+\textbf{Analisa Nilai Mean Grup Data Tunggal (\emph{Single Group})}
+
+Kita akan menggunakan kembali data pada Tabel \ref{tab:debitsungai}
+untuk menghitung median data tersebut. Pada \texttt{R} median dihitung
+menggunakan fungsi \texttt{median()}. Fotmat yang digunakan adalah
+sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{median}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: objek atau vektor numerik.
+\item
+  \textbf{na.rm}: nilai logis yang menyatakan apaka \emph{missing value}
+  perlu disertakan dalam komputasi atau tidak.
+\end{itemize}
+\end{quote}
+
+Untuk data pada Tabel \ref{tab:debitsungai}, median dapat dihitung
+menggunakan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{median}\NormalTok{(sungai}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 117
+\end{verbatim}
+
+Berdasarkan hasil komputasi diperoleh median debit sungai sebesar 117
+\(m^3/detik\). Nilai tersebut tidak berbeda juah dengan nilai mean tanpa
+\emph{outlier} data sungai sebesar 107.4545 \(m^3/detik\).
+
+Jika kita melakukan perhitungan menggunakan menggunakan data
+\texttt{sungai\_subset} (tanpa \emph{outlier}), maka diperoleh 115
+\(m^3/detik\) yang nilainya juga tidak bergeser jauh dengan median
+sebelumnya yang membuktikan bahwa median resisten terhadap
+\emph{outlier}.
+
+\textbf{Analisa Nilai Rata-Rata Berdarsarkan Grup Data}
+
+Paca contoh ini kita akan menggunakan kembali data pada Tabel
+\ref{tab:gwtdsur}. Sintaks berikut adalah cara menghitung median untuk
+data berkelompok:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data_gw }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(Bicarbonate) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{TDS=}\KeywordTok{median}\NormalTok{(TDS), }\DataTypeTok{Uranium=}\KeywordTok{median}\NormalTok{(Uranium))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   Bicarbonate   TDS Uranium
+##   <fct>       <dbl>   <dbl>
+## 1 0            819.    1.94
+## 2 1            327.    4.46
+\end{verbatim}
+
+Pada median TDS kita tidak menemui perbedaan dengan nilai rata-ratanya.
+Hal ini disebabkan karena bentuk distribusinya yang relatif simetris.
+Sedangkan pada Uranium distribusi yang terbentuk memiliki kemiringan
+(\emph{skewness}) positif. Hal ini menyebabkan nilai mean yang terbentuk
+akan sangat dipengaruhi oleh observasi dengan nilai ekstrim yang
+dimiliki.
+
+\subsection{Ukuran Pemusatan Data
+Lainnya}\label{ukuran-pemusatan-data-lainnya}
+
+Ukuran pemusatan data lainnya yang kurang sering digunakan adalah modus,
+rata-rata geometrik (\emph{geometric mean}), dan \emph{trimmed mean}.
+Modus merupakan nilai observasi yang sering muncul. Jika kita
+visualisasikan menggunakan histogram maka modus merupakan bar tertinggi
+pada histogram. Modus lebih dapat diaplikasikan pada data berkelompok
+yang nilai observasinya merupakan integer (\emph{finite number})
+dibanding data dengan nilai kontinyu. Modus sangat mudah diperoleh,
+namun sangat buruk sebagai ukuran pemusatan data untuk jenis data
+kontinyu karena sering bergantung pengelompokan data yang
+sewenang-wenang atu semaunya.
+
+\emph{Geometric mean} sering digunakan untuk distribusi data memiliki
+bentuk kemiringan positif. \emph{Geometric mean} merupakan rata-rata
+logaritmik yang diubah kembali ke unit asalnya. Untuk menghitungnya
+digunakan Persamaan \eqref{eq:geomean}.
+
+\begin{equation}
+  GM = \exp\left(\overline{Y}\right)
+  \label{eq:geomean}
+\end{equation}
+
+dimana
+
+\begin{equation}
+  Y_i = \ln\left(X_i\right)
+  \label{eq:geomean2}
+\end{equation}
+
+Untuk data yang memiliki kemiringan positif, \emph{geometric mean}
+biasanya cukup dekat dengan median. Bahkan, ketika logaritma data
+simetris, \emph{geometric mean} adalah estimasi median. Ini karena
+median dan \emph{geometric mean} sama. Ketika ditransformasikan kembali
+ke satuan asli, rerata geometris terus menjadi estimasi untuk median,
+tetapi bukan merupakan estimasi untuk rerata.
+
+Pada \texttt{R} \emph{geometric mean} dapat kita hitung menggunakan
+sintaks fungsi yang kita buat sendiri:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{geomean <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  y =}\StringTok{ }\KeywordTok{log}\NormalTok{(x)}
+\NormalTok{  GM =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(y))}
+  \KeywordTok{print}\NormalTok{(GM)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Data pada Tabel \ref{tab:debitsungai} merupakan data dengan kemiringan
+positif. Nilai \emph{geometric mean} data tersebut dihitung menggunakan
+sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{geomean}\NormalTok{(sungai}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 112.4
+\end{verbatim}
+
+Berdasarkan hasil komputasi diperoleh nilai \emph{geometric mean} debit
+sungai sebesar \(m^3/detik\). Nilai yang diperoleh tidak berbeda dengan
+nilai median sebesar 117 \(m^3/detik\).
+
+Kompromi antara median dan mean tersedia dengan memotong beberapa
+observasi terendah dan tertinggi, dan menghitung mean dari apa yang
+tersisa. Perkiraan pemusatan data seperti itu tidak dipengaruhi oleh
+observasi yang paling ekstrem (dan mungkin anomali), seperti mean. Namun
+mereka memungkinkan besarnya sebagian besar nilai untuk mempengaruhi
+estimasi, tidak seperti median. Estimator ini disebut ``\emph{trimmed
+mean}'', dan persentase data yang diinginkan dapat dipangkas.
+Pemangkasan yang paling umum adalah menghapus 25 persen dari data di
+setiap ujung - rata-rata yang dihasilkan dari 50 persen pusat data
+biasanya disebut ``\emph{trimmed mean}'', tetapi lebih tepatnya 25
+persen \emph{trimmed mean}. ``\emph{trimmed mean} 0\%'' adalah mean
+sampel itu sendiri, sementara memangkas semua kecuali 1 atau 2 nilai
+pusat menghasilkan median. Persentase pemangkasan harus secara eksplisit
+dinyatakan saat digunakan. \emph{Trimmed mean} adalah estimator yang
+resistan, karena tidak sangat dipengaruhi oleh \emph{outlier}, dan
+bekerja dengan baik untuk berbagai macam bentuk distribusi (normal,
+lognormal, dll). Ini dapat dianggap sebagai rata-rata tertimbang
+(\emph{weighted mean}), di mana data di luar `jendela' cutoff diberi
+bobot 0, dan mereka yang berada di dalam jendela bobot 1,0 (lihat Gambar
+\ref{fig:tm}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{tm} 
+
+}
+
+\caption{Jendela diagram trimmed mean.}\label{fig:tm}
+\end{figure}
+
+Pada \texttt{R} \emph{trimmed mean} dapat dihitung dengan spesifikasi
+argumen \texttt{trim} pada fungsi \texttt{mean()}. Pada data debit
+sungai (Tabel \ref{tab:debitsungai}) dihitung \emph{trimmed mean} dengan
+data yang dipangkas adalah 5\% di kedua ujung observasi atau
+\texttt{trim=0.1}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(sungai}\OperatorTok{$}\NormalTok{debit, }\DataTypeTok{trim=}\FloatTok{0.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 113.2
+\end{verbatim}
+
+Nilai yang diperoleh sekarang mendekati nilai median dan \emph{geometric
+mean} yaitu sebesar 113.2 \(m^3/detik\).
 
 \bibliography{book.bib,packages.bib}
 

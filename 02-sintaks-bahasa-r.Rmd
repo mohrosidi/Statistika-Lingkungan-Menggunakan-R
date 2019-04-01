@@ -1,3 +1,8 @@
+<style>
+body{
+text-align: justify}
+</style>
+
 # Sintaks Bahasa R
 
 Pada *chapter* ini penulis hendak mengajak pembaca lebih familiar dengan sintaks atau perintah yang ada pada `R`. Pembaca akan mempelajari penggunaan operator dalam melakukan operasi pengolahan data pada `R`, jenis data yang ada pada `R`, sampai dengan bagaimana kita melakukan proses *decision making* menggunakan `R`. 

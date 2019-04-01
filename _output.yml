@@ -1,7 +1,9 @@
 bookdown::gitbook:
-  highlight: pygments
+  highlight: haddock
   config:
     toc:
+      collapse: subsection
+      scroll_highlight: yes
       before: |
         <li><a href="./">Statistika Lingkungan Menggunakan R</a></li>
       after: |

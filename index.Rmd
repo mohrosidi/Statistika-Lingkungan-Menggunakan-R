@@ -11,8 +11,11 @@ colorlinks: yes
 lof: yes
 lot: yes
 site: bookdown::bookdown_site
-description: "Ini merupakan buku yang membahas penerapan R pada komputasi statistik di Teknik Lingkungan"
+description: "Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan"
 cover-image: cover.png
+apple-touch-icon: "Rosidi.png"
+apple-touch-icon-size: 120
+favicon: "Rosidi.png"
 ---
 
 ```{r setup, include=FALSE}
@@ -39,6 +42,10 @@ lapply(c('DT', 'citr', 'formatR', 'svglite'), function(pkg) {
 knitr::include_graphics('cover.png', dpi = NA)
 ```
 
+<style>
+body{
+text-align: justify}
+</style>
 
 Buku ini menyajikan penerapan program `R` dalam `Statistika Lingkungan`. Buku ini akan disajikan secara ringkas menggunakan sejumlah contoh kasus yang relevan dalam bidang lingkungan.
 

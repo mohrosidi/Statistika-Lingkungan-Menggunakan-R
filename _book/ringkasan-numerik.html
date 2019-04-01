@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 6 Ringkasan Numerik | Statistika Lingkungan Menggunakan R</title>
+  <meta name="description" content="Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 6 Ringkasan Numerik | Statistika Lingkungan Menggunakan R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="cover.png" />
+  <meta property="og:description" content="Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Ringkasan Numerik | Statistika Lingkungan Menggunakan R" />
+  
+  <meta name="twitter:description" content="Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan" />
+  <meta name="twitter:image" content="cover.png" />
+
+<meta name="author" content="Moh. Rosidi">
+
+
+<meta name="date" content="2019-04-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="Rosidi.png">
+  <link rel="shortcut icon" href="Rosidi.png" type="image/x-icon">
+<link rel="prev" href="visualisasi-data-menggunakan-ggplot.html">
+
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistika Lingkungan Menggunakan R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="part"><span><b>Bahasa Pemrograman R</b></span></li>
+<li class="chapter" data-level="1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html"><i class="fa fa-check"></i><b>1</b> Mengenal Bahasa R</a><ul>
+<li class="chapter" data-level="1.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#sejarah-r"><i class="fa fa-check"></i><b>1.1</b> Sejarah R</a></li>
+<li class="chapter" data-level="1.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fitur-dan-karakteristik-r"><i class="fa fa-check"></i><b>1.2</b> Fitur dan Karakteristik R</a></li>
+<li class="chapter" data-level="1.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#kelebihan-dan-kekurangan-r"><i class="fa fa-check"></i><b>1.3</b> Kelebihan dan Kekurangan R</a></li>
+<li class="chapter" data-level="1.4" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#rstudio"><i class="fa fa-check"></i><b>1.4</b> RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#menginstall-r-dan-rstudio"><i class="fa fa-check"></i><b>1.5</b> Menginstall R dan RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#working-directory"><i class="fa fa-check"></i><b>1.6</b> Working Directory</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory"><i class="fa fa-check"></i><b>1.6.1</b> Mengubah Lokasi Working Directory</a></li>
+<li class="chapter" data-level="1.6.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory-default"><i class="fa fa-check"></i><b>1.6.2</b> Mengubah Lokasi Working Directory Default</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help"><i class="fa fa-check"></i><b>1.7</b> Fasilitas Help</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mencari-help-dari-suatu-perintah-tertentu"><i class="fa fa-check"></i><b>1.7.1</b> Mencari Help dari Suatu Perintah Tertentu</a></li>
+<li class="chapter" data-level="1.7.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#general-help"><i class="fa fa-check"></i><b>1.7.2</b> General Help</a></li>
+<li class="chapter" data-level="1.7.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help-lainnya"><i class="fa fa-check"></i><b>1.7.3</b> Fasilitas Help Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#referensi"><i class="fa fa-check"></i><b>1.8</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html"><i class="fa fa-check"></i><b>2</b> Sintaks Bahasa R</a><ul>
+<li class="chapter" data-level="2.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-aritmatika"><i class="fa fa-check"></i><b>2.1</b> Operator Aritmatika</a></li>
+<li class="chapter" data-level="2.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi-aritmetik"><i class="fa fa-check"></i><b>2.2</b> Fungsi Aritmetik</a></li>
+<li class="chapter" data-level="2.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-relasi"><i class="fa fa-check"></i><b>2.3</b> Operator Relasi</a></li>
+<li class="chapter" data-level="2.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-logika"><i class="fa fa-check"></i><b>2.4</b> Operator Logika</a></li>
+<li class="chapter" data-level="2.5" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memasukkan-nilai-kedalam-variabel"><i class="fa fa-check"></i><b>2.5</b> Memasukkan Nilai Kedalam Variabel</a></li>
+<li class="chapter" data-level="2.6" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#tipe-data"><i class="fa fa-check"></i><b>2.6</b> Tipe Data</a></li>
+<li class="chapter" data-level="2.7" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#vektor"><i class="fa fa-check"></i><b>2.7</b> Vektor</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-vektor"><i class="fa fa-check"></i><b>2.7.1</b> Membuat vektor</a></li>
+<li class="chapter" data-level="2.7.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#missing-values"><i class="fa fa-check"></i><b>2.7.2</b> Missing Values</a></li>
+<li class="chapter" data-level="2.7.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-vektor"><i class="fa fa-check"></i><b>2.7.3</b> Subset Pada Vektor</a></li>
+<li class="chapter" data-level="2.7.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-vektor"><i class="fa fa-check"></i><b>2.7.4</b> Perhitungan Menggunakan Vektor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#matriks"><i class="fa fa-check"></i><b>2.8</b> Matriks</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-matriks"><i class="fa fa-check"></i><b>2.8.1</b> Membuat matriks</a></li>
+<li class="chapter" data-level="2.8.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-matriks"><i class="fa fa-check"></i><b>2.8.2</b> Subset Pada Matriks</a></li>
+<li class="chapter" data-level="2.8.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-matriks"><i class="fa fa-check"></i><b>2.8.3</b> Perhitungan Menggunakan Matriks</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#faktor"><i class="fa fa-check"></i><b>2.9</b> Faktor</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-variabel-faktor"><i class="fa fa-check"></i><b>2.9.1</b> Membuat Variabel Faktor</a></li>
+<li class="chapter" data-level="2.9.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-faktor"><i class="fa fa-check"></i><b>2.9.2</b> Perhitungan Menggunakan Faktor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#data-frames"><i class="fa fa-check"></i><b>2.10</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-data-frame"><i class="fa fa-check"></i><b>2.10.1</b> Membuat Data Frame</a></li>
+<li class="chapter" data-level="2.10.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-data-frame"><i class="fa fa-check"></i><b>2.10.2</b> Subset Pada Data Frame</a></li>
+<li class="chapter" data-level="2.10.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-data-frame"><i class="fa fa-check"></i><b>2.10.3</b> Memperluas Data Frame</a></li>
+<li class="chapter" data-level="2.10.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-pada-data-frame"><i class="fa fa-check"></i><b>2.10.4</b> Perhitungan Pada Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#list"><i class="fa fa-check"></i><b>2.11</b> List</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-list"><i class="fa fa-check"></i><b>2.11.1</b> Membuat List</a></li>
+<li class="chapter" data-level="2.11.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-list"><i class="fa fa-check"></i><b>2.11.2</b> Subset List</a></li>
+<li class="chapter" data-level="2.11.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-list"><i class="fa fa-check"></i><b>2.11.3</b> Memperluas List</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#loop"><i class="fa fa-check"></i><b>2.12</b> Loop</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#for-loop"><i class="fa fa-check"></i><b>2.12.1</b> For Loop</a></li>
+<li class="chapter" data-level="2.12.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#while-loop"><i class="fa fa-check"></i><b>2.12.2</b> While Loop</a></li>
+<li class="chapter" data-level="2.12.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#repeat-loop"><i class="fa fa-check"></i><b>2.12.3</b> Repeat Loop</a></li>
+<li class="chapter" data-level="2.12.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#break"><i class="fa fa-check"></i><b>2.12.4</b> Break</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#decision-making"><i class="fa fa-check"></i><b>2.13</b> Decision Making</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-statement"><i class="fa fa-check"></i><b>2.13.1</b> if statement</a></li>
+<li class="chapter" data-level="2.13.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-else-statement"><i class="fa fa-check"></i><b>2.13.2</b> if else statement</a></li>
+<li class="chapter" data-level="2.13.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#switch-statement"><i class="fa fa-check"></i><b>2.13.3</b> switch statement</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi"><i class="fa fa-check"></i><b>2.14</b> Fungsi</a></li>
+<li class="chapter" data-level="2.15" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#referensi-1"><i class="fa fa-check"></i><b>2.15</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html"><i class="fa fa-check"></i><b>3</b> Manajemen Data R</a><ul>
+<li class="chapter" data-level="3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file"><i class="fa fa-check"></i><b>3.1</b> Import File</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-menggunakan-fungsi-bawaan-r"><i class="fa fa-check"></i><b>3.1.1</b> Import File Menggunakan Fungsi Bawaan R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-csv-dan-txt-menggunakan-library-readr"><i class="fa fa-check"></i><b>3.1.2</b> Membaca File CSV dan TXT Menggunakan Library readr</a></li>
+<li class="chapter" data-level="3.1.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-excel-pada-r"><i class="fa fa-check"></i><b>3.1.3</b> Import File Excel Pada R</a></li>
+<li class="chapter" data-level="3.1.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-dari-format-aplikasi-statistik"><i class="fa fa-check"></i><b>3.1.4</b> Membaca File Dari Format Aplikasi Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-file"><i class="fa fa-check"></i><b>3.2</b> Eksport File</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-txt-dan-csv"><i class="fa fa-check"></i><b>3.2.1</b> Eksport Data Menjadi Format TXT dan CSV</a></li>
+<li class="chapter" data-level="3.2.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-excel"><i class="fa fa-check"></i><b>3.2.2</b> Eksport Data Menjadi Format Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-data-format"><i class="fa fa-check"></i><b>3.3</b> Tibble Data Format</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membuat-tibble"><i class="fa fa-check"></i><b>3.3.1</b> Membuat Tibble</a></li>
+<li class="chapter" data-level="3.3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-vs-data-frame"><i class="fa fa-check"></i><b>3.3.2</b> Tibble vs Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#merapikan-data"><i class="fa fa-check"></i><b>3.4</b> Merapikan Data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#gather"><i class="fa fa-check"></i><b>3.4.1</b> Gather</a></li>
+<li class="chapter" data-level="3.4.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#spread"><i class="fa fa-check"></i><b>3.4.2</b> Spread</a></li>
+<li class="chapter" data-level="3.4.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#separate"><i class="fa fa-check"></i><b>3.4.3</b> Separate</a></li>
+<li class="chapter" data-level="3.4.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#unite"><i class="fa fa-check"></i><b>3.4.4</b> Unite</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#transformasi-data"><i class="fa fa-check"></i><b>3.5</b> Transformasi Data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#paket-dplyr"><i class="fa fa-check"></i><b>3.5.1</b> Paket dplyr</a></li>
+<li class="chapter" data-level="3.5.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#filter"><i class="fa fa-check"></i><b>3.5.2</b> filter()</a></li>
+<li class="chapter" data-level="3.5.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#arrange"><i class="fa fa-check"></i><b>3.5.3</b> arrange()</a></li>
+<li class="chapter" data-level="3.5.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#select"><i class="fa fa-check"></i><b>3.5.4</b> select()</a></li>
+<li class="chapter" data-level="3.5.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mutate"><i class="fa fa-check"></i><b>3.5.5</b> mutate()</a></li>
+<li class="chapter" data-level="3.5.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#summarize-dan-group_by"><i class="fa fa-check"></i><b>3.5.6</b> summarize() dan group_by()</a></li>
+<li class="chapter" data-level="3.5.7" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mengkombinasikan-beberapa-operasi-menggunakan-operator-pipe"><i class="fa fa-check"></i><b>3.5.7</b> Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%&gt;%)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#referensi-2"><i class="fa fa-check"></i><b>3.6</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Visualisasi Data - R</b></span></li>
+<li class="chapter" data-level="4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html"><i class="fa fa-check"></i><b>4</b> Visualisasi Data Menggunakan Fungsi Dasar R</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#visualisasi-data-menggunakan-fungsi-plot"><i class="fa fa-check"></i><b>4.1</b> Visualisasi Data Menggunakan Fungsi plot()</a></li>
+<li class="chapter" data-level="4.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot"><i class="fa fa-check"></i><b>4.2</b> Matriks Scatterplot</a></li>
+<li class="chapter" data-level="4.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot"><i class="fa fa-check"></i><b>4.3</b> Box plot</a></li>
+<li class="chapter" data-level="4.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#bar-plot"><i class="fa fa-check"></i><b>4.4</b> Bar Plot</a></li>
+<li class="chapter" data-level="4.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#line-plot"><i class="fa fa-check"></i><b>4.5</b> Line Plot</a></li>
+<li class="chapter" data-level="4.6" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#pie-chart"><i class="fa fa-check"></i><b>4.6</b> Pie Chart</a></li>
+<li class="chapter" data-level="4.7" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#histogram-dan-density-plot"><i class="fa fa-check"></i><b>4.7</b> Histogram dan Density Plot</a></li>
+<li class="chapter" data-level="4.8" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#qq-plot"><i class="fa fa-check"></i><b>4.8</b> QQ Plot</a></li>
+<li class="chapter" data-level="4.9" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#dot-chart"><i class="fa fa-check"></i><b>4.9</b> Dot Chart</a></li>
+<li class="chapter" data-level="4.10" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#kustomisasi-parameter-grafik"><i class="fa fa-check"></i><b>4.10</b> Kustomisasi Parameter Grafik</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-judul"><i class="fa fa-check"></i><b>4.10.1</b> Menambahkan Judul</a></li>
+<li class="chapter" data-level="4.10.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-legend"><i class="fa fa-check"></i><b>4.10.2</b> Menambahkan Legend</a></li>
+<li class="chapter" data-level="4.10.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-teks-pada-grafik"><i class="fa fa-check"></i><b>4.10.3</b> Menambahkan Teks Pada Grafik</a></li>
+<li class="chapter" data-level="4.10.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-garis-pada-plot"><i class="fa fa-check"></i><b>4.10.4</b> Menambahkan Garis Pada Plot</a></li>
+<li class="chapter" data-level="4.10.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#merubah-simbol-plot-dan-jenis-garis"><i class="fa fa-check"></i><b>4.10.5</b> Merubah Simbol plot dan Jenis Garis</a></li>
+<li class="chapter" data-level="4.10.6" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-axis-plot"><i class="fa fa-check"></i><b>4.10.6</b> Mengatur Axis Plot</a></li>
+<li class="chapter" data-level="4.10.7" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-warna"><i class="fa fa-check"></i><b>4.10.7</b> Mengatur Warna</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#alternatif-library-dasar-lain"><i class="fa fa-check"></i><b>4.11</b> Alternatif Library Dasar Lain</a><ul>
+<li class="chapter" data-level="4.11.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#scatterplot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.1</b> Scatterplot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot-menggunakan-library-psych"><i class="fa fa-check"></i><b>4.11.2</b> Matriks Scatterplot Menggunakan Library psych</a></li>
+<li class="chapter" data-level="4.11.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.3</b> Box Plot Menggunakan Library gplots</a></li>
+<li class="chapter" data-level="4.11.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#qq-plot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.4</b> QQ Plot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#plot-group-means-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.5</b> Plot Group Means Menggunakan Library gplots</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#referensi-3"><i class="fa fa-check"></i><b>4.12</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html"><i class="fa fa-check"></i><b>5</b> Visualisasi Data Menggunakan GGPLOT</a><ul>
+<li class="chapter" data-level="5.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#scatterplot"><i class="fa fa-check"></i><b>5.1</b> Scatterplot</a></li>
+<li class="chapter" data-level="5.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#box-plot-dan-violin-plot"><i class="fa fa-check"></i><b>5.2</b> Box Plot dan Violin Plot</a></li>
+<li class="chapter" data-level="5.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#bar-plot-1"><i class="fa fa-check"></i><b>5.3</b> Bar Plot</a></li>
+<li class="chapter" data-level="5.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#line-plot-1"><i class="fa fa-check"></i><b>5.4</b> Line Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#pie-chart-1"><i class="fa fa-check"></i><b>5.5</b> Pie Chart</a></li>
+<li class="chapter" data-level="5.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#histogram-dan-desity-plot"><i class="fa fa-check"></i><b>5.6</b> Histogram dan Desity Plot</a></li>
+<li class="chapter" data-level="5.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#qq-plot-1"><i class="fa fa-check"></i><b>5.7</b> QQ Plot</a></li>
+<li class="chapter" data-level="5.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#dot-plot"><i class="fa fa-check"></i><b>5.8</b> Dot Plot</a></li>
+<li class="chapter" data-level="5.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#ecdf-plot"><i class="fa fa-check"></i><b>5.9</b> ECDF Plot</a></li>
+<li class="chapter" data-level="5.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#parameter-grafik"><i class="fa fa-check"></i><b>5.10</b> Parameter Grafik</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-judul-grafik-keterangan-axis-dan-legend"><i class="fa fa-check"></i><b>5.10.1</b> Merubah Judul Grafik, Keterangan Axis dan Legend</a></li>
+<li class="chapter" data-level="5.10.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-tampilan-dan-posisi-legend"><i class="fa fa-check"></i><b>5.10.2</b> Merubah Tampilan dan Posisi Legend</a></li>
+<li class="chapter" data-level="5.10.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-warana-pada-grafik-secara-otomatis-dan-manual"><i class="fa fa-check"></i><b>5.10.3</b> Merubah Warana Pada Grafik Secara Otomatis dan Manual</a></li>
+<li class="chapter" data-level="5.10.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-titik"><i class="fa fa-check"></i><b>5.10.4</b> Kustomisasi Titik</a></li>
+<li class="chapter" data-level="5.10.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-jenis-garis"><i class="fa fa-check"></i><b>5.10.5</b> Kustomisasi Jenis Garis</a></li>
+<li class="chapter" data-level="5.10.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-label-pada-titik-observasi-dan-bidang-plot"><i class="fa fa-check"></i><b>5.10.6</b> Menambahkan Label Pada Titik Observasi dan Bidang Plot</a></li>
+<li class="chapter" data-level="5.10.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tema-pada-plot"><i class="fa fa-check"></i><b>5.10.7</b> Kustomisasi Tema Pada Plot</a></li>
+<li class="chapter" data-level="5.10.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#penskalaan-dan-transformasi-axis"><i class="fa fa-check"></i><b>5.10.8</b> Penskalaan dan Transformasi Axis</a></li>
+<li class="chapter" data-level="5.10.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tick-mark-axis"><i class="fa fa-check"></i><b>5.10.9</b> Kustomisasi Tick Mark Axis</a></li>
+<li class="chapter" data-level="5.10.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-garis-lurus-pada-plot"><i class="fa fa-check"></i><b>5.10.10</b> Menambahkan Garis Lurus Pada Plot</a></li>
+<li class="chapter" data-level="5.10.11" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#melakukan-rotasi-pada-grafik"><i class="fa fa-check"></i><b>5.10.11</b> Melakukan Rotasi Pada Grafik</a></li>
+<li class="chapter" data-level="5.10.12" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#facet"><i class="fa fa-check"></i><b>5.10.12</b> Facet</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#referensi-4"><i class="fa fa-check"></i><b>5.11</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Statistika Deskriptif - R</b></span></li>
+<li class="chapter" data-level="6" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html"><i class="fa fa-check"></i><b>6</b> Ringkasan Numerik</a><ul>
+<li class="chapter" data-level="6.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-pemusatan-data"><i class="fa fa-check"></i><b>6.1</b> Ukuran Pemusatan Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#metode-klasik-mean"><i class="fa fa-check"></i><b>6.1.1</b> Metode Klasik-Mean</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#median-sebagai-ukuran-pemusatan-data-yang-resistan"><i class="fa fa-check"></i><b>6.1.2</b> Median Sebagai Ukuran Pemusatan Data yang Resistan</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-pemusatan-data-lainnya"><i class="fa fa-check"></i><b>6.1.3</b> Ukuran Pemusatan Data Lainnya</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistika Lingkungan Menggunakan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ringkasan-numerik" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Ringkasan Numerik</h1>
+<p>Pada bidang lingkungan kita sering kali menemui sebuah pernyataan “konsentrasi rata-rata TSS pada sungai tersebut adalah 30 mg/l” atau “kedalaman penampang saluran tersebut berkisar antara 1 sampai 2 meter”. Kedua pernyataan tersebut merupakan sebuah penyapaian informasi terkait karakteristik data yang ada. Pernyataan yang pertama menyatakan karakteristik nilai pemusatan data, sedangkan yang kedua menyatakan karakteristik sebaran suatu data.</p>
+<p>Karakteristik lain yang sering digunakan untuk menjelaskan suatu data adalah bentuk distibusi suatu data dan estimasi nilai ekstrim seperti nilai masimum dan minimum suatu data. Seluruh karakteristik data tersebut perlu dihitung untuk memperoleh informasi numerik pada data.</p>
+<p>Pada chapter ini kita akan membahas terkait metode untuk membuat ringkasan dan deksripsi data. Pembahasan akan terdiri dari ukuran nilai pemusatan data, ukuran sebaran atau variabilitas data dan bentuk distribusi data. Selain itu kita akan membahas nilai ekstrim yang ada pada sebuah data dan transformasi data.</p>
+<div id="ukuran-pemusatan-data" class="section level2">
+<h2><span class="header-section-number">6.1</span> Ukuran Pemusatan Data</h2>
+<p>Nilai rata-rata (mean) dan nilai tengah (median) merupakan dua nilai yang paling umum digunakan untuk menyatakan lokasi pemusatan data meskipun kedua nilai bukanlah satu atau dua ukuran yang tersedia. Apa sajakah properti dari kedua ukuran tersebut dan kapan salah satu atau keduanya dapat digunakan bersamaan?.</p>
+<div id="metode-klasik-mean" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Metode Klasik-Mean</h3>
+<p>Nilai mean (<span class="math inline">\(\overline{X}\)</span>) diperoleh dengan menjumlahkan seluruh data dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti Persamaan <a href="ringkasan-numerik.html#eq:mean">(6.1)</a>;</p>
+<span class="math display" id="eq:mean">\[\begin{equation}
+  \overline{X}=\text{}\sum_{_{i=1}}^n\frac{X_i}{n}
+  \tag{6.1}
+\end{equation}\]</span>
+<p>Nilai mean yang disimbolkan dengan “X bar” merupakan nilai mean untuk sampel. Nilai mean untuk populasi disimbolkan oleh huruf Yunani “mu atau <span class="math inline">\(\mu\)</span>”.</p>
+<p>Pada Persamaan <a href="ringkasan-numerik.html#eq:mean">(6.1)</a>, jika data terdiri dari banyak grup maka nilai rata-rata dihitung berdasarkan jumlah nilai observasi dikali dengan bobotnya. Nilai mean tersebut disebut sebagai <em>weighted mean</em> yang dapat ditulis berdasarkan Persamaan Persamaan <a href="ringkasan-numerik.html#eq:weightedmean">(6.2)</a>.</p>
+<span class="math display" id="eq:weightedmean">\[\begin{equation}
+  \overline{X}\ =\text{}\sum_{_{i=1}}^n\overline{X_i}\cdot\frac{n_i}{n}
+  \tag{6.2}
+\end{equation}\]</span>
+<p>dimana <span class="math inline">\(\overline{X_i}\)</span> merupakan nilai rata-rata grup ke-i dan <span class="math inline">\(\frac{n_i}{n}\)</span> merupakan bobot pengali yang berupa rasio antara observasi grup ke-i dengan keseluruhan observasi.</p>
+<p>Kita biasanya akan berhadapan dengan nilai observasi yang baru sehingga nilai mean yang telah ada akan ikut berubah. Perubahan nilai mean tersebut disebabkan karena setiap observasi yang disertakan dalam perhitungan mean memiliki pengaruhnya masing-masing. Jika observasi tersebut cenderung ekstrim besar maka nilai mean akan bergeser menuju kearahnya begitu juga sebaliknya.</p>
+<p>Pengaruh dari sebuah nilai observasi ke-j atau <span class="math inline">\(X_j\)</span> dapat dilihat dengan menghitung seluruh observasi secara bersamaan kecuali observasi ke-j pada sebuah grup. Dapat dituliskan pada Persamaan <a href="ringkasan-numerik.html#eq:influencemean2">(6.4)</a></p>
+<span class="math display" id="eq:influencemean1">\[\begin{equation}
+  \overline{X} =\text{}\overline{X_{\left(j\right)}}\ \cdot\frac{\left(n-1\right)}{n}+X_j\cdot\frac{1}{n}
+  \tag{6.3}
+\end{equation}\]</span>
+<span class="math display" id="eq:influencemean2">\[\begin{equation}
+  \overline{X} =\overline{X}_{\left(j\right)}+\left(X_j-\overline{X}_{\left(j\right)}\right)\cdot\frac{1}{n}
+  \tag{6.4}
+\end{equation}\]</span>
+<p>dimana <span class="math inline">\(\overline{X}_{\left(j\right)}\)</span> adalah nilai mean seluruh observasi kecuali <span class="math inline">\(X_j\)</span>. Setiap observasi yang mempengaruhi nilai mean keseluruhan (<span class="math inline">\(\overline{X}\)</span>) didefinisikan oleh <span class="math inline">\(\left(X_j-\overline{X}_{\left(j\right)}\right)\)</span> sebagai jarak antara observasi tersebut dengan nilai rata-rata yang tidak termasuk observasi tersebut di dalamnya. Sehingga seluruh nilai observasi tidak memiliki pengaruh yang sama terhadap nilai rata-rata seluruh observasi.</p>
+<p><em>Outlier</em> merupakan observasi yang memiliki nilai yang ekstrim tinggi atau rendah dibanding seluruh observasi yang ada sehingga memiliki pengaruh yang besar terhadap nilai mean keseluruhan (<span class="math inline">\(\overline{X}\)</span>). Pengaruhnya yang sangat besar terhadap nilai rata-rata keseluruhan akan menyebabkan nilai rata-rata akan bergeser ke arah <em>outlier</em> tersebut. Selain itu penampilan dari distribusi frekuensi yang terbentuk akan terlihat memiliki ekor yang panjang.</p>
+<p>Untuk lebih memahami pengaruh observasi terhadap nilai rata-rata, disajikan dua buah gambar yaitu: Gambar <a href="ringkasan-numerik.html#fig:mean1">6.1</a> dan Gambar <a href="ringkasan-numerik.html#fig:mean2">6.2</a></p>
+<div class="figure" style="text-align: center"><span id="fig:mean1"></span>
+<img src="mean1.PNG" alt="Nilai mean (segitiga) sebagai titik kesetimbangan pada data." width="70%" />
+<p class="caption">
+Gambar 6.1: Nilai mean (segitiga) sebagai titik kesetimbangan pada data.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:mean2"></span>
+<img src="mean2.PNG" alt="Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier." width="70%" />
+<p class="caption">
+Gambar 6.2: Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.
+</p>
+</div>
+<p>Pada Gambar <a href="ringkasan-numerik.html#fig:mean1">6.1</a> disajikan 7 buah data konsentrasi TSS di suatu sungai. Nilai rata-rata TSS pada sungai tersebut adalah 11 mg/l. Jika kita amati sebagian besar data (6 observasi) berada pada rentang nilai konsentrasi TSS 2 sampai 12 mg/l. Observasi yang lain terletak jauh dari mayoritas observasi lainnya yaitu sebesar 37 mg/l. Observasi yang berbeda secara ekstrim dari nilai secara umum pada suatu data disebut sebagai <em>outlier</em>. Nilai <em>outlier</em> tersebut menyebabkan nilai rata-rata yang terbentuk tidak representatif terhadap keseluruhan data yang ada dan cenderung menggeser nilai rata-rata mendekati nilai <em>outlier</em> tersebut. Nilai observasi yang ekstrim biasanya muncul dari adanya kesalahan perlakuan terhadap sampel seperti botol sampel yang digunakan tidak bersih atau prosedur analisa yang dilakukan tidak standar sehingga memungkinkan adanya partikulat udara yang terukur pada proses penimbangan.</p>
+<p>Salah satu cara untuk menangani adanya <em>outlier</em> tersebut adalah dengan menghapus observasi yang merupakan <em>outlier</em>. Pada Gambar <a href="ringkasan-numerik.html#fig:mean2">6.2</a> terlihat bahwa penghapusan <em>outlier</em> telah menggeser nilai rata-rata ke kiri. Nilai rata-rata yang baru tersebut jika diperhatikan dari Gambar <a href="ringkasan-numerik.html#fig:mean2">6.2</a> lebih menggambarkan keseluruhan data yang ada. Tidak terlihat adanya nilai yang berada jauh jaraknya dari nilai rata-rata yang baru.</p>
+<p>Pada contoh tersebut dapat kita simpulkan bahwa nilai mean sangat sensitif terhadap adanya <em>outlier</em>. Pada prakteknya nilai mean tidaklah berdiri sendiri selama proses analisa. Nilai mean memerlukan nilai lain seperti median untuk menganalisa apakah data yang diperoleh tidak simetris yang dapat mengindikasikan adanya outlier.</p>
+<p>Pada <code>R</code> untuk menghitung nilai rata-rata, kita dapat menggunakan fungsi <code>mean()</code>. Format fungsi yang digunakan dituliskan pada persamaan berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(x, <span class="dt">trim =</span> <span class="dv">0</span>, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong></p>
+<ul>
+<li><strong>x</strong>: objek atau vektor numerik.</li>
+<li><strong>trim</strong>: menyatakan fraksi data (berkisar antara 0 sampai 0,5) yang perlu dilakukan pemotongan (<em>trim</em>) pada observasi awal dan akhir <strong>x</strong> (yang telah diurutkan) sebelum nilai mean dihitung. <strong>na.rm</strong>: nilai logis yang menyatakan apakan <em>missing value</em> perlu disertakan dalam perhitungan atau tidak. Jika disertakan maka output yang akan dihasilkan adalah NA.</li>
+</ul>
+</blockquote>
+<p><strong>Analisa Nilai Mean Grup Data Tunggal (<em>Single Group</em>)</strong></p>
+<p>Untuk lebih memahami penerapannya pada <code>R</code>, pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> berikut disajikan data terkait debit air suatu sungai.</p>
+<table>
+<caption><span id="tab:debitsungai">Tabel 6.1: </span>Data Debit Sampel (m3/detik)</caption>
+<thead>
+<tr class="header">
+<th align="right">observasi</th>
+<th align="right">debit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">457</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">185</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">133</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">160</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">119</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">115</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">101</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">58</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">68</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">50</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">65</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">128</td>
+</tr>
+</tbody>
+</table>
+<p>Data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> dapat divisualisasikan seperti pada Gambar <a href="ringkasan-numerik.html#fig:debitvis">6.3</a>:</p>
+<div class="figure" style="text-align: center"><span id="fig:debitvis"></span>
+<img src="EnvStat_files/figure-html/debitvis-1.png" alt="Visualisasi debit sungai pada sampel" width="70%" />
+<p class="caption">
+Gambar 6.3: Visualisasi debit sungai pada sampel
+</p>
+</div>
+<p>Berdasarkan Gambar <a href="ringkasan-numerik.html#fig:debitvis">6.3</a>, terdapat <em>outlier</em> yang ditunjukkan pada debit sungai yang lebih besar dari 400 m3/detik. Hasil tersebut dapat terjadi salah satunya karena adanya kondisi ekstrim seperti banjir yang menyebabkan sungai meluap atau terjadi kesalahan pengukuran dari alat ukur yang ada di lapangan.</p>
+<p>Untuk menghitung nilai rata-rata debit pada data tersebut, masukkan variabel <code>debit</code> yang telah penulis simpan sebagai objek <code>sungai</code> kedalam fungsi <code>mean()</code> seperti berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sungai<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 136.6</code></pre>
+<p>Berdasarkan hasil yang diperoleh, dapat dilihat bahwa nilai rata-rata debit pada sungai tersebut adalah 136.5833 <span class="math inline">\(m^3/detik\)</span>.</p>
+<p>Kita dapat menghitung nilai mean dengan terlebih dahulu menghilangkan <em>outlier</em> pada data. Untuk melakukannya kita perlu melakukan subset terhadap data tanpa <em>outlier</em> di dalamnya sebelum data tersebut dimasukkan kedalam fungsi mean(). Berikut sintaks yang digunakan untuk melakukan hal tersebut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat paket</span>
+<span class="kw">library</span>(dplyr)
+
+<span class="co"># melakukan filter terhadap data</span>
+sungai_subset&lt;-sungai<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(debit<span class="op">&lt;=</span><span class="dv">400</span>)
+
+<span class="co"># menghitung mean</span>
+<span class="kw">mean</span>(sungai_subset<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 107.5</code></pre>
+<p>Berdasarkan hasil yang diperoleh terlihat bahwa nilai rata-rata yang baru lebih kecil dari yang sebelumnya (bergeser ke kiri) dengan nilai mean debit sungai yang baru sebesar 107.4545 <span class="math inline">\(m^3/detik\)</span>. Hal ini terjadi karena pengaruh dari data <em>outlier</em> yang telah dihilangkan.</p>
+<p><strong>Analisa Nilai Rata-Rata Berdarsarkan Grup Data</strong></p>
+<p>Pada contoh sebelumnya kita telah melakukan perhitungan nilai mean untuk studi kasus grup tunggal. Pada contoh ini akan disajikan contoh kasus perhitungan nilai mean untuk data berkelompok.</p>
+<p>Dataset pada contoh kasus ini diambil dari buku <strong>Statistical Methods in Water Resources</strong>. Data yang digunakan adalah data konsentrasi TDS dan Uranium di airtanah dengan perbedaan konsentrasi bikarbonate dalam air tanah yaitu <span class="math inline">\(\leq 50\)</span>% (0) dan <span class="math inline">\(&gt;50\)</span>% (1). Dataset yang digunakan disajikan pada Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>.</p>
+<blockquote>
+<p><strong>Note: </strong> data yang digunakan dapat diunduh pada link berikut <a href="https://drive.google.com/open?id=1-k_1Fkl2hWmI9ZohG9hWGrqKe4o8GArW">google.drive</a>. Simpan dataset tersebut pada <em>working directory</em> pembaca agar mudah dalam proses membaca data.</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat library</span>
+<span class="kw">library</span>(readxl)</code></pre></div>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version
+## 3.5.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat data excel</span>
+data_gw &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;hhappc.xls&quot;</span>, <span class="dt">sheet=</span><span class="st">&quot;appc16&quot;</span>)
+
+<span class="co"># membuang kolom ke-4</span>
+data_gw&lt;-data_gw <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(TDS, Uranium, Bicarbonate) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Bicarbonate=</span><span class="kw">as.factor</span>(Bicarbonate))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
+  data_gw, <span class="dt">caption =</span> <span class="st">&#39;Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan&#39;</span>
+)</code></pre></div>
+<table>
+<caption><span id="tab:gwtdsur">Tabel 6.2: </span>Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan</caption>
+<thead>
+<tr class="header">
+<th align="right">TDS</th>
+<th align="right">Uranium</th>
+<th align="left">Bicarbonate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">682.6</td>
+<td align="right">0.9315</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">819.1</td>
+<td align="right">1.9380</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">303.8</td>
+<td align="right">0.2919</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">1151.4</td>
+<td align="right">11.9042</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">582.4</td>
+<td align="right">1.5674</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">1043.4</td>
+<td align="right">2.0623</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">634.8</td>
+<td align="right">3.8858</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">1087.2</td>
+<td align="right">0.9772</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">1123.5</td>
+<td align="right">1.9354</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">688.1</td>
+<td align="right">0.4367</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">1174.5</td>
+<td align="right">10.1142</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">599.5</td>
+<td align="right">0.7551</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">1240.8</td>
+<td align="right">6.8559</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">538.4</td>
+<td align="right">0.4806</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">607.8</td>
+<td align="right">1.1452</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">705.9</td>
+<td align="right">6.0876</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">1290.6</td>
+<td align="right">10.8823</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">526.1</td>
+<td align="right">0.1473</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">784.7</td>
+<td align="right">2.6741</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">953.1</td>
+<td align="right">3.0918</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">1149.3</td>
+<td align="right">0.7592</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">1074.2</td>
+<td align="right">3.7101</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right">1116.6</td>
+<td align="right">7.2446</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">301.2</td>
+<td align="right">5.7129</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">265.4</td>
+<td align="right">4.7366</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">295.9</td>
+<td align="right">2.8057</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">442.4</td>
+<td align="right">5.6290</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">342.7</td>
+<td align="right">3.0950</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">361.3</td>
+<td align="right">3.5774</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">262.1</td>
+<td align="right">1.7711</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">546.2</td>
+<td align="right">11.2724</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">273.9</td>
+<td align="right">4.9807</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">281.4</td>
+<td align="right">4.0833</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">588.9</td>
+<td align="right">14.6342</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">574.1</td>
+<td align="right">12.3835</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">307.1</td>
+<td align="right">1.5291</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">409.4</td>
+<td align="right">4.4647</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">327.1</td>
+<td align="right">2.4574</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">425.7</td>
+<td align="right">6.3042</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">310.1</td>
+<td align="right">4.5441</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">289.8</td>
+<td align="right">0.9672</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">408.2</td>
+<td align="right">2.1568</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">383.0</td>
+<td align="right">8.3810</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">255.2</td>
+<td align="right">2.7957</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+<p>Visualisasi data Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>, disajikan pada Gambar <a href="ringkasan-numerik.html#fig:gwvis1">6.4</a>:</p>
+<div class="figure" style="text-align: center"><span id="fig:gwvis1"></span>
+<img src="EnvStat_files/figure-html/gwvis1-1.png" alt="Visualisasi konsentrasi TDS pada air tanah" width="70%" />
+<p class="caption">
+Gambar 6.4: Visualisasi konsentrasi TDS pada air tanah
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:gwvis2"></span>
+<img src="EnvStat_files/figure-html/gwvis2-1.png" alt="Visualisasi konsentrasi Uranium pada air tanah" width="70%" />
+<p class="caption">
+Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
+</p>
+</div>
+<p>Pada dataset tersebut kita ingin melihat apakah terdapat perbedaan antara konsentrasi TDS dan uranium pada kondisi kesadahan bikarbonat <span class="math inline">\(\leq 50\)</span>% dan <span class="math inline">\(&gt; 50\)</span>%. Untuk melakukannya pada <code>R</code> kita perlu mengelompokkan data tersebut terlebih dahulu berdasarkan variabel bikarbonat. Setelah itu nilai rata-rata dapat dihitung. Berikut sintaks yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_gw <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Bicarbonate) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">TDS =</span> <span class="kw">mean</span>(TDS), <span class="dt">Uranium =</span> <span class="kw">mean</span>(Uranium))</code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##   Bicarbonate   TDS Uranium
+##   &lt;fct&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+## 1 0            864.    3.47
+## 2 1            364.    5.16</code></pre>
+<p>Berdasarkan hasil yang diperoleh konsentrasi TDS dan Uranium dipengaruhi oleh kesadahan airtanah. Pada konsentrasi Bikarbonate &gt; 50% konsentrasi TDS akan lebih rendah sedangkan konsentrasi Uranium sebaliknya. Untuk menguji apakah nilai tersebut berbeda signifikan, kita perlu melakukan uji hipotesis yang akan dibahas pada Chapter selanjutnya.</p>
+</div>
+<div id="median-sebagai-ukuran-pemusatan-data-yang-resistan" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Median Sebagai Ukuran Pemusatan Data yang Resistan</h3>
+<p>Median atau persentil 50 (<span class="math inline">\(P_{50}\)</span>) merupakan nilai pusat dari distribusi suatu data yang telah dirangkin berdasarkan besar nilai orbservasinya. Untuk data dengan jumlah observasi ganjil median adalah titik tengah yang memiliki jumlah observasi yang sama baik di atas nilai media maupun di bawahnya. Untuk data dengan jumlah observasi genap, media merupakan rata-rata dari dua titik observasi pusat. Untuk memperoleh median dari suatu distribusi data, langkah pertama yang perlu dilakukan adalah mengurutkan data dari observasi dengan nilai terkecil sampai dengan yang besar sehingga <span class="math inline">\(x_1\)</span> merupakan observasi terkecil hingga <span class="math inline">\(x_n\)</span> merupakan observasi terbesar. Persamaan <a href="ringkasan-numerik.html#eq:med1">(6.5)</a> (untuk data ganjil) dan Persamaan <a href="ringkasan-numerik.html#eq:med2">(6.6)</a> (untuk data genap) merupakan persamaan untuk menghitung median berdasarkan jumlah observasi yang ada.</p>
+<span class="math display" id="eq:med1">\[\begin{equation}
+  Median (P_{0.5}) =\frac{X_{\left(n+1\right)}}{2}
+  \tag{6.5}
+\end{equation}\]</span>
+<span class="math display" id="eq:med2">\[\begin{equation}
+  Median (P_{0.5}) =\frac{1}{2}\cdot\left(X_{\left(\frac{n}{2}\right)}+X_{\left(\frac{n}{2}\right)+1}\right)
+  \tag{6.6}
+\end{equation}\]</span>
+<p>Median hanya dipengaruhi minimal oleh besarnya nilai observasi tunggal, yang ditentukan semata-mata oleh urutan relatif observasi. Resitensi terhadap efek dari perubahan nilai atau kehadiran pengamatan terpencil (<em>outlier</em>) sering merupakan sifat yang diinginkan. Meski demikian median memiliki kelemahan utama yaitu kurang representatif dalam mendeskripsikan rata-rata dari data dibandingkan mean. Hal ini disebabkan karena median tidak menggunakan seluruh nilai yang ada pada data.</p>
+<p><strong>Analisa Nilai Mean Grup Data Tunggal (<em>Single Group</em>)</strong></p>
+<p>Kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> untuk menghitung median data tersebut. Pada <code>R</code> median dihitung menggunakan fungsi <code>median()</code>. Fotmat yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(x, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong></p>
+<ul>
+<li><strong>x</strong>: objek atau vektor numerik.</li>
+<li><strong>na.rm</strong>: nilai logis yang menyatakan apaka <em>missing value</em> perlu disertakan dalam komputasi atau tidak.</li>
+</ul>
+</blockquote>
+<p>Untuk data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, median dapat dihitung menggunakan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(sungai<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 117</code></pre>
+<p>Berdasarkan hasil komputasi diperoleh median debit sungai sebesar 117 <span class="math inline">\(m^3/detik\)</span>. Nilai tersebut tidak berbeda juah dengan nilai mean tanpa <em>outlier</em> data sungai sebesar 107.4545 <span class="math inline">\(m^3/detik\)</span>.</p>
+<p>Jika kita melakukan perhitungan menggunakan menggunakan data <code>sungai_subset</code> (tanpa <em>outlier</em>), maka diperoleh 115 <span class="math inline">\(m^3/detik\)</span> yang nilainya juga tidak bergeser jauh dengan median sebelumnya yang membuktikan bahwa median resisten terhadap <em>outlier</em>.</p>
+<p><strong>Analisa Nilai Rata-Rata Berdarsarkan Grup Data</strong></p>
+<p>Paca contoh ini kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>. Sintaks berikut adalah cara menghitung median untuk data berkelompok:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_gw <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Bicarbonate) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">TDS=</span><span class="kw">median</span>(TDS), <span class="dt">Uranium=</span><span class="kw">median</span>(Uranium))</code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##   Bicarbonate   TDS Uranium
+##   &lt;fct&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+## 1 0            819.    1.94
+## 2 1            327.    4.46</code></pre>
+<p>Pada median TDS kita tidak menemui perbedaan dengan nilai rata-ratanya. Hal ini disebabkan karena bentuk distribusinya yang relatif simetris. Sedangkan pada Uranium distribusi yang terbentuk memiliki kemiringan (<em>skewness</em>) positif. Hal ini menyebabkan nilai mean yang terbentuk akan sangat dipengaruhi oleh observasi dengan nilai ekstrim yang dimiliki.</p>
+</div>
+<div id="ukuran-pemusatan-data-lainnya" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Ukuran Pemusatan Data Lainnya</h3>
+<p>Ukuran pemusatan data lainnya yang kurang sering digunakan adalah modus, rata-rata geometrik (<em>geometric mean</em>), dan <em>trimmed mean</em>. Modus merupakan nilai observasi yang sering muncul. Jika kita visualisasikan menggunakan histogram maka modus merupakan bar tertinggi pada histogram. Modus lebih dapat diaplikasikan pada data berkelompok yang nilai observasinya merupakan integer (<em>finite number</em>) dibanding data dengan nilai kontinyu. Modus sangat mudah diperoleh, namun sangat buruk sebagai ukuran pemusatan data untuk jenis data kontinyu karena sering bergantung pengelompokan data yang sewenang-wenang atu semaunya.</p>
+<p><em>Geometric mean</em> sering digunakan untuk distribusi data memiliki bentuk kemiringan positif. <em>Geometric mean</em> merupakan rata-rata logaritmik yang diubah kembali ke unit asalnya. Untuk menghitungnya digunakan Persamaan <a href="ringkasan-numerik.html#eq:geomean">(6.7)</a>.</p>
+<span class="math display" id="eq:geomean">\[\begin{equation}
+  GM = \exp\left(\overline{Y}\right)
+  \tag{6.7}
+\end{equation}\]</span>
+<p>dimana</p>
+<span class="math display" id="eq:geomean2">\[\begin{equation}
+  Y_i = \ln\left(X_i\right)
+  \tag{6.8}
+\end{equation}\]</span>
+<p>Untuk data yang memiliki kemiringan positif, <em>geometric mean</em> biasanya cukup dekat dengan median. Bahkan, ketika logaritma data simetris, <em>geometric mean</em> adalah estimasi median. Ini karena median dan <em>geometric mean</em> sama. Ketika ditransformasikan kembali ke satuan asli, rerata geometris terus menjadi estimasi untuk median, tetapi bukan merupakan estimasi untuk rerata.</p>
+<p>Pada <code>R</code> <em>geometric mean</em> dapat kita hitung menggunakan sintaks fungsi yang kita buat sendiri:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">geomean &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  y =<span class="st"> </span><span class="kw">log</span>(x)
+  GM =<span class="st"> </span><span class="kw">exp</span>(<span class="kw">mean</span>(y))
+  <span class="kw">print</span>(GM)
+}</code></pre></div>
+<p>Data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> merupakan data dengan kemiringan positif. Nilai <em>geometric mean</em> data tersebut dihitung menggunakan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geomean</span>(sungai<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 112.4</code></pre>
+<p>Berdasarkan hasil komputasi diperoleh nilai <em>geometric mean</em> debit sungai sebesar <span class="math inline">\(m^3/detik\)</span>. Nilai yang diperoleh tidak berbeda dengan nilai median sebesar 117 <span class="math inline">\(m^3/detik\)</span>.</p>
+<p>Kompromi antara median dan mean tersedia dengan memotong beberapa observasi terendah dan tertinggi, dan menghitung mean dari apa yang tersisa. Perkiraan pemusatan data seperti itu tidak dipengaruhi oleh observasi yang paling ekstrem (dan mungkin anomali), seperti mean. Namun mereka memungkinkan besarnya sebagian besar nilai untuk mempengaruhi estimasi, tidak seperti median. Estimator ini disebut “<em>trimmed mean</em>”, dan persentase data yang diinginkan dapat dipangkas. Pemangkasan yang paling umum adalah menghapus 25 persen dari data di setiap ujung - rata-rata yang dihasilkan dari 50 persen pusat data biasanya disebut “<em>trimmed mean</em>”, tetapi lebih tepatnya 25 persen <em>trimmed mean</em>. “<em>trimmed mean</em> 0%” adalah mean sampel itu sendiri, sementara memangkas semua kecuali 1 atau 2 nilai pusat menghasilkan median. Persentase pemangkasan harus secara eksplisit dinyatakan saat digunakan. <em>Trimmed mean</em> adalah estimator yang resistan, karena tidak sangat dipengaruhi oleh <em>outlier</em>, dan bekerja dengan baik untuk berbagai macam bentuk distribusi (normal, lognormal, dll). Ini dapat dianggap sebagai rata-rata tertimbang (<em>weighted mean</em>), di mana data di luar ‘jendela’ cutoff diberi bobot 0, dan mereka yang berada di dalam jendela bobot 1,0 (lihat Gambar <a href="ringkasan-numerik.html#fig:tm">6.6</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:tm"></span>
+<img src="tm.PNG" alt="Jendela diagram trimmed mean." width="70%" />
+<p class="caption">
+Gambar 6.6: Jendela diagram trimmed mean.
+</p>
+</div>
+<p>Pada <code>R</code> <em>trimmed mean</em> dapat dihitung dengan spesifikasi argumen <code>trim</code> pada fungsi <code>mean()</code>. Pada data debit sungai (Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>) dihitung <em>trimmed mean</em> dengan data yang dipangkas adalah 5% di kedua ujung observasi atau <code>trim=0.1</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sungai<span class="op">$</span>debit, <span class="dt">trim=</span><span class="fl">0.1</span>)</code></pre></div>
+<pre><code>## [1] 113.2</code></pre>
+<p>Nilai yang diperoleh sekarang mendekati nilai median dan <em>geometric mean</em> yaitu sebesar 113.2 <span class="math inline">\(m^3/detik\)</span>.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualisasi-data-menggunakan-ggplot.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["EnvStat.pdf", "EnvStat.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,3 +1,8 @@
+<style>
+body{
+text-align: justify}
+</style>
+
 # Visualisasi Data Menggunakan GGPLOT
 
 Library `ggplot2` merupakan implementasi dari *The Grammar of Graphics* yang ditulis oleh **Leland Wilkinson**. `ggplot2` merupakan library yang dikembangkan oleh **Hadley Wicham** ketika ia sedang menempuh kuliah di **Lowa State Universuty** dan masih dikembangkan hingga sekarang.
@@ -1360,5 +1365,5 @@ gapminder%>%
 1. Wickham, H. Grolemund G. 2016. **R For Data Science: Import, Tidy, Transform, Visualize, And Model Data**. O'Reilly Media, Inc.
 2. Peng, R.D. 2015. **Exploratory Data Analysis with R**. Leanpub book.
 3. GGPLOT2 Documentation. <https://ggplot2.tidyverse.org/>
-4. STHDA. ggplot2 - Essentials. <www.sthda.com/english/wiki/ggplot2-essentials>
+4. STHDA. ggplot2 - Essentials. <https://www.sthda.com/english/wiki/ggplot2-essentials>
 
