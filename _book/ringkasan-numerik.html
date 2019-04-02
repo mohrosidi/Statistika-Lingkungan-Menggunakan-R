@@ -25,7 +25,7 @@
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-04-01">
+<meta name="date" content="2019-04-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -254,9 +254,13 @@ code > span.in { color: #008000; } /* Information */
 <li class="part"><span><b>Statistika Deskriptif - R</b></span></li>
 <li class="chapter" data-level="6" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html"><i class="fa fa-check"></i><b>6</b> Ringkasan Numerik</a><ul>
 <li class="chapter" data-level="6.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-pemusatan-data"><i class="fa fa-check"></i><b>6.1</b> Ukuran Pemusatan Data</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#metode-klasik-mean"><i class="fa fa-check"></i><b>6.1.1</b> Metode Klasik-Mean</a></li>
+<li class="chapter" data-level="6.1.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#pengukuran-klasik-mean"><i class="fa fa-check"></i><b>6.1.1</b> Pengukuran Klasik-Mean</a></li>
 <li class="chapter" data-level="6.1.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#median-sebagai-ukuran-pemusatan-data-yang-resistan"><i class="fa fa-check"></i><b>6.1.2</b> Median Sebagai Ukuran Pemusatan Data yang Resistan</a></li>
 <li class="chapter" data-level="6.1.3" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-pemusatan-data-lainnya"><i class="fa fa-check"></i><b>6.1.3</b> Ukuran Pemusatan Data Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-sebaran-data"><i class="fa fa-check"></i><b>6.2</b> Ukuran Sebaran Data</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#pengukuran-klasik-varian-dan-simpangan-baku"><i class="fa fa-check"></i><b>6.2.1</b> Pengukuran Klasik (Varian dan Simpangan Baku)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-sebaran-data-yang-resisten-terhadap-outlier"><i class="fa fa-check"></i><b>6.2.2</b> Ukuran Sebaran Data yang Resisten Terhadap Outlier</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -287,9 +291,9 @@ code > span.in { color: #008000; } /* Information */
 <div id="ukuran-pemusatan-data" class="section level2">
 <h2><span class="header-section-number">6.1</span> Ukuran Pemusatan Data</h2>
 <p>Nilai rata-rata (mean) dan nilai tengah (median) merupakan dua nilai yang paling umum digunakan untuk menyatakan lokasi pemusatan data meskipun kedua nilai bukanlah satu atau dua ukuran yang tersedia. Apa sajakah properti dari kedua ukuran tersebut dan kapan salah satu atau keduanya dapat digunakan bersamaan?.</p>
-<div id="metode-klasik-mean" class="section level3">
-<h3><span class="header-section-number">6.1.1</span> Metode Klasik-Mean</h3>
-<p>Nilai mean (<span class="math inline">\(\overline{X}\)</span>) diperoleh dengan menjumlahkan seluruh data dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti Persamaan <a href="ringkasan-numerik.html#eq:mean">(6.1)</a>;</p>
+<div id="pengukuran-klasik-mean" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Pengukuran Klasik-Mean</h3>
+<p>Nilai mean (<span class="math inline">\(\overline{X}\)</span>) diperoleh dengan menjumlahkan seluruh data dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti Persamaan <a href="ringkasan-numerik.html#eq:mean">(6.1)</a>:</p>
 <span class="math display" id="eq:mean">\[\begin{equation}
   \overline{X}=\text{}\sum_{_{i=1}}^n\frac{X_i}{n}
   \tag{6.1}
@@ -335,7 +339,7 @@ Gambar 6.2: Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlie
 <p><strong>Note:</strong></p>
 <ul>
 <li><strong>x</strong>: objek atau vektor numerik.</li>
-<li><strong>trim</strong>: menyatakan fraksi data (berkisar antara 0 sampai 0,5) yang perlu dilakukan pemotongan (<em>trim</em>) pada observasi awal dan akhir <strong>x</strong> (yang telah diurutkan) sebelum nilai mean dihitung. <strong>na.rm</strong>: nilai logis yang menyatakan apakan <em>missing value</em> perlu disertakan dalam perhitungan atau tidak. Jika disertakan maka output yang akan dihasilkan adalah NA.</li>
+<li><strong>trim</strong>: menyatakan fraksi data (berkisar antara 0 sampai 0,5) yang perlu dilakukan pemotongan (<em>trim</em>) pada observasi awal dan akhir <strong>x</strong> (yang telah diurutkan) sebelum nilai mean dihitung. <strong>na.rm</strong>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam perhitungan atau tidak. Jika disertakan maka output yang akan dihasilkan adalah NA.</li>
 </ul>
 </blockquote>
 <p><strong>Analisa Nilai Mean Grup Data Tunggal (<em>Single Group</em>)</strong></p>
@@ -440,9 +444,6 @@ data_gw &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span c
 data_gw&lt;-data_gw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">select</span>(TDS, Uranium, Bicarbonate) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Bicarbonate=</span><span class="kw">as.factor</span>(Bicarbonate))</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
-  data_gw, <span class="dt">caption =</span> <span class="st">&#39;Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan&#39;</span>
-)</code></pre></div>
 <table>
 <caption><span id="tab:gwtdsur">Tabel 6.2: </span>Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan</caption>
 <thead>
@@ -711,14 +712,14 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
   \tag{6.6}
 \end{equation}\]</span>
 <p>Median hanya dipengaruhi minimal oleh besarnya nilai observasi tunggal, yang ditentukan semata-mata oleh urutan relatif observasi. Resitensi terhadap efek dari perubahan nilai atau kehadiran pengamatan terpencil (<em>outlier</em>) sering merupakan sifat yang diinginkan. Meski demikian median memiliki kelemahan utama yaitu kurang representatif dalam mendeskripsikan rata-rata dari data dibandingkan mean. Hal ini disebabkan karena median tidak menggunakan seluruh nilai yang ada pada data.</p>
-<p><strong>Analisa Nilai Mean Grup Data Tunggal (<em>Single Group</em>)</strong></p>
+<p><strong>Analisa Nilai Median Grup Data Tunggal (<em>Single Group</em>)</strong></p>
 <p>Kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> untuk menghitung median data tersebut. Pada <code>R</code> median dihitung menggunakan fungsi <code>median()</code>. Fotmat yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(x, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <blockquote>
 <p><strong>Note:</strong></p>
 <ul>
 <li><strong>x</strong>: objek atau vektor numerik.</li>
-<li><strong>na.rm</strong>: nilai logis yang menyatakan apaka <em>missing value</em> perlu disertakan dalam komputasi atau tidak.</li>
+<li><strong>na.rm</strong>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam komputasi atau tidak.</li>
 </ul>
 </blockquote>
 <p>Untuk data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, median dapat dihitung menggunakan sintaks berikut:</p>
@@ -726,7 +727,7 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
 <pre><code>## [1] 117</code></pre>
 <p>Berdasarkan hasil komputasi diperoleh median debit sungai sebesar 117 <span class="math inline">\(m^3/detik\)</span>. Nilai tersebut tidak berbeda juah dengan nilai mean tanpa <em>outlier</em> data sungai sebesar 107.4545 <span class="math inline">\(m^3/detik\)</span>.</p>
 <p>Jika kita melakukan perhitungan menggunakan menggunakan data <code>sungai_subset</code> (tanpa <em>outlier</em>), maka diperoleh 115 <span class="math inline">\(m^3/detik\)</span> yang nilainya juga tidak bergeser jauh dengan median sebelumnya yang membuktikan bahwa median resisten terhadap <em>outlier</em>.</p>
-<p><strong>Analisa Nilai Rata-Rata Berdarsarkan Grup Data</strong></p>
+<p><strong>Analisa Nilai Median Berdarsarkan Grup Data</strong></p>
 <p>Paca contoh ini kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>. Sintaks berikut adalah cara menghitung median untuk data berkelompok:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_gw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Bicarbonate) <span class="op">%&gt;%</span>
@@ -736,12 +737,12 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
 ##   &lt;fct&gt;       &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 0            819.    1.94
 ## 2 1            327.    4.46</code></pre>
-<p>Pada median TDS kita tidak menemui perbedaan dengan nilai rata-ratanya. Hal ini disebabkan karena bentuk distribusinya yang relatif simetris. Sedangkan pada Uranium distribusi yang terbentuk memiliki kemiringan (<em>skewness</em>) positif. Hal ini menyebabkan nilai mean yang terbentuk akan sangat dipengaruhi oleh observasi dengan nilai ekstrim yang dimiliki.</p>
+<p>Pada median TDS kita tidak menemui perbedaan dengan nilai rata-ratanya. Hal ini disebabkan karena bentuk distribusinya yang relatif simetris. Sedangkan pada Uranium distribusi yang terbentuk memiliki kemencengan (<em>skewness</em>) positif. Hal ini menyebabkan nilai mean yang terbentuk akan sangat dipengaruhi oleh observasi dengan nilai ekstrim yang dimiliki.</p>
 </div>
 <div id="ukuran-pemusatan-data-lainnya" class="section level3">
 <h3><span class="header-section-number">6.1.3</span> Ukuran Pemusatan Data Lainnya</h3>
 <p>Ukuran pemusatan data lainnya yang kurang sering digunakan adalah modus, rata-rata geometrik (<em>geometric mean</em>), dan <em>trimmed mean</em>. Modus merupakan nilai observasi yang sering muncul. Jika kita visualisasikan menggunakan histogram maka modus merupakan bar tertinggi pada histogram. Modus lebih dapat diaplikasikan pada data berkelompok yang nilai observasinya merupakan integer (<em>finite number</em>) dibanding data dengan nilai kontinyu. Modus sangat mudah diperoleh, namun sangat buruk sebagai ukuran pemusatan data untuk jenis data kontinyu karena sering bergantung pengelompokan data yang sewenang-wenang atu semaunya.</p>
-<p><em>Geometric mean</em> sering digunakan untuk distribusi data memiliki bentuk kemiringan positif. <em>Geometric mean</em> merupakan rata-rata logaritmik yang diubah kembali ke unit asalnya. Untuk menghitungnya digunakan Persamaan <a href="ringkasan-numerik.html#eq:geomean">(6.7)</a>.</p>
+<p><em>Geometric mean</em> sering digunakan untuk distribusi data memiliki bentuk kemencengan positif. <em>Geometric mean</em> merupakan rata-rata logaritmik yang diubah kembali ke unit asalnya. Untuk menghitungnya digunakan Persamaan <a href="ringkasan-numerik.html#eq:geomean">(6.7)</a>.</p>
 <span class="math display" id="eq:geomean">\[\begin{equation}
   GM = \exp\left(\overline{Y}\right)
   \tag{6.7}
@@ -751,14 +752,14 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
   Y_i = \ln\left(X_i\right)
   \tag{6.8}
 \end{equation}\]</span>
-<p>Untuk data yang memiliki kemiringan positif, <em>geometric mean</em> biasanya cukup dekat dengan median. Bahkan, ketika logaritma data simetris, <em>geometric mean</em> adalah estimasi median. Ini karena median dan <em>geometric mean</em> sama. Ketika ditransformasikan kembali ke satuan asli, rerata geometris terus menjadi estimasi untuk median, tetapi bukan merupakan estimasi untuk rerata.</p>
+<p>Untuk data yang memiliki kemencengan positif, <em>geometric mean</em> biasanya cukup dekat dengan median. Bahkan, ketika logaritma data simetris, <em>geometric mean</em> adalah estimasi median. Ini karena median dan <em>geometric mean</em> sama. Ketika ditransformasikan kembali ke satuan asli, rerata geometris terus menjadi estimasi untuk median, tetapi bukan merupakan estimasi untuk rerata.</p>
 <p>Pada <code>R</code> <em>geometric mean</em> dapat kita hitung menggunakan sintaks fungsi yang kita buat sendiri:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">geomean &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   y =<span class="st"> </span><span class="kw">log</span>(x)
   GM =<span class="st"> </span><span class="kw">exp</span>(<span class="kw">mean</span>(y))
   <span class="kw">print</span>(GM)
 }</code></pre></div>
-<p>Data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> merupakan data dengan kemiringan positif. Nilai <em>geometric mean</em> data tersebut dihitung menggunakan sintaks berikut:</p>
+<p>Data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> merupakan data dengan kemencengan positif. Nilai <em>geometric mean</em> data tersebut dihitung menggunakan sintaks berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geomean</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 112.4</code></pre>
 <p>Berdasarkan hasil komputasi diperoleh nilai <em>geometric mean</em> debit sungai sebesar <span class="math inline">\(m^3/detik\)</span>. Nilai yang diperoleh tidak berbeda dengan nilai median sebesar 117 <span class="math inline">\(m^3/detik\)</span>.</p>
@@ -773,6 +774,116 @@ Gambar 6.6: Jendela diagram trimmed mean.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sungai<span class="op">$</span>debit, <span class="dt">trim=</span><span class="fl">0.1</span>)</code></pre></div>
 <pre><code>## [1] 113.2</code></pre>
 <p>Nilai yang diperoleh sekarang mendekati nilai median dan <em>geometric mean</em> yaitu sebesar 113.2 <span class="math inline">\(m^3/detik\)</span>.</p>
+</div>
+</div>
+<div id="ukuran-sebaran-data" class="section level2">
+<h2><span class="header-section-number">6.2</span> Ukuran Sebaran Data</h2>
+<p>Saat kita mengetahui kedalaman rata-rata sungai, kita pasti ingin mengetahui berapa rentang atau variasi dari kedalamannya. Kita tidak cukup hanya dengan mengetahui nilai pemusatan datanya saja, kita juga perlu mengetahui seberapa besar variasi atau variabilitas datanya.</p>
+<p>Variabilitas suatu data diukur dengan melihat sebaran data dari nilai rata-ratanya (mean). Semakin besar sebaran suatu data, semakin tidak berarti nilai rata-ratanya karena nilai rata-ratanya bisa sangat berbeda dari sejumlah nilai pada datanya.</p>
+<div id="pengukuran-klasik-varian-dan-simpangan-baku" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Pengukuran Klasik (Varian dan Simpangan Baku)</h3>
+<p>Varian sampel dan nilai akar dari varian sampel (Simpangan Baku) merupakan ukuran penyebaran data klasik. Sama dengan mean varian dan simpangan baku dipengaruhi oleh <em>outlier</em>. Semakin besar nilai keduanya, semakin besar variabilitas datanya. Kedua ukuran tersebut dinyatakan pada Persamaan <a href="ringkasan-numerik.html#eq:var">(6.9)</a> dan Persamaan <a href="ringkasan-numerik.html#eq:sd">(6.10)</a>.</p>
+<p><strong>Varian Sampel</strong></p>
+<span class="math display" id="eq:var">\[\begin{equation}
+  s^2=\sum_{i=1}^n\frac{\left(X_i-\overline{X}\right)^2}{\left(n-1\right)}
+  \tag{6.9}
+\end{equation}\]</span>
+<p><strong>simpangan baku</strong></p>
+<span class="math display" id="eq:sd">\[\begin{equation}
+  s=\sqrt{s^2}
+  \tag{6.10}
+\end{equation}\]</span>
+<p>Kedua nilai tersebut di hitung berdasarkan kuadrat deviasi nilai observasi dari rata-ratanya, sehingga jika pada data terdapat <em>outlier</em> maka nilai outlier akan memperbesar deviasi data dari nilai mean. Ketika <em>outlier</em> hadir, pengukuran menjadi tidak stabil. Hal ini akan memberi kesan sebaran data menjadi jauh lebih besar daripada yang ditunjukkan oleh mayoritas nilai pada data.</p>
+<p>Varian dan simpangan baku pada <code>R</code> dihitung menggunakan fungsi <code>var()</code> (varian) dan <code>sd()</code>. Format yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(x, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)
+<span class="kw">sd</span>(x, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong></p>
+<ul>
+<li><strong>x</strong>: objek atau vektor numerik.</li>
+<li><strong>na.rm</strong>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam komputasi atau tidak.</li>
+</ul>
+</blockquote>
+<p><strong>Analisa Varian dan simpangan baku Grup Tunggal</strong></p>
+<p>Kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> untuk menghitung varian dan simpangan baku data tersebut. Berikut adalah sintaks untuk melakukannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># varian data sungai</span>
+<span class="kw">var</span>(sungai<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 11926</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># simpangan baku data sungai</span>
+<span class="kw">sd</span>(sungai<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 109.2</code></pre>
+<p>Sekarang mari kita bandingkan dengan data yang tidak menyertakan outlier.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># varian data sungai</span>
+<span class="kw">var</span>(sungai_subset<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 1919</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># simpangan baku data sungai</span>
+<span class="kw">sd</span>(sungai_subset<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 43.8</code></pre>
+<p>Berdasarkan hasil yang diperoleh terlihat bahwa nilai varian dan simpangan baku data dengan <em>outlier</em> jauh lebih besar dibanding data tanpa <em>outlier</em>.</p>
+<p><strong>Analisa Varian dan simpangan baku Multi Grup</strong></p>
+<p>Paca contoh ini kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>. Sintaks berikut adalah cara menghitung varian dan simpangan baku untuk data berkelompok:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_gw <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Bicarbonate) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">var_TDS=</span><span class="kw">var</span>(TDS), <span class="dt">var_Uranium=</span><span class="kw">var</span>(Uranium),
+            <span class="dt">sd_TDS=</span><span class="kw">sd</span>(TDS), <span class="dt">sd_Uranium=</span><span class="kw">sd</span>(Uranium))</code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   Bicarbonate var_TDS var_Uranium sd_TDS sd_Uranium
+##   &lt;fct&gt;         &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+## 1 0            79471.        13.0   282.       3.61
+## 2 1            10559.        13.5   103.       3.68</code></pre>
+<p>Jika kita perhatikan nilai varian dan simpangan baku Uranium pada dua kondisi kesadahan memiliki nilai yang nyaris sama. Hal sebaliknya terjadi pada variabel TDS yang menunjukkan perbedaan pada dua ukuran sebaran datanya. TDS pada kesadahan &gt;50% memiliki varian dan simpangan baku yang lebih kecil dibanding kondisi kesadahan satunya, yang menunjukkan data pada kondisi kesadahan &gt;50% lebih tidak tersebar dibanding kesadahan satunya.</p>
+</div>
+<div id="ukuran-sebaran-data-yang-resisten-terhadap-outlier" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Ukuran Sebaran Data yang Resisten Terhadap Outlier</h3>
+<p>Simpangan kuartil atau <em>interquartile range</em> (IQR) merupakan ukuran sebaran data yang resisten dan paling sering digunakan. IQR mengukur kisaran 50% pusat data sehingga pengukuran tidak dipengaruhi oleh adanya outlier pada 25% pada data pada setiap ujungnya. Untuk visualisasinya kita dapat melihat kembali pada ambar <a href="ringkasan-numerik.html#fig:tm">6.6</a>.</p>
+<p>IQR didefinisikan sebagai persentil ke-75 dikurangi dengan persentil ke-25. Persentil ke-75, ke-50 (median) dan ke-25 membagi data menjadi empat tempat berukuran sama. Persentil ke-75 (<span class="math inline">\(P_{.75}\)</span>), juga disebut kuartil atas, adalah nilai yang melebihi tidak lebih dari 75% data dan dilampaui oleh tidak lebih dari 25 persen data. Persentil ke-25 (<span class="math inline">\(P_{.25}\)</span>) atau kuartil lebih rendah adalah nilai yang melebihi tidak lebih dari 25% dari data dan dilampaui oleh tidak lebih dari 75%. Dengan mempertimbangkan data yang telah diurutkan dari yang terkecil ke yang terbesar: <span class="math inline">\(X_{i}\)</span>, <span class="math inline">\(i=1,...n\)</span>. Persentil (<span class="math inline">\(P_j\)</span>) dihitung berdasarkan Persamaan <a href="ringkasan-numerik.html#eq:iqr">(6.11)</a>.</p>
+<span class="math display" id="eq:iqr">\[\begin{equation}
+  P_j=X_{\left(n+1\right)\cdot j}
+  \tag{6.11}
+\end{equation}\]</span>
+<p>dimana <span class="math inline">\(n\)</span> merupakan ukuran sampel <span class="math inline">\(X_j\)</span>, dan <span class="math inline">\(j\)</span> merupakan fraksi data yang kurang dari atau sama dengan nilai persentil (untuk persentil ke-25, 50, dan 75, <span class="math inline">\(j=.25, .50., dan .75\)</span>).</p>
+<p>Pada <code>R</code>, IQR dapat dihitung secara langsung menggunakan fungsi <code>IQR()</code> atau secara tidak langsung menggunakan fungsi <code>quantile()</code>. Penggunaan fungsi <code>quantile()</code> digunakan untuk mencari persentil dari data. Telah dijelaskan sebelumnya bahwa IQR merupakan selisih dari persentil 75 dan persentil 25. Format yang digunakan untuk menghitung IQR adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># secara langsung</span>
+<span class="kw">IQR</span>(x, <span class="dt">na.rm=</span><span class="ot">FALSE</span>)
+
+<span class="co"># secara tidak langsung</span>
+<span class="kw">quantile</span>(x, <span class="dv">3</span><span class="op">/</span><span class="dv">4</span>)<span class="op">-</span><span class="kw">quantile</span>(x, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>)
+
+<span class="co"># atau</span>
+<span class="kw">quantile</span>(x, .<span class="dv">75</span>)<span class="op">-</span><span class="kw">quantile</span>(x, .<span class="dv">25</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong></p>
+<ul>
+<li><strong>x</strong>: objek atau vektor numerik.</li>
+<li><strong>na.rm</strong>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam komputasi atau tidak.</li>
+</ul>
+</blockquote>
+<p>Pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, kita dapat menghitung IQR dari data. Berikut adalah contoh sintaks yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">IQR</span>(sungai<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 72.5</code></pre>
+<p>Salah satu penaksir penyebaran yang resisten selain IQR adalah <em>Median Absolute Deviation</em>, atau MAD. MAD dihitung dengan pertama-tama mendaftar nilai absolut dari semua selisih <span class="math inline">\(|d|\)</span> antara masing-masing pengamatan dan median. Median dari nilai absolut ini adalah MAD yang ditulis berdasarkan Persamaan <a href="ringkasan-numerik.html#eq:mad">(6.12)</a>.</p>
+<span class="math display" id="eq:mad">\[\begin{equation}
+  MAD\ \left(X_i\right)=median\left|d\right|
+  \tag{6.12}
+\end{equation}\]</span>
+<p>dimana</p>
+<span class="math display" id="eq:mad2">\[\begin{equation}
+  d_i=X_i-median\left(X_i\right)
+  \tag{6.13}
+\end{equation}\]</span>
+<p>Pada <code>R</code>, MAD tidak dapat dihitung secara langsung. Kita perlu membuat <em>user defined function</em> untuk dapat digunakan sewaktu-waktu. Berikut adalah fungsi yang dibuat:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MAD &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="co"># median data</span>
+  m =<span class="st"> </span><span class="kw">median</span>(x)
+  <span class="co"># MAD</span>
+  d =<span class="st"> </span><span class="kw">sum</span>(<span class="kw">abs</span>(x<span class="op">-</span>m))
+  mad =<span class="st"> </span>d<span class="op">/</span><span class="kw">length</span>(x)
+  <span class="co"># print</span>
+  <span class="kw">print</span>(mad)
+}</code></pre></div>
+<p>Pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, kita dapat menghitung MAD dari data menggunakan fungsi yang telah dibuat. Berikut adalah contoh sintaks yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">MAD</span>(sungai<span class="op">$</span>debit)</code></pre></div>
+<pre><code>## [1] 60.42</code></pre>
 
 </div>
 </div>

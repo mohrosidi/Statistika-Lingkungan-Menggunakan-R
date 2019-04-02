@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-04-01}
+    \date{2019-04-02}
 
 \usepackage{booktabs}
 
@@ -10672,7 +10672,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x00000000060499a0>
+## <bytecode: 0x0000000024eac4c0>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -11527,11 +11527,11 @@ meskipun kedua nilai bukanlah satu atau dua ukuran yang tersedia. Apa
 sajakah properti dari kedua ukuran tersebut dan kapan salah satu atau
 keduanya dapat digunakan bersamaan?.
 
-\subsection{Metode Klasik-Mean}\label{metode-klasik-mean}
+\subsection{Pengukuran Klasik-Mean}\label{pengukuran-klasik-mean}
 
 Nilai mean (\(\overline{X}\)) diperoleh dengan menjumlahkan seluruh data
 dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti
-Persamaan \eqref{eq:mean};
+Persamaan \eqref{eq:mean}:
 
 \begin{equation}
   \overline{X}=\text{}\sum_{_{i=1}}^n\frac{X_i}{n}
@@ -11667,7 +11667,7 @@ persamaan berikut:
   \textbf{trim}: menyatakan fraksi data (berkisar antara 0 sampai 0,5)
   yang perlu dilakukan pemotongan (\emph{trim}) pada observasi awal dan
   akhir \textbf{x} (yang telah diurutkan) sebelum nilai mean dihitung.
-  \textbf{na.rm}: nilai logis yang menyatakan apakan \emph{missing
+  \textbf{na.rm}: nilai logis yang menyatakan apakah \emph{missing
   value} perlu disertakan dalam perhitungan atau tidak. Jika disertakan
   maka output yang akan dihasilkan adalah NA.
 \end{itemize}
@@ -11809,14 +11809,6 @@ dalam proses membaca data.
 \NormalTok{data_gw<-data_gw }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{select}\NormalTok{(TDS, Uranium, Bicarbonate) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Bicarbonate=}\KeywordTok{as.factor}\NormalTok{(Bicarbonate))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-\NormalTok{  data_gw, }\DataTypeTok{caption =} \StringTok{'Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan'}
-\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -12006,7 +11998,7 @@ mendeskripsikan rata-rata dari data dibandingkan mean. Hal ini
 disebabkan karena median tidak menggunakan seluruh nilai yang ada pada
 data.
 
-\textbf{Analisa Nilai Mean Grup Data Tunggal (\emph{Single Group})}
+\textbf{Analisa Nilai Median Grup Data Tunggal (\emph{Single Group})}
 
 Kita akan menggunakan kembali data pada Tabel \ref{tab:debitsungai}
 untuk menghitung median data tersebut. Pada \texttt{R} median dihitung
@@ -12027,8 +12019,8 @@ sebagai berikut:
 \item
   \textbf{x}: objek atau vektor numerik.
 \item
-  \textbf{na.rm}: nilai logis yang menyatakan apaka \emph{missing value}
-  perlu disertakan dalam komputasi atau tidak.
+  \textbf{na.rm}: nilai logis yang menyatakan apakah \emph{missing
+  value} perlu disertakan dalam komputasi atau tidak.
 \end{itemize}
 \end{quote}
 
@@ -12055,7 +12047,7 @@ Jika kita melakukan perhitungan menggunakan menggunakan data
 sebelumnya yang membuktikan bahwa median resisten terhadap
 \emph{outlier}.
 
-\textbf{Analisa Nilai Rata-Rata Berdarsarkan Grup Data}
+\textbf{Analisa Nilai Median Berdarsarkan Grup Data}
 
 Paca contoh ini kita akan menggunakan kembali data pada Tabel
 \ref{tab:gwtdsur}. Sintaks berikut adalah cara menghitung median untuk
@@ -12079,7 +12071,7 @@ data berkelompok:
 
 Pada median TDS kita tidak menemui perbedaan dengan nilai rata-ratanya.
 Hal ini disebabkan karena bentuk distribusinya yang relatif simetris.
-Sedangkan pada Uranium distribusi yang terbentuk memiliki kemiringan
+Sedangkan pada Uranium distribusi yang terbentuk memiliki kemencengan
 (\emph{skewness}) positif. Hal ini menyebabkan nilai mean yang terbentuk
 akan sangat dipengaruhi oleh observasi dengan nilai ekstrim yang
 dimiliki.
@@ -12099,7 +12091,7 @@ kontinyu karena sering bergantung pengelompokan data yang
 sewenang-wenang atu semaunya.
 
 \emph{Geometric mean} sering digunakan untuk distribusi data memiliki
-bentuk kemiringan positif. \emph{Geometric mean} merupakan rata-rata
+bentuk kemencengan positif. \emph{Geometric mean} merupakan rata-rata
 logaritmik yang diubah kembali ke unit asalnya. Untuk menghitungnya
 digunakan Persamaan \eqref{eq:geomean}.
 
@@ -12115,7 +12107,7 @@ dimana
   \label{eq:geomean2}
 \end{equation}
 
-Untuk data yang memiliki kemiringan positif, \emph{geometric mean}
+Untuk data yang memiliki kemencengan positif, \emph{geometric mean}
 biasanya cukup dekat dengan median. Bahkan, ketika logaritma data
 simetris, \emph{geometric mean} adalah estimasi median. Ini karena
 median dan \emph{geometric mean} sama. Ketika ditransformasikan kembali
@@ -12135,7 +12127,7 @@ sintaks fungsi yang kita buat sendiri:
 \end{Highlighting}
 \end{Shaded}
 
-Data pada Tabel \ref{tab:debitsungai} merupakan data dengan kemiringan
+Data pada Tabel \ref{tab:debitsungai} merupakan data dengan kemencengan
 positif. Nilai \emph{geometric mean} data tersebut dihitung menggunakan
 sintaks berikut:
 
@@ -12201,6 +12193,285 @@ data yang dipangkas adalah 5\% di kedua ujung observasi atau
 
 Nilai yang diperoleh sekarang mendekati nilai median dan \emph{geometric
 mean} yaitu sebesar 113.2 \(m^3/detik\).
+
+\section{Ukuran Sebaran Data}\label{ukuran-sebaran-data}
+
+Saat kita mengetahui kedalaman rata-rata sungai, kita pasti ingin
+mengetahui berapa rentang atau variasi dari kedalamannya. Kita tidak
+cukup hanya dengan mengetahui nilai pemusatan datanya saja, kita juga
+perlu mengetahui seberapa besar variasi atau variabilitas datanya.
+
+Variabilitas suatu data diukur dengan melihat sebaran data dari nilai
+rata-ratanya (mean). Semakin besar sebaran suatu data, semakin tidak
+berarti nilai rata-ratanya karena nilai rata-ratanya bisa sangat berbeda
+dari sejumlah nilai pada datanya.
+
+\subsection{Pengukuran Klasik (Varian dan Simpangan
+Baku)}\label{pengukuran-klasik-varian-dan-simpangan-baku}
+
+Varian sampel dan nilai akar dari varian sampel (Simpangan Baku)
+merupakan ukuran penyebaran data klasik. Sama dengan mean varian dan
+simpangan baku dipengaruhi oleh \emph{outlier}. Semakin besar nilai
+keduanya, semakin besar variabilitas datanya. Kedua ukuran tersebut
+dinyatakan pada Persamaan \eqref{eq:var} dan Persamaan \eqref{eq:sd}.
+
+\textbf{Varian Sampel}
+
+\begin{equation}
+  s^2=\sum_{i=1}^n\frac{\left(X_i-\overline{X}\right)^2}{\left(n-1\right)}
+  \label{eq:var}
+\end{equation}
+
+\textbf{simpangan baku}
+
+\begin{equation}
+  s=\sqrt{s^2}
+  \label{eq:sd}
+\end{equation}
+
+Kedua nilai tersebut di hitung berdasarkan kuadrat deviasi nilai
+observasi dari rata-ratanya, sehingga jika pada data terdapat
+\emph{outlier} maka nilai outlier akan memperbesar deviasi data dari
+nilai mean. Ketika \emph{outlier} hadir, pengukuran menjadi tidak
+stabil. Hal ini akan memberi kesan sebaran data menjadi jauh lebih besar
+daripada yang ditunjukkan oleh mayoritas nilai pada data.
+
+Varian dan simpangan baku pada \texttt{R} dihitung menggunakan fungsi
+\texttt{var()} (varian) dan \texttt{sd()}. Format yang digunakan adalah
+sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{sd}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: objek atau vektor numerik.
+\item
+  \textbf{na.rm}: nilai logis yang menyatakan apakah \emph{missing
+  value} perlu disertakan dalam komputasi atau tidak.
+\end{itemize}
+\end{quote}
+
+\textbf{Analisa Varian dan simpangan baku Grup Tunggal}
+
+Kita akan menggunakan kembali data pada Tabel \ref{tab:debitsungai}
+untuk menghitung varian dan simpangan baku data tersebut. Berikut adalah
+sintaks untuk melakukannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# varian data sungai}
+\KeywordTok{var}\NormalTok{(sungai}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 11926
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# simpangan baku data sungai}
+\KeywordTok{sd}\NormalTok{(sungai}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 109.2
+\end{verbatim}
+
+Sekarang mari kita bandingkan dengan data yang tidak menyertakan
+outlier.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# varian data sungai}
+\KeywordTok{var}\NormalTok{(sungai_subset}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1919
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# simpangan baku data sungai}
+\KeywordTok{sd}\NormalTok{(sungai_subset}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 43.8
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh terlihat bahwa nilai varian dan
+simpangan baku data dengan \emph{outlier} jauh lebih besar dibanding
+data tanpa \emph{outlier}.
+
+\textbf{Analisa Varian dan simpangan baku Multi Grup}
+
+Paca contoh ini kita akan menggunakan kembali data pada Tabel
+\ref{tab:gwtdsur}. Sintaks berikut adalah cara menghitung varian dan
+simpangan baku untuk data berkelompok:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data_gw }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(Bicarbonate) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{var_TDS=}\KeywordTok{var}\NormalTok{(TDS), }\DataTypeTok{var_Uranium=}\KeywordTok{var}\NormalTok{(Uranium),}
+            \DataTypeTok{sd_TDS=}\KeywordTok{sd}\NormalTok{(TDS), }\DataTypeTok{sd_Uranium=}\KeywordTok{sd}\NormalTok{(Uranium))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 5
+##   Bicarbonate var_TDS var_Uranium sd_TDS sd_Uranium
+##   <fct>         <dbl>       <dbl>  <dbl>      <dbl>
+## 1 0            79471.        13.0   282.       3.61
+## 2 1            10559.        13.5   103.       3.68
+\end{verbatim}
+
+Jika kita perhatikan nilai varian dan simpangan baku Uranium pada dua
+kondisi kesadahan memiliki nilai yang nyaris sama. Hal sebaliknya
+terjadi pada variabel TDS yang menunjukkan perbedaan pada dua ukuran
+sebaran datanya. TDS pada kesadahan \textgreater{}50\% memiliki varian
+dan simpangan baku yang lebih kecil dibanding kondisi kesadahan satunya,
+yang menunjukkan data pada kondisi kesadahan \textgreater{}50\% lebih
+tidak tersebar dibanding kesadahan satunya.
+
+\subsection{Ukuran Sebaran Data yang Resisten Terhadap
+Outlier}\label{ukuran-sebaran-data-yang-resisten-terhadap-outlier}
+
+Simpangan kuartil atau \emph{interquartile range} (IQR) merupakan ukuran
+sebaran data yang resisten dan paling sering digunakan. IQR mengukur
+kisaran 50\% pusat data sehingga pengukuran tidak dipengaruhi oleh
+adanya outlier pada 25\% pada data pada setiap ujungnya. Untuk
+visualisasinya kita dapat melihat kembali pada ambar \ref{fig:tm}.
+
+IQR didefinisikan sebagai persentil ke-75 dikurangi dengan persentil
+ke-25. Persentil ke-75, ke-50 (median) dan ke-25 membagi data menjadi
+empat tempat berukuran sama. Persentil ke-75 (\(P_{.75}\)), juga disebut
+kuartil atas, adalah nilai yang melebihi tidak lebih dari 75\% data dan
+dilampaui oleh tidak lebih dari 25 persen data. Persentil ke-25
+(\(P_{.25}\)) atau kuartil lebih rendah adalah nilai yang melebihi tidak
+lebih dari 25\% dari data dan dilampaui oleh tidak lebih dari 75\%.
+Dengan mempertimbangkan data yang telah diurutkan dari yang terkecil ke
+yang terbesar: \(X_{i}\), \(i=1,...n\). Persentil (\(P_j\)) dihitung
+berdasarkan Persamaan \eqref{eq:iqr}.
+
+\begin{equation}
+  P_j=X_{\left(n+1\right)\cdot j}
+  \label{eq:iqr}
+\end{equation}
+
+dimana \(n\) merupakan ukuran sampel \(X_j\), dan \(j\) merupakan fraksi
+data yang kurang dari atau sama dengan nilai persentil (untuk persentil
+ke-25, 50, dan 75, \(j=.25, .50., dan .75\)).
+
+Pada \texttt{R}, IQR dapat dihitung secara langsung menggunakan fungsi
+\texttt{IQR()} atau secara tidak langsung menggunakan fungsi
+\texttt{quantile()}. Penggunaan fungsi \texttt{quantile()} digunakan
+untuk mencari persentil dari data. Telah dijelaskan sebelumnya bahwa IQR
+merupakan selisih dari persentil 75 dan persentil 25. Format yang
+digunakan untuk menghitung IQR adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# secara langsung}
+\KeywordTok{IQR}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{# secara tidak langsung}
+\KeywordTok{quantile}\NormalTok{(x, }\DecValTok{3}\OperatorTok{/}\DecValTok{4}\NormalTok{)}\OperatorTok{-}\KeywordTok{quantile}\NormalTok{(x, }\DecValTok{1}\OperatorTok{/}\DecValTok{4}\NormalTok{)}
+
+\CommentTok{# atau}
+\KeywordTok{quantile}\NormalTok{(x, .}\DecValTok{75}\NormalTok{)}\OperatorTok{-}\KeywordTok{quantile}\NormalTok{(x, .}\DecValTok{25}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: objek atau vektor numerik.
+\item
+  \textbf{na.rm}: nilai logis yang menyatakan apakah \emph{missing
+  value} perlu disertakan dalam komputasi atau tidak.
+\end{itemize}
+\end{quote}
+
+Pada Tabel \ref{tab:debitsungai}, kita dapat menghitung IQR dari data.
+Berikut adalah contoh sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{IQR}\NormalTok{(sungai}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 72.5
+\end{verbatim}
+
+Salah satu penaksir penyebaran yang resisten selain IQR adalah
+\emph{Median Absolute Deviation}, atau MAD. MAD dihitung dengan
+pertama-tama mendaftar nilai absolut dari semua selisih \(|d|\) antara
+masing-masing pengamatan dan median. Median dari nilai absolut ini
+adalah MAD yang ditulis berdasarkan Persamaan \eqref{eq:mad}.
+
+\begin{equation}
+  MAD\ \left(X_i\right)=median\left|d\right|
+  \label{eq:mad}
+\end{equation}
+
+dimana
+
+\begin{equation}
+  d_i=X_i-median\left(X_i\right)
+  \label{eq:mad2}
+\end{equation}
+
+Pada \texttt{R}, MAD tidak dapat dihitung secara langsung. Kita perlu
+membuat \emph{user defined function} untuk dapat digunakan
+sewaktu-waktu. Berikut adalah fungsi yang dibuat:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MAD <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \CommentTok{# median data}
+\NormalTok{  m =}\StringTok{ }\KeywordTok{median}\NormalTok{(x)}
+  \CommentTok{# MAD}
+\NormalTok{  d =}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{abs}\NormalTok{(x}\OperatorTok{-}\NormalTok{m))}
+\NormalTok{  mad =}\StringTok{ }\NormalTok{d}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)}
+  \CommentTok{# print}
+  \KeywordTok{print}\NormalTok{(mad)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Pada Tabel \ref{tab:debitsungai}, kita dapat menghitung MAD dari data
+menggunakan fungsi yang telah dibuat. Berikut adalah contoh sintaks yang
+digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{MAD}\NormalTok{(sungai}\OperatorTok{$}\NormalTok{debit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 60.42
+\end{verbatim}
 
 \bibliography{book.bib,packages.bib}
 
