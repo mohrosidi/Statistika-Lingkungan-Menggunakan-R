@@ -138,3 +138,10 @@
 \contentsline {section}{\numberline {6.2}Ukuran Sebaran Data}{219}{section.6.2}% 
 \contentsline {subsection}{\numberline {6.2.1}Pengukuran Klasik (Varian dan Simpangan Baku)}{219}{subsection.6.2.1}% 
 \contentsline {subsection}{\numberline {6.2.2}Ukuran Sebaran Data yang Resisten Terhadap Outlier}{221}{subsection.6.2.2}% 
+\contentsline {section}{\numberline {6.3}Ringkasan Data Menggunakan Fungsi summary() dan stat.desc()}{222}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Ukuran Kemencengan Data}{223}{section.6.4}% 
+\contentsline {subsection}{\numberline {6.4.1}Ukuran Kemencengan Klasik}{224}{subsection.6.4.1}% 
+\contentsline {subsection}{\numberline {6.4.2}Ukuran Kemencengan yang Resisten}{225}{subsection.6.4.2}% 
+\contentsline {section}{\numberline {6.5}Outlier}{225}{section.6.5}% 
+\contentsline {section}{\numberline {6.6}Transformasi Data}{226}{section.6.6}% 
+\contentsline {section}{\numberline {6.7}Referensi}{228}{section.6.7}% 
