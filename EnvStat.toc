@@ -16,34 +16,34 @@
 \contentsline {section}{\numberline {1.8}Referensi}{28}{section.1.8}% 
 \contentsline {chapter}{\numberline {2}Sintaks Bahasa R}{29}{chapter.2}% 
 \contentsline {section}{\numberline {2.1}Operator Aritmatika}{29}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Fungsi Aritmetik}{31}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}Operator Relasi}{32}{section.2.3}% 
-\contentsline {section}{\numberline {2.4}Operator Logika}{33}{section.2.4}% 
+\contentsline {section}{\numberline {2.2}Fungsi Aritmetik}{30}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Operator Relasi}{31}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Operator Logika}{32}{section.2.4}% 
 \contentsline {section}{\numberline {2.5}Memasukkan Nilai Kedalam Variabel}{34}{section.2.5}% 
-\contentsline {section}{\numberline {2.6}Tipe Data}{36}{section.2.6}% 
+\contentsline {section}{\numberline {2.6}Tipe Data}{35}{section.2.6}% 
 \contentsline {section}{\numberline {2.7}Vektor}{38}{section.2.7}% 
 \contentsline {subsection}{\numberline {2.7.1}Membuat vektor}{38}{subsection.2.7.1}% 
 \contentsline {subsection}{\numberline {2.7.2}Missing Values}{39}{subsection.2.7.2}% 
 \contentsline {subsection}{\numberline {2.7.3}Subset Pada Vektor}{40}{subsection.2.7.3}% 
 \contentsline {subsection}{\numberline {2.7.4}Perhitungan Menggunakan Vektor}{41}{subsection.2.7.4}% 
 \contentsline {section}{\numberline {2.8}Matriks}{42}{section.2.8}% 
-\contentsline {subsection}{\numberline {2.8.1}Membuat matriks}{43}{subsection.2.8.1}% 
-\contentsline {subsection}{\numberline {2.8.2}Subset Pada Matriks}{45}{subsection.2.8.2}% 
+\contentsline {subsection}{\numberline {2.8.1}Membuat matriks}{42}{subsection.2.8.1}% 
+\contentsline {subsection}{\numberline {2.8.2}Subset Pada Matriks}{44}{subsection.2.8.2}% 
 \contentsline {subsection}{\numberline {2.8.3}Perhitungan Menggunakan Matriks}{46}{subsection.2.8.3}% 
 \contentsline {section}{\numberline {2.9}Faktor}{48}{section.2.9}% 
 \contentsline {subsection}{\numberline {2.9.1}Membuat Variabel Faktor}{48}{subsection.2.9.1}% 
 \contentsline {subsection}{\numberline {2.9.2}Perhitungan Menggunakan Faktor}{49}{subsection.2.9.2}% 
 \contentsline {section}{\numberline {2.10}Data Frames}{50}{section.2.10}% 
-\contentsline {subsection}{\numberline {2.10.1}Membuat Data Frame}{51}{subsection.2.10.1}% 
+\contentsline {subsection}{\numberline {2.10.1}Membuat Data Frame}{50}{subsection.2.10.1}% 
 \contentsline {subsection}{\numberline {2.10.2}Subset Pada Data Frame}{51}{subsection.2.10.2}% 
 \contentsline {subsection}{\numberline {2.10.3}Memperluas Data Frame}{53}{subsection.2.10.3}% 
 \contentsline {subsection}{\numberline {2.10.4}Perhitungan Pada Data Frame}{53}{subsection.2.10.4}% 
-\contentsline {section}{\numberline {2.11}List}{54}{section.2.11}% 
-\contentsline {subsection}{\numberline {2.11.1}Membuat List}{54}{subsection.2.11.1}% 
-\contentsline {subsection}{\numberline {2.11.2}Subset List}{55}{subsection.2.11.2}% 
+\contentsline {section}{\numberline {2.11}List}{53}{section.2.11}% 
+\contentsline {subsection}{\numberline {2.11.1}Membuat List}{53}{subsection.2.11.1}% 
+\contentsline {subsection}{\numberline {2.11.2}Subset List}{54}{subsection.2.11.2}% 
 \contentsline {subsection}{\numberline {2.11.3}Memperluas List}{55}{subsection.2.11.3}% 
 \contentsline {section}{\numberline {2.12}Loop}{56}{section.2.12}% 
-\contentsline {subsection}{\numberline {2.12.1}For Loop}{57}{subsection.2.12.1}% 
+\contentsline {subsection}{\numberline {2.12.1}For Loop}{56}{subsection.2.12.1}% 
 \contentsline {subsection}{\numberline {2.12.2}While Loop}{57}{subsection.2.12.2}% 
 \contentsline {subsection}{\numberline {2.12.3}Repeat Loop}{58}{subsection.2.12.3}% 
 \contentsline {subsection}{\numberline {2.12.4}Break}{58}{subsection.2.12.4}% 
@@ -51,7 +51,7 @@
 \contentsline {subsection}{\numberline {2.13.1}if statement}{60}{subsection.2.13.1}% 
 \contentsline {subsection}{\numberline {2.13.2}if else statement}{60}{subsection.2.13.2}% 
 \contentsline {subsection}{\numberline {2.13.3}switch statement}{61}{subsection.2.13.3}% 
-\contentsline {section}{\numberline {2.14}Fungsi}{62}{section.2.14}% 
+\contentsline {section}{\numberline {2.14}Fungsi}{61}{section.2.14}% 
 \contentsline {section}{\numberline {2.15}Referensi}{63}{section.2.15}% 
 \contentsline {chapter}{\numberline {3}Manajemen Data R}{65}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Import File}{65}{section.3.1}% 
@@ -145,3 +145,21 @@
 \contentsline {section}{\numberline {6.5}Outlier}{225}{section.6.5}% 
 \contentsline {section}{\numberline {6.6}Transformasi Data}{226}{section.6.6}% 
 \contentsline {section}{\numberline {6.7}Referensi}{228}{section.6.7}% 
+\contentsline {chapter}{\numberline {7}Ekplorasi Data Menggunakan Grafik}{231}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}Grafik Untuk Melihat Ditribusi Data}{231}{section.7.1}% 
+\contentsline {subsection}{\numberline {7.1.1}Histogram}{233}{subsection.7.1.1}% 
+\contentsline {subsection}{\numberline {7.1.2}Density Plot}{234}{subsection.7.1.2}% 
+\contentsline {subsection}{\numberline {7.1.3}QQ-plot}{234}{subsection.7.1.3}% 
+\contentsline {subsection}{\numberline {7.1.4}Box Plot dan Violin Plot}{234}{subsection.7.1.4}% 
+\contentsline {section}{\numberline {7.2}Grafik Untuk Melihat Beda Distribusi Data Antar Grup}{236}{section.7.2}% 
+\contentsline {section}{\numberline {7.3}Grafik Untuk Memvisualisasikan Korelasi Antar Variabel}{238}{section.7.3}% 
+\contentsline {section}{\numberline {7.4}Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar Variabel}{239}{section.7.4}% 
+\contentsline {section}{\numberline {7.5}Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang Waktu}{240}{section.7.5}% 
+\contentsline {section}{\numberline {7.6}Referensi}{241}{section.7.6}% 
+\contentsline {part}{Statistika Inferensi - R}{245}{part*.8}% 
+\contentsline {chapter}{\numberline {8}Penaksiran Secara Statistika}{245}{chapter.8}% 
+\contentsline {section}{\numberline {8.1}Definisi Rentang Estimasi}{245}{section.8.1}% 
+\contentsline {section}{\numberline {8.2}Interpretasi Rentang Estimasi}{246}{section.8.2}% 
+\contentsline {section}{\numberline {8.3}Rentang Kepercayaan Median}{247}{section.8.3}% 
+\contentsline {subsection}{\numberline {8.3.1}Rentang Estimasi Median Metode Nonparametrik}{247}{subsection.8.3.1}% 
+\contentsline {subsection}{\numberline {8.3.2}Metode Parametrik Rentang Estimasi Median}{252}{subsection.8.3.2}% 

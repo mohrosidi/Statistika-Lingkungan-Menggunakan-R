@@ -1,0 +1,346 @@
+# (PART\*) Statistika Inferensi - R {-}
+
+<style>
+body{
+text-align: justify}
+</style>
+
+# Penaksiran Secara Statistika
+
+Pada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut kunci dari data seperti $\overline{X}$ dan $s$. Kedua nilai tersebut disebut sebagai nilai estimasi sampel dari populasi (untuk mean $\mu$ dan simpangan baku $\sigma$). Pada Chapter ini kita akan melakukan eksplorasi lebih jauh lagi mengenai rentang estimasi (*interval estimate*) yang akan menyinggung kedua nilai tersebut lebih jauh.
+
+## Definisi Rentang Estimasi
+
+Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi menggunakan kedua nilai tersebut disebut sebagai itu disebut estimasi titik (*point estimation*). Estimasi titik sendiri tidak menggambarkan reliabilitas  atau kurangnya reliabilitas (variabilitas) dari estimasi ini. Sebagai contoh, anggaplah terdapat dua data X dan Y dengan mean 5 dengan jumlah observasi yang sama. Data Y memiliki nilai mean 5 dengan sangat sedikit variasi didalamnya, sedangkan data X jauh lebih bervariasi. Perkiraan titik 5 untuk X jauh lebih tidak dapat diandalkan dibandingkan dengan untuk Y karena variabilitas yang lebih besar dalam data X. Dengan kata lain, lebih banyak kehati-hatian diperlukan ketika menyatakan bahwa 5 memperkirakan mean populasi sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang perbedaan ini.
+
+Sebagai alternatif untuk estimasi titik, estimasi rentang adalah rentang yang memiliki probabilitas yang dinyatakan mengandung nilai populasi sebenarnya. rentang lebih lebar untuk set data yang memiliki variabilitas lebih besar. Jadi dalam contoh di atas, rentang antara 4,7 dan 5,3 mungkin memiliki kemungkinan 95% untuk mengandung mean populasi Y yang sebenarnya (tidak diketahui). Butuh rentang yang jauh lebih luas, katakanlah antara 2,0 dan 8,0, untuk memiliki probabilitas yang sama untuk mengandung rerata sebenarnya dari X. Karena itu, perbedaan keandalan dari dua estimasi dengan jelas dinyatakan menggunakan estimasi rentang. Estimasi rentang dapat memberikan dua informasi yang estimasi poin tidak dapat berikan, antara lain:
+
+1. Pernyataan probabilitas atau kemungkinan bahwa rentang berisi nilai populasi sebenarnya (keandalannya).
+2. Pernyataan kemungkinan bahwa satu titik data dengan besaran tertentu berasal dari populasi yang diteliti.
+
+Estimasi rentang untuk poin pertama disebut sebagai rentang kepercayaan (*confidence interval*), sedangkan yang kedua disebut sebagai rentang prediksi (*prediction interal*). Meskipun salin terkait, pembaca perlu berhati-hati sebab kedua definisi tersebut sering kali tertukar satu sama lain.
+
+## Interpretasi Rentang Estimasi
+
+Untuk lebih memahami mengenai definisi rentang estimasi pada sub-chapter ini akan diberikan contoh yang diambil dari buku **statistical Methods in Water Resources** karya Helsel dan Hirsch (2012). Misalkan mean populasi sebenarnya $\mu$ konsentrasi dalam akuifer adalah 10. Sleain itu, anggaplah bahwa varian populasi sebenarnya $\sigma^2$ sama dengan 1. Karena nilai-nilai ini dalam praktiknya tidak pernah diketahui, sampel diambil untuk memperkirakannya dengan mean sampel $x$ dan sampel varians $s^2$ . Dana yang cukup tersedia untuk mengambil 12 sampel air (kira-kira satu per bulan) selama satu tahun, dan hari-hari di mana pengambilan sampel terjadi dipilih secara acak. Dari 12 sampel ini $x$x dan $s^2$ dihitung. Meskipun pada kenyataannya hanya satu set 12 sampel akan diambil setiap tahun, menggunakan komputer 12 hari dapat dipilih beberapa kali untuk menggambarkan konsep perkiraan rentang. Untuk masing-masing dari 10 set independen dari 12 sampel, rentang kepercayaan pada mean dihitung dengan menggunakan persamaan yang diberikan pada Tabel \@ref(tab:iie) dan Gambar \@ref(fig:iievis).
+
+**No.** | **N** | **Mean** | **St.Dev** | **90% Rentang kepercayaan**
+--------|-------|----------|------------|--------------------------
+1       | 12    | 10,06    | 1,11       | 9,46 sampai 10,64
+2       | 12    | 10,60    | 0,81       | $^+$ 10,18 sampai 11,02
+3       | 12    | 9,95     | 1,26       | 9,29 sampai 10,60
+4       | 12    | 10,18    | 1,26       | 9,52 sampai 10,83
+5       | 12    | 10,17    | 1,33       | 9,48 sampai 10,85
+6       | 12    | 10,22    | 1,19       | 9,60 sampai 10,84
+7       | 12    | 9,71     | 1,51       | 8,92 sampai 10,49
+8       | 12    | 9,90     | 1,01       | 9,38 sampai 10,43
+9       | 12    | 9,95     | 0.10       | 9,43 sampai 10,46
+10      | 12    | 9,88     | 1,37       | 9,17 sampai 10,59
+
+: (\#tab:iie) Sepuluh  rentang kepercayaan 90% sekitar nilai mean sebenarnya sebesar 10 (Data berdistribusi normal dan Tanda plus menyatakan data tidak disertakan dalam nilai mean sebenarnya)
+
+Kesepuluh rentang pada contoh di atas disebut dengan dengan **rentang kepercayaan 90%** dari nilai mean sesungguhnya. Nilai mean sebenarnya akan terdapat pada rentang tersebut dengan probabilitas 90%. Sehingga berdasarkan Tabel \@ref(tab:iie) terdapat 9 rentang yang memiliki nilai mean sesungguhnya didalamnya (probabilitas 90%). Jika kita sekali lagi melakukan sampling dengan jumlah sampling yang sama pada rentang nilai baru yang dihasilkan akan mengandung nilai mean sesungguhnya dan dapat juga tidak. Probabilitas rentang tersebut mengandung nilai mean sesungguhnya disebut sebagai **tingkat kepercayaan** (*confidence level*). Probabilitas nilai rentang tidak mengandung mean sesungguhnya disebut sebagai **alpha level** ($\alpha$) yang ditulis berdasarkan Persamaan \@ref(eq:alpha).
+
+\begin{equation}
+  \alpha=1-confidence\ level\ 
+  (\#eq:alpha)
+\end{equation}
+
+Lebar rentang kepercayaan adalah fungsi dari bentuk distribusi data (variabilitas dan kemencengannya), ukuran sampel, dan tingkat kepercayaan yang diinginkan. Ketika tingkat kepercayaan meningkat, lebar rentang juga meningkat, karena rentang yang lebih besar lebih mungkin mengandung nilai sebenarnya daripada rentang yang lebih pendek. Dengan demikian rentang kepercayaan 95% akan lebih luas daripada rentang 90% untuk data yang sama.
+
+```{r iievis, echo=FALSE, fig.cap='Sepuluh rentang kepercayaan 90 persen data dengan nilai mean sebenarnya 10', tidy=FALSE, out.width='65%', fig.align='center'}
+library(knitr)
+img1_path <- "iievis.png"
+include_graphics(img1_path)
+```
+
+Rentang kepercayaan simetris pada rata-rata biasanya dihitung dengan asumsi data mengikuti distribusi normal. Jika tidak, distribusi rerata itu sendiri akan mendekati normal sepanjang ukuran sampel besar (katakanlah 50 pengamatan atau lebih besar). Rentang kepercayaan dengan asumsi normalitas kemudian akan memasukkan mean sebenarnya ($1-\alpha$)% dari waktu. Dalam contoh di atas, data dihasilkan dari distribusi normal, sehingga ukuran sampel kecil 12 tidak menjadi masalah. Namun ketika data memiliki kemencengan dan ukuran sampel di bawah 50 atau lebih, rentang kepercayaan simetris tidak akan mengandung rata-rata ($1-\alpha$)% sepanjang waktu. Dalam contoh di bawah ini, rentang kepercayaan simetris secara salah dihitung untuk data yang miring (Gambar \@ref(fig:iiedata)). Hasil (Gambar \@ref(fig:iievis2) dan Tabel \@ref(tab:iie2)) menunjukkan bahwa rentang kepercayaan kehilangan nilai sebenarnya dari 1 lebih sering daripada yang seharusnya. Semakin besar skewness, semakin besar ukuran sampel harus sebelum rentang kepercayaan simetris dapat diandalkan. Sebagai alternatif, rentang kepercayaan asimetris dapat dihitung untuk situasi umum data yang memiliki kemencengan. 
+
+
+**No.** | **N** | **Mean** | **St.Dev** | **90% Rentang kepercayaan**
+--------|-------|----------|------------|--------------------------
+1       | 12    | 0,784    | 0,320      | $^+$ 0,618 sampai 0,950
+2       | 12    | 0,811    | 0,299      | $^+$ 0,656 sampai 0,966
+3       | 12    | 1,178    | 0,700      | 0,815 sampai 1,541
+4       | 12    | 1,030    | 0,459      | 0,792 sampai 1,267
+5       | 12    | 1,079    | 0,573      | 0,782 sampai 1,376
+6       | 12    | 0,833    | 0,363      | 0,644 sampai 1,021
+7       | 12    | 0,789    | 0,240      | $^+$ 0,644 sampai 0,913
+8       | 12    | 1,159    | 0,815      | 0,736 sampai 1,581
+9       | 12    | 0,822    | 0,365      | $^+$ 0,633 sampai 0,992
+10      | 12    | 0,837    | 0,478      | 0,589 sampai 1,085
+
+: (\#tab:iie2) Sepuluh  rentang kepercayaan 90% sekitar nilai mean sebenarnya sebesar 1 (Data tidak berdistribusi normal dan Tanda plus menyatakan data tidak disertakan dalam nilai mean sebenarnya)
+
+```{r iiedata, echo=FALSE, fig.cap='Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75', tidy=FALSE, out.width='70%', fig.align='center'}
+library(knitr)
+img1_path <- "iiedata.png"
+include_graphics(img1_path)
+```
+
+
+```{r iievis2, echo=FALSE, fig.cap='Sepuluh rentang kepercayaan 90 persen data dengan nilai mean sebenarnya 1', tidy=FALSE, out.width='65%', fig.align='center'}
+library(knitr)
+img1_path <- "iievis2.png"
+include_graphics(img1_path)
+```
+
+## Rentang Kepercayaan Median
+
+Rentang kepercayaan median populasi dapat dihitung tanpa perlu mengikuti asumsi distribusi tertentu. Sehingga nilai median dapat digunakan untuk memperkirakan nilai pusat data untuk distribusi data yang tidak berdistribusi normal.
+
+### Rentang Estimasi Median Metode Nonparametrik
+
+Rentang estimasi nonparametrik untuk median populasi sebenarnya dihitung menggunakan distribusi binomial. Pertama, tingkat signifikansi yang diinginkan $\alpha$ dinyatakan, error yang dapat diterima tidak termasuk median yang sebenarnya. Satu-setengah ($\alpha/2$) dari error ini digunakan untuk setiap akhir rentang (Gambar \@ref(fig:iemednp)). Tabel distribusi binomial memberikan nilai kritis bawah dan atas $x'$ dan $x$ pada setengah tingkat alfa yang diinginkan ($\alpha/2$). Nilai-nilai kritis ini ditransformasikan ke dalam rangking $R_l$ dan $R_u$ yang sesuai dengan titik data $C_l$ dan $C_u$ di ujung interval kepercayaan.
+
+```{r iemednp, echo=FALSE, fig.cap='Probabilitas median populasi P50 pada dua sisi rentang estimasi.', tidy=FALSE, out.width='65%', fig.align='center'}
+library(knitr)
+img1_path <- "iemednp.png"
+include_graphics(img1_path)
+```
+
+Untuk ukuran sampel kecil, tabel binomial dimasukkan pada kolom p = 0,5 (median) untuk menghitung rentang kepercayaan pada median.  Nilai kritis $x'$ diperoleh dari tabel distribusi binomial yang sesuai dengan $\alpha/2$, atau sedekat mungkin dengan $\alpha/2$. Nilai kritis ini kemudian digunakan untuk menghitung peringkat $R_u$ dan $R_l$ yang sesuai dengan nilai data pada batas kepercayaan atas dan bawah untuk median. Batas-batas ini adalah titik data peringkat $R_l$th yang masuk dari setiap ujung daftar n  observasi. Rentang kepercayaan yang dihasilkan akan mencerminkan bentuk (menceng atau simetris) dari data asli.
+
+\begin{equation}
+  R_l=x'+1 
+  (\#eq:rl)
+\end{equation}
+
+\begin{equation}
+  R_u=n-x'=x\ untuk\ x'\ dan\ x\ dari\ tabel\ dist.\ binomial 
+  (\#eq:ru)
+\end{equation}
+
+Rentang nonparametrik tidak selalu dapat secara tepat menghasilkan tingkat kepercayaan yang diinginkan ketika ukuran sampel kecil. Ini karena mereka terpisah, melompat dari satu nilai data ke yang berikutnya di ujung interval. Namun, tingkat kepercayaan yang dekat dengan yang diinginkan tersedia untuk semua kecuali ukuran sampel terkecil.
+
+Untuk lebih memahaminya diberikan data 25 pengukuran konsentrasi arsenin di air tanah dalam ppb yang disajikan pada Tabel \@ref(tab:gwardat).
+
+```{r gwardat,echo=FALSE}
+library(tibble)
+
+gwardat <- tribble(
+  ~observasi, ~konsentrasi,
+  #--/----
+  1, 1.3,
+  2, 1.5,
+  3, 1.8,
+  4, 2.6,
+  5, 2.8,
+  6, 3.5,
+  7, 4.0,
+  8, 4.8,
+  9, 8.0,
+  10, 9.5,
+  11, 12,
+  12, 14,
+  13, 19,
+  14, 23,
+  15, 41,
+  16, 80,
+  17, 100,
+  18, 110,
+  19, 120,
+  20, 190,
+  21, 240,
+  22, 250,
+  23, 300,
+  24, 340,
+  25, 580
+)
+
+knitr::kable(
+  gwardat, caption = 'Konsentrasi Arsenik dalam air tanah (ppb)'
+)
+```
+
+Visualisasi Tabel \@ref(tab:gwardat) ditunjukkan pada Gambar \@ref(fig:gwardatvis). Berdasarkan gambar tersebut terlihat bahwa data memiliki kemencengan yang positif sehingga penaksiran rata-rata populasi menggunakan nilai mean tidak dapat dilakukan.
+
+```{r gwardatvis, echo=FALSE, fig.cap='Distribusi konsentrasi arsenik dalam air tanah', tidy=FALSE, out.width='70%', fig.align='center'}
+library(ggplot2)
+library(ggthemes)
+
+ggplot(gwardat, aes(konsentrasi, fill=..count..))+
+  geom_histogram(bins=13)+
+  theme_economist()+
+  xlab("konsentrasi (ppb)")
+```
+
+Berdasarkan data pada Tabel \@ref(tab:gwardat), median konsentrasi arsenik $\hat{C}_{0.5}$=`r median(gwardat$konsentrasi)` yang berada pada urutan data ke-13 dari data yang telah diurutkan dari yang terkecil ke yang terbesar. Untuk menentukan rentang kepercayaan 95% median kosentrasi arsenik $C_{0.5}$, nilai kritis berdasarkan nilai error mendekati $\alpha/2$=0,025 adalah $x'$=7. Untuk lebih memahaminya pembaca dapat mengunduh tabel distribusi binomial pada laman [berikut](https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf). Nilai $x'$=7 diperoleh menggunakan Tabel distribusi binomial dengan $n$=25 dan $p$=0,5 yang ditampilkan pada Gambar \@ref(fig:tabbinom) dengan nilai probabilitas sebesar 0,022 (mendekati 0,025) yang setara dengan area yang diarsir pada Gambar \@ref(fig:iemednp).
+
+```{r tabbinom, echo=FALSE, fig.cap='Lokasi probabilitas x berdasarkan tabel distribusi binomial', tidy=FALSE, out.width='65%', fig.align='center'}
+library(knitr)
+img1_path <- "tabbinom.png"
+include_graphics(img1_path)
+```
+
+Berdasarkan Persamaan \@ref(eq:rl) dan Persamaan \@ref(eq:ru), rangking $R_l$ pada observasi yang menyatakan batas kepercayaan bawah (*lower confidence limit*) adalah 8 ($R_i$=7+1) dan $R_u$ yang menyatakan batas kepercayaan atas (*upper confidence level*) adalah 25-7=18. Berdasarkan nilai probabilitas $x'$=0,022, maka nilai alpha yang sesunggunya sebesar $\alpha=2*0,022=0,044$. Nilai tersebut setara dengan tingkat kepercayaan $1-0,044$ atau 95,6%. Nilai rentang kepercayaan median antara observasi ke-8 dan 18 adalah $C_l=4,8\le C_{0.5}\le110=C_u\ \ pada\ \alpha=0,044$. Nilai asimetrik disekitar $\hat{C}_{0.5}$=19 mencerminkan kemencengan pada data.
+
+Jika pembaca ingin melakukan perhitungan pada `R`, pembaca harus membuat fungsi sebagai berikut:
+
+```{r}
+med_npCI <- function(x,alpha){
+  n=length(x)
+  med = median(x)
+  for(i in 1:n){
+    b = pbinom(i,n,0.5)
+    if(b>alpha/2){
+      break
+    }
+  }
+  # mengambil x'
+  x_i=i-1
+  # menghitung Rl dan Ru
+  rl=x_i+1
+  ru=n-x_i
+  # menghitung true confidence level
+  CL=1-2*(pbinom(x_i,n,0.5))
+  # menghitung Lower dan Upper CL
+  LCL=x[rl]
+  UCL=x[ru]
+  # menggabungkannya dalam satu data
+  data=data.frame("median"=med,
+                  "True CL %"=CL*100,
+                  "Lower CL"=LCL,
+                  "Upper CL"=UCL)
+  return(data)
+}
+```
+
+Fungsi yang telah dibuat tersebut selanjutnya dapat pembaca gunakan saat akan menghitung rentang kepercayaan median populasi menggunakan metode non parametrik. Berikut penerapannya menggunakan data pada Tabel \@ref(tab:gwardat) yang telah disimpan kedalam objek `gwardat`.
+
+```{r}
+med_npCI(x=gwardat$konsentrasi, alpha=0.05)
+```
+
+Alternatif lain yang dapat digunakan untuk menghitung rentang kepercayaan jika sampel cukup besar n>20 menggunakan metode non parametrik adalah dengan menggunakan pendekatan tabel distribusi normal untuk memperkirakan distribusi binomial. Dengan menggunakan pendekatan ini, hanya sebagian kecil tabel distribusi binomial (n=20) yang diperlukan untuk melakukannya. Nilai kritis $z_{\alpha/2}$ dari tabel distribusi normal menentukan rangking atas dan  bawah observasi yang menyatakan awal dan akhir nilai rentang kepercayaan yang dinyatakan pada Persamaan \@ref(eq:rlz) dan Persamaan \@ref(eq:ruz). Pembulatan diperlukan dalam proses ini sebab nilai ranking harus berupa integer.
+
+\begin{equation}
+  R_l=\frac{n-z_{\frac{\alpha}{2}}\cdot\sqrt{n}}{2} 
+  (\#eq:rlz)
+\end{equation}
+
+\begin{equation}
+   R_l=\frac{n-z_{\frac{\alpha}{2}}\cdot\sqrt{n}}{2}+1
+  (\#eq:ruz)
+\end{equation}
+
+Menggunakan contoh data pada Tabel \@ref(tab:gwardat), dengan 95% rentang kepercayaan ($z_{\alpha/2}$=1,96) median dapat dihitung seperti berikut:
+
+\begin{equation}
+  R_l=\frac{25-1,96\cdot\sqrt{25}}{2}=7,6 
+\end{equation}
+
+\begin{equation}
+  R_l=\frac{25+1,96\cdot\sqrt{25}}{2}+1=18,4 
+\end{equation}
+
+Berdasarkan hasil perhitungan diperoleh rangking bawah adalah data ke-8 dan rangking atas adalah 18. Kedua data dibulatkan berdasarkan integer terdekat. Nilai rentang kepercayaan median yang diperoleh sama dengan metode sebelumnya sebab rangking batas bawah dan atasnya yang seragam.
+
+Jika pembaca ingin menggunakan `R`, maka fungsi yang sebelumya telah kita buat dapat dimodifikasi seperti berikut:
+
+```{r}
+med_norCI <- function(x, alpha){
+  n = length(x)
+  med = median(x)
+  # menghitung Rl dan Ru
+  rl=round((n-abs(qnorm(alpha/2))*sqrt(n))/2,0)
+  ru=round(((n+abs(qnorm(alpha/2))*sqrt(n))/2)+1,0)
+  # menghitung Lower dan Upper CL
+  LCL=x[rl]
+  UCL=x[ru]
+  # menggabungkannya dalam satu data
+  data=data.frame("median"=med,
+                  "Lower CL"=LCL,
+                  "Upper CL"=UCL)
+  return(data)
+}
+```
+
+```{r}
+med_norCI(x=gwardat$konsentrasi, alpha=0.05)
+```
+
+### Metode Parametrik Rentang Estimasi Median
+
+Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik  merupakan merupakan nilai rata-rata yang digunakan untuk mengestimasi median sampel untuk data yang memiliki kemencengan dengan transformasi yang digunakan agar data simetrik adalah transformasi logaritmik $y=\ln(x)$. Pada metode ini data diasumsikan memiliki distribusi lognormal (kemencengan positif). Rerata dan interval geometris akan lebih efisien (interval lebih pendek) dari median dan interval kepercayaannya ketika data benar-benar lognormal. Median sampel dan intervalnya lebih tepat dan lebih efisien jika logaritma data masih menunjukkan kemencengan dan/atau *outlier*. Estimasi media menggunakan metode parametrik dituliskan kedalam Persamaan \@ref(eq:gmci) dan Persamaan \@ref(eq:gmci2).
+
+\begin{equation}
+  GM_x=\exp\left(\overline{y}\right) 
+  (\#eq:gmci)
+\end{equation}
+
+dimana $y=\ln(x)$ dan $\overline{y}$=mean sampel $y$.
+
+\begin{equation}
+  \exp\left(\overline{y}-t_{\left(\frac{\alpha}{2},n-1\right)}\sqrt{\frac{s_y^2}{n}}\right)\le GM_x\le\exp\left(\overline{y}+t_{\left(\frac{\alpha}{2},n-1\right)}\sqrt{\frac{s_y^2}{n}}\right) 
+  (\#eq:gmci2)
+\end{equation}
+
+dimana $s_{y}^2$= varian sampel y pada unit log natural.
+
+Pada Tabel \@ref(tab:gwardat), untuk menghitung rentang keyakinan median menggunakan pendekatan mean geometrik $GM_x$ kita perlu mentransformasi datanya terlebih dahulu sehingga menjadi bentuk natural log. hasil transformasi disajikan pada Tabel \@ref(tab:gwardat2).
+
+```{r gwardat2,echo=FALSE}
+gwardat$konsentrasi<-log(gwardat$konsentrasi)
+
+knitr::kable(
+  gwardat, caption = 'Tranformasi logaritmik konsentrasi Arsenik dalam air tanah (ppb)'
+)
+```
+
+visualisasi distribusi yang baru disajikan pada Gambar \@ref(fig:gwardatvis2).
+
+```{r gwardatvis2, echo=FALSE, fig.cap='Distribusi logaritmik konsentrasi arsenik dalam air tanah', tidy=FALSE, out.width='70%', fig.align='center'}
+ggplot(gwardat, aes(konsentrasi, fill=..count..))+
+  geom_histogram(bins=7)+
+  theme_economist()+
+  xlab("log konsentrasi (ppb)")
+```
+
+Nilai mean dari data tersebut adalah 3,17 dengan simpangan baku sebesar 1,96. Berdasarkan Gambar \@ref(fig:gwardatvis2), kita telah memperoleh distribusi yang simetris.
+
+Dengan menggunakan Persamaan \@ref(eq:gmci) dan Persamaan \@ref(eq:gmci2) selanjutnya dapat dihitung rentang kepercayaannya dengan derajat kepercayaan 95%.
+
+\begin{equation}
+  GM_x=\exp\left(3,17\right)=23,8
+\end{equation}
+
+\begin{equation}
+  \exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)\le GM_x\le\exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)
+\end{equation}
+
+\begin{equation}
+  \exp\left(2,36\right)\le GM_x\le\exp\left(3,98\right)
+\end{equation}
+
+\begin{equation}
+  10,6\le GM_x\le53,5
+\end{equation}
+
+Dengan menggunakan `R` dapat dikerjakan menggunakan fungsi sebagai berikut:
+
+```{r}
+# persamaan hanya dapat digunakan untuk data yang telah ditransformasi lognormal
+
+med_gm <- function(x, alpha){
+  # rata-rata geometrik
+  gm = exp(mean(x))
+  # menghitung derajat kebebasan
+  df = length(x)-1
+  # menghitung batas bawah dan atas
+  LCL = exp(mean(x)-qt(1-alpha/2,df)*sqrt(var(x)/length(x)))
+  UCL = exp(mean(x)+qt(1-alpha/2,df)*sqrt(var(x)/length(x)))
+  # menggabungkan hasil
+  data=data.frame("GM"=gm,
+                  "Lower CL"=LCL,
+                  "Upper CL"=UCL)
+  return(data)
+}
+```
+
+```{r}
+med_gm(x=gwardat$konsentrasi, alpha=0.05)
+```
+
+Pembaca perlu berhati-hati dalam menentukan apakah akan menggunakan metode non parametrik atau parametrik. Jika data berditribusi lognormal kita dapat menggunakan metode parametrik.
+

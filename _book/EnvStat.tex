@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-04-03}
+    \date{2019-04-07}
 
 \usepackage{booktabs}
 
@@ -843,16 +843,6 @@ Operator aritmatika yang disediakan \texttt{R} disajikan pada Tabel
 \ref{tab:oparitmatika}:
 
 \begin{longtable}[]{@{}ll@{}}
-\caption{\label{tab:oparitmatika} Operator Aritmatika
-\texttt{R}.}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
-\textbf{Simbol}\strut
-\end{minipage} & \begin{minipage}[b]{0.79\columnwidth}\raggedright\strut
-\textbf{Keterangan}\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
 \toprule
 \begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
 \textbf{Simbol}\strut
@@ -899,6 +889,8 @@ tanpa sisa pembagian\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
+
+*: \label{tab:oparitmatika} Operator Aritmatika \texttt{R}.**
 
 Untuk lebih memahaminya berikut contoh sintaks penerapan operator
 tersebut.
@@ -10673,7 +10665,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x000000001960ebe8>
+## <bytecode: 0x0000000015fa8038>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -12908,6 +12900,1190 @@ menggunakan transformasi lainnya sendiri.
   STHDA. \textbf{Descriptive Statistics and Graphics}.
   \url{http://www.sthda.com/english/wiki/descriptive-statistics-and-graphics}.
 \end{enumerate}
+
+\chapter{Ekplorasi Data Menggunakan
+Grafik}\label{ekplorasi-data-menggunakan-grafik}
+
+Pada Chapter 4 dan 5 kita telah belajar bagaimana cara membuat grafik
+menggunakan \texttt{R}. Sejauh ini kita belum belajar kegunaan dari
+masing-masing grafik yang telah kita pelajarai. Pada Chapter ini kita
+tidak lagi akan membahas bagaimana membuat grafik menggunakan
+\texttt{R}. Kita akan fokus terhadap fungsi grafik tersebut dalam
+analisa kita. Secara umum grafik dibuat untuk memvisualisasikan
+distribusi, perbedaan antar sampel, korelasi dan asosiasi antar sampel,
+serta ukuran sampel.
+
+Penulis dan pembaca pasti sepakat bahwa visualisasi data merupakan
+tahapan awal yang perlu kita lakukan sebelum memutuskan untuk melakukan
+analisa data seperti uji hipotesis dan modeling. Angka yang ditampilkan
+dalam ringkasan data tidaklah cukup untuk melihat data terutama
+kaitannya dengan pengecekan terhadap asumsi model.
+
+Pada Gambar \ref{fig:visscat} disajikan delapan buah scatterplot dengan
+koefisien korelasi yang sama persis. Komputasi statistik tanpa melihat
+pada visualisasi data akan menyebabkan misinterpretasi pada data. Grafik
+memberikan ringkasan visual data dengan cepat dan lengkap dibandingkan
+penyajian data dalam tabel angka.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{visscat} 
+
+}
+
+\caption{Scatterplot dengan koefisien korelasi r=0,7.}\label{fig:visscat}
+\end{figure}
+
+Grafik sangat penting untuk dua tujuan:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  untuk memberikan wawasan bagi analis ke dalam data di bawah
+  pengawasan, dan
+\item
+  untuk mengilustrasikan konsep-konsep penting ketika mempresentasikan
+  hasil kepada orang lain.
+\end{enumerate}
+
+Tugas pertama disebut \textbf{Analisis Data Eksplorasi (EDA)}, dan
+merupakan subjek Chapter ini. Prosedur EDA seringkali merupakan (atau
+seharusnya) menjadi `pandangan pertama' pada data. Pola dan teori
+tentang bagaimana sistem berperilaku dikembangkan dengan mengamati data
+melalui grafik. Ini adalah prosedur induktif - data dirangkum dibanding
+dilakukan pengujian. Hasil mereka memberikan panduan untuk pemilihan
+prosedur pengujian hipotesis deduktif yang tepat.
+
+Setelah analisis selesai, temuan harus dilaporkan kepada orang lain.
+Apakah laporan tertulis atau presentasi lisan, analis harus meyakinkan
+audiens bahwa kesimpulan yang dicapai didukung oleh data. Tidak ada cara
+yang lebih baik untuk melakukan ini selain melalui grafik. Banyak metode
+grafis yang sama yang merangkum informasi dengan ringkas untuk analis
+juga akan memberikan wawasan tentang data untuk pembaca atau audiens.
+
+\section{Grafik Untuk Melihat Ditribusi
+Data}\label{grafik-untuk-melihat-ditribusi-data}
+
+Analisis yang umumnya dilihat pada distribusi data adalah apakah data
+berdistribusi normal atau tidak. Hal ini akan mempengaruhi jenis
+analisis statistika yang digunakan pada data. Terdapat beberapa grafik
+yang dapat digunakan untuk melihat bentuk ditribusi data. Grafik-grafik
+tersebut antara lain: \emph{stem and leaf}, histogram, density plot,
+QQ-plot, serta box plot atau violin plot. Pada analisis distribusi
+\emph{stem and leaf} kurang populer untuk digunakan. Hal ini disebabkan
+karena visualisasinya kurang cocok diterapkan pada data dengan jumlah
+observasi besar. Selain itu, kita juga tidak bisa melakukan perbandingan
+antar grup menggunakan jenis visualisasi tersebut.
+
+\subsection{Histogram}\label{histogram}
+
+Histogram adalah grafik yang sudah dikenal, dan konstruksinya dirinci
+dalam berbagai teks pengantar tentang statistik. Batang digambar dengan
+tinggi \(n_i\), atau fraksi \(n_i/n\), dari data yang termasuk dalam
+salah satu dari beberapa kategori atau interval (Gambar
+\ref{fig:histeda}). Iman dan Conover (1983) mengemukakan bahwa untuk
+ukuran sampel \(n\), jumlah interval \(k\) harus bilangan bulat terkecil
+sehingga \(2^k≥n\).
+
+Histogram sangat berguna untuk menggambarkan perbedaan besar dalam
+bentuk data seperti apakah data simetris seperti distribusi normal atau
+memiliki kemencengan. Histogram tidak dapat digunakan untuk penilaian
+yang lebih tepat karena tampilan dipengaruhi oleh jumlah batang yang
+digunakan. Untuk lebih memahaminya perhatikan Gambar \ref{fig:histeda}
+dan Gambar \ref{fig:histeda2}. Kedua histogram tersebut tampak berbeda
+meskipun data input yang diberikan sama. Pada Gambar \ref{fig:histeda}
+kita akan melihat bahwa debit dengan kejadian terbanyak terjadi pada
+rentang 800-900 cfs, sedangkan pada Gambar \ref{fig:histeda2} kita
+melihat bahwa debit dengan kejadian terbanyak terjadi pada 800-1200 cfs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat library}
+\KeywordTok{library}\NormalTok{(readxl)}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{(ggthemes)}
+
+\CommentTok{# memuat data excel}
+\NormalTok{sungai <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"hhappc.xls"}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{"appc1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/histeda-1} 
+
+}
+
+\caption{Histogram dengan bin.width=default debit sungai Saddle}\label{fig:histeda}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/histeda2-1} 
+
+}
+
+\caption{Histogram dengan bin.width=500 debit sungai Saddle}\label{fig:histeda2}
+\end{figure}
+
+\subsection{Density Plot}\label{density-plot}
+
+Density plot memecahkan masalah yang dimiliki histogram dalam melihat
+grafik dengan menyajikan data bukan dari jumlah kejadian atau observasi,
+namun data disajikan berdasarkan frekuensi relatif data (density) yang
+digambarkan dalam bentuk \emph{smooth curve}. Contoh density plot dapat
+dilijat pada Gambar \ref{fig:denseda}. Dari grafik yang dihasilkan
+sekaran tampak jelas bahwa distibusi data memiliki kemencengan positif
+dengan frekuensi relatif debit terbanyak berada pada debit 1000 cfs.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/denseda-1} 
+
+}
+
+\caption{Density plot debit sungai Saddle}\label{fig:denseda}
+\end{figure}
+
+\subsection{QQ-plot}\label{qq-plot-2}
+
+Kita telah mempelajari sebelumnya pada Chapter 5 bahwa QQ-plot data
+digunakan untuk mengecek apakah data yang kita miliki berdistribusi
+normal atau tidak. Contoh QQ-plot dapat dilijat pada Gambar
+\ref{fig:qqeda}. Pada grafik yang dihasilkan terlihat bahwa data tidak
+berdistribusi normal. Hal ini terlihat dari sebagian observasi pada
+debit \textless{}1000 cfs yang tidak mengikuti garis referensi.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sungai, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{sample=}\NormalTok{Flow))}\OperatorTok{+}
+\StringTok{  }\CommentTok{# qq plot}
+\StringTok{  }\KeywordTok{stat_qq}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\CommentTok{# garis referensi}
+\StringTok{  }\KeywordTok{stat_qq_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_economist}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/qqeda-1} 
+
+}
+
+\caption{QQ plot debit sungai Saddle}\label{fig:qqeda}
+\end{figure}
+
+\subsection{Box Plot dan Violin Plot}\label{box-plot-dan-violin-plot-1}
+
+Grafik lain yang dapat digunakan untuk menggambarkan distribusi data
+adalah box plot dan violin plot. Box plot memberikan cara yang simpel
+untuk melihat ditribusi data seperti melihat posisi sejumlah kuartil,
+nilai minimum dan maksimum. Selain itu kita juga dapat melihat adanya
+outlier pada data.
+
+Kita dapat menambah fungsionalitas dari box plot ini dengan menambahkan
+violin plot. Pada Chapter 5 kita telah belajar bahwa kita dapat
+menambahkan box plot pada violin plot atau sebaliknya sehingga
+memudahkan dalam mendeskripsikan bentuk distribusi data. Jika dengan box
+plot kita tidak dapat melihat secara baik bentuk dari data yang
+sesungguhnya karena hanya menampilkan lokasi sejumlah kuartil. Pada
+violin plot kita dapat melihat bentuk data yang ada melalui tampilan dua
+denisty plot (tampak seperti biola) yang digambarkan. Kekurangannya
+adalah kita tidak dapat melihat observasi mana yang menjadi outlier,
+sehingga kedua grafik ini biasa digambarkan secara bersamaan. Berikut
+adalah contoh box plot dan violin plot dari data debit sungai Saddle
+(Gambar \ref{fig:bpeda}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sungai, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\StringTok{""}\NormalTok{, }\DataTypeTok{y=}\NormalTok{Flow))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_violin}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{color=}\StringTok{"white"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{width=}\FloatTok{0.1}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_economist}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/bpeda-1} 
+
+}
+
+\caption{Box plot dan violin plot debit sungai Saddle}\label{fig:bpeda}
+\end{figure}
+
+Berdasarkan grafik yang dihasilkan pada Gambar \ref{fig:bpeda} kita
+dapat melihat bahwa ditribusi data debit sungai memiliki kemencengan
+positif. Hal ini terjadi karena terdapat satu \emph{outlier} pada data
+yang disebabkan karena nilai observasinya diluar dari nilai maksimum
+data yang ditetapkan sebagai \(max=Q3 + 1,5*IQR\).
+
+\section{Grafik Untuk Melihat Beda Distribusi Data Antar
+Grup}\label{grafik-untuk-melihat-beda-distribusi-data-antar-grup}
+
+Grafik yang telah dijelaskan sebelumnya seperti box plot, violin plot,
+histogram, dan density plot merupakan grafik yang bagus untuk
+memvisualisasikan beda distribusi data antar grup untuk data numerik.
+Untuk data berupa kategori kita dapat menggunakan bar plot. Pada
+penerapannya bar plot juga dapat memvisualisasikan ringkasan data
+seperti nilai mean dan sebarannya pada data.
+
+Pada contoh ini penulis hanya akan memberikan contoh penerapan
+menggunakan box plot dan bar plot menggunakan data konsentrasi Antrazine
+yang diukur pada bulan Juni dan September. Untuk melakukannya kita perlu
+memuat data dan melakukan transformasi terhadap datanya terlebih dahulu.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat data excel}
+\NormalTok{atrazine <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"hhappc.xls"}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{"appc4"}\NormalTok{)}
+
+\CommentTok{# print}
+\KeywordTok{head}\NormalTok{(atrazine)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   June_atrazine Sept_atrazine
+##           <dbl>         <dbl>
+## 1          0.38         2.66 
+## 2          0.04         0.63 
+## 3         -0.01         0.59 
+## 4          0.03         0.05 
+## 5          0.03         0.84 
+## 6          0.05         0.580
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# transformasi data}
+\KeywordTok{library}\NormalTok{(tidyr)}
+\NormalTok{atrazine <-}\StringTok{ }\KeywordTok{gather}\NormalTok{(atrazine,}
+                 \DataTypeTok{key=}\StringTok{"month"}\NormalTok{,}
+                 \DataTypeTok{value=}\StringTok{"concentration"}\NormalTok{)}
+
+\CommentTok{# print}
+\KeywordTok{head}\NormalTok{(atrazine)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   month         concentration
+##   <chr>                 <dbl>
+## 1 June_atrazine          0.38
+## 2 June_atrazine          0.04
+## 3 June_atrazine         -0.01
+## 4 June_atrazine          0.03
+## 5 June_atrazine          0.03
+## 6 June_atrazine          0.05
+\end{verbatim}
+
+Pada data konsentrasi Atrazine tersebut terdapat nilai negatif yang
+dalam hal ini merupakan kesalahan dalam pengukuran dari alat. Untuk
+membersihkannya kita dapat membuat nilai observasi tersebut menjadi NA.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{atrazine}\OperatorTok{$}\NormalTok{concentration[atrazine}\OperatorTok{$}\NormalTok{concentration}\OperatorTok{<}\DecValTok{0}\NormalTok{]<-}\OtherTok{NA}
+
+\KeywordTok{head}\NormalTok{(atrazine)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   month         concentration
+##   <chr>                 <dbl>
+## 1 June_atrazine          0.38
+## 2 June_atrazine          0.04
+## 3 June_atrazine         NA   
+## 4 June_atrazine          0.03
+## 5 June_atrazine          0.03
+## 6 June_atrazine          0.05
+\end{verbatim}
+
+Selanjutnya kita akan memvisualisasikan beda antara distribusi data pada
+kedua bulan menggunakan box plot (Gambar \ref{fig:bpgeda}). Konsentrasi
+rata-rata Atrazine akan divisualisasikan menggunakan bar plot (Gambar
+\ref{fig:bargeda}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(atrazine, }\KeywordTok{aes}\NormalTok{(month, concentration, }\DataTypeTok{fill=}\NormalTok{month))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_economist}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_economist}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/bpgeda-1} 
+
+}
+
+\caption{Box plot konsentrasi Atrazine pada bulan Juni dan September}\label{fig:bpgeda}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\NormalTok{atrazine }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(month) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_atrazine=}\KeywordTok{mean}\NormalTok{(concentration, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(month, mean_atrazine, }\DataTypeTok{fill=}\NormalTok{month))}\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme_economist}\NormalTok{()}\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_fill_economist}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/bargeda-1} 
+
+}
+
+\caption{Bar plot konsentrasi Atrazine pada bulan Juni dan September}\label{fig:bargeda}
+\end{figure}
+
+Pada visualisasi yang dihasilkan terdapat perbedaan signifikan antara
+distribusi dan nilai rata-rata konsentrasi Atrazine pada dua periode
+tersebut. Hal ini disebabkan karena terdapat sebuah outlier pada periode
+Sepetember yang menyebabkan nilai rata-rata yang dihasilkan bergeser
+jauh kearah outlier. Pembaca dapat membuat visualisasi data pada data
+tersebut tanpa \emph{outlier} dengan terlebih dahulu melakukan filter
+terhadap \emph{outlier}.
+
+\section{Grafik Untuk Memvisualisasikan Korelasi Antar
+Variabel}\label{grafik-untuk-memvisualisasikan-korelasi-antar-variabel}
+
+Scatterplot dapat digunakan untuk memvisualisasikan korelasi antar dua
+variabel. Pada bagian ini akan diberikan contoh visualisasi antara
+variabel konsentrasi TDS dan Uranium pada air tanah.
+
+Untuk melakukannya kita perlu memuat terlebih dahulu dataset yang
+digunakan. Visualisasi data disajikan pada Gambar \ref{fig:scateda}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat data excel}
+\NormalTok{gw <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"hhappc.xls"}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{"appc16"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gw, }\KeywordTok{aes}\NormalTok{(TDS, Uranium))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method=}\StringTok{"lm"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_economist}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/scateda-1} 
+
+}
+
+\caption{Scatterplot hubungan antara konsentrasi TDS dan Uranium pada airtanah}\label{fig:scateda}
+\end{figure}
+
+Berdasarkan grafik yang dihasilkan terdapat hubungan linier antara
+konsentrasi TDS dan Uranium pada airtanah. Meningkatnya konsentrasi TDS
+pada air tanah juga menyebabkan peningkatan konsentrasi Uranium pada
+airtanah.
+
+\section{Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar
+Variabel}\label{grafik-yang-digunakan-untuk-memvisualisasikan-asosiasi-antar-variabel}
+
+Asosiasi antar variabel kategori dapat dilakukan baik dengan pie chart
+maupun dengan bar plot. Pie chart kurang sering digunakan untuk
+visualisasi \emph{multiple group} sehingga bar plot lebih sering
+digunakan.
+
+Pada contoh kali ini penulis akan melihat terdapat asoiasi antara musim
+dan strata terhadap jumlah Corbicula di sungai Tennessee. Untuk
+melakukannya kita perlu memuat terlebih dahulu dataset yang digunakan.
+Visualisasi data disajikan pada Gambar \ref{fig:barteneda}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat data excel}
+\NormalTok{corbicula<-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"hhappc.xls"}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{"appc8"}\NormalTok{)}
+
+\CommentTok{# print}
+\KeywordTok{head}\NormalTok{(corbicula)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##    Year Season Strata Corbicula
+##   <dbl> <chr>   <dbl>     <dbl>
+## 1  1969 Winter      1        25
+## 2  1969 Winter      1        20
+## 3  1969 Winter      1        30
+## 4  1969 Spring      1         9
+## 5  1969 Spring      1         8
+## 6  1969 Spring      1         9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{corbicula }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Season=}\KeywordTok{as.factor}\NormalTok{(Season),}
+         \DataTypeTok{Strata=}\KeywordTok{as.factor}\NormalTok{(Strata)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(Season,Strata) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{Corbicula=}\KeywordTok{mean}\NormalTok{(Corbicula)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(Season, Corbicula, }\DataTypeTok{fill=}\NormalTok{Strata))}\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{,}\DataTypeTok{position=}\KeywordTok{position_dodge2}\NormalTok{())}\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme_economist}\NormalTok{()}\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_fill_economist}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barteneda-1} 
+
+}
+
+\caption{Bar plot Jumlah rata-rata corbicula pada sungai Tennessee}\label{fig:barteneda}
+\end{figure}
+
+Berdasarkan grafik yang dihasilkan terdapat pengaruh musim dan strata
+terhadap jumlah corbicula di sungai Tennessee. Jumlah tertinggi berada
+saat musim semi pada strata 3, sedangkan terendah berada pada musim
+dingin juga pada strata 3.
+
+\section{Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan
+Perubahan Sepanjang
+Waktu}\label{grafik-yang-digunakan-untuk-memisualisasikan-ukuran-sampel-dan-perubahan-sepanjang-waktu}
+
+Untuk memvisualisasikan perubahan sepanjang waktu, kita dapat
+menggunakan line plot. Pada data \texttt{corbicula} kita ingin
+memvisualisasikan perubahan jumlah corbicula rata-rata pada setiap
+tahun. Visualisasi dari data disajikan pada Gambar \ref{fig:lineeda}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{corbicula }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(Year) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{Corbicula=}\KeywordTok{mean}\NormalTok{(Corbicula)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(Year, Corbicula))}\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{shape=}\DecValTok{1}\NormalTok{)}\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme_economist}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/lineeda-1} 
+
+}
+
+\caption{Line plot perubahan jumlah rata-rata corbicula di sungai Tennessee}\label{fig:lineeda}
+\end{figure}
+
+Berdasarkan garfik yang dihasilkan dapat disimpulkan bahwa jumlah
+rata-rata corbicula menurun setiap tahunnya.
+
+\section{Referensi}\label{referensi-6}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Gardener, M. 2012. \textbf{Statistics for Ecologists Using R and
+  Excel-Data collection, exploration, analysis and presentation}.
+  Pelagic Publishing.
+\item
+  Helsel, D.R., Hirsch, R.M. 2002. \textbf{statistical Methods in Water
+  Resources}. USGS.
+\item
+  Ofungwu, J. 2014. \textbf{Statistical Applications For Environmental
+  Analysis and Risk Assessment}. John Wiley \& Sons, Inc.
+\item
+  Peck, R.Devore, J.L. 2012. \textbf{Statistics The Exploration \&
+  Analysis of Data- Seventh Edition}. Brooks/Cole.
+\end{enumerate}
+
+\part*{Statistika Inferensi -
+R}\label{part-statistika-inferensi---r}
+\addcontentsline{toc}{part}{Statistika Inferensi - R}
+
+\chapter{Penaksiran Secara
+Statistika}\label{penaksiran-secara-statistika}
+
+Pada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut
+kunci dari data seperti \(\overline{X}\) dan \(s\). Kedua nilai tersebut
+disebut sebagai nilai estimasi sampel dari populasi (untuk mean \(\mu\)
+dan simpangan baku \(\sigma\)). Pada Chapter ini kita akan melakukan
+eksplorasi lebih jauh lagi mengenai rentang estimasi (\emph{interval
+estimate}) yang akan menyinggung kedua nilai tersebut lebih jauh.
+
+\section{Definisi Rentang Estimasi}\label{definisi-rentang-estimasi}
+
+Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi
+menggunakan kedua nilai tersebut disebut sebagai itu disebut estimasi
+titik (\emph{point estimation}). Estimasi titik sendiri tidak
+menggambarkan reliabilitas atau kurangnya reliabilitas (variabilitas)
+dari estimasi ini. Sebagai contoh, anggaplah terdapat dua data X dan Y
+dengan mean 5 dengan jumlah observasi yang sama. Data Y memiliki nilai
+mean 5 dengan sangat sedikit variasi didalamnya, sedangkan data X jauh
+lebih bervariasi. Perkiraan titik 5 untuk X jauh lebih tidak dapat
+diandalkan dibandingkan dengan untuk Y karena variabilitas yang lebih
+besar dalam data X. Dengan kata lain, lebih banyak kehati-hatian
+diperlukan ketika menyatakan bahwa 5 memperkirakan mean populasi
+sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya
+perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang
+perbedaan ini.
+
+Sebagai alternatif untuk estimasi titik, estimasi rentang adalah rentang
+yang memiliki probabilitas yang dinyatakan mengandung nilai populasi
+sebenarnya. rentang lebih lebar untuk set data yang memiliki
+variabilitas lebih besar. Jadi dalam contoh di atas, rentang antara 4,7
+dan 5,3 mungkin memiliki kemungkinan 95\% untuk mengandung mean populasi
+Y yang sebenarnya (tidak diketahui). Butuh rentang yang jauh lebih luas,
+katakanlah antara 2,0 dan 8,0, untuk memiliki probabilitas yang sama
+untuk mengandung rerata sebenarnya dari X. Karena itu, perbedaan
+keandalan dari dua estimasi dengan jelas dinyatakan menggunakan estimasi
+rentang. Estimasi rentang dapat memberikan dua informasi yang estimasi
+poin tidak dapat berikan, antara lain:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Pernyataan probabilitas atau kemungkinan bahwa rentang berisi nilai
+  populasi sebenarnya (keandalannya).
+\item
+  Pernyataan kemungkinan bahwa satu titik data dengan besaran tertentu
+  berasal dari populasi yang diteliti.
+\end{enumerate}
+
+Estimasi rentang untuk poin pertama disebut sebagai rentang kepercayaan
+(\emph{confidence interval}), sedangkan yang kedua disebut sebagai
+rentang prediksi (\emph{prediction interal}). Meskipun salin terkait,
+pembaca perlu berhati-hati sebab kedua definisi tersebut sering kali
+tertukar satu sama lain.
+
+\section{Interpretasi Rentang
+Estimasi}\label{interpretasi-rentang-estimasi}
+
+Untuk lebih memahami mengenai definisi rentang estimasi pada sub-chapter
+ini akan diberikan contoh yang diambil dari buku \textbf{statistical
+Methods in Water Resources} karya Helsel dan Hirsch (2012). Misalkan
+mean populasi sebenarnya \(\mu\) konsentrasi dalam akuifer adalah 10.
+Sleain itu, anggaplah bahwa varian populasi sebenarnya \(\sigma^2\) sama
+dengan 1. Karena nilai-nilai ini dalam praktiknya tidak pernah
+diketahui, sampel diambil untuk memperkirakannya dengan mean sampel
+\(x\) dan sampel varians \(s^2\) . Dana yang cukup tersedia untuk
+mengambil 12 sampel air (kira-kira satu per bulan) selama satu tahun,
+dan hari-hari di mana pengambilan sampel terjadi dipilih secara acak.
+Dari 12 sampel ini \(x\)x dan \(s^2\) dihitung. Meskipun pada
+kenyataannya hanya satu set 12 sampel akan diambil setiap tahun,
+menggunakan komputer 12 hari dapat dipilih beberapa kali untuk
+menggambarkan konsep perkiraan rentang. Untuk masing-masing dari 10 set
+independen dari 12 sampel, rentang kepercayaan pada mean dihitung dengan
+menggunakan persamaan yang diberikan pada Tabel \ref{tab:iie} dan Gambar
+\ref{fig:iievis}.
+
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tab:iie} Sepuluh rentang kepercayaan 90\% sekitar nilai mean
+sebenarnya sebesar 10 (Data berdistribusi normal dan Tanda plus
+menyatakan data tidak disertakan dalam nilai mean
+sebenarnya)}\tabularnewline
+\toprule
+\textbf{No.} & \textbf{N} & \textbf{Mean} & \textbf{St.Dev} &
+\textbf{90\% Rentang kepercayaan}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\textbf{No.} & \textbf{N} & \textbf{Mean} & \textbf{St.Dev} &
+\textbf{90\% Rentang kepercayaan}\tabularnewline
+\midrule
+\endhead
+1 & 12 & 10,06 & 1,11 & 9,46 sampai 10,64\tabularnewline
+2 & 12 & 10,60 & 0,81 & \(^+\) 10,18 sampai 11,02\tabularnewline
+3 & 12 & 9,95 & 1,26 & 9,29 sampai 10,60\tabularnewline
+4 & 12 & 10,18 & 1,26 & 9,52 sampai 10,83\tabularnewline
+5 & 12 & 10,17 & 1,33 & 9,48 sampai 10,85\tabularnewline
+6 & 12 & 10,22 & 1,19 & 9,60 sampai 10,84\tabularnewline
+7 & 12 & 9,71 & 1,51 & 8,92 sampai 10,49\tabularnewline
+8 & 12 & 9,90 & 1,01 & 9,38 sampai 10,43\tabularnewline
+9 & 12 & 9,95 & 0.10 & 9,43 sampai 10,46\tabularnewline
+10 & 12 & 9,88 & 1,37 & 9,17 sampai 10,59\tabularnewline
+\bottomrule
+\end{longtable}
+
+Kesepuluh rentang pada contoh di atas disebut dengan dengan
+\textbf{rentang kepercayaan 90\%} dari nilai mean sesungguhnya. Nilai
+mean sebenarnya akan terdapat pada rentang tersebut dengan probabilitas
+90\%. Sehingga berdasarkan Tabel \ref{tab:iie} terdapat 9 rentang yang
+memiliki nilai mean sesungguhnya didalamnya (probabilitas 90\%). Jika
+kita sekali lagi melakukan sampling dengan jumlah sampling yang sama
+pada rentang nilai baru yang dihasilkan akan mengandung nilai mean
+sesungguhnya dan dapat juga tidak. Probabilitas rentang tersebut
+mengandung nilai mean sesungguhnya disebut sebagai \textbf{tingkat
+kepercayaan} (\emph{confidence level}). Probabilitas nilai rentang tidak
+mengandung mean sesungguhnya disebut sebagai \textbf{alpha level}
+(\(\alpha\)) yang ditulis berdasarkan Persamaan \eqref{eq:alpha}.
+
+\begin{equation}
+  \alpha=1-confidence\ level\ 
+  \label{eq:alpha}
+\end{equation}
+
+Lebar rentang kepercayaan adalah fungsi dari bentuk distribusi data
+(variabilitas dan kemencengannya), ukuran sampel, dan tingkat
+kepercayaan yang diinginkan. Ketika tingkat kepercayaan meningkat, lebar
+rentang juga meningkat, karena rentang yang lebih besar lebih mungkin
+mengandung nilai sebenarnya daripada rentang yang lebih pendek. Dengan
+demikian rentang kepercayaan 95\% akan lebih luas daripada rentang 90\%
+untuk data yang sama.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{iievis} 
+
+}
+
+\caption{Sepuluh rentang kepercayaan 90 persen data dengan nilai mean sebenarnya 10}\label{fig:iievis}
+\end{figure}
+
+Rentang kepercayaan simetris pada rata-rata biasanya dihitung dengan
+asumsi data mengikuti distribusi normal. Jika tidak, distribusi rerata
+itu sendiri akan mendekati normal sepanjang ukuran sampel besar
+(katakanlah 50 pengamatan atau lebih besar). Rentang kepercayaan dengan
+asumsi normalitas kemudian akan memasukkan mean sebenarnya
+(\(1-\alpha\))\% dari waktu. Dalam contoh di atas, data dihasilkan dari
+distribusi normal, sehingga ukuran sampel kecil 12 tidak menjadi
+masalah. Namun ketika data memiliki kemencengan dan ukuran sampel di
+bawah 50 atau lebih, rentang kepercayaan simetris tidak akan mengandung
+rata-rata (\(1-\alpha\))\% sepanjang waktu. Dalam contoh di bawah ini,
+rentang kepercayaan simetris secara salah dihitung untuk data yang
+miring (Gambar \ref{fig:iiedata}). Hasil (Gambar \ref{fig:iievis2} dan
+Tabel \ref{tab:iie2}) menunjukkan bahwa rentang kepercayaan kehilangan
+nilai sebenarnya dari 1 lebih sering daripada yang seharusnya. Semakin
+besar skewness, semakin besar ukuran sampel harus sebelum rentang
+kepercayaan simetris dapat diandalkan. Sebagai alternatif, rentang
+kepercayaan asimetris dapat dihitung untuk situasi umum data yang
+memiliki kemencengan.
+
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tab:iie2} Sepuluh rentang kepercayaan 90\% sekitar nilai
+mean sebenarnya sebesar 1 (Data tidak berdistribusi normal dan Tanda
+plus menyatakan data tidak disertakan dalam nilai mean
+sebenarnya)}\tabularnewline
+\toprule
+\textbf{No.} & \textbf{N} & \textbf{Mean} & \textbf{St.Dev} &
+\textbf{90\% Rentang kepercayaan}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\textbf{No.} & \textbf{N} & \textbf{Mean} & \textbf{St.Dev} &
+\textbf{90\% Rentang kepercayaan}\tabularnewline
+\midrule
+\endhead
+1 & 12 & 0,784 & 0,320 & \(^+\) 0,618 sampai 0,950\tabularnewline
+2 & 12 & 0,811 & 0,299 & \(^+\) 0,656 sampai 0,966\tabularnewline
+3 & 12 & 1,178 & 0,700 & 0,815 sampai 1,541\tabularnewline
+4 & 12 & 1,030 & 0,459 & 0,792 sampai 1,267\tabularnewline
+5 & 12 & 1,079 & 0,573 & 0,782 sampai 1,376\tabularnewline
+6 & 12 & 0,833 & 0,363 & 0,644 sampai 1,021\tabularnewline
+7 & 12 & 0,789 & 0,240 & \(^+\) 0,644 sampai 0,913\tabularnewline
+8 & 12 & 1,159 & 0,815 & 0,736 sampai 1,581\tabularnewline
+9 & 12 & 0,822 & 0,365 & \(^+\) 0,633 sampai 0,992\tabularnewline
+10 & 12 & 0,837 & 0,478 & 0,589 sampai 1,085\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{iiedata} 
+
+}
+
+\caption{Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75}\label{fig:iiedata}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{iievis2} 
+
+}
+
+\caption{Sepuluh rentang kepercayaan 90 persen data dengan nilai mean sebenarnya 1}\label{fig:iievis2}
+\end{figure}
+
+\section{Rentang Kepercayaan Median}\label{rentang-kepercayaan-median}
+
+Rentang kepercayaan median populasi dapat dihitung tanpa perlu mengikuti
+asumsi distribusi tertentu. Sehingga nilai median dapat digunakan untuk
+memperkirakan nilai pusat data untuk distribusi data yang tidak
+berdistribusi normal.
+
+\subsection{Rentang Estimasi Median Metode
+Nonparametrik}\label{rentang-estimasi-median-metode-nonparametrik}
+
+Rentang estimasi nonparametrik untuk median populasi sebenarnya dihitung
+menggunakan distribusi binomial. Pertama, tingkat signifikansi yang
+diinginkan \(\alpha\) dinyatakan, error yang dapat diterima tidak
+termasuk median yang sebenarnya. Satu-setengah (\(\alpha/2\)) dari error
+ini digunakan untuk setiap akhir rentang (Gambar \ref{fig:iemednp}).
+Tabel distribusi binomial memberikan nilai kritis bawah dan atas \(x'\)
+dan \(x\) pada setengah tingkat alfa yang diinginkan (\(\alpha/2\)).
+Nilai-nilai kritis ini ditransformasikan ke dalam rangking \(R_l\) dan
+\(R_u\) yang sesuai dengan titik data \(C_l\) dan \(C_u\) di ujung
+interval kepercayaan.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{iemednp} 
+
+}
+
+\caption{Probabilitas median populasi P50 pada dua sisi rentang estimasi.}\label{fig:iemednp}
+\end{figure}
+
+Untuk ukuran sampel kecil, tabel binomial dimasukkan pada kolom p = 0,5
+(median) untuk menghitung rentang kepercayaan pada median. Nilai kritis
+\(x'\) diperoleh dari tabel distribusi binomial yang sesuai dengan
+\(\alpha/2\), atau sedekat mungkin dengan \(\alpha/2\). Nilai kritis ini
+kemudian digunakan untuk menghitung peringkat \(R_u\) dan \(R_l\) yang
+sesuai dengan nilai data pada batas kepercayaan atas dan bawah untuk
+median. Batas-batas ini adalah titik data peringkat \(R_l\)th yang masuk
+dari setiap ujung daftar n observasi. Rentang kepercayaan yang
+dihasilkan akan mencerminkan bentuk (menceng atau simetris) dari data
+asli.
+
+\begin{equation}
+  R_l=x'+1 
+  \label{eq:rl}
+\end{equation}
+
+\begin{equation}
+  R_u=n-x'=x\ untuk\ x'\ dan\ x\ dari\ tabel\ dist.\ binomial 
+  \label{eq:ru}
+\end{equation}
+
+Rentang nonparametrik tidak selalu dapat secara tepat menghasilkan
+tingkat kepercayaan yang diinginkan ketika ukuran sampel kecil. Ini
+karena mereka terpisah, melompat dari satu nilai data ke yang berikutnya
+di ujung interval. Namun, tingkat kepercayaan yang dekat dengan yang
+diinginkan tersedia untuk semua kecuali ukuran sampel terkecil.
+
+Untuk lebih memahaminya diberikan data 25 pengukuran konsentrasi arsenin
+di air tanah dalam ppb yang disajikan pada Tabel \ref{tab:gwardat}.
+
+\begin{table}[t]
+
+\caption{\label{tab:gwardat}Konsentrasi Arsenik dalam air tanah (ppb)}
+\centering
+\begin{tabular}{r|r}
+\hline
+observasi & konsentrasi\\
+\hline
+1 & 1.3\\
+\hline
+2 & 1.5\\
+\hline
+3 & 1.8\\
+\hline
+4 & 2.6\\
+\hline
+5 & 2.8\\
+\hline
+6 & 3.5\\
+\hline
+7 & 4.0\\
+\hline
+8 & 4.8\\
+\hline
+9 & 8.0\\
+\hline
+10 & 9.5\\
+\hline
+11 & 12.0\\
+\hline
+12 & 14.0\\
+\hline
+13 & 19.0\\
+\hline
+14 & 23.0\\
+\hline
+15 & 41.0\\
+\hline
+16 & 80.0\\
+\hline
+17 & 100.0\\
+\hline
+18 & 110.0\\
+\hline
+19 & 120.0\\
+\hline
+20 & 190.0\\
+\hline
+21 & 240.0\\
+\hline
+22 & 250.0\\
+\hline
+23 & 300.0\\
+\hline
+24 & 340.0\\
+\hline
+25 & 580.0\\
+\hline
+\end{tabular}
+\end{table}
+
+Visualisasi Tabel \ref{tab:gwardat} ditunjukkan pada Gambar
+\ref{fig:gwardatvis}. Berdasarkan gambar tersebut terlihat bahwa data
+memiliki kemencengan yang positif sehingga penaksiran rata-rata populasi
+menggunakan nilai mean tidak dapat dilakukan.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gwardatvis-1} 
+
+}
+
+\caption{Distribusi konsentrasi arsenik dalam air tanah}\label{fig:gwardatvis}
+\end{figure}
+
+Berdasarkan data pada Tabel \ref{tab:gwardat}, median konsentrasi
+arsenik \(\hat{C}_{0.5}\)=19 yang berada pada urutan data ke-13 dari
+data yang telah diurutkan dari yang terkecil ke yang terbesar. Untuk
+menentukan rentang kepercayaan 95\% median kosentrasi arsenik
+\(C_{0.5}\), nilai kritis berdasarkan nilai error mendekati
+\(\alpha/2\)=0,025 adalah \(x'\)=7. Untuk lebih memahaminya pembaca
+dapat mengunduh tabel distribusi binomial pada laman
+\href{https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf}{berikut}.
+Nilai \(x'\)=7 diperoleh menggunakan Tabel distribusi binomial dengan
+\(n\)=25 dan \(p\)=0,5 yang ditampilkan pada Gambar \ref{fig:tabbinom}
+dengan nilai probabilitas sebesar 0,022 (mendekati 0,025) yang setara
+dengan area yang diarsir pada Gambar \ref{fig:iemednp}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{tabbinom} 
+
+}
+
+\caption{Lokasi probabilitas x berdasarkan tabel distribusi binomial}\label{fig:tabbinom}
+\end{figure}
+
+Berdasarkan Persamaan \eqref{eq:rl} dan Persamaan \eqref{eq:ru}, rangking
+\(R_l\) pada observasi yang menyatakan batas kepercayaan bawah
+(\emph{lower confidence limit}) adalah 8 (\(R_i\)=7+1) dan \(R_u\) yang
+menyatakan batas kepercayaan atas (\emph{upper confidence level}) adalah
+25-7=18. Berdasarkan nilai probabilitas \(x'\)=0,022, maka nilai alpha
+yang sesunggunya sebesar \(\alpha=2*0,022=0,044\). Nilai tersebut setara
+dengan tingkat kepercayaan \(1-0,044\) atau 95,6\%. Nilai rentang
+kepercayaan median antara observasi ke-8 dan 18 adalah
+\(C_l=4,8\le C_{0.5}\le110=C_u\ \ pada\ \alpha=0,044\). Nilai asimetrik
+disekitar \(\hat{C}_{0.5}\)=19 mencerminkan kemencengan pada data.
+
+Jika pembaca ingin melakukan perhitungan pada \texttt{R}, pembaca harus
+membuat fungsi sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{med_npCI <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x,alpha)\{}
+\NormalTok{  n=}\KeywordTok{length}\NormalTok{(x)}
+\NormalTok{  med =}\StringTok{ }\KeywordTok{median}\NormalTok{(x)}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n)\{}
+\NormalTok{    b =}\StringTok{ }\KeywordTok{pbinom}\NormalTok{(i,n,}\FloatTok{0.5}\NormalTok{)}
+    \ControlFlowTok{if}\NormalTok{(b}\OperatorTok{>}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{)\{}
+      \ControlFlowTok{break}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  \CommentTok{# mengambil x'}
+\NormalTok{  x_i=i}\OperatorTok{-}\DecValTok{1}
+  \CommentTok{# menghitung Rl dan Ru}
+\NormalTok{  rl=x_i}\OperatorTok{+}\DecValTok{1}
+\NormalTok{  ru=n}\OperatorTok{-}\NormalTok{x_i}
+  \CommentTok{# menghitung true confidence level}
+\NormalTok{  CL=}\DecValTok{1}\OperatorTok{-}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\KeywordTok{pbinom}\NormalTok{(x_i,n,}\FloatTok{0.5}\NormalTok{))}
+  \CommentTok{# menghitung Lower dan Upper CL}
+\NormalTok{  LCL=x[rl]}
+\NormalTok{  UCL=x[ru]}
+  \CommentTok{# menggabungkannya dalam satu data}
+\NormalTok{  data=}\KeywordTok{data.frame}\NormalTok{(}\StringTok{"median"}\NormalTok{=med,}
+                  \StringTok{"True CL %"}\NormalTok{=CL}\OperatorTok{*}\DecValTok{100}\NormalTok{,}
+                  \StringTok{"Lower CL"}\NormalTok{=LCL,}
+                  \StringTok{"Upper CL"}\NormalTok{=UCL)}
+  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Fungsi yang telah dibuat tersebut selanjutnya dapat pembaca gunakan saat
+akan menghitung rentang kepercayaan median populasi menggunakan metode
+non parametrik. Berikut penerapannya menggunakan data pada Tabel
+\ref{tab:gwardat} yang telah disimpan kedalam objek \texttt{gwardat}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{med_npCI}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   median True.CL.. Lower.CL Upper.CL
+## 1     19     95.67      4.8      110
+\end{verbatim}
+
+Alternatif lain yang dapat digunakan untuk menghitung rentang
+kepercayaan jika sampel cukup besar n\textgreater{}20 menggunakan metode
+non parametrik adalah dengan menggunakan pendekatan tabel distribusi
+normal untuk memperkirakan distribusi binomial. Dengan menggunakan
+pendekatan ini, hanya sebagian kecil tabel distribusi binomial (n=20)
+yang diperlukan untuk melakukannya. Nilai kritis \(z_{\alpha/2}\) dari
+tabel distribusi normal menentukan rangking atas dan bawah observasi
+yang menyatakan awal dan akhir nilai rentang kepercayaan yang dinyatakan
+pada Persamaan \eqref{eq:rlz} dan Persamaan \eqref{eq:ruz}. Pembulatan
+diperlukan dalam proses ini sebab nilai ranking harus berupa integer.
+
+\begin{equation}
+  R_l=\frac{n-z_{\frac{\alpha}{2}}\cdot\sqrt{n}}{2} 
+  \label{eq:rlz}
+\end{equation}
+
+\begin{equation}
+   R_l=\frac{n-z_{\frac{\alpha}{2}}\cdot\sqrt{n}}{2}+1
+  \label{eq:ruz}
+\end{equation}
+
+Menggunakan contoh data pada Tabel \ref{tab:gwardat}, dengan 95\%
+rentang kepercayaan (\(z_{\alpha/2}\)=1,96) median dapat dihitung
+seperti berikut:
+
+\begin{equation}
+  R_l=\frac{25-1,96\cdot\sqrt{25}}{2}=7,6 
+\end{equation}
+
+\begin{equation}
+  R_l=\frac{25+1,96\cdot\sqrt{25}}{2}+1=18,4 
+\end{equation}
+
+Berdasarkan hasil perhitungan diperoleh rangking bawah adalah data ke-8
+dan rangking atas adalah 18. Kedua data dibulatkan berdasarkan integer
+terdekat. Nilai rentang kepercayaan median yang diperoleh sama dengan
+metode sebelumnya sebab rangking batas bawah dan atasnya yang seragam.
+
+Jika pembaca ingin menggunakan \texttt{R}, maka fungsi yang sebelumya
+telah kita buat dapat dimodifikasi seperti berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{med_norCI <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, alpha)\{}
+\NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+\NormalTok{  med =}\StringTok{ }\KeywordTok{median}\NormalTok{(x)}
+  \CommentTok{# menghitung Rl dan Ru}
+\NormalTok{  rl=}\KeywordTok{round}\NormalTok{((n}\OperatorTok{-}\KeywordTok{abs}\NormalTok{(}\KeywordTok{qnorm}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{))}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(n))}\OperatorTok{/}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{  ru=}\KeywordTok{round}\NormalTok{(((n}\OperatorTok{+}\KeywordTok{abs}\NormalTok{(}\KeywordTok{qnorm}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{))}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(n))}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+  \CommentTok{# menghitung Lower dan Upper CL}
+\NormalTok{  LCL=x[rl]}
+\NormalTok{  UCL=x[ru]}
+  \CommentTok{# menggabungkannya dalam satu data}
+\NormalTok{  data=}\KeywordTok{data.frame}\NormalTok{(}\StringTok{"median"}\NormalTok{=med,}
+                  \StringTok{"Lower CL"}\NormalTok{=LCL,}
+                  \StringTok{"Upper CL"}\NormalTok{=UCL)}
+  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{med_norCI}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   median Lower.CL Upper.CL
+## 1     19      4.8      110
+\end{verbatim}
+
+\subsection{Metode Parametrik Rentang Estimasi
+Median}\label{metode-parametrik-rentang-estimasi-median}
+
+Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik merupakan
+merupakan nilai rata-rata yang digunakan untuk mengestimasi median
+sampel untuk data yang memiliki kemencengan dengan transformasi yang
+digunakan agar data simetrik adalah transformasi logaritmik
+\(y=\ln(x)\). Pada metode ini data diasumsikan memiliki distribusi
+lognormal (kemencengan positif). Rerata dan interval geometris akan
+lebih efisien (interval lebih pendek) dari median dan interval
+kepercayaannya ketika data benar-benar lognormal. Median sampel dan
+intervalnya lebih tepat dan lebih efisien jika logaritma data masih
+menunjukkan kemencengan dan/atau \emph{outlier}. Estimasi media
+menggunakan metode parametrik dituliskan kedalam Persamaan \eqref{eq:gmci}
+dan Persamaan \eqref{eq:gmci2}.
+
+\begin{equation}
+  GM_x=\exp\left(\overline{y}\right) 
+  \label{eq:gmci}
+\end{equation}
+
+dimana \(y=\ln(x)\) dan \(\overline{y}\)=mean sampel \(y\).
+
+\begin{equation}
+  \exp\left(\overline{y}-t_{\left(\frac{\alpha}{2},n-1\right)}\sqrt{\frac{s_y^2}{n}}\right)\le GM_x\le\exp\left(\overline{y}+t_{\left(\frac{\alpha}{2},n-1\right)}\sqrt{\frac{s_y^2}{n}}\right) 
+  \label{eq:gmci2}
+\end{equation}
+
+dimana \(s_{y}^2\)= varian sampel y pada unit log natural.
+
+Pada Tabel \ref{tab:gwardat}, untuk menghitung rentang keyakinan median
+menggunakan pendekatan mean geometrik \(GM_x\) kita perlu
+mentransformasi datanya terlebih dahulu sehingga menjadi bentuk natural
+log. hasil transformasi disajikan pada Tabel \ref{tab:gwardat2}.
+
+\begin{table}[t]
+
+\caption{\label{tab:gwardat2}Tranformasi logaritmik konsentrasi Arsenik dalam air tanah (ppb)}
+\centering
+\begin{tabular}{r|r}
+\hline
+observasi & konsentrasi\\
+\hline
+1 & 0.2624\\
+\hline
+2 & 0.4055\\
+\hline
+3 & 0.5878\\
+\hline
+4 & 0.9555\\
+\hline
+5 & 1.0296\\
+\hline
+6 & 1.2528\\
+\hline
+7 & 1.3863\\
+\hline
+8 & 1.5686\\
+\hline
+9 & 2.0794\\
+\hline
+10 & 2.2513\\
+\hline
+11 & 2.4849\\
+\hline
+12 & 2.6391\\
+\hline
+13 & 2.9444\\
+\hline
+14 & 3.1355\\
+\hline
+15 & 3.7136\\
+\hline
+16 & 4.3820\\
+\hline
+17 & 4.6052\\
+\hline
+18 & 4.7005\\
+\hline
+19 & 4.7875\\
+\hline
+20 & 5.2470\\
+\hline
+21 & 5.4806\\
+\hline
+22 & 5.5215\\
+\hline
+23 & 5.7038\\
+\hline
+24 & 5.8289\\
+\hline
+25 & 6.3630\\
+\hline
+\end{tabular}
+\end{table}
+
+visualisasi distribusi yang baru disajikan pada Gambar
+\ref{fig:gwardatvis2}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gwardatvis2-1} 
+
+}
+
+\caption{Distribusi logaritmik konsentrasi arsenik dalam air tanah}\label{fig:gwardatvis2}
+\end{figure}
+
+Nilai mean dari data tersebut adalah 3,17 dengan simpangan baku sebesar
+1,96. Berdasarkan Gambar \ref{fig:gwardatvis2}, kita telah memperoleh
+distribusi yang simetris.
+
+Dengan menggunakan Persamaan \eqref{eq:gmci} dan Persamaan \eqref{eq:gmci2}
+selanjutnya dapat dihitung rentang kepercayaannya dengan derajat
+kepercayaan 95\%.
+
+\begin{equation}
+  GM_x=\exp\left(3,17\right)=23,8
+\end{equation}
+
+\begin{equation}
+  \exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)\le GM_x\le\exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)
+\end{equation}
+
+\begin{equation}
+  \exp\left(2,36\right)\le GM_x\le\exp\left(3,98\right)
+\end{equation}
+
+\begin{equation}
+  10,6\le GM_x\le53,5
+\end{equation}
+
+Dengan menggunakan \texttt{R} dapat dikerjakan menggunakan fungsi
+sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# persamaan hanya dapat digunakan untuk data yang telah ditransformasi}
+
+\NormalTok{med_gm <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, alpha)\{}
+  \CommentTok{# rata-rata geometrik}
+\NormalTok{  gm =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x))}
+  \CommentTok{# menghitung derajat kebebasan}
+\NormalTok{  df =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}\OperatorTok{-}\DecValTok{1}
+  \CommentTok{# menghitung batas bawah dan atas}
+\NormalTok{  LCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x)}\OperatorTok{-}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
+\NormalTok{  UCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x)}\OperatorTok{+}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
+  \CommentTok{# menggabungkan hasil}
+\NormalTok{  data=}\KeywordTok{data.frame}\NormalTok{(}\StringTok{"GM"}\NormalTok{=gm,}
+                  \StringTok{"Lower CL"}\NormalTok{=LCL,}
+                  \StringTok{"Upper CL"}\NormalTok{=UCL)}
+  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{med_gm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      GM Lower.CL Upper.CL
+## 1 23.87    10.63     53.6
+\end{verbatim}
+
+Pembaca perlu berhati-hati dalam menentukan apakah akan menggunakan
+metode non parametrik atau parametrik. Jika data berditribusi lognormal
+kita dapat menggunakan metode parametrik.
 
 \bibliography{book.bib,packages.bib}
 

@@ -146,3 +146,23 @@
 \contentsline {figure}{\numberline {6.8}{\ignorespaces Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.}}{224}{figure.6.8}% 
 \contentsline {figure}{\numberline {6.9}{\ignorespaces Ladder of power}}{227}{figure.6.9}% 
 \contentsline {figure}{\numberline {6.10}{\ignorespaces Visualisasi konsentrasi Uranium hasil tansformasi pada air tanah}}{228}{figure.6.10}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Scatterplot dengan koefisien korelasi r=0,7.}}{232}{figure.7.1}% 
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Histogram dengan bin.width=default debit sungai Saddle}}{233}{figure.7.2}% 
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Histogram dengan bin.width=500 debit sungai Saddle}}{234}{figure.7.3}% 
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Density plot debit sungai Saddle}}{235}{figure.7.4}% 
+\contentsline {figure}{\numberline {7.5}{\ignorespaces QQ plot debit sungai Saddle}}{235}{figure.7.5}% 
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Box plot dan violin plot debit sungai Saddle}}{236}{figure.7.6}% 
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Box plot konsentrasi Atrazine pada bulan Juni dan September}}{238}{figure.7.7}% 
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Bar plot konsentrasi Atrazine pada bulan Juni dan September}}{239}{figure.7.8}% 
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Scatterplot hubungan antara konsentrasi TDS dan Uranium pada airtanah}}{240}{figure.7.9}% 
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Bar plot Jumlah rata-rata corbicula pada sungai Tennessee}}{241}{figure.7.10}% 
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Line plot perubahan jumlah rata-rata corbicula di sungai Tennessee}}{242}{figure.7.11}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Sepuluh rentang kepercayaan 90 persen data dengan nilai mean sebenarnya 10}}{247}{figure.8.1}% 
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75}}{248}{figure.8.2}% 
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Sepuluh rentang kepercayaan 90 persen data dengan nilai mean sebenarnya 1}}{248}{figure.8.3}% 
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Probabilitas median populasi P50 pada dua sisi rentang estimasi.}}{249}{figure.8.4}% 
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Distribusi konsentrasi arsenik dalam air tanah}}{249}{figure.8.5}% 
+\contentsline {figure}{\numberline {8.6}{\ignorespaces Lokasi probabilitas x berdasarkan tabel distribusi binomial}}{251}{figure.8.6}% 
+\contentsline {figure}{\numberline {8.7}{\ignorespaces Distribusi logaritmik konsentrasi arsenik dalam air tanah}}{254}{figure.8.7}% 

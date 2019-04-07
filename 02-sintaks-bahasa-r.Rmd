@@ -38,7 +38,7 @@ Operator aritmatika yang disediakan `R` disajikan pada Tabel \@ref(tab:oparitmat
 %%             | *Modulus*, Untuk mencari sisa pembagian
 %/%            | *Integer*, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian
 
-: (\#tab:oparitmatika) Operator Aritmatika `R`.
+*: (\#tab:oparitmatika) Operator Aritmatika `R`.**
 
 Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.
 
