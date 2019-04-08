@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-04-07}
+    \date{2019-04-08}
 
 \usepackage{booktabs}
 
@@ -189,6 +189,11 @@ Chambers} dan rekan-rekan dari \textbf{Bell Laboratories} yang memiliki
 fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara
 keduanya adalah \texttt{R} merupakan sistem komputasi yang bersifat
 gratis.Logo \texttt{R} dapat dilihat pada Gambar \ref{fig:Logo}.
+
+\begin{verbatim}
+## Warning: package 'knitr' was built under R version
+## 3.5.3
+\end{verbatim}
 
 \begin{figure}
 
@@ -729,12 +734,8 @@ menghitung median.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "decmedian"       "elNamed"        
-##  [3] "elNamed<-"       "interp.median"  
-##  [5] "median"          "median.default" 
-##  [7] "median_hilow"    "mediate"        
-##  [9] "mediate.diagram" "medpolish"      
-## [11] "runmed"
+## [1] "elNamed"        "elNamed<-"      "median"        
+## [4] "median.default" "medpolish"      "runmed"
 \end{verbatim}
 
 \emph{List} yang dihasilkan berupa fungsi-fungsi yang memiliki elemen
@@ -4450,6 +4451,11 @@ sudah ada menjadi tibble menggunakan fungsi \texttt{as\_tibble()}.
 Berikut adalah contoh bagaimana membuat tibble mengunakan data
 \texttt{iris}:
 
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version
+## 3.5.3
+\end{verbatim}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# memuat data mtcars}
@@ -4841,6 +4847,22 @@ yang dapat pembaca cermati terkait manakah data yang telah rapi
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(EDAWR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'EDAWR'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked _by_ '.GlobalEnv':
+## 
+##     a, b, y, z
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# memuat dataset}
 \NormalTok{storms <-}\StringTok{ }\NormalTok{EDAWR}\OperatorTok{::}\NormalTok{storms}
 \NormalTok{cases}
@@ -5076,6 +5098,11 @@ menginstall library tersebut:
 \KeywordTok{library}\NormalTok{(tidyr)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyr' was built under R version
+## 3.5.3
+\end{verbatim}
 
 \subsection{Gather}\label{gather}
 
@@ -5915,7 +5942,16 @@ Berikut adalah contoh penerapan \texttt{selct()} pada data frame
 
 \CommentTok{# memuat data frame}
 \KeywordTok{library}\NormalTok{(nycflights13)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'nycflights13' was built under R
+## version 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# data}
 \NormalTok{flights}
 \end{Highlighting}
@@ -6460,6 +6496,22 @@ Berikut adalah sintaks untuk melakukannya:
 
 \CommentTok{# Dengan pipe operator}
 \KeywordTok{library}\NormalTok{(magrittr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'magrittr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:tidyr':
+## 
+##     extract
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{delays <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(dest) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarize}\NormalTok{(}
@@ -6489,6 +6541,17 @@ Berikut adalah sintaks untuk melakukannya:
 ##  9 BHM     297  866. 16.9 
 ## 10 BNA    6333  758. 11.8 
 ## # ... with 86 more rows
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'ggplot2'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'mtcars':
+## 
+##     mpg
 \end{verbatim}
 
 \begin{verbatim}
@@ -8485,6 +8548,10 @@ ada pada \texttt{R}. Output yang dihasilkan disajikan pada Gambar
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Loading required package: grid
+\end{verbatim}
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/color-1} 
@@ -8516,7 +8583,15 @@ pada Gambar \ref{fig:carscatter}:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(car)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'car' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{scatterplot}\NormalTok{(Volume}\OperatorTok{~}\NormalTok{Height, }\DataTypeTok{data=}\NormalTok{trees)}
 \end{Highlighting}
@@ -8566,7 +8641,16 @@ output yang dihasilkan pada Gambar \ref{fig:psychscatter}:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(psych)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'psych' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{pairs.panels}\NormalTok{(trees, }
              \DataTypeTok{method =} \StringTok{"pearson"}\NormalTok{, }\CommentTok{# metode korelasi}
@@ -8603,7 +8687,16 @@ dihasilkan pada Gambar \ref{fig:gplotsboxplot2}:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(gplots)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'gplots' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{boxplot2}\NormalTok{(len }\OperatorTok{~}\StringTok{ }\NormalTok{dose, }\DataTypeTok{data =}\NormalTok{ ToothGrowth)}
 \end{Highlighting}
@@ -8777,7 +8870,16 @@ dataset tersebut:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(gapminder)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'gapminder' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# memuat paket dplyr dan tibble}
 \KeywordTok{library}\NormalTok{(dplyr)}
 \KeywordTok{library}\NormalTok{(tibble)}
@@ -10589,6 +10691,11 @@ menginstall dan memuat paket tersebut:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'ggthemes' was built under R version
+## 3.5.3
+\end{verbatim}
+
 tema-tema yang tersedia pada paket tersebut antara lain:
 
 \begin{itemize}
@@ -10665,7 +10772,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x0000000015fa8038>
+## <bytecode: 0x0000000018363eb0>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -10884,7 +10991,16 @@ yang dihasilkan pada Gambar \ref{fig:gglimits4}.
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(scales)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'scales' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
@@ -11794,7 +11910,16 @@ dalam proses membaca data.
 \begin{Highlighting}[]
 \CommentTok{# memuat library}
 \KeywordTok{library}\NormalTok{(readxl)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'readxl' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# memuat data excel}
 \NormalTok{data_gw <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"hhappc.xls"}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{"appc16"}\NormalTok{)}
 
@@ -12540,7 +12665,16 @@ menggunakan fungsi \texttt{stat.desc()}:
 \begin{Highlighting}[]
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(pastecs)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'pastecs' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# ringkasan data}
 \KeywordTok{stat.desc}\NormalTok{(data_gw)}
 \end{Highlighting}
@@ -14051,7 +14185,7 @@ sebagai berikut:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# persamaan hanya dapat digunakan untuk data yang telah ditransformasi}
+\CommentTok{# persamaan hanya dapat digunakan untuk data yang telah ditransformasi lognormal}
 
 \NormalTok{med_gm <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, alpha)\{}
   \CommentTok{# rata-rata geometrik}
