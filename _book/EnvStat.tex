@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-04-08}
+    \date{2019-04-09}
 
 \usepackage{booktabs}
 
@@ -189,11 +189,6 @@ Chambers} dan rekan-rekan dari \textbf{Bell Laboratories} yang memiliki
 fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara
 keduanya adalah \texttt{R} merupakan sistem komputasi yang bersifat
 gratis.Logo \texttt{R} dapat dilihat pada Gambar \ref{fig:Logo}.
-
-\begin{verbatim}
-## Warning: package 'knitr' was built under R version
-## 3.5.3
-\end{verbatim}
 
 \begin{figure}
 
@@ -734,8 +729,12 @@ menghitung median.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "elNamed"        "elNamed<-"      "median"        
-## [4] "median.default" "medpolish"      "runmed"
+##  [1] "decmedian"       "elNamed"        
+##  [3] "elNamed<-"       "interp.median"  
+##  [5] "median"          "median.default" 
+##  [7] "median_hilow"    "mediate"        
+##  [9] "mediate.diagram" "medpolish"      
+## [11] "runmed"
 \end{verbatim}
 
 \emph{List} yang dihasilkan berupa fungsi-fungsi yang memiliki elemen
@@ -4451,11 +4450,6 @@ sudah ada menjadi tibble menggunakan fungsi \texttt{as\_tibble()}.
 Berikut adalah contoh bagaimana membuat tibble mengunakan data
 \texttt{iris}:
 
-\begin{verbatim}
-## Warning: package 'tibble' was built under R version
-## 3.5.3
-\end{verbatim}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# memuat data mtcars}
@@ -4847,22 +4841,6 @@ yang dapat pembaca cermati terkait manakah data yang telah rapi
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(EDAWR)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'EDAWR'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked _by_ '.GlobalEnv':
-## 
-##     a, b, y, z
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# memuat dataset}
 \NormalTok{storms <-}\StringTok{ }\NormalTok{EDAWR}\OperatorTok{::}\NormalTok{storms}
 \NormalTok{cases}
@@ -5098,11 +5076,6 @@ menginstall library tersebut:
 \KeywordTok{library}\NormalTok{(tidyr)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'tidyr' was built under R version
-## 3.5.3
-\end{verbatim}
 
 \subsection{Gather}\label{gather}
 
@@ -5942,16 +5915,7 @@ Berikut adalah contoh penerapan \texttt{selct()} pada data frame
 
 \CommentTok{# memuat data frame}
 \KeywordTok{library}\NormalTok{(nycflights13)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'nycflights13' was built under R
-## version 3.5.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# data}
 \NormalTok{flights}
 \end{Highlighting}
@@ -6496,22 +6460,6 @@ Berikut adalah sintaks untuk melakukannya:
 
 \CommentTok{# Dengan pipe operator}
 \KeywordTok{library}\NormalTok{(magrittr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'magrittr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:tidyr':
-## 
-##     extract
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{delays <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(dest) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarize}\NormalTok{(}
@@ -6541,17 +6489,6 @@ Berikut adalah sintaks untuk melakukannya:
 ##  9 BHM     297  866. 16.9 
 ## 10 BNA    6333  758. 11.8 
 ## # ... with 86 more rows
-\end{verbatim}
-
-\begin{verbatim}
-## 
-## Attaching package: 'ggplot2'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'mtcars':
-## 
-##     mpg
 \end{verbatim}
 
 \begin{verbatim}
@@ -8548,10 +8485,6 @@ ada pada \texttt{R}. Output yang dihasilkan disajikan pada Gambar
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Loading required package: grid
-\end{verbatim}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/color-1} 
@@ -8583,15 +8516,7 @@ pada Gambar \ref{fig:carscatter}:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(car)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'car' was built under R version 3.5.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{scatterplot}\NormalTok{(Volume}\OperatorTok{~}\NormalTok{Height, }\DataTypeTok{data=}\NormalTok{trees)}
 \end{Highlighting}
@@ -8641,16 +8566,7 @@ output yang dihasilkan pada Gambar \ref{fig:psychscatter}:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(psych)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'psych' was built under R version
-## 3.5.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{pairs.panels}\NormalTok{(trees, }
              \DataTypeTok{method =} \StringTok{"pearson"}\NormalTok{, }\CommentTok{# metode korelasi}
@@ -8687,16 +8603,7 @@ dihasilkan pada Gambar \ref{fig:gplotsboxplot2}:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(gplots)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'gplots' was built under R version
-## 3.5.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{boxplot2}\NormalTok{(len }\OperatorTok{~}\StringTok{ }\NormalTok{dose, }\DataTypeTok{data =}\NormalTok{ ToothGrowth)}
 \end{Highlighting}
@@ -8870,16 +8777,7 @@ dataset tersebut:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(gapminder)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'gapminder' was built under R version
-## 3.5.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# memuat paket dplyr dan tibble}
 \KeywordTok{library}\NormalTok{(dplyr)}
 \KeywordTok{library}\NormalTok{(tibble)}
@@ -10691,11 +10589,6 @@ menginstall dan memuat paket tersebut:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'ggthemes' was built under R version
-## 3.5.3
-\end{verbatim}
-
 tema-tema yang tersedia pada paket tersebut antara lain:
 
 \begin{itemize}
@@ -10772,7 +10665,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x0000000027f4a688>
+## <bytecode: 0x00000000154a0ca0>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -10991,16 +10884,7 @@ yang dihasilkan pada Gambar \ref{fig:gglimits4}.
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(scales)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'scales' was built under R version
-## 3.5.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
@@ -11910,16 +11794,7 @@ dalam proses membaca data.
 \begin{Highlighting}[]
 \CommentTok{# memuat library}
 \KeywordTok{library}\NormalTok{(readxl)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'readxl' was built under R version
-## 3.5.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# memuat data excel}
 \NormalTok{data_gw <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"hhappc.xls"}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{"appc16"}\NormalTok{)}
 
@@ -12665,16 +12540,7 @@ menggunakan fungsi \texttt{stat.desc()}:
 \begin{Highlighting}[]
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(pastecs)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'pastecs' was built under R version
-## 3.5.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# ringkasan data}
 \KeywordTok{stat.desc}\NormalTok{(data_gw)}
 \end{Highlighting}
@@ -13962,7 +13828,7 @@ membuat fungsi sebagai berikut:
 
 Fungsi yang telah dibuat tersebut selanjutnya dapat pembaca gunakan saat
 akan menghitung interval kepercayaan median populasi menggunakan metode
-non parametrik. Berikut penerapannya menggunakan data pada Tabel
+Nonparametrik. Berikut penerapannya menggunakan data pada Tabel
 \ref{tab:gwardat} yang telah disimpan kedalam objek \texttt{gwardat}.
 
 \begin{Shaded}
@@ -13978,7 +13844,7 @@ non parametrik. Berikut penerapannya menggunakan data pada Tabel
 
 Alternatif lain yang dapat digunakan untuk menghitung interval
 kepercayaan jika sampel cukup besar n\textgreater{}20 menggunakan metode
-non parametrik adalah dengan menggunakan pendekatan tabel distribusi
+Nonparametrik adalah dengan menggunakan pendekatan tabel distribusi
 normal untuk memperkirakan distribusi binomial. Dengan menggunakan
 pendekatan ini, hanya sebagian kecil tabel distribusi binomial (n=20)
 yang diperlukan untuk melakukannya. Nilai kritis \(z_{\alpha/2}\) dari
@@ -14217,7 +14083,7 @@ sebagai berikut:
 \end{verbatim}
 
 Pembaca perlu berhati-hati dalam menentukan apakah akan menggunakan
-metode non parametrik atau parametrik. Jika data berditribusi lognormal
+metode Nonparametrik atau parametrik. Jika data berditribusi lognormal
 kita dapat menggunakan metode parametrik.
 
 \section{Interval Kepercayaan Mean}\label{interval-kepercayaan-mean}
@@ -14471,6 +14337,223 @@ distribusi normal.
 \begin{verbatim}
 ##    Mean Lower.CL Upper.CL
 ## 1 98.35    40.11    660.9
+\end{verbatim}
+
+\section{Interval Prediksi
+Nonparametrik}\label{interval-prediksi-nonparametrik}
+
+Pertanyaan yang sering diajukan adalah apakah satu pengamatan baru
+kemungkinan berasal dari distribusi yang sama dengan data yang
+dikumpulkan sebelumnya, atau sebagai alternatif dari distribusi yang
+berbeda. Pertanyaan dapat dievaluasi dengan menentukan apakah pengamatan
+baru di luar interval prediksi yang dihitung dari data yang ada.
+Interval prediksi mengandung \(100*(1 − \alpha)\) persen dari distribusi
+data, sementara \(100*\alpha\) persen berada di luar interval. Jika
+pengamatan baru datang dari distribusi yang sama dengan data yang diukur
+sebelumnya, ada kemungkinan \(100*\alpha\) persen bahwa pengamatan baru
+tersebut akan berada di luar interval prediksi. Karena pengamatan baru
+tersebut berada di luar interval tidak ``membuktikan'' pengamatan baru
+itu berbeda, hanya saja sepertinya begitu. Seberapa besar kemungkinan
+ini tergantung pada pilihan \(\alpha\) yang ditentukan oleh peneliti.
+
+Interval prediksi dihitung dengan tujuan yang berbeda dari interval
+kepercayaan. Interval prediksi terkait dengan nilai data individu yang
+berlawanan dengan ringkasan statistik seperti nilai mean. Interval
+prediksi lebih luas daripada interval kepercayaan, karena pengamatan
+individu lebih bervariasi daripada ringkasan statistik yang dihitung
+dari beberapa pengamatan. Tidak seperti interval kepercayaan, interval
+prediksi memperhitungkan variabilitas titik data tunggal di sekitar
+median atau rata-rata, di samping kesalahan dalam memperkirakan pusat
+distribusi. Ketika mean \(\pm\) 2 standar deviasi secara keliru
+digunakan untuk memperkirakan lebar interval prediksi, data baru
+dinyatakan berasal dari populasi yang berbeda lebih sering daripada yang
+seharusnya.
+
+\subsection{Interval Prediksi Nonparametrik Dua
+Sisi}\label{interval-prediksi-nonparametrik-dua-sisi}
+
+Interval prediksi tingkat kepercayaan nonparametrik α secara sederhana
+dinyatakan sebagai interval antara persentil distribusi \(\alpha/2\) dan
+\(1− (\alpha/2)\) (Gambar \ref{fig:ipnds}). Interval ini mengandung
+\(100*(\alpha/2)\) data, sedangkan \(100*\alpha\) persen berada di luar
+interval. Oleh karena itu jika titik data tambahan baru berasal dari
+distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan
+\(100*\alpha\) persen bahwa itu akan berada di luar interval prediksi.
+Interval akan mencerminkan bentuk data yang dikembangkannya, dan tidak
+ada asumsi tentang bentuk bentuk yang perlu dibuat. Interval prediksi
+nonparametrik dua sisi dinyatakan berdasarkan Persamaan
+\eqref{eq:eqipnds}.
+
+\begin{equation}
+  PI_{np}=X_{\frac{\alpha}{2}\cdot\left(n+1\right)}\ sampai\ dengan\ X_{\left[1-\left(\frac{\alpha}{2}\right)\right]\cdot\left(n+1\right)}
+  \label{eq:eqipnds}
+\end{equation}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{ipnds} 
+
+}
+
+\caption{Prediksi interval dua sisi}\label{fig:ipnds}
+\end{figure}
+
+Kita akan kembali menggunakan data pada Tabel \ref{tab:gwardat}. Dengan
+menggunakan tingkat kepercayaan 90\% kita diminta untuk menentukan
+interval prediksi dari konsentrasi arsenik pada data tersebut tanpa
+mengasumsikan distribusi dari data.
+
+Untuk melakukannya kita perlu menentukan observasi ke-2,5 dan 97,5
+(berdasarkan nilai \(\alpha/2\)) dengan rangking observasi berdasarkan
+Persamaan \eqref{eq:eqipnds} adalah \((0,05*26)\) atau rangking observasi
+antara observasi 1 (\(R_1\)) dan 2 (\(R_2\)) dan \((0,95*26)\) rangking
+observasi antara observasi 24 (\(R_{24}\)) dan 25 (\(R_{25}\)). Dengan
+menggunakan interpolasi linier pada observasi ke-1, 2 , 24 dan 25,
+interval prediksi yang diperoleh adalah sebagai berikut:
+
+\begin{equation}
+  X_1+\left(\frac{R_{\left(0.05\cdot26\right)}-R_1}{R_2-R_1}\right)\cdot\left(X_2-X_1\right)\ sampai\ dengan\ X_{24}+\left(\frac{R_{\left(0.95\cdot26\right)}-R_{24}}{R_{25}-R_{24}}\right)\cdot\left(X_{25}-X_4\right)
+\end{equation}
+
+\begin{equation}
+  1,3+\left(\frac{1,3-1}{2-1}\right)\cdot\left(1,5-1,3\right)\ sampai\ dengan\ 340+\left(\frac{24,5-24}{25-24}\right)\cdot\left(580-340\right)
+\end{equation}
+
+\begin{equation}
+  1,4\ sampai\ dengan\ 508\ ppb
+\end{equation}
+
+Observasi baru diluar rentang tersebut akan dianggap berasal dari
+distribusi yang berbeda dengan tingkat error sebesar 10\%
+(\(\alpha\)=10\%).
+
+Dengan menggunakan \texttt{R} pembaca depat menghitung interval prediksi
+menggunakan fungsi berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PInp <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, alpha)\{}
+  \CommentTok{# jumlah observasi}
+\NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+  \CommentTok{# menghitung alpha masing-masing sisi}
+\NormalTok{  err <-}\StringTok{ }\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}
+  \CommentTok{# menentukan rangkin observasi sesuai alpha}
+\NormalTok{  rl =}\StringTok{ }\NormalTok{err}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}
+\NormalTok{  ru =}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{err)}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}
+  \CommentTok{# menentukan observasi untuk interpolasi linier}
+\NormalTok{  rl_}\DecValTok{1}\NormalTok{=}\StringTok{ }\KeywordTok{ceiling}\NormalTok{(rl) }\CommentTok{# bulatkan ke bawah}
+\NormalTok{  rl_}\DecValTok{2}\NormalTok{=}\StringTok{ }\KeywordTok{floor}\NormalTok{(rl) }\CommentTok{# bulatkan ke atas}
+\NormalTok{  ru_}\DecValTok{1}\NormalTok{=}\StringTok{ }\KeywordTok{ceiling}\NormalTok{(ru) }
+\NormalTok{  ru_}\DecValTok{2}\NormalTok{=}\StringTok{ }\KeywordTok{floor}\NormalTok{(ru)}
+  \CommentTok{# menentukan interval prediksi}
+\NormalTok{  LPI =}\StringTok{ }\KeywordTok{round}\NormalTok{(x[rl_}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\NormalTok{((rl}\OperatorTok{-}\NormalTok{rl_}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\NormalTok{(rl_}\DecValTok{2}\OperatorTok{-}\NormalTok{rl_}\DecValTok{1}\NormalTok{))}\OperatorTok{*}\NormalTok{(x[rl_}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{x[rl_}\DecValTok{1}\NormalTok{]),}\DecValTok{1}\NormalTok{)}
+\NormalTok{  UPI =}\StringTok{ }\KeywordTok{round}\NormalTok{(x[ru_}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\NormalTok{((ru}\OperatorTok{-}\NormalTok{ru_}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\NormalTok{(ru_}\DecValTok{2}\OperatorTok{-}\NormalTok{ru_}\DecValTok{1}\NormalTok{))}\OperatorTok{*}\NormalTok{(x[ru_}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{x[ru_}\DecValTok{1}\NormalTok{]),}\DecValTok{1}\NormalTok{)}
+  \CommentTok{# menggabungkan hasil}
+\NormalTok{  data =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\StringTok{"Lower PI"}\NormalTok{=LPI,}
+                    \StringTok{"Upper PI"}\NormalTok{=UPI)}
+  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{PInp}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Lower.PI Upper.PI
+## 1      1.4      508
+\end{verbatim}
+
+\subsection{Interval Prediksi Nonparametrik Satu
+Sisi}\label{interval-prediksi-nonparametrik-satu-sisi}
+
+Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah
+pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari
+data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan
+interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang
+menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan
+bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih
+kecil, daripada informasi yang ada. Interval satu sisi menggunakan
+\(\alpha\) dibanding \(\alpha/2\) sebagai nilai error, menempatkan semua
+erro di satu sisi interval (Gambar \ref{fig:ipss}). Interval prediksi
+dituliskan berdasarkan Persamaan \eqref{eq:eqipss}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{ipss} 
+
+}
+
+\caption{Prediksi interval satu sisi}\label{fig:ipss}
+\end{figure}
+
+\begin{equation}
+  PI_{np}:\ x_{baru}<X_{\alpha\cdot\left(n+1\right)}\ atau\ x_{baru}>X_{\left[1-\alpha\right]\cdot\left(n+1\right)}
+  \label{eq:eqipss}
+\end{equation}
+
+Untuk memahami penerapannya, misalkan kita memiliki nilai arsenik baru
+dengan konsentrasi 355 ppb. Kita perlu menentukan apakah nilai tersebut
+lebih besar dari sebagian besar data yang ada.
+
+Dengan menggunakan Persamaan \eqref{eq:eqipss} dan \(\alpha\)=0,1 atau
+tingkat kepercayaan 90\%, interval prediksi satu sisi atau data teratas
+dari persentil ke-90 dari data yang ada adalah \(X_{0,9}*26=X_{23,4}\).
+Dengan menggunakan interpolasi linier pada observasi data dengan
+rangking ke-23 (\(R_{23}\)) dan 24 (\(R_{23}\)) diperoleh:
+
+\begin{equation}
+  X_{23}+0,4\cdot\left(X_{24}-X_{23}\right)=300+0,4\cdot40=316\ ppb
+\end{equation}
+
+Berdasarkan data yang diperoleh diketahui bahwa batas atas dari interval
+prediksi adalah 316\textless{}355 pbb, sehingga disimpulkan bahwa
+konsentrasi 355 pbb lebih besar dari sebagian besar data yang ada.
+
+Dengan menggunakan \texttt{R} interval prediksi menggunakan satu sisi
+dapat dihitung menggunakan fungsi berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PInp_os <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, obs, alpha, side)\{}
+  \CommentTok{# jumlah observasi}
+\NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+  \CommentTok{# rangking observasi}
+\NormalTok{  ru=(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha)}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}
+\NormalTok{  ru_}\DecValTok{1}\NormalTok{=}\KeywordTok{ceiling}\NormalTok{(ru)}
+\NormalTok{  ru_}\DecValTok{2}\NormalTok{=}\KeywordTok{floor}\NormalTok{(ru)}
+\NormalTok{  rl=alpha}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}
+\NormalTok{  rl_}\DecValTok{1}\NormalTok{=}\KeywordTok{ceiling}\NormalTok{(rl)}
+\NormalTok{  rl_}\DecValTok{2}\NormalTok{=}\KeywordTok{floor}\NormalTok{(rl)}
+  \CommentTok{# perhitungan interval atas dan bawah}
+\NormalTok{  PIup =}\StringTok{ }\NormalTok{x[ru_}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\NormalTok{((ru}\OperatorTok{-}\NormalTok{ru_}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\NormalTok{(ru_}\DecValTok{2}\OperatorTok{-}\NormalTok{ru_}\DecValTok{1}\NormalTok{))}\OperatorTok{*}\NormalTok{(x[ru_}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{x[ru_}\DecValTok{1}\NormalTok{])}
+\NormalTok{  PIdown =}\StringTok{ }\NormalTok{x[rl_}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\NormalTok{((rl}\OperatorTok{-}\NormalTok{rl_}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\NormalTok{(rl_}\DecValTok{2}\OperatorTok{-}\NormalTok{rl_}\DecValTok{1}\NormalTok{))}\OperatorTok{*}\NormalTok{(x[rl_}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{x[rl_}\DecValTok{1}\NormalTok{])}
+  \CommentTok{# decision making}
+  \ControlFlowTok{if}\NormalTok{((side}\OperatorTok{==}\StringTok{"upper"}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(PIup}\OperatorTok{<}\NormalTok{obs))\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"PI ="}\NormalTok{,PIup,}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih besar dibadingkan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{((side}\OperatorTok{==}\StringTok{"lower"}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(PIdown}\OperatorTok{>}\NormalTok{obs))\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"PI ="}\NormalTok{,PIdown,}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih kecil dibadingkan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{""}\NormalTok{)\{}
+    \KeywordTok{print}\NormalTok{(}\StringTok{"side belum ditentukan tentukan apakah lower atau upper"}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"batas bawah ="}\NormalTok{,PIdown,}\StringTok{", batas atas ="}\NormalTok{,PIup,}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi sama dengan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{PInp_os}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{obs=}\DecValTok{355}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.1}\NormalTok{, }\DataTypeTok{side=}\StringTok{"upper"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## PI = 316 
+## nilai observasi lebih besar dibadingkan sebagian besar nilai yang ada
 \end{verbatim}
 
 \bibliography{book.bib,packages.bib}

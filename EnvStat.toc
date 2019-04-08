@@ -2,7 +2,7 @@
 \contentsline {part}{Bahasa Pemrograman R}{19}{part*.5}% 
 \contentsline {chapter}{\numberline {1}Mengenal Bahasa R}{19}{chapter.1}% 
 \contentsline {section}{\numberline {1.1}Sejarah R}{19}{section.1.1}% 
-\contentsline {section}{\numberline {1.2}Fitur dan Karakteristik R}{20}{section.1.2}% 
+\contentsline {section}{\numberline {1.2}Fitur dan Karakteristik R}{19}{section.1.2}% 
 \contentsline {section}{\numberline {1.3}Kelebihan dan Kekurangan R}{20}{section.1.3}% 
 \contentsline {section}{\numberline {1.4}RStudio}{21}{section.1.4}% 
 \contentsline {section}{\numberline {1.5}Menginstall R dan RStudio}{21}{section.1.5}% 
@@ -65,104 +65,107 @@
 \contentsline {section}{\numberline {3.3}Tibble Data Format}{73}{section.3.3}% 
 \contentsline {subsection}{\numberline {3.3.1}Membuat Tibble}{73}{subsection.3.3.1}% 
 \contentsline {subsection}{\numberline {3.3.2}Tibble vs Data Frame}{76}{subsection.3.3.2}% 
-\contentsline {section}{\numberline {3.4}Merapikan Data}{79}{section.3.4}% 
-\contentsline {subsection}{\numberline {3.4.1}Gather}{82}{subsection.3.4.1}% 
+\contentsline {section}{\numberline {3.4}Merapikan Data}{78}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.4.1}Gather}{81}{subsection.3.4.1}% 
 \contentsline {subsection}{\numberline {3.4.2}Spread}{83}{subsection.3.4.2}% 
-\contentsline {subsection}{\numberline {3.4.3}Separate}{85}{subsection.3.4.3}% 
-\contentsline {subsection}{\numberline {3.4.4}Unite}{86}{subsection.3.4.4}% 
-\contentsline {section}{\numberline {3.5}Transformasi Data}{87}{section.3.5}% 
+\contentsline {subsection}{\numberline {3.4.3}Separate}{84}{subsection.3.4.3}% 
+\contentsline {subsection}{\numberline {3.4.4}Unite}{85}{subsection.3.4.4}% 
+\contentsline {section}{\numberline {3.5}Transformasi Data}{86}{section.3.5}% 
 \contentsline {subsection}{\numberline {3.5.1}Paket dplyr}{87}{subsection.3.5.1}% 
 \contentsline {subsection}{\numberline {3.5.2}filter()}{88}{subsection.3.5.2}% 
 \contentsline {subsection}{\numberline {3.5.3}arrange()}{89}{subsection.3.5.3}% 
-\contentsline {subsection}{\numberline {3.5.4}select()}{92}{subsection.3.5.4}% 
+\contentsline {subsection}{\numberline {3.5.4}select()}{91}{subsection.3.5.4}% 
 \contentsline {subsection}{\numberline {3.5.5}mutate()}{95}{subsection.3.5.5}% 
 \contentsline {subsection}{\numberline {3.5.6}summarize() dan group\_by()}{98}{subsection.3.5.6}% 
-\contentsline {subsection}{\numberline {3.5.7}Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (\%\textgreater {}\%)}{99}{subsection.3.5.7}% 
+\contentsline {subsection}{\numberline {3.5.7}Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (\%\textgreater {}\%)}{98}{subsection.3.5.7}% 
 \contentsline {section}{\numberline {3.6}Referensi}{100}{section.3.6}% 
-\contentsline {part}{Visualisasi Data - R}{105}{part*.6}% 
-\contentsline {chapter}{\numberline {4}Visualisasi Data Menggunakan Fungsi Dasar R}{105}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Visualisasi Data Menggunakan Fungsi plot()}{105}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}Matriks Scatterplot}{108}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Box plot}{113}{section.4.3}% 
-\contentsline {section}{\numberline {4.4}Bar Plot}{117}{section.4.4}% 
-\contentsline {section}{\numberline {4.5}Line Plot}{118}{section.4.5}% 
-\contentsline {section}{\numberline {4.6}Pie Chart}{120}{section.4.6}% 
-\contentsline {section}{\numberline {4.7}Histogram dan Density Plot}{121}{section.4.7}% 
-\contentsline {section}{\numberline {4.8}QQ Plot}{123}{section.4.8}% 
-\contentsline {section}{\numberline {4.9}Dot Chart}{124}{section.4.9}% 
-\contentsline {section}{\numberline {4.10}Kustomisasi Parameter Grafik}{125}{section.4.10}% 
-\contentsline {subsection}{\numberline {4.10.1}Menambahkan Judul}{125}{subsection.4.10.1}% 
-\contentsline {subsection}{\numberline {4.10.2}Menambahkan Legend}{128}{subsection.4.10.2}% 
-\contentsline {subsection}{\numberline {4.10.3}Menambahkan Teks Pada Grafik}{132}{subsection.4.10.3}% 
-\contentsline {subsection}{\numberline {4.10.4}Menambahkan Garis Pada Plot}{134}{subsection.4.10.4}% 
-\contentsline {subsection}{\numberline {4.10.5}Merubah Simbol plot dan Jenis Garis}{136}{subsection.4.10.5}% 
-\contentsline {subsection}{\numberline {4.10.6}Mengatur Axis Plot}{138}{subsection.4.10.6}% 
-\contentsline {subsection}{\numberline {4.10.7}Mengatur Warna}{142}{subsection.4.10.7}% 
-\contentsline {section}{\numberline {4.11}Alternatif Library Dasar Lain}{143}{section.4.11}% 
-\contentsline {subsection}{\numberline {4.11.1}Scatterplot Menggunakan Library car}{143}{subsection.4.11.1}% 
-\contentsline {subsection}{\numberline {4.11.2}Matriks Scatterplot Menggunakan Library psych}{144}{subsection.4.11.2}% 
-\contentsline {subsection}{\numberline {4.11.3}Box Plot Menggunakan Library gplots}{145}{subsection.4.11.3}% 
-\contentsline {subsection}{\numberline {4.11.4}QQ Plot Menggunakan Library car}{145}{subsection.4.11.4}% 
-\contentsline {subsection}{\numberline {4.11.5}Plot Group Means Menggunakan Library gplots}{146}{subsection.4.11.5}% 
-\contentsline {section}{\numberline {4.12}Referensi}{148}{section.4.12}% 
-\contentsline {chapter}{\numberline {5}Visualisasi Data Menggunakan GGPLOT}{149}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Scatterplot}{150}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Box Plot dan Violin Plot}{155}{section.5.2}% 
-\contentsline {section}{\numberline {5.3}Bar Plot}{158}{section.5.3}% 
-\contentsline {section}{\numberline {5.4}Line Plot}{162}{section.5.4}% 
-\contentsline {section}{\numberline {5.5}Pie Chart}{163}{section.5.5}% 
-\contentsline {section}{\numberline {5.6}Histogram dan Desity Plot}{164}{section.5.6}% 
-\contentsline {section}{\numberline {5.7}QQ Plot}{166}{section.5.7}% 
-\contentsline {section}{\numberline {5.8}Dot Plot}{168}{section.5.8}% 
-\contentsline {section}{\numberline {5.9}ECDF Plot}{170}{section.5.9}% 
-\contentsline {section}{\numberline {5.10}Parameter Grafik}{170}{section.5.10}% 
-\contentsline {subsection}{\numberline {5.10.1}Merubah Judul Grafik, Keterangan Axis dan Legend}{170}{subsection.5.10.1}% 
-\contentsline {subsection}{\numberline {5.10.2}Merubah Tampilan dan Posisi Legend}{173}{subsection.5.10.2}% 
-\contentsline {subsection}{\numberline {5.10.3}Merubah Warana Pada Grafik Secara Otomatis dan Manual}{177}{subsection.5.10.3}% 
-\contentsline {subsection}{\numberline {5.10.4}Kustomisasi Titik}{182}{subsection.5.10.4}% 
-\contentsline {subsection}{\numberline {5.10.5}Kustomisasi Jenis Garis}{184}{subsection.5.10.5}% 
-\contentsline {subsection}{\numberline {5.10.6}Menambahkan Label Pada Titik Observasi dan Bidang Plot}{187}{subsection.5.10.6}% 
-\contentsline {subsection}{\numberline {5.10.7}Kustomisasi Tema Pada Plot}{190}{subsection.5.10.7}% 
-\contentsline {subsection}{\numberline {5.10.8}Penskalaan dan Transformasi Axis}{193}{subsection.5.10.8}% 
-\contentsline {subsection}{\numberline {5.10.9}Kustomisasi Tick Mark Axis}{197}{subsection.5.10.9}% 
-\contentsline {subsection}{\numberline {5.10.10}Menambahkan Garis Lurus Pada Plot}{201}{subsection.5.10.10}% 
-\contentsline {subsection}{\numberline {5.10.11}Melakukan Rotasi Pada Grafik}{204}{subsection.5.10.11}% 
-\contentsline {subsection}{\numberline {5.10.12}Facet}{205}{subsection.5.10.12}% 
-\contentsline {section}{\numberline {5.11}Referensi}{208}{section.5.11}% 
-\contentsline {part}{Statistika Deskriptif - R}{213}{part*.7}% 
-\contentsline {chapter}{\numberline {6}Ringkasan Numerik}{213}{chapter.6}% 
-\contentsline {section}{\numberline {6.1}Ukuran Pemusatan Data}{213}{section.6.1}% 
-\contentsline {subsection}{\numberline {6.1.1}Pengukuran Klasik-Mean}{213}{subsection.6.1.1}% 
-\contentsline {subsection}{\numberline {6.1.2}Median Sebagai Ukuran Pemusatan Data yang Resistan}{218}{subsection.6.1.2}% 
-\contentsline {subsection}{\numberline {6.1.3}Ukuran Pemusatan Data Lainnya}{219}{subsection.6.1.3}% 
-\contentsline {section}{\numberline {6.2}Ukuran Sebaran Data}{221}{section.6.2}% 
-\contentsline {subsection}{\numberline {6.2.1}Pengukuran Klasik (Varian dan Simpangan Baku)}{221}{subsection.6.2.1}% 
-\contentsline {subsection}{\numberline {6.2.2}Ukuran Sebaran Data yang Resisten Terhadap Outlier}{223}{subsection.6.2.2}% 
-\contentsline {section}{\numberline {6.3}Ringkasan Data Menggunakan Fungsi summary() dan stat.desc()}{224}{section.6.3}% 
-\contentsline {section}{\numberline {6.4}Ukuran Kemencengan Data}{225}{section.6.4}% 
-\contentsline {subsection}{\numberline {6.4.1}Ukuran Kemencengan Klasik}{226}{subsection.6.4.1}% 
-\contentsline {subsection}{\numberline {6.4.2}Ukuran Kemencengan yang Resisten}{227}{subsection.6.4.2}% 
-\contentsline {section}{\numberline {6.5}Outlier}{227}{section.6.5}% 
-\contentsline {section}{\numberline {6.6}Transformasi Data}{228}{section.6.6}% 
-\contentsline {section}{\numberline {6.7}Referensi}{230}{section.6.7}% 
-\contentsline {chapter}{\numberline {7}Ekplorasi Data Menggunakan Grafik}{233}{chapter.7}% 
-\contentsline {section}{\numberline {7.1}Grafik Untuk Melihat Ditribusi Data}{233}{section.7.1}% 
-\contentsline {subsection}{\numberline {7.1.1}Histogram}{235}{subsection.7.1.1}% 
-\contentsline {subsection}{\numberline {7.1.2}Density Plot}{236}{subsection.7.1.2}% 
-\contentsline {subsection}{\numberline {7.1.3}QQ-plot}{236}{subsection.7.1.3}% 
-\contentsline {subsection}{\numberline {7.1.4}Box Plot dan Violin Plot}{236}{subsection.7.1.4}% 
-\contentsline {section}{\numberline {7.2}Grafik Untuk Melihat Beda Distribusi Data Antar Grup}{238}{section.7.2}% 
-\contentsline {section}{\numberline {7.3}Grafik Untuk Memvisualisasikan Korelasi Antar Variabel}{240}{section.7.3}% 
-\contentsline {section}{\numberline {7.4}Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar Variabel}{241}{section.7.4}% 
-\contentsline {section}{\numberline {7.5}Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang Waktu}{242}{section.7.5}% 
-\contentsline {section}{\numberline {7.6}Referensi}{243}{section.7.6}% 
-\contentsline {part}{Statistika Inferensi - R}{247}{part*.8}% 
-\contentsline {chapter}{\numberline {8}Penaksiran Secara Statistika}{247}{chapter.8}% 
-\contentsline {section}{\numberline {8.1}Definisi Interval Estimasi}{247}{section.8.1}% 
-\contentsline {section}{\numberline {8.2}Interpretasi Interval Estimasi}{248}{section.8.2}% 
-\contentsline {section}{\numberline {8.3}Interval Kepercayaan Median}{249}{section.8.3}% 
-\contentsline {subsection}{\numberline {8.3.1}Interval Estimasi Median Metode Nonparametrik}{249}{subsection.8.3.1}% 
-\contentsline {subsection}{\numberline {8.3.2}Metode Parametrik Interval Estimasi Median}{254}{subsection.8.3.2}% 
-\contentsline {section}{\numberline {8.4}Interval Kepercayaan Mean}{256}{section.8.4}% 
-\contentsline {subsection}{\numberline {8.4.1}Interval Kepercayaan Mean Untuk Distribusi Yang Simetris}{257}{subsection.8.4.1}% 
-\contentsline {subsection}{\numberline {8.4.2}Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris}{258}{subsection.8.4.2}% 
+\contentsline {part}{Visualisasi Data - R}{103}{part*.6}% 
+\contentsline {chapter}{\numberline {4}Visualisasi Data Menggunakan Fungsi Dasar R}{103}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Visualisasi Data Menggunakan Fungsi plot()}{103}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Matriks Scatterplot}{106}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Box plot}{111}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}Bar Plot}{115}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}Line Plot}{116}{section.4.5}% 
+\contentsline {section}{\numberline {4.6}Pie Chart}{118}{section.4.6}% 
+\contentsline {section}{\numberline {4.7}Histogram dan Density Plot}{119}{section.4.7}% 
+\contentsline {section}{\numberline {4.8}QQ Plot}{121}{section.4.8}% 
+\contentsline {section}{\numberline {4.9}Dot Chart}{122}{section.4.9}% 
+\contentsline {section}{\numberline {4.10}Kustomisasi Parameter Grafik}{123}{section.4.10}% 
+\contentsline {subsection}{\numberline {4.10.1}Menambahkan Judul}{123}{subsection.4.10.1}% 
+\contentsline {subsection}{\numberline {4.10.2}Menambahkan Legend}{126}{subsection.4.10.2}% 
+\contentsline {subsection}{\numberline {4.10.3}Menambahkan Teks Pada Grafik}{130}{subsection.4.10.3}% 
+\contentsline {subsection}{\numberline {4.10.4}Menambahkan Garis Pada Plot}{132}{subsection.4.10.4}% 
+\contentsline {subsection}{\numberline {4.10.5}Merubah Simbol plot dan Jenis Garis}{134}{subsection.4.10.5}% 
+\contentsline {subsection}{\numberline {4.10.6}Mengatur Axis Plot}{136}{subsection.4.10.6}% 
+\contentsline {subsection}{\numberline {4.10.7}Mengatur Warna}{140}{subsection.4.10.7}% 
+\contentsline {section}{\numberline {4.11}Alternatif Library Dasar Lain}{141}{section.4.11}% 
+\contentsline {subsection}{\numberline {4.11.1}Scatterplot Menggunakan Library car}{141}{subsection.4.11.1}% 
+\contentsline {subsection}{\numberline {4.11.2}Matriks Scatterplot Menggunakan Library psych}{142}{subsection.4.11.2}% 
+\contentsline {subsection}{\numberline {4.11.3}Box Plot Menggunakan Library gplots}{142}{subsection.4.11.3}% 
+\contentsline {subsection}{\numberline {4.11.4}QQ Plot Menggunakan Library car}{143}{subsection.4.11.4}% 
+\contentsline {subsection}{\numberline {4.11.5}Plot Group Means Menggunakan Library gplots}{145}{subsection.4.11.5}% 
+\contentsline {section}{\numberline {4.12}Referensi}{145}{section.4.12}% 
+\contentsline {chapter}{\numberline {5}Visualisasi Data Menggunakan GGPLOT}{147}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Scatterplot}{148}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Box Plot dan Violin Plot}{152}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Bar Plot}{156}{section.5.3}% 
+\contentsline {section}{\numberline {5.4}Line Plot}{160}{section.5.4}% 
+\contentsline {section}{\numberline {5.5}Pie Chart}{161}{section.5.5}% 
+\contentsline {section}{\numberline {5.6}Histogram dan Desity Plot}{162}{section.5.6}% 
+\contentsline {section}{\numberline {5.7}QQ Plot}{164}{section.5.7}% 
+\contentsline {section}{\numberline {5.8}Dot Plot}{166}{section.5.8}% 
+\contentsline {section}{\numberline {5.9}ECDF Plot}{168}{section.5.9}% 
+\contentsline {section}{\numberline {5.10}Parameter Grafik}{168}{section.5.10}% 
+\contentsline {subsection}{\numberline {5.10.1}Merubah Judul Grafik, Keterangan Axis dan Legend}{168}{subsection.5.10.1}% 
+\contentsline {subsection}{\numberline {5.10.2}Merubah Tampilan dan Posisi Legend}{171}{subsection.5.10.2}% 
+\contentsline {subsection}{\numberline {5.10.3}Merubah Warana Pada Grafik Secara Otomatis dan Manual}{175}{subsection.5.10.3}% 
+\contentsline {subsection}{\numberline {5.10.4}Kustomisasi Titik}{180}{subsection.5.10.4}% 
+\contentsline {subsection}{\numberline {5.10.5}Kustomisasi Jenis Garis}{182}{subsection.5.10.5}% 
+\contentsline {subsection}{\numberline {5.10.6}Menambahkan Label Pada Titik Observasi dan Bidang Plot}{185}{subsection.5.10.6}% 
+\contentsline {subsection}{\numberline {5.10.7}Kustomisasi Tema Pada Plot}{188}{subsection.5.10.7}% 
+\contentsline {subsection}{\numberline {5.10.8}Penskalaan dan Transformasi Axis}{191}{subsection.5.10.8}% 
+\contentsline {subsection}{\numberline {5.10.9}Kustomisasi Tick Mark Axis}{194}{subsection.5.10.9}% 
+\contentsline {subsection}{\numberline {5.10.10}Menambahkan Garis Lurus Pada Plot}{197}{subsection.5.10.10}% 
+\contentsline {subsection}{\numberline {5.10.11}Melakukan Rotasi Pada Grafik}{202}{subsection.5.10.11}% 
+\contentsline {subsection}{\numberline {5.10.12}Facet}{203}{subsection.5.10.12}% 
+\contentsline {section}{\numberline {5.11}Referensi}{206}{section.5.11}% 
+\contentsline {part}{Statistika Deskriptif - R}{211}{part*.7}% 
+\contentsline {chapter}{\numberline {6}Ringkasan Numerik}{211}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Ukuran Pemusatan Data}{211}{section.6.1}% 
+\contentsline {subsection}{\numberline {6.1.1}Pengukuran Klasik-Mean}{211}{subsection.6.1.1}% 
+\contentsline {subsection}{\numberline {6.1.2}Median Sebagai Ukuran Pemusatan Data yang Resistan}{215}{subsection.6.1.2}% 
+\contentsline {subsection}{\numberline {6.1.3}Ukuran Pemusatan Data Lainnya}{217}{subsection.6.1.3}% 
+\contentsline {section}{\numberline {6.2}Ukuran Sebaran Data}{219}{section.6.2}% 
+\contentsline {subsection}{\numberline {6.2.1}Pengukuran Klasik (Varian dan Simpangan Baku)}{219}{subsection.6.2.1}% 
+\contentsline {subsection}{\numberline {6.2.2}Ukuran Sebaran Data yang Resisten Terhadap Outlier}{221}{subsection.6.2.2}% 
+\contentsline {section}{\numberline {6.3}Ringkasan Data Menggunakan Fungsi summary() dan stat.desc()}{222}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Ukuran Kemencengan Data}{223}{section.6.4}% 
+\contentsline {subsection}{\numberline {6.4.1}Ukuran Kemencengan Klasik}{224}{subsection.6.4.1}% 
+\contentsline {subsection}{\numberline {6.4.2}Ukuran Kemencengan yang Resisten}{225}{subsection.6.4.2}% 
+\contentsline {section}{\numberline {6.5}Outlier}{225}{section.6.5}% 
+\contentsline {section}{\numberline {6.6}Transformasi Data}{226}{section.6.6}% 
+\contentsline {section}{\numberline {6.7}Referensi}{228}{section.6.7}% 
+\contentsline {chapter}{\numberline {7}Ekplorasi Data Menggunakan Grafik}{231}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}Grafik Untuk Melihat Ditribusi Data}{231}{section.7.1}% 
+\contentsline {subsection}{\numberline {7.1.1}Histogram}{233}{subsection.7.1.1}% 
+\contentsline {subsection}{\numberline {7.1.2}Density Plot}{234}{subsection.7.1.2}% 
+\contentsline {subsection}{\numberline {7.1.3}QQ-plot}{234}{subsection.7.1.3}% 
+\contentsline {subsection}{\numberline {7.1.4}Box Plot dan Violin Plot}{234}{subsection.7.1.4}% 
+\contentsline {section}{\numberline {7.2}Grafik Untuk Melihat Beda Distribusi Data Antar Grup}{236}{section.7.2}% 
+\contentsline {section}{\numberline {7.3}Grafik Untuk Memvisualisasikan Korelasi Antar Variabel}{238}{section.7.3}% 
+\contentsline {section}{\numberline {7.4}Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar Variabel}{239}{section.7.4}% 
+\contentsline {section}{\numberline {7.5}Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang Waktu}{240}{section.7.5}% 
+\contentsline {section}{\numberline {7.6}Referensi}{241}{section.7.6}% 
+\contentsline {part}{Statistika Inferensi - R}{245}{part*.8}% 
+\contentsline {chapter}{\numberline {8}Penaksiran Secara Statistika}{245}{chapter.8}% 
+\contentsline {section}{\numberline {8.1}Definisi Interval Estimasi}{245}{section.8.1}% 
+\contentsline {section}{\numberline {8.2}Interpretasi Interval Estimasi}{246}{section.8.2}% 
+\contentsline {section}{\numberline {8.3}Interval Kepercayaan Median}{247}{section.8.3}% 
+\contentsline {subsection}{\numberline {8.3.1}Interval Estimasi Median Metode Nonparametrik}{247}{subsection.8.3.1}% 
+\contentsline {subsection}{\numberline {8.3.2}Metode Parametrik Interval Estimasi Median}{252}{subsection.8.3.2}% 
+\contentsline {section}{\numberline {8.4}Interval Kepercayaan Mean}{254}{section.8.4}% 
+\contentsline {subsection}{\numberline {8.4.1}Interval Kepercayaan Mean Untuk Distribusi Yang Simetris}{255}{subsection.8.4.1}% 
+\contentsline {subsection}{\numberline {8.4.2}Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris}{256}{subsection.8.4.2}% 
+\contentsline {section}{\numberline {8.5}Interval Prediksi Nonparametrik}{258}{section.8.5}% 
+\contentsline {subsection}{\numberline {8.5.1}Interval Prediksi Nonparametrik Dua Sisi}{258}{subsection.8.5.1}% 
+\contentsline {subsection}{\numberline {8.5.2}Interval Prediksi Nonparametrik Satu Sisi}{260}{subsection.8.5.2}% 
