@@ -158,8 +158,11 @@
 \contentsline {section}{\numberline {7.6}Referensi}{243}{section.7.6}% 
 \contentsline {part}{Statistika Inferensi - R}{247}{part*.8}% 
 \contentsline {chapter}{\numberline {8}Penaksiran Secara Statistika}{247}{chapter.8}% 
-\contentsline {section}{\numberline {8.1}Definisi Rentang Estimasi}{247}{section.8.1}% 
-\contentsline {section}{\numberline {8.2}Interpretasi Rentang Estimasi}{248}{section.8.2}% 
-\contentsline {section}{\numberline {8.3}Rentang Kepercayaan Median}{249}{section.8.3}% 
-\contentsline {subsection}{\numberline {8.3.1}Rentang Estimasi Median Metode Nonparametrik}{249}{subsection.8.3.1}% 
-\contentsline {subsection}{\numberline {8.3.2}Metode Parametrik Rentang Estimasi Median}{254}{subsection.8.3.2}% 
+\contentsline {section}{\numberline {8.1}Definisi Interval Estimasi}{247}{section.8.1}% 
+\contentsline {section}{\numberline {8.2}Interpretasi Interval Estimasi}{248}{section.8.2}% 
+\contentsline {section}{\numberline {8.3}Interval Kepercayaan Median}{249}{section.8.3}% 
+\contentsline {subsection}{\numberline {8.3.1}Interval Estimasi Median Metode Nonparametrik}{249}{subsection.8.3.1}% 
+\contentsline {subsection}{\numberline {8.3.2}Metode Parametrik Interval Estimasi Median}{254}{subsection.8.3.2}% 
+\contentsline {section}{\numberline {8.4}Interval Kepercayaan Mean}{256}{section.8.4}% 
+\contentsline {subsection}{\numberline {8.4.1}Interval Kepercayaan Mean Untuk Distribusi Yang Simetris}{257}{subsection.8.4.1}% 
+\contentsline {subsection}{\numberline {8.4.2}Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris}{258}{subsection.8.4.2}% 

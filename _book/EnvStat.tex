@@ -10772,7 +10772,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x0000000018363eb0>
+## <bytecode: 0x0000000027f4a688>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -11728,7 +11728,7 @@ disajikan dua buah gambar yaitu: Gambar \ref{fig:mean1} dan Gambar
 
 Pada Gambar \ref{fig:mean1} disajikan 7 buah data konsentrasi TSS di
 suatu sungai. Nilai rata-rata TSS pada sungai tersebut adalah 11 mg/l.
-Jika kita amati sebagian besar data (6 observasi) berada pada rentang
+Jika kita amati sebagian besar data (6 observasi) berada pada interval
 nilai konsentrasi TSS 2 sampai 12 mg/l. Observasi yang lain terletak
 jauh dari mayoritas observasi lainnya yaitu sebesar 37 mg/l. Observasi
 yang berbeda secara ekstrim dari nilai secara umum pada suatu data
@@ -12315,7 +12315,7 @@ mean} yaitu sebesar 113.2 \(m^3/detik\).
 \section{Ukuran Sebaran Data}\label{ukuran-sebaran-data}
 
 Saat kita mengetahui kedalaman rata-rata sungai, kita pasti ingin
-mengetahui berapa rentang atau variasi dari kedalamannya. Kita tidak
+mengetahui berapa interval atau variasi dari kedalamannya. Kita tidak
 cukup hanya dengan mengetahui nilai pemusatan datanya saja, kita juga
 perlu mengetahui seberapa besar variasi atau variabilitas datanya.
 
@@ -13560,10 +13560,10 @@ Pada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut
 kunci dari data seperti \(\overline{X}\) dan \(s\). Kedua nilai tersebut
 disebut sebagai nilai estimasi sampel dari populasi (untuk mean \(\mu\)
 dan simpangan baku \(\sigma\)). Pada Chapter ini kita akan melakukan
-eksplorasi lebih jauh lagi mengenai rentang estimasi (\emph{interval
+eksplorasi lebih jauh lagi mengenai interval estimasi (\emph{interval
 estimate}) yang akan menyinggung kedua nilai tersebut lebih jauh.
 
-\section{Definisi Rentang Estimasi}\label{definisi-rentang-estimasi}
+\section{Definisi Interval Estimasi}\label{definisi-interval-estimasi}
 
 Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi
 menggunakan kedua nilai tersebut disebut sebagai itu disebut estimasi
@@ -13580,69 +13580,69 @@ sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya
 perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang
 perbedaan ini.
 
-Sebagai alternatif untuk estimasi titik, estimasi rentang adalah rentang
-yang memiliki probabilitas yang dinyatakan mengandung nilai populasi
-sebenarnya. rentang lebih lebar untuk set data yang memiliki
-variabilitas lebih besar. Jadi dalam contoh di atas, rentang antara 4,7
+Sebagai alternatif untuk estimasi titik, estimasi interval adalah
+interval yang memiliki probabilitas yang dinyatakan mengandung nilai
+populasi sebenarnya. interval lebih lebar untuk set data yang memiliki
+variabilitas lebih besar. Jadi dalam contoh di atas, interval antara 4,7
 dan 5,3 mungkin memiliki kemungkinan 95\% untuk mengandung mean populasi
-Y yang sebenarnya (tidak diketahui). Butuh rentang yang jauh lebih luas,
-katakanlah antara 2,0 dan 8,0, untuk memiliki probabilitas yang sama
-untuk mengandung rerata sebenarnya dari X. Karena itu, perbedaan
+Y yang sebenarnya (tidak diketahui). Butuh interval yang jauh lebih
+luas, katakanlah antara 2,0 dan 8,0, untuk memiliki probabilitas yang
+sama untuk mengandung rerata sebenarnya dari X. Karena itu, perbedaan
 keandalan dari dua estimasi dengan jelas dinyatakan menggunakan estimasi
-rentang. Estimasi rentang dapat memberikan dua informasi yang estimasi
+interval. Estimasi interval dapat memberikan dua informasi yang estimasi
 poin tidak dapat berikan, antara lain:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Pernyataan probabilitas atau kemungkinan bahwa rentang berisi nilai
+  Pernyataan probabilitas atau kemungkinan bahwa interval berisi nilai
   populasi sebenarnya (keandalannya).
 \item
   Pernyataan kemungkinan bahwa satu titik data dengan besaran tertentu
   berasal dari populasi yang diteliti.
 \end{enumerate}
 
-Estimasi rentang untuk poin pertama disebut sebagai rentang kepercayaan
-(\emph{confidence interval}), sedangkan yang kedua disebut sebagai
-rentang prediksi (\emph{prediction interal}). Meskipun salin terkait,
-pembaca perlu berhati-hati sebab kedua definisi tersebut sering kali
-tertukar satu sama lain.
+Estimasi interval untuk poin pertama disebut sebagai interval
+kepercayaan (\emph{confidence interval}), sedangkan yang kedua disebut
+sebagai interval prediksi (\emph{prediction interal}). Meskipun salin
+terkait, pembaca perlu berhati-hati sebab kedua definisi tersebut sering
+kali tertukar satu sama lain.
 
-\section{Interpretasi Rentang
-Estimasi}\label{interpretasi-rentang-estimasi}
+\section{Interpretasi Interval
+Estimasi}\label{interpretasi-interval-estimasi}
 
-Untuk lebih memahami mengenai definisi rentang estimasi pada sub-chapter
-ini akan diberikan contoh yang diambil dari buku \textbf{statistical
-Methods in Water Resources} karya Helsel dan Hirsch (2012). Misalkan
-mean populasi sebenarnya \(\mu\) konsentrasi dalam akuifer adalah 10.
-Sleain itu, anggaplah bahwa varian populasi sebenarnya \(\sigma^2\) sama
-dengan 1. Karena nilai-nilai ini dalam praktiknya tidak pernah
-diketahui, sampel diambil untuk memperkirakannya dengan mean sampel
-\(x\) dan sampel varians \(s^2\) . Dana yang cukup tersedia untuk
-mengambil 12 sampel air (kira-kira satu per bulan) selama satu tahun,
-dan hari-hari di mana pengambilan sampel terjadi dipilih secara acak.
-Dari 12 sampel ini \(x\)x dan \(s^2\) dihitung. Meskipun pada
-kenyataannya hanya satu set 12 sampel akan diambil setiap tahun,
+Untuk lebih memahami mengenai definisi interval estimasi pada
+sub-chapter ini akan diberikan contoh yang diambil dari buku
+\textbf{statistical Methods in Water Resources} karya Helsel dan Hirsch
+(2012). Misalkan mean populasi sebenarnya \(\mu\) konsentrasi dalam
+akuifer adalah 10. Sleain itu, anggaplah bahwa varians populasi
+sebenarnya \(\sigma^2\) sama dengan 1. Karena nilai-nilai ini dalam
+praktiknya tidak pernah diketahui, sampel diambil untuk memperkirakannya
+dengan mean sampel \(x\) dan sampel varianss \(s^2\) . Dana yang cukup
+tersedia untuk mengambil 12 sampel air (kira-kira satu per bulan) selama
+satu tahun, dan hari-hari di mana pengambilan sampel terjadi dipilih
+secara acak. Dari 12 sampel ini \(x\)x dan \(s^2\) dihitung. Meskipun
+pada kenyataannya hanya satu set 12 sampel akan diambil setiap tahun,
 menggunakan komputer 12 hari dapat dipilih beberapa kali untuk
-menggambarkan konsep perkiraan rentang. Untuk masing-masing dari 10 set
-independen dari 12 sampel, rentang kepercayaan pada mean dihitung dengan
-menggunakan persamaan yang diberikan pada Tabel \ref{tab:iie} dan Gambar
-\ref{fig:iievis}.
+menggambarkan konsep perkiraan interval. Untuk masing-masing dari 10 set
+independen dari 12 sampel, interval kepercayaan pada mean dihitung
+dengan menggunakan persamaan yang diberikan pada Tabel \ref{tab:iie} dan
+Gambar \ref{fig:iievis}.
 
 \begin{longtable}[]{@{}lllll@{}}
-\caption{\label{tab:iie} Sepuluh rentang kepercayaan 90\% sekitar nilai mean
-sebenarnya sebesar 10 (Data berdistribusi normal dan Tanda plus
+\caption{\label{tab:iie} Sepuluh interval kepercayaan 90\% sekitar nilai
+mean sebenarnya sebesar 10 (Data berdistribusi normal dan Tanda plus
 menyatakan data tidak disertakan dalam nilai mean
 sebenarnya)}\tabularnewline
 \toprule
 \textbf{No.} & \textbf{N} & \textbf{Mean} & \textbf{St.Dev} &
-\textbf{90\% Rentang kepercayaan}\tabularnewline
+\textbf{90\% Interval kepercayaan}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
 \textbf{No.} & \textbf{N} & \textbf{Mean} & \textbf{St.Dev} &
-\textbf{90\% Rentang kepercayaan}\tabularnewline
+\textbf{90\% Interval kepercayaan}\tabularnewline
 \midrule
 \endhead
 1 & 12 & 10,06 & 1,11 & 9,46 sampai 10,64\tabularnewline
@@ -13658,17 +13658,17 @@ sebenarnya)}\tabularnewline
 \bottomrule
 \end{longtable}
 
-Kesepuluh rentang pada contoh di atas disebut dengan dengan
-\textbf{rentang kepercayaan 90\%} dari nilai mean sesungguhnya. Nilai
-mean sebenarnya akan terdapat pada rentang tersebut dengan probabilitas
-90\%. Sehingga berdasarkan Tabel \ref{tab:iie} terdapat 9 rentang yang
+Kesepuluh interval pada contoh di atas disebut dengan dengan
+\textbf{interval kepercayaan 90\%} dari nilai mean sesungguhnya. Nilai
+mean sebenarnya akan terdapat pada interval tersebut dengan probabilitas
+90\%. Sehingga berdasarkan Tabel \ref{tab:iie} terdapat 9 interval yang
 memiliki nilai mean sesungguhnya didalamnya (probabilitas 90\%). Jika
 kita sekali lagi melakukan sampling dengan jumlah sampling yang sama
-pada rentang nilai baru yang dihasilkan akan mengandung nilai mean
-sesungguhnya dan dapat juga tidak. Probabilitas rentang tersebut
+pada interval nilai baru yang dihasilkan akan mengandung nilai mean
+sesungguhnya dan dapat juga tidak. Probabilitas interval tersebut
 mengandung nilai mean sesungguhnya disebut sebagai \textbf{tingkat
-kepercayaan} (\emph{confidence level}). Probabilitas nilai rentang tidak
-mengandung mean sesungguhnya disebut sebagai \textbf{alpha level}
+kepercayaan} (\emph{confidence level}). Probabilitas nilai interval
+tidak mengandung mean sesungguhnya disebut sebagai \textbf{alpha level}
 (\(\alpha\)) yang ditulis berdasarkan Persamaan \eqref{eq:alpha}.
 
 \begin{equation}
@@ -13676,13 +13676,13 @@ mengandung mean sesungguhnya disebut sebagai \textbf{alpha level}
   \label{eq:alpha}
 \end{equation}
 
-Lebar rentang kepercayaan adalah fungsi dari bentuk distribusi data
+Lebar interval kepercayaan adalah fungsi dari bentuk distribusi data
 (variabilitas dan kemencengannya), ukuran sampel, dan tingkat
 kepercayaan yang diinginkan. Ketika tingkat kepercayaan meningkat, lebar
-rentang juga meningkat, karena rentang yang lebih besar lebih mungkin
-mengandung nilai sebenarnya daripada rentang yang lebih pendek. Dengan
-demikian rentang kepercayaan 95\% akan lebih luas daripada rentang 90\%
-untuk data yang sama.
+interval juga meningkat, karena interval yang lebih besar lebih mungkin
+mengandung nilai sebenarnya daripada interval yang lebih pendek. Dengan
+demikian interval kepercayaan 95\% akan lebih luas daripada interval
+90\% untuk data yang sama.
 
 \begin{figure}
 
@@ -13690,41 +13690,41 @@ untuk data yang sama.
 
 }
 
-\caption{Sepuluh rentang kepercayaan 90 persen data dengan nilai mean sebenarnya 10}\label{fig:iievis}
+\caption{Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10}\label{fig:iievis}
 \end{figure}
 
-Rentang kepercayaan simetris pada rata-rata biasanya dihitung dengan
+Interval kepercayaan simetris pada rata-rata biasanya dihitung dengan
 asumsi data mengikuti distribusi normal. Jika tidak, distribusi rerata
 itu sendiri akan mendekati normal sepanjang ukuran sampel besar
-(katakanlah 50 pengamatan atau lebih besar). Rentang kepercayaan dengan
+(katakanlah 50 pengamatan atau lebih besar). Interval kepercayaan dengan
 asumsi normalitas kemudian akan memasukkan mean sebenarnya
 (\(1-\alpha\))\% dari waktu. Dalam contoh di atas, data dihasilkan dari
 distribusi normal, sehingga ukuran sampel kecil 12 tidak menjadi
 masalah. Namun ketika data memiliki kemencengan dan ukuran sampel di
-bawah 50 atau lebih, rentang kepercayaan simetris tidak akan mengandung
+bawah 50 atau lebih, interval kepercayaan simetris tidak akan mengandung
 rata-rata (\(1-\alpha\))\% sepanjang waktu. Dalam contoh di bawah ini,
-rentang kepercayaan simetris secara salah dihitung untuk data yang
+interval kepercayaan simetris secara salah dihitung untuk data yang
 miring (Gambar \ref{fig:iiedata}). Hasil (Gambar \ref{fig:iievis2} dan
-Tabel \ref{tab:iie2}) menunjukkan bahwa rentang kepercayaan kehilangan
+Tabel \ref{tab:iie2}) menunjukkan bahwa interval kepercayaan kehilangan
 nilai sebenarnya dari 1 lebih sering daripada yang seharusnya. Semakin
-besar skewness, semakin besar ukuran sampel harus sebelum rentang
-kepercayaan simetris dapat diandalkan. Sebagai alternatif, rentang
+besar skewness, semakin besar ukuran sampel harus sebelum interval
+kepercayaan simetris dapat diandalkan. Sebagai alternatif, interval
 kepercayaan asimetris dapat dihitung untuk situasi umum data yang
 memiliki kemencengan.
 
 \begin{longtable}[]{@{}lllll@{}}
-\caption{\label{tab:iie2} Sepuluh rentang kepercayaan 90\% sekitar nilai
+\caption{\label{tab:iie2} Sepuluh interval kepercayaan 90\% sekitar nilai
 mean sebenarnya sebesar 1 (Data tidak berdistribusi normal dan Tanda
 plus menyatakan data tidak disertakan dalam nilai mean
 sebenarnya)}\tabularnewline
 \toprule
 \textbf{No.} & \textbf{N} & \textbf{Mean} & \textbf{St.Dev} &
-\textbf{90\% Rentang kepercayaan}\tabularnewline
+\textbf{90\% Interval kepercayaan}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
 \textbf{No.} & \textbf{N} & \textbf{Mean} & \textbf{St.Dev} &
-\textbf{90\% Rentang kepercayaan}\tabularnewline
+\textbf{90\% Interval kepercayaan}\tabularnewline
 \midrule
 \endhead
 1 & 12 & 0,784 & 0,320 & \(^+\) 0,618 sampai 0,950\tabularnewline
@@ -13755,24 +13755,24 @@ sebenarnya)}\tabularnewline
 
 }
 
-\caption{Sepuluh rentang kepercayaan 90 persen data dengan nilai mean sebenarnya 1}\label{fig:iievis2}
+\caption{Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 1}\label{fig:iievis2}
 \end{figure}
 
-\section{Rentang Kepercayaan Median}\label{rentang-kepercayaan-median}
+\section{Interval Kepercayaan Median}\label{interval-kepercayaan-median}
 
-Rentang kepercayaan median populasi dapat dihitung tanpa perlu mengikuti
-asumsi distribusi tertentu. Sehingga nilai median dapat digunakan untuk
-memperkirakan nilai pusat data untuk distribusi data yang tidak
-berdistribusi normal.
+Interval kepercayaan median populasi dapat dihitung tanpa perlu
+mengikuti asumsi distribusi tertentu. Sehingga nilai median dapat
+digunakan untuk memperkirakan nilai pusat data untuk distribusi data
+yang tidak berdistribusi normal.
 
-\subsection{Rentang Estimasi Median Metode
-Nonparametrik}\label{rentang-estimasi-median-metode-nonparametrik}
+\subsection{Interval Estimasi Median Metode
+Nonparametrik}\label{interval-estimasi-median-metode-nonparametrik}
 
-Rentang estimasi nonparametrik untuk median populasi sebenarnya dihitung
-menggunakan distribusi binomial. Pertama, tingkat signifikansi yang
-diinginkan \(\alpha\) dinyatakan, error yang dapat diterima tidak
+Interval estimasi nonparametrik untuk median populasi sebenarnya
+dihitung menggunakan distribusi binomial. Pertama, tingkat signifikansi
+yang diinginkan \(\alpha\) dinyatakan, error yang dapat diterima tidak
 termasuk median yang sebenarnya. Satu-setengah (\(\alpha/2\)) dari error
-ini digunakan untuk setiap akhir rentang (Gambar \ref{fig:iemednp}).
+ini digunakan untuk setiap akhir interval (Gambar \ref{fig:iemednp}).
 Tabel distribusi binomial memberikan nilai kritis bawah dan atas \(x'\)
 dan \(x\) pada setengah tingkat alfa yang diinginkan (\(\alpha/2\)).
 Nilai-nilai kritis ini ditransformasikan ke dalam rangking \(R_l\) dan
@@ -13785,17 +13785,17 @@ interval kepercayaan.
 
 }
 
-\caption{Probabilitas median populasi P50 pada dua sisi rentang estimasi.}\label{fig:iemednp}
+\caption{Probabilitas median populasi P50 pada dua sisi interval estimasi.}\label{fig:iemednp}
 \end{figure}
 
 Untuk ukuran sampel kecil, tabel binomial dimasukkan pada kolom p = 0,5
-(median) untuk menghitung rentang kepercayaan pada median. Nilai kritis
+(median) untuk menghitung interval kepercayaan pada median. Nilai kritis
 \(x'\) diperoleh dari tabel distribusi binomial yang sesuai dengan
 \(\alpha/2\), atau sedekat mungkin dengan \(\alpha/2\). Nilai kritis ini
 kemudian digunakan untuk menghitung peringkat \(R_u\) dan \(R_l\) yang
 sesuai dengan nilai data pada batas kepercayaan atas dan bawah untuk
 median. Batas-batas ini adalah titik data peringkat \(R_l\)th yang masuk
-dari setiap ujung daftar n observasi. Rentang kepercayaan yang
+dari setiap ujung daftar n observasi. Interval kepercayaan yang
 dihasilkan akan mencerminkan bentuk (menceng atau simetris) dari data
 asli.
 
@@ -13809,7 +13809,7 @@ asli.
   \label{eq:ru}
 \end{equation}
 
-Rentang nonparametrik tidak selalu dapat secara tepat menghasilkan
+Interval nonparametrik tidak selalu dapat secara tepat menghasilkan
 tingkat kepercayaan yang diinginkan ketika ukuran sampel kecil. Ini
 karena mereka terpisah, melompat dari satu nilai data ke yang berikutnya
 di ujung interval. Namun, tingkat kepercayaan yang dekat dengan yang
@@ -13896,7 +13896,7 @@ menggunakan nilai mean tidak dapat dilakukan.
 Berdasarkan data pada Tabel \ref{tab:gwardat}, median konsentrasi
 arsenik \(\hat{C}_{0.5}\)=19 yang berada pada urutan data ke-13 dari
 data yang telah diurutkan dari yang terkecil ke yang terbesar. Untuk
-menentukan rentang kepercayaan 95\% median kosentrasi arsenik
+menentukan interval kepercayaan 95\% median kosentrasi arsenik
 \(C_{0.5}\), nilai kritis berdasarkan nilai error mendekati
 \(\alpha/2\)=0,025 adalah \(x'\)=7. Untuk lebih memahaminya pembaca
 dapat mengunduh tabel distribusi binomial pada laman
@@ -13921,7 +13921,7 @@ Berdasarkan Persamaan \eqref{eq:rl} dan Persamaan \eqref{eq:ru}, rangking
 menyatakan batas kepercayaan atas (\emph{upper confidence level}) adalah
 25-7=18. Berdasarkan nilai probabilitas \(x'\)=0,022, maka nilai alpha
 yang sesunggunya sebesar \(\alpha=2*0,022=0,044\). Nilai tersebut setara
-dengan tingkat kepercayaan \(1-0,044\) atau 95,6\%. Nilai rentang
+dengan tingkat kepercayaan \(1-0,044\) atau 95,6\%. Nilai interval
 kepercayaan median antara observasi ke-8 dan 18 adalah
 \(C_l=4,8\le C_{0.5}\le110=C_u\ \ pada\ \alpha=0,044\). Nilai asimetrik
 disekitar \(\hat{C}_{0.5}\)=19 mencerminkan kemencengan pada data.
@@ -13961,7 +13961,7 @@ membuat fungsi sebagai berikut:
 \end{Shaded}
 
 Fungsi yang telah dibuat tersebut selanjutnya dapat pembaca gunakan saat
-akan menghitung rentang kepercayaan median populasi menggunakan metode
+akan menghitung interval kepercayaan median populasi menggunakan metode
 non parametrik. Berikut penerapannya menggunakan data pada Tabel
 \ref{tab:gwardat} yang telah disimpan kedalam objek \texttt{gwardat}.
 
@@ -13976,16 +13976,17 @@ non parametrik. Berikut penerapannya menggunakan data pada Tabel
 ## 1     19     95.67      4.8      110
 \end{verbatim}
 
-Alternatif lain yang dapat digunakan untuk menghitung rentang
+Alternatif lain yang dapat digunakan untuk menghitung interval
 kepercayaan jika sampel cukup besar n\textgreater{}20 menggunakan metode
 non parametrik adalah dengan menggunakan pendekatan tabel distribusi
 normal untuk memperkirakan distribusi binomial. Dengan menggunakan
 pendekatan ini, hanya sebagian kecil tabel distribusi binomial (n=20)
 yang diperlukan untuk melakukannya. Nilai kritis \(z_{\alpha/2}\) dari
 tabel distribusi normal menentukan rangking atas dan bawah observasi
-yang menyatakan awal dan akhir nilai rentang kepercayaan yang dinyatakan
-pada Persamaan \eqref{eq:rlz} dan Persamaan \eqref{eq:ruz}. Pembulatan
-diperlukan dalam proses ini sebab nilai ranking harus berupa integer.
+yang menyatakan awal dan akhir nilai interval kepercayaan yang
+dinyatakan pada Persamaan \eqref{eq:rlz} dan Persamaan \eqref{eq:ruz}.
+Pembulatan diperlukan dalam proses ini sebab nilai ranking harus berupa
+integer.
 
 \begin{equation}
   R_l=\frac{n-z_{\frac{\alpha}{2}}\cdot\sqrt{n}}{2} 
@@ -13998,7 +13999,7 @@ diperlukan dalam proses ini sebab nilai ranking harus berupa integer.
 \end{equation}
 
 Menggunakan contoh data pada Tabel \ref{tab:gwardat}, dengan 95\%
-rentang kepercayaan (\(z_{\alpha/2}\)=1,96) median dapat dihitung
+interval kepercayaan (\(z_{\alpha/2}\)=1,96) median dapat dihitung
 seperti berikut:
 
 \begin{equation}
@@ -14011,7 +14012,7 @@ seperti berikut:
 
 Berdasarkan hasil perhitungan diperoleh rangking bawah adalah data ke-8
 dan rangking atas adalah 18. Kedua data dibulatkan berdasarkan integer
-terdekat. Nilai rentang kepercayaan median yang diperoleh sama dengan
+terdekat. Nilai interval kepercayaan median yang diperoleh sama dengan
 metode sebelumnya sebab rangking batas bawah dan atasnya yang seragam.
 
 Jika pembaca ingin menggunakan \texttt{R}, maka fungsi yang sebelumya
@@ -14048,8 +14049,8 @@ telah kita buat dapat dimodifikasi seperti berikut:
 ## 1     19      4.8      110
 \end{verbatim}
 
-\subsection{Metode Parametrik Rentang Estimasi
-Median}\label{metode-parametrik-rentang-estimasi-median}
+\subsection{Metode Parametrik Interval Estimasi
+Median}\label{metode-parametrik-interval-estimasi-median}
 
 Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik merupakan
 merupakan nilai rata-rata yang digunakan untuk mengestimasi median
@@ -14076,9 +14077,9 @@ dimana \(y=\ln(x)\) dan \(\overline{y}\)=mean sampel \(y\).
   \label{eq:gmci2}
 \end{equation}
 
-dimana \(s_{y}^2\)= varian sampel y pada unit log natural.
+dimana \(s_{y}^2\)= varians sampel y pada unit log natural.
 
-Pada Tabel \ref{tab:gwardat}, untuk menghitung rentang keyakinan median
+Pada Tabel \ref{tab:gwardat}, untuk menghitung interval keyakinan median
 menggunakan pendekatan mean geometrik \(GM_x\) kita perlu
 mentransformasi datanya terlebih dahulu sehingga menjadi bentuk natural
 log. hasil transformasi disajikan pada Tabel \ref{tab:gwardat2}.
@@ -14161,7 +14162,7 @@ Nilai mean dari data tersebut adalah 3,17 dengan simpangan baku sebesar
 distribusi yang simetris.
 
 Dengan menggunakan Persamaan \eqref{eq:gmci} dan Persamaan \eqref{eq:gmci2}
-selanjutnya dapat dihitung rentang kepercayaannya dengan derajat
+selanjutnya dapat dihitung interval kepercayaannya dengan derajat
 kepercayaan 95\%.
 
 \begin{equation}
@@ -14206,7 +14207,7 @@ sebagai berikut:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{med_gm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\KeywordTok{med_gm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat2}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -14218,6 +14219,259 @@ sebagai berikut:
 Pembaca perlu berhati-hati dalam menentukan apakah akan menggunakan
 metode non parametrik atau parametrik. Jika data berditribusi lognormal
 kita dapat menggunakan metode parametrik.
+
+\section{Interval Kepercayaan Mean}\label{interval-kepercayaan-mean}
+
+Estimasi interval juga dapat dihitung untuk mean populasi sebenarnya
+\(\mu\). Hal ini sangat sesuai jika pusat data menjadi fokus dalam
+analisa statistik. Interval simetris di sekitar sampel rata-rata X
+paling sering dihitung. Untuk ukuran sampel besar, interval simetris
+secara memadai menggambarkan variasi rata-rata, terlepas dari bentuk
+distribusi data. Ini karena distribusi rata-rata sampel akan mendekati
+dengan distribusi normal ketika ukuran sampel semakin besar, meskipun
+data mungkin tidak terdistribusi secara normal. Untuk ukuran sampel yang
+lebih kecil, rata-rata tidak akan didistribusikan secara normal kecuali
+jika data itu sendiri terdistribusi secara normal. Ketika data meningkat
+kemencengannya, lebih banyak data diperlukan sebelum distribusi
+rata-rata dapat didekati secara memadai oleh distribusi normal. Untuk
+distribusi yang sangat miring atau data yang mengandung \emph{outlier},
+mungkin diperlukan lebih dari 100 pengamatan sebelum nilai rata-rata
+tidak akan terpengaruh oleh nilai terbesar untuk mengasumsikan bahwa
+distribusinya akan simetris.
+
+\subsection{Interval Kepercayaan Mean Untuk Distribusi Yang
+Simetris}\label{interval-kepercayaan-mean-untuk-distribusi-yang-simetris}
+
+Interval kepercayaan mean untuk distribusi simetris dihitung menggunakan
+tabel distribusi \emph{student's t} yang tersedia dalam buku teks
+statistik dan perangkat lunak. Tabel ini dimasukkan untuk menemukan
+nilai kritis untuk t pada setengah tingkat alfa yang diinginkan. Pada
+buku lain sering dijelaskan bahwa distribusi t hanya digunakan untuk
+sampel kecil (beberapa menyebutkan n\textless{}30), sedangkan untuk
+distribusi besar digunakan distribusi normal. Penggunaan distribusi
+normal jarang digunakan dalam prakiraan. Hal ini disebabkan karena pada
+proses perhitungan diperlukan nilai simpangan baku \(\sigma\). Pada
+kenyataannya pada pengukuran dilapangan kita sering sekalin melakukan
+estimasi terhadap simpangan baku melalui sampel \(s\) karena kita tidak
+mengetahui nilai simpangan baku populasinya sehingga pada buku ini akan
+digali lebih jauh metode estimasi interval menggunakan persamaan
+distribusi t.
+
+Lebar interval kepercayaan adalah fungsi dari nilai-nilai kritis dari
+tabel distribusi t, standar deviasi data, dan ukuran sampel. Ketika data
+memiliki kemecengan atau mengandung \emph{outlier}, asumsi di balik
+interval t dan distribusi normal tidak berlaku. Interval simetris yang
+dihasilkan akan sangat luas sehingga sebagian besar pengamatan akan
+dimasukkan di dalamnya. Ini juga dapat mencapai di bawah nol di ujung
+bawah. Titik akhir negatif dari interval kepercayaan untuk data yang
+tidak dapat menjadi negatif adalah sinyal yang jelas bahwa asumsi
+interval kepercayaan simetris tidak diperlukan. Untuk data tersebut,
+dengan asumsi distribusi lognormal seperti yang dijelaskan dalam sub
+chapter sebelumnya (interval kepercayaan median) akan lebih tepat.
+Interval kepercayaan dihitung menggunakan Persamaan \eqref{eq:pmeancisim}.
+
+\begin{equation}
+  \overline{x}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{\frac{s^2}{n}}\le\mu\le\overline{x}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{\frac{s^2}{n}}
+  \label{eq:pmeancisim}
+\end{equation}
+
+Untuk lebih memahami cara penerapannya, kita akan menggunakan kembali
+data pada Tabel \ref{tab:gwardat2}. Langkah pertama yang perlu dilakukan
+adalah menghitung mean sampel \(\overline{x}\) dan simpangan baku sampel
+\(s\). Berdasarkan hasil perhitungan diperoleh nilai \(\overline{x}\)
+=98.352 dan \(s\) = 144.685. Dengan meggunakan Persamaan
+\eqref{eq:pmeancisim}, interval estimasi mean dengan tingkat kepercayaan
+95\% dapat dihitung sebagai berikut:
+
+\begin{equation}
+  3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{1,\frac{96^2}{25}}\le\mu\le3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{1,\frac{96^2}{25}}
+\end{equation}
+
+\begin{equation}
+  2,36\le\mu\le3,98
+\end{equation}
+
+Berdasarkan hasil yang diperoleh terdapat 95\% peluang nilai mean
+populasi \(\mu\) terletak pada interval 2,36 sampai 3,98. Perlu diingat
+bahwa metode parametrik sangat sensitif dengan adanya \emph{outlier}
+sehingga jika pembaca ingin menggunakannya pastikan terlebih dahulu
+tidak ada \emph{outlier} pada data dengan cara melakukan visualisasi
+data.
+
+Pada \texttt{R} kita dapat menggunakan fungsi \texttt{stat.desc()} untuk
+menhitung statistika deskriptif serta interval kepercayaan mean-nya.
+Berikut adalah sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(pastecs)}
+
+\CommentTok{# ringkasan data}
+\NormalTok{r=}\KeywordTok{stat.desc}\NormalTok{(gwardat2}\OperatorTok{$}\NormalTok{konsentrasi)}
+\NormalTok{r}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      nbr.val     nbr.null       nbr.na          min 
+##      25.0000       0.0000       0.0000       0.2624 
+##          max        range          sum       median 
+##       6.3630       6.1007      79.3167       2.9444 
+##         mean      SE.mean CI.mean.0.95          var 
+##       3.1727       0.3919       0.8089       3.8400 
+##      std.dev     coef.var 
+##       1.9596       0.6176
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# batas bawah (LCL)}
+\KeywordTok{mean}\NormalTok{(gwardat2}\OperatorTok{$}\NormalTok{konsentrasi)}\OperatorTok{-}\NormalTok{r[[}\DecValTok{11}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.364
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# batas atas (UCL)}
+\KeywordTok{mean}\NormalTok{(gwardat2}\OperatorTok{$}\NormalTok{konsentrasi)}\OperatorTok{+}\NormalTok{r[[}\DecValTok{11}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.982
+\end{verbatim}
+
+\subsection{Interval Kepercayaan Mean Untuk Distribusi Yang
+Asimetris}\label{interval-kepercayaan-mean-untuk-distribusi-yang-asimetris}
+
+Mean dan interval kepercayaan dapat dihitung dengan mengasumsikan
+distribusi data mengikuti distribusi logaritmik \(y=\ln{(x)}\). Metode
+ini berguna untuk jenis data yang memiliki bentuk distribusi data yang
+memiliki kemencengan positif (perlu transformasi logaritmik agar
+simetris).Metode ini memberikan perkiraan rata-rata yang lebih dapat
+diandalkan (varians lebih rendah) daripada perhitungan rata-rata sampel
+biasa tanpa transformasi log.
+
+Untuk memperkirakan rata-rata populasi \(\mu_x\) dalam unit aslinya,
+anggap datanya berdistribusi normal. Satu-setengah varians logaritma
+ditambahkan ke \(\overline{y}\) (rata-rata log) sebelum eksponensial.
+Karena varianss sampel \(s^2_y\) hanya perkiraan varianss sebenarnya
+dari logaritma, estimasi sampel rata-rata akan menjadi bias. Namun,
+untuk sampel dengan \(s^2_y\) kecil dan ukuran sampel besar bias dapat
+diabaikan. Interval kepercayaan dapat dituliskan berdasarkan Persamaan
+\eqref{eq:pmeanciasim}.
+
+\begin{equation}
+  \mu_x=\exp\left(\overline{y}+0,5\cdot s_y^2\right)
+  \label{eq:pmeanciasim}
+\end{equation}
+
+dimana \(y=\ln{(x)}\), \(\overline{y}\)= mean sampel dan \(s^2_y\)=
+varians sampel y dalam unit log natural.
+
+Interval kepercayaan sekitar \(\mu_x\) bukan estimasi interval yang
+dihitung untuk rata-rata geometri dalam Persamaan \eqref{eq:gmci2}.
+Interval kepercayaan tidak dapat dihitung hanya dengan mengekspansi
+interval sekitar \(\overline{y}\). Interval kepercayaan yang tepat dalam
+satuan asli untuk rata-rata data lognormal dapat dihitung. Untuk lebih
+jelasnya pembaca dapat melihatnya pada situs
+\url{http://jse.amstat.org/v13n1/olsson.html}.
+
+Metode Cox dapat digunakan untuk menghitung interval keyakinan dengan
+nilai estimasi rata-rata menggunakan Persamaan \eqref{eq:pmeanciasim}.
+Persamaan yang digunakan dapat dituliskan sebagai berikut (Persamaan
+\eqref{eq:pmeanciasimci}).
+
+\begin{equation}
+  \ln\left(\mu_x\right)=\overline{Y}+\frac{s_y^2}{2}\pm z_{\left(\frac{\alpha}{2}\right)}\sqrt{\frac{s_y^2}{n}+\frac{s_y^4}{2\left(n-1\right)}}
+  \label{eq:pmeanciasimci}
+\end{equation}
+
+Persamaan \eqref{eq:pmeanciasimci} dapat dimodifikasi dengan menggunakan
+distribusi t dibanding menggunakan distribusi normal. Penggunaan
+distribusi t akan memperbaiki kelemahan penggunaan distribusi normal
+pada sampel yang berukuran kecil.
+
+Data Tabel \ref{tab:gwardat} dapat kita gunakan untuk menghitung
+rata-rata menggunakan Persamaan \eqref{eq:pmeanciasimci}. Hal ini
+disebabkan karena data yang ada memiliki kemencengan positif sehingga
+dapat dianggap bahwa transformasi logaritmik dapat membentuk distribusi
+ini menjadi lebih simetris.
+
+Berdasarkan hasil perhitungan diperoleh nilai \(\overline{Y}\) =3.173
+dan \(s^2_y\) = 1.96. Sehingga nilai interval selanjutnya dapat dihitung
+menggunakan Persamaan \eqref{eq:pmeanciasimci} dengan interval keyakinan
+95\%.
+
+\begin{equation}
+  \ln\left(\mu_x\right)=3,17+\frac{1,96^2}{2}\pm1,96\sqrt{\frac{1,96^2}{25}+\frac{1,96^4}{2\left(25-1\right)}}
+\end{equation}
+
+\begin{equation}
+  \ln\left(\mu_x\right)=5,10\pm1,33
+\end{equation}
+
+Sehingga
+
+\begin{equation}
+  \exp\left(5,10-1,33\right)\le\mu_x\le\exp\left(5,10+1,33\right)
+\end{equation}
+
+\begin{equation}
+  43,38\le\mu_x\le620,17
+\end{equation}
+
+Nilai interval yang dihasilkan sangat panjang sehingga nilai rata-rata
+yang dihasilkan tidak dapat diandalkan untuk memperkirankan lokasi nilai
+mean populasi.
+
+Pada contoh berikut akan disajikan sintaks untuk menghitung interval
+kepercayaan mean data pada Tabel \ref{tab:gwardat} berdasarkan Persamaan
+\eqref{eq:pmeanciasimci} dan sitribusi yang digunakan adalah distribusi t.
+Pembaca dapat memodifikasi sintaks berikut jika ingin menggunakan
+distribusi normal.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean_asci<-}\ControlFlowTok{function}\NormalTok{(x,alpha)\{}
+\NormalTok{  m=}\KeywordTok{mean}\NormalTok{(x)}
+  \CommentTok{# mean data hasil transformasi logaritmik}
+\NormalTok{  ave =}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\KeywordTok{log}\NormalTok{(x))}
+  \CommentTok{# simpangan baku data hasil transformasi}
+\NormalTok{  sd =}\StringTok{ }\KeywordTok{sd}\NormalTok{(}\KeywordTok{log}\NormalTok{(x))}
+  \CommentTok{# jumlah observasi}
+\NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+  \CommentTok{# derajat kebebasa}
+\NormalTok{  df =}\StringTok{ }\NormalTok{n}\OperatorTok{-}\DecValTok{1}
+  \CommentTok{# interval keyakinan satu sisi}
+\NormalTok{  re =}\StringTok{ }\DecValTok{1}\OperatorTok{-}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{)}
+  \CommentTok{# CI menggunakan distribusi t}
+\NormalTok{  LCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{+}\NormalTok{(}\FloatTok{0.5}\OperatorTok{*}\NormalTok{sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{-}\KeywordTok{qt}\NormalTok{(re,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(((sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{n)}\OperatorTok{+}\NormalTok{((sd}\OperatorTok{^}\DecValTok{4}\NormalTok{)}\OperatorTok{/}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{df))))}
+\NormalTok{  UCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{+}\NormalTok{(}\FloatTok{0.5}\OperatorTok{*}\NormalTok{sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\KeywordTok{qt}\NormalTok{(re,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(((sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{n)}\OperatorTok{+}\NormalTok{((sd}\OperatorTok{^}\DecValTok{4}\NormalTok{)}\OperatorTok{/}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{df))))}
+  \CommentTok{# menggabungkan hasil}
+\NormalTok{  data =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\StringTok{"Mean"}\NormalTok{=m,}
+                  \StringTok{"Lower CL"}\NormalTok{=LCL,}
+                  \StringTok{"Upper CL"}\NormalTok{=UCL)}
+  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean_asci}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Mean Lower.CL Upper.CL
+## 1 98.35    40.11    660.9
+\end{verbatim}
 
 \bibliography{book.bib,packages.bib}
 

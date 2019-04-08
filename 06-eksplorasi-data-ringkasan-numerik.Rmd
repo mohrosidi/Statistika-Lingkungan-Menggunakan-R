@@ -71,7 +71,7 @@ include_graphics(img1_path)
 
 ```
 
-Pada Gambar \@ref(fig:mean1) disajikan 7 buah data konsentrasi TSS di suatu sungai. Nilai rata-rata TSS pada sungai tersebut adalah 11 mg/l. Jika kita amati sebagian besar data (6 observasi) berada pada rentang nilai konsentrasi TSS 2 sampai 12 mg/l. Observasi yang lain terletak jauh dari mayoritas observasi lainnya yaitu sebesar 37 mg/l. Observasi yang berbeda secara ekstrim dari nilai secara umum pada suatu data disebut sebagai *outlier*. Nilai *outlier* tersebut menyebabkan nilai rata-rata yang terbentuk tidak representatif terhadap keseluruhan data yang ada dan cenderung menggeser nilai rata-rata mendekati nilai *outlier* tersebut. Nilai observasi yang ekstrim biasanya muncul dari adanya kesalahan perlakuan terhadap sampel seperti botol sampel yang digunakan tidak bersih atau prosedur analisa yang dilakukan tidak standar sehingga memungkinkan adanya partikulat udara yang terukur pada proses penimbangan.
+Pada Gambar \@ref(fig:mean1) disajikan 7 buah data konsentrasi TSS di suatu sungai. Nilai rata-rata TSS pada sungai tersebut adalah 11 mg/l. Jika kita amati sebagian besar data (6 observasi) berada pada interval nilai konsentrasi TSS 2 sampai 12 mg/l. Observasi yang lain terletak jauh dari mayoritas observasi lainnya yaitu sebesar 37 mg/l. Observasi yang berbeda secara ekstrim dari nilai secara umum pada suatu data disebut sebagai *outlier*. Nilai *outlier* tersebut menyebabkan nilai rata-rata yang terbentuk tidak representatif terhadap keseluruhan data yang ada dan cenderung menggeser nilai rata-rata mendekati nilai *outlier* tersebut. Nilai observasi yang ekstrim biasanya muncul dari adanya kesalahan perlakuan terhadap sampel seperti botol sampel yang digunakan tidak bersih atau prosedur analisa yang dilakukan tidak standar sehingga memungkinkan adanya partikulat udara yang terukur pada proses penimbangan.
 
 Salah satu cara untuk menangani adanya *outlier* tersebut adalah dengan menghapus observasi yang merupakan *outlier*. Pada Gambar \@ref(fig:mean2) terlihat bahwa penghapusan *outlier* telah menggeser nilai rata-rata ke kiri. Nilai rata-rata yang baru tersebut jika diperhatikan dari Gambar \@ref(fig:mean2) lebih menggambarkan keseluruhan data yang ada. Tidak terlihat adanya nilai yang berada jauh jaraknya dari nilai rata-rata yang baru.
 
@@ -320,7 +320,7 @@ Nilai yang diperoleh sekarang mendekati nilai median dan *geometric mean* yaitu 
 
 ## Ukuran Sebaran Data
 
-Saat kita mengetahui kedalaman rata-rata sungai, kita pasti ingin mengetahui berapa rentang atau variasi dari kedalamannya. Kita tidak cukup hanya dengan mengetahui nilai pemusatan datanya saja, kita juga perlu mengetahui seberapa besar variasi atau variabilitas datanya.
+Saat kita mengetahui kedalaman rata-rata sungai, kita pasti ingin mengetahui berapa interval atau variasi dari kedalamannya. Kita tidak cukup hanya dengan mengetahui nilai pemusatan datanya saja, kita juga perlu mengetahui seberapa besar variasi atau variabilitas datanya.
 
 Variabilitas suatu data diukur dengan melihat sebaran data dari nilai rata-ratanya (mean). Semakin besar sebaran suatu data, semakin tidak berarti nilai rata-ratanya karena nilai rata-ratanya bisa sangat berbeda dari sejumlah nilai pada datanya.
 
