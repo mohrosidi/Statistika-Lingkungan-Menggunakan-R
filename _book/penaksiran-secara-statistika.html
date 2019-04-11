@@ -25,7 +25,7 @@
 <meta name="author" content="Moh. Rosidi">
 
 
-<meta name="date" content="2019-04-09">
+<meta name="date" content="2019-04-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -300,6 +300,9 @@ code > span.in { color: #008000; } /* Information */
 <li class="chapter" data-level="8.5.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-nonparametrik-dua-sisi"><i class="fa fa-check"></i><b>8.5.1</b> Interval Prediksi Nonparametrik Dua Sisi</a></li>
 <li class="chapter" data-level="8.5.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-nonparametrik-satu-sisi"><i class="fa fa-check"></i><b>8.5.2</b> Interval Prediksi Nonparametrik Satu Sisi</a></li>
 </ul></li>
+<li class="chapter" data-level="8.6" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-parametrik"><i class="fa fa-check"></i><b>8.6</b> Interval Prediksi Parametrik</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-distribusi-simetris"><i class="fa fa-check"></i><b>8.6.1</b> Interval Prediksi Distribusi Simetris</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
@@ -326,7 +329,7 @@ code > span.in { color: #008000; } /* Information */
 <p>Pada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut kunci dari data seperti <span class="math inline">\(\overline{X}\)</span> dan <span class="math inline">\(s\)</span>. Kedua nilai tersebut disebut sebagai nilai estimasi sampel dari populasi (untuk mean <span class="math inline">\(\mu\)</span> dan simpangan baku <span class="math inline">\(\sigma\)</span>). Pada Chapter ini kita akan melakukan eksplorasi lebih jauh lagi mengenai interval estimasi (<em>interval estimate</em>) yang akan menyinggung kedua nilai tersebut lebih jauh.</p>
 <div id="definisi-interval-estimasi" class="section level2">
 <h2><span class="header-section-number">8.1</span> Definisi Interval Estimasi</h2>
-<p>Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi menggunakan kedua nilai tersebut disebut sebagai itu disebut estimasi titik (<em>point estimation</em>). Estimasi titik sendiri tidak menggambarkan reliabilitas atau kurangnya reliabilitas (variabilitas) dari estimasi ini. Sebagai contoh, anggaplah terdapat dua data X dan Y dengan mean 5 dengan jumlah observasi yang sama. Data Y memiliki nilai mean 5 dengan sangat sedikit variasi didalamnya, sedangkan data X jauh lebih bervariasi. Perkiraan titik 5 untuk X jauh lebih tidak dapat diandalkan dibandingkan dengan untuk Y karena variabilitas yang lebih besar dalam data X. Dengan kata lain, lebih banyak kehati-hatian diperlukan ketika menyatakan bahwa 5 memperkirakan mean populasi sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang perbedaan ini.</p>
+<p>Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi menggunakan kedua nilai tersebut disebut sebagai estimasi titik (<em>point estimation</em>). Estimasi titik sendiri tidak menggambarkan reliabilitas atau kurangnya reliabilitas (variabilitas) dari estimasi ini. Sebagai contoh, anggaplah terdapat dua data X dan Y dengan mean 5 dengan jumlah observasi yang sama. Data Y memiliki nilai mean 5 dengan sangat sedikit variasi didalamnya, sedangkan data X jauh lebih bervariasi. Perkiraan titik 5 untuk X jauh lebih tidak dapat diandalkan dibandingkan dengan untuk Y karena variabilitas yang lebih besar dalam data X. Dengan kata lain, lebih banyak kehati-hatian diperlukan ketika menyatakan bahwa 5 memperkirakan mean populasi sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang perbedaan ini.</p>
 <p>Sebagai alternatif untuk estimasi titik, estimasi interval adalah interval yang memiliki probabilitas yang dinyatakan mengandung nilai populasi sebenarnya. interval lebih lebar untuk set data yang memiliki variabilitas lebih besar. Jadi dalam contoh di atas, interval antara 4,7 dan 5,3 mungkin memiliki kemungkinan 95% untuk mengandung mean populasi Y yang sebenarnya (tidak diketahui). Butuh interval yang jauh lebih luas, katakanlah antara 2,0 dan 8,0, untuk memiliki probabilitas yang sama untuk mengandung rerata sebenarnya dari X. Karena itu, perbedaan keandalan dari dua estimasi dengan jelas dinyatakan menggunakan estimasi interval. Estimasi interval dapat memberikan dua informasi yang estimasi poin tidak dapat berikan, antara lain:</p>
 <ol style="list-style-type: decimal">
 <li>Pernyataan probabilitas atau kemungkinan bahwa interval berisi nilai populasi sebenarnya (keandalannya).</li>
@@ -682,8 +685,14 @@ Gambar 8.6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
 <p>Berdasarkan Persamaan <a href="penaksiran-secara-statistika.html#eq:rl">(8.2)</a> dan Persamaan <a href="penaksiran-secara-statistika.html#eq:ru">(8.3)</a>, rangking <span class="math inline">\(R_l\)</span> pada observasi yang menyatakan batas kepercayaan bawah (<em>lower confidence limit</em>) adalah 8 (<span class="math inline">\(R_i\)</span>=7+1) dan <span class="math inline">\(R_u\)</span> yang menyatakan batas kepercayaan atas (<em>upper confidence level</em>) adalah 25-7=18. Berdasarkan nilai probabilitas <span class="math inline">\(x&#39;\)</span>=0,022, maka nilai alpha yang sesunggunya sebesar <span class="math inline">\(\alpha=2*0,022=0,044\)</span>. Nilai tersebut setara dengan tingkat kepercayaan <span class="math inline">\(1-0,044\)</span> atau 95,6%. Nilai interval kepercayaan median antara observasi ke-8 dan 18 adalah <span class="math inline">\(C_l=4,8\le C_{0.5}\le110=C_u\ \ pada\ \alpha=0,044\)</span>. Nilai asimetrik disekitar <span class="math inline">\(\hat{C}_{0.5}\)</span>=19 mencerminkan kemencengan pada data.</p>
 <p>Jika pembaca ingin melakukan perhitungan pada <code>R</code>, pembaca harus membuat fungsi sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">med_npCI &lt;-<span class="st"> </span><span class="cf">function</span>(x,alpha){
+  <span class="co"># mengurutkan data</span>
+  x_sort=<span class="kw">sort</span>(x)
+  <span class="co"># menghitung jumlah observasi</span>
   n=<span class="kw">length</span>(x)
+  <span class="co"># menghitung median data</span>
   med =<span class="st"> </span><span class="kw">median</span>(x)
+  <span class="co"># loop untuk mencari nilai probabilitas terdekat</span>
+  <span class="co"># dengan alpha</span>
   <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n){
     b =<span class="st"> </span><span class="kw">pbinom</span>(i,n,<span class="fl">0.5</span>)
     <span class="cf">if</span>(b<span class="op">&gt;</span>alpha<span class="op">/</span><span class="dv">2</span>){
@@ -698,8 +707,8 @@ Gambar 8.6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
   <span class="co"># menghitung true confidence level</span>
   CL=<span class="dv">1</span><span class="op">-</span><span class="dv">2</span><span class="op">*</span>(<span class="kw">pbinom</span>(x_i,n,<span class="fl">0.5</span>))
   <span class="co"># menghitung Lower dan Upper CL</span>
-  LCL=x[rl]
-  UCL=x[ru]
+  LCL=x_sort[rl]
+  UCL=x_sort[ru]
   <span class="co"># menggabungkannya dalam satu data</span>
   data=<span class="kw">data.frame</span>(<span class="st">&quot;median&quot;</span>=med,
                   <span class="st">&quot;True CL %&quot;</span>=CL<span class="op">*</span><span class="dv">100</span>,
@@ -721,23 +730,27 @@ Gambar 8.6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
   \tag{8.5}
 \end{equation}\]</span>
 <p>Menggunakan contoh data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">8.3</a>, dengan 95% interval kepercayaan (<span class="math inline">\(z_{\alpha/2}\)</span>=1,96) median dapat dihitung seperti berikut:</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[
   R_l=\frac{25-1,96\cdot\sqrt{25}}{2}=7,6 
-\end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+\]</span></p>
+<p><span class="math display">\[
   R_l=\frac{25+1,96\cdot\sqrt{25}}{2}+1=18,4 
-\end{equation}\]</span>
+\]</span></p>
 <p>Berdasarkan hasil perhitungan diperoleh rangking bawah adalah data ke-8 dan rangking atas adalah 18. Kedua data dibulatkan berdasarkan integer terdekat. Nilai interval kepercayaan median yang diperoleh sama dengan metode sebelumnya sebab rangking batas bawah dan atasnya yang seragam.</p>
 <p>Jika pembaca ingin menggunakan <code>R</code>, maka fungsi yang sebelumya telah kita buat dapat dimodifikasi seperti berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">med_norCI &lt;-<span class="st"> </span><span class="cf">function</span>(x, alpha){
+  <span class="co"># mengurutkan data dari yang terkecil</span>
+  x_sort=<span class="kw">sort</span>(x)
+  <span class="co"># menghitung jumlah observasi</span>
   n =<span class="st"> </span><span class="kw">length</span>(x)
+  <span class="co"># menghitung median data</span>
   med =<span class="st"> </span><span class="kw">median</span>(x)
   <span class="co"># menghitung Rl dan Ru</span>
   rl=<span class="kw">round</span>((n<span class="op">-</span><span class="kw">abs</span>(<span class="kw">qnorm</span>(alpha<span class="op">/</span><span class="dv">2</span>))<span class="op">*</span><span class="kw">sqrt</span>(n))<span class="op">/</span><span class="dv">2</span>,<span class="dv">0</span>)
   ru=<span class="kw">round</span>(((n<span class="op">+</span><span class="kw">abs</span>(<span class="kw">qnorm</span>(alpha<span class="op">/</span><span class="dv">2</span>))<span class="op">*</span><span class="kw">sqrt</span>(n))<span class="op">/</span><span class="dv">2</span>)<span class="op">+</span><span class="dv">1</span>,<span class="dv">0</span>)
   <span class="co"># menghitung Lower dan Upper CL</span>
-  LCL=x[rl]
-  UCL=x[ru]
+  LCL=x_sort[rl]
+  UCL=x_sort[ru]
   <span class="co"># menggabungkannya dalam satu data</span>
   data=<span class="kw">data.frame</span>(<span class="st">&quot;median&quot;</span>=med,
                   <span class="st">&quot;Lower CL&quot;</span>=LCL,
@@ -750,7 +763,7 @@ Gambar 8.6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
 </div>
 <div id="metode-parametrik-interval-estimasi-median" class="section level3">
 <h3><span class="header-section-number">8.3.2</span> Metode Parametrik Interval Estimasi Median</h3>
-<p>Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik merupakan merupakan nilai rata-rata yang digunakan untuk mengestimasi median sampel untuk data yang memiliki kemencengan dengan transformasi yang digunakan agar data simetrik adalah transformasi logaritmik <span class="math inline">\(y=\ln(x)\)</span>. Pada metode ini data diasumsikan memiliki distribusi lognormal (kemencengan positif). Rerata dan interval geometris akan lebih efisien (interval lebih pendek) dari median dan interval kepercayaannya ketika data benar-benar lognormal. Median sampel dan intervalnya lebih tepat dan lebih efisien jika logaritma data masih menunjukkan kemencengan dan/atau <em>outlier</em>. Estimasi media menggunakan metode parametrik dituliskan kedalam Persamaan <a href="penaksiran-secara-statistika.html#eq:gmci">(8.6)</a> dan Persamaan <a href="penaksiran-secara-statistika.html#eq:gmci2">(8.7)</a>.</p>
+<p>Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik merupakan merupakan nilai rata-rata yang digunakan untuk mengestimasi median sampel untuk data yang memiliki kemencengan dengan transformasi yang digunakan agar data simetris adalah transformasi logaritmik <span class="math inline">\(y=\ln(x)\)</span>. Pada metode ini data diasumsikan memiliki distribusi lognormal (kemencengan positif). Rerata dan interval geometris akan lebih efisien (interval lebih pendek) dari median dan interval kepercayaannya ketika data benar-benar lognormal. Median sampel dan intervalnya lebih tepat dan lebih efisien jika logaritma data masih menunjukkan kemencengan dan/atau <em>outlier</em>. Estimasi media menggunakan metode parametrik dituliskan kedalam Persamaan <a href="penaksiran-secara-statistika.html#eq:gmci">(8.6)</a> dan Persamaan <a href="penaksiran-secara-statistika.html#eq:gmci2">(8.7)</a>.</p>
 <span class="math display" id="eq:gmci">\[\begin{equation}
   GM_x=\exp\left(\overline{y}\right) 
   \tag{8.6}
@@ -882,18 +895,18 @@ Gambar 8.7: Distribusi logaritmik konsentrasi arsenik dalam air tanah
 </div>
 <p>Nilai mean dari data tersebut adalah 3,17 dengan simpangan baku sebesar 1,96. Berdasarkan Gambar <a href="penaksiran-secara-statistika.html#fig:gwardatvis2">8.7</a>, kita telah memperoleh distribusi yang simetris.</p>
 <p>Dengan menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:gmci">(8.6)</a> dan Persamaan <a href="penaksiran-secara-statistika.html#eq:gmci2">(8.7)</a> selanjutnya dapat dihitung interval kepercayaannya dengan derajat kepercayaan 95%.</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[
   GM_x=\exp\left(3,17\right)=23,8
-\end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+\]</span></p>
+<p><span class="math display">\[
   \exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)\le GM_x\le\exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)
-\end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+\]</span></p>
+<p><span class="math display">\[
   \exp\left(2,36\right)\le GM_x\le\exp\left(3,98\right)
-\end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+\]</span></p>
+<p><span class="math display">\[
   10,6\le GM_x\le53,5
-\end{equation}\]</span>
+\]</span></p>
 <p>Dengan menggunakan <code>R</code> dapat dikerjakan menggunakan fungsi sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># persamaan hanya dapat digunakan untuk data yang telah ditransformasi lognormal</span>
 
@@ -929,12 +942,12 @@ med_gm &lt;-<span class="st"> </span><span class="cf">function</span>(x, alpha){
   \tag{8.8}
 \end{equation}\]</span>
 <p>Untuk lebih memahami cara penerapannya, kita akan menggunakan kembali data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat2">8.4</a>. Langkah pertama yang perlu dilakukan adalah menghitung mean sampel <span class="math inline">\(\overline{x}\)</span> dan simpangan baku sampel <span class="math inline">\(s\)</span>. Berdasarkan hasil perhitungan diperoleh nilai <span class="math inline">\(\overline{x}\)</span> =98.352 dan <span class="math inline">\(s\)</span> = 144.685. Dengan meggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeancisim">(8.8)</a>, interval estimasi mean dengan tingkat kepercayaan 95% dapat dihitung sebagai berikut:</p>
-<span class="math display">\[\begin{equation}
-  3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{1,\frac{96^2}{25}}\le\mu\le3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{1,\frac{96^2}{25}}
-\end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[
+  3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}\le\mu\le3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}
+\]</span></p>
+<p><span class="math display">\[
   2,36\le\mu\le3,98
-\end{equation}\]</span>
+\]</span></p>
 <p>Berdasarkan hasil yang diperoleh terdapat 95% peluang nilai mean populasi <span class="math inline">\(\mu\)</span> terletak pada interval 2,36 sampai 3,98. Perlu diingat bahwa metode parametrik sangat sensitif dengan adanya <em>outlier</em> sehingga jika pembaca ingin menggunakannya pastikan terlebih dahulu tidak ada <em>outlier</em> pada data dengan cara melakukan visualisasi data.</p>
 <p>Pada <code>R</code> kita dapat menggunakan fungsi <code>stat.desc()</code> untuk menhitung statistika deskriptif serta interval kepercayaan mean-nya. Berikut adalah sintaks yang digunakan:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat paket</span>
@@ -976,19 +989,19 @@ r</code></pre></div>
 <p>Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeanciasimci">(8.10)</a> dapat dimodifikasi dengan menggunakan distribusi t dibanding menggunakan distribusi normal. Penggunaan distribusi t akan memperbaiki kelemahan penggunaan distribusi normal pada sampel yang berukuran kecil.</p>
 <p>Data Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">8.3</a> dapat kita gunakan untuk menghitung rata-rata menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeanciasimci">(8.10)</a>. Hal ini disebabkan karena data yang ada memiliki kemencengan positif sehingga dapat dianggap bahwa transformasi logaritmik dapat membentuk distribusi ini menjadi lebih simetris.</p>
 <p>Berdasarkan hasil perhitungan diperoleh nilai <span class="math inline">\(\overline{Y}\)</span> =3.173 dan <span class="math inline">\(s^2_y\)</span> = 1.96. Sehingga nilai interval selanjutnya dapat dihitung menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeanciasimci">(8.10)</a> dengan interval keyakinan 95%.</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[
   \ln\left(\mu_x\right)=3,17+\frac{1,96^2}{2}\pm1,96\sqrt{\frac{1,96^2}{25}+\frac{1,96^4}{2\left(25-1\right)}}
-\end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+\]</span></p>
+<p><span class="math display">\[
   \ln\left(\mu_x\right)=5,10\pm1,33
-\end{equation}\]</span>
+\]</span></p>
 <p>Sehingga</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[
   \exp\left(5,10-1,33\right)\le\mu_x\le\exp\left(5,10+1,33\right)
-\end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+\]</span></p>
+<p><span class="math display">\[
   43,38\le\mu_x\le620,17
-\end{equation}\]</span>
+\]</span></p>
 <p>Nilai interval yang dihasilkan sangat panjang sehingga nilai rata-rata yang dihasilkan tidak dapat diandalkan untuk memperkirankan lokasi nilai mean populasi.</p>
 <p>Pada contoh berikut akan disajikan sintaks untuk menghitung interval kepercayaan mean data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">8.3</a> berdasarkan Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeanciasimci">(8.10)</a> dan sitribusi yang digunakan adalah distribusi t. Pembaca dapat memodifikasi sintaks berikut jika ingin menggunakan distribusi normal.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_asci&lt;-<span class="cf">function</span>(x,alpha){
@@ -1019,11 +1032,11 @@ r</code></pre></div>
 </div>
 <div id="interval-prediksi-nonparametrik" class="section level2">
 <h2><span class="header-section-number">8.5</span> Interval Prediksi Nonparametrik</h2>
-<p>Pertanyaan yang sering diajukan adalah apakah satu pengamatan baru kemungkinan berasal dari distribusi yang sama dengan data yang dikumpulkan sebelumnya, atau sebagai alternatif dari distribusi yang berbeda. Pertanyaan dapat dievaluasi dengan menentukan apakah pengamatan baru di luar interval prediksi yang dihitung dari data yang ada. Interval prediksi mengandung <span class="math inline">\(100*(1 − \alpha)\)</span> persen dari distribusi data, sementara <span class="math inline">\(100*\alpha\)</span> persen berada di luar interval. Jika pengamatan baru datang dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan <span class="math inline">\(100*\alpha\)</span> persen bahwa pengamatan baru tersebut akan berada di luar interval prediksi. Karena pengamatan baru tersebut berada di luar interval tidak “membuktikan” pengamatan baru itu berbeda, hanya saja sepertinya begitu. Seberapa besar kemungkinan ini tergantung pada pilihan <span class="math inline">\(\alpha\)</span> yang ditentukan oleh peneliti.</p>
+<p>Pertanyaan yang sering diajukan adalah apakah satu pengamatan baru kemungkinan berasal dari distribusi yang sama dengan data yang dikumpulkan sebelumnya, atau sebagai alternatif dari distribusi yang berbeda. Pertanyaan dapat dievaluasi dengan menentukan apakah pengamatan baru di luar interval prediksi yang dihitung dari data yang ada. Interval prediksi mengandung <span class="math inline">\(100\cdot\left(1-\alpha\right)\)</span> persen dari distribusi data, sementara <span class="math inline">\(100\cdot\alpha\)</span> persen berada di luar interval. Jika pengamatan baru datang dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan <span class="math inline">\(100\cdot\alpha\)</span> persen bahwa pengamatan baru tersebut akan berada di luar interval prediksi. Karena pengamatan baru tersebut berada di luar interval tidak “membuktikan” pengamatan baru itu berbeda, hanya saja sepertinya begitu. Seberapa besar kemungkinan ini tergantung pada pilihan <span class="math inline">\(\alpha\)</span> yang ditentukan oleh peneliti.</p>
 <p>Interval prediksi dihitung dengan tujuan yang berbeda dari interval kepercayaan. Interval prediksi terkait dengan nilai data individu yang berlawanan dengan ringkasan statistik seperti nilai mean. Interval prediksi lebih luas daripada interval kepercayaan, karena pengamatan individu lebih bervariasi daripada ringkasan statistik yang dihitung dari beberapa pengamatan. Tidak seperti interval kepercayaan, interval prediksi memperhitungkan variabilitas titik data tunggal di sekitar median atau rata-rata, di samping kesalahan dalam memperkirakan pusat distribusi. Ketika mean <span class="math inline">\(\pm\)</span> 2 standar deviasi secara keliru digunakan untuk memperkirakan lebar interval prediksi, data baru dinyatakan berasal dari populasi yang berbeda lebih sering daripada yang seharusnya.</p>
 <div id="interval-prediksi-nonparametrik-dua-sisi" class="section level3">
 <h3><span class="header-section-number">8.5.1</span> Interval Prediksi Nonparametrik Dua Sisi</h3>
-<p>Interval prediksi tingkat kepercayaan nonparametrik α secara sederhana dinyatakan sebagai interval antara persentil distribusi <span class="math inline">\(\alpha/2\)</span> dan <span class="math inline">\(1− (\alpha/2)\)</span> (Gambar <a href="penaksiran-secara-statistika.html#fig:ipnds">8.8</a>). Interval ini mengandung <span class="math inline">\(100*(\alpha/2)\)</span> data, sedangkan <span class="math inline">\(100*\alpha\)</span> persen berada di luar interval. Oleh karena itu jika titik data tambahan baru berasal dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan <span class="math inline">\(100*\alpha\)</span> persen bahwa itu akan berada di luar interval prediksi. Interval akan mencerminkan bentuk data yang dikembangkannya, dan tidak ada asumsi tentang bentuk bentuk yang perlu dibuat. Interval prediksi nonparametrik dua sisi dinyatakan berdasarkan Persamaan <a href="penaksiran-secara-statistika.html#eq:eqipnds">(8.11)</a>.</p>
+<p>Interval prediksi tingkat kepercayaan nonparametrik <span class="math inline">\(\alpha\)</span> secara sederhana dinyatakan sebagai interval antara persentil distribusi <span class="math inline">\(\alpha/2\)</span> dan <span class="math inline">\(1-\left(\frac{\alpha}{2}\right)\)</span> (Gambar <a href="penaksiran-secara-statistika.html#fig:ipnds">8.8</a>). Interval ini mengandung <span class="math inline">\(100\cdot\left(1-\alpha\right)\)</span> data, sedangkan <span class="math inline">\(100\cdot\alpha\)</span> persen berada di luar interval. Oleh karena itu jika titik data tambahan baru berasal dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan <span class="math inline">\(100\cdot\alpha\)</span> persen bahwa itu akan berada di luar interval prediksi. Interval akan mencerminkan bentuk data yang dikembangkannya, dan tidak ada asumsi tentang bentuk bentuk yang perlu dibuat. Interval prediksi nonparametrik dua sisi dinyatakan berdasarkan Persamaan <a href="penaksiran-secara-statistika.html#eq:eqipnds">(8.11)</a>.</p>
 <span class="math display" id="eq:eqipnds">\[\begin{equation}
   PI_{np}=X_{\frac{\alpha}{2}\cdot\left(n+1\right)}\ sampai\ dengan\ X_{\left[1-\left(\frac{\alpha}{2}\right)\right]\cdot\left(n+1\right)}
   \tag{8.11}
@@ -1036,18 +1049,20 @@ Gambar 8.8: Prediksi interval dua sisi
 </div>
 <p>Kita akan kembali menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">8.3</a>. Dengan menggunakan tingkat kepercayaan 90% kita diminta untuk menentukan interval prediksi dari konsentrasi arsenik pada data tersebut tanpa mengasumsikan distribusi dari data.</p>
 <p>Untuk melakukannya kita perlu menentukan observasi ke-2,5 dan 97,5 (berdasarkan nilai <span class="math inline">\(\alpha/2\)</span>) dengan rangking observasi berdasarkan Persamaan <a href="penaksiran-secara-statistika.html#eq:eqipnds">(8.11)</a> adalah <span class="math inline">\((0,05*26)\)</span> atau rangking observasi antara observasi 1 (<span class="math inline">\(R_1\)</span>) dan 2 (<span class="math inline">\(R_2\)</span>) dan <span class="math inline">\((0,95*26)\)</span> rangking observasi antara observasi 24 (<span class="math inline">\(R_{24}\)</span>) dan 25 (<span class="math inline">\(R_{25}\)</span>). Dengan menggunakan interpolasi linier pada observasi ke-1, 2 , 24 dan 25, interval prediksi yang diperoleh adalah sebagai berikut:</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[
   X_1+\left(\frac{R_{\left(0.05\cdot26\right)}-R_1}{R_2-R_1}\right)\cdot\left(X_2-X_1\right)\ sampai\ dengan\ X_{24}+\left(\frac{R_{\left(0.95\cdot26\right)}-R_{24}}{R_{25}-R_{24}}\right)\cdot\left(X_{25}-X_4\right)
-\end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+\]</span></p>
+<p><span class="math display">\[
   1,3+\left(\frac{1,3-1}{2-1}\right)\cdot\left(1,5-1,3\right)\ sampai\ dengan\ 340+\left(\frac{24,5-24}{25-24}\right)\cdot\left(580-340\right)
-\end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+\]</span></p>
+<p><span class="math display">\[
   1,4\ sampai\ dengan\ 508\ ppb
-\end{equation}\]</span>
+\]</span></p>
 <p>Observasi baru diluar rentang tersebut akan dianggap berasal dari distribusi yang berbeda dengan tingkat error sebesar 10% (<span class="math inline">\(\alpha\)</span>=10%).</p>
 <p>Dengan menggunakan <code>R</code> pembaca depat menghitung interval prediksi menggunakan fungsi berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PInp &lt;-<span class="st"> </span><span class="cf">function</span>(x, alpha){
+  <span class="co"># mengurutkan data</span>
+  x_sort =<span class="st"> </span><span class="kw">sort</span>(x)
   <span class="co"># jumlah observasi</span>
   n =<span class="st"> </span><span class="kw">length</span>(x)
   <span class="co"># menghitung alpha masing-masing sisi</span>
@@ -1061,8 +1076,8 @@ Gambar 8.8: Prediksi interval dua sisi
   ru_<span class="dv">1</span>=<span class="st"> </span><span class="kw">ceiling</span>(ru) 
   ru_<span class="dv">2</span>=<span class="st"> </span><span class="kw">floor</span>(ru)
   <span class="co"># menentukan interval prediksi</span>
-  LPI =<span class="st"> </span><span class="kw">round</span>(x[rl_<span class="dv">1</span>]<span class="op">+</span>((rl<span class="op">-</span>rl_<span class="dv">1</span>)<span class="op">/</span>(rl_<span class="dv">2</span><span class="op">-</span>rl_<span class="dv">1</span>))<span class="op">*</span>(x[rl_<span class="dv">2</span>]<span class="op">-</span>x[rl_<span class="dv">1</span>]),<span class="dv">1</span>)
-  UPI =<span class="st"> </span><span class="kw">round</span>(x[ru_<span class="dv">1</span>]<span class="op">+</span>((ru<span class="op">-</span>ru_<span class="dv">1</span>)<span class="op">/</span>(ru_<span class="dv">2</span><span class="op">-</span>ru_<span class="dv">1</span>))<span class="op">*</span>(x[ru_<span class="dv">2</span>]<span class="op">-</span>x[ru_<span class="dv">1</span>]),<span class="dv">1</span>)
+  LPI =<span class="st"> </span><span class="kw">round</span>(x_sort[rl_<span class="dv">1</span>]<span class="op">+</span>((rl<span class="op">-</span>rl_<span class="dv">1</span>)<span class="op">/</span>(rl_<span class="dv">2</span><span class="op">-</span>rl_<span class="dv">1</span>))<span class="op">*</span>(x_sort[rl_<span class="dv">2</span>]<span class="op">-</span>x_sort[rl_<span class="dv">1</span>]),<span class="dv">1</span>)
+  UPI =<span class="st"> </span><span class="kw">round</span>(x_sort[ru_<span class="dv">1</span>]<span class="op">+</span>((ru<span class="op">-</span>ru_<span class="dv">1</span>)<span class="op">/</span>(ru_<span class="dv">2</span><span class="op">-</span>ru_<span class="dv">1</span>))<span class="op">*</span>(x_sort[ru_<span class="dv">2</span>]<span class="op">-</span>x[ru_<span class="dv">1</span>]),<span class="dv">1</span>)
   <span class="co"># menggabungkan hasil</span>
   data =<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;Lower PI&quot;</span>=LPI,
                     <span class="st">&quot;Upper PI&quot;</span>=UPI)
@@ -1074,7 +1089,7 @@ Gambar 8.8: Prediksi interval dua sisi
 </div>
 <div id="interval-prediksi-nonparametrik-satu-sisi" class="section level3">
 <h3><span class="header-section-number">8.5.2</span> Interval Prediksi Nonparametrik Satu Sisi</h3>
-<p>Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan <span class="math inline">\(\alpha\)</span> dibanding <span class="math inline">\(\alpha/2\)</span> sebagai nilai error, menempatkan semua erro di satu sisi interval (Gambar <a href="penaksiran-secara-statistika.html#fig:ipss">8.9</a>). Interval prediksi dituliskan berdasarkan Persamaan <a href="penaksiran-secara-statistika.html#eq:eqipss">(8.12)</a>.</p>
+<p>Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan <span class="math inline">\(\alpha\)</span> dibanding <span class="math inline">\(\alpha/2\)</span> sebagai nilai error, menempatkan semua error di satu sisi interval (Gambar <a href="penaksiran-secara-statistika.html#fig:ipss">8.9</a>). Interval prediksi dituliskan berdasarkan Persamaan <a href="penaksiran-secara-statistika.html#eq:eqipss">(8.12)</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:ipss"></span>
 <img src="ipss.PNG" alt="Prediksi interval satu sisi" width="65%" />
 <p class="caption">
@@ -1087,38 +1102,139 @@ Gambar 8.9: Prediksi interval satu sisi
 \end{equation}\]</span>
 <p>Untuk memahami penerapannya, misalkan kita memiliki nilai arsenik baru dengan konsentrasi 355 ppb. Kita perlu menentukan apakah nilai tersebut lebih besar dari sebagian besar data yang ada.</p>
 <p>Dengan menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:eqipss">(8.12)</a> dan <span class="math inline">\(\alpha\)</span>=0,1 atau tingkat kepercayaan 90%, interval prediksi satu sisi atau data teratas dari persentil ke-90 dari data yang ada adalah <span class="math inline">\(X_{0,9}*26=X_{23,4}\)</span>. Dengan menggunakan interpolasi linier pada observasi data dengan rangking ke-23 (<span class="math inline">\(R_{23}\)</span>) dan 24 (<span class="math inline">\(R_{23}\)</span>) diperoleh:</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[
   X_{23}+0,4\cdot\left(X_{24}-X_{23}\right)=300+0,4\cdot40=316\ ppb
-\end{equation}\]</span>
+\]</span></p>
 <p>Berdasarkan data yang diperoleh diketahui bahwa batas atas dari interval prediksi adalah 316&lt;355 pbb, sehingga disimpulkan bahwa konsentrasi 355 pbb lebih besar dari sebagian besar data yang ada.</p>
 <p>Dengan menggunakan <code>R</code> interval prediksi menggunakan satu sisi dapat dihitung menggunakan fungsi berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PInp_os &lt;-<span class="st"> </span><span class="cf">function</span>(x, obs, alpha, side){
+  <span class="co"># mengurutkan data dari yang terkecil</span>
+  x_sort =<span class="st"> </span><span class="kw">sort</span>(x)
   <span class="co"># jumlah observasi</span>
   n =<span class="st"> </span><span class="kw">length</span>(x)
   <span class="co"># rangking observasi</span>
-  ru=(<span class="dv">1</span><span class="op">-</span>alpha)<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)
-  ru_<span class="dv">1</span>=<span class="kw">ceiling</span>(ru)
-  ru_<span class="dv">2</span>=<span class="kw">floor</span>(ru)
-  rl=alpha<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)
-  rl_<span class="dv">1</span>=<span class="kw">ceiling</span>(rl)
-  rl_<span class="dv">2</span>=<span class="kw">floor</span>(rl)
+  ru =<span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>alpha)<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)
+  ru_<span class="dv">1</span> =<span class="st"> </span><span class="kw">ceiling</span>(ru)
+  ru_<span class="dv">2</span> =<span class="st"> </span><span class="kw">floor</span>(ru)
+  rl =<span class="st"> </span>alpha<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)
+  rl_<span class="dv">1</span> =<span class="st"> </span><span class="kw">ceiling</span>(rl)
+  rl_<span class="dv">2</span> =<span class="st"> </span><span class="kw">floor</span>(rl)
   <span class="co"># perhitungan interval atas dan bawah</span>
-  PIup =<span class="st"> </span>x[ru_<span class="dv">1</span>]<span class="op">+</span>((ru<span class="op">-</span>ru_<span class="dv">1</span>)<span class="op">/</span>(ru_<span class="dv">2</span><span class="op">-</span>ru_<span class="dv">1</span>))<span class="op">*</span>(x[ru_<span class="dv">2</span>]<span class="op">-</span>x[ru_<span class="dv">1</span>])
-  PIdown =<span class="st"> </span>x[rl_<span class="dv">1</span>]<span class="op">+</span>((rl<span class="op">-</span>rl_<span class="dv">1</span>)<span class="op">/</span>(rl_<span class="dv">2</span><span class="op">-</span>rl_<span class="dv">1</span>))<span class="op">*</span>(x[rl_<span class="dv">2</span>]<span class="op">-</span>x[rl_<span class="dv">1</span>])
+  PIup =<span class="st"> </span>x_sort[ru_<span class="dv">1</span>]<span class="op">+</span>((ru<span class="op">-</span>ru_<span class="dv">1</span>)<span class="op">/</span>(ru_<span class="dv">2</span><span class="op">-</span>ru_<span class="dv">1</span>))<span class="op">*</span>(x_sort[ru_<span class="dv">2</span>]<span class="op">-</span>x_sort[ru_<span class="dv">1</span>])
+  PIdown =<span class="st"> </span>x_sort[rl_<span class="dv">1</span>]<span class="op">+</span>((rl<span class="op">-</span>rl_<span class="dv">1</span>)<span class="op">/</span>(rl_<span class="dv">2</span><span class="op">-</span>rl_<span class="dv">1</span>))<span class="op">*</span>(x_sort[rl_<span class="dv">2</span>]<span class="op">-</span>x_sort[rl_<span class="dv">1</span>])
   <span class="co"># decision making</span>
   <span class="cf">if</span>((side<span class="op">==</span><span class="st">&quot;upper&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>(PIup<span class="op">&lt;</span>obs)){
-    <span class="kw">cat</span>(<span class="st">&quot;PI =&quot;</span>,PIup,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi lebih besar dibadingkan sebagian besar nilai yang ada&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;PI =&quot;</span>,PIup,<span class="st">&quot;,observasi baru=&quot;</span>,obs)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">----------------------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi lebih besar dibandingkan sebagian besar nilai yang ada&quot;</span>)
   } <span class="cf">else</span> <span class="cf">if</span>((side<span class="op">==</span><span class="st">&quot;lower&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>(PIdown<span class="op">&gt;</span>obs)){
-    <span class="kw">cat</span>(<span class="st">&quot;PI =&quot;</span>,PIdown,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi lebih kecil dibadingkan sebagian besar nilai yang ada&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;PI =&quot;</span>,PIdown, <span class="st">&quot;,observasi baru=&quot;</span>,obs)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">----------------------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada&quot;</span>)
   } <span class="cf">else</span> <span class="cf">if</span>(side<span class="op">==</span><span class="st">&quot;&quot;</span>){
     <span class="kw">print</span>(<span class="st">&quot;side belum ditentukan tentukan apakah lower atau upper&quot;</span>)
   } <span class="cf">else</span>{
-    <span class="kw">cat</span>(<span class="st">&quot;batas bawah =&quot;</span>,PIdown,<span class="st">&quot;, batas atas =&quot;</span>,PIup,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi sama dengan sebagian besar nilai yang ada&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;batas bawah =&quot;</span>,PIdown,<span class="st">&quot;, batas atas =&quot;</span>,PIup)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">---------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi sama dengan sebagian besar nilai yang ada&quot;</span>)
   }
 }</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PInp_os</span>(<span class="dt">x=</span>gwardat<span class="op">$</span>konsentrasi, <span class="dt">obs=</span><span class="dv">355</span>, <span class="dt">alpha=</span><span class="fl">0.1</span>, <span class="dt">side=</span><span class="st">&quot;upper&quot;</span>)</code></pre></div>
-<pre><code>## PI = 316 
-## nilai observasi lebih besar dibadingkan sebagian besar nilai yang ada</code></pre>
+<pre><code>## PI = 316 ,observasi baru= 355
+## ----------------------------------------------------------------------
+## Kesimpulan:
+## nilai observasi lebih besar dibandingkan sebagian besar nilai yang ada</code></pre>
+</div>
+</div>
+<div id="interval-prediksi-parametrik" class="section level2">
+<h2><span class="header-section-number">8.6</span> Interval Prediksi Parametrik</h2>
+<p>Interval prediksi parametrik juga digunakan untuk menentukan apakah pengamatan baru kemungkinan berasal dari distribusi yang berbeda dari data yang dikumpulkan sebelumnya. Namun, pada metode parametrik asumsi bentuk dari distribusi data akan diperhitungkan. Asumsi ini memberikan lebih banyak informasi untuk membangun interval, asalkan asumsi tersebut valid. Jika data tidak mengikuti distribusi yang diasumsikan, interval prediksi mungkin tidak akurat.</p>
+<div id="interval-prediksi-distribusi-simetris" class="section level3">
+<h3><span class="header-section-number">8.6.1</span> Interval Prediksi Distribusi Simetris</h3>
+<p>Asumsi yang digunakan untuk melakukan perhitungan interval prediksi untuk distribusi data yang simetris adalah data haruslah berdistribusi normal. Interval prediksi selanjutnya dibentuk secara simetris pada kedua sisi nilai mean. Interval ini lebih lebar rentangnya dibandingkan dengan interval kepercayaan nilai mean. Persamaan matematis yang digunakan untuk menghitungnya dituliskan pada Persamaan <a href="penaksiran-secara-statistika.html#eq:ipds">(8.13)</a>.</p>
+<span class="math display" id="eq:ipds">\[\begin{equation}
+  PI=\overline{X}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}sampai\ \overline{X}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}
+  \tag{8.13}
+\end{equation}\]</span>
+<p>Untuk interval satu sisi Persamaan <a href="penaksiran-secara-statistika.html#eq:ipds">(8.13)</a>, menjadi Persamaan <a href="penaksiran-secara-statistika.html#eq:ipds2">(8.14)</a>.</p>
+<span class="math display" id="eq:ipds2">\[\begin{equation}
+  PI=\overline{X}-t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}sampai\ \overline{X}+t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}
+  \tag{8.14}
+\end{equation}\]</span>
+<p>Untuk lebih memahaminya misalkan terdapat hasil pengukuran baru konsentrasi arsenik sebesar 350 ppb dengan menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">8.3</a> sebagai pembanding. Buktikan bahwa observasi baru tersebut berasal dari distrubusi yang sama dengan <span class="math inline">\(\alpha\)</span>=5%.</p>
+<p>Dengan menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:ipds">(8.13)</a>, interval prediksi dapat dihitung sebagai berikut:</p>
+<p><span class="math display">\[
+PI\ =\ 98,4-t_{\left(0.025,24\right)}\cdot\sqrt{144,7^2+\frac{144,7^2}{25}\ }sampai\ \ 98,4+t_{\left(0.025,24\right)}\cdot\sqrt{144,7^2+\frac{144,7^2}{25}}
+\]</span></p>
+<p><span class="math display">\[
+PI\ =\ 98,4-2,064\cdot147,6\ \ sampai\ \ 98,4+2,064\cdot147,6
+\]</span></p>
+<p><span class="math display">\[
+PI\ =\ -206,25\ \ sampai\ \ 403,05
+\]</span></p>
+<p>Berdasarkan hasil perhitungan yang dilakukan terlihat bahwa limit interval prediksi yang dihasilkanterdapat nilai negatif. Kosentrasi negatif mengindikasikan bahwa data yang digunakan tidaklah simetris sehingga penggunaan interval prediksi untuk data yang simetris tidak dapat digunakan pada data tersebut. Metode perhitungan interval prediksi untuk data asimetris lebih cocok untuk digunakan.</p>
+<p>Pada <code>R</code> interval prediksi disekitar nilai mean dapat dihitung menggunakan fungsi berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PI_sim &lt;-<span class="st"> </span><span class="cf">function</span>(x, obs, alpha, side){
+  <span class="co"># menghitung nilai mean</span>
+  ave =<span class="st"> </span><span class="kw">mean</span>(x)
+  <span class="co"># menghitung nilai varians dara</span>
+  var =<span class="st"> </span><span class="kw">var</span>(x)
+  <span class="co"># menghitung df</span>
+  n =<span class="st"> </span><span class="kw">length</span>(x)
+  df =<span class="st"> </span>n<span class="op">-</span><span class="dv">1</span>
+  <span class="co"># perhitungan rentang satu sisi</span>
+  pi_l1 =<span class="st"> </span>ave<span class="op">-</span><span class="kw">qt</span>((<span class="dv">1</span><span class="op">-</span>alpha), df)<span class="op">*</span><span class="kw">sqrt</span>(var<span class="op">+</span>(var<span class="op">/</span>n))
+  pi_u1 =<span class="st"> </span>ave<span class="op">+</span><span class="kw">qt</span>((<span class="dv">1</span><span class="op">-</span>alpha), df)<span class="op">*</span><span class="kw">sqrt</span>(var<span class="op">+</span>(var<span class="op">/</span>n))
+  <span class="co"># perhitungan rentang dua sisi</span>
+  pi_l2 =<span class="st"> </span>ave<span class="op">-</span><span class="kw">qt</span>((<span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>), df)<span class="op">*</span><span class="kw">sqrt</span>(var<span class="op">+</span>(var<span class="op">/</span>n))
+  pi_u2 =<span class="st"> </span>ave<span class="op">+</span><span class="kw">qt</span>((<span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>), df)<span class="op">*</span><span class="kw">sqrt</span>(var<span class="op">+</span>(var<span class="op">/</span>n))
+  <span class="co"># decision making</span>
+  <span class="cf">if</span>(side<span class="op">==</span><span class="st">&quot;Upper&quot;</span> <span class="op">&amp;</span><span class="st"> </span>obs<span class="op">&gt;</span>pi_u1){
+    <span class="kw">cat</span>(<span class="st">&quot;PI Atas =&quot;</span>,pi_u1,<span class="st">&quot;,observasi baru=&quot;</span>,obs)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">----------------------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi lebih besar dibandingkan sebagian besar nilai yang ada&quot;</span>)
+  }<span class="cf">else</span> <span class="cf">if</span>(side<span class="op">==</span><span class="st">&quot;Lower&quot;</span> <span class="op">&amp;</span><span class="st"> </span>obs<span class="op">&lt;</span>pi_l1){
+    <span class="kw">cat</span>(<span class="st">&quot;PI Bawah =&quot;</span>,pi_l1,<span class="st">&quot;,observasi baru=&quot;</span>,obs)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">----------------------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada&quot;</span>)
+  }<span class="cf">else</span> <span class="cf">if</span>(side<span class="op">==</span><span class="dv">2</span> <span class="op">&amp;</span><span class="st"> </span>obs<span class="op">&gt;</span>pi_u2){
+    <span class="kw">cat</span>(<span class="st">&quot;PI Bawah =&quot;</span>,pi_l2,<span class="st">&quot;,observasi baru=&quot;</span>,obs, <span class="st">&quot;,PI Atas =&quot;</span>,pi_u2)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">----------------------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi lebih besar dibandingkan sebagian besar nilai yang ada&quot;</span>)
+  }<span class="cf">else</span> <span class="cf">if</span>(side<span class="op">==</span><span class="dv">2</span> <span class="op">&amp;</span><span class="st"> </span>obs<span class="op">&lt;</span>pi_l2){
+    <span class="kw">cat</span>(<span class="st">&quot;PI Bawah =&quot;</span>,pi_l2,<span class="st">&quot;,observasi baru=&quot;</span>,obs, <span class="st">&quot;,PI Atas =&quot;</span>,pi_u2)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">----------------------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada&quot;</span>)
+  }<span class="cf">else</span> <span class="cf">if</span>(side<span class="op">==</span><span class="st">&quot;Upper&quot;</span> <span class="op">&amp;</span><span class="st"> </span>obs<span class="op">&lt;</span>pi_u1){
+    <span class="kw">cat</span>(<span class="st">&quot;PI Atas =&quot;</span>,pi_u1,<span class="st">&quot;,observasi baru=&quot;</span>,obs)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">----------------------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi sama dengan sebagian besar nilai yang ada&quot;</span>)
+  }<span class="cf">else</span> <span class="cf">if</span>(side<span class="op">==</span><span class="st">&quot;Lower&quot;</span> <span class="op">&amp;</span><span class="st"> </span>obs<span class="op">&gt;</span>pi_l1){
+    <span class="kw">cat</span>(<span class="st">&quot;PI Bawah =&quot;</span>,pi_l1,<span class="st">&quot;,observasi baru=&quot;</span>,obs)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">----------------------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi sama dengan sebagian besar nilai yang ada&quot;</span>)
+  }<span class="cf">else</span>{
+    <span class="kw">cat</span>(<span class="st">&quot;PI Bawah =&quot;</span>,pi_l2, <span class="st">&quot;,observasi baru=&quot;</span>,obs,<span class="st">&quot;,PI Atas =&quot;</span>,pi_u2)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">---------------------------------------------------------&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Kesimpulan:&quot;</span>)
+    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi sama dengan sebagian besar nilai yang ada&quot;</span>)
+  }
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># interval prediksi satu sisi</span>
+<span class="kw">PI_sim</span>(<span class="dt">x =</span> gwardat<span class="op">$</span>konsentrasi, <span class="dt">obs =</span> <span class="dv">350</span>, <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="dt">side=</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## PI Bawah = -206.2 ,observasi baru= 350 ,PI Atas = 402.9
+## ---------------------------------------------------------
+## Kesimpulan:
+## nilai observasi sama dengan sebagian besar nilai yang ada</code></pre>
 
 </div>
 </div>

@@ -11,7 +11,7 @@ Pada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut kunci dari 
 
 ## Definisi Interval Estimasi
 
-Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi menggunakan kedua nilai tersebut disebut sebagai itu disebut estimasi titik (*point estimation*). Estimasi titik sendiri tidak menggambarkan reliabilitas  atau kurangnya reliabilitas (variabilitas) dari estimasi ini. Sebagai contoh, anggaplah terdapat dua data X dan Y dengan mean 5 dengan jumlah observasi yang sama. Data Y memiliki nilai mean 5 dengan sangat sedikit variasi didalamnya, sedangkan data X jauh lebih bervariasi. Perkiraan titik 5 untuk X jauh lebih tidak dapat diandalkan dibandingkan dengan untuk Y karena variabilitas yang lebih besar dalam data X. Dengan kata lain, lebih banyak kehati-hatian diperlukan ketika menyatakan bahwa 5 memperkirakan mean populasi sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang perbedaan ini.
+Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi menggunakan kedua nilai tersebut disebut sebagai estimasi titik (*point estimation*). Estimasi titik sendiri tidak menggambarkan reliabilitas  atau kurangnya reliabilitas (variabilitas) dari estimasi ini. Sebagai contoh, anggaplah terdapat dua data X dan Y dengan mean 5 dengan jumlah observasi yang sama. Data Y memiliki nilai mean 5 dengan sangat sedikit variasi didalamnya, sedangkan data X jauh lebih bervariasi. Perkiraan titik 5 untuk X jauh lebih tidak dapat diandalkan dibandingkan dengan untuk Y karena variabilitas yang lebih besar dalam data X. Dengan kata lain, lebih banyak kehati-hatian diperlukan ketika menyatakan bahwa 5 memperkirakan mean populasi sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang perbedaan ini.
 
 Sebagai alternatif untuk estimasi titik, estimasi interval adalah interval yang memiliki probabilitas yang dinyatakan mengandung nilai populasi sebenarnya. interval lebih lebar untuk set data yang memiliki variabilitas lebih besar. Jadi dalam contoh di atas, interval antara 4,7 dan 5,3 mungkin memiliki kemungkinan 95% untuk mengandung mean populasi Y yang sebenarnya (tidak diketahui). Butuh interval yang jauh lebih luas, katakanlah antara 2,0 dan 8,0, untuk memiliki probabilitas yang sama untuk mengandung rerata sebenarnya dari X. Karena itu, perbedaan keandalan dari dua estimasi dengan jelas dinyatakan menggunakan estimasi interval. Estimasi interval dapat memberikan dua informasi yang estimasi poin tidak dapat berikan, antara lain:
 
@@ -179,8 +179,14 @@ Jika pembaca ingin melakukan perhitungan pada `R`, pembaca harus membuat fungsi 
 
 ```{r}
 med_npCI <- function(x,alpha){
+  # mengurutkan data
+  x_sort=sort(x)
+  # menghitung jumlah observasi
   n=length(x)
+  # menghitung median data
   med = median(x)
+  # loop untuk mencari nilai probabilitas terdekat
+  # dengan alpha
   for(i in 1:n){
     b = pbinom(i,n,0.5)
     if(b>alpha/2){
@@ -195,8 +201,8 @@ med_npCI <- function(x,alpha){
   # menghitung true confidence level
   CL=1-2*(pbinom(x_i,n,0.5))
   # menghitung Lower dan Upper CL
-  LCL=x[rl]
-  UCL=x[ru]
+  LCL=x_sort[rl]
+  UCL=x_sort[ru]
   # menggabungkannya dalam satu data
   data=data.frame("median"=med,
                   "True CL %"=CL*100,
@@ -226,13 +232,13 @@ Alternatif lain yang dapat digunakan untuk menghitung interval kepercayaan jika 
 
 Menggunakan contoh data pada Tabel \@ref(tab:gwardat), dengan 95% interval kepercayaan ($z_{\alpha/2}$=1,96) median dapat dihitung seperti berikut:
 
-\begin{equation}
+$$
   R_l=\frac{25-1,96\cdot\sqrt{25}}{2}=7,6 
-\end{equation}
+$$
 
-\begin{equation}
+$$
   R_l=\frac{25+1,96\cdot\sqrt{25}}{2}+1=18,4 
-\end{equation}
+$$
 
 Berdasarkan hasil perhitungan diperoleh rangking bawah adalah data ke-8 dan rangking atas adalah 18. Kedua data dibulatkan berdasarkan integer terdekat. Nilai interval kepercayaan median yang diperoleh sama dengan metode sebelumnya sebab rangking batas bawah dan atasnya yang seragam.
 
@@ -240,14 +246,18 @@ Jika pembaca ingin menggunakan `R`, maka fungsi yang sebelumya telah kita buat d
 
 ```{r}
 med_norCI <- function(x, alpha){
+  # mengurutkan data dari yang terkecil
+  x_sort=sort(x)
+  # menghitung jumlah observasi
   n = length(x)
+  # menghitung median data
   med = median(x)
   # menghitung Rl dan Ru
   rl=round((n-abs(qnorm(alpha/2))*sqrt(n))/2,0)
   ru=round(((n+abs(qnorm(alpha/2))*sqrt(n))/2)+1,0)
   # menghitung Lower dan Upper CL
-  LCL=x[rl]
-  UCL=x[ru]
+  LCL=x_sort[rl]
+  UCL=x_sort[ru]
   # menggabungkannya dalam satu data
   data=data.frame("median"=med,
                   "Lower CL"=LCL,
@@ -262,7 +272,7 @@ med_norCI(x=gwardat$konsentrasi, alpha=0.05)
 
 ### Metode Parametrik Interval Estimasi Median
 
-Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik  merupakan merupakan nilai rata-rata yang digunakan untuk mengestimasi median sampel untuk data yang memiliki kemencengan dengan transformasi yang digunakan agar data simetrik adalah transformasi logaritmik $y=\ln(x)$. Pada metode ini data diasumsikan memiliki distribusi lognormal (kemencengan positif). Rerata dan interval geometris akan lebih efisien (interval lebih pendek) dari median dan interval kepercayaannya ketika data benar-benar lognormal. Median sampel dan intervalnya lebih tepat dan lebih efisien jika logaritma data masih menunjukkan kemencengan dan/atau *outlier*. Estimasi media menggunakan metode parametrik dituliskan kedalam Persamaan \@ref(eq:gmci) dan Persamaan \@ref(eq:gmci2).
+Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik  merupakan merupakan nilai rata-rata yang digunakan untuk mengestimasi median sampel untuk data yang memiliki kemencengan dengan transformasi yang digunakan agar data simetris adalah transformasi logaritmik $y=\ln(x)$. Pada metode ini data diasumsikan memiliki distribusi lognormal (kemencengan positif). Rerata dan interval geometris akan lebih efisien (interval lebih pendek) dari median dan interval kepercayaannya ketika data benar-benar lognormal. Median sampel dan intervalnya lebih tepat dan lebih efisien jika logaritma data masih menunjukkan kemencengan dan/atau *outlier*. Estimasi media menggunakan metode parametrik dituliskan kedalam Persamaan \@ref(eq:gmci) dan Persamaan \@ref(eq:gmci2).
 
 \begin{equation}
   GM_x=\exp\left(\overline{y}\right) 
@@ -302,21 +312,21 @@ Nilai mean dari data tersebut adalah 3,17 dengan simpangan baku sebesar 1,96. Be
 
 Dengan menggunakan Persamaan \@ref(eq:gmci) dan Persamaan \@ref(eq:gmci2) selanjutnya dapat dihitung interval kepercayaannya dengan derajat kepercayaan 95%.
 
-\begin{equation}
+$$
   GM_x=\exp\left(3,17\right)=23,8
-\end{equation}
+$$
 
-\begin{equation}
+$$
   \exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)\le GM_x\le\exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)
-\end{equation}
+$$
 
-\begin{equation}
+$$
   \exp\left(2,36\right)\le GM_x\le\exp\left(3,98\right)
-\end{equation}
+$$
 
-\begin{equation}
+$$
   10,6\le GM_x\le53,5
-\end{equation}
+$$
 
 Dengan menggunakan `R` dapat dikerjakan menggunakan fungsi sebagai berikut:
 
@@ -362,13 +372,13 @@ Lebar interval kepercayaan adalah fungsi dari nilai-nilai kritis dari tabel dist
 
 Untuk lebih memahami cara penerapannya, kita akan menggunakan kembali data pada Tabel \@ref(tab:gwardat2). Langkah pertama yang perlu dilakukan adalah menghitung mean sampel $\overline{x}$ dan simpangan baku sampel $s$. Berdasarkan hasil perhitungan diperoleh nilai $\overline{x}$ =`r round(mean(gwardat$konsentrasi),3)` dan $s$ = `r round(sd(gwardat$konsentrasi), 3)`. Dengan meggunakan Persamaan \@ref(eq:pmeancisim), interval estimasi mean dengan tingkat kepercayaan 95% dapat dihitung sebagai berikut:
 
-\begin{equation}
-  3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{1,\frac{96^2}{25}}\le\mu\le3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{1,\frac{96^2}{25}}
-\end{equation}
+$$
+  3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}\le\mu\le3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}
+$$
 
-\begin{equation}
+$$
   2,36\le\mu\le3,98
-\end{equation}
+$$
 
 Berdasarkan hasil yang diperoleh terdapat 95% peluang nilai mean populasi $\mu$ terletak pada interval 2,36 sampai 3,98. Perlu diingat bahwa metode parametrik sangat sensitif dengan adanya *outlier* sehingga jika pembaca ingin menggunakannya pastikan terlebih dahulu tidak ada *outlier* pada data dengan cara melakukan visualisasi data.
 
@@ -417,23 +427,23 @@ Data Tabel \@ref(tab:gwardat) dapat kita gunakan untuk menghitung rata-rata meng
 
 Berdasarkan hasil perhitungan diperoleh nilai $\overline{Y}$ =`r round(mean(gwardat2$konsentrasi),3)` dan $s^2_y$ = `r round(sd(gwardat2$konsentrasi), 3)`. Sehingga nilai interval selanjutnya dapat dihitung menggunakan Persamaan \@ref(eq:pmeanciasimci) dengan interval keyakinan 95%.
 
-\begin{equation}
+$$
   \ln\left(\mu_x\right)=3,17+\frac{1,96^2}{2}\pm1,96\sqrt{\frac{1,96^2}{25}+\frac{1,96^4}{2\left(25-1\right)}}
-\end{equation}
+$$
 
-\begin{equation}
+$$
   \ln\left(\mu_x\right)=5,10\pm1,33
-\end{equation}
+$$
 
 Sehingga
 
-\begin{equation}
+$$
   \exp\left(5,10-1,33\right)\le\mu_x\le\exp\left(5,10+1,33\right)
-\end{equation}
+$$
 
-\begin{equation}
+$$
   43,38\le\mu_x\le620,17
-\end{equation}
+$$
 
 Nilai interval yang dihasilkan sangat panjang sehingga nilai rata-rata yang dihasilkan tidak dapat diandalkan untuk memperkirankan lokasi nilai mean populasi. 
 
@@ -469,13 +479,13 @@ mean_asci(x=gwardat$konsentrasi, alpha=0.05)
 
 ## Interval Prediksi Nonparametrik
 
-Pertanyaan yang sering diajukan adalah apakah satu pengamatan baru kemungkinan berasal dari distribusi yang sama dengan data yang dikumpulkan sebelumnya, atau sebagai alternatif dari distribusi yang berbeda. Pertanyaan dapat dievaluasi dengan menentukan apakah pengamatan baru di luar interval prediksi yang dihitung dari data yang ada. Interval prediksi mengandung $100*(1 − \alpha)$ persen dari distribusi data, sementara $100*\alpha$ persen berada di luar interval. Jika pengamatan baru datang dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan $100*\alpha$ persen bahwa pengamatan baru tersebut akan berada di luar interval prediksi. Karena pengamatan baru tersebut berada di luar interval tidak "membuktikan" pengamatan baru itu berbeda, hanya saja sepertinya begitu. Seberapa besar kemungkinan ini tergantung pada pilihan $\alpha$ yang ditentukan oleh peneliti.
+Pertanyaan yang sering diajukan adalah apakah satu pengamatan baru kemungkinan berasal dari distribusi yang sama dengan data yang dikumpulkan sebelumnya, atau sebagai alternatif dari distribusi yang berbeda. Pertanyaan dapat dievaluasi dengan menentukan apakah pengamatan baru di luar interval prediksi yang dihitung dari data yang ada. Interval prediksi mengandung $100\cdot\left(1-\alpha\right)$ persen dari distribusi data, sementara $100\cdot\alpha$ persen berada di luar interval. Jika pengamatan baru datang dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan $100\cdot\alpha$ persen bahwa pengamatan baru tersebut akan berada di luar interval prediksi. Karena pengamatan baru tersebut berada di luar interval tidak "membuktikan" pengamatan baru itu berbeda, hanya saja sepertinya begitu. Seberapa besar kemungkinan ini tergantung pada pilihan $\alpha$ yang ditentukan oleh peneliti.
 
 Interval prediksi dihitung dengan tujuan yang berbeda dari interval kepercayaan. Interval prediksi terkait dengan nilai data individu yang berlawanan dengan ringkasan statistik seperti nilai mean. Interval prediksi lebih luas daripada interval kepercayaan, karena pengamatan individu lebih bervariasi daripada ringkasan statistik yang dihitung dari beberapa pengamatan. Tidak seperti interval kepercayaan, interval prediksi memperhitungkan variabilitas titik data tunggal di sekitar median atau rata-rata, di samping kesalahan dalam memperkirakan pusat distribusi. Ketika mean $\pm$ 2 standar deviasi secara keliru digunakan untuk memperkirakan lebar interval prediksi, data baru dinyatakan berasal dari populasi yang berbeda lebih sering daripada yang seharusnya.
 
 ### Interval Prediksi Nonparametrik Dua Sisi
 
-Interval prediksi tingkat kepercayaan nonparametrik α secara sederhana dinyatakan sebagai interval antara persentil distribusi $\alpha/2$ dan $1− (\alpha/2)$ (Gambar \@ref(fig:ipnds)). Interval ini mengandung $100*(\alpha/2)$ data, sedangkan $100*\alpha$ persen berada di luar interval. Oleh karena itu jika titik data tambahan baru berasal dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan $100*\alpha$ persen bahwa itu akan berada di luar interval prediksi. Interval akan mencerminkan bentuk data yang dikembangkannya, dan tidak ada asumsi tentang bentuk bentuk yang perlu dibuat. Interval prediksi nonparametrik dua sisi dinyatakan berdasarkan Persamaan \@ref(eq:eqipnds).
+Interval prediksi tingkat kepercayaan nonparametrik $\alpha$ secara sederhana dinyatakan sebagai interval antara persentil distribusi $\alpha/2$ dan $1-\left(\frac{\alpha}{2}\right)$ (Gambar \@ref(fig:ipnds)). Interval ini mengandung $100\cdot\left(1-\alpha\right)$ data, sedangkan $100\cdot\alpha$ persen berada di luar interval. Oleh karena itu jika titik data tambahan baru berasal dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan $100\cdot\alpha$ persen bahwa itu akan berada di luar interval prediksi. Interval akan mencerminkan bentuk data yang dikembangkannya, dan tidak ada asumsi tentang bentuk bentuk yang perlu dibuat. Interval prediksi nonparametrik dua sisi dinyatakan berdasarkan Persamaan \@ref(eq:eqipnds).
 
 \begin{equation}
   PI_{np}=X_{\frac{\alpha}{2}\cdot\left(n+1\right)}\ sampai\ dengan\ X_{\left[1-\left(\frac{\alpha}{2}\right)\right]\cdot\left(n+1\right)}
@@ -492,17 +502,17 @@ Kita akan kembali menggunakan data pada Tabel \@ref(tab:gwardat). Dengan menggun
 
 Untuk melakukannya kita perlu menentukan observasi ke-2,5 dan 97,5 (berdasarkan nilai $\alpha/2$) dengan rangking observasi berdasarkan Persamaan \@ref(eq:eqipnds) adalah $(0,05*26)$ atau rangking observasi antara observasi 1 ($R_1$) dan 2 ($R_2$) dan $(0,95*26)$ rangking observasi antara observasi 24 ($R_{24}$) dan 25 ($R_{25}$). Dengan menggunakan interpolasi linier pada observasi ke-1, 2 , 24 dan 25, interval prediksi yang diperoleh adalah sebagai berikut:
 
-\begin{equation}
+$$
   X_1+\left(\frac{R_{\left(0.05\cdot26\right)}-R_1}{R_2-R_1}\right)\cdot\left(X_2-X_1\right)\ sampai\ dengan\ X_{24}+\left(\frac{R_{\left(0.95\cdot26\right)}-R_{24}}{R_{25}-R_{24}}\right)\cdot\left(X_{25}-X_4\right)
-\end{equation}
+$$
 
-\begin{equation}
+$$
   1,3+\left(\frac{1,3-1}{2-1}\right)\cdot\left(1,5-1,3\right)\ sampai\ dengan\ 340+\left(\frac{24,5-24}{25-24}\right)\cdot\left(580-340\right)
-\end{equation}
+$$
 
-\begin{equation}
+$$
   1,4\ sampai\ dengan\ 508\ ppb
-\end{equation}
+$$
 
 Observasi baru diluar rentang tersebut akan dianggap berasal dari distribusi yang berbeda dengan tingkat error sebesar 10% ($\alpha$=10%).
 
@@ -510,6 +520,8 @@ Dengan menggunakan `R` pembaca depat menghitung interval prediksi menggunakan fu
 
 ```{r}
 PInp <- function(x, alpha){
+  # mengurutkan data
+  x_sort = sort(x)
   # jumlah observasi
   n = length(x)
   # menghitung alpha masing-masing sisi
@@ -523,8 +535,8 @@ PInp <- function(x, alpha){
   ru_1= ceiling(ru) 
   ru_2= floor(ru)
   # menentukan interval prediksi
-  LPI = round(x[rl_1]+((rl-rl_1)/(rl_2-rl_1))*(x[rl_2]-x[rl_1]),1)
-  UPI = round(x[ru_1]+((ru-ru_1)/(ru_2-ru_1))*(x[ru_2]-x[ru_1]),1)
+  LPI = round(x_sort[rl_1]+((rl-rl_1)/(rl_2-rl_1))*(x_sort[rl_2]-x_sort[rl_1]),1)
+  UPI = round(x_sort[ru_1]+((ru-ru_1)/(ru_2-ru_1))*(x_sort[ru_2]-x[ru_1]),1)
   # menggabungkan hasil
   data = data.frame("Lower PI"=LPI,
                     "Upper PI"=UPI)
@@ -538,7 +550,7 @@ PInp(x=gwardat$konsentrasi, alpha=0.1)
 
 ### Interval Prediksi Nonparametrik Satu Sisi
 
-Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan $\alpha$ dibanding $\alpha/2$ sebagai nilai error, menempatkan semua erro di satu sisi interval (Gambar \@ref(fig:ipss)). Interval prediksi dituliskan berdasarkan Persamaan \@ref(eq:eqipss).
+Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan $\alpha$ dibanding $\alpha/2$ sebagai nilai error, menempatkan semua error di satu sisi interval (Gambar \@ref(fig:ipss)). Interval prediksi dituliskan berdasarkan Persamaan \@ref(eq:eqipss).
 
 ```{r ipss, echo=FALSE, fig.cap='Prediksi interval satu sisi', tidy=FALSE, out.width='65%', fig.align='center'}
 library(knitr)
@@ -555,9 +567,9 @@ Untuk memahami penerapannya, misalkan kita memiliki nilai arsenik baru dengan ko
 
 Dengan menggunakan Persamaan \@ref(eq:eqipss) dan $\alpha$=0,1 atau tingkat kepercayaan 90%, interval prediksi satu sisi atau data teratas dari persentil ke-90 dari data yang ada adalah $X_{0,9}*26=X_{23,4}$. Dengan menggunakan interpolasi linier pada observasi data dengan rangking ke-23 ($R_{23}$) dan 24 ($R_{23}$) diperoleh:
 
-\begin{equation}
+$$
   X_{23}+0,4\cdot\left(X_{24}-X_{23}\right)=300+0,4\cdot40=316\ ppb
-\end{equation}
+$$
 
 Berdasarkan data yang diperoleh diketahui bahwa batas atas dari interval prediksi adalah 316<355 pbb, sehingga disimpulkan bahwa konsentrasi 355 pbb lebih besar dari sebagian besar data yang ada.
 
@@ -565,27 +577,38 @@ Dengan menggunakan `R` interval prediksi menggunakan satu sisi dapat dihitung me
 
 ```{r}
 PInp_os <- function(x, obs, alpha, side){
+  # mengurutkan data dari yang terkecil
+  x_sort = sort(x)
   # jumlah observasi
   n = length(x)
   # rangking observasi
-  ru=(1-alpha)*(n+1)
-  ru_1=ceiling(ru)
-  ru_2=floor(ru)
-  rl=alpha*(n+1)
-  rl_1=ceiling(rl)
-  rl_2=floor(rl)
+  ru = (1-alpha)*(n+1)
+  ru_1 = ceiling(ru)
+  ru_2 = floor(ru)
+  rl = alpha*(n+1)
+  rl_1 = ceiling(rl)
+  rl_2 = floor(rl)
   # perhitungan interval atas dan bawah
-  PIup = x[ru_1]+((ru-ru_1)/(ru_2-ru_1))*(x[ru_2]-x[ru_1])
-  PIdown = x[rl_1]+((rl-rl_1)/(rl_2-rl_1))*(x[rl_2]-x[rl_1])
+  PIup = x_sort[ru_1]+((ru-ru_1)/(ru_2-ru_1))*(x_sort[ru_2]-x_sort[ru_1])
+  PIdown = x_sort[rl_1]+((rl-rl_1)/(rl_2-rl_1))*(x_sort[rl_2]-x_sort[rl_1])
   # decision making
   if((side=="upper") & (PIup<obs)){
-    cat("PI =",PIup,"\nnilai observasi lebih besar dibadingkan sebagian besar nilai yang ada")
+    cat("PI =",PIup,",observasi baru=",obs)
+    cat("\n----------------------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi lebih besar dibandingkan sebagian besar nilai yang ada")
   } else if((side=="lower") & (PIdown>obs)){
-    cat("PI =",PIdown,"\nnilai observasi lebih kecil dibadingkan sebagian besar nilai yang ada")
+    cat("PI =",PIdown, ",observasi baru=",obs)
+    cat("\n----------------------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada")
   } else if(side==""){
     print("side belum ditentukan tentukan apakah lower atau upper")
   } else{
-    cat("batas bawah =",PIdown,", batas atas =",PIup,"\nnilai observasi sama dengan sebagian besar nilai yang ada")
+    cat("batas bawah =",PIdown,", batas atas =",PIup)
+    cat("\n---------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi sama dengan sebagian besar nilai yang ada")
   }
 }
 ```
@@ -593,4 +616,112 @@ PInp_os <- function(x, obs, alpha, side){
 ```{r}
 PInp_os(x=gwardat$konsentrasi, obs=355, alpha=0.1, side="upper")
 ```
+
+## Interval Prediksi Parametrik
+
+Interval prediksi parametrik juga digunakan untuk menentukan apakah pengamatan baru kemungkinan berasal dari distribusi yang berbeda dari data yang dikumpulkan sebelumnya. Namun, pada metode parametrik asumsi bentuk dari distribusi data akan diperhitungkan. Asumsi ini memberikan lebih banyak informasi untuk membangun interval, asalkan asumsi tersebut valid. Jika data tidak mengikuti distribusi yang diasumsikan, interval prediksi mungkin tidak akurat.
+
+### Interval Prediksi Distribusi Simetris
+
+Asumsi yang digunakan untuk melakukan perhitungan interval prediksi untuk distribusi data yang simetris adalah data haruslah berdistribusi normal. Interval prediksi selanjutnya dibentuk secara simetris pada kedua sisi nilai mean. Interval ini lebih lebar rentangnya dibandingkan dengan interval kepercayaan nilai mean. Persamaan matematis yang digunakan untuk menghitungnya dituliskan pada Persamaan  \@ref(eq:ipds).
+
+\begin{equation}
+  PI=\overline{X}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}sampai\ \overline{X}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}
+  (\#eq:ipds)
+\end{equation}
+
+Untuk interval satu sisi Persamaan  \@ref(eq:ipds), menjadi Persamaan \@ref(eq:ipds2).
+
+\begin{equation}
+  PI=\overline{X}-t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}sampai\ \overline{X}+t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}
+  (\#eq:ipds2)
+\end{equation}
+
+Untuk lebih memahaminya misalkan terdapat hasil pengukuran baru konsentrasi arsenik sebesar 350 ppb dengan menggunakan data pada Tabel \@ref(tab:gwardat) sebagai pembanding. Buktikan bahwa observasi baru tersebut berasal dari distrubusi yang sama dengan $\alpha$=5%.
+
+Dengan menggunakan Persamaan  \@ref(eq:ipds), interval prediksi dapat dihitung sebagai berikut:
+
+$$
+PI\ =\ 98,4-t_{\left(0.025,24\right)}\cdot\sqrt{144,7^2+\frac{144,7^2}{25}\ }sampai\ \ 98,4+t_{\left(0.025,24\right)}\cdot\sqrt{144,7^2+\frac{144,7^2}{25}}
+$$
+
+$$
+PI\ =\ 98,4-2,064\cdot147,6\ \ sampai\ \ 98,4+2,064\cdot147,6
+$$
+
+$$
+PI\ =\ -206,25\ \ sampai\ \ 403,05
+$$
+
+Berdasarkan hasil perhitungan yang dilakukan terlihat bahwa limit interval prediksi yang dihasilkanterdapat nilai negatif. Kosentrasi negatif mengindikasikan bahwa data yang digunakan tidaklah simetris sehingga penggunaan interval prediksi untuk data yang simetris tidak dapat digunakan pada data tersebut. Metode perhitungan interval prediksi untuk data asimetris lebih cocok untuk digunakan.
+
+Pada `R` interval prediksi disekitar nilai mean dapat dihitung menggunakan fungsi berikut:
+
+```{r}
+PI_sim <- function(x, obs, alpha, side){
+  # menghitung nilai mean
+  ave = mean(x)
+  # menghitung nilai varians dara
+  var = var(x)
+  # menghitung df
+  n = length(x)
+  df = n-1
+  # perhitungan rentang satu sisi
+  pi_l1 = ave-qt((1-alpha), df)*sqrt(var+(var/n))
+  pi_u1 = ave+qt((1-alpha), df)*sqrt(var+(var/n))
+  # perhitungan rentang dua sisi
+  pi_l2 = ave-qt((1-alpha/2), df)*sqrt(var+(var/n))
+  pi_u2 = ave+qt((1-alpha/2), df)*sqrt(var+(var/n))
+  # decision making
+  if(side=="Upper" & obs>pi_u1){
+    cat("PI Atas =",pi_u1,",observasi baru=",obs)
+    cat("\n----------------------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi lebih besar dibandingkan sebagian besar nilai yang ada")
+  }else if(side=="Lower" & obs<pi_l1){
+    cat("PI Bawah =",pi_l1,",observasi baru=",obs)
+    cat("\n----------------------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada")
+  }else if(side==2 & obs>pi_u2){
+    cat("PI Bawah =",pi_l2,",observasi baru=",obs, ",PI Atas =",pi_u2)
+    cat("\n----------------------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi lebih besar dibandingkan sebagian besar nilai yang ada")
+  }else if(side==2 & obs<pi_l2){
+    cat("PI Bawah =",pi_l2,",observasi baru=",obs, ",PI Atas =",pi_u2)
+    cat("\n----------------------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada")
+  }else if(side=="Upper" & obs<pi_u1){
+    cat("PI Atas =",pi_u1,",observasi baru=",obs)
+    cat("\n----------------------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi sama dengan sebagian besar nilai yang ada")
+  }else if(side=="Lower" & obs>pi_l1){
+    cat("PI Bawah =",pi_l1,",observasi baru=",obs)
+    cat("\n----------------------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi sama dengan sebagian besar nilai yang ada")
+  }else{
+    cat("PI Bawah =",pi_l2, ",observasi baru=",obs,",PI Atas =",pi_u2)
+    cat("\n---------------------------------------------------------")
+    cat("\nKesimpulan:")
+    cat("\nnilai observasi sama dengan sebagian besar nilai yang ada")
+  }
+}
+```
+
+```{r}
+# interval prediksi satu sisi
+PI_sim(x = gwardat$konsentrasi, obs = 350, alpha=0.05, side=2)
+```
+
+
+
+
+
+
+
+
 

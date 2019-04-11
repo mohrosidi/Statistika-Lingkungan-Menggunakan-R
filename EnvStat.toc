@@ -163,9 +163,11 @@
 \contentsline {section}{\numberline {8.3}Interval Kepercayaan Median}{247}{section.8.3}% 
 \contentsline {subsection}{\numberline {8.3.1}Interval Estimasi Median Metode Nonparametrik}{247}{subsection.8.3.1}% 
 \contentsline {subsection}{\numberline {8.3.2}Metode Parametrik Interval Estimasi Median}{252}{subsection.8.3.2}% 
-\contentsline {section}{\numberline {8.4}Interval Kepercayaan Mean}{254}{section.8.4}% 
+\contentsline {section}{\numberline {8.4}Interval Kepercayaan Mean}{255}{section.8.4}% 
 \contentsline {subsection}{\numberline {8.4.1}Interval Kepercayaan Mean Untuk Distribusi Yang Simetris}{255}{subsection.8.4.1}% 
 \contentsline {subsection}{\numberline {8.4.2}Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris}{256}{subsection.8.4.2}% 
 \contentsline {section}{\numberline {8.5}Interval Prediksi Nonparametrik}{258}{section.8.5}% 
 \contentsline {subsection}{\numberline {8.5.1}Interval Prediksi Nonparametrik Dua Sisi}{258}{subsection.8.5.1}% 
 \contentsline {subsection}{\numberline {8.5.2}Interval Prediksi Nonparametrik Satu Sisi}{260}{subsection.8.5.2}% 
+\contentsline {section}{\numberline {8.6}Interval Prediksi Parametrik}{261}{section.8.6}% 
+\contentsline {subsection}{\numberline {8.6.1}Interval Prediksi Distribusi Simetris}{262}{subsection.8.6.1}% 
