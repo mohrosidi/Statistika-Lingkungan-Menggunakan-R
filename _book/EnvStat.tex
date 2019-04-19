@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-04-11}
+    \date{2019-04-19}
 
 \usepackage{booktabs}
 
@@ -10665,7 +10665,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x000000001c0337e8>
+## <bytecode: 0x00000000182ced40>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -13484,7 +13484,7 @@ sub-chapter ini akan diberikan contoh yang diambil dari buku
 akuifer adalah 10. Sleain itu, anggaplah bahwa varians populasi
 sebenarnya \(\sigma^2\) sama dengan 1. Karena nilai-nilai ini dalam
 praktiknya tidak pernah diketahui, sampel diambil untuk memperkirakannya
-dengan mean sampel \(x\) dan sampel varianss \(s^2\) . Dana yang cukup
+dengan mean sampel \(x\) dan sampel varian \(s^2\) . Dana yang cukup
 tersedia untuk mengambil 12 sampel air (kira-kira satu per bulan) selama
 satu tahun, dan hari-hari di mana pengambilan sampel terjadi dipilih
 secara acak. Dari 12 sampel ini \(x\)x dan \(s^2\) dihitung. Meskipun
@@ -13555,7 +13555,7 @@ demikian interval kepercayaan 95\% akan lebih luas daripada interval
 
 }
 
-\caption{Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10}\label{fig:iievis}
+\caption{Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)}\label{fig:iievis}
 \end{figure}
 
 Interval kepercayaan simetris pada rata-rata biasanya dihitung dengan
@@ -13611,7 +13611,7 @@ sebenarnya)}\tabularnewline
 
 }
 
-\caption{Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75}\label{fig:iiedata}
+\caption{Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)}\label{fig:iiedata}
 \end{figure}
 
 \begin{figure}
@@ -13620,7 +13620,7 @@ sebenarnya)}\tabularnewline
 
 }
 
-\caption{Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 1}\label{fig:iievis2}
+\caption{Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya  (Helsel dan Hirsch, 2002)}\label{fig:iievis2}
 \end{figure}
 
 \section{Interval Kepercayaan Median}\label{interval-kepercayaan-median}
@@ -13650,7 +13650,7 @@ interval kepercayaan.
 
 }
 
-\caption{Probabilitas median populasi P50 pada dua sisi interval estimasi.}\label{fig:iemednp}
+\caption{Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)}\label{fig:iemednp}
 \end{figure}
 
 Untuk ukuran sampel kecil, tabel binomial dimasukkan pada kolom p = 0,5
@@ -13802,7 +13802,7 @@ membuat fungsi sebagai berikut:
   \CommentTok{# menghitung jumlah observasi}
 \NormalTok{  n=}\KeywordTok{length}\NormalTok{(x)}
   \CommentTok{# menghitung median data}
-\NormalTok{  med =}\StringTok{ }\KeywordTok{median}\NormalTok{(x)}
+\NormalTok{  med =}\StringTok{ }\KeywordTok{median}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
   \CommentTok{# loop untuk mencari nilai probabilitas terdekat}
   \CommentTok{# dengan alpha}
   \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n)\{}
@@ -13830,6 +13830,18 @@ membuat fungsi sebagai berikut:
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\end{itemize}
+\end{quote}
 
 Fungsi yang telah dibuat tersebut selanjutnya dapat pembaca gunakan saat
 akan menghitung interval kepercayaan median populasi menggunakan metode
@@ -13897,7 +13909,7 @@ telah kita buat dapat dimodifikasi seperti berikut:
   \CommentTok{# menghitung jumlah observasi}
 \NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
   \CommentTok{# menghitung median data}
-\NormalTok{  med =}\StringTok{ }\KeywordTok{median}\NormalTok{(x)}
+\NormalTok{  med =}\StringTok{ }\KeywordTok{median}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
   \CommentTok{# menghitung Rl dan Ru}
 \NormalTok{  rl=}\KeywordTok{round}\NormalTok{((n}\OperatorTok{-}\KeywordTok{abs}\NormalTok{(}\KeywordTok{qnorm}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{))}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(n))}\OperatorTok{/}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{)}
 \NormalTok{  ru=}\KeywordTok{round}\NormalTok{(((n}\OperatorTok{+}\KeywordTok{abs}\NormalTok{(}\KeywordTok{qnorm}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{))}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(n))}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
@@ -13913,6 +13925,25 @@ telah kita buat dapat dimodifikasi seperti berikut:
 \end{Highlighting}
 \end{Shaded}
 
+Fungsi \texttt{med\_norCI()} sama dengan fungsi \texttt{med\_npCI()}.
+Perbedaannya terletak pada penggunaan distribusi normal pada proses
+penentuan titik kritisnya.
+
+Dengan menggunakan fungsi \texttt{med\_norCI()}, rentang kepercayaan
+median dapat dihitung seperti berikut:
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\end{itemize}
+\end{quote}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{med_norCI}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
@@ -13923,6 +13954,70 @@ telah kita buat dapat dimodifikasi seperti berikut:
 ##   median Lower.CL Upper.CL
 ## 1     19      4.8      110
 \end{verbatim}
+
+Jika kita tidak ingin menggunakan vektor dalam fungsi, kita dapat juga
+menggunakan data frame sebagai inputnya. Kelebihannya adalah kita dapat
+menghitung rentang kepercayaan seluruh kolom dalam satu kali proses. Hal
+ini tentunya akan menghemat waktu yang digunakan. Berikut adalah contoh
+sintaks fungsi untuk menghitung interval kepercayaan median menggunakan
+distribusi normal dengan metode nonparametrik yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{med_norCI <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(df, alpha)\{}
+  \CommentTok{# membuat matrik untuk menyimpan}
+  \CommentTok{# hasil loop}
+\NormalTok{  med =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+\NormalTok{  LCL =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+\NormalTok{  UCL =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+\NormalTok{  var =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+  \CommentTok{# looping}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{ncol}\NormalTok{(df))\{}
+    \CommentTok{# mengurutkan data}
+\NormalTok{    x_sort =}\StringTok{ }\KeywordTok{sort}\NormalTok{(df[, i])}
+    \CommentTok{# mengambil nama kolom dataset}
+\NormalTok{    var[i] =}\StringTok{ }\KeywordTok{colnames}\NormalTok{(df[i])}
+    \CommentTok{# menghitung jumlah observasi}
+\NormalTok{    n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x_sort)}
+    \CommentTok{# menghitung median data}
+\NormalTok{    med[i] =}\StringTok{ }\KeywordTok{median}\NormalTok{(x_sort, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
+    \CommentTok{# menghitung Lower dan Upper CL}
+\NormalTok{    LCL[i]=x_sort[(}\KeywordTok{round}\NormalTok{((n}\OperatorTok{-}\KeywordTok{abs}\NormalTok{(}\KeywordTok{qnorm}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{))}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(n))}\OperatorTok{/}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))]}
+\NormalTok{    UCL[i]=x_sort[(}\KeywordTok{round}\NormalTok{(((n}\OperatorTok{+}\KeywordTok{abs}\NormalTok{(}\KeywordTok{qnorm}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{))}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(n))}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{))]}
+\NormalTok{  \}}
+  \CommentTok{# menggabungkannya dalam satu data}
+\NormalTok{  data=}\KeywordTok{data.frame}\NormalTok{(}\StringTok{"variabel"}\NormalTok{=var,}
+                  \StringTok{"median"}\NormalTok{=med,}
+                  \StringTok{"Lower CL"}\NormalTok{=LCL,}
+                  \StringTok{"Upper CL"}\NormalTok{=UCL)}
+  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{df}: data frame
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\end{itemize}
+\end{quote}
+
+Fungsi tersebut dapat menghitung sekaligus Interval kepercayaan median
+dengan metode nonparametrik. Pembaca dapat mencobanya dengan menggunakan
+dataset yang pembaca miliki. Pembaca dapat mengabaikan peringatan yang
+muncul dan berfokus pada hasil yang diperoleh. Sebagai contoh jalankan
+fungsi tersebut menggunakan dataset \texttt{airquality} berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{med_norCI}\NormalTok{(}\DataTypeTok{df=}\NormalTok{airquality, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \subsection{Metode Parametrik Interval Estimasi
 Median}\label{metode-parametrik-interval-estimasi-median}
@@ -14061,16 +14156,15 @@ sebagai berikut:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# persamaan hanya dapat digunakan untuk data yang telah ditransformasi lognormal}
-
 \NormalTok{med_gm <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, alpha)\{}
+\NormalTok{  x =}\StringTok{ }\KeywordTok{log}\NormalTok{(x)}
   \CommentTok{# rata-rata geometrik}
-\NormalTok{  gm =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x))}
+\NormalTok{  gm =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{))}
   \CommentTok{# menghitung derajat kebebasan}
 \NormalTok{  df =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}\OperatorTok{-}\DecValTok{1}
   \CommentTok{# menghitung batas bawah dan atas}
-\NormalTok{  LCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x)}\OperatorTok{-}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
-\NormalTok{  UCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x)}\OperatorTok{+}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
+\NormalTok{  LCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{-}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
+\NormalTok{  UCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{+}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
   \CommentTok{# menggabungkan hasil}
 \NormalTok{  data=}\KeywordTok{data.frame}\NormalTok{(}\StringTok{"GM"}\NormalTok{=gm,}
                   \StringTok{"Lower CL"}\NormalTok{=LCL,}
@@ -14080,9 +14174,21 @@ sebagai berikut:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\end{itemize}
+\end{quote}
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{med_gm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat2}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\KeywordTok{med_gm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -14090,6 +14196,67 @@ sebagai berikut:
 ##      GM Lower.CL Upper.CL
 ## 1 23.87    10.63     53.6
 \end{verbatim}
+
+Fungsi \texttt{med\_gm()} dapat dilakukan sejumlah modifikasi seperti
+penggunaan data frame sebagai input serta proses transformasi yang
+dilakukan didalam fungsi yang ada sekaligus. Berikut adalah contoh
+fungsi yang digunakan untuk input berupa data frame dan proses
+transformasi termasuk didalamnya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{med_gm <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(df, alpha)\{}
+  \CommentTok{# membuat vektor untuk menyimpan hasil loop}
+\NormalTok{  var =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+\NormalTok{  gm =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+\NormalTok{  LCL =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+\NormalTok{  UCL =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+  \CommentTok{# looping}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{ncol}\NormalTok{(df))\{}
+    \CommentTok{# mengambil nama kolom}
+\NormalTok{    var[i] =}\StringTok{ }\KeywordTok{colnames}\NormalTok{(df[i])}
+    \CommentTok{# transformasi variabel (logaritmik)}
+\NormalTok{    x =}\StringTok{ }\KeywordTok{log}\NormalTok{(df[,i])}
+    \CommentTok{# rata-rata geometrik}
+\NormalTok{    gm[i] =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{))}
+    \CommentTok{# menghitung derajat kebebasan}
+\NormalTok{    d =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}\OperatorTok{-}\DecValTok{1}
+    \CommentTok{# menghitung batas bawah dan atas}
+\NormalTok{    LCL[i] =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{-}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,d)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
+\NormalTok{    UCL[i] =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{+}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,d)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x,}\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
+\NormalTok{  \}}
+  \CommentTok{# menggabungkan hasil}
+\NormalTok{  data=}\KeywordTok{data.frame}\NormalTok{(}\StringTok{"Variabel"}\NormalTok{=var,}
+                  \StringTok{"GM"}\NormalTok{=gm,}
+                  \StringTok{"Lower CL"}\NormalTok{=LCL,}
+                  \StringTok{"Upper CL"}\NormalTok{=UCL)}
+  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{df}: data frame
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\end{itemize}
+\end{quote}
+
+Untuk menguji fungsi tersebut jalankan fungsi tersebut menggunakan
+dataset yang pembaca miliki. Dalam contoh ini ak diberikan contoh
+penerapannya menggunakan dataset \texttt{airquality}. Jalankan fungsi
+berikut untuk memperoleh hasilnya.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{med_gm}\NormalTok{(airquality, }\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 Pembaca perlu berhati-hati dalam menentukan apakah akan menggunakan
 metode Nonparametrik atau parametrik. Jika data berditribusi lognormal
@@ -14133,7 +14300,7 @@ digali lebih jauh metode estimasi interval menggunakan persamaan
 distribusi t.
 
 Lebar interval kepercayaan adalah fungsi dari nilai-nilai kritis dari
-tabel distribusi t, standar deviasi data, dan ukuran sampel. Ketika data
+tabel distribusi t, simpangan baku data, dan ukuran sampel. Ketika data
 memiliki kemecengan atau mengandung \emph{outlier}, asumsi di balik
 interval t dan distribusi normal tidak berlaku. Interval simetris yang
 dihasilkan akan sangat luas sehingga sebagian besar pengamatan akan
@@ -14221,6 +14388,39 @@ Berikut adalah sintaks yang digunakan:
 ## [1] 3.982
 \end{verbatim}
 
+Selain itu , kita juga dapat menghitung interval kepercayaan mean
+menggunakan fungsi \texttt{t.test()}. Fungsi ini pada dasarnya dilakukan
+untuk melakukan uji hipotesis terhadap satu rata-rata. Untuk lebih tahu
+mengenai fungsi tersebut jalankan sintaks bantuan berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?t.test}
+\end{Highlighting}
+\end{Shaded}
+
+Untuk menghitung interval kepercayaan mean jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{conf.level=} \FloatTok{0.95}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  One Sample t-test
+## 
+## data:  gwardat$konsentrasi
+## t = 3.4, df = 24, p-value = 0.002
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##   38.63 158.08
+## sample estimates:
+## mean of x 
+##     98.35
+\end{verbatim}
+
 \subsection{Interval Kepercayaan Mean Untuk Distribusi Yang
 Asimetris}\label{interval-kepercayaan-mean-untuk-distribusi-yang-asimetris}
 
@@ -14235,9 +14435,9 @@ biasa tanpa transformasi log.
 Untuk memperkirakan rata-rata populasi \(\mu_x\) dalam unit aslinya,
 anggap datanya berdistribusi normal. Satu-setengah varians logaritma
 ditambahkan ke \(\overline{y}\) (rata-rata log) sebelum eksponensial.
-Karena varianss sampel \(s^2_y\) hanya perkiraan varianss sebenarnya
-dari logaritma, estimasi sampel rata-rata akan menjadi bias. Namun,
-untuk sampel dengan \(s^2_y\) kecil dan ukuran sampel besar bias dapat
+Karena varians sampel \(s^2_y\) hanya perkiraan varians sebenarnya dari
+logaritma, estimasi sampel rata-rata akan menjadi bias. Namun, untuk
+sampel dengan \(s^2_y\) kecil dan ukuran sampel besar bias dapat
 diabaikan. Interval kepercayaan dapat dituliskan berdasarkan Persamaan
 \eqref{eq:pmeanciasim}.
 
@@ -14314,11 +14514,11 @@ distribusi normal.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mean_asci<-}\ControlFlowTok{function}\NormalTok{(x,alpha)\{}
-\NormalTok{  m=}\KeywordTok{mean}\NormalTok{(x)}
+\NormalTok{  m=}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
   \CommentTok{# mean data hasil transformasi logaritmik}
-\NormalTok{  ave =}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\KeywordTok{log}\NormalTok{(x))}
+\NormalTok{  ave =}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\KeywordTok{log}\NormalTok{(x), }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
   \CommentTok{# simpangan baku data hasil transformasi}
-\NormalTok{  sd =}\StringTok{ }\KeywordTok{sd}\NormalTok{(}\KeywordTok{log}\NormalTok{(x))}
+\NormalTok{  sd =}\StringTok{ }\KeywordTok{sd}\NormalTok{(}\KeywordTok{log}\NormalTok{(x), }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
   \CommentTok{# jumlah observasi}
 \NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
   \CommentTok{# derajat kebebasa}
@@ -14337,6 +14537,18 @@ distribusi normal.
 \end{Highlighting}
 \end{Shaded}
 
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\end{itemize}
+\end{quote}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{mean_asci}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
@@ -14347,6 +14559,70 @@ distribusi normal.
 ##    Mean Lower.CL Upper.CL
 ## 1 98.35    40.11    660.9
 \end{verbatim}
+
+Jika pembaca ingin menggunakan data frame sebagai input yang digunakan
+selain vektor, fungsi tersebut dapat dimodifikasi seperti berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean_asci<-}\ControlFlowTok{function}\NormalTok{(df,alpha)\{}
+  \CommentTok{# membuat vektor untuk menyimpan hasil loop}
+\NormalTok{  var =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+\NormalTok{  m =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+\NormalTok{  LCL =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+\NormalTok{  UCL =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
+  \CommentTok{# looping}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{ncol}\NormalTok{(df))\{}
+    \CommentTok{# mengambil nama kolom}
+\NormalTok{    var[i] =}\StringTok{ }\KeywordTok{colnames}\NormalTok{(df[i])}
+    \CommentTok{# menghitung mean data}
+\NormalTok{    m[i]=}\KeywordTok{mean}\NormalTok{(df[,i], }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
+    \CommentTok{# mean data hasil transformasi logaritmik}
+\NormalTok{    ave =}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\KeywordTok{log}\NormalTok{(df[,i]), }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
+    \CommentTok{# simpangan baku data hasil transformasi}
+\NormalTok{    sd =}\StringTok{ }\KeywordTok{sd}\NormalTok{(}\KeywordTok{log}\NormalTok{(df[,i]), }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
+    \CommentTok{# jumlah observasi}
+\NormalTok{    n =}\StringTok{ }\KeywordTok{length}\NormalTok{(df[,i])}
+    \CommentTok{# derajat kebebasa}
+\NormalTok{    d =}\StringTok{ }\NormalTok{n}\OperatorTok{-}\DecValTok{1}
+    \CommentTok{# interval keyakinan satu sisi}
+\NormalTok{    re =}\StringTok{ }\DecValTok{1}\OperatorTok{-}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{)}
+    \CommentTok{# CI menggunakan distribusi t}
+\NormalTok{    LCL[i] =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{+}\NormalTok{(}\FloatTok{0.5}\OperatorTok{*}\NormalTok{sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{-}\KeywordTok{qt}\NormalTok{(re,d)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(((sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{n)}\OperatorTok{+}\NormalTok{((sd}\OperatorTok{^}\DecValTok{4}\NormalTok{)}\OperatorTok{/}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{d))))}
+\NormalTok{    UCL[i] =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{+}\NormalTok{(}\FloatTok{0.5}\OperatorTok{*}\NormalTok{sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\KeywordTok{qt}\NormalTok{(re,d)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(((sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{n)}\OperatorTok{+}\NormalTok{((sd}\OperatorTok{^}\DecValTok{4}\NormalTok{)}\OperatorTok{/}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{d))))}
+\NormalTok{  \}}
+  \CommentTok{# menggabungkan hasil}
+\NormalTok{  data =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\StringTok{"Variabel"}\NormalTok{=var,}
+                    \StringTok{"Mean"}\NormalTok{=m,}
+                    \StringTok{"Lower CL"}\NormalTok{=LCL,}
+                    \StringTok{"Upper CL"}\NormalTok{=UCL)}
+  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{df}: data frame
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\end{itemize}
+\end{quote}
+
+Untuk menguji fungsi tersebut, pembaca dapat memasukkan data frame yang
+pembaca miliki kedalam persamaan tersebut. Berikut adalah contoh sintaks
+yang digunakan untuk menghitung interval kepercayaan mean pada dataset
+\texttt{airquality}. Pembaca dapat menjalankannya pada komputer pembaca.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean_asci}\NormalTok{(airquality, }\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Interval Prediksi
 Nonparametrik}\label{interval-prediksi-nonparametrik}
@@ -14374,9 +14650,9 @@ individu lebih bervariasi daripada ringkasan statistik yang dihitung
 dari beberapa pengamatan. Tidak seperti interval kepercayaan, interval
 prediksi memperhitungkan variabilitas titik data tunggal di sekitar
 median atau rata-rata, di samping kesalahan dalam memperkirakan pusat
-distribusi. Ketika mean \(\pm\) 2 standar deviasi secara keliru
-digunakan untuk memperkirakan lebar interval prediksi, data baru
-dinyatakan berasal dari populasi yang berbeda lebih sering daripada yang
+distribusi. Ketika mean \(\pm\) 2 simpangan baku secara keliru digunakan
+untuk memperkirakan lebar interval prediksi, data baru dinyatakan
+berasal dari populasi yang berbeda lebih sering daripada yang
 seharusnya.
 
 \subsection{Interval Prediksi Nonparametrik Dua
@@ -14406,7 +14682,7 @@ berdasarkan Persamaan \eqref{eq:eqipnds}.
 
 }
 
-\caption{Prediksi interval dua sisi}\label{fig:ipnds}
+\caption{Prediksi interval dua sisi (Helsel dan Hirsch, 2002)}\label{fig:ipnds}
 \end{figure}
 
 Kita akan kembali menggunakan data pada Tabel \ref{tab:gwardat}. Dengan
@@ -14469,6 +14745,18 @@ menggunakan fungsi berikut:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\end{itemize}
+\end{quote}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{PInp}\NormalTok{(}\DataTypeTok{x=}\NormalTok{gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{alpha=}\FloatTok{0.1}\NormalTok{)}
@@ -14500,7 +14788,7 @@ dituliskan berdasarkan Persamaan \eqref{eq:eqipss}.
 
 }
 
-\caption{Prediksi interval satu sisi}\label{fig:ipss}
+\caption{Prediksi interval satu sisi (Helsel dan Hirsch, 2002)}\label{fig:ipss}
 \end{figure}
 
 \begin{equation}
@@ -14568,6 +14856,24 @@ dapat dihitung menggunakan fungsi berikut:
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\item
+  \textbf{obs}: observasi baru yang akan dibandingkan
+\item
+  \textbf{side}: untuk memilih jenis uji satu sisi yang digunakan. nilai
+  yang mungkin adalah \textbf{Upper} (membandingkan dengan limit atas)
+  dan \textbf{Lower} (membandingkan dengan limit bawah)
+\end{itemize}
+\end{quote}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14650,9 +14956,9 @@ menggunakan fungsi berikut:
 \begin{Highlighting}[]
 \NormalTok{PI_sim <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, obs, alpha, side)\{}
   \CommentTok{# menghitung nilai mean}
-\NormalTok{  ave =}\StringTok{ }\KeywordTok{mean}\NormalTok{(x)}
+\NormalTok{  ave =}\StringTok{ }\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
   \CommentTok{# menghitung nilai varians dara}
-\NormalTok{  var =}\StringTok{ }\KeywordTok{var}\NormalTok{(x)}
+\NormalTok{  var =}\StringTok{ }\KeywordTok{var}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
   \CommentTok{# menghitung df}
 \NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
 \NormalTok{  df =}\StringTok{ }\NormalTok{n}\OperatorTok{-}\DecValTok{1}
@@ -14663,32 +14969,32 @@ menggunakan fungsi berikut:
 \NormalTok{  pi_l2 =}\StringTok{ }\NormalTok{ave}\OperatorTok{-}\KeywordTok{qt}\NormalTok{((}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{), df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(var}\OperatorTok{+}\NormalTok{(var}\OperatorTok{/}\NormalTok{n))}
 \NormalTok{  pi_u2 =}\StringTok{ }\NormalTok{ave}\OperatorTok{+}\KeywordTok{qt}\NormalTok{((}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{), df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(var}\OperatorTok{+}\NormalTok{(var}\OperatorTok{/}\NormalTok{n))}
   \CommentTok{# decision making}
-  \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"Upper"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{>}\NormalTok{pi_u1)\{}
+  \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"upper"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{>}\NormalTok{pi_u1)\{}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Atas ="}\NormalTok{,pi_u1,}\StringTok{",observasi baru="}\NormalTok{,obs)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih besar dibandingkan sebagian besar nilai yang ada"}\NormalTok{)}
-\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"Lower"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{<}\NormalTok{pi_l1)\{}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"lower"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{<}\NormalTok{pi_l1)\{}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Bawah ="}\NormalTok{,pi_l1,}\StringTok{",observasi baru="}\NormalTok{,obs)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada"}\NormalTok{)}
-\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\DecValTok{2} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{>}\NormalTok{pi_u2)\{}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"two side"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{>}\NormalTok{pi_u2)\{}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Bawah ="}\NormalTok{,pi_l2,}\StringTok{",observasi baru="}\NormalTok{,obs, }\StringTok{",PI Atas ="}\NormalTok{,pi_u2)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih besar dibandingkan sebagian besar nilai yang ada"}\NormalTok{)}
-\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\DecValTok{2} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{<}\NormalTok{pi_l2)\{}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"two side"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{<}\NormalTok{pi_l2)\{}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Bawah ="}\NormalTok{,pi_l2,}\StringTok{",observasi baru="}\NormalTok{,obs, }\StringTok{",PI Atas ="}\NormalTok{,pi_u2)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada"}\NormalTok{)}
-\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"Upper"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{<}\NormalTok{pi_u1)\{}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"upper"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{<}\NormalTok{pi_u1)\{}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Atas ="}\NormalTok{,pi_u1,}\StringTok{",observasi baru="}\NormalTok{,obs)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi sama dengan sebagian besar nilai yang ada"}\NormalTok{)}
-\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"Lower"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{>}\NormalTok{pi_l1)\{}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"lower"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{>}\NormalTok{pi_l1)\{}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Bawah ="}\NormalTok{,pi_l1,}\StringTok{",observasi baru="}\NormalTok{,obs)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
     \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
@@ -14703,6 +15009,25 @@ menggunakan fungsi berikut:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\item
+  \textbf{obs}: observasi baru yang akan dibandingkan
+\item
+  \textbf{side}: untuk memilih jenis uji digunakan. nilai yang mungkin
+  adalah \textbf{upper} (membandingkan dengan limit atas uji satu sisi),
+  \textbf{lower} (membandingkan dengan limit bawah uji satu sisi) dan
+  \textbf{two side} (uji dua sisi).
+\end{itemize}
+\end{quote}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# interval prediksi satu sisi}
@@ -14716,6 +15041,1141 @@ menggunakan fungsi berikut:
 ## Kesimpulan:
 ## nilai observasi sama dengan sebagian besar nilai yang ada
 \end{verbatim}
+
+\subsection{Interval Prediksi Untuk Distribusi Data Yang Tidak
+Simetris}\label{interval-prediksi-untuk-distribusi-data-yang-tidak-simetris}
+
+Untuk distribusi data yang tidak simetris, data perlu dilakukan
+transformasi terlebih dahulu sebelum dilakukan. Data di lingkungan
+khusunya parameter di air cenderung memiliki bentuk distribusi tidak
+simetris (cenderung memiliki kemencengan positif). Transformasi
+logaritmik biasanya dapat digunakan untuk data tersebut agar bentuknya
+dapat simetris dan dapat memenuhi asumsi normalitas pada data. Data yang
+telah dilakukan transformasi selanjutnya dihitung menggunakan Persamaan
+\eqref{eq:ipds} untuk interval prediksi dua sisi dan Persamaan
+\eqref{eq:ipds2} untuk interval prediksi satu sisi. Hasil perhitungan
+selanjutnya dilakukan transformasi kembali sesuai dengan invers dari
+transformasinya dalam hal ini menggunakan transformasi eksponensial
+(jika tranformasi awalnya adalah natural log). Untuk data dengan bentuk
+distribusi logaritmik (kemencengan positif), interval prediksi yang
+digunakan disajikan pada Persamaan \eqref{eq:ipdas} (dua sisi) dan
+Persamaan \eqref{eq:ipdas2} (satu sisi).
+
+\begin{equation}
+  PI=\exp\left(\overline{X}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)\ sampai\ \exp\left(\overline{X}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)
+  \label{eq:ipdas}
+\end{equation}
+
+\begin{equation}
+  PI=\exp\left(\overline{X}-t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)\ sampai\ \ \exp\left(\overline{X}+t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)
+  \label{eq:ipdas2}
+\end{equation}
+
+dimana \(y=\ln{(x)}\), \(\overline{y}\) adalah nilai rata-rata dari
+tranformasi logaritmik data, dan \(s^2_y\) adalah varians dari
+tranformasi logaritmik data.
+
+Dengan menggunakan contoh soal sebelumnya misalkan terdapat observasi
+baru konsentrasi arsenik sebesar 350 ppb. Kita perlu menentukan apakah
+observasi baru tersebut berasal dari distribusi yang sama berdasarkan
+data pada Tabel \ref{tab:gwardat}.
+
+Berdasarkan hasil visualisasi diketahui bahwa distribusi data yang
+dihasilkan memiliki bentuk kemencengan positif sehingga interval
+prediksi asimetris dapat digunakan. Dengan menggunakan \(\alpha\)=5\%
+prediksi interval dua sisi dapat dihitung menggunakan Persamaan
+\eqref{eq:ipdas}.
+
+\[
+\ln\left(PI\right)\ =\ 3,71-t_{\left(0.025,24\right)}\cdot\sqrt{1,96^2+\frac{1,96^2}{25}\ }sampai\ \ 3,71+t_{\left(0.025,24\right)}\cdot\sqrt{1,96^2+\frac{1,96^2}{25}\ }
+\] \[
+\ln\left(PI\right)\ =\ 3,71-2,064\cdot2,11\ sampai\ \ 3,71+2,064\cdot2,11
+\]
+
+\[
+\ln\left(PI\right)\ =\ -1,19\ \ sampai\ \ 7,53
+\]
+
+\[
+PI=\ 0,31\ \ sampai\ \ 1476.07
+\]
+
+Berdasarkan hasil yang diperoleh diketahui bahwa observasi baru berada
+diantara rentang tersebut. Rentang yang dihasilkan cukup besar yang
+disebabkan karena tinkat kepercayaan yang digunakan juga besar (95\%).
+Pembaca dapat juga menggunakan tingkat kepercayaan yang lain seperti
+99\% dan 90\%. Semakin besar alpha yang digunakan interval prediksi yang
+dihasilkan semakin kecil. Namun perlu diingat bahwa semakin kecil
+rentangnya maka error (alpha) juga semakin besar.
+
+Pembaca juga dapat menggunakan bentuk transformasi lain untuk membentuk
+data yang lebih simetris dan memnuhi asumsi distribusi normal. Bentuk
+transformasi lain akan mengubah bentuk persamaan yang digunakan.
+Transformasi kuadrat misalnya akan mengubah transformasi pada ersamaan
+\eqref{eq:ipdas} dan Persamaan \eqref{eq:ipdas2} menjadi akar kuadrat.
+
+Pada \texttt{R} interval prediksi dengan bentuk transformasi data
+logaritmik dapat dituliskan sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PI_asim <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, obs, alpha, side)\{}
+  \CommentTok{# transformasi logaritmik (kemencengan positif)}
+\NormalTok{  x_trans =}\StringTok{ }\KeywordTok{log}\NormalTok{(x)}
+  \CommentTok{# menghitung nilai mean}
+\NormalTok{  ave =}\StringTok{ }\KeywordTok{mean}\NormalTok{(x_trans)}
+  \CommentTok{# menghitung nilai varians dara}
+\NormalTok{  var =}\StringTok{ }\KeywordTok{var}\NormalTok{(x_trans)}
+  \CommentTok{# menghitung df}
+\NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+\NormalTok{  df =}\StringTok{ }\NormalTok{n}\OperatorTok{-}\DecValTok{1}
+  \CommentTok{# perhitungan rentang satu sisi}
+\NormalTok{  pi_l1 =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{-}\KeywordTok{qt}\NormalTok{((}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha), df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(var}\OperatorTok{+}\NormalTok{(var}\OperatorTok{/}\NormalTok{n)))}
+\NormalTok{  pi_u1 =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{+}\KeywordTok{qt}\NormalTok{((}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha), df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(var}\OperatorTok{+}\NormalTok{(var}\OperatorTok{/}\NormalTok{n)))}
+  \CommentTok{# perhitungan rentang dua sisi}
+\NormalTok{  pi_l2 =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{-}\KeywordTok{qt}\NormalTok{((}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{), df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(var}\OperatorTok{+}\NormalTok{(var}\OperatorTok{/}\NormalTok{n)))}
+\NormalTok{  pi_u2 =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{+}\KeywordTok{qt}\NormalTok{((}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{), df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(var}\OperatorTok{+}\NormalTok{(var}\OperatorTok{/}\NormalTok{n)))}
+  \CommentTok{# decision making}
+  \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"upper"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{>}\NormalTok{pi_u1)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Atas ="}\NormalTok{,pi_u1,}\StringTok{",observasi baru="}\NormalTok{,obs)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih besar dibandingkan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"lower"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{<}\NormalTok{pi_l1)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Bawah ="}\NormalTok{,pi_l1,}\StringTok{",observasi baru="}\NormalTok{,obs)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"two side"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{>}\NormalTok{pi_u2)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Bawah ="}\NormalTok{,pi_l2,}\StringTok{",observasi baru="}\NormalTok{,obs, }\StringTok{",PI Atas ="}\NormalTok{,pi_u2)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih besar dibandingkan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"two side"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{<}\NormalTok{pi_l2)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Bawah ="}\NormalTok{,pi_l2,}\StringTok{",observasi baru="}\NormalTok{,obs, }\StringTok{",PI Atas ="}\NormalTok{,pi_u2)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"upper"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{<}\NormalTok{pi_u1)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Atas ="}\NormalTok{,pi_u1,}\StringTok{",observasi baru="}\NormalTok{,obs)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi sama dengan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(side}\OperatorTok{==}\StringTok{"lower"} \OperatorTok{&}\StringTok{ }\NormalTok{obs}\OperatorTok{>}\NormalTok{pi_l1)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Bawah ="}\NormalTok{,pi_l1,}\StringTok{",observasi baru="}\NormalTok{,obs)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{----------------------------------------------------------------------"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi sama dengan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \}}\ControlFlowTok{else}\NormalTok{\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"PI Bawah ="}\NormalTok{,pi_l2, }\StringTok{",observasi baru="}\NormalTok{,obs,}\StringTok{",PI Atas ="}\NormalTok{,pi_u2)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{---------------------------------------------------------"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Kesimpulan:"}\NormalTok{)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{nilai observasi sama dengan sebagian besar nilai yang ada"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik
+\item
+  \textbf{alpha}: alpha level yang digunakan
+\item
+  \textbf{obs}: observasi baru yang akan dibandingkan
+\item
+  \textbf{side}: untuk memilih jenis uji digunakan. nilai yang mungkin
+  adalah \textbf{upper} (membandingkan dengan limit atas uji satu sisi),
+  \textbf{lower} (membandingkan dengan limit bawah uji satu sisi) dan
+  \textbf{two side} (uji dua sisi).
+\end{itemize}
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# interval prediksi satu sisi}
+\KeywordTok{PI_asim}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{obs =} \DecValTok{350}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{, }\DataTypeTok{side=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## PI Bawah = 0.386 ,observasi baru= 350 ,PI Atas = 1476
+## ---------------------------------------------------------
+## Kesimpulan:
+## nilai observasi sama dengan sebagian besar nilai yang ada
+\end{verbatim}
+
+\section{Interval Kepercayaan Persentil (Interval
+Toleransi)}\label{interval-kepercayaan-persentil-interval-toleransi}
+
+Kuantil atau persentil telah digunakan secara tradisional dalam sumber
+daya air untuk menggambarkan frekuensi kejadian banjir. Dengan demikian
+banjir 100 tahun adalah persentil ke-99 (0,99 kuantil) dari distribusi
+puncak banjir tahunan. Besarnya banjir yang diperkirakan hanya akan
+dilampaui sekali dalam 100 tahun. Banjir 20 tahun besarnya besarnya yang
+diperkirakan hanya akan dilampaui sekali dalam 20 tahun (5 kali dalam
+100 tahun), atau merupakan persentil ke-95 dari puncak tahunan. Demikian
+pula, banjir 2 tahun adalah median atau persentil ke-50 dari puncak
+tahunan. Persentil banjir ditentukan dengan asumsi bahwa aliran puncak
+mengikuti distribusi yang ditentukan seperti distribusi Log Pearson type
+III atau distribusi Gumbel.
+
+Interal kepercayaan persentil berbeda dengan interval kepercayaan
+median. Hal yang paling jelas terlihat adalah interval kepercayaan
+persentil mengukur interval kepercayaan pada setiap persentil data yang
+ada, sedangkan intervak kepercayaan media hanya mengukur pada lokasi
+pusat data atau persentil ke-50.
+
+Interval kepercayaan persentil juga disebut sebagai interval toleransi.
+Nilai persentil digunakan sebagai \textbf{koefisien cakupan} dari
+interal toleransi. Pada chapter ini akan dibahas lebih jauh mengenai
+metode perhitungan interval toleransi baikdengan metode parametrik
+maupun dengan metode nonparametrik.
+
+\subsection{Interval Kepercayaan Nonparametrik
+Persentil}\label{interval-kepercayaan-nonparametrik-persentil}
+
+Metode perhitungan interval kepercayaan nonparametrik persentil mirip
+dengan perhitungan interval kepercayaan median. Kita akan menggunakan
+kembali tabel binomial jika sampel kita kecil untuk menentukan limit
+atas dan bawah yang merupakan nilai kritis dari alpha yang telah kita
+tetapkan. Nilai kritis ini selanjutnya akan ditransformasikan kedalam
+bentuk rangking pada data yang menunjukkan titik observasi ujung pada
+interval kepercayaan.
+
+Tabel binomial dimasukkan pada kolom dengan nilai \(p\), persentil yang
+diinginkan interval kepercayaannya. Jadi untuk interval kepercayaan pada
+persentil ke-75, kolom \(p=0,75\) digunakan. Cari pada baris kolom
+tersebut sampai \(n\) dengan probabilitas mendekati alpha level
+(\(\alpha/2\)) ditemukan. Nilai kritis \(x_l\) bawah adalah bilangan
+bulat yang sesuai dengan probabilitas \(p^*\). Nilai kritis kedua
+\(x_u\) juga diperoleh dengan melanjutkan pada kolom tersebut sampai
+menemukan probabilitas \(p'=\left(1-\frac{\alpha}{2}\right)\). Nilai
+kritis \(x_l\) dan \(x_u\) digunakan untuk menghitung rangking \(R_l\)
+dan \(R_u\) yang sesuai dengan nilai data di ujung atas dan bawah limit
+kepercayaan (Persamaan \eqref{eq:iknp} dan Persamaan \eqref{eq:iknp2}).
+Level interval kepercayaan yang dihasilkan akan sama dengan
+\(\left(p'-p\cdot\right)\).
+
+\begin{equation}
+  R_l=x_l+1
+  \label{eq:iknp}
+\end{equation}
+
+\begin{equation}
+  R_u=x_u
+  \label{eq:iknp2}
+\end{equation}
+
+Untuk memahami mengenai penerapan interval kepercayaan persentil
+diberikan sebuah contoh kita diminta untuk menentukan 95\% interval
+kepercayaan nilai persentil ke-20 (\(C_{0.20}\)) data konsentrasi
+arsenik pada Tabel \ref{tab:gwardat} (p=0,2).
+
+Berdasarkan data pada Tabel \ref{tab:gwardat}, nilai persentil ke-20
+(\(\overline{C}_{0.20}\))= 3.36ppb, yaitu data yang berada pada rangking
+0,2*(26)=5,2 atau dua per sepuluh jarak antara data ke-5 dan ke-6. Untuk
+menentukan rentang kepercayaan persentil ke-20 sebenarnya dari data,
+kita perlu menggunakan kembali tabel binomial dengan menginputkan nilai
+p=0,2. nilai kritis \(x_l\) diperoleh dengan mencari probabilitas data
+pada kolom p=0,2 yang mendekati nilai \(\alpha/2\)=0,025 adalah 1
+(\(p'\)=0,027, error probabilitas sisi bawah distribusi). Dengan
+menggunakan Persamaan \eqref{eq:iknp}, diperoleh \(R_l=2\). Dengan cara
+sama untuk sisi atas distribusi nilai kritis atas \(x_u\) diperoleh
+dengan menginputkan nilai p=0,20 dengan nilai probabilitas mendekati
+\(1-\frac{\alpha}{2}\)= 0,975 diperoleh sebesar 9 (\(p'\)=0,983, error
+probabilitas sisi atas distribusi). Sehingga rentang kepercayaang 95,6\%
+(0,983-0,027=0,956) untuk persentil ke-20 berada pada range data dengan
+rangkin ke-2 dan ke-9, atau
+
+\[
+1,5\le C_{0.20}\le8\ pada\ \alpha=0,044
+\]
+
+Jika data yang kita miliki cukup besar dengan jumlah sampel \(n>20\)
+(sebagian buku menyebutkan \(n>30\)), kita dapat menggunakan distribusi
+normal untuk memperkirakan rentang kepercayaan persentil.Persamaan yang
+digunakan untuk menentukan batas atas dan bawah disajikan pada Persamaan
+\eqref{eq:iknp3} dan Persamaan \eqref{eq:iknp4}.
+
+\begin{equation}
+  R_l=np+z_{\frac{\alpha}{2}}\cdot\sqrt{np\left(1-p\right)}+0,5
+  \label{eq:iknp3}
+\end{equation}
+
+\begin{equation}
+  R_l=np+z_{\left[1-\frac{\alpha}{2}\right]}\cdot\sqrt{np\left(1-p\right)}+0,5
+  \label{eq:iknp4}
+\end{equation}
+
+Dengan menggunakan contoh sebelumnya kita dapat menghitung kembali
+rentang kepercayaan 95\% persentil ke-20 menggunakan Persamaan
+\eqref{eq:iknp3} dan Persamaan \eqref{eq:iknp4} diperoleh rangking data
+batas bawah dan atas sebagai berikut:
+
+\[
+R_l=25\cdot0,2+\left(-1,96\right)\cdot\sqrt{25\cdot0,2\left(1-0,2\right)}+0,5\ =\ 5-1,96\cdot2+0,5=1,6
+\]
+
+\[
+R_u=25\cdot0,2+1,96\cdot\sqrt{25\cdot0,2\left(1-0,2\right)}+0,5\ =\ 5+1,96\cdot2+0,5=9,4
+\]
+
+Berdasarkan hasil perhitungan diperoleh rangking data batas bawah dan
+batas atas secara berurutan adalah data ke-2 (batas bawah) dan data-9
+(batas atas). Hasil yang diperoleh ini sama dengan yang telah diperoleh
+sebelumnya.
+
+Pada \texttt{R} kita dapat membentuk fungsi untuk menghitung interval
+kepercayaan persentil sesuai dengan yang kita inginkan seperti lokasi
+persentil yang ingin kita uji serta jenis uji yang digunakan berdasarkan
+jumlah sampel yang kita inputkan. Selain itu rentang kepercayaan ini
+dapat pula digunakann untuk menghitung rentang kepercayaan median atau
+persentil ke-50.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CI_npPercent <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, p, alpha)\{}
+  \CommentTok{# jumlah observasi}
+\NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+  \CommentTok{# mengurutkan data}
+\NormalTok{  x =}\StringTok{ }\KeywordTok{sort}\NormalTok{(x)}
+  \CommentTok{# membuat vektor yang akan menyimpan}
+  \CommentTok{# hasil loop}
+\NormalTok{  bl =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{,n)}
+\NormalTok{  bu =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{,n)}
+  \CommentTok{# decision makin}
+  \ControlFlowTok{if}\NormalTok{(n}\OperatorTok{<=}\StringTok{ }\DecValTok{20}\NormalTok{)\{}
+    \CommentTok{# looping}
+    \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n)\{}
+\NormalTok{      bl[i] =}\StringTok{ }\KeywordTok{pbinom}\NormalTok{(i, n, p)}
+      \ControlFlowTok{if}\NormalTok{(b}\OperatorTok{>}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{)\{}
+        \ControlFlowTok{break}
+\NormalTok{      \}}
+\NormalTok{    \}}
+    \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n)\{}
+\NormalTok{      bu[i] =}\StringTok{ }\KeywordTok{pbinom}\NormalTok{(i, n, p)}
+      \ControlFlowTok{if}\NormalTok{(b}\OperatorTok{>}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{)))\{}
+        \ControlFlowTok{break}
+\NormalTok{      \}}
+\NormalTok{    \}}
+   \CommentTok{# menghitung selisih terhadap alpha  }
+\NormalTok{   dbl =}\StringTok{ }\KeywordTok{abs}\NormalTok{(alpha}\OperatorTok{-}\NormalTok{bl)}
+\NormalTok{   dbu =}\StringTok{ }\KeywordTok{abs}\NormalTok{(alpha}\OperatorTok{-}\NormalTok{bu)}
+   \CommentTok{# mencari titik kritis}
+\NormalTok{   min_bl =}\StringTok{ }\KeywordTok{which.min}\NormalTok{(dbl)}
+\NormalTok{   min_bu =}\StringTok{ }\KeywordTok{which.min}\NormalTok{(dbu)}
+   \CommentTok{# menhitung rangking nilai bawah dan atas}
+\NormalTok{   rl =}\StringTok{ }\NormalTok{min_bl }\OperatorTok{+}\StringTok{ }\DecValTok{1}
+\NormalTok{   ru =}\StringTok{ }\NormalTok{min}\OperatorTok{-}\NormalTok{bu}
+   \CommentTok{# mencari data sesuai rangking bawah dan atas}
+\NormalTok{   LCI =}\StringTok{ }\NormalTok{x[rl]}
+\NormalTok{   UCI =}\StringTok{ }\NormalTok{x[ru]}
+\NormalTok{  \}}\ControlFlowTok{else}\NormalTok{\{}
+    \CommentTok{# menghitung rangking nilai bawah dan atas}
+\NormalTok{    rl =}\StringTok{ }\NormalTok{(n}\OperatorTok{*}\NormalTok{p)}\OperatorTok{+}\KeywordTok{qnorm}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{((n}\OperatorTok{*}\NormalTok{p)}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{p))}\OperatorTok{+}\FloatTok{0.5}
+\NormalTok{    ru =}\StringTok{ }\NormalTok{(n}\OperatorTok{*}\NormalTok{p)}\OperatorTok{+}\NormalTok{(}\KeywordTok{qnorm}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{(alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{))}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{((n}\OperatorTok{*}\NormalTok{p)}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{p)))}\OperatorTok{+}\FloatTok{0.5}
+    \CommentTok{# mencari data sesuai rangking bawah dan atas}
+\NormalTok{    LCI =}\StringTok{ }\NormalTok{x[}\KeywordTok{floor}\NormalTok{(rl)]}\OperatorTok{+}\StringTok{ }
+\StringTok{      }\NormalTok{((rl}\OperatorTok{-}\KeywordTok{floor}\NormalTok{(rl))}\OperatorTok{/}\NormalTok{(}\KeywordTok{ceiling}\NormalTok{(rl)}\OperatorTok{-}\KeywordTok{floor}\NormalTok{(rl)))}\OperatorTok{*}\NormalTok{(x[}\KeywordTok{ceiling}\NormalTok{(rl)]}\OperatorTok{-}\NormalTok{x[}\KeywordTok{floor}\NormalTok{(rl)])}
+\NormalTok{    UCI =}\StringTok{ }\NormalTok{x[}\KeywordTok{floor}\NormalTok{(ru)]}\OperatorTok{+}\StringTok{ }
+\StringTok{      }\NormalTok{((ru}\OperatorTok{-}\KeywordTok{floor}\NormalTok{(ru))}\OperatorTok{/}\NormalTok{(}\KeywordTok{ceiling}\NormalTok{(ru)}\OperatorTok{-}\KeywordTok{floor}\NormalTok{(ru)))}\OperatorTok{*}\NormalTok{(x[}\KeywordTok{ceiling}\NormalTok{(ru)]}\OperatorTok{-}\NormalTok{x[}\KeywordTok{floor}\NormalTok{(ru)])}
+\NormalTok{  \}}
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"Lower CI="}\NormalTok{, LCI,}\StringTok{" <= C("}\NormalTok{, p, }\StringTok{") <= "}\NormalTok{, }
+       \StringTok{"Upper CI="}\NormalTok{, UCI)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x}: vektor numerik.
+\item
+  \textbf{p}: persentil yang ingin dicari. Nilai berkisar antara 0
+  sampai 1.
+\item
+  \textbf{alpha}: alpha level yang digunakan.
+\end{itemize}
+\end{quote}
+
+Pembaca dapat menjalankan fungsi tersebut mengggunakan data pada contoh
+soal sebelumnya yaitu mencari interval kepercayaan persentil ke-20.
+Jalankan sintaks berikut untuk mengetahui hasil yang diperoleh.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{CI_npPercent}\NormalTok{(}\DataTypeTok{x=}\NormalTok{ gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\DataTypeTok{p=} \FloatTok{0.2}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Uji Nonparametrik Untuk
+Persentil}\label{uji-nonparametrik-untuk-persentil}
+
+Pengujian persentil dilakukan untuk mengecek apakah sebuah persentil
+berbeda (lebih besar atau lebih kecil) dibandingkan dengan sejumlah
+nilai. Sebagai contoh misalkan terdapat median kualitas harian suatu
+parameter tidak boleh melebihi standar yang berlaku sebesar \(X_0\) ppb.
+Contoh lain dalam bidang hidrologi periode ulang hujan (PUH) 10 tahun
+atau persentil ke-90 dari debit puncak tahunan suatu kawasan dapat
+dilakukan pengujian apakah nilai yang ada dilapangan berbeda dengan PUH
+10 tahunan yang telah kita hitung untuk digunakan dalam mendesain
+saluran drainase. Pembahasan pengujian persentil tersebut tidak akan
+sampai menyinggung pengujian hipotesis yang akan dibahas pada Chapter
+selanjutnya. Pembahasan akan berkisar membandingkan suatu nilai dengan
+interval kepercayaan seperti yang telah dijelaskan pada pembahasan
+terkait interval prediksi.
+
+Pengujian apakah sebuah nilai \(X_0\) berbeda dengan sejumlah rentang
+nilai yang ditetapkan dapat dilakukan dengan pengujian dua sisi dan satu
+sisi. Pengujian satu sisi melihat apakah suatu nilai \(X_0\) berada
+diluar interval kepercayaan persentil atau diantara nilai batas bawah
+\(X_l\) dan nilai batas atasnya \(X_u\) (lihat Gambar \ref{fig:unup1}).
+Sedangkan pengujian satu sisi melihat apakah suatu nilai lebih besar
+atau lebih kecil (tergantung apakah pengujian satu sisi sebelah atas
+distribusi atau sebelah bawah distribusi) dari interval kepercayaan
+persentil yang digunakan (lihat Gambar \ref{fig:unup2} dan Gambar
+\ref{fig:unup3}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{unup1} 
+
+}
+
+\caption{Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)}\label{fig:unup1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{unup2} 
+
+}
+
+\caption{Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)}\label{fig:unup2}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{unup3} 
+
+}
+
+\caption{Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)}\label{fig:unup3}
+\end{figure}
+
+Untuk menghitungnya secara nonparametrik menggunakan Persamaan
+\eqref{eq:iknp3} dan Persamaan \eqref{eq:iknp4} untuk jumlah sampel kecil
+sedangkan untuk sampel besar kita dapat menggunakan Persamaan
+\eqref{eq:iknp3} dan Persamaan \eqref{eq:iknp4}.
+
+Dengan menggunakan kembali data pada Tabel \ref{tab:gwardat} kita akan
+menghitung apakah kadar arsenik kualitas air tanah tersebut melebihi
+baku mutu arsenik pada air minum dengan baku mutu konsentrasi arsenik
+tidak melampaui 300 ppb. Dengan menggunakan nilai \(\alpha\)=0,05 dan
+batas bawah persentil yang digunakan sebagai acuan pembanding adalah
+persentil ke-90 dapat dihitung sebagai berikut:
+
+\[
+\overline{C}_{0.90}=\left(25+1\right)\cdot0,9=23,4\ \left(data\ point\right)=300+0,4\left(340-300\right)=316\ ppb
+\] Karena jumlah sampel lebih besar dari 20, maka kita dapat menghitung
+batas atas data menggunakan Persamaan \eqref{eq:iknp4}.
+
+\[
+R_l=np+z_{0,05}\sqrt{np\left(1-p\right)}=25\cdot0,9+\left(-1,64\right)\cdot\sqrt{2,25}+0,5=20,5
+\] Kita dapat membulatkan hasilnya menjadi observasi 20 atau 21.
+Interpolasi linier dapat dilakukan sehingga diperoleh nilai observasi
+sebesar 215 ppb. Nilai ini lebih kecil dibandingkan \(X_0\)=300 ppb,
+sehingga baku mutu arsenik belum terlampaui oleh kualitas air tanah
+tersebut.
+
+Kita dapat menggunakan fungsi \texttt{CI\_npPercent()} untuk menghitung
+rentang persentil yang kita inginkan. Untuk pengujian satu sisi nilai
+\texttt{alpha} yang akan diinputkan perlu dikali oleh dua karena fungsi
+tersebut pada dasarnya digunakan untuk menghitung rentang kepercayaan
+persentil secara nonparametrik (nilai alpha dibagi pada kedua sisi).
+Berikut adalah contoh sintaks untuk menguji apakah sampel yang kita
+miliki melebihi baku mutu (persentil ke-90 dan alpha=5\%):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{CI_npPercent}\NormalTok{(gwardat}\OperatorTok{$}\NormalTok{konsentrasi, }\FloatTok{0.9}\NormalTok{, }\FloatTok{0.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Interval Kepercayaan Parametrik Untuk
+Persentil}\label{interval-kepercayaan-parametrik-untuk-persentil}
+
+Interval kepercayaan untuk persentil juga dapat dihitung dengan
+mengasumsikan bahwa data mengikuti distribusi tertentu. Asumsi
+distribusi digunakan karena sering ada data yang tidak cukup untuk
+menghitung persentil dengan presisi yang diperlukan. Menambahkan
+informasi yang terkandung dalam distribusi akan meningkatkan ketepatan
+estimasi selama asumsi distribusi masuk akal. Namun ketika distribusi
+yang diasumsikan tidak sesuai dengan data dengan baik, estimasi yang
+dihasilkan kurang akurat, dan lebih menyesatkan, daripada jika tidak ada
+yang diasumsikan. Sayangnya, situasi di mana asumsi paling dibutuhkan
+ketika ukuran sampel yang kecil, adalah situasi yang sama di mana sulit
+untuk menentukan apakah data mengikuti distribusi yang diasumsikan.
+
+Pada interval kepercayaan parametrik asumsi terhadap kecocokan data
+terhadap suatu distribusi perlu diperhatikan. Data di lingkungan umumnya
+memiliki bentuk distribusimengikuti distribusi lognormal. Selain itu,
+distribusi yang sering sekali digunakan adalah distribusi Pearson Tipe
+III dan Gumbel. Kedua pendekatan distribusi tersebut akan mempengaruhi
+metode perhitungan yang digunakan. Sehingga pengetahuan yang lebih baik
+mengenaik distribusi tersebut diperlukan. Pada buku ini kita hanya akan
+membahas mengenai perhitungan interval kepercayaan menggunakan
+distribusi lognormal. Pembaca dapat membaca mengenai penerapan
+distribusi lainnya melalui junal yang ditulis oleh
+\href{https://www.google.com/url?sa=t\&rct=j\&q=\&esrc=s\&source=web\&cd=28\&ved=2ahUKEwjnkojIgNnhAhXBh3AKHSJOBLM4ChAWMBF6BAgHEAI\&url=https\%3A\%2F\%2Fwww.preprints.org\%2Fmanuscript\%2F201901.0164\%2Fv1\%2Fdownload\&usg=AOvVaw0evYfNso3_IwVWnmJMKsSp}{Wei
+dan Song (2019)}.
+
+Perhitungan estimasi titik dan interval untuk persentil dengan asumsi
+distribusi lognormal dapat dilakukan dengan mudah. Pertama sampel
+rata-rata \(y\) dan sampel simpangan baku \(s_y\) logaritma dihitung.
+Estimasi titik kemudian dihitung menggunakan Persamaan \eqref{eq:ikp1}.
+
+\begin{equation}
+  X_p=\exp\left(\overline{y}+z_p\cdot s_y\right)
+  \label{eq:ikp1}
+\end{equation}
+
+dimana \(z_p\) merupakan kuantil ke-\(p\) dari distribusi normal
+standard dan \(y=\ln{(x)}\).
+
+Estimasi interval untuk median sebelumnya diberikan pada Persamaan
+\eqref{eq:gmci2} dengan asumsi bahwa data mengikuti distribusi lognormal.
+Untuk persentil lainnya, interval kepercayaan dihitung menggunakan
+distribusi t non-sentral
+\href{https://www.researchgate.net/publication/277664323_Confidence_Intervals_for_Design_Events}{(Stedinger,
+1983)}. Tabel distribusi itu ditemukan dalam artikel Stedinger, dengan
+list yang lebih lengkap terdapat pada perpustakaan online atau perangkat
+lunak matematika. Interval kepercayaan pada \(X_p\) dihitung menggunakan
+Persamaan \eqref{eq:ikp2}.
+
+\begin{equation}
+  CI\left(X_p\right)=\exp\left(\overline{y}+\zeta_{\frac{\alpha}{2}}\cdot s_y,\ \overline{y}+\zeta_{\left[1-\frac{\alpha}{2}\right]}\cdot s_y\right)
+  \label{eq:ikp2}
+\end{equation}
+
+dimana \(\zeta{\alpha/2}\) merupakan \(\alpha/2\) dari kuantil
+distribusi t non-sentral untuk persentil dengan ukuran sampel \(n\) yang
+diinginkan.
+
+Untuk lebih memahami penerapannya pembaca dapat mengerjakan contoh soal
+pada bagian sebelumnya. Dengan menggunakan estimasi interval 90\% kita
+perlu menentukan interval estimasi persentil ke-90 dari data konsentrasi
+arsenik dengan asumsi distribusi yang digunakan berupa distribusi
+lognormal.
+
+Dengan menggunakan Persamaan \eqref{eq:ikp1} estimasi titik persentil
+ke-90 dapat dihitung.
+
+\[
+C_{0,90}=\exp\left(3,17+1,28\cdot1,96\right)=292,6\ ppb
+\] Nilai tersebut lebih rentanh dibanding estimasi konsentrasi
+sebelumnya asumsi data mengikuti distribusi lognormal dengan konsentrasi
+persentil ke-90 arsenik sebesar 316 ppb.
+
+Dengan menggunakan Persamaan \eqref{eq:ikp2}, interval kepercayaan 90\%
+dapat dihitung.
+
+\[
+\exp\left(3,17+0,898\cdot1,96\right)<C_{0,90}<\exp\left(3,17+1,838\cdot1,96\right)
+\]
+
+\[
+138,4<C_{0,90}<873,5
+\]
+
+\subsection{Uji Parametrik Untuk
+Persentil}\label{uji-parametrik-untuk-persentil}
+
+Seperti pada bagian sebelumnya kita ingin melihat apakah persentil dari
+sekumpulan data berbeda dengan nilai tertentu (dapat berupa baku mutu).
+Pengujian dilakukan dengan melihat apakah nilai tertentu tersebut berada
+diantara interval kepercayaan persentil dari data (uji dua sisi), lebih
+besar atau lebih kecil dari batas bawah atau batas atas interval
+kepercayaan persentil (uji satu sisi). Langkah pengujian dilakukan sama
+dengan sebelumnya dengan menghitung terlebih dulu batas atas atau batas
+bawah persentil data yang selanjutnya dibandingkan dengan nilai
+tertentu.
+
+Dengan menggunakan hasil dari perhitungan sebelumnya, dengan menggunakan
+alpha=0,05 kita perlu menentukan apakah batas bawah interval kepercayaan
+melampaui baku mutu arsenik sebesar 300 ppb (uji satu sisi). Berdasarkan
+hasil perhitungan diperoleh batas bawah interval kepercayaan persentil
+ke-90 sebesar 138,4 ppb atau lebih kecil dibandingkan batas yang
+ditentukan, sehingga disimpulkan bahwa konsentrasi arsenik persentil
+ke-90 pada data tidak melampaui baku mutu yang ditentukan.
+
+\section{Interval Kepercayaan Menggunakan Metode
+Bootstrap}\label{interval-kepercayaan-menggunakan-metode-bootstrap}
+
+Bootstrap merupakan metode inferensi populasi menggunakan data sampel.
+Metode ini dikembangkan oleh Bradley Efron pada tahun 1979. Jika pembaca
+ingin lebih mengenal metode ini pembaca dapat membaca makalahnya di
+tautan \href{https://projecteuclid.org/euclid.aos/1176344552}{berikut}.
+Pembaca dapat membaca makalah tersebut secara gratis.
+
+Bootstrap mengandalkan pengambilan sampel dengan pengembalian dari data
+sampel. Teknik ini dapat digunakan untuk memperkirakan standard error
+(se) dari setiap statistik dan untuk memperoleh interval kepercayaan
+(CI) untuk itu. Bootstrap sangat berguna ketika CI tidak memiliki bentuk
+tertutup, atau memiliki bentuk yang sangat rumit.
+
+Misalkan kita memiliki sejumlah sampel dengan ukuran \(n\):
+\(X=\left\{x_1,x_2,...,x_n\right\}\) dan kita tertarik dengan CI dari
+beberapa statistik data \(T=t\left(X\right)\). Metode ini sangat mudah
+untuk dikerjakan. Kita hanya perlu mengulang sejumlah \(R\) kali skema
+berikut: Untuk pengulangan ke-\(i\), sampling dengan pengembalian \(n\)
+data dari data sampel yang tersedia. Namai sampel baru tersebut sebagai
+sampel bootstrap ke-\(i\) , \(X_i\), dan hitung statistik (mean, median
+atu persentil) yang ingin dihitung interval kepercayaannya.
+
+Sebagai hasilnya, kita akan mendapatkan nilai R dari statistik yang
+telah kita hitung: \(T_1,T_2,\ ....,\ T_R\). Kita dapat menyebutnya
+sebagai realisasi bootstrap dari \(T\) atau distribusi bootstrap dari
+\(T\). Berdasarkan hal tersebut, kita dapat menghitung CI untuk T.
+
+Pada contoh kali ini penulis akan menyajikan cara melakukan bootstrap
+untuk menghitung interval kepercayaan pada mean, median, dan persentil.
+Data yang penulis gunakan adalah data \texttt{gwardat} pada Tabel
+\ref{tab:gwardat}.
+
+Bootstrap pada \texttt{R} dilakukan dengan menggunakan library
+\texttt{boot}. Berikut adalah contoh pertama menghitung interval
+kepercayaan median:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# memuat paket}
+\KeywordTok{library}\NormalTok{(boot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat hasil yang diperoleh lebih random}
+\CommentTok{# dan reproducible}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+
+\CommentTok{# membuat fungsi boot}
+\NormalTok{med.boot.func <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x,i)\{}
+  \KeywordTok{median}\NormalTok{(x[i])}
+\NormalTok{\}}
+
+\CommentTok{# melakukan bootstrap}
+\NormalTok{median.boot <-}\StringTok{ }\KeywordTok{boot}\NormalTok{(gwardat}\OperatorTok{$}\NormalTok{konsentrasi,}
+                    \CommentTok{# memasukkan fungsi boot}
+\NormalTok{                    med.boot.func,}
+                    \CommentTok{# menentukan jumlah replikasi}
+                    \DataTypeTok{R=}\DecValTok{1000}\NormalTok{)}
+\CommentTok{# print hasil}
+\NormalTok{median.boot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = gwardat$konsentrasi, statistic = med.boot.func, R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original  bias    std. error
+## t1*       19   9.279       27.31
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh diketahui bahwa median dataset original
+sebesar 19. Pada hasil juga diperoleh nilai bias bootstrap. Nilai bias
+tersebut merupakan selisih dari nilai rata-rata 1000 median hasil
+bootstrap dikurangi dengan median sampel keseluruhan (original median).
+Standard error merupakan standard deviasi dari 1000 median yang
+terhitung.
+
+Untuk mengetahui distribusi sampling yang telah kita lakukan. kita dapat
+melihat distribusi dengan mengeplotkan semua sampel bootstrap pada
+histogram dan QQ-plot dengan menjalankan sintaks berikut:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{EnvStat_files/figure-latex/boot1-1} 
+
+}
+
+\caption{Distribusi bootstrap median}\label{fig:boot1}
+\end{figure}
+
+Berdasarkan Gambar \ref{fig:boot1} diketahui bahwa median tidak
+berdistribusi normal. Hal ini ditunjukkan dari distribusi pada histogram
+yang membentuk kemencengan positif. Selain itu, distribusi data pada
+QQ-plot juga tidak mengikuti garis referensi yang ada sehingga dapat
+disimpulkan bahwa distribusi median bootstrap tidak berdistribusi
+normal.
+
+Untuk menghitung interval kepercayaan median dengan tingkat kepercayaan
+95\%, kita dapat menggunakan fungsi \texttt{boot.ci()}. Berikut adalah
+sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boot.ci}\NormalTok{(}\DataTypeTok{boot.out=}\NormalTok{median.boot, }\DataTypeTok{conf=}\FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in boot.ci(boot.out = median.boot, conf =
+## 0.95): bootstrap variances needed for studentized
+## intervals
+\end{verbatim}
+
+\begin{verbatim}
+## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = median.boot, conf = 0.95)
+## 
+## Intervals : 
+## Level      Normal              Basic         
+## 95%   (-43.81,  63.25 )   (-72.00,  33.20 )  
+## 
+## Level     Percentile            BCa          
+## 95%   (  4.8, 110.0 )   (  4.8, 100.0 )  
+## Calculations and Intervals on Original Scale
+\end{verbatim}
+
+Terdapat 4 buah hasil dari 4 buah metode yang dihasilkan sebagai output
+fungsi tersebut. Metode Normal mengasumsikan distribusi median bootstrap
+berdistribusi normal. Berdasarkan hasil visualisasi yang diperoleh
+diketahui bahwa distribusi data cenderung memiliki kemencengan positif
+sehingga metode ini tidak dapat digunakan, Selain itu, rentang yang
+dihasilkan juga terdapat nilai negatif yang mustahik dihasilkan pada
+konsentrasi arsenik (sebagian besar parameter lingkungan memiliki nilai
+terkecil \(\le0\)). Metode \emph{Basic} memiliki asumsi bahwa tidak ada
+bias antara median data dengan median rata-rata hasil bootstrap.
+Berdasarkan hasil perhitungan yang dilakukan terlihat bahwa terdapat
+bias pada hasil bootstrap yang cukup besar sehingga metode ini tidak
+dapat diterapkan. Metode ketiga adalah metode persentil. Metode ini
+mengasumsikan bahwa distribusi median simetris, yang telah disinggung
+sebelumnya bahwa distribusi median tidak simetris sehingga metode ini
+tidak dapat diterapkan pada kasus ini. Metode terakhir adalah metode BCa
+(\emph{bias-corrected and accelerated}) mengoreksi bias dan membuat
+lebih sedikit asumsi. Metode ini akan sering banyak kita gunakan pada
+data kita. Berdasarkan seluruh hasil yang telah diperoleh dapat kita
+simpulkan bahwa metode BCa cukup baik dalam menjelaskan interval
+kepercayaan median. Selain itu, metode persentil juga mempunyai hasil
+yang relatif mirip dengan BCa meskipun dari asumsi yang digunakan
+keempat metode tersebut tidak ada yang terpenuhi.
+
+Pesan peringatan dalam \emph{output} hasil menunjukkan bahwa interval
+kepercayaan kelima, disebut sebagai \emph{studentized interval}, tidak
+dapat dihitung karena varians untuk sampel bootstrap tidak disediakan.
+Interval kepercayaan \emph{studentized} berusaha untuk mengoreksi bias
+dengan ``\emph{studentizing}'' setiap median yang dihitung (misal:
+mengurangi rata-rata median dan kemudian membaginya dengan standard
+error). Tampaknya tidak ada rumus umum untuk menghitung standard error
+untuk median, tetapi ada pedoman dalam literatur untuk memperkirakan
+kesalahan standar ketika populasi data yang mendasarinya diasumsikan
+terdistribusi secara normal. Dalam contoh ini, interval BCa tampaknya
+cukup baik. Perhatikan bahwa dalam beberapa kasus, mungkin ada
+peringatan bahwa ``beberapa interval BCa mungkin tidak stabil.'' Dalam
+hal itu, hasil BCa harus diabaikan jika intervalnya tampak tidak masuk
+akal, dan pilihan dibuat dari opsi lain yang tersisa, berdasarkan pada
+Ulasan histogram dan plot probabilitas estimasi bootstrap.
+
+Setelah pembaca memahami prosedur melakukan bootstrap pada median,
+pembaca dapat melakukan bootstrap pada persentil dan mean. Untuk
+bootstrap mean jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat hasil yang diperoleh lebih random}
+\CommentTok{# dan reproducible}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+
+\CommentTok{# membuat fungsi boot}
+\NormalTok{mean.boot.func <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x,i)\{}
+  \KeywordTok{mean}\NormalTok{(x[i])}
+\NormalTok{\}}
+
+\CommentTok{# melakukan bootstrap}
+\NormalTok{mean.boot <-}\StringTok{ }\KeywordTok{boot}\NormalTok{(gwardat}\OperatorTok{$}\NormalTok{konsentrasi,}
+                    \CommentTok{# memasukkan fungsi boot}
+\NormalTok{                    mean.boot.func,}
+                    \CommentTok{# menentukan jumlah replikasi}
+                    \DataTypeTok{R=}\DecValTok{1000}\NormalTok{)}
+\CommentTok{# print hasil}
+\NormalTok{mean.boot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = gwardat$konsentrasi, statistic = mean.boot.func, 
+##     R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original  bias    std. error
+## t1*    98.35  -1.397       27.84
+\end{verbatim}
+
+Distribusi mean bootstrap disajikan pada Gambar \ref{fig:boot2}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{EnvStat_files/figure-latex/boot2-1} 
+
+}
+
+\caption{Distribusi bootstrap mean}\label{fig:boot2}
+\end{figure}
+
+Berdasrkan hasil yang diperoleh, distribusi mean bootstrap mengikuti
+distribusi normal. Untuk memperoleh interval kepercayaan mean bootstrap
+jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boot.ci}\NormalTok{(}\DataTypeTok{boot.out=}\NormalTok{mean.boot, }\DataTypeTok{conf=}\FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in boot.ci(boot.out = mean.boot, conf = 0.95):
+## bootstrap variances needed for studentized intervals
+\end{verbatim}
+
+\begin{verbatim}
+## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = mean.boot, conf = 0.95)
+## 
+## Intervals : 
+## Level      Normal              Basic         
+## 95%   ( 45.18, 154.32 )   ( 39.21, 149.05 )  
+## 
+## Level     Percentile            BCa          
+## 95%   ( 47.66, 157.50 )   ( 56.43, 175.06 )  
+## Calculations and Intervals on Original Scale
+## Some BCa intervals may be unstable
+\end{verbatim}
+
+Berdasarkan hasil yang diperoleh dapat dilihat bahwa metode BCa tidak
+dapat digunakan karena hasil yang diperoleh tidak stabil, Ketiga metode
+lainnya dapat digunakan karena asumsi normalitas (simetri) terpenuhi.
+Selain itu bias yang dihasilkan relatif kecil sehingga metode
+\emph{Basic} juga dapat digunakan.
+
+Bootstrap terkahir yang kita lakukan adalah untuk memperoleh interval
+kepercayaan persentil dalam hal ini penulis akan mencobanya dengan
+persentil ke-90. Berikut alah sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat hasil yang diperoleh lebih random}
+\CommentTok{# dan reproducible}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+
+\CommentTok{# membuat fungsi boot}
+\NormalTok{p90.boot.func <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x,i)\{}
+  \KeywordTok{quantile}\NormalTok{(x[i], }\DataTypeTok{probs=}\FloatTok{0.9}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{# melakukan bootstrap}
+\NormalTok{p90.boot <-}\StringTok{ }\KeywordTok{boot}\NormalTok{(gwardat}\OperatorTok{$}\NormalTok{konsentrasi,}
+                    \CommentTok{# memasukkan fungsi boot}
+\NormalTok{                    p90.boot.func,}
+                    \CommentTok{# menentukan jumlah replikasi}
+                    \DataTypeTok{R=}\DecValTok{1000}\NormalTok{)}
+\CommentTok{# print hasil}
+\NormalTok{p90.boot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = gwardat$konsentrasi, statistic = p90.boot.func, R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original  bias    std. error
+## t1*      280 -0.9156       85.66
+\end{verbatim}
+
+Visualisasi distribusi bootstrap persentil 90 disajikan pada Gambar
+\ref{fig:boot3}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{EnvStat_files/figure-latex/boot3-1} 
+
+}
+
+\caption{Distribusi bootstrap persentil 90}\label{fig:boot3}
+\end{figure}
+
+Bentuk visualisasi distribusi bootstrap persentil ke-90 yang dihasilkan
+pada Gambar \ref{fig:boot3} terlihat sedikit memiliki kemencengan
+positif. untuk menghitung interval kepercayaan 95\% persentil ke-90
+jalankan sintaks berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boot.ci}\NormalTok{(}\DataTypeTok{boot.out=}\NormalTok{p90.boot, }\DataTypeTok{conf=}\FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in boot.ci(boot.out = p90.boot, conf = 0.95):
+## bootstrap variances needed for studentized intervals
+\end{verbatim}
+
+\begin{verbatim}
+## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = p90.boot, conf = 0.95)
+## 
+## Intervals : 
+## Level      Normal              Basic         
+## 95%   (113.0, 448.8 )   ( 76.0, 448.0 )  
+## 
+## Level     Percentile            BCa          
+## 95%   (112, 484 )   (120, 580 )  
+## Calculations and Intervals on Original Scale
+\end{verbatim}
+
+Berdasarkan keempat hasil yang diperoleh, metode BCa cukup baik
+digunakan sebab distribusi bootstrap yang dihasilkan tidak memenuhi
+asumsi ketiga metode lainnya.
+
+\section{Kegunaan Lain Dari Interval
+Kepercayaan}\label{kegunaan-lain-dari-interval-kepercayaan}
+
+Selain digunakan untuk menghitung interval estimasi, interval
+kepercayaan dapat pula digunakan sebagai pendeteksi adanya
+\emph{outlier}, kontrol kualitas, dan penentuan ukuran sampel yang akan
+digunakan pada suatu penelitian agar hasil yang diperoleh lebih presisi.
+Pembahasan juga akan disertai apakah normalitas pada distribusi data
+akan mempengaruhi performa dari ketiga jenis kegunaan interval
+kepercayaan.
+
+\subsection{\texorpdfstring{Implikasi Non-Normalitas Pada Pendeteksian
+\emph{Outlier}}{Implikasi Non-Normalitas Pada Pendeteksian Outlier}}\label{implikasi-non-normalitas-pada-pendeteksian-outlier}
+
+\emph{Outlier} merupakan pengamatan yang tampak berbeda karakteristiknya
+dibandingkan sebagian besar pengamatan yang ada. Pengamatan ini
+seringkli dihapus dari prosedur analisis yang mengharuskan distribusi
+suatu data mengikuti distribusi normal. Penghapusan observasi ini bisa
+jadi tidak baik dilakukan sebab bisa saja observasi tersebut valid.
+Observasi yang bersifat \emph{outlier} bisa jadi merupakan observasi
+terpenting sebab bisa saja dapat memberikan gambaran penting pada suatu
+kondisi ekstrim atau hubungan kausatif yang penting. Penghapusan ini
+tidak perlu dilakukan selam prosedur pengukuran yang sejenis tersedia
+dan tidak mengharuskan suatu distribusi data mengikuti distribusi
+tertentu, meskipun terdapat kelebihan dan kekurangan yang perlu kita
+perhatikan.
+
+Untuk menghapus observasi yang kita identifikasikan sebagai
+\emph{outlier}, aturan atau tes perlu dilakukan seperti tes yang
+diajukan oleh Beckman dan Cook (1983). Tes yang paling umum didasarkan
+pada interval-t, dan mengasumsikan data mengikuti distribusi normal.
+Biasanya Persamaan \eqref{eq:ipds} untuk interval pediksi data yang
+mengikuti distribusi normal disederhanakan dengan mengabaikan nilai
+\(\frac{s^2}{n}\). Nilai diluar interval prediksi tersebut selanjutnya
+dapat dinyatakan sebagai \emph{oulier}. Uji lain yang dapat dilakukan
+adalah dengan visualisasi menggunakan box plot. Nilai diluar
+\(Q1-1,5IQR\) atau \(Q3+1,5IQR\) dinyatakan sebagai \emph{outlier}.
+Namun pada Chapter ini tidak akan dibahas lebih lanjut sebab pada
+Chapter 7 telah dibahas mengenai deteksi \emph{outlier} mellaui
+visualisasi data.
+
+\subsection{Implikasi Non-Normalitas Pada Kontrol
+Kualitas}\label{implikasi-non-normalitas-pada-kontrol-kualitas}
+
+Presentasi visual interval kepercayaan yang digunakan secara luas dalam
+proses industri adalah kontrol chart. Sejumlah kecil produk disampel
+dari total kemungkinan pada titik waktu tertentu, dan rerata dihitung.
+Pengambilan sampel diulang pada interval reguler atau acak, tergantung
+pada desain, menghasilkan serangkaian cara sampel. Ini digunakan untuk
+membangun satu jenis kontrol chart, xbar chart. Chart ini secara visual
+mendeteksi ketika rata-rata sampel masa depan menjadi berbeda dari yang
+digunakan untuk membangun grafik. Keputusan perbedaan didasarkan pada
+melebihi interval kepercayaan parametrik di sekitar rata-rata yang telah
+dijelaskan dibagian lain Chapter ini.
+
+Misalkan laboratorium kimia mengukur larutan standar yang sama beberapa
+kali selama sehari untuk menentukan apakah peralatan dan operator
+menghasilkan hasil yang konsisten. Untuk serangkaian pengukuran \(n\)
+pada interval waktu \(m\), ukuran sampel total \(N=N\cdot M\). Perkiraan
+konsentrasi terbaik untuk standar itu adalah rata-rata keseluruhan yang
+dihitung menggunakan Persamaan \eqref{eq:innpkk}.
+
+\begin{equation}
+  \overline{X}=\sum_{i=1}^N\frac{X_i}{N}
+  \label{eq:innpkk}
+\end{equation}
+
+\(\overline{X}\) diplot sebagai garis tengah grafik. Interval
+kepercayaan pada rata-rata tersebut dijelaskan oleh Persamaan
+\eqref{eq:pmeancisim}, menggunakan ukuran sampel \(n\) yang tersedia untuk
+menghitung setiap nilai rata-rata individu. Batas interval tersebut juga
+diplotkan sebagai garis paralel pada chart kontrol kualitas. Nilai
+rata-rata yang akan berada diluar batas plot rata-rata ini hanya sebesar
+\(\alpha\cdot100\%\) dari waktu jika rata-rata berditribusi normal.
+Observasi yang berada di luar batas lebih sering daripada ini diambil
+untuk menunjukkan bahwa sesuatu dalam proses telah berubah.
+
+Jika \(n\) besar (katakanlah 30 atau lebih), Teorema Limit Pusat
+menyatakan bahwa rata-rata akan terdistribusi secara normal meskipun
+data yang mendasarinya mungkin tidak. Namun jika \(n\) jauh lebih kecil,
+seperti yang sering terjadi, berarti mungkin tidak mengikuti pola ini.
+Khususnya, untuk data yang memiliki kemencengan (data dengan
+\emph{outlier} hanya pada satu sisi), distribusi di sekitar rata-rata
+mungkin masih memiliki kemencengan. Hasilnya adalah nilai besar untuk
+simpangan baku, dan pita kepercayaan yang lebar. Oleh karena itu, chart
+akan memiliki kekuatan yang lebih rendah untuk mendeteksi observasi yang
+mulai menjauh dari nilai rata-rata yang diharapkan daripada jika data
+tidak memiliki kemencengan.
+
+Chart kontrol juga diproduksi untuk menggambarkan varians proses. Chart
+kontrol juga menggunakan nilai range (R chart) atau simpangan baku (S
+chart). Kedua grafik bahkan lebih sensitif terhadap perubahan data dari
+kondisi normal dibandingkan \(\overline{X}\) chart. Keduanya akan
+mengalami kesulitan dalam mendeteksi perubahan varian ketika data yang
+mendasarinya tidak normal, dan ukuran sampel \(n\) untuk setiap
+rata-rata kecil.
+
+\subsection{Implikasi Non-Normalitas Terhadap Desain
+Sampling}\label{implikasi-non-normalitas-terhadap-desain-sampling}
+
+Persamaan t-interval juga digunakan untuk menentukan jumlah sampel yang
+diperlukan untuk memperkirakan rata-rata dengan tingkat presisi yang
+ditentukan. Namun, persamaan tersebut membutuhkan data untuk kira-kira
+mengikuti distribusi normal. Persamaan tersebut harus mempertimbangkan
+\emph{power} serta lebar interval. Artinya kita harus memutuskan apakah
+mean adalah karakteristik yang paling tepat untuk mengukur data yang
+memiliki kemencengan.
+
+Untuk memperkirakan ukuran sampel telah cukup untuk menentukan interval
+estimasi dengan lebar spesifik dapat menggunakan Persamaan
+\eqref{eq:inntds}.
+
+\begin{equation}
+  n=\left(\frac{t_{\frac{\alpha}{2},n-1}\cdot s}{\Delta}\right)^2
+  \label{eq:inntds}
+\end{equation}
+
+dimana \(s\) merupakan simpangan baku sampel dan \(\Delta\) merupakan
+setengah lebar interval yang diinginkan. Seperti yang telah dibahas di
+atas, untuk ukuran sampel kurang dari 30 hingga 50 dan bahkan lebih
+besar dengan data yang sangat menceng, perhitungan ini mungkin memiliki
+kesalahan besar. Perkiraan \(s\) akan tidak akurat, dan akan sangat
+sangat meningkat nilainya karena kemencenga dan/atau \emph{outlier}
+apapun. Karenanya, estimasi \(n\) yang dihasilkan akan besar. Sebagai
+contoh, Hakanson (1984) memperkirakan jumlah sampel yang diperlukan
+untuk memberikan lebar interval yang masuk akal untuk karakteristik
+sedimen sungai dan danau, termasuk kimia sedimen. Berdasarkan koefisien
+variasi yang dilaporkan dalam artikel, data untuk sedimen sungai cukup
+menceng, seperti yang mungkin diharapkan. Ukuran sampel yang diperlukan
+untuk sungai dihitung pada 200 dan lebih tinggi.
+
+Sebelum menggunakan persamaan sederhana seperti itu, data yang menceng
+harus ditransformasi terlebih dahulu sehingga lebih simetris, jika bukan
+berdistribusi normal. Misalnya, logaritma akan secara drastis menurunkan
+taksiran ukuran sampel untuk data miring, setara dengan Persamaan
+\eqref{eq:ipdas}. Ukuran sampel akan dihasilkan yang memungkinkan median
+(rata-rata geometris) diperkirakan dalam faktor toleransi multiplikasi
+sama dengan \(\pm2\Delta\)dalam satuan log.
+
+Masalah kedua dengan Persamaan \eqref{eq:inntds} untuk memperkirakan
+ukuran sampel, bahkan ketika data mengikuti distribusi normal,
+ditunjukkan oleh Kupper dan Hafner (1989). Mereka menunjukkan Persamaan
+\eqref{eq:inntds} meremehkan ukuran sampel sebenarnya yang diperlukan
+untuk tingkat presisi tertentu, bahkan untuk perkiraan \(n\le40\). Hal
+ini disebabkan karena Persamaan \eqref{eq:inntds} tidak mengakui bahwa
+simpangan baku \(s\) hanya estimasi dari nilai sebenarnya \(\sigma\).
+Mereka menyarankan menambahkan probabilitas toleransi ke Persamaan
+\eqref{eq:inntds}, mirip dengan \emph{statement of power}. Maka perkiraan
+lebar interval setidaknya sekecil lebar interval yang diinginkan untuk
+beberapa persentase tertentu (katakanlah 90 atau 95\%) dari waktu
+tersebut. Misalnya, ketika \(n\) akan sama dengan 40 berdasarkan
+Persamaan \eqref{eq:inntds}, lebar interval yang dihasilkan akan lebih
+kecil dari lebar yang diinginkan \(2\Delta\) hanya sekitar 42\% dari
+waktu. Ukuran sampel seharusnya menjadi 53 untuk memastikan lebar
+interval berada dalam kisaran toleransi 90\% dari waktu.
+
+Ukuran sampel yang diperlukan untuk estimasi interval median atau untuk
+melakukan tes nonparametrik dari Chapter selanjutnya dapat diturunkan
+tanpa asumsi normalitas yang diperlukan di atas untuk interval-t.
+Noether (1987) menjelaskan estimasi ukuran sampel yang lebih kuat ini,
+yang memasukkan pertimbangan \emph{power} sehingga lebih valid daripada
+Persamaan \eqref{eq:inntds}. Namun, baik estimasi normalitas distribusi
+data atau nonparametric mempertimbangkan efek penting dan sering diamati
+dari musiman atau tren, dan karenanya mungkin tidak pernah memberikan
+perkiraan yang cukup akurat untuk menjadi sesuatu yang lebih dari
+sekadar panduan kasar.
+
+\section{Referensi}\label{referensi-7}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Bachman, L. J. 1984. \textbf{Field and laboratory analyses of water
+  from the Columbia Aquifer in Eastern Maryland}. Ground Water 22.
+  460-467.
+\item
+  Damanhuri, E. 2011. \textbf{Statitika Lingkunga}. Penerbit ITB.
+\item
+  Deryto, T. tanpa tahun. \textbf{Bootstrap in R}. Datacamp.
+  \url{https://www.datacamp.com/community/tutorials/bootstrap-r}
+\item
+  Efron, B. 1979. \textbf{Bootstrap Methods: Another Look at The
+  Jacknife}. The Annuals of Statistics. Vol:7(1). 1-26.
+\item
+  Helsel, D.R., Hirsch, R.M. 2002. \textbf{statistical Methods in Water
+  Resources}. USGS.
+\item
+  Kupper, L. L., and K. B. Hafner. 1989. \textbf{How appropriate are
+  popular sample size formulas?}. American Statistician 43. 101-105.
+\item
+  Noether, G. E. 1987. \textbf{Sample size determination for some common
+  nonparametric tests}. Journal American Statistical Assoc.. 82,
+  645-647.
+\item
+  Ofungwu, J. 2014. \textbf{Statistical Applications For Environmental
+  Analysis and Risk Assessment}. John Wiley \& Sons, Inc.
+\item
+  Ting Wei, Songbai Song. 2019. \textbf{Confidence interval estimation
+  for precipitation quantiles based on principle of maximum entropy}.
+  Entropy. 21.
+\end{enumerate}
 
 \bibliography{book.bib,packages.bib}
 

@@ -159,12 +159,18 @@
 \contentsline {figure}{\numberline {7.10}{\ignorespaces Bar plot Jumlah rata-rata corbicula pada sungai Tennessee}}{241}{figure.7.10}% 
 \contentsline {figure}{\numberline {7.11}{\ignorespaces Line plot perubahan jumlah rata-rata corbicula di sungai Tennessee}}{242}{figure.7.11}% 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10}}{247}{figure.8.1}% 
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75}}{248}{figure.8.2}% 
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 1}}{248}{figure.8.3}% 
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Probabilitas median populasi P50 pada dua sisi interval estimasi.}}{249}{figure.8.4}% 
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)}}{247}{figure.8.1}% 
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)}}{248}{figure.8.2}% 
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya (Helsel dan Hirsch, 2002)}}{248}{figure.8.3}% 
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)}}{249}{figure.8.4}% 
 \contentsline {figure}{\numberline {8.5}{\ignorespaces Distribusi konsentrasi arsenik dalam air tanah}}{249}{figure.8.5}% 
 \contentsline {figure}{\numberline {8.6}{\ignorespaces Lokasi probabilitas x berdasarkan tabel distribusi binomial}}{251}{figure.8.6}% 
 \contentsline {figure}{\numberline {8.7}{\ignorespaces Distribusi logaritmik konsentrasi arsenik dalam air tanah}}{254}{figure.8.7}% 
-\contentsline {figure}{\numberline {8.8}{\ignorespaces Prediksi interval dua sisi}}{259}{figure.8.8}% 
-\contentsline {figure}{\numberline {8.9}{\ignorespaces Prediksi interval satu sisi}}{260}{figure.8.9}% 
+\contentsline {figure}{\numberline {8.8}{\ignorespaces Prediksi interval dua sisi (Helsel dan Hirsch, 2002)}}{262}{figure.8.8}% 
+\contentsline {figure}{\numberline {8.9}{\ignorespaces Prediksi interval satu sisi (Helsel dan Hirsch, 2002)}}{264}{figure.8.9}% 
+\contentsline {figure}{\numberline {8.10}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)}}{273}{figure.8.10}% 
+\contentsline {figure}{\numberline {8.11}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)}}{274}{figure.8.11}% 
+\contentsline {figure}{\numberline {8.12}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)}}{274}{figure.8.12}% 
+\contentsline {figure}{\numberline {8.13}{\ignorespaces Distribusi bootstrap median}}{278}{figure.8.13}% 
+\contentsline {figure}{\numberline {8.14}{\ignorespaces Distribusi bootstrap mean}}{280}{figure.8.14}% 
+\contentsline {figure}{\numberline {8.15}{\ignorespaces Distribusi bootstrap persentil 90}}{281}{figure.8.15}% 
