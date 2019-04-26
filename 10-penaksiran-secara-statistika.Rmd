@@ -286,7 +286,7 @@ med_norCI(x=gwardat$konsentrasi, alpha=0.05)
 
 Jika kita tidak ingin menggunakan vektor dalam fungsi, kita dapat juga menggunakan data frame sebagai inputnya. Kelebihannya adalah kita dapat menghitung rentang kepercayaan seluruh kolom dalam satu kali proses. Hal ini tentunya akan menghemat waktu yang digunakan. Berikut adalah contoh sintaks fungsi untuk menghitung interval kepercayaan median menggunakan distribusi normal dengan metode nonparametrik yang digunakan:
 
-```{r, eval=FALSE}
+```{r}
 med_norCI <- function(df, alpha){
   # membuat matrik untuk menyimpan
   # hasil loop
@@ -324,7 +324,7 @@ med_norCI <- function(df, alpha){
 
 Fungsi tersebut dapat menghitung sekaligus Interval kepercayaan median dengan metode nonparametrik. Pembaca dapat mencobanya dengan menggunakan dataset yang pembaca miliki. Pembaca dapat mengabaikan peringatan yang muncul dan berfokus pada hasil yang diperoleh. Sebagai contoh jalankan fungsi tersebut menggunakan dataset `airquality` berikut:
 
-```{r, eval=FALSE}
+```{r}
 med_norCI(df=airquality, alpha=0.05)
 ```
 
@@ -417,7 +417,7 @@ med_gm(x=gwardat$konsentrasi, alpha=0.05)
 
 Fungsi `med_gm()` dapat dilakukan sejumlah modifikasi seperti penggunaan data frame sebagai input serta proses transformasi yang dilakukan didalam fungsi yang ada sekaligus. Berikut adalah contoh fungsi yang digunakan untuk input berupa data frame dan proses transformasi termasuk didalamnya:
 
-```{r, eval=FALSE}
+```{r}
 med_gm <- function(df, alpha){
   # membuat vektor untuk menyimpan hasil loop
   var = rep(NA, ncol(df))
@@ -454,7 +454,7 @@ med_gm <- function(df, alpha){
 
 Untuk menguji fungsi tersebut jalankan fungsi tersebut menggunakan dataset yang pembaca miliki. Dalam contoh ini ak diberikan contoh penerapannya menggunakan dataset `airquality`. Jalankan fungsi berikut untuk memperoleh hasilnya.
 
-```{r, eval=FALSE}
+```{r}
 med_gm(airquality, 0.05)
 ```
 
@@ -603,7 +603,7 @@ mean_asci(x=gwardat$konsentrasi, alpha=0.05)
 
 Jika pembaca ingin menggunakan data frame sebagai input yang digunakan selain vektor, fungsi tersebut dapat dimodifikasi seperti berikut:
 
-```{r, eval=FALSE}
+```{r}
 mean_asci<-function(df,alpha){
   # membuat vektor untuk menyimpan hasil loop
   var = rep(NA, ncol(df))
@@ -646,7 +646,7 @@ mean_asci<-function(df,alpha){
 
 Untuk menguji fungsi tersebut, pembaca dapat memasukkan data frame yang pembaca miliki kedalam persamaan tersebut. Berikut adalah contoh sintaks yang digunakan untuk menghitung interval kepercayaan mean pada dataset `airquality`. Pembaca dapat menjalankannya pada komputer pembaca.
 
-```{r, eval=FALSE}
+```{r}
 mean_asci(airquality, 0.05)
 ```
 

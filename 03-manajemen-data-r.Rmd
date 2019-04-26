@@ -837,7 +837,7 @@ include_graphics(img1_path)
 
 Salah satu bagian terpenting dan paling sering penulis gunakan pada fungsi ini memfilter *missing value* (melihat observasi yang mengandung *missing value* atau tidak melibatkan *missing value*). Berikut adalah contoh filter terhadap data pada `pollution_tbl` yang tidak mengandung *missing value* dan nilai `amount`>0.
 
-```{r}
+```{r, eval=FALSE}
 filter(pollution_tbl,!(is.na(amount)|amount<=0))
 ```
 

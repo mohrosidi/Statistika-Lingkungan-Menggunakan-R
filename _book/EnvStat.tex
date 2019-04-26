@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-04-19}
+    \date{2019-04-26}
 
 \usepackage{booktabs}
 
@@ -189,6 +189,11 @@ Chambers} dan rekan-rekan dari \textbf{Bell Laboratories} yang memiliki
 fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara
 keduanya adalah \texttt{R} merupakan sistem komputasi yang bersifat
 gratis.Logo \texttt{R} dapat dilihat pada Gambar \ref{fig:Logo}.
+
+\begin{verbatim}
+## Warning: package 'knitr' was built under R version
+## 3.5.3
+\end{verbatim}
 
 \begin{figure}
 
@@ -729,12 +734,8 @@ menghitung median.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "decmedian"       "elNamed"        
-##  [3] "elNamed<-"       "interp.median"  
-##  [5] "median"          "median.default" 
-##  [7] "median_hilow"    "mediate"        
-##  [9] "mediate.diagram" "medpolish"      
-## [11] "runmed"
+## [1] "elNamed"        "elNamed<-"      "median"        
+## [4] "median.default" "medpolish"      "runmed"
 \end{verbatim}
 
 \emph{List} yang dihasilkan berupa fungsi-fungsi yang memiliki elemen
@@ -4450,6 +4451,11 @@ sudah ada menjadi tibble menggunakan fungsi \texttt{as\_tibble()}.
 Berikut adalah contoh bagaimana membuat tibble mengunakan data
 \texttt{iris}:
 
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version
+## 3.5.3
+\end{verbatim}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# memuat data mtcars}
@@ -4841,6 +4847,22 @@ yang dapat pembaca cermati terkait manakah data yang telah rapi
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(EDAWR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'EDAWR'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked _by_ '.GlobalEnv':
+## 
+##     a, b, y, z
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# memuat dataset}
 \NormalTok{storms <-}\StringTok{ }\NormalTok{EDAWR}\OperatorTok{::}\NormalTok{storms}
 \NormalTok{cases}
@@ -5076,6 +5098,11 @@ menginstall library tersebut:
 \KeywordTok{library}\NormalTok{(tidyr)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyr' was built under R version
+## 3.5.3
+\end{verbatim}
 
 \subsection{Gather}\label{gather}
 
@@ -5672,18 +5699,6 @@ nilai \texttt{amount}\textgreater{}0.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## # A tibble: 6 x 3
-##   city     size  amount
-##   <chr>    <chr>  <dbl>
-## 1 New York large     23
-## 2 New York small     14
-## 3 London   large     22
-## 4 London   small     16
-## 5 Beijing  large    121
-## 6 Beijing  small     56
-\end{verbatim}
-
 Berdasarkan hasil yang diperoleh seluruh data tidak ada yang di drop
 sehingga dapat disimpulkan bahwa data tersebut tidak mengandung
 \emph{missing value} dan nol.
@@ -5915,7 +5930,16 @@ Berikut adalah contoh penerapan \texttt{selct()} pada data frame
 
 \CommentTok{# memuat data frame}
 \KeywordTok{library}\NormalTok{(nycflights13)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'nycflights13' was built under R
+## version 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# data}
 \NormalTok{flights}
 \end{Highlighting}
@@ -6460,6 +6484,22 @@ Berikut adalah sintaks untuk melakukannya:
 
 \CommentTok{# Dengan pipe operator}
 \KeywordTok{library}\NormalTok{(magrittr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'magrittr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:tidyr':
+## 
+##     extract
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{delays <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(dest) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarize}\NormalTok{(}
@@ -6489,6 +6529,22 @@ Berikut adalah sintaks untuk melakukannya:
 ##  9 BHM     297  866. 16.9 
 ## 10 BNA    6333  758. 11.8 
 ## # ... with 86 more rows
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'ggplot2'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'mtcars':
+## 
+##     mpg
 \end{verbatim}
 
 \begin{verbatim}
@@ -8485,6 +8541,10 @@ ada pada \texttt{R}. Output yang dihasilkan disajikan pada Gambar
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Loading required package: grid
+\end{verbatim}
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/color-1} 
@@ -8516,7 +8576,15 @@ pada Gambar \ref{fig:carscatter}:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(car)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'car' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{scatterplot}\NormalTok{(Volume}\OperatorTok{~}\NormalTok{Height, }\DataTypeTok{data=}\NormalTok{trees)}
 \end{Highlighting}
@@ -8566,7 +8634,16 @@ output yang dihasilkan pada Gambar \ref{fig:psychscatter}:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(psych)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'psych' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{pairs.panels}\NormalTok{(trees, }
              \DataTypeTok{method =} \StringTok{"pearson"}\NormalTok{, }\CommentTok{# metode korelasi}
@@ -8603,7 +8680,16 @@ dihasilkan pada Gambar \ref{fig:gplotsboxplot2}:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(gplots)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'gplots' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{boxplot2}\NormalTok{(len }\OperatorTok{~}\StringTok{ }\NormalTok{dose, }\DataTypeTok{data =}\NormalTok{ ToothGrowth)}
 \end{Highlighting}
@@ -8777,7 +8863,16 @@ dataset tersebut:
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(gapminder)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'gapminder' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# memuat paket dplyr dan tibble}
 \KeywordTok{library}\NormalTok{(dplyr)}
 \KeywordTok{library}\NormalTok{(tibble)}
@@ -10589,6 +10684,11 @@ menginstall dan memuat paket tersebut:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'ggthemes' was built under R version
+## 3.5.3
+\end{verbatim}
+
 tema-tema yang tersedia pada paket tersebut antara lain:
 
 \begin{itemize}
@@ -10665,7 +10765,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x00000000182ced40>
+## <bytecode: 0x0000000027f93a20>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -10884,7 +10984,16 @@ yang dihasilkan pada Gambar \ref{fig:gglimits4}.
 
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(scales)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'scales' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# plot}
 \KeywordTok{ggplot}\NormalTok{(gapminder, }\KeywordTok{aes}\NormalTok{(gdpPercap, lifeExp))}\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}
@@ -11794,7 +11903,16 @@ dalam proses membaca data.
 \begin{Highlighting}[]
 \CommentTok{# memuat library}
 \KeywordTok{library}\NormalTok{(readxl)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'readxl' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# memuat data excel}
 \NormalTok{data_gw <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"hhappc.xls"}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{"appc16"}\NormalTok{)}
 
@@ -12540,7 +12658,16 @@ menggunakan fungsi \texttt{stat.desc()}:
 \begin{Highlighting}[]
 \CommentTok{# memuat paket}
 \KeywordTok{library}\NormalTok{(pastecs)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: package 'pastecs' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# ringkasan data}
 \KeywordTok{stat.desc}\NormalTok{(data_gw)}
 \end{Highlighting}
@@ -13415,6 +13542,777 @@ rata-rata corbicula menurun setiap tahunnya.
   Analysis of Data- Seventh Edition}. Brooks/Cole.
 \end{enumerate}
 
+\part*{Probabilitas dan Distribusi
+Probabilitas}\label{part-probabilitas-dan-distribusi-probabilitas}
+\addcontentsline{toc}{part}{Probabilitas dan Distribusi
+Probabilitas}
+
+\chapter{Probabilitas}\label{probabilitas}
+
+Probabilitas merupakan kemungkinan suatu peristiwa akan terjadi.
+Probabilitas memiliki rentang nilai dari 0 sampai dengan 1. Probabilitas
+0 artinya suatu peristiwa (\emph{event}) mustahil atau tidak pernah
+terjadi, sedangkan probabilitas 1 menunjukkan suatu peristiwa yang
+selalu terjadi.
+
+Contoh sederhana dari probabilitas dalam kehidupan sehari-hari adalah
+ketika kita melempar koin ke udara untuk melihat kemungkinan sisi yang
+akan tampak saat koin tersebut jatuh ke tanah. Peristiwa yang mungkin
+akan terjadi adalah mata uang akan menampilkan sisi depan (\emph{head})
+atau sisi belakang (\emph{tail}). Kemungkinan untuk mendapatkan
+\emph{tail} maupun \emph{head} adalah sama yaitu 0,5.
+
+Pada contoh pelempan koin, kita misalkan kejadian munculnya sisi
+\emph{head} adalah \(A\), sedangkan peluang munculnya selain sisi
+\emph{head} (sisi lainnya) adalah \(A'\) Secara sederhana peluang
+munculnya suatu kejadian \(A\) pada contoh tersebut dapat dituliskan
+kedalam Persamaan \eqref{eq:prob} dan Persamaan \eqref{eq:prob}.
+
+\begin{equation}
+   P\left(A\right)+P\left(A'\right)=1
+  \label{eq:prob}
+\end{equation}
+
+dimana
+
+\begin{equation}
+   P_A=\frac{Jumlah\ peristiwa\ A}{Jumlah\ peristiwa\ yang\ mungkin\ terjadi}
+  \label{eq:prob2}
+\end{equation}
+
+Pada contoh pelemparan koin, kita ingin mengetahui peluang munculnya
+\emph{head} pada pelemparan koin. Jumlah peristiwa yang mungkin terjadi
+saat pelemparan koin ada 2 yaitu munculnya \emph{head} atau \emph{tail}.
+Peluang munculnya sisi \emph{head} dapat dihitung menggunakan Persamaan
+\eqref{eq:prob} seperti berikut:
+
+\[
+P_{head}=\frac{Jumlah\ peristiwa\ head}{Jumlah\ peristiwa\ yang\ mungkin\ terjadi}=\frac{1}{2}=0,5
+\]
+
+Probabilitas suatu peristiwa dapat dibedakan kedalam 3 kategori, yaitu:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Probabilitas apriori}: probabilitas yang ditentukan sebelumnya
+  tanpa perlu melakukan suatu eksperimen atau kita dapat memperkirakan
+  sebelumnya peristiwa apa saja yang dapat terjadi. Contoh: pelemparan
+  koin, pelemparan dadu,dll.
+\item
+  \textbf{Probabilitas frekuensi relatif (empiris)}: probabilitas yang
+  ditentukan berdasarkan fakta setelah kejadian. Contoh: Berdasarkan
+  hasil survey 80 dari 100 orang responden mahasiswa sadar akan
+  pentingnya memilah sampah, sehingga peluang seorang mahasiswa sadar
+  akan pentingnya pemilahan sampah berdasarkan hasil survey tersebut
+  adalah \(P_A=\frac{80}{100}=0,8\).
+\item
+  \textbf{Probabilitas subyektif}: probabilitas yang dilakukan
+  berdasarkan pertimbangan perseorangan (seorang ahli atau orang yang
+  berpengalaman). Contoh: probabilitas 10 kantong kompos memiliki berat
+  \textless{} 1 kg menurut seorang penjual berdasarkan pengalamannya
+  adalah 0,1 atau dari 10 kantong kompos terdapat satu kantong yang
+  beratnya \textless{} 1 kg.
+\end{enumerate}
+
+\section{Aturan Dasar Probabilitas}\label{aturan-dasar-probabilitas}
+
+Secara umum terdapat dua buah aturan dasar yang digunakan dalam
+perhitungan probabilitas yaitu aturan penjumlahan dan aturan perkalian.
+Kedua aturan tersebut akan penulis bahas secara detail pada bagian ini.
+
+Sebelum kita membahas keduanya sebaiknya kita bahas terlebih dahulu
+pengertian umum yang merupakan elemen dasar dalam memahami konsep
+probabilitas. Berikut adalah istilah-istilah yang digunakan dalam
+probabilitas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Ruang sampel (\emph{sample space})}: gabungan dari semua
+  kemungkinan, dan kemungkinan secara individual yang disebut sebagai
+  titik sampel. Suatu peristiwa didefinisikan sebagai sub-himpunan
+  (\emph{subset}) dari ruang sampel. Ruang sampel bisa bersifat diskrit
+  atau kontinu, yang dapat bernilai berhingga (\emph{finite}) maupun tak
+  berhingga. Peristiwa dalam pelemparan koin merupakan contoh ruang
+  sampel berhingga. Contoh lainnya adalah pada pelemparan 2 buah dadu.
+  Ruang sampel yang mungkin terbentuk merupakan kombinasi dari keenam
+  masing-masing mata dadu. Berikut adalah contoh sintaks \texttt{R}
+  untuk menghasilkan ruang sampel pada 2 buah dadu:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# install.packages("prob")}
+\KeywordTok{library}\NormalTok{(prob)}
+
+\CommentTok{# ruang sampel 2 buah dadu}
+\KeywordTok{rolldie}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    X1 X2
+## 1   1  1
+## 2   2  1
+## 3   3  1
+## 4   4  1
+## 5   5  1
+## 6   6  1
+## 7   1  2
+## 8   2  2
+## 9   3  2
+## 10  4  2
+## 11  5  2
+## 12  6  2
+## 13  1  3
+## 14  2  3
+## 15  3  3
+## 16  4  3
+## 17  5  3
+## 18  6  3
+## 19  1  4
+## 20  2  4
+## 21  3  4
+## 22  4  4
+## 23  5  4
+## 24  6  4
+## 25  1  5
+## 26  2  5
+## 27  3  5
+## 28  4  5
+## 29  5  5
+## 30  6  5
+## 31  1  6
+## 32  2  6
+## 33  3  6
+## 34  4  6
+## 35  5  6
+## 36  6  6
+\end{verbatim}
+
+Berdasarkan sintaks tersebut terdapat 36 ruang sampel pada pelemparan 2
+buah dadu. Ruang sampel yang dihasilkan dapat ditulis
+\(Ruang\ sampel\ S=\left\{\left(X1,X2\right)\left|1\le X1\le6;\ 1\le X2\le6\right|\right\}\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Peristiwa mustahil (\emph{impossible event})}: dinyatakan
+  dengan \(\phi\), merupakan peristiwa yang tidak memiliki titik sampel.
+  Dengan demikian , peristiwa tersebut mempunyai himpunan kosong.
+\item
+  \textbf{Peristiwa tertentu (\emph{certain event})}: dinyatakan dengan
+  S, merupakan semua peristiwa yang mengandung semua titik sampel dalam
+  ruang sampel.
+\item
+  \textbf{Peristiwa komplementer (\emph{complementary event})}: Untuk
+  suatu peristiwa dalam ruang sampel S, peristiwa komplementer
+  dinyatakan dengan E yang mencakup semua titik sampel dalam S yang
+  tidak terkandung dalam E.
+\end{enumerate}
+
+Setelah pembaca memahami seluruh istilah tersebut, kita akan kembali
+menjelaskan kedua aturan dasar perhitungan probabilitas yaitu aturan
+penjumlahan dan perkalian.
+
+Aturan penjumlahan merupakan aturan yang digunakan untuk menghitung
+suatu peristiwa A atau peristiwa lain yaitu peristiwa B yang akan
+terjadi dan ditulis sebagai \(P\left(A\ atau\ B\right)\) atau
+\(P\left(A\cup B\right)\). Terdapat dua buah aturan penjumlahan yaitu:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Aturan penjumlahan peristiwa \emph{mutually exclusive}.
+\item
+  Aturan penjumlahan untuk peristiwa \emph{not mutually exclusive}.
+\end{enumerate}
+
+Aturan selanjutnya adalah aturan perkalian yaitu aturan yang digunakan
+untuk menghitung bahwa peristiwa A dan peristiwa B akan terjadi
+bersamaan dan ditulis sebagai \(P\left(A\ dan\ B\right)\) atau
+\(P\left(A\cap B\right)\). Aturan ini terdiri atas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Aturan perkalian peristiwa \emph{independent} (bebas).
+\item
+  Aturan perkalian peristiwa \emph{dependent} (tidak bebas).
+\end{enumerate}
+
+\subsection{\texorpdfstring{Peristiwa \emph{Mutually
+Exclusive}}{Peristiwa Mutually Exclusive}}\label{peristiwa-mutually-exclusive}
+
+Peristiwa \emph{mutually exclusive} merupakan suatu kondisi dimana
+peristiwa peristiwa satu tidak memungkinkan terjadinya peristiwa lainnya
+(tidak mungkin terjadi bersamaan). Terjadinya peristiwa A atu B
+merupakan penjumlahan kemungkinan terjadinya kedua peristiwa tersebut.
+Probabilitas peritiwa \emph{mutually exclusive} dapat dituliskan
+menggunakan Persamaan \eqref{eq:pme}.
+
+\begin{equation}
+   P\left(A\cup B\right)=P\left(A\right)+P\left(B\right)
+  \label{eq:pme}
+\end{equation}
+
+Untuk memudahkan pembaca memahami peristiwa \emph{mutually exclusive}
+bayangkan pembaca diminta melemparkan sebuah dadu. Pembaca diminta untuk
+menentukan peluang munculnya angka 1 atau 6 pada dadu. Kedua peristiwa
+tersebut tidak mungkin terjadi bersamaan karena hanya dilakukan
+menggunakan satu dadu. Selain itu, jumlah himpunan masing-masing
+peristiwa pertama dan kedua hanyalah satu sehingga tidak memungkinkan
+adanya irisan pada kedua peristiwa tersebut. Untuk menghitungnya kita
+dapat langsung menggunakan Persamaan \eqref{eq:pme}.
+
+\[
+P\left(1\cup 6\right)=P\left(1\right)+P\left(6\right)=\frac{1}{6}+\frac{1}{6}=\frac{1}{3}
+\]
+
+Peristiwa pada contoh soal tersebut dapat digambarkan menggunakan
+diagram venn yang ditunjukkan pada Gambar \ref{fig:pmevis}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{pmevis} 
+
+}
+
+\caption{Diagram venn peristiwa mutually exclusive}\label{fig:pmevis}
+\end{figure}
+
+Jika pembaca ingin menggunakan \texttt{R} untuk menghitung probabilitas
+peristiwa \emph{mutually exclusive}, pembaca dapat menggunakan fungsi
+\texttt{Prob()} pada library \texttt{prob} untuk menghitung secara
+langsung probabilitas dari \emph{subset} data. Berikut adalah contoh
+sintak untuk menghitung probabilitas munculnya angka 1 atau 6 dari
+pelemparan sebuah dadu:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menentukan ruang sampel (S)}
+\NormalTok{S <-}\StringTok{ }\KeywordTok{rolldie}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DataTypeTok{makespace=}\OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# print}
+\NormalTok{S}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   X1  probs
+## 1  1 0.1667
+## 2  2 0.1667
+## 3  3 0.1667
+## 4  4 0.1667
+## 5  5 0.1667
+## 6  6 0.1667
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat subset peristiwa 1 dan 2}
+\NormalTok{P1 <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(S, X1}\OperatorTok{==}\DecValTok{1}\NormalTok{)}
+\NormalTok{P6 <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(S, X1}\OperatorTok{==}\DecValTok{6}\NormalTok{)}
+
+\CommentTok{# menghitung probabilitas gabungan}
+\NormalTok{P1}\OperatorTok{$}\NormalTok{probs }\OperatorTok{+}\StringTok{ }\NormalTok{P6}\OperatorTok{$}\NormalTok{probs}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3333
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# atau}
+\KeywordTok{Prob}\NormalTok{(P1) }\OperatorTok{+}\StringTok{ }\KeywordTok{Prob}\NormalTok{(P6)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3333
+\end{verbatim}
+
+Persamaan \eqref{eq:pme} dapat diperluas tidak hanya berlaku pada dua buah
+peristiwa. Jika jenis peristiwa A yang ada sebanyak \(n\), maka
+Persamaan \eqref{eq:pme} dapat dituliskan kembali menjadi Persamaan
+\eqref{eq:pme2}.
+
+\begin{equation}
+   P\left(A_1\cup A_2\cup...\cup A_n\right)=P\left(A_1\right)+P\left(A_2\right)+...+P\left(A_n\right)
+  \label{eq:pme2}
+\end{equation}
+
+Kumpulan peristiwa yang terjadi \(\left\{A_1,\ A_2,...,A_n\right\}\)
+pada ruang sampel \(S\) disebut sebagai \emph{partisi S} jika
+\(A_1,\ A_2,...,A_n\) merupakan peristiwa dan
+\(A_1\cup A_2\cup...\cup A_n=S\). Sehingga probabilitas seluruh partisi
+tersebut dapat dituliskan pada Persamaan \eqref{eq:pme3}.
+
+\begin{equation}
+   P\left(A_1\cup A_2\cup...\cup A_n\right)=P\left(A_1\right)+P\left(A_2\right)+...+P\left(A_n\right)=P\left(S\right)=1
+  \label{eq:pme3}
+\end{equation}
+
+\subsection{\texorpdfstring{Peristiwa \emph{Not Mutually
+Exclusive}}{Peristiwa Not Mutually Exclusive}}\label{peristiwa-not-mutually-exclusive}
+
+Bila dua buah peristiwa tidak \emph{mutually exclusive}, maka kedua
+peristiwa tersebut dapat terjadi secara bersamaan atau memiliki himpunan
+yang saling beririsan jika ditinjau dari pembahasan pelemparan dadu
+sebelumnya. Probabilitas suatu peristiwa yang tidak \emph{mutually
+exclusive} dapat dituliskan berdasarkan Persamaan \eqref{eq:pnme}.
+
+\begin{equation}
+   P\left(A\cup B\right)=P\left(A\right)+P\left(B\right)-P\left(A\cap B\right)
+  \label{eq:pnme}
+\end{equation}
+
+Untuk memahami peristiwa yang tidak \emph{mutually exclusive}, pembaca
+dapat membayangkan kembali melempar sebuah dadu. Pembaca diminta
+menghitung probabilitas keluar angka ganjil pada dadu atau angka prima
+pada dadu. Kedua peristiwa tersebut memiliki himpunannya masing-masing.
+Untuk peristiwa angka ganjil himpunan yang terjadi adalah ganjil=\{1, 3,
+5\}, sedangkan untuk angka prima adalah prima=\{1, 2, 3, 5\}. Kedua
+peristiwa tersebut memiliki irisan himpunan yaitu saat mata dadu
+menunjukkan angka 1, 3, dan 5. Nilai probabilitas kedua peristiwa
+tersebut tidak bisa dihitung dengan langsung menjumlahkan probabilitas
+keduanya masing-masing karena terdapat satu peristiwa yang merupakan
+bagian dari peristiwa lain sehingga peristiwa tersebut sebagian perlu
+dihilangkan dari probabilitas salah satunya seperti yang ditulikan pada
+Persamaan \eqref{eq:pnme}. Berdasarkan persamaan tersebut probabilitas
+yang peristiwa tersebut adalah sebagai berikut:
+
+\[
+P\left(ganjil\cup prima\right)=P\left(ganjil\right)+P\left(prima\right)-P\left(ganjil\cap prima\right)=\frac{3}{6}+\frac{4}{6}-\frac{3}{6}=\frac{3+4-3}{6}=\frac{2}{3}
+\]
+
+Peristiwa \emph{not mutually exclusiev} dapat digambarkan menggunakan
+diagram venn yang ditunjukkan pada Gambar \ref{fig:pnmevis}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{pnmevis} 
+
+}
+
+\caption{Diagram venn peristiwa not mutually exclusive}\label{fig:pnmevis}
+\end{figure}
+
+Pada \texttt{R} peristiwa tersebut dapat dihitung menggunakan sintaks
+berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# kita akan menggunakan kembali objek S pada sintaks sebelumnya}
+\CommentTok{# melakukan subset pada masing-masing peristiwa}
+\NormalTok{ganjil <-}\KeywordTok{subset}\NormalTok{(S, X1 }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\NormalTok{prima <-}\KeywordTok{subset}\NormalTok{(S, X1 }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+
+\CommentTok{# menghitung irirsan kedua peristiwa}
+\NormalTok{irisan <-}\StringTok{ }\KeywordTok{intersect}\NormalTok{(ganjil, prima)}
+
+\CommentTok{# menghitung probabilitas yang terbentuk}
+\KeywordTok{Prob}\NormalTok{(ganjil)}\OperatorTok{+}\KeywordTok{Prob}\NormalTok{(prima)}\OperatorTok{-}\KeywordTok{Prob}\NormalTok{(irisan)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6667
+\end{verbatim}
+
+Untuk contoh yang lain misalkan seorang konsultan pengendalian kerugian
+diberikan data kerugian klien akibat kebakaran. Terdapat 250 kasus
+kebakaran dengan sejumlah penyebab. Penyebab utama disebabkan oleh
+membuang putung rokok sembarangan sebanyak 108 kasus, peralatan memasak
+sebanyak 95 kasus, pembakaran sebanyak 12 kasus, dan sumber kebakaran
+tidak diketahui sebanyak 35 kasus. Konsultan pengendalian kerugian ingin
+mengetahui berapa probabilitas untuk memilih klaim kebakaran dari
+kelompok dengan penyebab utama akibat aktivitas merokok sembarangan atau
+akibat pembakaran. Karena konsultan menentukan probabilitas ``satu atau
+yang lain,'' ia akan menentukan probabilitas berdasarkan peristiwa
+majemuk. Konsultan kemudian harus menentukan apakah peristiwa tersebut
+\emph{mutually exclusive} atau tidak. Untuk melakukannya ia harus
+menjawab pertanyaan ``Dapatkan seseorang melakukan klaim bahwa peristiwa
+kebakaran dapat disebabkan oleh aktivitas merokok dan pembakaran yang
+dilakukan secara bersamaan?. Konsultan menentukan bahwa ini tidak
+mungkin Oleh karena itu, peristiwa-peristiwa tersebut \emph{mutually
+exclusive} dan probabilitas dari kedua peristiwa yang terjadi pada saat
+yang sama adalah nol. Probabilitas selanjutnya dapat dihitung
+menggunakan Persamaan \eqref{eq:pnme}.
+
+\[
+P\left(merokok\cup pembakaran\right)=P\left(merokor\right)+P\left(pembakaran\right)-P\left(merokok\cap pembakaran\right)
+\]
+
+\[
+P\left(merokok\cup pembakaran\right)=\left(\frac{108}{250}\right)+\left(\frac{12}{250}\right)-0=0,48\ atau\ 48\%
+\]
+
+Persamaan \eqref{eq:pnme} dapat diperluas tidak hanya menggunakan dua buah
+peristiwa tapi dapat dihitung nilai probabilitasnya untuk lebih dari dua
+peristiwa. Pada Persamaan \eqref{eq:pnme2} disajikan persamaan untuk
+menghitung probabilitas untuk 3 buah peristiwa.
+
+\begin{equation}
+   P\left(A\cup B\cup C\right)=P\left(A\right)+P\left(B\right)+P\left(C\right)-P\left(A\cap B\right)-P\left(A\cup C\right)-P\left(B\cup C\right)+P\left(A\cup B\cup C\right)
+  \label{eq:pnme2}
+\end{equation}
+
+Untuk peristiwa yang lebih banyak kita perlu menggambarkan terlebih
+dahulu diagram venn dari ruang sampel yang akan kita gunakan.
+
+\subsection{\texorpdfstring{Peristiwa
+\emph{Dependent}}{Peristiwa Dependent}}\label{peristiwa-dependent}
+
+Peristiwa \emph{dependent} terjadi bila probabilitas terjadinya satu
+peristiwa (peristiwa A) dipengaruhi oleh probabilitas terjadinya
+peristiwa lainnya (peristiwa B) atau \(P\left(B\mid A\right)\).
+Peristiwa ini merupakan probabilitas kondisional karena terjadinya B
+dipengaruhi oleh terjadinya A. Pendekatan yang digunakan dituliskan pada
+Persamaan \eqref{eq:pd}.
+
+\begin{equation}
+   P\left(A\mid B\right)=\frac{P\left(A\cap B\right)}{P\left(A\right)}\ \text{dimana P(A)>0}
+  \label{eq:pd}
+\end{equation}
+
+Untuk memahami probabbilitas kondisional bayangkan pembaca harus
+melakukan survey terkait studi AMDAL di suatu kota. Responden yang
+digunakan merupakan seseorang yang telah menyelesaikan kuliahnya atau
+telah memperoleh gelar sarjana. Kategorisasi terhadap populasi dilakukan
+berdasarkan jenis kelamin dan status pekerjaan dengan jumlah yang
+proporsional dengan jumlah populasinya yang dapat dilihat pada Tabel
+\ref{tab:tabpd}. Sampel diambil dari populasi tersebut sesuai dengan
+proporsi jenis kelamin dan status pekerjaan. Pada studi ini ingin
+diketahui manfaat dari pembangunan industri pendirian industri baru bagi
+kota tersebut.
+
+\begin{longtable}[]{@{}llll@{}}
+\caption{\label{tab:tabpd} Populasi orang yang telah menyelesaikan masa
+studinya di suatu kota.}\tabularnewline
+\toprule
+\textbf{Jenis Kelamin} & \textbf{Bekerja} & \textbf{Belum Bekerja} &
+\textbf{Total}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\textbf{Jenis Kelamin} & \textbf{Bekerja} & \textbf{Belum Bekerja} &
+\textbf{Total}\tabularnewline
+\midrule
+\endhead
+Laki-Laki & 460 & 40 & 500\tabularnewline
+Perempuan & 140 & 260 & 400\tabularnewline
+\textbf{Total} & 600 & 300 & 900\tabularnewline
+\bottomrule
+\end{longtable}
+
+Proses survey dilakukan dengan metode wawancara. Responden yang telah
+dilakukan wawancara selanjutnya tidak boleh diwawancarai lagi sehingga
+pada jumlah keseluruhan sampel terus berkurang. Hitunglah probabilitas
+kondisional dari pengambilan responden laki-laki akibat pengambilan
+responden seseorang yang telah bekerja?.
+
+Berdasarkan contoh tersebut terdapat dua buah peristiwa yaitu peristiwa
+responden yang telah bekerja (dilambangkan dengan E) dan responden
+laki-laki (dilambangkan dengan M) atau dapat dituliskan sebagai berikut:
+
+M : seorang laki-laki yang terpilih. E : seseorang yang dipilih dan
+telah bekerja.
+
+Probabilitas kondisional dari pengambilan responden laki-laki akibat
+pengambilan responden seseorang yang telah bekerja selanjutnya dihitung
+seperti berikut:
+
+\[
+P\left(M\mid E\right)=\frac{460}{600}=\frac{23}{30}
+\]
+
+Misalkan \(n\left(A\right)\) merupakan notasi yang menyatakan jumlah
+elemen dari suatu set A. Dengan menggunakan notasi tersebut, dimana
+setiap orang dewasa yang telah menyelesaikan studinya memiliki
+kesempatan yang sama untuk dipilih sebagai responden dalam penelitian
+dapat dituliskan sebagai berikut:
+
+\[
+P\left(M\mid E\right)=\frac{n\left(E\cap M\right)}{n\left(E\right)}=\frac{\frac{n\left(E\cap M\right)}{n\left(S\right)}}{\frac{n\left(E\right)}{n\left(S\right)}}
+\]
+
+\[
+P\left(M\mid E\right)=\frac{P\left(E\cap M\right)}{P\left(E\right)}
+\]
+
+Persamaan yang dihasilkan sesuai dengan Persamaan \eqref{eq:pd}, dimana
+\(P\left(E\cap M\right)\) dan \(P\left(E\right)\) dihitung berdasarkan
+besarnya ruang sampel S. Untuk memverivikasi hasil yang telah diperoleh
+sebelumnya, kita dapat melakukan perhitungan seperti berikut:
+
+\[
+P\left(E\right)=\frac{600}{900}
+\] serta
+
+\[
+P\left(E\cap M\right)=\frac{460}{900}=\frac{23}{45}
+\]
+
+Sehingga
+
+\[
+P\left(E\ \mid M\right)=\frac{\frac{23}{45}}{\frac{2}{3}}=\frac{23}{30}
+\]
+
+Berdasarkan hasil yang diperoleh telah dapat dibuktikan bahwa
+probabilitas kondisional dari pengambilan responden laki-laki akibat
+pengambilan responden seseorang yang telah bekerja sebesar
+\(\frac{23}{30}\). Probabilitas lainnya dapat pembaca hitung sendiri
+untuk lebih memperdalam pengetahuan pembaca mengenai probabilitas
+kondisional.
+
+Pada \texttt{R} dengan menggunakan contoh soal sebelumnya kita dapat
+melakukan perhitungan probabilitas kondisional pengambilan sampel
+laki-laki akibat dari pengambilan sampel seseorang yang telah bekerja.
+Sintaks yang digunakan adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# membuat data frame}
+\NormalTok{S <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\StringTok{"jenis_kelamin"}\NormalTok{=}\KeywordTok{c}\NormalTok{(}\StringTok{"laki-laki"}\NormalTok{,}\StringTok{"perempuan"}\NormalTok{),}\StringTok{"bekerja"}\NormalTok{=}\KeywordTok{c}\NormalTok{(}\DecValTok{460}\NormalTok{,}\DecValTok{140}\NormalTok{), }\StringTok{"belum_bekerja"}\NormalTok{=}\KeywordTok{c}\NormalTok{(}\DecValTok{40}\NormalTok{,}\DecValTok{260}\NormalTok{))}
+
+\CommentTok{# reshaping}
+\KeywordTok{library}\NormalTok{(tidyr)}
+\NormalTok{S<-}\KeywordTok{gather}\NormalTok{(S, }\DataTypeTok{key=}\StringTok{"status_pekerjaan"}\NormalTok{,}\DataTypeTok{value=}\StringTok{"frekuensi"}\NormalTok{,}\OperatorTok{-}\NormalTok{jenis_kelamin)}
+
+\CommentTok{# melakukan subset dan menghitung probabilitas}
+\CommentTok{# peluang responden merupakan pegawai}
+\NormalTok{E <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(S, status_pekerjaan}\OperatorTok{==}\StringTok{"bekerja"}\NormalTok{)}
+\NormalTok{P_E <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(E}\OperatorTok{$}\NormalTok{frekuensi)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(S}\OperatorTok{$}\NormalTok{frekuensi)}
+\CommentTok{# peluang reponden laki-laki dan berkerja}
+\NormalTok{E_M <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(S, status_pekerjaan}\OperatorTok{==}\StringTok{"bekerja"}\OperatorTok{&}\NormalTok{jenis_kelamin}\OperatorTok{==}\StringTok{"laki-laki"}\NormalTok{)}
+\NormalTok{P_E_M <-}\KeywordTok{sum}\NormalTok{(E_M}\OperatorTok{$}\NormalTok{frekuensi)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(S}\OperatorTok{$}\NormalTok{frekuensi)}
+
+\CommentTok{# Probabilitas kondisional}
+\NormalTok{P_E_M}\OperatorTok{/}\NormalTok{P_E}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7667
+\end{verbatim}
+
+\subsection{\texorpdfstring{Peristiwa
+\emph{Independent}}{Peristiwa Independent}}\label{peristiwa-independent}
+
+Untuk menentukan probabilitas dua atau lebih peristiwa akan terjadi
+bersamaan, perlu ditentukan terlebih dahulu apakaha peristiwa-peristiwa
+tersebut bersifat bebas. Misalnya dalam melempar 2 buah dadu,
+probabilitas munculnya angka 1 pada dadu pertama adalah \(\frac{1}{6}\)
+dan probabilitas munculnya angka 2 pada dadu kedua juga sama dengan dadu
+pertama. Jika kita menginginkan kedua nilai tersebut muncul bersamaan
+pada saat pelemparan, maka probabilitas kejadiannya adalah hasil
+perkalian kedua probabilitas peristiwa pada masing-masing dadu yaitu
+\(\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{36}\). Pendekatan perhitungan
+probabilitas untuk peristiwa \emph{independent} dapat dituliskan pada
+Persamaan \eqref{eq:pi}.
+
+\begin{equation}
+   P\left(A\cap B\right)=P\left(A\right)\cdot P\left(B\right)
+  \label{eq:pi}
+\end{equation}
+
+Dengan menggunakan contoh soal sebelumnya, kita akan menentukan
+probabilitas responden penelitian kita adalah laki-laki (L) dan bekerja
+(E). Berdasarkan Persamaan \eqref{eq:pi}, probabilitas terpilihnya jenis
+responden tersebut adalah sebagai berikut:
+
+\[
+P\left(L\cap E\right)=\frac{500}{900}\cdot\frac{300}{900}=\frac{5}{27}
+\]
+
+Dengan menggunakan \texttt{R} sintaks yang digunakan adalah sebagai
+berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# subset responden laki-laki}
+\NormalTok{L <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(S, jenis_kelamin}\OperatorTok{==}\StringTok{"laki-laki"}\NormalTok{)}
+\NormalTok{E <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(S, status_pekerjaan}\OperatorTok{==}\StringTok{"bekerja"}\NormalTok{)}
+
+\CommentTok{# probabilitas}
+\NormalTok{P_L <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(L}\OperatorTok{$}\NormalTok{frekuensi)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(S}\OperatorTok{$}\NormalTok{frekuensi)}
+\NormalTok{P_E <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(E}\OperatorTok{$}\NormalTok{frekuensi)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(S}\OperatorTok{$}\NormalTok{frekuensi)}
+
+\CommentTok{# Probabilitas peristiwa independen}
+\NormalTok{P_L}\OperatorTok{*}\NormalTok{P_E}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3704
+\end{verbatim}
+
+\section{Teori Bayes}\label{teori-bayes}
+
+Teori Bayes memberikan formula probabilitas suatu peristiwa yang
+tergantung pada kontribusi dan ragam pada tahap sebelumnya. Formula
+tersebut dapat dituliskan pada Persamaan \eqref{eq:tb}.
+
+\begin{equation}
+   P\left(B_k\mid A\right)=\frac{P\left(B_k\right)\cdot P\left(A\mid B_k\right)}{\sum_{i=1}^nP\left(B_i\right)\cdot P\left(A\mid B_i\right)}\ \text{dimana k=1,2,...,n}
+  \label{eq:tb}
+\end{equation}
+
+Untuk membuktikan persamaan tersebut, kita akan menggunakan Persamaan
+\eqref{eq:pd} dengan melihat \(P\left(B_k\cap A\right)\) dengan dua cara
+yang berbeda. Untuk lebih mudahnya, misalkan nilai
+\(P\left(B_k\right)>0\) untuk seluruh \(k\), sehingga:
+
+\begin{equation}
+   P\left(A\right)\cdot P\left(B_k\mid A\right)=P\left(B_k\cap A\right)=P\left(B_k\right)\cdot P\left(A\mid B_k\right)
+  \label{eq:tb2}
+\end{equation}
+
+sejak nilai \(P\left(A\right)>0\) kita dapat membaginya untuk
+mendapatkan
+
+\begin{equation}
+   P\left(B_k\mid A\right)=\frac{P\left(B_k\right)\cdot P\left(A\mid B_k\right)}{P\left(A\right)}
+  \label{eq:tb3}
+\end{equation}
+
+Sekarang ingat kembaili bahwa \(\left\{B_k\right\}\) adalah partisi,
+teorema probabilitas total probabilitas total memberikan penyebut pada
+persamaan terkahir menjadi
+
+\begin{equation}
+   P\left(A\right)=\sum_{k=1}^nP\left(B_k\cap A\right)=\sum_{k=1}^nP\left(B_k\right)\cdot P\left(A\mid B_k\right)
+  \label{eq:tb4}
+\end{equation}
+
+Apa artinya? Biasanya dalam aplikasinya kita diberikan (atau tahu)
+probabilitas apriori \(P\left(B_k\right)\). Kita keluar dan mengumpulkan
+sejumlah data yang kita gunakan untuk mewakili peristiwa A. Kita ingin
+tahu: bagaimana kita dapat memperbaharui \(P\left(B_k\mid A\right)\)
+menjadi \(P\left(B_k\mid A\right)\)? Jawabannya adalah dengan teori
+Bayes.
+
+Untuk memahaminya misalkan sebuah instalasi air menggunakan tawas
+sebagai koagulannya. Tawas ini disuplai dari 4 perusahaan pemasok bahan
+kimia. Spesifikasi yang diinginkan adalah paling tidak tawas tersebut
+mengandung kadar efektif 60\%. Data tentang perusaan pemasok dan
+kegagalan untuk memenuhi standar yang diinginkan adalah:
+
+\begin{itemize}
+\tightlist
+\item
+  Perusahaan 1: memasok 20\% dengan kegagalan 1 dalam 20 atau kegagalan
+  = 0,05,
+\item
+  Perusahaan 2: memasok 60\% dengan kegagalan 1 dalam 10 atau kegagalan
+  = 0,10,
+\item
+  Perusahaan 3: memasok 15\% dengan kegagalan 1 dalam 10 atau kegagalan
+  = 0,10,
+\item
+  Perusahaan 4: memasok 5\% dengan kegagalan 1 dalam 20 atau kegagalan =
+  0,05.
+\end{itemize}
+
+Bila dari stok tawas digudang tersebut direksi ingin mengetahui berapa
+kemungkinan terjadinya kegagalan pada stok tawas dari perusaan 1, dengan
+menggunakan teori Bayes kita dapat menghitungnya seperti berikut:
+
+\[
+P\left(B_i\mid A\right)=\frac{0,20\cdot0,05}{\left(0,6\cdot0,1+0,15\cdot0,1+0,05\cdot0,05\right)}=0,114
+\]
+
+\section{Ekspektasi Matematis}\label{ekspektasi-matematis}
+
+Misalkan Menteri Kesehatan Republik Indonesia merilis hasil studi yang
+menyatakan usia harapan hidup masyarakat Indonesia adalah 70 tahun. Ini
+tidak berarti saat kita berusia 65 tahun kita akan meninggal 5 tahun
+berikutnya. Pengertian usia harapan hidup ini didasarkan pada
+probabilitas yaitu ekspektasi matematis yang dituliskan pada Persamaan
+\eqref{eq:em}.
+
+\begin{equation}
+   E\left(X\right)=\sum_{i=1}^nx_i\cdot P\left(X_i\right)
+  \label{eq:em}
+\end{equation}
+
+Misalkan terdapat eksperimen yang menghasilkan i buah peristiwa, dan
+masing-masing mempunyai probabilitas terjadi: p1,p2,p3,..,pi.
+
+sehingga: p1+p2+p3+\ldots{}+pk=1 maka ekspektasinya adalah
+\(E=p1\cdot x1+p2\cdot x2+p3\cdot x3+...+pi\cdot xi\). Hasil perjumlahan
+tersebut akan menghasilkan Persamaan \eqref{eq:em}.
+
+Untuk memahami penerapan ekspektasi matematis, misalkan sebuah konsultan
+sedang menyiapkan proposal untuk sebuah proyek. Biaya untuk menyiapkan
+proposal adalah 5 juta rupiah, sedang keuntunga kotor bila proyek ini
+diperoleh adalah:
+
+\begin{itemize}
+\tightlist
+\item
+  50 juta rupiah dengan probabilitas 0,20
+\item
+  30 juta rupiah dengan probabilitas 0,50
+\item
+  10 juta rupiah dengan probabilitas 0,20
+\item
+  0 rupiah dengan probabilitas 0,10.
+\end{itemize}
+
+Bila kemungkinan mendapatkan proyek tersebut adalah 0,30, maka
+keuntungan yang diharapkan adalah:
+
+\begin{itemize}
+\tightlist
+\item
+  Probabilitas memperoleh keuntungan 45 juta rupiah (keuntungan
+  kotor-modal)=probabilitas mendapatkan proyek x keuntungan proyek
+  tersebut=0,30 x 0,20 = 0,06
+\item
+  Probabilitas memperoleh keuntungan 25 juta = 0,30 x 0,50 = 0,15
+\item
+  Probabilitas memperoleh keuntungan 5 juta = 0,30 x 0,20 = 0,06
+\item
+  Probabilitas memperoleh kerugian 5 juta = (0,30 x 0,10)+0,70 = 0,73
+\end{itemize}
+
+Maka ekspektasinya = (45 juta x 0,06)+(5 juta x 0,15)+(5 juta x 0,06)-(5
+juta x 0,73)=3,1 juta. Dengan demikian perusahaan tersebut dapat
+memutuskan apakah akan meneruskan membuat proposal tersebut, dengan
+kemungkinan merugi sebesar 5 juta rupiah (biaya membuat proposal) dan
+kemungkinan untung 3 juta rupiah.
+
+\section{Referensi}\label{referensi-7}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Damanhuri, E. 2011. \textbf{Statitika Lingkunga}. Penerbit ITB.
+\item
+  Kerns, G.Jay. 2018. \textbf{Introduction to Probability and Statistics
+  Using R Third Edition}. GNU Free Documentation License.
+\item
+  Janicak, C.A. 2007. \textbf{Applied Statistics in Occupational Safety
+  and Health}. Government Institutes.
+\item
+  Walpole, E. R., Myers, H.M., Myers, S.L., Keying Ye. 2011.
+  \textbf{Probability \$ Statistics for Engineering \& Scientists Ninth
+  Edition}. Prentice Hall.
+\end{enumerate}
+
 \part*{Statistika Inferensi -
 R}\label{part-statistika-inferensi---r}
 \addcontentsline{toc}{part}{Statistika Inferensi - R}
@@ -14019,6 +14917,16 @@ fungsi tersebut menggunakan dataset \texttt{airquality} berikut:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+##   variabel median Lower.CL Upper.CL
+## 1    Ozone   31.5     23.0     39.0
+## 2  Solar.R  205.0    187.0    225.0
+## 3     Wind    9.7      9.2     10.3
+## 4     Temp   79.0     77.0     81.0
+## 5    Month    7.0      7.0      7.0
+## 6      Day   16.0     13.0     18.0
+\end{verbatim}
+
 \subsection{Metode Parametrik Interval Estimasi
 Median}\label{metode-parametrik-interval-estimasi-median}
 
@@ -14257,6 +15165,16 @@ berikut untuk memperoleh hasilnya.
 \KeywordTok{med_gm}\NormalTok{(airquality, }\FloatTok{0.05}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+##   Variabel      GM Lower.CL Upper.CL
+## 1    Ozone  30.524   26.583   35.049
+## 2  Solar.R 149.561  131.409  170.220
+## 3     Wind   9.273    8.697    9.888
+## 4     Temp  77.284   75.740   78.859
+## 5    Month   6.847    6.623    7.079
+## 6      Day  12.270   10.728   14.034
+\end{verbatim}
 
 Pembaca perlu berhati-hati dalam menentukan apakah akan menggunakan
 metode Nonparametrik atau parametrik. Jika data berditribusi lognormal
@@ -14623,6 +15541,16 @@ yang digunakan untuk menghitung interval kepercayaan mean pada dataset
 \KeywordTok{mean_asci}\NormalTok{(airquality, }\FloatTok{0.05}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+##   Variabel    Mean Lower.CL Upper.CL
+## 1    Ozone  42.129   37.744   52.209
+## 2  Solar.R 185.932  178.856  241.060
+## 3     Wind   9.958    9.404   10.747
+## 4     Temp  77.882   76.341   79.498
+## 5    Month   6.993    6.766    7.237
+## 6      Day  15.804   14.945   20.433
+\end{verbatim}
 
 \section{Interval Prediksi
 Nonparametrik}\label{interval-prediksi-nonparametrik}
@@ -15662,6 +16590,23 @@ kepercayaan median:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## 
+## Attaching package: 'boot'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:psych':
+## 
+##     logit
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:car':
+## 
+##     logit
+\end{verbatim}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# membuat hasil yang diperoleh lebih random}
@@ -16141,7 +17086,7 @@ dari musiman atau tren, dan karenanya mungkin tidak pernah memberikan
 perkiraan yang cukup akurat untuk menjadi sesuatu yang lebih dari
 sekadar panduan kasar.
 
-\section{Referensi}\label{referensi-7}
+\section{Referensi}\label{referensi-8}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
