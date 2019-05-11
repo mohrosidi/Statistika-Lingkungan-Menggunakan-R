@@ -1,5 +1,9 @@
 # Ekplorasi Data Menggunakan Grafik
 
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
 Pada Chapter 4 dan 5 kita telah belajar bagaimana cara membuat grafik menggunakan `R`. Sejauh ini kita belum belajar kegunaan dari masing-masing grafik yang telah kita pelajarai. Pada Chapter ini kita tidak lagi akan membahas bagaimana membuat grafik menggunakan `R`. Kita akan fokus terhadap fungsi grafik tersebut dalam analisa kita. Secara umum grafik dibuat untuk memvisualisasikan distribusi, perbedaan antar sampel, korelasi dan asosiasi antar sampel, serta ukuran sampel.
 
 Penulis dan pembaca pasti sepakat bahwa visualisasi data merupakan tahapan awal yang perlu kita lakukan sebelum memutuskan untuk melakukan analisa data seperti uji hipotesis dan modeling. Angka yang ditampilkan dalam ringkasan data tidaklah cukup untuk melihat data terutama kaitannya dengan pengecekan terhadap asumsi model. 

@@ -166,30 +166,39 @@
 \contentsline {section}{\numberline {8.2}Teori Bayes}{255}{section.8.2}% 
 \contentsline {section}{\numberline {8.3}Ekspektasi Matematis}{256}{section.8.3}% 
 \contentsline {section}{\numberline {8.4}Referensi}{257}{section.8.4}% 
-\contentsline {part}{Statistika Inferensi - R}{261}{part*.9}% 
-\contentsline {chapter}{\numberline {9}Penaksiran Secara Statistika}{261}{chapter.9}% 
-\contentsline {section}{\numberline {9.1}Definisi Interval Estimasi}{261}{section.9.1}% 
-\contentsline {section}{\numberline {9.2}Interpretasi Interval Estimasi}{262}{section.9.2}% 
-\contentsline {section}{\numberline {9.3}Interval Kepercayaan Median}{263}{section.9.3}% 
-\contentsline {subsection}{\numberline {9.3.1}Interval Estimasi Median Metode Nonparametrik}{263}{subsection.9.3.1}% 
-\contentsline {subsection}{\numberline {9.3.2}Metode Parametrik Interval Estimasi Median}{270}{subsection.9.3.2}% 
-\contentsline {section}{\numberline {9.4}Interval Kepercayaan Mean}{273}{section.9.4}% 
-\contentsline {subsection}{\numberline {9.4.1}Interval Kepercayaan Mean Untuk Distribusi Yang Simetris}{273}{subsection.9.4.1}% 
-\contentsline {subsection}{\numberline {9.4.2}Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris}{275}{subsection.9.4.2}% 
-\contentsline {section}{\numberline {9.5}Interval Prediksi Nonparametrik}{278}{section.9.5}% 
-\contentsline {subsection}{\numberline {9.5.1}Interval Prediksi Nonparametrik Dua Sisi}{278}{subsection.9.5.1}% 
-\contentsline {subsection}{\numberline {9.5.2}Interval Prediksi Nonparametrik Satu Sisi}{280}{subsection.9.5.2}% 
-\contentsline {section}{\numberline {9.6}Interval Prediksi Parametrik}{282}{section.9.6}% 
-\contentsline {subsection}{\numberline {9.6.1}Interval Prediksi Distribusi Simetris}{282}{subsection.9.6.1}% 
-\contentsline {subsection}{\numberline {9.6.2}Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris}{284}{subsection.9.6.2}% 
-\contentsline {section}{\numberline {9.7}Interval Kepercayaan Persentil (Interval Toleransi)}{286}{section.9.7}% 
-\contentsline {subsection}{\numberline {9.7.1}Interval Kepercayaan Nonparametrik Persentil}{287}{subsection.9.7.1}% 
-\contentsline {subsection}{\numberline {9.7.2}Uji Nonparametrik Untuk Persentil}{289}{subsection.9.7.2}% 
-\contentsline {subsection}{\numberline {9.7.3}Interval Kepercayaan Parametrik Untuk Persentil}{291}{subsection.9.7.3}% 
-\contentsline {subsection}{\numberline {9.7.4}Uji Parametrik Untuk Persentil}{292}{subsection.9.7.4}% 
-\contentsline {section}{\numberline {9.8}Interval Kepercayaan Menggunakan Metode Bootstrap}{293}{section.9.8}% 
-\contentsline {section}{\numberline {9.9}Kegunaan Lain Dari Interval Kepercayaan}{299}{section.9.9}% 
-\contentsline {subsection}{\numberline {9.9.1}Implikasi Non-Normalitas Pada Pendeteksian \emph {Outlier}}{299}{subsection.9.9.1}% 
-\contentsline {subsection}{\numberline {9.9.2}Implikasi Non-Normalitas Pada Kontrol Kualitas}{299}{subsection.9.9.2}% 
-\contentsline {subsection}{\numberline {9.9.3}Implikasi Non-Normalitas Terhadap Desain Sampling}{300}{subsection.9.9.3}% 
-\contentsline {section}{\numberline {9.10}Referensi}{301}{section.9.10}% 
+\contentsline {chapter}{\numberline {9}Distribusi Probabilitas}{259}{chapter.9}% 
+\contentsline {section}{\numberline {9.1}Properti Umum dari Distribusi Probabilitas}{259}{section.9.1}% 
+\contentsline {section}{\numberline {9.2}Distribusi Binomial dan Multinomial}{260}{section.9.2}% 
+\contentsline {subsection}{\numberline {9.2.1}Distribusi Binomial}{260}{subsection.9.2.1}% 
+\contentsline {subsection}{\numberline {9.2.2}Multinomial Eksperimen dan Distribusi Multinomial}{263}{subsection.9.2.2}% 
+\contentsline {section}{\numberline {9.3}Distribusi Hipergeometris}{264}{section.9.3}% 
+\contentsline {section}{\numberline {9.4}Distribusi Binomial Negatif dan Distribusi Geometris}{267}{section.9.4}% 
+\contentsline {subsection}{\numberline {9.4.1}Distribusi Binomial Negatif}{267}{subsection.9.4.1}% 
+\contentsline {subsection}{\numberline {9.4.2}Distribusi Geometris}{269}{subsection.9.4.2}% 
+\contentsline {part}{Statistika Inferensi - R}{273}{part*.9}% 
+\contentsline {chapter}{\numberline {10}Penaksiran Secara Statistika}{273}{chapter.10}% 
+\contentsline {section}{\numberline {10.1}Definisi Interval Estimasi}{273}{section.10.1}% 
+\contentsline {section}{\numberline {10.2}Interpretasi Interval Estimasi}{274}{section.10.2}% 
+\contentsline {section}{\numberline {10.3}Interval Kepercayaan Median}{275}{section.10.3}% 
+\contentsline {subsection}{\numberline {10.3.1}Interval Estimasi Median Metode Nonparametrik}{275}{subsection.10.3.1}% 
+\contentsline {subsection}{\numberline {10.3.2}Metode Parametrik Interval Estimasi Median}{282}{subsection.10.3.2}% 
+\contentsline {section}{\numberline {10.4}Interval Kepercayaan Mean}{285}{section.10.4}% 
+\contentsline {subsection}{\numberline {10.4.1}Interval Kepercayaan Mean Untuk Distribusi Yang Simetris}{285}{subsection.10.4.1}% 
+\contentsline {subsection}{\numberline {10.4.2}Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris}{287}{subsection.10.4.2}% 
+\contentsline {section}{\numberline {10.5}Interval Prediksi Nonparametrik}{290}{section.10.5}% 
+\contentsline {subsection}{\numberline {10.5.1}Interval Prediksi Nonparametrik Dua Sisi}{290}{subsection.10.5.1}% 
+\contentsline {subsection}{\numberline {10.5.2}Interval Prediksi Nonparametrik Satu Sisi}{292}{subsection.10.5.2}% 
+\contentsline {section}{\numberline {10.6}Interval Prediksi Parametrik}{294}{section.10.6}% 
+\contentsline {subsection}{\numberline {10.6.1}Interval Prediksi Distribusi Simetris}{294}{subsection.10.6.1}% 
+\contentsline {subsection}{\numberline {10.6.2}Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris}{296}{subsection.10.6.2}% 
+\contentsline {section}{\numberline {10.7}Interval Kepercayaan Persentil (Interval Toleransi)}{298}{section.10.7}% 
+\contentsline {subsection}{\numberline {10.7.1}Interval Kepercayaan Nonparametrik Persentil}{299}{subsection.10.7.1}% 
+\contentsline {subsection}{\numberline {10.7.2}Uji Nonparametrik Untuk Persentil}{301}{subsection.10.7.2}% 
+\contentsline {subsection}{\numberline {10.7.3}Interval Kepercayaan Parametrik Untuk Persentil}{303}{subsection.10.7.3}% 
+\contentsline {subsection}{\numberline {10.7.4}Uji Parametrik Untuk Persentil}{304}{subsection.10.7.4}% 
+\contentsline {section}{\numberline {10.8}Interval Kepercayaan Menggunakan Metode Bootstrap}{305}{section.10.8}% 
+\contentsline {section}{\numberline {10.9}Kegunaan Lain Dari Interval Kepercayaan}{311}{section.10.9}% 
+\contentsline {subsection}{\numberline {10.9.1}Implikasi Non-Normalitas Pada Pendeteksian \emph {Outlier}}{311}{subsection.10.9.1}% 
+\contentsline {subsection}{\numberline {10.9.2}Implikasi Non-Normalitas Pada Kontrol Kualitas}{311}{subsection.10.9.2}% 
+\contentsline {subsection}{\numberline {10.9.3}Implikasi Non-Normalitas Terhadap Desain Sampling}{312}{subsection.10.9.3}% 
+\contentsline {section}{\numberline {10.10}Referensi}{313}{section.10.10}% 

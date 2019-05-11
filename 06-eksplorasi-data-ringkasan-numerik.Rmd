@@ -5,6 +5,10 @@ body{
 text-align: justify}
 </style>
 
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
 # Ringkasan Numerik
 
 Pada bidang lingkungan kita sering kali menemui sebuah pernyataan "konsentrasi rata-rata TSS pada sungai tersebut adalah 30 mg/l" atau "kedalaman penampang saluran tersebut berkisar antara 1 sampai 2 meter". Kedua pernyataan tersebut merupakan sebuah penyapaian informasi terkait karakteristik data yang ada. Pernyataan yang pertama menyatakan karakteristik nilai pemusatan data, sedangkan yang kedua menyatakan karakteristik sebaran suatu data.
@@ -89,7 +93,7 @@ mean(x, trim = 0, na.rm = FALSE)
 > - **trim**: menyatakan fraksi data (berkisar antara 0 sampai 0,5) yang perlu dilakukan pemotongan (*trim*) pada observasi awal dan akhir **x** (yang telah diurutkan) sebelum nilai mean dihitung.
 > **na.rm**: nilai logis yang menyatakan apakah *missing value* perlu disertakan dalam perhitungan atau tidak. Jika disertakan maka output yang akan dihasilkan adalah NA.
 
-**Analisa Nilai Mean Grup Data Tunggal (*Single Group*)**
+**Analisa Nilai Mean Grup Data Tunggal (Single Group)**
 
 Untuk lebih memahami penerapannya pada `R`, pada Tabel \@ref(tab:debitsungai) berikut disajikan data terkait debit air suatu sungai.
 
@@ -228,7 +232,7 @@ Median atau persentil 50 ($P_{50}$) merupakan nilai pusat dari distribusi suatu 
 
 Median hanya dipengaruhi minimal oleh besarnya nilai observasi tunggal, yang ditentukan semata-mata oleh urutan relatif observasi. Resitensi terhadap efek dari perubahan nilai atau kehadiran pengamatan terpencil (*outlier*) sering merupakan sifat yang diinginkan. Meski demikian median memiliki kelemahan utama yaitu kurang representatif dalam mendeskripsikan rata-rata dari data dibandingkan mean. Hal ini disebabkan karena median tidak menggunakan seluruh nilai yang ada pada data.
 
-**Analisa Nilai Median Grup Data Tunggal (*Single Group*)**
+**Analisa Nilai Median Grup Data Tunggal (Single Group)**
 
 Kita akan menggunakan kembali data pada Tabel \@ref(tab:debitsungai) untuk menghitung median data tersebut. Pada `R` median dihitung menggunakan fungsi `median()`. Fotmat yang digunakan adalah sebagai berikut:
 
@@ -355,7 +359,6 @@ sd(x, na.rm = FALSE)
 >
 > - **x**: objek atau vektor numerik.
 > - **na.rm**: nilai logis yang menyatakan apakah *missing value* perlu disertakan dalam komputasi atau tidak.
-
 
 **Analisa Varian dan simpangan baku Grup Tunggal**
 
@@ -551,7 +554,7 @@ skew(data_gw$Uranium)
 
 ### Ukuran Kemencengan yang Resisten
 
-Ukuran kemencengan yang lebih resisten adalah *quartile skew coefficient8 ($qs$). Merupakan ukuran kemencengan didasarkan pada ketiga nilai kuartil data seperti yang ditunjukkan pada Persamaan \@ref(eq:qs) yang menyatakan perbedaan pada jarak kuartil atas dan bawah terhadap median dibagi dengan IQR.
+Ukuran kemencengan yang lebih resisten adalah *quartile skew coefficient* ($qs$). Merupakan ukuran kemencengan didasarkan pada ketiga nilai kuartil data seperti yang ditunjukkan pada Persamaan \@ref(eq:qs) yang menyatakan perbedaan pada jarak kuartil atas dan bawah terhadap median dibagi dengan IQR.
 
 \begin{equation}
   qs=\frac{\left(P_{.75}-P_{.50}\right)-\left(P_{.75}-P_{.25}\right)}{P_{.75}-P_{.25}}

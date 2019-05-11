@@ -3,6 +3,10 @@ body{
 text-align: justify}
 </style>
 
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
 # Manajemen Data R
 
 Data manajemen merupakan bagian penting dalam setiap proses analisa data. Proses import dan eksport data pada berbagai format penting untuk dipelajari. Selain itu, proses perapihan data sebelum analisa menjadi bagian yang harus ada pada awal proses analisa. Proses-proses tersebut akan kita ulas secara mendalam pada *chapter* ini.*Chapter* ini juga akan membahas bagaimana kita dapat melakukan sejumlah manipulasi data untuk memperoleh informasi lebih yang terkandung pada. 

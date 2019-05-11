@@ -3,6 +3,10 @@ body{
 text-align: justify}
 </style>
 
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
 # Visualisasi Data Menggunakan GGPLOT
 
 Library `ggplot2` merupakan implementasi dari *The Grammar of Graphics* yang ditulis oleh **Leland Wilkinson**. `ggplot2` merupakan library yang dikembangkan oleh **Hadley Wicham** ketika ia sedang menempuh kuliah di **Lowa State Universuty** dan masih dikembangkan hingga sekarang.

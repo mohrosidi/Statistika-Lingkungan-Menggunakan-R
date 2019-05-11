@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 9 Distribusi Probabilitas | Statistika Lingkungan Menggunakan R</title>
+  <meta name="description" content="Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 9 Distribusi Probabilitas | Statistika Lingkungan Menggunakan R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="cover.png" />
+  <meta property="og:description" content="Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Distribusi Probabilitas | Statistika Lingkungan Menggunakan R" />
+  
+  <meta name="twitter:description" content="Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan" />
+  <meta name="twitter:image" content="cover.png" />
+
+<meta name="author" content="Moh. Rosidi">
+
+
+<meta name="date" content="2019-05-11">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="Rosidi.png">
+  <link rel="shortcut icon" href="Rosidi.png" type="image/x-icon">
+<link rel="prev" href="probabilitas.html">
+<link rel="next" href="penaksiran-secara-statistika.html">
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistika Lingkungan Menggunakan R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="part"><span><b>Bahasa Pemrograman R</b></span></li>
+<li class="chapter" data-level="1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html"><i class="fa fa-check"></i><b>1</b> Mengenal Bahasa R</a><ul>
+<li class="chapter" data-level="1.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#sejarah-r"><i class="fa fa-check"></i><b>1.1</b> Sejarah R</a></li>
+<li class="chapter" data-level="1.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fitur-dan-karakteristik-r"><i class="fa fa-check"></i><b>1.2</b> Fitur dan Karakteristik R</a></li>
+<li class="chapter" data-level="1.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#kelebihan-dan-kekurangan-r"><i class="fa fa-check"></i><b>1.3</b> Kelebihan dan Kekurangan R</a></li>
+<li class="chapter" data-level="1.4" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#rstudio"><i class="fa fa-check"></i><b>1.4</b> RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#menginstall-r-dan-rstudio"><i class="fa fa-check"></i><b>1.5</b> Menginstall R dan RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#working-directory"><i class="fa fa-check"></i><b>1.6</b> Working Directory</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory"><i class="fa fa-check"></i><b>1.6.1</b> Mengubah Lokasi Working Directory</a></li>
+<li class="chapter" data-level="1.6.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory-default"><i class="fa fa-check"></i><b>1.6.2</b> Mengubah Lokasi Working Directory Default</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help"><i class="fa fa-check"></i><b>1.7</b> Fasilitas Help</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mencari-help-dari-suatu-perintah-tertentu"><i class="fa fa-check"></i><b>1.7.1</b> Mencari Help dari Suatu Perintah Tertentu</a></li>
+<li class="chapter" data-level="1.7.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#general-help"><i class="fa fa-check"></i><b>1.7.2</b> General Help</a></li>
+<li class="chapter" data-level="1.7.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help-lainnya"><i class="fa fa-check"></i><b>1.7.3</b> Fasilitas Help Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#referensi"><i class="fa fa-check"></i><b>1.8</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html"><i class="fa fa-check"></i><b>2</b> Sintaks Bahasa R</a><ul>
+<li class="chapter" data-level="2.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-aritmatika"><i class="fa fa-check"></i><b>2.1</b> Operator Aritmatika</a></li>
+<li class="chapter" data-level="2.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi-aritmetik"><i class="fa fa-check"></i><b>2.2</b> Fungsi Aritmetik</a></li>
+<li class="chapter" data-level="2.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-relasi"><i class="fa fa-check"></i><b>2.3</b> Operator Relasi</a></li>
+<li class="chapter" data-level="2.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#operator-logika"><i class="fa fa-check"></i><b>2.4</b> Operator Logika</a></li>
+<li class="chapter" data-level="2.5" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memasukkan-nilai-kedalam-variabel"><i class="fa fa-check"></i><b>2.5</b> Memasukkan Nilai Kedalam Variabel</a></li>
+<li class="chapter" data-level="2.6" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#tipe-data"><i class="fa fa-check"></i><b>2.6</b> Tipe Data</a></li>
+<li class="chapter" data-level="2.7" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#vektor"><i class="fa fa-check"></i><b>2.7</b> Vektor</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-vektor"><i class="fa fa-check"></i><b>2.7.1</b> Membuat vektor</a></li>
+<li class="chapter" data-level="2.7.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#missing-values"><i class="fa fa-check"></i><b>2.7.2</b> Missing Values</a></li>
+<li class="chapter" data-level="2.7.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-vektor"><i class="fa fa-check"></i><b>2.7.3</b> Subset Pada Vektor</a></li>
+<li class="chapter" data-level="2.7.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-vektor"><i class="fa fa-check"></i><b>2.7.4</b> Perhitungan Menggunakan Vektor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#matriks"><i class="fa fa-check"></i><b>2.8</b> Matriks</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-matriks"><i class="fa fa-check"></i><b>2.8.1</b> Membuat matriks</a></li>
+<li class="chapter" data-level="2.8.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-matriks"><i class="fa fa-check"></i><b>2.8.2</b> Subset Pada Matriks</a></li>
+<li class="chapter" data-level="2.8.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-matriks"><i class="fa fa-check"></i><b>2.8.3</b> Perhitungan Menggunakan Matriks</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#faktor"><i class="fa fa-check"></i><b>2.9</b> Faktor</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-variabel-faktor"><i class="fa fa-check"></i><b>2.9.1</b> Membuat Variabel Faktor</a></li>
+<li class="chapter" data-level="2.9.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-menggunakan-faktor"><i class="fa fa-check"></i><b>2.9.2</b> Perhitungan Menggunakan Faktor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#data-frames"><i class="fa fa-check"></i><b>2.10</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-data-frame"><i class="fa fa-check"></i><b>2.10.1</b> Membuat Data Frame</a></li>
+<li class="chapter" data-level="2.10.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-pada-data-frame"><i class="fa fa-check"></i><b>2.10.2</b> Subset Pada Data Frame</a></li>
+<li class="chapter" data-level="2.10.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-data-frame"><i class="fa fa-check"></i><b>2.10.3</b> Memperluas Data Frame</a></li>
+<li class="chapter" data-level="2.10.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#perhitungan-pada-data-frame"><i class="fa fa-check"></i><b>2.10.4</b> Perhitungan Pada Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#list"><i class="fa fa-check"></i><b>2.11</b> List</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#membuat-list"><i class="fa fa-check"></i><b>2.11.1</b> Membuat List</a></li>
+<li class="chapter" data-level="2.11.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#subset-list"><i class="fa fa-check"></i><b>2.11.2</b> Subset List</a></li>
+<li class="chapter" data-level="2.11.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#memperluas-list"><i class="fa fa-check"></i><b>2.11.3</b> Memperluas List</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#loop"><i class="fa fa-check"></i><b>2.12</b> Loop</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#for-loop"><i class="fa fa-check"></i><b>2.12.1</b> For Loop</a></li>
+<li class="chapter" data-level="2.12.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#while-loop"><i class="fa fa-check"></i><b>2.12.2</b> While Loop</a></li>
+<li class="chapter" data-level="2.12.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#repeat-loop"><i class="fa fa-check"></i><b>2.12.3</b> Repeat Loop</a></li>
+<li class="chapter" data-level="2.12.4" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#break"><i class="fa fa-check"></i><b>2.12.4</b> Break</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#decision-making"><i class="fa fa-check"></i><b>2.13</b> Decision Making</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-statement"><i class="fa fa-check"></i><b>2.13.1</b> if statement</a></li>
+<li class="chapter" data-level="2.13.2" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#if-else-statement"><i class="fa fa-check"></i><b>2.13.2</b> if else statement</a></li>
+<li class="chapter" data-level="2.13.3" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#switch-statement"><i class="fa fa-check"></i><b>2.13.3</b> switch statement</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#fungsi"><i class="fa fa-check"></i><b>2.14</b> Fungsi</a></li>
+<li class="chapter" data-level="2.15" data-path="sintaks-bahasa-r.html"><a href="sintaks-bahasa-r.html#referensi-1"><i class="fa fa-check"></i><b>2.15</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html"><i class="fa fa-check"></i><b>3</b> Manajemen Data R</a><ul>
+<li class="chapter" data-level="3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file"><i class="fa fa-check"></i><b>3.1</b> Import File</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-menggunakan-fungsi-bawaan-r"><i class="fa fa-check"></i><b>3.1.1</b> Import File Menggunakan Fungsi Bawaan R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-csv-dan-txt-menggunakan-library-readr"><i class="fa fa-check"></i><b>3.1.2</b> Membaca File CSV dan TXT Menggunakan Library readr</a></li>
+<li class="chapter" data-level="3.1.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-excel-pada-r"><i class="fa fa-check"></i><b>3.1.3</b> Import File Excel Pada R</a></li>
+<li class="chapter" data-level="3.1.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-dari-format-aplikasi-statistik"><i class="fa fa-check"></i><b>3.1.4</b> Membaca File Dari Format Aplikasi Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-file"><i class="fa fa-check"></i><b>3.2</b> Eksport File</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-txt-dan-csv"><i class="fa fa-check"></i><b>3.2.1</b> Eksport Data Menjadi Format TXT dan CSV</a></li>
+<li class="chapter" data-level="3.2.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-excel"><i class="fa fa-check"></i><b>3.2.2</b> Eksport Data Menjadi Format Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-data-format"><i class="fa fa-check"></i><b>3.3</b> Tibble Data Format</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membuat-tibble"><i class="fa fa-check"></i><b>3.3.1</b> Membuat Tibble</a></li>
+<li class="chapter" data-level="3.3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-vs-data-frame"><i class="fa fa-check"></i><b>3.3.2</b> Tibble vs Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#merapikan-data"><i class="fa fa-check"></i><b>3.4</b> Merapikan Data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#gather"><i class="fa fa-check"></i><b>3.4.1</b> Gather</a></li>
+<li class="chapter" data-level="3.4.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#spread"><i class="fa fa-check"></i><b>3.4.2</b> Spread</a></li>
+<li class="chapter" data-level="3.4.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#separate"><i class="fa fa-check"></i><b>3.4.3</b> Separate</a></li>
+<li class="chapter" data-level="3.4.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#unite"><i class="fa fa-check"></i><b>3.4.4</b> Unite</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#transformasi-data"><i class="fa fa-check"></i><b>3.5</b> Transformasi Data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#paket-dplyr"><i class="fa fa-check"></i><b>3.5.1</b> Paket dplyr</a></li>
+<li class="chapter" data-level="3.5.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#filter"><i class="fa fa-check"></i><b>3.5.2</b> filter()</a></li>
+<li class="chapter" data-level="3.5.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#arrange"><i class="fa fa-check"></i><b>3.5.3</b> arrange()</a></li>
+<li class="chapter" data-level="3.5.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#select"><i class="fa fa-check"></i><b>3.5.4</b> select()</a></li>
+<li class="chapter" data-level="3.5.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mutate"><i class="fa fa-check"></i><b>3.5.5</b> mutate()</a></li>
+<li class="chapter" data-level="3.5.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#summarize-dan-group_by"><i class="fa fa-check"></i><b>3.5.6</b> summarize() dan group_by()</a></li>
+<li class="chapter" data-level="3.5.7" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mengkombinasikan-beberapa-operasi-menggunakan-operator-pipe"><i class="fa fa-check"></i><b>3.5.7</b> Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%&gt;%)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#referensi-2"><i class="fa fa-check"></i><b>3.6</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Visualisasi Data - R</b></span></li>
+<li class="chapter" data-level="4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html"><i class="fa fa-check"></i><b>4</b> Visualisasi Data Menggunakan Fungsi Dasar R</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#visualisasi-data-menggunakan-fungsi-plot"><i class="fa fa-check"></i><b>4.1</b> Visualisasi Data Menggunakan Fungsi plot()</a></li>
+<li class="chapter" data-level="4.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot"><i class="fa fa-check"></i><b>4.2</b> Matriks Scatterplot</a></li>
+<li class="chapter" data-level="4.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot"><i class="fa fa-check"></i><b>4.3</b> Box plot</a></li>
+<li class="chapter" data-level="4.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#bar-plot"><i class="fa fa-check"></i><b>4.4</b> Bar Plot</a></li>
+<li class="chapter" data-level="4.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#line-plot"><i class="fa fa-check"></i><b>4.5</b> Line Plot</a></li>
+<li class="chapter" data-level="4.6" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#pie-chart"><i class="fa fa-check"></i><b>4.6</b> Pie Chart</a></li>
+<li class="chapter" data-level="4.7" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#histogram-dan-density-plot"><i class="fa fa-check"></i><b>4.7</b> Histogram dan Density Plot</a></li>
+<li class="chapter" data-level="4.8" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#qq-plot"><i class="fa fa-check"></i><b>4.8</b> QQ Plot</a></li>
+<li class="chapter" data-level="4.9" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#dot-chart"><i class="fa fa-check"></i><b>4.9</b> Dot Chart</a></li>
+<li class="chapter" data-level="4.10" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#kustomisasi-parameter-grafik"><i class="fa fa-check"></i><b>4.10</b> Kustomisasi Parameter Grafik</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-judul"><i class="fa fa-check"></i><b>4.10.1</b> Menambahkan Judul</a></li>
+<li class="chapter" data-level="4.10.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-legend"><i class="fa fa-check"></i><b>4.10.2</b> Menambahkan Legend</a></li>
+<li class="chapter" data-level="4.10.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-teks-pada-grafik"><i class="fa fa-check"></i><b>4.10.3</b> Menambahkan Teks Pada Grafik</a></li>
+<li class="chapter" data-level="4.10.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-garis-pada-plot"><i class="fa fa-check"></i><b>4.10.4</b> Menambahkan Garis Pada Plot</a></li>
+<li class="chapter" data-level="4.10.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#merubah-simbol-plot-dan-jenis-garis"><i class="fa fa-check"></i><b>4.10.5</b> Merubah Simbol plot dan Jenis Garis</a></li>
+<li class="chapter" data-level="4.10.6" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-axis-plot"><i class="fa fa-check"></i><b>4.10.6</b> Mengatur Axis Plot</a></li>
+<li class="chapter" data-level="4.10.7" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-warna"><i class="fa fa-check"></i><b>4.10.7</b> Mengatur Warna</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#alternatif-library-dasar-lain"><i class="fa fa-check"></i><b>4.11</b> Alternatif Library Dasar Lain</a><ul>
+<li class="chapter" data-level="4.11.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#scatterplot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.1</b> Scatterplot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot-menggunakan-library-psych"><i class="fa fa-check"></i><b>4.11.2</b> Matriks Scatterplot Menggunakan Library psych</a></li>
+<li class="chapter" data-level="4.11.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.3</b> Box Plot Menggunakan Library gplots</a></li>
+<li class="chapter" data-level="4.11.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#qq-plot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.4</b> QQ Plot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#plot-group-means-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.5</b> Plot Group Means Menggunakan Library gplots</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#referensi-3"><i class="fa fa-check"></i><b>4.12</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html"><i class="fa fa-check"></i><b>5</b> Visualisasi Data Menggunakan GGPLOT</a><ul>
+<li class="chapter" data-level="5.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#scatterplot"><i class="fa fa-check"></i><b>5.1</b> Scatterplot</a></li>
+<li class="chapter" data-level="5.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#box-plot-dan-violin-plot"><i class="fa fa-check"></i><b>5.2</b> Box Plot dan Violin Plot</a></li>
+<li class="chapter" data-level="5.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#bar-plot-1"><i class="fa fa-check"></i><b>5.3</b> Bar Plot</a></li>
+<li class="chapter" data-level="5.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#line-plot-1"><i class="fa fa-check"></i><b>5.4</b> Line Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#pie-chart-1"><i class="fa fa-check"></i><b>5.5</b> Pie Chart</a></li>
+<li class="chapter" data-level="5.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#histogram-dan-desity-plot"><i class="fa fa-check"></i><b>5.6</b> Histogram dan Desity Plot</a></li>
+<li class="chapter" data-level="5.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#qq-plot-1"><i class="fa fa-check"></i><b>5.7</b> QQ Plot</a></li>
+<li class="chapter" data-level="5.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#dot-plot"><i class="fa fa-check"></i><b>5.8</b> Dot Plot</a></li>
+<li class="chapter" data-level="5.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#ecdf-plot"><i class="fa fa-check"></i><b>5.9</b> ECDF Plot</a></li>
+<li class="chapter" data-level="5.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#parameter-grafik"><i class="fa fa-check"></i><b>5.10</b> Parameter Grafik</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-judul-grafik-keterangan-axis-dan-legend"><i class="fa fa-check"></i><b>5.10.1</b> Merubah Judul Grafik, Keterangan Axis dan Legend</a></li>
+<li class="chapter" data-level="5.10.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-tampilan-dan-posisi-legend"><i class="fa fa-check"></i><b>5.10.2</b> Merubah Tampilan dan Posisi Legend</a></li>
+<li class="chapter" data-level="5.10.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-warana-pada-grafik-secara-otomatis-dan-manual"><i class="fa fa-check"></i><b>5.10.3</b> Merubah Warana Pada Grafik Secara Otomatis dan Manual</a></li>
+<li class="chapter" data-level="5.10.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-titik"><i class="fa fa-check"></i><b>5.10.4</b> Kustomisasi Titik</a></li>
+<li class="chapter" data-level="5.10.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-jenis-garis"><i class="fa fa-check"></i><b>5.10.5</b> Kustomisasi Jenis Garis</a></li>
+<li class="chapter" data-level="5.10.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-label-pada-titik-observasi-dan-bidang-plot"><i class="fa fa-check"></i><b>5.10.6</b> Menambahkan Label Pada Titik Observasi dan Bidang Plot</a></li>
+<li class="chapter" data-level="5.10.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tema-pada-plot"><i class="fa fa-check"></i><b>5.10.7</b> Kustomisasi Tema Pada Plot</a></li>
+<li class="chapter" data-level="5.10.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#penskalaan-dan-transformasi-axis"><i class="fa fa-check"></i><b>5.10.8</b> Penskalaan dan Transformasi Axis</a></li>
+<li class="chapter" data-level="5.10.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tick-mark-axis"><i class="fa fa-check"></i><b>5.10.9</b> Kustomisasi Tick Mark Axis</a></li>
+<li class="chapter" data-level="5.10.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-garis-lurus-pada-plot"><i class="fa fa-check"></i><b>5.10.10</b> Menambahkan Garis Lurus Pada Plot</a></li>
+<li class="chapter" data-level="5.10.11" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#melakukan-rotasi-pada-grafik"><i class="fa fa-check"></i><b>5.10.11</b> Melakukan Rotasi Pada Grafik</a></li>
+<li class="chapter" data-level="5.10.12" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#facet"><i class="fa fa-check"></i><b>5.10.12</b> Facet</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#referensi-4"><i class="fa fa-check"></i><b>5.11</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Statistika Deskriptif - R</b></span></li>
+<li class="chapter" data-level="6" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html"><i class="fa fa-check"></i><b>6</b> Ringkasan Numerik</a><ul>
+<li class="chapter" data-level="6.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-pemusatan-data"><i class="fa fa-check"></i><b>6.1</b> Ukuran Pemusatan Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#pengukuran-klasik-mean"><i class="fa fa-check"></i><b>6.1.1</b> Pengukuran Klasik-Mean</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#median-sebagai-ukuran-pemusatan-data-yang-resistan"><i class="fa fa-check"></i><b>6.1.2</b> Median Sebagai Ukuran Pemusatan Data yang Resistan</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-pemusatan-data-lainnya"><i class="fa fa-check"></i><b>6.1.3</b> Ukuran Pemusatan Data Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-sebaran-data"><i class="fa fa-check"></i><b>6.2</b> Ukuran Sebaran Data</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#pengukuran-klasik-varian-dan-simpangan-baku"><i class="fa fa-check"></i><b>6.2.1</b> Pengukuran Klasik (Varian dan Simpangan Baku)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-sebaran-data-yang-resisten-terhadap-outlier"><i class="fa fa-check"></i><b>6.2.2</b> Ukuran Sebaran Data yang Resisten Terhadap Outlier</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ringkasan-data-menggunakan-fungsi-summary-dan-stat.desc"><i class="fa fa-check"></i><b>6.3</b> Ringkasan Data Menggunakan Fungsi summary() dan stat.desc()</a></li>
+<li class="chapter" data-level="6.4" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-kemencengan-data"><i class="fa fa-check"></i><b>6.4</b> Ukuran Kemencengan Data</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-kemencengan-klasik"><i class="fa fa-check"></i><b>6.4.1</b> Ukuran Kemencengan Klasik</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-kemencengan-yang-resisten"><i class="fa fa-check"></i><b>6.4.2</b> Ukuran Kemencengan yang Resisten</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#outlier"><i class="fa fa-check"></i><b>6.5</b> Outlier</a></li>
+<li class="chapter" data-level="6.6" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#transformasi-data-1"><i class="fa fa-check"></i><b>6.6</b> Transformasi Data</a></li>
+<li class="chapter" data-level="6.7" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#referensi-5"><i class="fa fa-check"></i><b>6.7</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html"><i class="fa fa-check"></i><b>7</b> Ekplorasi Data Menggunakan Grafik</a><ul>
+<li class="chapter" data-level="7.1" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-untuk-melihat-ditribusi-data"><i class="fa fa-check"></i><b>7.1</b> Grafik Untuk Melihat Ditribusi Data</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#histogram"><i class="fa fa-check"></i><b>7.1.1</b> Histogram</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#density-plot"><i class="fa fa-check"></i><b>7.1.2</b> Density Plot</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#qq-plot-2"><i class="fa fa-check"></i><b>7.1.3</b> QQ-plot</a></li>
+<li class="chapter" data-level="7.1.4" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#box-plot-dan-violin-plot-1"><i class="fa fa-check"></i><b>7.1.4</b> Box Plot dan Violin Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-untuk-melihat-beda-distribusi-data-antar-grup"><i class="fa fa-check"></i><b>7.2</b> Grafik Untuk Melihat Beda Distribusi Data Antar Grup</a></li>
+<li class="chapter" data-level="7.3" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-untuk-memvisualisasikan-korelasi-antar-variabel"><i class="fa fa-check"></i><b>7.3</b> Grafik Untuk Memvisualisasikan Korelasi Antar Variabel</a></li>
+<li class="chapter" data-level="7.4" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-yang-digunakan-untuk-memvisualisasikan-asosiasi-antar-variabel"><i class="fa fa-check"></i><b>7.4</b> Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar Variabel</a></li>
+<li class="chapter" data-level="7.5" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-yang-digunakan-untuk-memisualisasikan-ukuran-sampel-dan-perubahan-sepanjang-waktu"><i class="fa fa-check"></i><b>7.5</b> Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang Waktu</a></li>
+<li class="chapter" data-level="7.6" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#referensi-6"><i class="fa fa-check"></i><b>7.6</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Probabilitas dan Distribusi Probabilitas</b></span></li>
+<li class="chapter" data-level="8" data-path="probabilitas.html"><a href="probabilitas.html"><i class="fa fa-check"></i><b>8</b> Probabilitas</a><ul>
+<li class="chapter" data-level="8.1" data-path="probabilitas.html"><a href="probabilitas.html#aturan-dasar-probabilitas"><i class="fa fa-check"></i><b>8.1</b> Aturan Dasar Probabilitas</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="probabilitas.html"><a href="probabilitas.html#peristiwa-mutually-exclusive"><i class="fa fa-check"></i><b>8.1.1</b> Peristiwa <em>Mutually Exclusive</em></a></li>
+<li class="chapter" data-level="8.1.2" data-path="probabilitas.html"><a href="probabilitas.html#peristiwa-not-mutually-exclusive"><i class="fa fa-check"></i><b>8.1.2</b> Peristiwa <em>Not Mutually Exclusive</em></a></li>
+<li class="chapter" data-level="8.1.3" data-path="probabilitas.html"><a href="probabilitas.html#peristiwa-dependent"><i class="fa fa-check"></i><b>8.1.3</b> Peristiwa <em>Dependent</em></a></li>
+<li class="chapter" data-level="8.1.4" data-path="probabilitas.html"><a href="probabilitas.html#peristiwa-independent"><i class="fa fa-check"></i><b>8.1.4</b> Peristiwa <em>Independent</em></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="probabilitas.html"><a href="probabilitas.html#teori-bayes"><i class="fa fa-check"></i><b>8.2</b> Teori Bayes</a></li>
+<li class="chapter" data-level="8.3" data-path="probabilitas.html"><a href="probabilitas.html#ekspektasi-matematis"><i class="fa fa-check"></i><b>8.3</b> Ekspektasi Matematis</a></li>
+<li class="chapter" data-level="8.4" data-path="probabilitas.html"><a href="probabilitas.html#referensi-7"><i class="fa fa-check"></i><b>8.4</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html"><i class="fa fa-check"></i><b>9</b> Distribusi Probabilitas</a><ul>
+<li class="chapter" data-level="9.1" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#properti-umum-dari-distribusi-probabilitas"><i class="fa fa-check"></i><b>9.1</b> Properti Umum dari Distribusi Probabilitas</a></li>
+<li class="chapter" data-level="9.2" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-binomial-dan-multinomial"><i class="fa fa-check"></i><b>9.2</b> Distribusi Binomial dan Multinomial</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-binomial"><i class="fa fa-check"></i><b>9.2.1</b> Distribusi Binomial</a></li>
+<li class="chapter" data-level="9.2.2" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#multinomial-eksperimen-dan-distribusi-multinomial"><i class="fa fa-check"></i><b>9.2.2</b> Multinomial Eksperimen dan Distribusi Multinomial</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-hipergeometris"><i class="fa fa-check"></i><b>9.3</b> Distribusi Hipergeometris</a></li>
+<li class="chapter" data-level="9.4" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-binomial-negatif-dan-distribusi-geometris"><i class="fa fa-check"></i><b>9.4</b> Distribusi Binomial Negatif dan Distribusi Geometris</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-binomial-negatif"><i class="fa fa-check"></i><b>9.4.1</b> Distribusi Binomial Negatif</a></li>
+<li class="chapter" data-level="9.4.2" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-geometris"><i class="fa fa-check"></i><b>9.4.2</b> Distribusi Geometris</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Statistika Inferensi - R</b></span></li>
+<li class="chapter" data-level="10" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html"><i class="fa fa-check"></i><b>10</b> Penaksiran Secara Statistika</a><ul>
+<li class="chapter" data-level="10.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#definisi-interval-estimasi"><i class="fa fa-check"></i><b>10.1</b> Definisi Interval Estimasi</a></li>
+<li class="chapter" data-level="10.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interpretasi-interval-estimasi"><i class="fa fa-check"></i><b>10.2</b> Interpretasi Interval Estimasi</a></li>
+<li class="chapter" data-level="10.3" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-median"><i class="fa fa-check"></i><b>10.3</b> Interval Kepercayaan Median</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-estimasi-median-metode-nonparametrik"><i class="fa fa-check"></i><b>10.3.1</b> Interval Estimasi Median Metode Nonparametrik</a></li>
+<li class="chapter" data-level="10.3.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#metode-parametrik-interval-estimasi-median"><i class="fa fa-check"></i><b>10.3.2</b> Metode Parametrik Interval Estimasi Median</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-mean"><i class="fa fa-check"></i><b>10.4</b> Interval Kepercayaan Mean</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-mean-untuk-distribusi-yang-simetris"><i class="fa fa-check"></i><b>10.4.1</b> Interval Kepercayaan Mean Untuk Distribusi Yang Simetris</a></li>
+<li class="chapter" data-level="10.4.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-mean-untuk-distribusi-yang-asimetris"><i class="fa fa-check"></i><b>10.4.2</b> Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-nonparametrik"><i class="fa fa-check"></i><b>10.5</b> Interval Prediksi Nonparametrik</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-nonparametrik-dua-sisi"><i class="fa fa-check"></i><b>10.5.1</b> Interval Prediksi Nonparametrik Dua Sisi</a></li>
+<li class="chapter" data-level="10.5.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-nonparametrik-satu-sisi"><i class="fa fa-check"></i><b>10.5.2</b> Interval Prediksi Nonparametrik Satu Sisi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-parametrik"><i class="fa fa-check"></i><b>10.6</b> Interval Prediksi Parametrik</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-distribusi-simetris"><i class="fa fa-check"></i><b>10.6.1</b> Interval Prediksi Distribusi Simetris</a></li>
+<li class="chapter" data-level="10.6.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-untuk-distribusi-data-yang-tidak-simetris"><i class="fa fa-check"></i><b>10.6.2</b> Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-persentil-interval-toleransi"><i class="fa fa-check"></i><b>10.7</b> Interval Kepercayaan Persentil (Interval Toleransi)</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-nonparametrik-persentil"><i class="fa fa-check"></i><b>10.7.1</b> Interval Kepercayaan Nonparametrik Persentil</a></li>
+<li class="chapter" data-level="10.7.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#uji-nonparametrik-untuk-persentil"><i class="fa fa-check"></i><b>10.7.2</b> Uji Nonparametrik Untuk Persentil</a></li>
+<li class="chapter" data-level="10.7.3" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-parametrik-untuk-persentil"><i class="fa fa-check"></i><b>10.7.3</b> Interval Kepercayaan Parametrik Untuk Persentil</a></li>
+<li class="chapter" data-level="10.7.4" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#uji-parametrik-untuk-persentil"><i class="fa fa-check"></i><b>10.7.4</b> Uji Parametrik Untuk Persentil</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-menggunakan-metode-bootstrap"><i class="fa fa-check"></i><b>10.8</b> Interval Kepercayaan Menggunakan Metode Bootstrap</a></li>
+<li class="chapter" data-level="10.9" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#kegunaan-lain-dari-interval-kepercayaan"><i class="fa fa-check"></i><b>10.9</b> Kegunaan Lain Dari Interval Kepercayaan</a><ul>
+<li class="chapter" data-level="10.9.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#implikasi-non-normalitas-pada-pendeteksian-outlier"><i class="fa fa-check"></i><b>10.9.1</b> Implikasi Non-Normalitas Pada Pendeteksian <em>Outlier</em></a></li>
+<li class="chapter" data-level="10.9.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#implikasi-non-normalitas-pada-kontrol-kualitas"><i class="fa fa-check"></i><b>10.9.2</b> Implikasi Non-Normalitas Pada Kontrol Kualitas</a></li>
+<li class="chapter" data-level="10.9.3" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#implikasi-non-normalitas-terhadap-desain-sampling"><i class="fa fa-check"></i><b>10.9.3</b> Implikasi Non-Normalitas Terhadap Desain Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="10.10" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#referensi-8"><i class="fa fa-check"></i><b>10.10</b> Referensi</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistika Lingkungan Menggunakan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="distribusi-probabilitas" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Distribusi Probabilitas</h1>
+<p>Distribusi probabilitas merupakan sebuah fungsi yang menggambarkan kemungkinan memperoleh sejumlah nilai dalam suatu variabel acak. Dengan kata lain distribusi probabilitas menjelaskan bahwa nilai yang muncul pada sampel acak akan bervariasi berdasarkan distribusi probabilitas yang menyertainya.</p>
+<p>Untuk memahaminya misalkan kita melakukan suatu sampling dengan cara survey terhadap sejumlah responden untuk mengetahui produksi sampah hariannya. Keseluruhan nilai timbulan yang diperoleh selajutnya disebut sebagai distribusi timbulan sampah. Distribusi tersebut berguna saat kita mengetahui hasil mana yang paling mungkin, sebaran nilai potensial serta kemungkinan hasil yang berbeda.</p>
+<div id="properti-umum-dari-distribusi-probabilitas" class="section level2">
+<h2><span class="header-section-number">9.1</span> Properti Umum dari Distribusi Probabilitas</h2>
+<p>Distribusi probabilitas menjelaskan kemungkinan suatu peristiwa atau nilai muncul. Ahli statistika menjelaskan distribusi probabilitas kedalam Persamaan <a href="distribusi-probabilitas.html#eq:pudbp">(9.1)</a>.</p>
+<span class="math display" id="eq:pudbp">\[\begin{equation}
+   P\left(x\right)=kemungkinan\ suatu\ variabel\ acak\ mengandung\ nilai\ x
+  \tag{9.1}
+\end{equation}\]</span>
+<p>Jumlah seluruh probabilitas adalah 1. Selain itu retang nilai probabilitas berkisar antara 0 sampai 1, dimana hal ini telah penulis jelaskan pada Chapter sebelumnya.</p>
+<p>Distribusi probabilitas menjelaskan sebaran nilai variabel acak. Akibatnya, jenis variabel menentukan jenis distribusi probabilitas. Untuk variabel acak tunggal, ahli statistik membagi distribusi menjadi dua jenis berikut:</p>
+<ul>
+<li><strong>Distribusi probabilitas yang diskrit</strong></li>
+</ul>
+<p>Fungsi probabilitas diskrit dikenal sebagai fungsi massa probabilitas, dimana kita dapat mengasumsikan sejumlah nilai diskrit. Misalnya pelemparan dadu serta perhitungan sebuah peristiwa seperti flu di suatu daerah merupakan fungsi tersendiri. Kedua contoh tersebut merupakah contoh peristiwa diskrit karena tidak ada nilai antara, misalnya pada dadu tidak ada nilai antara 1 dan 2, dan seterunya. Pada perhitungan jumlah peristiwa flu juga tidak ada nilai antara orang terserang dlu dan tidak. Contoh lainnya adalah perhitungan jumlah buku diperpustakaan yang diperiksa tiap jam. Kita dapat menghitung jumlah buku perjam seperti 21 buku atau 22 buku, tetapi kita tidak dapat menghitung jumlah buku pada nilai antara kedua nilai tersebut. Distribusi probabilitas diskrit terdiri atas:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Binomial</li>
+<li>Hypergeometric</li>
+<li>Poisson</li>
+<li>Geometric</li>
+<li>Multinomial</li>
+</ol>
+<ul>
+<li><strong>Distribusi probabilitas yang bersifat kontinu</strong></li>
+</ul>
+<p>Fungsi probabilitas kontinu dikenal juga sebagai fungsi densitas probabilitas. Suatu distribusi dikatakan sebagai distribusi kontinu jika nilai yang terkandung dalam distribusi tersebut tidak terbatas serta skala yang digunakan dapat pula mengandung nilai desimal. Contoh suatu pengukuran yang menghasilkan distribusi kontinu adalah tinggi, berat, suhu, dll. Distribusi probabilitas kontinu terdiri atas:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Normal</li>
+<li>Binomial</li>
+<li>Uniform</li>
+<li>Loh Normal</li>
+<li>Gamma, dll.</li>
+</ol>
+</div>
+<div id="distribusi-binomial-dan-multinomial" class="section level2">
+<h2><span class="header-section-number">9.2</span> Distribusi Binomial dan Multinomial</h2>
+<p>Suatu percobaan sering dilakukan dengan proses yang berulang-ulang. Tiap proses percobaan yang dilakukan akan menghasilkan dua luaran yaitu <strong>sukses</strong> atau <strong>gagal</strong>. Untuk memahaminya misalkan pembaca melakukan pelemparan sebuah koin. Jika yang keluar adalah bagian kepala (<em>head</em>) maka proses tersebut dikatakan sukses, jika sebaliknya maka gagal. Proses penentuan sukses dan gagal tersebut tergantung pada sudut pandang kita melihatnya. Proses percobaan demikian disebut sebagai <strong>Bernoulli process</strong> (proses bernouli). Setiap percobaan yang dilakukan disebut sebagai <strong>Bernoulli trial</strong>.</p>
+<p><strong>Bernoulli process</strong> memiliki ciri-ciri sebagai berikut:</p>
+<ul>
+<li>Eksperimen terdiri atas sejumlah perulangan percobaan.</li>
+<li>Setiap perulangan percobaan menghasilkan luaran yang diklasifikasikan sebagai <strong>sukses</strong> atau <strong>gagal</strong>.</li>
+<li>Probabilitas sukses (dinotasikan <span class="math inline">\(p\)</span>) konstan dari setiap perulangan.</li>
+<li>Setiap perulangan percobaan bersifat independen.</li>
+</ul>
+<p>Untuk memahami <strong>Bernoulli process</strong> kita akan menggunakan contoh pelemparan dadu. Misalkan kita akan melakukan percobaan pelemparan dadu sebanyak 3 kali. Probabilitas munculnya bagian angka 1 pada dadu adalah <span class="math inline">\(\frac{1}{6}\)</span>. Probabilitas ini konstan pada setiap perulangan. Jika kita menginginkan ketiga perulangan tersebut menghasilkan angka 1. Probabilitasnya merupakan hasil kali probabilitas pada tiap giliran pelemparan seperti berikut:</p>
+<p><span class="math display">\[
+P\left(111\right)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{216}
+\]</span></p>
+<div id="distribusi-binomial" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Distribusi Binomial</h3>
+<p>Jumlah <span class="math inline">\(X\)</span> keberhasilan atau jumlah percobaan sukses dalam percobaan Bernoulli disebut <strong>variabel acak binomial</strong>. Distribusi probabilitas dari variabel acak diskrit ini disebut distribusi binomial, dan nilainya akan dinotasikan dengan <span class="math inline">\(b\left(x;n,p\right)\)</span> karena mereka bergantung pada jumlah percobaan dan probabilitas keberhasilan pada percobaan yang diberikan.</p>
+<p><strong>Bernouli trial</strong> dapat menghasilkan percobaan yang sukses dengan probabilitas <span class="math inline">\(p\)</span> dan percobaan gagal dengan probabilitas <span class="math inline">\(q=1-p\)</span>. Sehingga distribusi probabilitas binomial percobaan sukses untuk variabel acak <span class="math inline">\(X\)</span> dengan jumlah <span class="math inline">\(n\)</span> percobaan yang independen dinyatakan kedalam Persamaan <a href="distribusi-probabilitas.html#eq:dbinom">(9.2)</a>.</p>
+<span class="math display" id="eq:dbinom">\[\begin{equation}
+   b\left(x;n,p\right)=\left(nC_x\right)p^xq^{n-x},\ x=0,1,2,...,n.
+  \tag{9.2}
+\end{equation}\]</span>
+<p>dimana</p>
+<span class="math display" id="eq:dbinom2">\[\begin{equation}
+   nC_x=\frac{n!}{x!\left(n-x\right)!}
+  \tag{9.3}
+\end{equation}\]</span>
+<p>Dengan menggunakan contoh sebelumnya kita dapat menghitung probabilitas keluarnya angka 1 pada dadu untuk 3 kali percobaan (<span class="math inline">\(n\)</span>) atau seluruh percobaan menghasilkan angka 1 (<span class="math inline">\(n=x=3\)</span>) adalah:</p>
+<p><span class="math display">\[
+b\left(3;3,\frac{1}{6}\right)=\left(\frac{3!}{3!\left(3-3\right)!}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^{\left(3-3\right)}
+\]</span> <span class="math display">\[
+b\left(3;3,\frac{1}{6}\right)=\left(1\right)\cdot\left(\frac{1}{6}\right)^3\cdot\left(1\right)=\frac{1}{216}
+\]</span></p>
+<p>Kita juga dapat melakukan perhitungan tersebut menggunakan <code>R</code> untuk mengetahui probabilitas munculnya angka 1 pada dadu untuk 3 kali percobaan. Sintak yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbinom</span>(<span class="dt">x=</span><span class="dv">3</span>, <span class="co"># jumlah kejadian sukses </span>
+       <span class="dt">size=</span><span class="dv">3</span>, <span class="co"># jumlah percobaan</span>
+       <span class="dt">prob=</span><span class="dv">1</span><span class="op">/</span><span class="dv">6</span>) <span class="co"># probabilitas kejadian</span></code></pre></div>
+<pre><code>## [1] 0.00463</code></pre>
+<p><strong>Probabilitas Kumulatif Binomial</strong></p>
+<p>Pada kondisi lain kita tidak hanya tertarik dengan probabilitas munculnya suatu peristiwa. Kita terkadang tertarik untuk menghitung probabilitas kumulatif dari suatu peristiwa. Misalnya probabilitas munculnya nomor dadu <span class="math inline">\(&lt;4\)</span> atau pada perhitungan kendaraan per jam yang melalui suatu jalan kita tertarik menghitung peluang kendaraan yang melintas tiap jam <span class="math inline">\(&lt;50\)</span> kendaraan. Untuk menghitung probabilitas yang demikian kita perlu melakukan akumulasi probabilitas yang memenuhi kriteria yang telah kita tentukan sebelumnya. Probabilitas kumulatif distribusi binomial berdasarkan kondisi tertentu dinyatakan pada Persamaan <a href="distribusi-probabilitas.html#eq:dbinom3">(9.4)</a>.</p>
+<span class="math display" id="eq:dbinom3">\[\begin{equation}
+   B\left(r,n,p\right)=\sum_{x=0}^rb\left(x;n,p\right)
+  \tag{9.4}
+\end{equation}\]</span>
+<p>dimana <span class="math inline">\(r\)</span> adalah kondisi probabilitas yang kita inginkan yang dapat dituliskan sebagai <span class="math inline">\(P\left(X&lt;r\right)\)</span> atau <span class="math inline">\(P\left(X&gt;r\right)\)</span>. Kondisi lain yang dapat kita gunakan adalah <span class="math inline">\(P\left(a\le X\le b\right)\)</span>.</p>
+<p>Untuk memahaminya kita akan membuat sebuah contoh kasus. Misalkan kita diminta untuk melakukan analisis kerusakan <em>diffused aerator</em> pada suatu instalasi air limbah. Jumlah aerator total pada instalasi tersebut adalah 10 buah. Probabilitas sebuah aerator rusak sebesar <span class="math inline">\(\frac{1}{10}\)</span>. Tentukan berapa probabilitas jika (a) setidaknya 3 aerator tersebut tidak rusak? (b) 4 sampai 5 buah aerator rusak? serta (c) sebanyak 5 aerator rusak?.</p>
+<ol style="list-style-type: lower-alpha">
+<li>jika setidaknya 3 aerator tidak rusak</li>
+</ol>
+<p><span class="math display">\[
+P\left(X\le 3\right)=\sum _{x=0}^3b\left(x;10,0.1\right)
+\]</span></p>
+<p><span class="math display">\[
+P\left(X\le3\right)=b\left(0;10,0.1\right)+b\left(1;10,0.1\right)+b\left(2;10,0.1\right)+b\left(3;10,0.1\right)
+\]</span></p>
+<p><span class="math display">\[
+P\left(X\le3\right)=0,987
+\]</span></p>
+<p>Kita juga dapat memperoleh nilai tersebut dengan melihat tabel statistika yang dapat pembaca lihat pada tautan <a href="https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf">berikut</a></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>jika 4 sampai 5 aerator rusak</li>
+</ol>
+<p><span class="math display">\[
+P\left(4\le X\le5\right)=\sum_{x=4}^5b\left(x;10,0.1\right)=\sum_{x=0}^5b\left(x;10,0.1\right)-\sum_{x=0}^3\left(x;10,0.1\right)
+\]</span></p>
+<p><span class="math display">\[
+P\left(4\le X\le5\right)=1-0,987=0,013
+\]</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>jika tepat 5 aerator rusak</li>
+</ol>
+<p><span class="math display">\[
+P\left(X=5\right)=b\left(5;10,0.1\right)=\sum_{x=0}^5b\left(x;10,0.1\right)-\sum_{x=0}^4b\left(x;10,0.1\right)
+\]</span></p>
+<p><span class="math display">\[
+P\left(X=5\right)=1-0,998=0,002
+\]</span></p>
+<p>Untuk melakukan perhitungannya pada <code>R</code> kita dapat menggunakan fungsi <code>pbinom()</code>. Fungsi tersebut akan menghitung probabilitas bedasarkan nilai kondisi yang telah kita masukkan. Berikut adalah sintaks yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a) jika setidaknya 3 aerator tidak rusak</span>
+<span class="kw">pbinom</span>(<span class="dt">q=</span><span class="dv">3</span>,  
+       <span class="dt">size=</span><span class="dv">10</span>, <span class="co"># jumlah percobaan</span>
+       <span class="dt">prob=</span><span class="fl">0.1</span>) <span class="co"># probabilitas sukses</span></code></pre></div>
+<pre><code>## [1] 0.9872</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># b) jika setidaknya 4 sampai 5 aerator rusak</span>
+<span class="kw">pbinom</span>(<span class="dt">q=</span><span class="dv">5</span>,<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">prob=</span><span class="fl">0.1</span>)<span class="op">-</span><span class="kw">pbinom</span>(<span class="dt">q=</span><span class="dv">3</span>,<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">prob=</span><span class="fl">0.1</span>) </code></pre></div>
+<pre><code>## [1] 0.01265</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># c) jika tepat 5 aerator rusak</span>
+<span class="kw">dbinom</span>(<span class="dt">x=</span><span class="dv">5</span>, <span class="co"># jumlah kejadian sukses</span>
+       <span class="dt">size=</span><span class="dv">10</span>, <span class="co"># jumlah percobaan</span>
+       <span class="dt">prob=</span><span class="fl">0.1</span>) <span class="co"># probabilitas sukses</span></code></pre></div>
+<pre><code>## [1] 0.001488</code></pre>
+<p><strong>Menghitung Nilai Rata-Rata dan Varians Distribusi Binomial</strong></p>
+<p>Kita sudah mengetahui bahwa distribusi probabilitas binomial hanya bergantung pada nilai <span class="math inline">\(n\)</span>, <span class="math inline">\(p\)</span>, dan <span class="math inline">\(q\)</span>. Berdasarkan tersebut nilai mean, dan varians dari distribusi probabilitasnya juga bergantung pada ketiga nilai tersebut. Nilai mean dituliskan pada Persamaan <a href="distribusi-probabilitas.html#eq:dbinom4">(9.5)</a>, sedangkan varians dari distribusi probababilitas distuliskan pada Persamaan <a href="distribusi-probabilitas.html#eq:dbinom5">(9.6)</a>.</p>
+<span class="math display" id="eq:dbinom4">\[\begin{equation}
+   \mu=np
+  \tag{9.5}
+\end{equation}\]</span>
+<span class="math display" id="eq:dbinom5">\[\begin{equation}
+   \sigma^2=npq
+  \tag{9.6}
+\end{equation}\]</span>
+</div>
+<div id="multinomial-eksperimen-dan-distribusi-multinomial" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Multinomial Eksperimen dan Distribusi Multinomial</h3>
+<p>Eksperimen Binomial (<em>Binomial process</em>) dapat menjadi <strong>eksperimen multinomial</strong> jika kita menginginkan luaran dari percobaan yang dilakukan memiliki lebih dari satu hasil. Contoh dari eksperimen multinomial ini misalnya adalah penarikan kartu dari seperangkan kartu. Kita dapat mengaggap penarikan kartu dengan pengembalian sebagai eksperimen multinomial jika luaran yang diinginkan adalah 4 jenis kartu dalam set kartu tersebut.</p>
+<p>Secara umum, jika percobaan yang diberikan dapat menghasilkan salah satu <span class="math inline">\(k\)</span> dari hasil yang mungkin <span class="math inline">\(E_1,E_2,...,E_k\)</span> dengan probabilitas yang dihasilkan sebesar <span class="math inline">\(p_1,p_2,...,p_k\)</span>, maka <strong>distribusi multinomial</strong> akan memberikan nilai probabilitas yang dinyatakan <span class="math inline">\(E_1\)</span> terjadi sebanyak <span class="math inline">\(x_1\)</span> kali, <span class="math inline">\(E_2\)</span> terjadi sebanyak <span class="math inline">\(x_2\)</span> kali, sampai dengan <span class="math inline">\(E_k\)</span> terjadi sebanyak <span class="math inline">\(x_k\)</span> kali dalam <span class="math inline">\(n\)</span> percobaan yang independent, dimana</p>
+<p><span class="math display">\[
+x_1+x_2+...+x_k=n
+\]</span></p>
+<p>Selanjutnya fungsi probabilitas dituliskan sebagai berikut:</p>
+<p><span class="math display">\[
+f\left(x_1,x_2,...,x_k;\ p_1,p_2,...,p_k\right)
+\]</span></p>
+<p>Seperti yang telah kita ketahui bersama bahwa nilai <span class="math inline">\(p_1+p_2+...+p_k=1\)</span>. Sejak percobaan yang dilakukan independen, maka setiap percobaan yang menghasilkan <span class="math inline">\(x_1\)</span> yang merupakan luaran dari <span class="math inline">\(E_1\)</span>, <span class="math inline">\(x_2\)</span> yang merupakan luaran dari <span class="math inline">\(E_2\)</span> sampai dengan <span class="math inline">\(x_k\)</span> yang merupakan luaran dari <span class="math inline">\(E_k\)</span> akan terjadi dengan probabilitas <span class="math inline">\(p^{x_1}p^{x_2}...p^{x_k}\)</span>. Jumlah urutan yang menghasilkan hasil yang serupa untuk percobaan <span class="math inline">\(n\)</span> adalah sama dengan jumlah partisi <span class="math inline">\(n\)</span> item ke dalam <span class="math inline">\(k\)</span> grup dengan <span class="math inline">\(x_1\)</span> di grup pertama, <span class="math inline">\(x_2\)</span> di grup kedua, sampai dengan <span class="math inline">\(x_k\)</span> di grup <span class="math inline">\(k\)</span>. Kondisi ini dapat dituliskan seperti berikut:</p>
+<p><span class="math display">\[
+\binom{n}{x_1,x_2,...,x_k}=\frac{n!}{x_1!x_2!...x_k!}
+\]</span></p>
+<p>Sejak seluruh partisi bersifat <em>mutually exlusive</em> dan terjadi dengan probabilitas yang setara, kita dapat memperoleh distribusi multinomial dengan mengalikan probabilitas tiap luaran spesifik dengan jumlah total partisinya. Persamaan distribusi multinomial yang diperoleh dituliskan kedalam Persamaan <a href="distribusi-probabilitas.html#eq:dmultinom">(9.7)</a>.</p>
+<span class="math display" id="eq:dmultinom">\[\begin{equation}
+   f\left(x_1,x_2,...,x_k;\ p_1,p_2,...,p_k\right)=\binom{n}{x_1,x_2,...,x_k}p^{x_1}p^{x_2}...p^{x_k}
+  \tag{9.7}
+\end{equation}\]</span>
+<p>dimana</p>
+<span class="math display" id="eq:dmultinom2">\[\begin{equation}
+   \sum_{i=1}^kx_i=n\ dan\ \sum_{i=1}^kp_i=1
+  \tag{9.8}
+\end{equation}\]</span>
+<p>Untuk memahami penerapan distribusi multinomial, penulis akan memberikan sebuah studi kasus. Probabilitas sejenis pompa memiliki umur ekonomis 2 tahun sebesar 0,30, antara 2-4 tahun adalah 0,50, dan 4-5 tahun adalah 0,20. Hitunglah probabilitas 8 buah pompa dimana pompa dengan umur ekonomis 2 tahun sebanyak 2 buah, 2-4 tahun sebanyak 5 buah, dan antara 4-5 sebanyak 1 buah.</p>
+<p>Untuk menyelesaikannya kita perlu mendata jumlah kemunculan disertai dengan probabilitas kejadia pada tiap grup seperti berikut:</p>
+<p><span class="math display">\[
+n=8;\ x_1=2\ dengan\ p_1=0,30;\ x_2=5\ dengan\ p_2=0,50,\ dan\ x_3=1\ dengan\ p_1=0,20\ 
+\]</span></p>
+<p>dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dmultinom">(9.7)</a>, maka probabilitasnya dapat dihitung seperti berikut:</p>
+<p><span class="math display">\[
+f\left(2,5,1;0.30,0.50,0.20\right)=\binom{8}{2,5,1}\left(0,3\right)^2\left(0,5\right)^5\left(0,2\right)^1
+\]</span></p>
+<p><span class="math display">\[
+f\left(2,5,1;0.30,0.50,0.20\right)=0,0945
+\]</span></p>
+<p>Pada <code>R</code> kita dapat menggunakan fungsi <code>dmultinom()</code> untuk menghitung probabilitas distribusi multinomial. Komponen dari fungsi tersebut adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dmultinom</span>(x, size, prob)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong>: vektor numerik</li>
+<li><strong>size</strong>: jumlah percobaan atau perulangan</li>
+<li><strong>prob</strong>: vektor numerik probabilitas tiap grup hasil.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah sintaks untuk menghitung probabilitas multinomial pada contoh kasus di atas:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dmultinom</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">1</span>), <span class="co"># jumlah kejadian tiap grup </span>
+          <span class="dt">size=</span><span class="dv">8</span>, <span class="co"># jumlah percobaan</span>
+          <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.3</span>,<span class="fl">0.5</span>,<span class="fl">0.2</span>)) <span class="co"># probabilitas masing-masing luaran</span></code></pre></div>
+<pre><code>## [1] 0.0945</code></pre>
+</div>
+</div>
+<div id="distribusi-hipergeometris" class="section level2">
+<h2><span class="header-section-number">9.3</span> Distribusi Hipergeometris</h2>
+<p>Distribusi hipergeometris didasarkan pada eksperimen hipergeometris yang memiliki asumsi sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li>Sampel dengan ukuran <span class="math inline">\(n\)</span> diambil secara acak tanpa pengembalian (<em>sampel without replacement</em>) dari populasi berukuran <span class="math inline">\(N\)</span>.</li>
+<li>Pada populasi, <span class="math inline">\(k\)</span> didefinisikan sebagai observasi yang <strong>sukses</strong>, sedangkan <span class="math inline">\(N-k\)</span> didefiniskan sebagai observasi yang <strong>gagal</strong>.</li>
+</ol>
+<p>Melalui asusmsi tersebut, kita dapat menemukan perbedaan antara distribusi hipergeometris dengan distribusi binomial. Perbedaan yang paling mendasar adalah metode sampling yang digunakan, dimana distribusi binomial mengasumsikan sampel dengan pengembalian (<em>sample with replacement</em>), sedangkan distribusi hipergeometris mengasumsikan sebaliknya.</p>
+<p>Distribusi probabilitas hipergeometris untuk variabel acak <span class="math inline">\(X\)</span> dengan jumlah sampel <span class="math inline">\(n\)</span> dari populasi terpilih dengan ukuran populasi <span class="math inline">\(N\)</span>, dimana <span class="math inline">\(k\)</span> merupakan observasi <strong>sukses</strong> dan <span class="math inline">\(N-k\)</span> merupakan observasi yang gagal dapat dituliskan berdasarkan Persamaan <a href="distribusi-probabilitas.html#eq:dhiper">(9.9)</a>.</p>
+<span class="math display" id="eq:dhiper">\[\begin{equation}
+   h\left(x;N,n,k\right)=\frac{\binom{k}{x}\binom{N-k}{n-x}}{\binom{N}{n}},\ \max\left\{0,n-\left(N-k\right)\right\}\le x\le\min\left\{n,k\right\}
+  \tag{9.9}
+\end{equation}\]</span>
+<p>Range dari <span class="math inline">\(x\)</span> dapat ditentukan dari 3 koefisien binomial, dimana <span class="math inline">\(x\)</span> dan <span class="math inline">\(n-x\)</span> tidak lagi lebih besar dari <span class="math inline">\(k\)</span> dan <span class="math inline">\(N-k\)</span> dan nilai keduanya tidak boleh lebih kecil dari 0. Biasanya ketika kedua nilai <span class="math inline">\(k\)</span> dan <span class="math inline">\(N-k\)</span> lebih besar dari ukuran sampel <span class="math inline">\(n\)</span>, range dari variabel acak hipergeometris akan menjadi <span class="math inline">\(x=0,1,...,n\)</span>.</p>
+<p>Untuk memahami penerapan distribusi hipergeometris, kita dapat menerapkannya dalam sebuah contoh kasus. Misalkan pembaca ditugaskan untuk melakukan sortir terhadap 40 sak kompos yang akan dijual dengan berat rata-rata 2 kg. Pembaca diberi tahu bahwa 3 dari seluruh kompos tersebut memiliki berat kurang dari 2 kg sehingga tidak dapat dijual. Tugas pembaca adalah menemukan ketiga sak kompos tersebut. Untuk mempermudah proses tersebut pembaca melakukan sampling secara acak dengan jumlah sampling 5 buah kompos tanpa pengembalian. Hitunglah berapa peluang pada tiap sampling tersebut pembaca menemukan 1 kompos yang memiliki berat lebih kecil dari 2 kg tersebut?.</p>
+<p>Berdasarkan studi kasus tersebut kita dapat menyimpulkan bahwa proses sampling yang dilakukan adalah dengan menggunakan prosedur sampling tanpa pengembalian, sehingga distribusi hipergeometris dapat diterapkan dengan nilai <span class="math inline">\(n=5\)</span>, <span class="math inline">\(N=40\)</span>, <span class="math inline">\(k=3\)</span>, dan <span class="math inline">\(x=1\)</span>. Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dhiper">(9.9)</a>, peluang ditemukan 1 sak kompos yang tidak sesuai adalah sebagai berikut:</p>
+<p><span class="math display">\[
+h\left(1;40,5,3\right)=\frac{\binom{3}{1}\binom{40-3}{5-1}}{\binom{40}{5}}=0,3011
+\]</span></p>
+<p>Berdasarkan hasil perhitungan diketahui bahwa peluang untuk menemukan 1 sak kompos dari 3 sak kompos yang tidak sesuai sebesar 30% pada tiap kali sampling.</p>
+<p>Pada <code>R</code> distribusi probabilitas hipergeometris dapat dihitung menggunakan fungsi <code>dhyper()</code>. Format yang digunakan pada fungsi tersebut adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dhyper</span>(x, m, n, k)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong>: vektor numerik yang menyatakan observasi sukses pada tiap sampling</li>
+<li><strong>m</strong>: jumlah observasi sukses</li>
+<li><strong>n</strong>: jumlah observasi gagal</li>
+<li><strong>k</strong>: ukuran sampel</li>
+</ul>
+</blockquote>
+<p>Berikut adalah sintaks untuk menghitung probabilitas hipergeometris contoh kasus di atas:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dhyper</span>(<span class="dt">x=</span><span class="dv">1</span>, <span class="co"># observasi sukses tiap sampling</span>
+       <span class="dt">m=</span><span class="dv">3</span>, <span class="co"># observasi sukses (k)</span>
+       <span class="dt">n=</span><span class="dv">37</span>, <span class="co"># observasi gagal (N-k)</span>
+       <span class="dt">k=</span><span class="dv">5</span>) <span class="co"># sampel</span></code></pre></div>
+<pre><code>## [1] 0.3011</code></pre>
+<p><strong>Probabilitas Kumulatif Hipergeometris</strong></p>
+<p>Pada contoh kasus sebelumnya, sak kompos yang tidak memenuhi kriteria bisa saja saat sampling tidak hanya ditemukan 1 sak yang tidak memenuhi, bisa dua , tiga atau sama sekali tidak ada yang ditemukan sak yang tidak memenuhi kriteria. Kondisi tersebut mengharuskan kita menghitung probabilitas kumulatif dari suatu kondisi seperti <span class="math inline">\(P\left(X&lt;r\right),\ P\left(X&gt;r\right),\ atau\ P\left(a&lt;X&lt;b\right)\)</span> yang dapat dituliskan pada Persamaan <a href="distribusi-probabilitas.html#eq:dhiper2">(9.10)</a>.</p>
+<span class="math display" id="eq:dhiper2">\[\begin{equation}
+   H\left(r;N,n,k\right)=\sum_{x=0}^rh\left(x;N,n,k\right)
+  \tag{9.10}
+\end{equation}\]</span>
+<p>Pada contoh sebelumnya, hitunglah probabilitas jika paling banyak 2 sak kompos yang tidak memenuhi kriteria ditemukan pada sampel?.</p>
+<p>Untuk melakukannya kita perlu menghitung probabilitas hipergeometris untuk kondisi saat <span class="math inline">\(x=0,1,2\)</span>. Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dhiper2">(9.10)</a>, nilai probabilitas yang dihasilkan adalah sebagai berikut:</p>
+<p><span class="math display">\[
+P\left(X\le2\right)=b\left(0;40,5,3\right)+b\left(1;40,5,3\right)+b\left(2;40,5,3\right)=0,999
+\]</span></p>
+<p>Pada <code>R</code> probabilitas kumulatif dapat dihitung menggunakan fungsi <code>phyper()</code>. Format fungsi yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">phyper</span>(q, m, n, k, <span class="dt">lower.tail=</span><span class="ot">TRUE</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>q</strong>: vektor numerik yang menyatakan observasi maksimum yang sukses saat sampling</li>
+<li><strong>m</strong>: jumlah observasi sukses</li>
+<li><strong>n</strong>: jumlah observasi gagal</li>
+<li><strong>k</strong>: ukuran sampel</li>
+<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE</li>
+</ul>
+</blockquote>
+<p>Dengan menggunakan sintaks tersebut, probabilitas kumulatif dapat dihitung sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">phyper</span>(<span class="dt">q=</span><span class="dv">2</span>, <span class="co"># probabilitas &lt;=2</span>
+       <span class="dt">m=</span><span class="dv">3</span>, <span class="co"># observasi sukses</span>
+       <span class="dt">n=</span><span class="dv">37</span>, <span class="co"># jumlah gagal</span>
+       <span class="dt">k=</span><span class="dv">5</span>) <span class="co"># jumlah sampel</span></code></pre></div>
+<pre><code>## [1] 0.999</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
+<span class="kw">dhyper</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">37</span>,<span class="dv">5</span>)<span class="op">+</span><span class="kw">dhyper</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">37</span>,<span class="dv">5</span>)<span class="op">+</span><span class="kw">dhyper</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">37</span>,<span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 0.999</code></pre>
+<p><strong>Menghitung Nilai Rata-Rata dan Varians Distribusi Hipergeometris</strong></p>
+<p>Nilai rata-rata dan varians distribusi hipergeometris dituliskan kedalam Persamaan <a href="distribusi-probabilitas.html#eq:dhiper3">(9.11)</a>:</p>
+<span class="math display" id="eq:dhiper3">\[\begin{equation}
+   \mu=\frac{nk}{N}\ dan\ \sigma^2=\frac{N-n}{N-1}\cdot n\cdot\frac{k}{N}\left(1-\frac{k}{N}\right)
+  \tag{9.11}
+\end{equation}\]</span>
+<p>Bila nilai <span class="math inline">\(n&lt;&lt;&lt;N\)</span>, maka pendekatan distribusi binomial dapat dilakukan dengan pendekatan <span class="math inline">\(n\)</span> dan <span class="math inline">\(p=\frac{k}{N}\)</span>. Pendekatan yang dilakukan akan cukup baik bila <span class="math inline">\(n\le0,1N\)</span>.</p>
+</div>
+<div id="distribusi-binomial-negatif-dan-distribusi-geometris" class="section level2">
+<h2><span class="header-section-number">9.4</span> Distribusi Binomial Negatif dan Distribusi Geometris</h2>
+<p>Mari kita bayangkan percobaan di mana sifat-sifatnya (propertinya) sama dengan percobaan binomial, dengan pengecualian bahwa uji coba akan diulangi sampai sejumlah keberhasilan terjadi. Oleh karena itu, alih-alih probabilitas <span class="math inline">\(x\)</span> keberhasilan dalam <span class="math inline">\(n\)</span> percobaan, di mana <span class="math inline">\(n\)</span> tetap, kita sekarang tertarik pada probabilitas bahwa keberhasilan <span class="math inline">\(k\)</span> terjadi pada percobaan ke-<span class="math inline">\(x\)</span>. Eksperimen semacam ini disebut eksperimen <strong>binomial negatif</strong>.</p>
+<p>Sifat-sifat dari percobaan binomial negatif adalah sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li>Percobaan terdiri atas sejumlah <span class="math inline">\(x\)</span> perulangan.</li>
+<li>Setiap percobaan memiliki dua hasil (<strong>sukses</strong> dan <strong>gagal</strong>).</li>
+<li>Probabilitas sukses dinotasikan dengan <span class="math inline">\(p\)</span> yang sama pada setiap percobaan.</li>
+<li>Setiap percobaan bersifat independen yang berarti hasil dari sebuah percobaan tidak akan mempengaruhi hasil percobaan lainnya.</li>
+<li>Percobaan dilakukan secara terus-menerus sampai dengan sejumlah <span class="math inline">\(k\)</span> sukses terjadi, dimana <span class="math inline">\(k\)</span> ditentukan terlebih dahulu.</li>
+</ol>
+<p>Untuk memahaminya misalkan kita menguji sebuah obat dengan memberikannya kepada pasien yang sakit. Keberhasilan obat tersebut Obat dinyatakan sukses jika secara efektif memberikan efek pemulihan bagi pasien. Probabilitas obat tersebut melakukannya berdasarkan hasil studi yang telah dilakukan sebesar 60%. Kita tertarik untuk mengetahui probabilitas pasien kelima yang mengalami efek penyembuhan dimana pasien ini merupakan pasien ketujuh yang diberikan obat tersebut. Untuk melakukannya kita definisikan kejadian sukses dengan simbol <span class="math inline">\(S\)</span> dan gagal dengan simbol <span class="math inline">\(F\)</span>, urutan yang mungkin dari ketujuh pasien berdasarkan respon terhadap obat adalah <span class="math inline">\(SFSSSFS\)</span> yang probabilitas kejadian berdasarkan urutan tersebut adalah sebagai berikut:</p>
+<p><span class="math display">\[
+\left(0,6\right)\left(0,4\right)\left(0,6\right)\left(0,6\right)\left(0,6\right)\left(0,4\right)\left(0,6\right)=\left(0,6\right)^5\left(0,4\right)^2
+\]</span></p>
+<p>Kita dapat mendaftar sejumlah luaran yang mungkin pada kejadian tersebut mengatur ulang <span class="math inline">\(F\)</span> dan <span class="math inline">\(S\)</span> kecuali untuk hasil terakhir, yang harus menjadi keberhasilan kelima. Jumlah total luaran yang mungkin sama dengan jumlah partisi dari enam (7-1) percobaan pertama menjadi dua kelompok dengan 2 buah gagal dan 4 buah sukses menjadi kelompok tersendiri. Hal ini dapat dilakukan berdasarkan <span class="math inline">\(\binom{6}{4}=15\)</span> cara yang <em>mutually exclusive</em>. Oleh karena itu, jika <span class="math inline">\(X\)</span> mewakili hasil dimana keberhasilan kelima terjadi, maka</p>
+<p><span class="math display">\[
+P\left(X=7\right)=\binom{6}{4}\left(0.6\right)^2\left(0,4\right)^2=0,1866
+\]</span></p>
+<div id="distribusi-binomial-negatif" class="section level3">
+<h3><span class="header-section-number">9.4.1</span> Distribusi Binomial Negatif</h3>
+<p>Berdasarkan contoh kasus tersebut, kita dapat mendefinisikan formula untuk distribusi probabilitas binomial negatif. Jika percobaan yang bersifat independen dan berulang dapat menghasilkan keberhasilan (kejadian sukses) dengan probabilitas <span class="math inline">\(p\)</span> dan kegagalan dengan probabilitas <span class="math inline">\(q=1-p\)</span>, maka distribusi probabilitas variabel acak <span class="math inline">\(X\)</span>, jumlah percobaan di mana keberhasilan k terjadi dinyatakan pada Persamaan <a href="distribusi-probabilitas.html#eq:dnegbinom">(9.12)</a>:</p>
+<span class="math display" id="eq:dnegbinom">\[\begin{equation}
+   b^{\ast}\left(x;k,p\right)=\binom{x-1}{k-1}p^kq^{x-k},\ \ \ \ \ x=k,k+1,k+2,....
+  \tag{9.12}
+\end{equation}\]</span>
+<p>Untuk lebih memahami penerapan dari distribusi binomial negatif. Misalkan pada suatu evan NBA (Championship series) atau final antar juara wilayah, dimana pada pertandingan puncak kedua tim dari dua wilayah akan melakukan 7 pertandingan terkahir. Suatu tim dinyatakan juara jika berhasil meraih 4 kemenangan dari 7 pertandingan yang ada. Anggaplah tim A dan B berhadapan satu sama lain. Probabilitas A memenangkan suatu pertandingan terhadap tim B sebesar 0,55, tentukan:</p>
+<ul>
+<li>Berapakah probabilitas tim A memenangkan kejuaraan pada pertandingan ke-6 dari 7 pertandingan yang ada?</li>
+<li>Berapakah probabilitas A memenangkan kejuaraan?</li>
+</ul>
+<p>Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dnegbinom">(9.12)</a>, probabilitas kemenangan tim A terhadap tim B dapat dihitung sebagai berikut:</p>
+<ul>
+<li><strong>Tim A juara pada pertandingan ke-6 (<span class="math inline">\(x=6\)</span>, <span class="math inline">\(k=4\)</span>, dan <span class="math inline">\(p=0,55\)</span>)</strong></li>
+</ul>
+<p><span class="math display">\[
+b^{\ast}\left(6;4,0.55\right)=\binom{6-1}{4-1}0,55^4\left(1-0,55\right)^{6-4}=0,1853
+\]</span></p>
+<ul>
+<li><strong>Tim A menjuarai kejuaraan</strong></li>
+</ul>
+<p>Tim A dapat menjuarai kejuaraan jika telah memenangkan 4 dari 7 pertandingan. Kemungkinan Tim A dapat memenangkan pertandingan tersebut dapat terjadi pada pertandingan ke-4 (menang berturut-turut), pertandingan ke-6, dan pertandingan ke-7.</p>
+<p><span class="math display">\[
+b^{\ast}\left(4;4,0.55\right)+b^{\ast}\left(5;4,0.55\right)+b^{\ast}\left(6;4,0.55\right)+b^{\ast}\left(7;4,0.55\right)
+\]</span></p>
+<p><span class="math display">\[
+0,0915+0,1647+0,1853+0,1668=0,6083
+\]</span></p>
+<p>Pada <code>R</code> kita dapat menghitung probabilitas binomial negatif menggunakan fungsi <code>dnbinom()</code>. Format fungsi tersebut adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dnbinom</span>(x, size, prob)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong>: jumlah observasi gagal</li>
+<li><strong>size</strong>: jumlah observasi sukses</li>
+<li><strong>prob</strong>: probabilitas kejadian sukses</li>
+</ul>
+</blockquote>
+<p>Dengan menggunakan fungsi <code>dnbinom()</code>, probabilitas Tim A menang pada pertandingan ke-6 dapat dihitung sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">2</span>, <span class="co"># jumlah observasi gagal</span>
+        <span class="dt">size=</span><span class="dv">4</span>, <span class="co"># jumlah observasi sukses</span>
+        <span class="dt">prob=</span><span class="fl">0.55</span>) <span class="co"># probabilitas sukses</span></code></pre></div>
+<pre><code>## [1] 0.1853</code></pre>
+<p>Pada pertanyaan kedua soal dapat kita impulkan bahwa kita hendak mencari probabilitas kumulatif kemenangan Tim A. Untuk melakukannya kita dapat menggunakan fungsi <code>pnbinom()</code>. Format fungsi tersebut adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnbinom</span>(q, size, prob, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>q</strong>: jumlah observasi gagal minimum</li>
+<li><strong>size</strong>: jumlah observasi sukses maksimum</li>
+<li><strong>prob</strong>: probabilitas sukses</li>
+<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE</li>
+</ul>
+</blockquote>
+<p>Dengan menggunakan fungsi tersebut, probabilitas kumulatif kemenangan Tim A adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnbinom</span>(<span class="dt">q=</span><span class="dv">3</span>, <span class="co"># jumlah observasi gagal min</span>
+        <span class="dt">size=</span><span class="dv">4</span>, <span class="co"># jumlah observasi sukses maks</span>
+        <span class="dt">prob=</span><span class="fl">0.55</span>) <span class="co"># probabilitas sukses</span></code></pre></div>
+<pre><code>## [1] 0.6083</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
+<span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">size=</span><span class="dv">4</span>,<span class="dt">prob=</span><span class="fl">0.55</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">1</span>,<span class="dt">size=</span><span class="dv">4</span>,<span class="dt">prob=</span><span class="fl">0.55</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">2</span>,<span class="dt">size=</span><span class="dv">4</span>,<span class="dt">prob=</span><span class="fl">0.55</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">3</span>,<span class="dt">size=</span><span class="dv">4</span>,<span class="dt">prob=</span><span class="fl">0.55</span>)</code></pre></div>
+<pre><code>## [1] 0.6083</code></pre>
+</div>
+<div id="distribusi-geometris" class="section level3">
+<h3><span class="header-section-number">9.4.2</span> Distribusi Geometris</h3>
+<p>Pada kenyataannya kita hanya tertarik terhadap probabilitas kejadian sukses pertama kali akan terjadi. Probabilitas kejadian tersebut merupakan kejadian pada <strong>distribusi probabilitas geometris</strong>. Distribusi ini merupakan kasus khusus distribusi binomial negatif.</p>
+<p>Jika suatu suatu percobaan independen dapat menghasilkan kejadian sukses dengan probabilitas <span class="math inline">\(p\)</span> dan gagal dengan probabilitas <span class="math inline">\(q=1-p\)</span>, maka distribusi probabilitas variabel acak <span class="math inline">\(X\)</span>, jumlah percobaan dimana sukses pertama terjadi didefinisikan pada Persamaan <a href="distribusi-probabilitas.html#eq:dgeom">(9.13)</a>:</p>
+<span class="math display" id="eq:dgeom">\[\begin{equation}
+   g\left(x;p\right)=pq^{x-1},\ \ \ \ \ x=1,2,3,...
+  \tag{9.13}
+\end{equation}\]</span>
+<p>Agar pembaca lebih memahaminya, misalkan suatu pabrik memiliki probabilitas 1 dari 100 barang produksinya merupakan produk cacat. Pemeriksaan dilakukan pada setiap barang tersebut. Tentukan probabilitas barang ke-5 hasil pengecekan merupakan barang yang cacat?</p>
+<p>Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dgeom">(9.13)</a> probabilitas barang ke-5 merupakan produk gagal sebagai berikut:</p>
+<p><span class="math display">\[
+g\left(5;0.01\right)=\left(0,01\right)\left(0,99\right)^{5-1}=0,0096
+\]</span></p>
+<p>Pada <code>R</code> probabilitas tersebut dapat dihitung menggunakan fungsi <code>dgeom()</code>. Format fungsi tersebut adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dgeom</span>(x, prob)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong>: vektor numerik observasi dimana kejadian sukses terjadi pertama kali</li>
+<li><strong>prob</strong>: probabilitas kejadian sukses</li>
+</ul>
+</blockquote>
+<p>Dengan menggunakan fungsi tersebut, probabilitas geometris dapat dihitung seperti berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dgeom</span>(<span class="dt">x=</span><span class="dv">5</span>, <span class="co"># observasi kejadian sukses pertama terjadi</span>
+      <span class="dt">prob=</span><span class="fl">0.01</span>) <span class="co"># probabilitas kejadian sukses</span></code></pre></div>
+<pre><code>## [1] 0.00951</code></pre>
+<p>Terkadang kita tertarik untuk mempelajari probabilitas kejadian sukses pertama kali berdasarkan suatu rentang observasi atau dapat didefinisikan <span class="math inline">\(P\left(X&lt;r\right),\ P\left(X&gt;r\right),\ atau\ P\left(a&lt;X&lt;b\right)\)</span> yang dapat dituliskan pada Persamaan <a href="distribusi-probabilitas.html#eq:dgeom2">(9.14)</a>.</p>
+<span class="math display" id="eq:dgeom2">\[\begin{equation}
+   g\left(r;p\right)=\sum _{x=0}^rg\left(x,p\right)
+  \tag{9.14}
+\end{equation}\]</span>
+<p>Berdasarkan contoh sebelumnya hitunglah probabilitas barang cacat pertama kali ditemukan pada observasi kurang dari sama dengan observasi ke-5?</p>
+<p><span class="math display">\[
+P\left(P\le5\right)=g\left(0;0.01\right)+g\left(1;0.01\right)+...+g\left(5;0.01\right)=0.0585
+\]</span></p>
+<p>Pada <code>R</code> fungsi yang digunakan untuk menghitung probabilitas kumulatif distribusi probabilitas geometris adalah <code>pgeom()</code>. Format yang digunakan adalah sebagai berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pgeom</span>(q, prob, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>q</strong>: batas observasi minimum terjadi</li>
+<li><strong>prob</strong>: probabilitas sukses</li>
+<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE</li>
+</ul>
+</blockquote>
+<p>Berdasarkan hal tersebut, maka probabilitas dapat dihitung seperti berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pgeom</span>(<span class="dv">5</span>,<span class="fl">0.01</span>)</code></pre></div>
+<pre><code>## [1] 0.05852</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
+<span class="kw">dgeom</span>(<span class="dv">0</span>,<span class="fl">0.01</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">dgeom</span>(<span class="dv">1</span>,<span class="fl">0.01</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">dgeom</span>(<span class="dv">2</span>,<span class="fl">0.01</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">dgeom</span>(<span class="dv">3</span>,<span class="fl">0.01</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">dgeom</span>(<span class="dv">4</span>,<span class="fl">0.01</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">dgeom</span>(<span class="dv">5</span>,<span class="fl">0.01</span>)</code></pre></div>
+<pre><code>## [1] 0.05852</code></pre>
+<p>Nilai rata-rata dan varians distribusi probabilitas geometris disajikan pada Persamaan <a href="distribusi-probabilitas.html#eq:dgeom3">(9.15)</a>.</p>
+<span class="math display" id="eq:dgeom3">\[\begin{equation}
+   \mu=\frac{1}{p}\ dan\ \sigma^2=\frac{1-p}{p^2}
+  \tag{9.15}
+\end{equation}\]</span>
+
+</div>
+</div>
+</div>
+
+
+
+body{
+text-align: justify}
+</style>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="probabilitas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="penaksiran-secara-statistika.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["EnvStat.pdf", "EnvStat.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

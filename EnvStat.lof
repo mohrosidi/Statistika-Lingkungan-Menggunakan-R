@@ -162,18 +162,19 @@
 \contentsline {figure}{\numberline {8.1}{\ignorespaces Diagram venn peristiwa mutually exclusive}}{250}{figure.8.1}% 
 \contentsline {figure}{\numberline {8.2}{\ignorespaces Diagram venn peristiwa not mutually exclusive}}{252}{figure.8.2}% 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)}}{263}{figure.9.1}% 
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)}}{264}{figure.9.2}% 
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya (Helsel dan Hirsch, 2002)}}{264}{figure.9.3}% 
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)}}{265}{figure.9.4}% 
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Distribusi konsentrasi arsenik dalam air tanah}}{265}{figure.9.5}% 
-\contentsline {figure}{\numberline {9.6}{\ignorespaces Lokasi probabilitas x berdasarkan tabel distribusi binomial}}{267}{figure.9.6}% 
-\contentsline {figure}{\numberline {9.7}{\ignorespaces Distribusi logaritmik konsentrasi arsenik dalam air tanah}}{272}{figure.9.7}% 
-\contentsline {figure}{\numberline {9.8}{\ignorespaces Prediksi interval dua sisi (Helsel dan Hirsch, 2002)}}{279}{figure.9.8}% 
-\contentsline {figure}{\numberline {9.9}{\ignorespaces Prediksi interval satu sisi (Helsel dan Hirsch, 2002)}}{280}{figure.9.9}% 
-\contentsline {figure}{\numberline {9.10}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)}}{290}{figure.9.10}% 
-\contentsline {figure}{\numberline {9.11}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)}}{290}{figure.9.11}% 
-\contentsline {figure}{\numberline {9.12}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)}}{291}{figure.9.12}% 
-\contentsline {figure}{\numberline {9.13}{\ignorespaces Distribusi bootstrap median}}{294}{figure.9.13}% 
-\contentsline {figure}{\numberline {9.14}{\ignorespaces Distribusi bootstrap mean}}{296}{figure.9.14}% 
-\contentsline {figure}{\numberline {9.15}{\ignorespaces Distribusi bootstrap persentil 90}}{298}{figure.9.15}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)}}{275}{figure.10.1}% 
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)}}{276}{figure.10.2}% 
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya (Helsel dan Hirsch, 2002)}}{276}{figure.10.3}% 
+\contentsline {figure}{\numberline {10.4}{\ignorespaces Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)}}{277}{figure.10.4}% 
+\contentsline {figure}{\numberline {10.5}{\ignorespaces Distribusi konsentrasi arsenik dalam air tanah}}{277}{figure.10.5}% 
+\contentsline {figure}{\numberline {10.6}{\ignorespaces Lokasi probabilitas x berdasarkan tabel distribusi binomial}}{279}{figure.10.6}% 
+\contentsline {figure}{\numberline {10.7}{\ignorespaces Distribusi logaritmik konsentrasi arsenik dalam air tanah}}{284}{figure.10.7}% 
+\contentsline {figure}{\numberline {10.8}{\ignorespaces Prediksi interval dua sisi (Helsel dan Hirsch, 2002)}}{291}{figure.10.8}% 
+\contentsline {figure}{\numberline {10.9}{\ignorespaces Prediksi interval satu sisi (Helsel dan Hirsch, 2002)}}{292}{figure.10.9}% 
+\contentsline {figure}{\numberline {10.10}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)}}{302}{figure.10.10}% 
+\contentsline {figure}{\numberline {10.11}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)}}{302}{figure.10.11}% 
+\contentsline {figure}{\numberline {10.12}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)}}{303}{figure.10.12}% 
+\contentsline {figure}{\numberline {10.13}{\ignorespaces Distribusi bootstrap median}}{306}{figure.10.13}% 
+\contentsline {figure}{\numberline {10.14}{\ignorespaces Distribusi bootstrap mean}}{308}{figure.10.14}% 
+\contentsline {figure}{\numberline {10.15}{\ignorespaces Distribusi bootstrap persentil 90}}{310}{figure.10.15}% 

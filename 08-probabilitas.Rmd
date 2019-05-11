@@ -5,6 +5,10 @@ body{
 text-align: justify}
 </style>
 
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
 # Probabilitas
 
 Probabilitas merupakan kemungkinan suatu peristiwa akan terjadi. Probabilitas memiliki rentang nilai dari 0 sampai dengan 1. Probabilitas 0 artinya suatu peristiwa (*event*) mustahil atau tidak pernah terjadi, sedangkan probabilitas 1 menunjukkan suatu peristiwa yang selalu terjadi.

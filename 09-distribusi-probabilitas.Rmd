@@ -1,0 +1,548 @@
+<style>
+body{
+text-align: justify}
+</style>
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+# Distribusi Probabilitas
+
+Distribusi probabilitas merupakan sebuah fungsi yang menggambarkan kemungkinan memperoleh sejumlah nilai dalam suatu variabel acak. Dengan kata lain distribusi probabilitas menjelaskan bahwa nilai yang muncul pada sampel acak akan bervariasi berdasarkan distribusi probabilitas yang menyertainya.
+
+Untuk memahaminya misalkan kita melakukan suatu sampling dengan cara survey terhadap sejumlah responden untuk mengetahui produksi sampah hariannya. Keseluruhan nilai timbulan yang diperoleh selajutnya disebut sebagai distribusi timbulan sampah. Distribusi tersebut berguna saat kita mengetahui hasil mana yang paling mungkin, sebaran nilai potensial serta kemungkinan hasil yang berbeda.
+
+## Properti Umum dari Distribusi Probabilitas
+
+Distribusi probabilitas menjelaskan kemungkinan suatu peristiwa atau nilai muncul. Ahli statistika menjelaskan distribusi probabilitas kedalam Persamaan \@ref(eq:pudbp).
+
+\begin{equation}
+   P\left(x\right)=kemungkinan\ suatu\ variabel\ acak\ mengandung\ nilai\ x
+  (\#eq:pudbp)
+\end{equation}
+
+Jumlah seluruh probabilitas adalah 1. Selain itu retang nilai probabilitas berkisar antara 0 sampai 1, dimana hal ini telah penulis jelaskan pada Chapter sebelumnya.
+
+Distribusi probabilitas menjelaskan sebaran nilai variabel acak. Akibatnya, jenis variabel menentukan jenis distribusi probabilitas. Untuk variabel acak tunggal, ahli statistik membagi distribusi menjadi dua jenis berikut:
+
+- **Distribusi probabilitas yang diskrit**
+
+Fungsi probabilitas diskrit dikenal sebagai fungsi massa probabilitas, dimana kita dapat mengasumsikan sejumlah nilai diskrit. Misalnya pelemparan dadu serta perhitungan sebuah peristiwa seperti flu di suatu daerah merupakan fungsi tersendiri. Kedua contoh tersebut merupakah contoh peristiwa diskrit karena tidak ada nilai antara, misalnya pada dadu tidak ada nilai antara 1 dan 2, dan seterunya. Pada perhitungan jumlah peristiwa flu juga tidak ada nilai antara orang terserang dlu dan tidak. Contoh lainnya adalah perhitungan jumlah buku diperpustakaan yang diperiksa tiap jam. Kita dapat menghitung jumlah buku perjam seperti 21 buku atau 22 buku, tetapi kita tidak dapat menghitung jumlah buku pada nilai antara kedua nilai tersebut. Distribusi probabilitas diskrit terdiri atas:
+
+  a. Binomial
+  b. Hypergeometric
+  c. Poisson
+  d. Geometric
+  e. Multinomial
+  
+- **Distribusi probabilitas yang bersifat kontinu**
+
+Fungsi probabilitas kontinu dikenal juga sebagai fungsi densitas probabilitas. Suatu distribusi dikatakan sebagai distribusi kontinu jika nilai yang terkandung dalam distribusi tersebut tidak terbatas serta skala yang digunakan dapat pula mengandung nilai desimal. Contoh suatu pengukuran yang menghasilkan distribusi kontinu adalah tinggi, berat, suhu, dll. Distribusi probabilitas kontinu terdiri atas:
+
+  a. Normal
+  b. Binomial
+  c. Uniform
+  d. Loh Normal
+  e. Gamma, dll.
+
+## Distribusi Binomial dan Multinomial
+
+Suatu percobaan sering dilakukan dengan proses yang berulang-ulang. Tiap proses percobaan yang dilakukan akan menghasilkan dua luaran yaitu **sukses** atau **gagal**. Untuk memahaminya misalkan pembaca melakukan pelemparan sebuah koin. Jika yang keluar adalah bagian kepala (*head*) maka proses tersebut dikatakan sukses, jika sebaliknya maka gagal. Proses penentuan sukses dan gagal tersebut tergantung pada sudut pandang kita melihatnya. Proses percobaan demikian disebut sebagai **Bernoulli process** (proses bernouli). Setiap percobaan yang dilakukan disebut sebagai **Bernoulli trial**. 
+
+**Bernoulli process** memiliki ciri-ciri sebagai berikut:
+
+- Eksperimen terdiri atas sejumlah perulangan percobaan.
+- Setiap perulangan percobaan menghasilkan luaran yang diklasifikasikan sebagai **sukses** atau **gagal**.
+- Probabilitas sukses (dinotasikan $p$) konstan dari setiap perulangan.
+- Setiap perulangan percobaan bersifat independen.
+
+Untuk memahami **Bernoulli process** kita akan menggunakan contoh pelemparan dadu. Misalkan kita akan melakukan percobaan pelemparan dadu sebanyak 3 kali. Probabilitas munculnya bagian angka 1 pada dadu adalah $\frac{1}{6}$. Probabilitas ini konstan pada setiap perulangan. Jika kita menginginkan ketiga perulangan tersebut menghasilkan angka 1. Probabilitasnya merupakan hasil kali probabilitas pada tiap giliran pelemparan seperti berikut:
+
+$$
+P\left(111\right)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{216}
+$$
+
+### Distribusi Binomial
+
+Jumlah $X$ keberhasilan atau jumlah percobaan sukses dalam percobaan Bernoulli disebut **variabel acak binomial**. Distribusi probabilitas dari variabel acak diskrit ini disebut distribusi binomial, dan nilainya akan dinotasikan dengan $b\left(x;n,p\right)$ karena mereka bergantung pada jumlah percobaan dan probabilitas keberhasilan pada percobaan yang diberikan. 
+
+**Bernouli trial** dapat menghasilkan percobaan yang sukses dengan probabilitas $p$ dan percobaan gagal dengan probabilitas $q=1-p$. Sehingga distribusi probabilitas binomial percobaan sukses untuk variabel acak $X$ dengan jumlah $n$ percobaan yang independen dinyatakan kedalam Persamaan \@ref(eq:dbinom).
+
+\begin{equation}
+   b\left(x;n,p\right)=\left(nC_x\right)p^xq^{n-x},\ x=0,1,2,...,n.
+  (\#eq:dbinom)
+\end{equation}
+
+dimana
+
+\begin{equation}
+   nC_x=\frac{n!}{x!\left(n-x\right)!}
+  (\#eq:dbinom2)
+\end{equation}
+
+Dengan menggunakan contoh sebelumnya kita dapat menghitung probabilitas keluarnya angka 1 pada dadu untuk 3 kali percobaan ($n$) atau seluruh percobaan menghasilkan angka 1 ($n=x=3$) adalah:
+
+$$
+b\left(3;3,\frac{1}{6}\right)=\left(\frac{3!}{3!\left(3-3\right)!}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^{\left(3-3\right)}
+$$
+$$
+b\left(3;3,\frac{1}{6}\right)=\left(1\right)\cdot\left(\frac{1}{6}\right)^3\cdot\left(1\right)=\frac{1}{216}
+$$
+  
+Kita juga dapat melakukan perhitungan tersebut menggunakan `R` untuk mengetahui probabilitas munculnya angka 1 pada dadu untuk 3 kali percobaan. Sintak yang digunakan adalah sebagai berikut:
+
+```{r}
+dbinom(x=3, # jumlah kejadian sukses 
+       size=3, # jumlah percobaan
+       prob=1/6) # probabilitas kejadian
+```
+
+**Probabilitas Kumulatif Binomial**
+
+Pada kondisi lain kita tidak hanya tertarik dengan probabilitas munculnya suatu peristiwa. Kita terkadang tertarik untuk menghitung probabilitas kumulatif dari suatu peristiwa. Misalnya probabilitas munculnya nomor dadu $<4$ atau pada perhitungan kendaraan per jam yang melalui suatu jalan kita tertarik menghitung peluang kendaraan yang melintas tiap jam $<50$ kendaraan. Untuk menghitung probabilitas yang demikian kita perlu melakukan akumulasi probabilitas yang memenuhi kriteria yang telah kita tentukan sebelumnya. Probabilitas kumulatif distribusi binomial berdasarkan kondisi tertentu dinyatakan pada Persamaan \@ref(eq:dbinom3).
+
+\begin{equation}
+   B\left(r,n,p\right)=\sum_{x=0}^rb\left(x;n,p\right)
+  (\#eq:dbinom3)
+\end{equation} 
+
+dimana $r$ adalah kondisi probabilitas yang kita inginkan yang dapat dituliskan sebagai $P\left(X<r\right)$ atau $P\left(X>r\right)$. Kondisi lain yang dapat kita gunakan adalah $P\left(a\le X\le b\right)$.
+
+Untuk memahaminya kita akan membuat sebuah contoh kasus. Misalkan kita diminta untuk melakukan analisis kerusakan *diffused aerator* pada suatu instalasi air limbah. Jumlah aerator total pada instalasi tersebut adalah 10 buah. Probabilitas sebuah aerator rusak sebesar $\frac{1}{10}$. Tentukan berapa probabilitas jika (a) setidaknya 3 aerator tersebut tidak rusak? (b) 4 sampai 5 buah aerator rusak? serta (c) sebanyak 5 aerator rusak?.
+
+(a) jika setidaknya 3 aerator tidak rusak
+
+$$
+P\left(X\le 3\right)=\sum _{x=0}^3b\left(x;10,0.1\right)
+$$
+
+$$
+P\left(X\le3\right)=b\left(0;10,0.1\right)+b\left(1;10,0.1\right)+b\left(2;10,0.1\right)+b\left(3;10,0.1\right)
+$$
+
+$$
+P\left(X\le3\right)=0,987
+$$
+
+Kita juga dapat memperoleh nilai tersebut dengan melihat tabel statistika yang dapat pembaca lihat pada tautan [berikut](https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf)
+
+(b) jika 4 sampai 5 aerator rusak
+
+$$
+P\left(4\le X\le5\right)=\sum_{x=4}^5b\left(x;10,0.1\right)=\sum_{x=0}^5b\left(x;10,0.1\right)-\sum_{x=0}^3\left(x;10,0.1\right)
+$$
+
+$$
+P\left(4\le X\le5\right)=1-0,987=0,013
+$$
+
+(c) jika tepat 5 aerator rusak
+
+$$
+P\left(X=5\right)=b\left(5;10,0.1\right)=\sum_{x=0}^5b\left(x;10,0.1\right)-\sum_{x=0}^4b\left(x;10,0.1\right)
+$$
+
+$$
+P\left(X=5\right)=1-0,998=0,002
+$$
+
+Untuk melakukan perhitungannya pada `R` kita dapat menggunakan fungsi `pbinom()`. Fungsi tersebut akan menghitung probabilitas bedasarkan nilai kondisi yang telah kita masukkan. Berikut adalah sintaks yang digunakan:
+
+```{r}
+# a) jika setidaknya 3 aerator tidak rusak
+pbinom(q=3,  
+       size=10, # jumlah percobaan
+       prob=0.1) # probabilitas sukses
+
+# b) jika setidaknya 4 sampai 5 aerator rusak
+pbinom(q=5,size=10,prob=0.1)-pbinom(q=3,size=10,prob=0.1) 
+
+# c) jika tepat 5 aerator rusak
+dbinom(x=5, # jumlah kejadian sukses
+       size=10, # jumlah percobaan
+       prob=0.1) # probabilitas sukses
+
+```
+
+**Menghitung Nilai Rata-Rata dan Varians Distribusi Binomial**
+
+Kita sudah mengetahui bahwa distribusi probabilitas binomial hanya bergantung pada nilai $n$, $p$, dan $q$. Berdasarkan tersebut nilai mean, dan varians dari distribusi probabilitasnya juga bergantung pada ketiga nilai tersebut. Nilai mean dituliskan pada Persamaan \@ref(eq:dbinom4), sedangkan varians dari distribusi probababilitas distuliskan pada Persamaan \@ref(eq:dbinom5).
+
+\begin{equation}
+   \mu=np
+  (\#eq:dbinom4)
+\end{equation}
+
+\begin{equation}
+   \sigma^2=npq
+  (\#eq:dbinom5)
+\end{equation}
+
+### Multinomial Eksperimen dan Distribusi Multinomial
+
+Eksperimen Binomial (*Binomial process*) dapat menjadi **eksperimen multinomial** jika kita menginginkan luaran dari percobaan yang dilakukan memiliki lebih dari satu hasil. Contoh dari eksperimen multinomial ini misalnya adalah penarikan kartu dari seperangkan kartu. Kita dapat mengaggap penarikan kartu dengan pengembalian sebagai eksperimen multinomial jika luaran yang diinginkan adalah 4 jenis kartu dalam set kartu tersebut.
+
+Secara umum, jika percobaan yang diberikan dapat menghasilkan salah satu $k$ dari hasil yang mungkin $E_1,E_2,...,E_k$ dengan probabilitas yang dihasilkan sebesar $p_1,p_2,...,p_k$, maka **distribusi multinomial** akan memberikan nilai probabilitas yang dinyatakan $E_1$ terjadi sebanyak $x_1$ kali, $E_2$ terjadi sebanyak $x_2$ kali, sampai dengan $E_k$ terjadi sebanyak $x_k$ kali dalam $n$ percobaan yang independent, dimana
+
+$$
+x_1+x_2+...+x_k=n
+$$
+
+Selanjutnya fungsi probabilitas dituliskan sebagai berikut:
+
+$$
+f\left(x_1,x_2,...,x_k;\ p_1,p_2,...,p_k\right)
+$$
+
+Seperti yang telah kita ketahui bersama bahwa nilai $p_1+p_2+...+p_k=1$. Sejak percobaan yang dilakukan independen, maka setiap percobaan yang menghasilkan $x_1$ yang merupakan luaran dari $E_1$, $x_2$ yang merupakan luaran dari $E_2$ sampai dengan $x_k$ yang merupakan luaran dari $E_k$ akan terjadi dengan probabilitas $p^{x_1}p^{x_2}...p^{x_k}$.  Jumlah urutan yang menghasilkan hasil yang serupa untuk percobaan $n$ adalah sama dengan jumlah partisi $n$ item ke dalam $k$ grup dengan $x_1$ di grup pertama, $x_2$ di grup kedua, sampai dengan $x_k$ di grup $k$. Kondisi ini dapat dituliskan seperti berikut:
+
+$$
+\binom{n}{x_1,x_2,...,x_k}=\frac{n!}{x_1!x_2!...x_k!}
+$$
+
+Sejak seluruh partisi bersifat *mutually exlusive* dan terjadi dengan probabilitas yang setara, kita dapat memperoleh distribusi multinomial dengan mengalikan probabilitas tiap luaran spesifik dengan jumlah total partisinya. Persamaan distribusi multinomial yang diperoleh dituliskan kedalam Persamaan \@ref(eq:dmultinom).
+
+\begin{equation}
+   f\left(x_1,x_2,...,x_k;\ p_1,p_2,...,p_k\right)=\binom{n}{x_1,x_2,...,x_k}p^{x_1}p^{x_2}...p^{x_k}
+  (\#eq:dmultinom)
+\end{equation}
+
+dimana 
+
+\begin{equation}
+   \sum_{i=1}^kx_i=n\ dan\ \sum_{i=1}^kp_i=1
+  (\#eq:dmultinom2)
+\end{equation}
+
+Untuk memahami penerapan distribusi multinomial, penulis akan memberikan sebuah studi kasus. Probabilitas sejenis pompa memiliki umur ekonomis 2 tahun sebesar 0,30, antara 2-4 tahun adalah 0,50, dan 4-5 tahun adalah 0,20. Hitunglah probabilitas 8 buah pompa dimana pompa dengan umur ekonomis 2 tahun sebanyak 2 buah, 2-4 tahun sebanyak 5 buah, dan antara 4-5 sebanyak 1 buah.
+
+Untuk menyelesaikannya kita perlu mendata jumlah kemunculan disertai dengan probabilitas kejadia pada tiap grup seperti berikut:
+
+$$
+n=8;\ x_1=2\ dengan\ p_1=0,30;\ x_2=5\ dengan\ p_2=0,50,\ dan\ x_3=1\ dengan\ p_1=0,20\ 
+$$
+
+dengan menggunakan Persamaan \@ref(eq:dmultinom), maka probabilitasnya dapat dihitung seperti berikut:
+
+$$
+f\left(2,5,1;0.30,0.50,0.20\right)=\binom{8}{2,5,1}\left(0,3\right)^2\left(0,5\right)^5\left(0,2\right)^1
+$$
+
+$$
+f\left(2,5,1;0.30,0.50,0.20\right)=0,0945
+$$
+
+Pada `R` kita dapat menggunakan fungsi `dmultinom()` untuk menghitung probabilitas distribusi multinomial. Komponen dari fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+dmultinom(x, size, prob)
+``` 
+
+> **Note: **
+>
+> - **x**: vektor numerik
+> - **size**: jumlah percobaan atau perulangan
+> - **prob**: vektor numerik probabilitas tiap grup hasil.
+
+Berikut adalah sintaks untuk menghitung probabilitas multinomial pada contoh kasus di atas:
+
+```{r}
+dmultinom(c(2,5,1), # jumlah kejadian tiap grup 
+          size=8, # jumlah percobaan
+          prob=c(0.3,0.5,0.2)) # probabilitas masing-masing luaran
+```
+
+## Distribusi Hipergeometris
+
+Distribusi hipergeometris didasarkan pada eksperimen hipergeometris yang memiliki asumsi sebagai berikut:
+
+1. Sampel dengan ukuran $n$ diambil secara acak tanpa pengembalian (*sampel without replacement*) dari populasi berukuran $N$.
+2. Pada populasi, $k$ didefinisikan sebagai observasi yang **sukses**, sedangkan $N-k$ didefiniskan sebagai observasi yang **gagal**.
+
+Melalui asusmsi tersebut, kita dapat menemukan perbedaan antara distribusi hipergeometris dengan distribusi binomial. Perbedaan yang paling mendasar adalah metode sampling yang digunakan, dimana distribusi binomial mengasumsikan sampel dengan pengembalian (*sample with replacement*), sedangkan distribusi hipergeometris mengasumsikan sebaliknya.
+
+Distribusi probabilitas hipergeometris untuk variabel acak $X$ dengan jumlah sampel $n$ dari populasi terpilih dengan ukuran populasi $N$, dimana $k$ merupakan observasi **sukses** dan $N-k$ merupakan observasi yang gagal dapat dituliskan berdasarkan Persamaan \@ref(eq:dhiper).
+
+\begin{equation}
+   h\left(x;N,n,k\right)=\frac{\binom{k}{x}\binom{N-k}{n-x}}{\binom{N}{n}},\ \max\left\{0,n-\left(N-k\right)\right\}\le x\le\min\left\{n,k\right\}
+  (\#eq:dhiper)
+\end{equation}
+
+Range dari $x$ dapat ditentukan dari 3 koefisien binomial, dimana $x$ dan $n-x$ tidak lagi lebih besar dari $k$ dan $N-k$ dan nilai keduanya tidak boleh lebih kecil dari 0. Biasanya ketika kedua nilai $k$ dan $N-k$ lebih besar dari ukuran sampel $n$, range dari variabel acak hipergeometris akan menjadi $x=0,1,...,n$.
+
+Untuk memahami penerapan distribusi hipergeometris, kita dapat menerapkannya dalam sebuah contoh kasus. Misalkan pembaca ditugaskan untuk melakukan sortir terhadap 40 sak kompos yang akan dijual dengan berat rata-rata 2 kg. Pembaca diberi tahu bahwa 3 dari seluruh kompos tersebut memiliki berat kurang dari 2 kg sehingga tidak dapat dijual. Tugas pembaca adalah menemukan ketiga sak kompos tersebut. Untuk mempermudah proses tersebut pembaca melakukan sampling secara acak dengan jumlah sampling 5 buah kompos tanpa pengembalian. Hitunglah berapa peluang pada tiap sampling tersebut pembaca menemukan 1 kompos yang memiliki berat lebih kecil dari 2 kg tersebut?.
+
+Berdasarkan studi kasus tersebut kita dapat menyimpulkan bahwa proses sampling yang dilakukan adalah dengan menggunakan prosedur sampling tanpa pengembalian, sehingga distribusi hipergeometris dapat diterapkan dengan nilai $n=5$, $N=40$, $k=3$, dan $x=1$. Dengan menggunakan Persamaan \@ref(eq:dhiper), peluang ditemukan 1 sak kompos yang tidak sesuai adalah sebagai berikut:
+
+$$
+h\left(1;40,5,3\right)=\frac{\binom{3}{1}\binom{40-3}{5-1}}{\binom{40}{5}}=0,3011
+$$
+
+Berdasarkan hasil perhitungan diketahui bahwa peluang untuk menemukan 1 sak kompos dari 3 sak kompos yang tidak sesuai sebesar 30% pada tiap kali sampling.
+
+Pada `R` distribusi probabilitas hipergeometris dapat dihitung menggunakan fungsi `dhyper()`. Format yang digunakan pada fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+dhyper(x, m, n, k)
+```
+
+> **Note: **
+>
+> - **x**: vektor numerik yang menyatakan observasi sukses pada tiap sampling
+> - **m**: jumlah observasi sukses
+> - **n**: jumlah observasi gagal
+> - **k**: ukuran sampel
+
+Berikut adalah sintaks untuk menghitung probabilitas hipergeometris contoh kasus di atas:
+
+```{r}
+dhyper(x=1, # observasi sukses tiap sampling
+       m=3, # observasi sukses (k)
+       n=37, # observasi gagal (N-k)
+       k=5) # sampel
+```
+
+**Probabilitas Kumulatif Hipergeometris**
+
+Pada contoh kasus sebelumnya, sak kompos yang tidak memenuhi kriteria bisa saja saat sampling tidak hanya ditemukan 1 sak yang tidak memenuhi, bisa dua , tiga atau sama sekali tidak ada yang ditemukan sak yang tidak memenuhi kriteria. Kondisi tersebut mengharuskan kita menghitung probabilitas kumulatif dari suatu kondisi seperti $P\left(X<r\right),\ P\left(X>r\right),\ atau\ P\left(a<X<b\right)$ yang dapat dituliskan pada Persamaan \@ref(eq:dhiper2).
+
+\begin{equation}
+   H\left(r;N,n,k\right)=\sum_{x=0}^rh\left(x;N,n,k\right)
+  (\#eq:dhiper2)
+\end{equation}
+
+Pada contoh sebelumnya, hitunglah probabilitas jika paling banyak 2 sak kompos yang tidak memenuhi kriteria ditemukan pada sampel?.
+
+Untuk melakukannya kita perlu menghitung probabilitas hipergeometris untuk kondisi saat $x=0,1,2$. Dengan menggunakan Persamaan \@ref(eq:dhiper2), nilai probabilitas yang dihasilkan adalah sebagai berikut:
+
+$$
+P\left(X\le2\right)=b\left(0;40,5,3\right)+b\left(1;40,5,3\right)+b\left(2;40,5,3\right)=0,999
+$$
+
+Pada `R` probabilitas kumulatif dapat dihitung menggunakan fungsi `phyper()`. Format fungsi yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+phyper(q, m, n, k, lower.tail=TRUE)
+```
+
+> **Note: **
+>
+> - **q**: vektor numerik yang menyatakan observasi maksimum yang sukses saat sampling
+> - **m**: jumlah observasi sukses
+> - **n**: jumlah observasi gagal
+> - **k**: ukuran sampel
+> - **lower.tail**: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE
+
+Dengan menggunakan sintaks tersebut, probabilitas kumulatif dapat dihitung sebagai berikut:
+
+```{r}
+phyper(q=2, # probabilitas <=2
+       m=3, # observasi sukses
+       n=37, # jumlah gagal
+       k=5) # jumlah sampel
+
+# atau
+dhyper(0,3,37,5)+dhyper(1,3,37,5)+dhyper(2,3,37,5)
+```
+
+**Menghitung Nilai Rata-Rata dan Varians Distribusi Hipergeometris**
+
+Nilai rata-rata dan varians distribusi hipergeometris dituliskan kedalam Persamaan \@ref(eq:dhiper3):
+
+\begin{equation}
+   \mu=\frac{nk}{N}\ dan\ \sigma^2=\frac{N-n}{N-1}\cdot n\cdot\frac{k}{N}\left(1-\frac{k}{N}\right)
+  (\#eq:dhiper3)
+\end{equation}
+
+Bila nilai $n<<<N$, maka pendekatan distribusi binomial dapat dilakukan dengan pendekatan $n$ dan $p=\frac{k}{N}$. Pendekatan yang dilakukan akan cukup baik bila $n\le0,1N$.
+
+## Distribusi Binomial Negatif dan Distribusi Geometris
+
+Mari kita bayangkan percobaan di mana sifat-sifatnya (propertinya) sama dengan percobaan binomial, dengan pengecualian bahwa uji coba akan diulangi sampai sejumlah keberhasilan terjadi. Oleh karena itu, alih-alih probabilitas $x$ keberhasilan dalam $n$ percobaan, di mana $n$ tetap, kita sekarang tertarik pada probabilitas bahwa keberhasilan $k$ terjadi pada percobaan ke-$x$. Eksperimen semacam ini disebut eksperimen **binomial negatif**.
+
+Sifat-sifat dari percobaan binomial negatif adalah sebagai berikut:
+
+1. Percobaan terdiri atas sejumlah $x$ perulangan.
+2. Setiap percobaan memiliki dua hasil (**sukses** dan **gagal**).
+3. Probabilitas sukses dinotasikan dengan $p$ yang sama pada setiap percobaan.
+4. Setiap percobaan bersifat independen yang berarti hasil dari sebuah percobaan tidak akan mempengaruhi hasil percobaan lainnya.
+5. Percobaan dilakukan secara terus-menerus sampai dengan sejumlah $k$ sukses terjadi, dimana $k$ ditentukan terlebih dahulu.
+
+Untuk memahaminya misalkan kita menguji sebuah obat dengan memberikannya kepada pasien yang sakit. Keberhasilan obat tersebut Obat dinyatakan sukses jika secara efektif memberikan efek pemulihan bagi pasien. Probabilitas obat tersebut melakukannya berdasarkan hasil studi yang telah dilakukan sebesar 60%. Kita tertarik untuk mengetahui probabilitas pasien kelima yang mengalami efek penyembuhan dimana pasien ini merupakan pasien ketujuh yang diberikan obat tersebut. Untuk melakukannya kita definisikan kejadian sukses dengan simbol $S$ dan gagal dengan simbol $F$, urutan yang mungkin dari ketujuh pasien berdasarkan respon terhadap obat adalah $SFSSSFS$ yang probabilitas kejadian berdasarkan urutan tersebut adalah sebagai berikut:
+
+$$
+\left(0,6\right)\left(0,4\right)\left(0,6\right)\left(0,6\right)\left(0,6\right)\left(0,4\right)\left(0,6\right)=\left(0,6\right)^5\left(0,4\right)^2
+$$
+
+Kita dapat mendaftar sejumlah luaran yang mungkin pada kejadian tersebut mengatur ulang $F$ dan $S$ kecuali untuk hasil terakhir, yang harus menjadi keberhasilan kelima. Jumlah total luaran yang mungkin sama dengan jumlah partisi dari enam (7-1) percobaan pertama menjadi dua kelompok dengan 2 buah gagal dan 4 buah sukses menjadi kelompok tersendiri. Hal ini dapat dilakukan berdasarkan $\binom{6}{4}=15$ cara yang *mutually exclusive*. Oleh karena itu, jika $X$ mewakili hasil dimana keberhasilan kelima terjadi, maka
+
+$$
+P\left(X=7\right)=\binom{6}{4}\left(0.6\right)^2\left(0,4\right)^2=0,1866
+$$
+
+### Distribusi Binomial Negatif
+
+Berdasarkan contoh kasus tersebut, kita dapat mendefinisikan formula untuk distribusi probabilitas binomial negatif. Jika percobaan yang bersifat independen dan berulang dapat menghasilkan keberhasilan (kejadian sukses) dengan probabilitas $p$ dan kegagalan dengan probabilitas $q=1-p$, maka distribusi probabilitas variabel acak $X$, jumlah percobaan di mana keberhasilan k terjadi dinyatakan pada Persamaan \@ref(eq:dnegbinom):
+
+\begin{equation}
+   b^{\ast}\left(x;k,p\right)=\binom{x-1}{k-1}p^kq^{x-k},\ \ \ \ \ x=k,k+1,k+2,....
+  (\#eq:dnegbinom)
+\end{equation}
+
+Untuk lebih memahami penerapan dari distribusi binomial negatif. Misalkan pada suatu evan NBA (Championship series) atau final antar juara wilayah, dimana pada pertandingan puncak kedua tim dari dua wilayah akan melakukan 7 pertandingan terkahir. Suatu tim dinyatakan juara jika berhasil meraih 4 kemenangan dari 7 pertandingan yang ada. Anggaplah tim A dan B berhadapan satu sama lain. Probabilitas A memenangkan suatu pertandingan terhadap tim B sebesar 0,55, tentukan:
+
+- Berapakah probabilitas tim A memenangkan kejuaraan pada pertandingan ke-6 dari 7 pertandingan yang ada?
+- Berapakah probabilitas A memenangkan kejuaraan?
+
+Dengan menggunakan Persamaan \@ref(eq:dnegbinom), probabilitas kemenangan tim A terhadap tim B dapat dihitung sebagai berikut:
+
+- **Tim A juara pada pertandingan ke-6 ($x=6$, $k=4$, dan $p=0,55$)**
+
+$$
+b^{\ast}\left(6;4,0.55\right)=\binom{6-1}{4-1}0,55^4\left(1-0,55\right)^{6-4}=0,1853
+$$
+
+- **Tim A menjuarai kejuaraan**
+
+Tim A dapat menjuarai kejuaraan jika telah memenangkan 4 dari 7 pertandingan. Kemungkinan Tim A dapat memenangkan pertandingan tersebut dapat terjadi pada pertandingan ke-4 (menang berturut-turut), pertandingan ke-6, dan pertandingan ke-7.
+
+$$
+b^{\ast}\left(4;4,0.55\right)+b^{\ast}\left(5;4,0.55\right)+b^{\ast}\left(6;4,0.55\right)+b^{\ast}\left(7;4,0.55\right)
+$$
+
+$$
+0,0915+0,1647+0,1853+0,1668=0,6083
+$$
+
+Pada `R` kita dapat menghitung probabilitas binomial negatif menggunakan fungsi `dnbinom()`. Format fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+dnbinom(x, size, prob)
+```
+
+> **Note: **
+>
+> - **x**: jumlah observasi gagal
+> - **size**: jumlah observasi sukses
+> - **prob**: probabilitas kejadian sukses
+
+Dengan menggunakan fungsi `dnbinom()`, probabilitas Tim A menang pada pertandingan ke-6 dapat dihitung sebagai berikut:
+
+```{r}
+dnbinom(x=2, # jumlah observasi gagal
+        size=4, # jumlah observasi sukses
+        prob=0.55) # probabilitas sukses
+```
+
+Pada pertanyaan kedua soal dapat kita impulkan bahwa kita hendak mencari probabilitas kumulatif kemenangan Tim A. Untuk melakukannya kita dapat menggunakan fungsi `pnbinom()`. Format fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+pnbinom(q, size, prob, lower.tail = TRUE)
+```
+
+> **Note: **
+>
+> - **q**: jumlah observasi gagal minimum 
+> - **size**: jumlah observasi sukses maksimum
+> - **prob**: probabilitas sukses
+> - **lower.tail**: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE
+
+Dengan menggunakan fungsi tersebut, probabilitas kumulatif kemenangan Tim A adalah sebagai berikut:
+
+```{r}
+pnbinom(q=3, # jumlah observasi gagal min
+        size=4, # jumlah observasi sukses maks
+        prob=0.55) # probabilitas sukses
+
+# atau
+dnbinom(x=0,size=4,prob=0.55)+
+  dnbinom(x=1,size=4,prob=0.55)+
+  dnbinom(x=2,size=4,prob=0.55)+
+  dnbinom(x=3,size=4,prob=0.55)
+```
+
+### Distribusi Geometris
+
+Pada kenyataannya kita hanya tertarik terhadap probabilitas kejadian sukses pertama kali akan terjadi. Probabilitas kejadian tersebut merupakan kejadian pada **distribusi probabilitas geometris**. Distribusi ini merupakan kasus khusus distribusi binomial negatif.
+
+Jika suatu suatu percobaan independen dapat menghasilkan kejadian sukses dengan probabilitas $p$ dan gagal dengan probabilitas $q=1-p$, maka distribusi probabilitas variabel acak $X$, jumlah percobaan dimana sukses pertama terjadi didefinisikan pada Persamaan \@ref(eq:dgeom):
+
+\begin{equation}
+   g\left(x;p\right)=pq^{x-1},\ \ \ \ \ x=1,2,3,...
+  (\#eq:dgeom)
+\end{equation}
+
+Agar pembaca lebih memahaminya, misalkan suatu pabrik memiliki probabilitas 1 dari 100 barang produksinya merupakan produk cacat. Pemeriksaan dilakukan pada setiap barang tersebut. Tentukan probabilitas barang ke-5 hasil pengecekan merupakan barang yang cacat?
+
+Dengan menggunakan Persamaan \@ref(eq:dgeom) probabilitas barang ke-5 merupakan produk gagal sebagai berikut:
+
+$$
+g\left(5;0.01\right)=\left(0,01\right)\left(0,99\right)^{5-1}=0,0096
+$$
+
+Pada `R` probabilitas tersebut dapat dihitung menggunakan fungsi `dgeom()`. Format fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+dgeom(x, prob)
+```
+
+> **Note: **
+>
+> - **x**: vektor numerik observasi dimana kejadian sukses terjadi pertama kali
+> - **prob**: probabilitas kejadian sukses
+
+Dengan menggunakan fungsi tersebut, probabilitas geometris dapat dihitung seperti berikut:
+
+```{r}
+dgeom(x=5, # observasi kejadian sukses pertama terjadi
+      prob=0.01) # probabilitas kejadian sukses
+```
+
+Terkadang kita tertarik untuk mempelajari probabilitas kejadian sukses pertama kali berdasarkan suatu rentang observasi atau dapat didefinisikan $P\left(X<r\right),\ P\left(X>r\right),\ atau\ P\left(a<X<b\right)$ yang dapat dituliskan pada Persamaan \@ref(eq:dgeom2).
+
+\begin{equation}
+   g\left(r;p\right)=\sum _{x=0}^rg\left(x,p\right)
+  (\#eq:dgeom2)
+\end{equation}
+
+Berdasarkan contoh sebelumnya hitunglah probabilitas barang cacat pertama kali ditemukan pada observasi kurang dari sama dengan observasi ke-5?
+
+$$
+P\left(P\le5\right)=g\left(0;0.01\right)+g\left(1;0.01\right)+...+g\left(5;0.01\right)=0.0585
+$$
+
+Pada `R` fungsi yang digunakan untuk menghitung probabilitas kumulatif distribusi probabilitas geometris adalah `pgeom()`. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+pgeom(q, prob, lower.tail = TRUE)
+```
+
+> **Note: **
+>
+> - **q**: batas observasi minimum terjadi
+> - **prob**: probabilitas sukses
+> - **lower.tail**: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE
+
+Berdasarkan hal tersebut, maka probabilitas dapat dihitung seperti berikut:
+
+```{r}
+pgeom(5,0.01)
+
+# atau
+dgeom(0,0.01)+
+  dgeom(1,0.01)+
+  dgeom(2,0.01)+
+  dgeom(3,0.01)+
+  dgeom(4,0.01)+
+  dgeom(5,0.01)
+```
+
+Nilai rata-rata dan varians distribusi probabilitas geometris disajikan pada Persamaan \@ref(eq:dgeom3).
+
+\begin{equation}
+   \mu=\frac{1}{p}\ dan\ \sigma^2=\frac{1-p}{p^2}
+  (\#eq:dgeom3)
+\end{equation}
+
+
