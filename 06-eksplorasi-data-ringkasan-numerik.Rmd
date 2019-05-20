@@ -5,10 +5,6 @@ body{
 text-align: justify}
 </style>
 
-```{r, include=FALSE}
-options(tinytex.verbose = TRUE)
-```
-
 # Ringkasan Numerik
 
 Pada bidang lingkungan kita sering kali menemui sebuah pernyataan "konsentrasi rata-rata TSS pada sungai tersebut adalah 30 mg/l" atau "kedalaman penampang saluran tersebut berkisar antara 1 sampai 2 meter". Kedua pernyataan tersebut merupakan sebuah penyapaian informasi terkait karakteristik data yang ada. Pernyataan yang pertama menyatakan karakteristik nilai pemusatan data, sedangkan yang kedua menyatakan karakteristik sebaran suatu data.

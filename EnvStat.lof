@@ -162,19 +162,38 @@
 \contentsline {figure}{\numberline {8.1}{\ignorespaces Diagram venn peristiwa mutually exclusive}}{250}{figure.8.1}% 
 \contentsline {figure}{\numberline {8.2}{\ignorespaces Diagram venn peristiwa not mutually exclusive}}{252}{figure.8.2}% 
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Distribusi uniform dengan nilai min 1 dan max 3}}{273}{figure.9.1}% 
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Probabilitas distribusi uniform pada rentang nilai x 3 sampai 4}}{274}{figure.9.2}% 
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.}}{275}{figure.9.3}% 
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.}}{276}{figure.9.4}% 
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Distribusi normal dengan nilai mean berbeda dan simpangan baku berbeda.}}{276}{figure.9.5}% 
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Luas area di bawah kurva normal.}}{277}{figure.9.6}% 
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Luas area masa layan lampu antara 750 sampai 830 jam.}}{278}{figure.9.7}% 
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Luas area masa layan lampu lebih dari atau sama dengan 830 jam.}}{279}{figure.9.8}% 
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Visualisasi distribusi konsentrasi ozon Kota New York a)density plot, b)boxplot, c)ecdf, d)qq-plot}}{281}{figure.9.9}% 
+\contentsline {figure}{\numberline {9.10}{\ignorespaces Luas area jumlah pompa rusak kurang dari 30.}}{283}{figure.9.10}% 
+\contentsline {figure}{\numberline {9.11}{\ignorespaces Visualisasi distribusi gamma dengan variasi alpha dengan beta 1 a) density plot, b)ecdf}}{284}{figure.9.11}% 
+\contentsline {figure}{\numberline {9.12}{\ignorespaces Visualisasi distribusi chi-square dengan variasi derajat kebebasan a) density plot, b)ecdf}}{287}{figure.9.12}% 
+\contentsline {figure}{\numberline {9.13}{\ignorespaces Visualisasi distribusi t dengan variasi derajat kebebasan a) density plot, b)ecdf}}{288}{figure.9.13}% 
+\contentsline {figure}{\numberline {9.14}{\ignorespaces Visualisasi distribusi F dengan variasi derajat kebebasan a) density plot, b)ecdf}}{289}{figure.9.14}% 
+\contentsline {figure}{\numberline {9.15}{\ignorespaces Visualisasi distribusi beta dengan variasi derajat kebebasan a) density plot, b)ecdf}}{290}{figure.9.15}% 
+\contentsline {figure}{\numberline {9.16}{\ignorespaces Visualisasi distribusi beta dengan variasi mean dan sd a) density plot, b)ecdf}}{291}{figure.9.16}% 
+\contentsline {figure}{\numberline {9.17}{\ignorespaces Visualisasi distribusi t dengan variasi m dan beta a) density plot, b)ecdf}}{292}{figure.9.17}% 
+\contentsline {figure}{\numberline {9.18}{\ignorespaces Visualisasi distribusi logistik dengan variasi mean dan simpangan baku, a) density plot, b)ecdf}}{293}{figure.9.18}% 
+\contentsline {figure}{\numberline {9.19}{\ignorespaces Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a) density plot, b)ecdf}}{294}{figure.9.19}% 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)}}{275}{figure.10.1}% 
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)}}{276}{figure.10.2}% 
-\contentsline {figure}{\numberline {10.3}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya (Helsel dan Hirsch, 2002)}}{276}{figure.10.3}% 
-\contentsline {figure}{\numberline {10.4}{\ignorespaces Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)}}{277}{figure.10.4}% 
-\contentsline {figure}{\numberline {10.5}{\ignorespaces Distribusi konsentrasi arsenik dalam air tanah}}{277}{figure.10.5}% 
-\contentsline {figure}{\numberline {10.6}{\ignorespaces Lokasi probabilitas x berdasarkan tabel distribusi binomial}}{279}{figure.10.6}% 
-\contentsline {figure}{\numberline {10.7}{\ignorespaces Distribusi logaritmik konsentrasi arsenik dalam air tanah}}{284}{figure.10.7}% 
-\contentsline {figure}{\numberline {10.8}{\ignorespaces Prediksi interval dua sisi (Helsel dan Hirsch, 2002)}}{291}{figure.10.8}% 
-\contentsline {figure}{\numberline {10.9}{\ignorespaces Prediksi interval satu sisi (Helsel dan Hirsch, 2002)}}{292}{figure.10.9}% 
-\contentsline {figure}{\numberline {10.10}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)}}{302}{figure.10.10}% 
-\contentsline {figure}{\numberline {10.11}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)}}{302}{figure.10.11}% 
-\contentsline {figure}{\numberline {10.12}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)}}{303}{figure.10.12}% 
-\contentsline {figure}{\numberline {10.13}{\ignorespaces Distribusi bootstrap median}}{306}{figure.10.13}% 
-\contentsline {figure}{\numberline {10.14}{\ignorespaces Distribusi bootstrap mean}}{308}{figure.10.14}% 
-\contentsline {figure}{\numberline {10.15}{\ignorespaces Distribusi bootstrap persentil 90}}{310}{figure.10.15}% 
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)}}{301}{figure.10.1}% 
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)}}{302}{figure.10.2}% 
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya (Helsel dan Hirsch, 2002)}}{302}{figure.10.3}% 
+\contentsline {figure}{\numberline {10.4}{\ignorespaces Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)}}{303}{figure.10.4}% 
+\contentsline {figure}{\numberline {10.5}{\ignorespaces Distribusi konsentrasi arsenik dalam air tanah}}{303}{figure.10.5}% 
+\contentsline {figure}{\numberline {10.6}{\ignorespaces Lokasi probabilitas x berdasarkan tabel distribusi binomial}}{305}{figure.10.6}% 
+\contentsline {figure}{\numberline {10.7}{\ignorespaces Distribusi logaritmik konsentrasi arsenik dalam air tanah}}{310}{figure.10.7}% 
+\contentsline {figure}{\numberline {10.8}{\ignorespaces Prediksi interval dua sisi (Helsel dan Hirsch, 2002)}}{317}{figure.10.8}% 
+\contentsline {figure}{\numberline {10.9}{\ignorespaces Prediksi interval satu sisi (Helsel dan Hirsch, 2002)}}{318}{figure.10.9}% 
+\contentsline {figure}{\numberline {10.10}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)}}{328}{figure.10.10}% 
+\contentsline {figure}{\numberline {10.11}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)}}{328}{figure.10.11}% 
+\contentsline {figure}{\numberline {10.12}{\ignorespaces Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)}}{329}{figure.10.12}% 
+\contentsline {figure}{\numberline {10.13}{\ignorespaces Distribusi bootstrap median}}{332}{figure.10.13}% 
+\contentsline {figure}{\numberline {10.14}{\ignorespaces Distribusi bootstrap mean}}{334}{figure.10.14}% 
+\contentsline {figure}{\numberline {10.15}{\ignorespaces Distribusi bootstrap persentil 90}}{336}{figure.10.15}% 

@@ -5,10 +5,6 @@ body{
 text-align: justify}
 </style>
 
-```{r, include=FALSE}
-options(tinytex.verbose = TRUE)
-```
-
 # Mengenal Bahasa R 
 
 Dewasa ini tersedia banyak sekali *software* yang dapat digunakan untuk membantu kita dalam melakukan analisa data. *software* yang digunakan dapat berupa *software* berbayar atau gratis.
