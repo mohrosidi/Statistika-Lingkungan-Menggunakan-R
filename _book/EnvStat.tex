@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-05-20}
+    \date{2019-05-23}
 
 \usepackage{booktabs}
 
@@ -3445,6 +3445,830 @@ Berikut adalah contoh penerapan \emph{break} pada beberapa jenis
 ## [1] 6
 \end{verbatim}
 
+\section{Loop Menggunakan Apply Family
+Function}\label{loop-menggunakan-apply-family-function}
+
+Penggunaan loop sangat membantu kita dalam melakukan proses perhitungan
+berulang. Namun, metode ini tidak cukup ringkas dalam penerapannya dan
+perlu penulisan sintaks yang cukup panjang untuk menyelesaikan sebuah
+kasus yang kita inginkan. Berikut adalah sebuah sintaks yang digunakan
+untuk menghitung nilai mean pada suatu dataset:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# subset data iris}
+\NormalTok{sub_iris <-}\StringTok{ }\NormalTok{iris[,}\OperatorTok{-}\DecValTok{5}\NormalTok{]}
+\CommentTok{# membuat vektor untuk menyimpan hasil loop}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{,}\DecValTok{4}\NormalTok{)}
+\CommentTok{# loop}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(sub_iris))\{}
+\NormalTok{  a[i]<-}\KeywordTok{mean}\NormalTok{(sub_iris[,i])}
+\NormalTok{\}}
+\CommentTok{# print}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.843 3.057 3.758 1.199
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(a) }\CommentTok{# cek kelas objek}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+Metode alternatif lain untuk melakukan loop suatu fungsi adalah dengan
+menggunakan Apply function family. Metode ini memungkinkan kita untuk
+melakukan loop suatu fungsi tanpa perlu menuliskan sintaks loop. Berikut
+adalah beberapa fungsi dari apply family yang nantinya akan sering kita
+gunakan:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{apply()}: fungsi generik yang mengaplikasikan fungsi kepada
+  kolom atau baris pada matriks atau secara lebih general aplikasi
+  dilakukan pada dimensi untuk jenis data array.
+\item
+  \texttt{lapply()}: fungsi apply yang bekerja pada jenis data list dan
+  memberikan output berupa list juga.
+\item
+  \texttt{sapply()}: bentuk sederhana dari lapply yang menghasilkan
+  output berupa matriks atau vektor.
+\item
+  \texttt{vapply()}: disebut juga \emph{verified apply} (memungkinkan
+  untuk menghasilkan output dengan jenis data yang telah ditentukan
+  sebelumnya).
+\item
+  \texttt{tapply()}: \emph{tagged apply} dimana dimana tag menentukan
+  subset dari data.
+\end{itemize}
+
+\subsection{Apply}\label{apply}
+
+Fungsi \texttt{apply()} bekerja dengan jenis data matrik atau array
+(jenis data homogen). Kita dapat melakukan spesifikasi apakah suatu
+fungsi hanya akan bekerja pada kolom saja, baris saja atau keduanya.
+Format fungsi ini adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{apply}\NormalTok{(X, MARGIN, FUN, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{X}: matriks atau array
+\item
+  \textbf{MARGIN}: menentukan bagaimana fungsi bekerja terhadap matriks
+  atau array. Jika nilai yang diinputkan 1, maka fungsi akan bekerja
+  pada masing-masing baris pada matriks. Jika nilainya 2, maka fungsi
+  akan bekerja pada tiap kolom pada matriks.
+\item
+  \textbf{FUN}: fungsi yang akan digunakan. Fungsi yang dapat digunakan
+  dapat berupa fungsi dasar matematika atau statistika, serta user
+  define function.
+\item
+  \textbf{\ldots{}}: opsional argumen pada fungsi yang digunakan.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh bagaimana aplikasi fungsi tersebut pada matriks:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## membuat matriks}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(}\DataTypeTok{x1 =} \DecValTok{3}\NormalTok{, }\DataTypeTok{x2 =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\OperatorTok{:}\DecValTok{1}\NormalTok{, }\DecValTok{2}\OperatorTok{:}\DecValTok{5}\NormalTok{))}
+\NormalTok{x }\CommentTok{# print}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      x1 x2
+## [1,]  3  4
+## [2,]  3  3
+## [3,]  3  2
+## [4,]  3  1
+## [5,]  3  2
+## [6,]  3  3
+## [7,]  3  4
+## [8,]  3  5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(x) }\CommentTok{# cek kelas objek}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "matrix"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## menghitung mean masing-masing kolom}
+\KeywordTok{apply}\NormalTok{(x, }\DataTypeTok{MARGIN=}\DecValTok{2}\NormalTok{ ,}\DataTypeTok{FUN=}\NormalTok{mean, }\DataTypeTok{trim=}\FloatTok{0.2}\NormalTok{, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## x1 x2 
+##  3  3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## menghitung range nilai pada masing-masing baris}
+\NormalTok{## menggunakan user define function}
+\KeywordTok{apply}\NormalTok{(x, }\DataTypeTok{MARGIN=}\DecValTok{1}\NormalTok{,}
+      \DataTypeTok{FUN=}\ControlFlowTok{function}\NormalTok{(x)\{}
+        \KeywordTok{max}\NormalTok{(x)}\OperatorTok{-}\KeywordTok{min}\NormalTok{(x)}
+\NormalTok{      \})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 0 1 2 1 0 1 2
+\end{verbatim}
+
+\subsection{lapply}\label{lapply}
+
+Fungsi ini melakukan loop fungsi terhadap input data berupa list. Output
+yang dihasilkan juga merupakan list dengan panjang list yang sama dengan
+yang diinputkan. Format yang digunakan adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{lapply}\NormalTok{(X, FUN, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{X}: vektor, data frame atau list
+\item
+  \textbf{FUN}: fungsi yang akan digunakan. Fungsi yang dapat digunakan
+  dapat berupa fungsi dasar matematika atau statistika, serta user
+  define function. Subset juga dimungkinkan pada fungsi ini.
+\item
+  \textbf{\ldots{}}: opsional argumen pada fungsi yang digunakan.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penerapan fungsi lapply:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Membuat list}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{a =} \DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{beta =} \KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\DecValTok{3}\OperatorTok{:}\DecValTok{3}\NormalTok{), }\DataTypeTok{logic =} \KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{,}\OtherTok{FALSE}\NormalTok{,}\OtherTok{FALSE}\NormalTok{,}\OtherTok{TRUE}\NormalTok{))}
+\NormalTok{x }\CommentTok{# print}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $a
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $beta
+## [1]  0.04979  0.13534  0.36788  1.00000  2.71828
+## [6]  7.38906 20.08554
+## 
+## $logic
+## [1]  TRUE FALSE FALSE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(x) }\CommentTok{# cek kelas objek}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "list"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Menghitung nilai mean pada masing-masing baris lits}
+\KeywordTok{lapply}\NormalTok{(x, }\DataTypeTok{FUN=}\NormalTok{mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $a
+## [1] 5.5
+## 
+## $beta
+## [1] 4.535
+## 
+## $logic
+## [1] 0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Menghitung mean tiap kolom dataset iris}
+\KeywordTok{lapply}\NormalTok{(iris, }\DataTypeTok{FUN=}\NormalTok{mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in mean.default(X[[i]], ...): argument is not
+## numeric or logical: returning NA
+\end{verbatim}
+
+\begin{verbatim}
+## $Sepal.Length
+## [1] 5.843
+## 
+## $Sepal.Width
+## [1] 3.057
+## 
+## $Petal.Length
+## [1] 3.758
+## 
+## $Petal.Width
+## [1] 1.199
+## 
+## $Species
+## [1] NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Mengalikan elemen vektor dengan suatu nilai}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)}
+\KeywordTok{lapply}\NormalTok{(y, }\DataTypeTok{FUN=}\ControlFlowTok{function}\NormalTok{(x)\{x}\OperatorTok{*}\DecValTok{5}\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] 5
+## 
+## [[2]]
+## [1] 10
+## 
+## [[3]]
+## [1] 15
+## 
+## [[4]]
+## [1] 20
+## 
+## [[5]]
+## [1] 25
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Mengubah output menjadi vektor}
+\KeywordTok{unlist}\NormalTok{(}\KeywordTok{lapply}\NormalTok{(y, }\DataTypeTok{FUN=}\ControlFlowTok{function}\NormalTok{(x)\{x}\OperatorTok{*}\DecValTok{5}\NormalTok{\}))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  5 10 15 20 25
+\end{verbatim}
+
+\subsection{sapply}\label{sapply}
+
+Fungsi \texttt{sapply()} merupakan bentuk lain dari fungsi
+\texttt{lapply()}. Perbedaanya terletak pada output default yang
+dihasilkan. Secara default \texttt{sapply()} menerima input utama berupa
+list (dapat pula dataframe atau vektor), namun tidak seperti
+\texttt{lapply()} jenis data output yang dihasilkan adalah vektor. Untuk
+mengubah output menjadi list perlu argumen tambahan berupa
+\texttt{simplify=FALSE}. Format fungsi tersebut adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sapply}\NormalTok{(X, FUN, ..., }\DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{USE.NAMES =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{X}: vektor, data frame atau list
+\item
+  \textbf{FUN}: fungsi yang akan digunakan. Fungsi yang dapat digunakan
+  dapat berupa fungsi dasar matematika atau statistika, serta user
+  define function. Subset juga dimungkinkan pada fungsi ini.
+\item
+  \textbf{\ldots{}}: opsional argumen pada fungsi yang digunakan.
+\item
+  \textbf{simplify}: logical. Jika nilainya TRUE maka output yang
+  dihasilkan adalah bentuk sederhana dari vektor, matrix atau array.
+\item
+  \textbf{USE.NAMES}: jika list memiliki nama pada setiap elemennya,
+  maka nama elemen tersebut akan secara default ditampilkan.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## membuat list}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{a =} \DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{beta =} \KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\DecValTok{3}\OperatorTok{:}\DecValTok{3}\NormalTok{), }\DataTypeTok{logic =} \KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{,}\OtherTok{FALSE}\NormalTok{,}\OtherTok{FALSE}\NormalTok{,}\OtherTok{TRUE}\NormalTok{))}
+
+\NormalTok{## menghitung nilai mean setiap elemen}
+\KeywordTok{sapply}\NormalTok{(x, }\DataTypeTok{FUN=}\NormalTok{mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     a  beta logic 
+## 5.500 4.535 0.500
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## menghitung nilai mean dengan output list}
+\KeywordTok{sapply}\NormalTok{(x, }\DataTypeTok{FUN=}\NormalTok{mean, }\DataTypeTok{simplify=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $a
+## [1] 5.5
+## 
+## $beta
+## [1] 4.535
+## 
+## $logic
+## [1] 0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## summary objek dataframe}
+\KeywordTok{sapply}\NormalTok{(mtcars, }\DataTypeTok{FUN=}\NormalTok{summary)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           mpg   cyl  disp    hp  drat    wt  qsec
+## Min.    10.40 4.000  71.1  52.0 2.760 1.513 14.50
+## 1st Qu. 15.43 4.000 120.8  96.5 3.080 2.581 16.89
+## Median  19.20 6.000 196.3 123.0 3.695 3.325 17.71
+## Mean    20.09 6.188 230.7 146.7 3.597 3.217 17.85
+## 3rd Qu. 22.80 8.000 326.0 180.0 3.920 3.610 18.90
+## Max.    33.90 8.000 472.0 335.0 4.930 5.424 22.90
+##             vs     am  gear  carb
+## Min.    0.0000 0.0000 3.000 1.000
+## 1st Qu. 0.0000 0.0000 3.000 2.000
+## Median  0.0000 0.0000 4.000 2.000
+## Mean    0.4375 0.4062 3.688 2.812
+## 3rd Qu. 1.0000 1.0000 4.000 4.000
+## Max.    1.0000 1.0000 5.000 8.000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## summary objek list}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mobil=}\NormalTok{mtcars, }\DataTypeTok{anggrek=}\NormalTok{iris)}
+\KeywordTok{sapply}\NormalTok{(a, }\DataTypeTok{FUN=}\NormalTok{summary)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $mobil
+##       mpg            cyl            disp      
+##  Min.   :10.4   Min.   :4.00   Min.   : 71.1  
+##  1st Qu.:15.4   1st Qu.:4.00   1st Qu.:120.8  
+##  Median :19.2   Median :6.00   Median :196.3  
+##  Mean   :20.1   Mean   :6.19   Mean   :230.7  
+##  3rd Qu.:22.8   3rd Qu.:8.00   3rd Qu.:326.0  
+##  Max.   :33.9   Max.   :8.00   Max.   :472.0  
+##        hp             drat            wt      
+##  Min.   : 52.0   Min.   :2.76   Min.   :1.51  
+##  1st Qu.: 96.5   1st Qu.:3.08   1st Qu.:2.58  
+##  Median :123.0   Median :3.69   Median :3.33  
+##  Mean   :146.7   Mean   :3.60   Mean   :3.22  
+##  3rd Qu.:180.0   3rd Qu.:3.92   3rd Qu.:3.61  
+##  Max.   :335.0   Max.   :4.93   Max.   :5.42  
+##       qsec            vs              am       
+##  Min.   :14.5   Min.   :0.000   Min.   :0.000  
+##  1st Qu.:16.9   1st Qu.:0.000   1st Qu.:0.000  
+##  Median :17.7   Median :0.000   Median :0.000  
+##  Mean   :17.8   Mean   :0.438   Mean   :0.406  
+##  3rd Qu.:18.9   3rd Qu.:1.000   3rd Qu.:1.000  
+##  Max.   :22.9   Max.   :1.000   Max.   :1.000  
+##       gear           carb     
+##  Min.   :3.00   Min.   :1.00  
+##  1st Qu.:3.00   1st Qu.:2.00  
+##  Median :4.00   Median :2.00  
+##  Mean   :3.69   Mean   :2.81  
+##  3rd Qu.:4.00   3rd Qu.:4.00  
+##  Max.   :5.00   Max.   :8.00  
+## 
+## $anggrek
+##   Sepal.Length   Sepal.Width    Petal.Length 
+##  Min.   :4.30   Min.   :2.00   Min.   :1.00  
+##  1st Qu.:5.10   1st Qu.:2.80   1st Qu.:1.60  
+##  Median :5.80   Median :3.00   Median :4.35  
+##  Mean   :5.84   Mean   :3.06   Mean   :3.76  
+##  3rd Qu.:6.40   3rd Qu.:3.30   3rd Qu.:5.10  
+##  Max.   :7.90   Max.   :4.40   Max.   :6.90  
+##   Petal.Width        Species  
+##  Min.   :0.1   setosa    :50  
+##  1st Qu.:0.3   versicolor:50  
+##  Median :1.3   virginica :50  
+##  Mean   :1.2                  
+##  3rd Qu.:1.8                  
+##  Max.   :2.5
+\end{verbatim}
+
+\subsection{vapply}\label{vapply}
+
+Funsgi ini merupakan bentuk lain dari \texttt{sapply()}. Bedanya secara
+kecepatan proses fungsi ini lebih cepat dari \texttt{sapply()}. Hal yang
+menarik dari fungsi ini kita dapat menambahkan argumen
+\texttt{FUN.VALUE}. pada argumen ini kita memasukkan vektor berupa
+output fungsi yang diinginkan. Perbedaan lainnya adalah output yang
+dihasilkan hanya berupa matriks atau array. Format dari fungsi ini
+adalah sebagai berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{vapply}\NormalTok{(X, FUN, FUN.VALUE, ..., }\DataTypeTok{USE.NAMES =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{X}: vektor, data frame atau list
+\item
+  \textbf{FUN}: fungsi yang akan digunakan. Fungsi yang dapat digunakan
+  dapat berupa fungsi dasar matematika atau statistika, serta user
+  define function. Subset juga dimungkinkan pada fungsi ini.
+\item
+  \textbf{FUN.VALUE}: vektor, template dari return value FUN.
+\item
+  \textbf{\ldots{}}: opsional argumen pada fungsi yang digunakan.
+\item
+  \textbf{USE.NAMES}: jika list memiliki nama pada setiap elemennya,
+  maka nama elemen tersebut akan secara default ditampilkan.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## membuat list}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(}\DecValTok{3}\OperatorTok{:}\DecValTok{9}\NormalTok{, seq)}
+\NormalTok{x }\CommentTok{# print}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] 1 2 3 4
+## 
+## [[3]]
+## [1] 1 2 3 4 5
+## 
+## [[4]]
+## [1] 1 2 3 4 5 6
+## 
+## [[5]]
+## [1] 1 2 3 4 5 6 7
+## 
+## [[6]]
+## [1] 1 2 3 4 5 6 7 8
+## 
+## [[7]]
+## [1] 1 2 3 4 5 6 7 8 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## membuat ringkasan data pada tiap elemen list}
+\KeywordTok{vapply}\NormalTok{(x, fivenum,}
+       \KeywordTok{c}\NormalTok{(}\DataTypeTok{Min. =} \DecValTok{0}\NormalTok{, }\StringTok{"1st Qu."}\NormalTok{ =}\StringTok{ }\DecValTok{0}\NormalTok{, }
+         \DataTypeTok{Median =} \DecValTok{0}\NormalTok{, }\StringTok{"3rd Qu."}\NormalTok{ =}\StringTok{ }\DecValTok{0}\NormalTok{, }\DataTypeTok{Max. =} \DecValTok{0}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+## Min.     1.0  1.0    1  1.0  1.0  1.0    1
+## 1st Qu.  1.5  1.5    2  2.0  2.5  2.5    3
+## Median   2.0  2.5    3  3.5  4.0  4.5    5
+## 3rd Qu.  2.5  3.5    4  5.0  5.5  6.5    7
+## Max.     3.0  4.0    5  6.0  7.0  8.0    9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## membuat ringkasan data pada tiap kolom dataframe}
+\KeywordTok{vapply}\NormalTok{(mtcars, summary,}
+       \KeywordTok{c}\NormalTok{(}\DataTypeTok{Min. =} \DecValTok{0}\NormalTok{, }\StringTok{"1st Qu."}\NormalTok{ =}\StringTok{ }\DecValTok{0}\NormalTok{, }
+         \DataTypeTok{Median =} \DecValTok{0}\NormalTok{, }\StringTok{"3rd Qu."}\NormalTok{ =}\StringTok{ }\DecValTok{0}\NormalTok{, }\DataTypeTok{Max. =} \DecValTok{0}\NormalTok{, }\DataTypeTok{Mean=}\DecValTok{0}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           mpg   cyl  disp    hp  drat    wt  qsec
+## Min.    10.40 4.000  71.1  52.0 2.760 1.513 14.50
+## 1st Qu. 15.43 4.000 120.8  96.5 3.080 2.581 16.89
+## Median  19.20 6.000 196.3 123.0 3.695 3.325 17.71
+## 3rd Qu. 20.09 6.188 230.7 146.7 3.597 3.217 17.85
+## Max.    22.80 8.000 326.0 180.0 3.920 3.610 18.90
+## Mean    33.90 8.000 472.0 335.0 4.930 5.424 22.90
+##             vs     am  gear  carb
+## Min.    0.0000 0.0000 3.000 1.000
+## 1st Qu. 0.0000 0.0000 3.000 2.000
+## Median  0.0000 0.0000 4.000 2.000
+## 3rd Qu. 0.4375 0.4062 3.688 2.812
+## Max.    1.0000 1.0000 4.000 4.000
+## Mean    1.0000 1.0000 5.000 8.000
+\end{verbatim}
+
+\subsection{tapply}\label{tapply}
+
+Fungsi ini sangat berguna jika pembaca ingin menghitung suatu nilai
+misalnya mean berdasarkan grup data atau factor. Format fungsi ini
+adalah sebagi berikut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tapply}\NormalTok{(X, INDEX, }\DataTypeTok{FUN =} \OtherTok{NULL}\NormalTok{, ..., }\DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{X}: vektor, data frame atau list
+\item
+  \textbf{INDEX}: list satu atau beberapa factor yang memiliki panjang
+  sama dengan X.
+\item
+  \textbf{FUN}: fungsi yang akan digunakan. Fungsi yang dapat digunakan
+  dapat berupa fungsi dasar matematika atau statistika, serta user
+  define function. Subset juga dimungkinkan pada fungsi ini.
+\item
+  \textbf{\ldots{}}: opsional argumen pada fungsi yang digunakan.
+\item
+  \textbf{simplify}: logical. Jika nilainya TRUE maka output yang
+  dihasilkan adalah bentuk skalar.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh penerapannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## membuat tabel frekuensi}
+\NormalTok{groups <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(}\KeywordTok{rbinom}\NormalTok{(}\DecValTok{32}\NormalTok{, }\DataTypeTok{n =} \DecValTok{5}\NormalTok{, }\DataTypeTok{prob =} \FloatTok{0.4}\NormalTok{))}
+
+\KeywordTok{tapply}\NormalTok{(groups, groups, length)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  9 13 14 15 16 
+##  1  1  1  1  1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# atau}
+\KeywordTok{table}\NormalTok{(groups)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## groups
+##  9 13 14 15 16 
+##  1  1  1  1  1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## membuat tabel kontingensi}
+\CommentTok{# menghitung jumlah breaks berdasarkan faktor jenis wool}
+\CommentTok{# dan tensi level}
+\KeywordTok{tapply}\NormalTok{(}\DataTypeTok{X=}\NormalTok{warpbreaks}\OperatorTok{$}\NormalTok{breaks, }\DataTypeTok{INDEX=}\NormalTok{warpbreaks[,}\OperatorTok{-}\DecValTok{1}\NormalTok{], }\DataTypeTok{FUN=}\NormalTok{sum)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     tension
+## wool   L   M   H
+##    A 401 216 221
+##    B 254 259 169
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menghitung mean panjang gigi babi hutan berdasarkan}
+\CommentTok{# jenis suplemen dan dosisnya}
+\KeywordTok{tapply}\NormalTok{(ToothGrowth}\OperatorTok{$}\NormalTok{len, ToothGrowth[,}\OperatorTok{-}\DecValTok{1}\NormalTok{], mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     dose
+## supp   0.5     1     2
+##   OJ 13.23 22.70 26.06
+##   VC  7.98 16.77 26.14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menghitung mpg minimum berdasarkan jumlah silinder pada mobil}
+\KeywordTok{tapply}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg, mtcars}\OperatorTok{$}\NormalTok{cyl, min, }\DataTypeTok{simplify=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $`4`
+## [1] 21.4
+## 
+## $`6`
+## [1] 17.8
+## 
+## $`8`
+## [1] 10.4
+\end{verbatim}
+
+\section{\texorpdfstring{Loop Menggunakan map function pada Library
+\texttt{purrr}}{Loop Menggunakan map function pada Library purrr}}\label{loop-menggunakan-map-function-pada-library-purrr}
+
+Map function dari library \texttt{purrr} merupakan alternatif lain untuk
+melakukan looping selain dengan menggunakan for loop, while loop, atau
+apply family. Berbeda dengan metode tersebut, map function mempermudah
+proses kita dalam melakukan looping karena dapat diintegrasikan dengan
+fungsi-fungsi dari library \texttt{tidyverse} seperti \texttt{dplyr},
+\texttt{tibble}, \texttt{tidyr}, dll, yang akan banyak penulis bahas
+pada Chapter selanjutnya. Selain itu, integrasi dengan library tersebut
+membuat setiap sintaks yang kita buat lebih mudah kita baca serta lebih
+cepat dalam prosesnya.
+
+Fungsi-fungsi yang tersedia berdasarkan jenis output yang kita inginkan.
+Berikut adalah fungsi-fungsi map family beserta output yang dihasilkan:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{map()}: membuat output berupa list
+\item
+  \texttt{map\_lgl()}: membuat output berupa vektor logical
+\item
+  \texttt{map\_int()}: membuat output berupa vektor integer
+\item
+  \texttt{map\_dbl()}: membuat output berupa vektor double
+\item
+  \texttt{map\_chr()}: membuat output berupa vektor karakter
+\end{itemize}
+
+Berikut adalah format dari fungsi-fungsi tersebut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{map}\NormalTok{(.x, .f, ...)}
+
+\KeywordTok{map_lgl}\NormalTok{(.x, .f, ...)}
+
+\KeywordTok{map_chr}\NormalTok{(.x, .f, ...)}
+
+\KeywordTok{map_int}\NormalTok{(.x, .f, ...)}
+
+\KeywordTok{map_dbl}\NormalTok{(.x, .f, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{Note: }
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{.x}: list atau vaktor atomik.
+\item
+  \textbf{.f}: formula fungsi.
+\item
+  \textbf{\ldots{}}: argumen tambahan dari fungsi.
+\end{itemize}
+\end{quote}
+
+Berikut adalah contoh dari penerapan fungsi-fungsi tersebut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(purrr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'purrr' was built under R version
+## 3.5.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# list}
+\KeywordTok{map}\NormalTok{(}\DataTypeTok{.x=}\NormalTok{iris[,}\OperatorTok{-}\DecValTok{5}\NormalTok{], }\DataTypeTok{.f=}\NormalTok{mean, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Sepal.Length
+## [1] 5.843
+## 
+## $Sepal.Width
+## [1] 3.057
+## 
+## $Petal.Length
+## [1] 3.758
+## 
+## $Petal.Width
+## [1] 1.199
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# vektor numerik}
+\KeywordTok{map_dbl}\NormalTok{(}\DataTypeTok{.x=}\NormalTok{iris[,}\OperatorTok{-}\DecValTok{5}\NormalTok{], }\DataTypeTok{.f=}\NormalTok{mean, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
+##        5.843        3.057        3.758        1.199
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# vektor integer}
+\KeywordTok{map_int}\NormalTok{(}\DataTypeTok{.x=}\NormalTok{iris[,}\OperatorTok{-}\DecValTok{5}\NormalTok{], length)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
+##          150          150          150          150
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# vektor logical}
+\KeywordTok{map_lgl}\NormalTok{(}\DataTypeTok{.x=}\NormalTok{iris, }\DataTypeTok{.f=}\NormalTok{is.double)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
+##         TRUE         TRUE         TRUE         TRUE 
+##      Species 
+##        FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# vektor karakter}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Jakarta"}\NormalTok{, }\StringTok{"Bandung"}\NormalTok{, }\StringTok{"Surabaya"}\NormalTok{)}
+\KeywordTok{map_chr}\NormalTok{(}\DataTypeTok{.x=}\NormalTok{x, }\DataTypeTok{.f=}\NormalTok{paste, }\StringTok{"Kota"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Jakarta Kota"  "Bandung Kota"  "Surabaya Kota"
+\end{verbatim}
+
 \section{Decision Making}\label{decision-making}
 
 \emph{Decicion Making} atau sering disebut sebagai \emph{if then else
@@ -6496,6 +7320,12 @@ Berikut adalah sintaks untuk melakukannya:
 ## The following object is masked from 'package:tidyr':
 ## 
 ##     extract
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:purrr':
+## 
+##     set_names
 \end{verbatim}
 
 \begin{Shaded}
@@ -10765,7 +11595,7 @@ argumen yang dapat diubah pada \texttt{theme\_wsj}.
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x0000000018b1d858>
+## <bytecode: 0x000000001a6a5a48>
 ## <environment: namespace:ggthemes>
 \end{verbatim}
 
@@ -16031,6 +16861,57 @@ visualisasi yang dihasilkan
 \end{Highlighting}
 \end{Shaded}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## set tema default dari paket ggpubr}
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_pubr}\NormalTok{())}
+
+\NormalTok{## QQ-plot}
+\NormalTok{qq<-}\KeywordTok{ggplot}\NormalTok{(airquality, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{sample=}\NormalTok{Ozone))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{stat_qq}\NormalTok{(}\DataTypeTok{color=}\StringTok{"#2E9FDF"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{stat_qq_line}\NormalTok{(}\DataTypeTok{color=}\StringTok{"#FC4E07"}\NormalTok{)}
+
+\NormalTok{## membuat data frame}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(airquality[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(airquality}\OperatorTok{$}\NormalTok{Ozone), }\DecValTok{1}\NormalTok{])}
+
+\NormalTok{y <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\KeywordTok{length}\NormalTok{(x),}\DataTypeTok{mean=}\KeywordTok{mean}\NormalTok{(x),}\DataTypeTok{sd=}\KeywordTok{sd}\NormalTok{(x))}
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(x,y),}
+               \DataTypeTok{dist=}\KeywordTok{gl}\NormalTok{(}\DecValTok{2}\NormalTok{,}\KeywordTok{length}\NormalTok{(x),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"Empiris"}\NormalTok{,}\StringTok{"Normal"}\NormalTok{)))}
+\NormalTok{## ECDF}
+\NormalTok{ecdf<-}\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(x, }\DataTypeTok{colour=}\NormalTok{dist))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{stat_ecdf}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"F(Ozon)"}\NormalTok{, }\DataTypeTok{x=}\StringTok{"Ozon"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks=}\KeywordTok{seq}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\KeywordTok{min}\NormalTok{(y)),}\KeywordTok{round}\NormalTok{(}\KeywordTok{max}\NormalTok{(x)),}\DecValTok{35}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_rug}\NormalTok{()}
+
+\NormalTok{## density}
+\NormalTok{dens<-}\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(x, }\DataTypeTok{fill=}\NormalTok{dist))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{alpha=}\FloatTok{0.5}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x=}\StringTok{"Ozon"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks=}\KeywordTok{seq}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\KeywordTok{min}\NormalTok{(y)),}\KeywordTok{round}\NormalTok{(}\KeywordTok{max}\NormalTok{(x)),}\DecValTok{35}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_rug}\NormalTok{()}
+
+\NormalTok{## Boxplot}
+\NormalTok{data2 <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(data, dist}\OperatorTok{==}\StringTok{"Empiris"}\NormalTok{)}
+\NormalTok{bxp <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data2, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\StringTok{""}\NormalTok{, }\DataTypeTok{y=}\NormalTok{x))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{color=}\StringTok{"#FC4E07"}\NormalTok{,}\DataTypeTok{outlier.alpha=}\DecValTok{0}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{color=}\StringTok{"#2E9FDF"}\NormalTok{,}\DataTypeTok{shape=}\DecValTok{1}\NormalTok{,}\DataTypeTok{position=}\KeywordTok{position_jitter}\NormalTok{(}\FloatTok{0.1}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Ozon"}\NormalTok{, }\DataTypeTok{x=}\StringTok{""}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks=}\KeywordTok{seq}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\KeywordTok{min}\NormalTok{(y)),}\KeywordTok{round}\NormalTok{(}\KeywordTok{max}\NormalTok{(x)),}\DecValTok{35}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{coord_flip}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_rug}\NormalTok{()}
+  
+\NormalTok{## Menggabungkan grafik}
+\KeywordTok{ggarrange}\NormalTok{(dens,bxp,ecdf,qq,}
+          \DataTypeTok{ncol=}\DecValTok{2}\NormalTok{, }\DataTypeTok{nrow=}\DecValTok{2}\NormalTok{,}
+          \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{,}\StringTok{"c)"}\NormalTok{,}\StringTok{"d)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/normvis7-1} 
@@ -16198,6 +17079,33 @@ dituliskan pada Persamaan \eqref{eq:dgamma2}
 
 Pada Gambar \ref{fig:gammavis} disajikan visualisasi distribusi gamma
 dengan variasi \(\alpha\) dan \(\beta\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{6}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(x, }\DataTypeTok{shape=}\DecValTok{1}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{1}\NormalTok{); x1_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x1)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x1)) }
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(x, }\DataTypeTok{shape=}\DecValTok{2}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{1}\NormalTok{); x2_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x2)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x2))}
+\NormalTok{x3 <-}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(x, }\DataTypeTok{shape=}\DecValTok{4}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{1}\NormalTok{); x3_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x3)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x3))}
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{value=}\KeywordTok{c}\NormalTok{(x,x,x),}
+                   \DataTypeTok{density=}\KeywordTok{c}\NormalTok{(x1,x2,x3),}
+                   \DataTypeTok{cum_dens=}\KeywordTok{c}\NormalTok{(x1_cum,x2_cum,x3_cum),}
+                   \DataTypeTok{alpha=}\KeywordTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{)))}
+
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{density, }\DataTypeTok{color=}\NormalTok{alpha))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{,}\StringTok{"#2E9FDF"}\NormalTok{,}\StringTok{"#FC4E07"}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{ecdf <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{cum_dens, }\DataTypeTok{color=}\NormalTok{alpha))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Fn(x)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{,}\StringTok{"#2E9FDF"}\NormalTok{,}\StringTok{"#FC4E07"}\NormalTok{)}
+\NormalTok{)}
+
+\KeywordTok{ggarrange}\NormalTok{(dens, ecdf, }\DataTypeTok{nrow=}\DecValTok{1}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}
 
@@ -16426,6 +17334,33 @@ dimana \(\nu\) adalah integer positif.
 Pada Gambar \ref{fig:csqvis} disajikan visualisasi distribusi chi-square
 dengan variasi \(\nu\).
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{dchisq}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{1}\NormalTok{); x1_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x1)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x1))}
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{dchisq}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{3}\NormalTok{); x2_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x2)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x2))}
+\NormalTok{x3 <-}\StringTok{ }\KeywordTok{dchisq}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{5}\NormalTok{); x3_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x3)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x3))}
+\NormalTok{x4 <-}\StringTok{ }\KeywordTok{dchisq}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{7}\NormalTok{); x4_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x4)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x4))}
+
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{value=}\KeywordTok{c}\NormalTok{(x,x,x,x),}
+                   \DataTypeTok{density=}\KeywordTok{c}\NormalTok{(x1,x2,x3,x4),}
+                   \DataTypeTok{cum_dens=}\KeywordTok{c}\NormalTok{(x1_cum,x2_cum,x3_cum,x4_cum),}
+                   \DataTypeTok{df=}\KeywordTok{gl}\NormalTok{(}\DecValTok{4}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{7}\NormalTok{)))}
+
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{density, }\DataTypeTok{color=}\NormalTok{df))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{, }\StringTok{"black"}\NormalTok{))}
+\NormalTok{ecdf <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{cum_dens, }\DataTypeTok{color=}\NormalTok{df))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Fn(x)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{,}\StringTok{"black"}\NormalTok{))}
+
+\KeywordTok{ggarrange}\NormalTok{(dens, ecdf, }\DataTypeTok{nrow=}\DecValTok{1}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/csqvis-1} 
@@ -16476,6 +17411,33 @@ dimana \(r\) merupakan derajat kebebasan atau \(\left(n-1\right)\).
 
 Pada Gambar \ref{fig:dtvis} disajikan visualisasi distribusi t dengan
 variasi \(r\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{7}\NormalTok{,}\DecValTok{7}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{dt}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{1}\NormalTok{); x1_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x1)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x1))}
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{dt}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{12}\NormalTok{); x2_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x2)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x2))}
+\NormalTok{x3 <-}\StringTok{ }\KeywordTok{dt}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{20}\NormalTok{); x3_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x3)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x3))}
+\NormalTok{x4 <-}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(x); x4_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x4)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x4))}
+
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{value=}\KeywordTok{c}\NormalTok{(x,x,x,x),}
+                   \DataTypeTok{density=}\KeywordTok{c}\NormalTok{(x1,x2,x3,x4),}
+                   \DataTypeTok{cum_dens=}\KeywordTok{c}\NormalTok{(x1_cum,x2_cum,x3_cum,x4_cum),}
+                   \DataTypeTok{df=}\KeywordTok{gl}\NormalTok{(}\DecValTok{4}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{12}\NormalTok{,}\DecValTok{20}\NormalTok{,}\StringTok{"Normal"}\NormalTok{)))}
+
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{density, }\DataTypeTok{color=}\NormalTok{df))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{, }\StringTok{"black"}\NormalTok{))}
+\NormalTok{ecdf <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{cum_dens, }\DataTypeTok{color=}\NormalTok{df))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Fn(x)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{, }\StringTok{"black"}\NormalTok{))}
+
+\KeywordTok{ggarrange}\NormalTok{(dens, ecdf, }\DataTypeTok{nrow=}\DecValTok{1}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}
 
@@ -16535,6 +17497,37 @@ dimana \(df1\) dan \(df2\) merupakan derajat kebebasan.
 
 Pada Gambar \ref{fig:dFvis} disajikan visualisasi distribusi F dengan
 variasi \(df1\) dan \(df2\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{5}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{df}\NormalTok{(x, }\DataTypeTok{df1=}\DecValTok{1}\NormalTok{, }\DataTypeTok{df2=}\DecValTok{10}\NormalTok{); x1_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x1)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x1))}
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{df}\NormalTok{(x, }\DataTypeTok{df1=}\DecValTok{6}\NormalTok{, }\DataTypeTok{df2=}\DecValTok{60}\NormalTok{); x2_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x2)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x2))}
+\NormalTok{x3 <-}\StringTok{ }\KeywordTok{df}\NormalTok{(x, }\DataTypeTok{df1=}\DecValTok{10}\NormalTok{,}\DataTypeTok{df2=}\DecValTok{100}\NormalTok{); x3_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x3)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x3))}
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{value=}\KeywordTok{c}\NormalTok{(x,x,x),}
+                   \DataTypeTok{density=}\KeywordTok{c}\NormalTok{(x1,x2,x3),}
+                   \DataTypeTok{cum_dens=}\KeywordTok{c}\NormalTok{(x1_cum,x2_cum,x3_cum),}
+                   \DataTypeTok{df1=}\KeywordTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{10}\NormalTok{)),}
+                   \DataTypeTok{df2=}\KeywordTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                        \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{60}\NormalTok{,}\DecValTok{100}\NormalTok{)))}
+
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{density, }\DataTypeTok{color=}\NormalTok{df1, }\DataTypeTok{linetype=}\NormalTok{df2))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{color=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{))}
+\NormalTok{ecdf <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{cum_dens, }\DataTypeTok{color=}\NormalTok{df1, }\DataTypeTok{linetype=}\NormalTok{df2))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Fn(x)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{linetype=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{))}
+
+\KeywordTok{ggarrange}\NormalTok{(dens, ecdf, }\DataTypeTok{nrow=}\DecValTok{2}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}
 
@@ -16611,6 +17604,37 @@ Nilai mean dan varians distribusi beta dituliskan kedalam Persamaan
 Pada Gambar \ref{fig:dbeta} disajikan visualisasi distribusi beta dengan
 variasi \(\alpha\) dan \(\beta\).
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{dbeta}\NormalTok{(x, }\DataTypeTok{shape1=}\DecValTok{1}\NormalTok{, }\DataTypeTok{shape2=}\DecValTok{5}\NormalTok{); x1_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x1)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x1))}
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{dbeta}\NormalTok{(x, }\DataTypeTok{shape1=}\DecValTok{6}\NormalTok{, }\DataTypeTok{shape2=}\DecValTok{30}\NormalTok{); x2_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x2)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x2))}
+\NormalTok{x3 <-}\StringTok{ }\KeywordTok{dbeta}\NormalTok{(x, }\DataTypeTok{shape1=}\DecValTok{10}\NormalTok{,}\DataTypeTok{shape2=}\DecValTok{50}\NormalTok{); x3_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x3)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x3))}
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{value=}\KeywordTok{c}\NormalTok{(x,x,x),}
+                   \DataTypeTok{density=}\KeywordTok{c}\NormalTok{(x1,x2,x3),}
+                   \DataTypeTok{cum_dens=}\KeywordTok{c}\NormalTok{(x1_cum,x2_cum,x3_cum),}
+                   \DataTypeTok{alpha=}\KeywordTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{10}\NormalTok{)),}
+                   \DataTypeTok{beta=}\KeywordTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                        \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{60}\NormalTok{,}\DecValTok{100}\NormalTok{)))}
+
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{density, }\DataTypeTok{color=}\NormalTok{alpha, }\DataTypeTok{linetype=}\NormalTok{beta))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{color=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{))}
+\NormalTok{ecdf <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{cum_dens, }\DataTypeTok{color=}\NormalTok{alpha, }\DataTypeTok{linetype=}\NormalTok{beta))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Fn(x)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{linetype=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{))}
+
+\KeywordTok{ggarrange}\NormalTok{(dens, ecdf, }\DataTypeTok{nrow=}\DecValTok{2}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/dbeta-1} 
@@ -16680,6 +17704,37 @@ Persamaan \eqref{eq:dlognormal2}.
 Pada Gambar \ref{fig:dlognnormalvis} disajikan visualisasi distribusi
 lognormal dengan variasi \(\mu\) dan \(\sigma\).
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{5}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{dlnorm}\NormalTok{(x, }\DataTypeTok{meanlog=}\DecValTok{0}\NormalTok{, }\DataTypeTok{sdlog=}\DecValTok{1}\NormalTok{); x1_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x1)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x1))}
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{dlnorm}\NormalTok{(x, }\DataTypeTok{meanlog=}\DecValTok{1}\NormalTok{, }\DataTypeTok{sdlog=}\FloatTok{1.5}\NormalTok{); x2_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x2)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x2))}
+\NormalTok{x3 <-}\StringTok{ }\KeywordTok{dlnorm}\NormalTok{(x, }\DataTypeTok{meanlog=}\DecValTok{2}\NormalTok{, }\DataTypeTok{sdlog=}\DecValTok{2}\NormalTok{); x3_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x3)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x3))}
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{value=}\KeywordTok{c}\NormalTok{(x,x,x),}
+                   \DataTypeTok{density=}\KeywordTok{c}\NormalTok{(x1,x2,x3),}
+                   \DataTypeTok{cum_dens=}\KeywordTok{c}\NormalTok{(x1_cum,x2_cum,x3_cum),}
+                   \DataTypeTok{mean=}\KeywordTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)),}
+                   \DataTypeTok{sd=}\KeywordTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                        \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FloatTok{1.5}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
+
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{density, }\DataTypeTok{color=}\NormalTok{mean, }\DataTypeTok{linetype=}\NormalTok{sd))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{color=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{))}
+\NormalTok{ecdf <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{cum_dens, }\DataTypeTok{color=}\NormalTok{mean, }\DataTypeTok{linetype=}\NormalTok{sd))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Fn(x)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{linetype=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#2E9FDF"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{))}
+
+\KeywordTok{ggarrange}\NormalTok{(dens, ecdf, }\DataTypeTok{nrow=}\DecValTok{2}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/dlognnormalvis-1} 
@@ -16735,6 +17790,38 @@ Persamaan \eqref{eq:dcauchy}.
 Pada Gambar \ref{fig:dcauchyvis} disajikan visualisasi distribusi Cauchy
 dengan variasi \(m\) dan \(\beta\).
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{7}\NormalTok{,}\DecValTok{7}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{dcauchy}\NormalTok{(x, }\DataTypeTok{location=}\DecValTok{0}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{1}\NormalTok{); x1_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x1)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x1))}
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{dcauchy}\NormalTok{(x, }\DataTypeTok{location=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{scale=}\FloatTok{1.5}\NormalTok{); x2_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x2)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x2))}
+\NormalTok{x3 <-}\StringTok{ }\KeywordTok{dcauchy}\NormalTok{(x, }\DataTypeTok{location=}\DecValTok{1}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{2}\NormalTok{); x3_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x3)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x3))}
+\NormalTok{x4 <-}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(x); x4_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x4)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x4))}
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{value=}\KeywordTok{c}\NormalTok{(x,x,x,x),}
+                   \DataTypeTok{density=}\KeywordTok{c}\NormalTok{(x1,x2,x3,x4),}
+                   \DataTypeTok{cum_dens=}\KeywordTok{c}\NormalTok{(x1_cum,x2_cum,x3_cum,x4_cum),}
+                   \DataTypeTok{m=}\KeywordTok{gl}\NormalTok{(}\DecValTok{4}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{1.5}\NormalTok{,}\StringTok{"Normal"}\NormalTok{)),}
+                   \DataTypeTok{beta=}\KeywordTok{gl}\NormalTok{(}\DecValTok{4}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FloatTok{1.5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\StringTok{"Normal"}\NormalTok{)))}
+
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{density, }\DataTypeTok{color=}\NormalTok{m, }\DataTypeTok{linetype=}\NormalTok{beta))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{color=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{,}\StringTok{"#2E9FDF"}\NormalTok{,}\StringTok{"#FC4E07"}\NormalTok{,}\StringTok{"black"}\NormalTok{))}
+\NormalTok{ecdf <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{cum_dens, }\DataTypeTok{color=}\NormalTok{m, }\DataTypeTok{linetype=}\NormalTok{beta))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Fn(x)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{linetype=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{,}\StringTok{"#2E9FDF"}\NormalTok{,}\StringTok{"#FC4E07"}\NormalTok{,}\StringTok{"black"}\NormalTok{))}
+
+\KeywordTok{ggarrange}\NormalTok{(dens, ecdf, }\DataTypeTok{nrow=}\DecValTok{2}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/dcauchyvis-1} 
@@ -16787,6 +17874,38 @@ logistik disajikan pada Persamaan \eqref{eq:dlogistik}.
 
 Pada Gambar \ref{fig:dlogistikvis} disajikan visualisasi distribusi
 Cauchy dengan variasi \(m\) dan \(\beta\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{7}\NormalTok{,}\DecValTok{7}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{dlogis}\NormalTok{(x, }\DataTypeTok{location=}\DecValTok{0}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{1}\NormalTok{); x1_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x1)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x1))}
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{dlogis}\NormalTok{(x, }\DataTypeTok{location=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{scale=}\FloatTok{1.5}\NormalTok{); x2_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x2)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x2))}
+\NormalTok{x3 <-}\StringTok{ }\KeywordTok{dlogis}\NormalTok{(x, }\DataTypeTok{location=}\DecValTok{1}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{2}\NormalTok{); x3_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x3)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x3))}
+\NormalTok{x4 <-}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(x); x4_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x4)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x4))}
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{value=}\KeywordTok{c}\NormalTok{(x,x,x,x),}
+                   \DataTypeTok{density=}\KeywordTok{c}\NormalTok{(x1,x2,x3,x4),}
+                   \DataTypeTok{cum_dens=}\KeywordTok{c}\NormalTok{(x1_cum,x2_cum,x3_cum,x4_cum),}
+                   \DataTypeTok{mean=}\KeywordTok{gl}\NormalTok{(}\DecValTok{4}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{1.5}\NormalTok{,}\StringTok{"Normal"}\NormalTok{)),}
+                   \DataTypeTok{sd=}\KeywordTok{gl}\NormalTok{(}\DecValTok{4}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FloatTok{1.5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\StringTok{"Normal"}\NormalTok{)))}
+
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{density, }\DataTypeTok{color=}\NormalTok{mean, }\DataTypeTok{linetype=}\NormalTok{sd))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{color=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{,}\StringTok{"#2E9FDF"}\NormalTok{,}\StringTok{"#FC4E07"}\NormalTok{,}\StringTok{"black"}\NormalTok{))}
+\NormalTok{ecdf <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{cum_dens, }\DataTypeTok{color=}\NormalTok{mean, }\DataTypeTok{linetype=}\NormalTok{sd))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Fn(x)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"right"}\NormalTok{, }\DataTypeTok{legend.box=}\StringTok{"vertical"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{linetype=}\OtherTok{FALSE}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{,}\StringTok{"#2E9FDF"}\NormalTok{,}\StringTok{"#FC4E07"}\NormalTok{,}\StringTok{"black"}\NormalTok{))}
+
+\KeywordTok{ggarrange}\NormalTok{(dens, ecdf, }\DataTypeTok{nrow=}\DecValTok{2}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}
 
@@ -16844,6 +17963,33 @@ f\left(x;\alpha,\beta \right) =
 
 Pada Gambar \ref{fig:weibullvis} disajikan visualisasi distribusi gamma
 dengan variasi \(\alpha\) dan \(\beta\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{6}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{dweibull}\NormalTok{(x, }\DataTypeTok{shape=}\DecValTok{1}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{1}\NormalTok{); x1_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x1)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x1)) }
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{dweibull}\NormalTok{(x, }\DataTypeTok{shape=}\DecValTok{2}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{1}\NormalTok{); x2_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x2)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x2))}
+\NormalTok{x3 <-}\StringTok{ }\KeywordTok{dweibull}\NormalTok{(x, }\DataTypeTok{shape=}\DecValTok{4}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{1}\NormalTok{); x3_cum <-}\StringTok{ }\KeywordTok{cumsum}\NormalTok{(x3)}\OperatorTok{/}\KeywordTok{max}\NormalTok{(}\KeywordTok{cumsum}\NormalTok{(x3))}
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{value=}\KeywordTok{c}\NormalTok{(x,x,x),}
+                   \DataTypeTok{density=}\KeywordTok{c}\NormalTok{(x1,x2,x3),}
+                   \DataTypeTok{cum_dens=}\KeywordTok{c}\NormalTok{(x1_cum,x2_cum,x3_cum),}
+                   \DataTypeTok{alpha=}\KeywordTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\KeywordTok{length}\NormalTok{(x1),}
+                       \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{)))}
+
+\NormalTok{dens <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{density, }\DataTypeTok{color=}\NormalTok{alpha))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{,}\StringTok{"#2E9FDF"}\NormalTok{,}\StringTok{"#FC4E07"}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{ecdf <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{value, }\DataTypeTok{y=}\NormalTok{cum_dens, }\DataTypeTok{color=}\NormalTok{alpha))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y=}\StringTok{"Fn(x)"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"#E7B800"}\NormalTok{,}\StringTok{"#2E9FDF"}\NormalTok{,}\StringTok{"#FC4E07"}\NormalTok{)}
+\NormalTok{)}
+
+\KeywordTok{ggarrange}\NormalTok{(dens, ecdf, }\DataTypeTok{nrow=}\DecValTok{1}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"a)"}\NormalTok{,}\StringTok{"b)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}
 
@@ -16932,9 +18078,9 @@ menggunakan fungsi \texttt{dweibull()} dan \texttt{pweibull()}
   Edition}. Prentice Hall.
 \end{enumerate}
 
-\part*{Statistika Inferensi -
-R}\label{part-statistika-inferensi---r}
-\addcontentsline{toc}{part}{Statistika Inferensi - R}
+\part*{Statistika Inferensial -
+R}\label{part-statistika-inferensial---r}
+\addcontentsline{toc}{part}{Statistika Inferensial - R}
 
 \chapter{Penaksiran Secara
 Statistika}\label{penaksiran-secara-statistika}
@@ -17434,10 +18580,10 @@ telah kita buat dapat dimodifikasi seperti berikut:
 \NormalTok{  LCL=x_sort[rl]}
 \NormalTok{  UCL=x_sort[ru]}
   \CommentTok{# menggabungkannya dalam satu data}
-\NormalTok{  data=}\KeywordTok{data.frame}\NormalTok{(}\StringTok{"median"}\NormalTok{=med,}
+\NormalTok{  data=}\KeywordTok{c}\NormalTok{(}\StringTok{"median"}\NormalTok{=med,}
                   \StringTok{"Lower CL"}\NormalTok{=LCL,}
                   \StringTok{"Upper CL"}\NormalTok{=UCL)}
-  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{  data}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -17468,8 +18614,64 @@ median dapat dihitung seperti berikut:
 \end{Shaded}
 
 \begin{verbatim}
-##   median Lower.CL Upper.CL
-## 1     19      4.8      110
+##   median Lower CL Upper CL 
+##     19.0      4.8    110.0
+\end{verbatim}
+
+Jika kita ingin menghitung interval estimasi median masing-masing kolom
+data frame kita pasti akan mencopy fungsi tersebut dan menjalankannya
+satu persatu. Metode lain untuk mengefektifkan proses tersebut adalah
+dengan menggunakan for loop, apply function dan map function.
+Metode-metode tersebut telah kita bahas pada chapter sebelumnya. Pada
+Chapter ini penulis akan memberikan contohnya satu-persatu. Berikut
+adalah contoh sintaks apply dan map function untuk melakukannya:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menggunakan sapply}
+\KeywordTok{sapply}\NormalTok{(}\DataTypeTok{X=}\NormalTok{airquality, }\DataTypeTok{FUN=}\NormalTok{med_norCI, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          Ozone Solar.R Wind Temp Month Day
+## median    31.5     205  9.7   79     7  16
+## Lower CL  35.0     190  9.2   77     7  13
+## Upper CL  65.0     236 10.3   81     7  18
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menggunakan map function}
+\KeywordTok{library}\NormalTok{(purrr)}
+\KeywordTok{map}\NormalTok{(}\DataTypeTok{.x=}\NormalTok{airquality, }\DataTypeTok{.f=}\NormalTok{med_norCI, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Ozone
+##   median Lower CL Upper CL 
+##     31.5     35.0     65.0 
+## 
+## $Solar.R
+##   median Lower CL Upper CL 
+##      205      190      236 
+## 
+## $Wind
+##   median Lower CL Upper CL 
+##      9.7      9.2     10.3 
+## 
+## $Temp
+##   median Lower CL Upper CL 
+##       79       77       81 
+## 
+## $Month
+##   median Lower CL Upper CL 
+##        7        7        7 
+## 
+## $Day
+##   median Lower CL Upper CL 
+##       16       13       18
 \end{verbatim}
 
 Jika kita tidak ingin menggunakan vektor dalam fungsi, kita dapat juga
@@ -17507,7 +18709,7 @@ distribusi normal dengan metode nonparametrik yang digunakan:
                   \StringTok{"median"}\NormalTok{=med,}
                   \StringTok{"Lower CL"}\NormalTok{=LCL,}
                   \StringTok{"Upper CL"}\NormalTok{=UCL)}
-  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{  data}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -17693,10 +18895,10 @@ sebagai berikut:
 \NormalTok{  LCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{-}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
 \NormalTok{  UCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{+}\KeywordTok{qt}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{alpha}\OperatorTok{/}\DecValTok{2}\NormalTok{,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(x, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(x)))}
   \CommentTok{# menggabungkan hasil}
-\NormalTok{  data=}\KeywordTok{data.frame}\NormalTok{(}\StringTok{"GM"}\NormalTok{=gm,}
-                  \StringTok{"Lower CL"}\NormalTok{=LCL,}
-                  \StringTok{"Upper CL"}\NormalTok{=UCL)}
-  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{  data=}\KeywordTok{c}\NormalTok{(}\StringTok{"GM"}\NormalTok{=gm,}
+        \StringTok{"Lower CL"}\NormalTok{=LCL,}
+        \StringTok{"Upper CL"}\NormalTok{=UCL)}
+\NormalTok{  data}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -17720,8 +18922,60 @@ sebagai berikut:
 \end{Shaded}
 
 \begin{verbatim}
-##      GM Lower.CL Upper.CL
-## 1 23.87    10.63     53.6
+##       GM Lower CL Upper CL 
+##    23.87    10.63    53.60
+\end{verbatim}
+
+Fungsi tersebut juga dapat digunakan bersamaan dengan fungsi seperti
+apply function atau map function. Ini berguna jika data yang kita miliki
+memiliki banya kolom yang perlu dihitung masing-masing interval
+kepercayaannya. Berikut adalah contoh sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menggunakan zpply function}
+\KeywordTok{sapply}\NormalTok{(airquality, med_gm, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          Ozone Solar.R  Wind  Temp Month   Day
+## GM       30.52   149.6 9.273 77.28 6.847 12.27
+## Lower CL 26.58   131.4 8.697 75.74 6.623 10.73
+## Upper CL 35.05   170.2 9.888 78.86 7.079 14.03
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menggunakan map function}
+\KeywordTok{map}\NormalTok{(airquality, med_gm, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Ozone
+##       GM Lower CL Upper CL 
+##    30.52    26.58    35.05 
+## 
+## $Solar.R
+##       GM Lower CL Upper CL 
+##    149.6    131.4    170.2 
+## 
+## $Wind
+##       GM Lower CL Upper CL 
+##    9.273    8.697    9.888 
+## 
+## $Temp
+##       GM Lower CL Upper CL 
+##    77.28    75.74    78.86 
+## 
+## $Month
+##       GM Lower CL Upper CL 
+##    6.847    6.623    7.079 
+## 
+## $Day
+##       GM Lower CL Upper CL 
+##    12.27    10.73    14.03
 \end{verbatim}
 
 Fungsi \texttt{med\_gm()} dapat dilakukan sejumlah modifikasi seperti
@@ -17757,7 +19011,7 @@ transformasi termasuk didalamnya:
                   \StringTok{"GM"}\NormalTok{=gm,}
                   \StringTok{"Lower CL"}\NormalTok{=LCL,}
                   \StringTok{"Upper CL"}\NormalTok{=UCL)}
-  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{  data}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -17958,6 +19212,195 @@ Untuk menghitung interval kepercayaan mean jalankan sintaks berikut:
 ##     98.35
 \end{verbatim}
 
+Fungsi t-test tersebut juga dapat dikombinasikan dengan apply dan map
+function. Hal ini berguna jika pembaca ingin menghitung interval
+kepercayaan mean untuk setiap kolom data disertai dengan uji
+signifikansinya. Berikut adalah contoh sintaks yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menggunakan apply function}
+\KeywordTok{apply}\NormalTok{(}\DataTypeTok{X=}\NormalTok{airquality, }\DataTypeTok{MARGIN=}\DecValTok{2}\NormalTok{, }\DataTypeTok{FUN=}\NormalTok{t.test, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Ozone
+## 
+##  One Sample t-test
+## 
+## data:  newX[, i]
+## t = 14, df = 120, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  36.06 48.20
+## sample estimates:
+## mean of x 
+##     42.13 
+## 
+## 
+## $Solar.R
+## 
+##  One Sample t-test
+## 
+## data:  newX[, i]
+## t = 25, df = 140, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  171.2 200.7
+## sample estimates:
+## mean of x 
+##     185.9 
+## 
+## 
+## $Wind
+## 
+##  One Sample t-test
+## 
+## data:  newX[, i]
+## t = 35, df = 150, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##   9.395 10.520
+## sample estimates:
+## mean of x 
+##     9.958 
+## 
+## 
+## $Temp
+## 
+##  One Sample t-test
+## 
+## data:  newX[, i]
+## t = 100, df = 150, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  76.37 79.39
+## sample estimates:
+## mean of x 
+##     77.88 
+## 
+## 
+## $Month
+## 
+##  One Sample t-test
+## 
+## data:  newX[, i]
+## t = 61, df = 150, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  6.767 7.220
+## sample estimates:
+## mean of x 
+##     6.993 
+## 
+## 
+## $Day
+## 
+##  One Sample t-test
+## 
+## data:  newX[, i]
+## t = 22, df = 150, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  14.39 17.22
+## sample estimates:
+## mean of x 
+##      15.8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menggunakan map function}
+\KeywordTok{map}\NormalTok{(airquality, t.test, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Ozone
+## 
+##  One Sample t-test
+## 
+## data:  .x[[i]]
+## t = 14, df = 120, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  36.06 48.20
+## sample estimates:
+## mean of x 
+##     42.13 
+## 
+## 
+## $Solar.R
+## 
+##  One Sample t-test
+## 
+## data:  .x[[i]]
+## t = 25, df = 140, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  171.2 200.7
+## sample estimates:
+## mean of x 
+##     185.9 
+## 
+## 
+## $Wind
+## 
+##  One Sample t-test
+## 
+## data:  .x[[i]]
+## t = 35, df = 150, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##   9.395 10.520
+## sample estimates:
+## mean of x 
+##     9.958 
+## 
+## 
+## $Temp
+## 
+##  One Sample t-test
+## 
+## data:  .x[[i]]
+## t = 100, df = 150, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  76.37 79.39
+## sample estimates:
+## mean of x 
+##     77.88 
+## 
+## 
+## $Month
+## 
+##  One Sample t-test
+## 
+## data:  .x[[i]]
+## t = 61, df = 150, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  6.767 7.220
+## sample estimates:
+## mean of x 
+##     6.993 
+## 
+## 
+## $Day
+## 
+##  One Sample t-test
+## 
+## data:  .x[[i]]
+## t = 22, df = 150, p-value <2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  14.39 17.22
+## sample estimates:
+## mean of x 
+##      15.8
+\end{verbatim}
+
 \subsection{Interval Kepercayaan Mean Untuk Distribusi Yang
 Asimetris}\label{interval-kepercayaan-mean-untuk-distribusi-yang-asimetris}
 
@@ -18066,10 +19509,10 @@ distribusi normal.
 \NormalTok{  LCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{+}\NormalTok{(}\FloatTok{0.5}\OperatorTok{*}\NormalTok{sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{-}\KeywordTok{qt}\NormalTok{(re,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(((sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{n)}\OperatorTok{+}\NormalTok{((sd}\OperatorTok{^}\DecValTok{4}\NormalTok{)}\OperatorTok{/}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{df))))}
 \NormalTok{  UCL =}\StringTok{ }\KeywordTok{exp}\NormalTok{(ave}\OperatorTok{+}\NormalTok{(}\FloatTok{0.5}\OperatorTok{*}\NormalTok{sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\KeywordTok{qt}\NormalTok{(re,df)}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(((sd}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{n)}\OperatorTok{+}\NormalTok{((sd}\OperatorTok{^}\DecValTok{4}\NormalTok{)}\OperatorTok{/}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{df))))}
   \CommentTok{# menggabungkan hasil}
-\NormalTok{  data =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\StringTok{"Mean"}\NormalTok{=m,}
-                  \StringTok{"Lower CL"}\NormalTok{=LCL,}
-                  \StringTok{"Upper CL"}\NormalTok{=UCL)}
-  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{  data =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Mean"}\NormalTok{=m,}
+            \StringTok{"Lower CL"}\NormalTok{=LCL,}
+            \StringTok{"Upper CL"}\NormalTok{=UCL)}
+\NormalTok{  data}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -18093,8 +19536,59 @@ distribusi normal.
 \end{Shaded}
 
 \begin{verbatim}
-##    Mean Lower.CL Upper.CL
-## 1 98.35    40.11    660.9
+##     Mean Lower CL Upper CL 
+##    98.35    40.11   660.94
+\end{verbatim}
+
+Fungsi tersebut juga dapat digunakan bersamaan dengan apply dan map
+function, sehingga fungsionalitas fungsi tersebut juga meningkat.
+Berikut adalah contoh sintak yang digunakan:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menggunakan apply function}
+\KeywordTok{sapply}\NormalTok{(airquality, mean_asci, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          Ozone Solar.R   Wind  Temp Month   Day
+## Mean     42.13   185.9  9.958 77.88 6.993 15.80
+## Lower CL 37.74   178.9  9.404 76.34 6.766 14.94
+## Upper CL 52.21   241.1 10.747 79.50 7.237 20.43
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# menggunakan map function}
+\KeywordTok{map}\NormalTok{(airquality, mean_asci, }\DataTypeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Ozone
+##     Mean Lower CL Upper CL 
+##    42.13    37.74    52.21 
+## 
+## $Solar.R
+##     Mean Lower CL Upper CL 
+##    185.9    178.9    241.1 
+## 
+## $Wind
+##     Mean Lower CL Upper CL 
+##    9.958    9.404   10.747 
+## 
+## $Temp
+##     Mean Lower CL Upper CL 
+##    77.88    76.34    79.50 
+## 
+## $Month
+##     Mean Lower CL Upper CL 
+##    6.993    6.766    7.237 
+## 
+## $Day
+##     Mean Lower CL Upper CL 
+##    15.80    14.94    20.43
 \end{verbatim}
 
 Jika pembaca ingin menggunakan data frame sebagai input yang digunakan
@@ -18133,7 +19627,7 @@ selain vektor, fungsi tersebut dapat dimodifikasi seperti berikut:
                     \StringTok{"Mean"}\NormalTok{=m,}
                     \StringTok{"Lower CL"}\NormalTok{=LCL,}
                     \StringTok{"Upper CL"}\NormalTok{=UCL)}
-  \KeywordTok{return}\NormalTok{(data)}
+\NormalTok{  data}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}

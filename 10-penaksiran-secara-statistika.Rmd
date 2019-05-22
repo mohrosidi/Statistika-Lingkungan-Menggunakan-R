@@ -1,4 +1,4 @@
-# (PART\*) Statistika Inferensi - R {-}
+# (PART\*) Statistika Inferensial - R {-}
 
 <style>
 body{
@@ -264,10 +264,10 @@ med_norCI <- function(x, alpha){
   LCL=x_sort[rl]
   UCL=x_sort[ru]
   # menggabungkannya dalam satu data
-  data=data.frame("median"=med,
+  data=c("median"=med,
                   "Lower CL"=LCL,
                   "Upper CL"=UCL)
-  return(data)
+  data
 }
 ```
 
@@ -283,6 +283,18 @@ Dengan menggunakan fungsi `med_norCI()`, rentang kepercayaan median dapat dihitu
 ```{r}
 med_norCI(x=gwardat$konsentrasi, alpha=0.05)
 ```
+
+Jika kita ingin menghitung interval estimasi median masing-masing kolom data frame kita pasti akan mencopy fungsi tersebut dan menjalankannya satu persatu. Metode lain untuk mengefektifkan proses tersebut adalah dengan menggunakan for loop, apply function dan map function. Metode-metode tersebut telah kita bahas pada chapter sebelumnya. Pada Chapter ini penulis akan memberikan contohnya satu-persatu. Berikut adalah contoh sintaks apply dan map function untuk melakukannya:
+
+```{r}
+# menggunakan sapply
+sapply(X=airquality, FUN=med_norCI, alpha=0.05)
+
+# menggunakan map function
+library(purrr)
+map(.x=airquality, .f=med_norCI, alpha=0.05)
+```
+
 
 Jika kita tidak ingin menggunakan vektor dalam fungsi, kita dapat juga menggunakan data frame sebagai inputnya. Kelebihannya adalah kita dapat menghitung rentang kepercayaan seluruh kolom dalam satu kali proses. Hal ini tentunya akan menghemat waktu yang digunakan. Berikut adalah contoh sintaks fungsi untuk menghitung interval kepercayaan median menggunakan distribusi normal dengan metode nonparametrik yang digunakan:
 
@@ -313,7 +325,7 @@ med_norCI <- function(df, alpha){
                   "median"=med,
                   "Lower CL"=LCL,
                   "Upper CL"=UCL)
-  return(data)
+  data
 }
 ```
 
@@ -327,6 +339,8 @@ Fungsi tersebut dapat menghitung sekaligus Interval kepercayaan median dengan me
 ```{r}
 med_norCI(df=airquality, alpha=0.05)
 ```
+
+
 
 ### Metode Parametrik Interval Estimasi Median
 
@@ -399,10 +413,10 @@ med_gm <- function(x, alpha){
   LCL = exp(mean(x, na.rm=TRUE)-qt(1-alpha/2,df)*sqrt(var(x, na.rm=TRUE)/length(x)))
   UCL = exp(mean(x, na.rm=TRUE)+qt(1-alpha/2,df)*sqrt(var(x, na.rm=TRUE)/length(x)))
   # menggabungkan hasil
-  data=data.frame("GM"=gm,
-                  "Lower CL"=LCL,
-                  "Upper CL"=UCL)
-  return(data)
+  data=c("GM"=gm,
+        "Lower CL"=LCL,
+        "Upper CL"=UCL)
+  data
 }
 ```
 
@@ -414,6 +428,17 @@ med_gm <- function(x, alpha){
 ```{r}
 med_gm(x=gwardat$konsentrasi, alpha=0.05)
 ```
+
+Fungsi tersebut juga dapat digunakan bersamaan dengan fungsi seperti apply function atau map function. Ini berguna jika data yang kita miliki memiliki banya kolom yang perlu dihitung masing-masing interval kepercayaannya. Berikut adalah contoh sintaks yang digunakan:
+
+```{r}
+# menggunakan zpply function
+sapply(airquality, med_gm, alpha=0.05)
+
+# menggunakan map function
+map(airquality, med_gm, alpha=0.05)
+```
+
 
 Fungsi `med_gm()` dapat dilakukan sejumlah modifikasi seperti penggunaan data frame sebagai input serta proses transformasi yang dilakukan didalam fungsi yang ada sekaligus. Berikut adalah contoh fungsi yang digunakan untuk input berupa data frame dan proses transformasi termasuk didalamnya:
 
@@ -443,7 +468,7 @@ med_gm <- function(df, alpha){
                   "GM"=gm,
                   "Lower CL"=LCL,
                   "Upper CL"=UCL)
-  return(data)
+  data
 }
 ```
 
@@ -516,6 +541,15 @@ Untuk menghitung interval kepercayaan mean jalankan sintaks berikut:
 t.test(gwardat$konsentrasi, conf.level= 0.95) 
 ```
 
+Fungsi t-test tersebut juga dapat dikombinasikan dengan apply dan map function. Hal ini berguna jika pembaca ingin menghitung interval kepercayaan mean untuk setiap kolom data disertai dengan uji signifikansinya. Berikut adalah contoh sintaks yang digunakan:
+
+```{r}
+# menggunakan apply function
+apply(X=airquality, MARGIN=2, FUN=t.test, conf.level=0.95)
+
+# menggunakan map function
+map(airquality, t.test, conf.level=0.95)
+```
 
 
 ### Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris
@@ -585,10 +619,10 @@ mean_asci<-function(x,alpha){
   LCL = exp(ave+(0.5*sd^2)-qt(re,df)*sqrt(((sd^2)/n)+((sd^4)/(2*df))))
   UCL = exp(ave+(0.5*sd^2)+qt(re,df)*sqrt(((sd^2)/n)+((sd^4)/(2*df))))
   # menggabungkan hasil
-  data = data.frame("Mean"=m,
-                  "Lower CL"=LCL,
-                  "Upper CL"=UCL)
-  return(data)
+  data = c("Mean"=m,
+            "Lower CL"=LCL,
+            "Upper CL"=UCL)
+  data
 }
 ```
 
@@ -600,6 +634,17 @@ mean_asci<-function(x,alpha){
 ```{r}
 mean_asci(x=gwardat$konsentrasi, alpha=0.05)
 ```
+
+Fungsi tersebut juga dapat digunakan bersamaan dengan apply dan map function, sehingga fungsionalitas fungsi tersebut juga meningkat. Berikut adalah contoh sintak yang digunakan:
+
+```{r}
+# menggunakan apply function
+sapply(airquality, mean_asci, alpha=0.05)
+
+# menggunakan map function
+map(airquality, mean_asci, alpha=0.05)
+```
+
 
 Jika pembaca ingin menggunakan data frame sebagai input yang digunakan selain vektor, fungsi tersebut dapat dimodifikasi seperti berikut:
 
@@ -635,7 +680,7 @@ mean_asci<-function(df,alpha){
                     "Mean"=m,
                     "Lower CL"=LCL,
                     "Upper CL"=UCL)
-  return(data)
+  data
 }
 ```
 
