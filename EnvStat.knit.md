@@ -22,7 +22,7 @@ favicon: "Rosidi.png"
 
 # Pengantar {-}
 
-<a href="https://environmental-data-modeling.netlify.com" target="_blank"><img src="cover.png" style="display: block; margin: auto;" /></a>
+
 
 <style>
 body{
@@ -57,10 +57,14 @@ Pada *chapter* ini penulis akan memperkenalkan kepada pembaca mengenai bahasa pe
 
 `R` Merupakan bahasa yang digunakan dalam komputasi **statistik** yang pertama kali dikembangkan oleh **Ross Ihaka** dan **Robert Gentlement** di University of Auckland  New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum `R` dikenal ada `S` yang dikembangkan oleh **John Chambers** dan rekan-rekan dari **Bell Laboratories** yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah `R` merupakan sistem komputasi yang bersifat gratis.Logo `R` dapat dilihat pada Gambar \@ref(fig:Logo).
 
-<div class="figure" style="text-align: center">
-<img src="r-icon.png" alt="Logo R." width="40%" />
-<p class="caption">(\#fig:Logo)Logo R.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{r-icon} 
+
+}
+
+\caption{Logo R.}(\#fig:Logo)
+\end{figure}
 
 `R` dapat dibilang merupakan aplikasi sistem **statistik** yang kaya. Hal ini disebabkan banyak sekali paket yang dikembangkan oleh pengembang dan komunitas untuk keperluan analisa statistik seperti *linear regression*, *clustering*, *statistical test*, dll. Selain itu, `R` juga dapat ditambahkan paket-paket lain yang dapat meningkatkan fiturnya.
 
@@ -132,15 +136,23 @@ Pada tutorial ini hanya akan dijelaskan bagaimana menginstal `R` dan `RStudio` p
 
 Jendela aplikasi yang telah terpasang ditampilkan pada Gambar \@ref(fig:jendela-R) dan Gambar \@ref(fig:jendela-RStudio).
 
-<div class="figure" style="text-align: center">
-<img src="jendela_r.png" alt="Jendela R." width="80%" />
-<p class="caption">(\#fig:jendela-R)Jendela R.</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="jendela_rstudio.png" alt="Jendela RStudio." width="80%" />
-<p class="caption">(\#fig:jendela-RStudio)Jendela RStudio.</p>
-</div>
+{\centering \includegraphics[width=0.8\linewidth]{jendela_r} 
+
+}
+
+\caption{Jendela R.}(\#fig:jendela-R)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{jendela_rstudio} 
+
+}
+
+\caption{Jendela RStudio.}(\#fig:jendela-RStudio)
+\end{figure}
 
 
 > **Note: ** Sebaiknya install `R` terlebih dahulu sebelum `RStudio`
@@ -168,10 +180,14 @@ Untuk mengecek apakah proses perubahan telah terjadi, kita dapat mengeceknya den
 getwd()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="working.png" alt="Mengubah working directory." width="80%" />
-<p class="caption">(\#fig:working)Mengubah working directory.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{working} 
+
+}
+
+\caption{Mengubah working directory.}(\#fig:working)
+\end{figure}
 
 Selain itu kita dapat mengubah *working directory* menggunakan perintah berikut:
 
@@ -189,10 +205,14 @@ Pada proses yang telah penulis jelaskan sebelumnya. Proses perubahan *working di
 
 Untuk membuat lokasi default *working directory* pindah, kita dapat melakukannya dengan memilih pada menu: **Tools > Global options > pada "General" klik pada "Browse" dan pilih lokasi working directory yang diinginkan**. Proses tersebut ditampilkan pada Gambar \@ref(fig:default)
 
-<div class="figure" style="text-align: center">
-<img src="default.png" alt="Merubah working directory melalui Global options." width="80%" />
-<p class="caption">(\#fig:default)Merubah working directory melalui Global options.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{default} 
+
+}
+
+\caption{Merubah working directory melalui Global options.}(\#fig:default)
+\end{figure}
 
 ## Fasilitas Help
 
@@ -226,10 +246,14 @@ help(mean)
 
 Perintah tersebut akan memunculkan hasil berupa dokumentasi yang ditampilkan pada Gambar \@ref(fig:meandoc).
 
-<div class="figure" style="text-align: center">
-<img src="meandoc.png" alt="Jendela help dokumentasi fungsi mean()." width="50%" />
-<p class="caption">(\#fig:meandoc)Jendela help dokumentasi fungsi mean().</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{meandoc} 
+
+}
+
+\caption{Jendela help dokumentasi fungsi mean().}(\#fig:meandoc)
+\end{figure}
 
 Keterangan pada jendela pada Gambar \@ref(fig:meandoc) adalah sebagia berikut:
 
@@ -309,10 +333,14 @@ help.start()
 
 Output yang dihasilkan berupa link pada sejumlah dokumen yang dapat kita klik. Tampilan halaman yang dihasilkan disajikan pada Gambar \@ref(fig:generalhelp).
 
-<div class="figure" style="text-align: center">
-<img src="generalhelp.png" alt="Jendela general help dokumentasi fungsi mean()." width="50%" />
-<p class="caption">(\#fig:generalhelp)Jendela general help dokumentasi fungsi mean().</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{generalhelp} 
+
+}
+
+\caption{Jendela general help dokumentasi fungsi mean().}(\#fig:generalhelp)
+\end{figure}
 
 ### Fasilitas Help Lainnya
 
@@ -346,10 +374,14 @@ help.search("mean")
 
 *Output* yang dihasilkan akan tampak seperti pada Gambar \@ref(fig:helpsearch).
 
-<div class="figure" style="text-align: center">
-<img src="helpsearch.png" alt="Jendela help search dokumentasi fungsi mean()." width="50%" />
-<p class="caption">(\#fig:helpsearch)Jendela help search dokumentasi fungsi mean().</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{helpsearch} 
+
+}
+
+\caption{Jendela help search dokumentasi fungsi mean().}(\#fig:helpsearch)
+\end{figure}
 
 
 ## Referensi
@@ -2218,10 +2250,14 @@ Pada `R` bentuk *loop* dapat bermacam-macam ("*for loop*","*while loop*", dll). 
 
 Meski *loop* jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat *loop* yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Gambar \@ref(fig:loop)
 
-<div class="figure" style="text-align: center">
-<img src="skema_loop.png" alt="Diagram umum loop (sumber: Primartha, 2018)." width="40%" />
-<p class="caption">(\#fig:loop)Diagram umum loop (sumber: Primartha, 2018).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{skema_loop} 
+
+}
+
+\caption{Diagram umum loop (sumber: Primartha, 2018).}(\#fig:loop)
+\end{figure}
 
 ### For Loop
 
@@ -2863,8 +2899,8 @@ tapply(groups, groups, length)
 ```
 
 ```
-##  8 14 15 18 
-##  1  1  2  1
+##  7  9 11 15 
+##  1  1  1  2
 ```
 
 ```r
@@ -2874,8 +2910,8 @@ table(groups)
 
 ```
 ## groups
-##  8 14 15 18 
-##  1  1  2  1
+##  7  9 11 15 
+##  1  1  1  2
 ```
 
 ```r
@@ -3036,10 +3072,14 @@ map_chr(.x=x, .f=paste, "Kota")
 
 Pola *if statement* disajikan pada Gambar \@ref(fig:ifstatement)
 
-<div class="figure" style="text-align: center">
-<img src="ifstatement.png" alt="Diagram if statement (sumber: Primartha, 2018)." width="40%" />
-<p class="caption">(\#fig:ifstatement)Diagram if statement (sumber: Primartha, 2018).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{ifstatement} 
+
+}
+
+\caption{Diagram if statement (sumber: Primartha, 2018).}(\#fig:ifstatement)
+\end{figure}
 
 Berikut adalah contoh penerapan *if statement*:
 
@@ -3060,10 +3100,14 @@ if(is.vector(x)){
 
 Pola dari *if else statement* disajikan pada Gambar \@ref(fig:ifelse)
 
-<div class="figure" style="text-align: center">
-<img src="ifelse.png" alt="Diagram if else statement (sumber: Primartha, 2018)." width="40%" />
-<p class="caption">(\#fig:ifelse)Diagram if else statement (sumber: Primartha, 2018).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{ifelse} 
+
+}
+
+\caption{Diagram if else statement (sumber: Primartha, 2018).}(\#fig:ifelse)
+\end{figure}
 
 Berikut adalah contoh penerapan *if else statement*:
 
@@ -3088,10 +3132,14 @@ if("Rina" %in% x){
 
 Pola dari *switch statement* disajikan pada Gambar \@ref(fig:switch)
 
-<div class="figure" style="text-align: center">
-<img src="switch.png" alt="Diagram switch statement (sumber: Primartha, 2018)." width="40%" />
-<p class="caption">(\#fig:switch)Diagram switch statement (sumber: Primartha, 2018).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{switch} 
+
+}
+
+\caption{Diagram switch statement (sumber: Primartha, 2018).}(\#fig:switch)
+\end{figure}
 
 Berikut adalah contoh penerapan *switch statement*:
 
@@ -3238,20 +3286,20 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────────────── tidyverse 1.2.1 ──
+## -- Attaching packages ----------------------------------------------- tidyverse 1.2.1 --
 ```
 
 ```
-## ✔ ggplot2 3.1.1     ✔ readr   1.3.1
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.1
-## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
-## ✔ ggplot2 3.1.1     ✔ forcats 0.4.0
+## v ggplot2 3.1.1     v readr   1.3.1
+## v tibble  2.1.3     v dplyr   0.8.1
+## v tidyr   0.8.3     v stringr 1.4.0
+## v ggplot2 3.1.1     v forcats 0.4.0
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
+## -- Conflicts -------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
 ```
 
 ## Import File
@@ -3771,19 +3819,19 @@ output_for
 ```
 ## [[1]]
 ## # A tibble: 680 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>       <lgl>    <date>          
-##  1        5260 J5-Peningk… NA       2013-02-19      
-##  2      171260 B2-Peningk… NA       2013-02-21      
-##  3      374260 J126-Penin… NA       2013-04-24      
-##  4      452260 J140-Penin… NA       2013-05-19      
-##  5      521260 Belanja Mo… NA       2013-05-20      
-##  6      571260 Pengadaan … NA       2013-06-11      
-##  7      727260 Pembanguna… NA       2013-08-07      
-##  8      628260 SS-06 Bang… NA       2013-06-25      
-##  9      772260 Belanja Mo… NA       2013-08-13      
-## 10      889260 PKP1-Penga… NA       2013-09-18      
-## # … with 670 more rows, and 28 more variables:
+##  1        5260 J5-Peningk~ NA       2013-02-19      
+##  2      171260 B2-Peningk~ NA       2013-02-21      
+##  3      374260 J126-Penin~ NA       2013-04-24      
+##  4      452260 J140-Penin~ NA       2013-05-19      
+##  5      521260 Belanja Mo~ NA       2013-05-20      
+##  6      571260 Pengadaan ~ NA       2013-06-11      
+##  7      727260 Pembanguna~ NA       2013-08-07      
+##  8      628260 SS-06 Bang~ NA       2013-06-25      
+##  9      772260 Belanja Mo~ NA       2013-08-13      
+## 10      889260 PKP1-Penga~ NA       2013-09-18      
+## # ... with 670 more rows, and 28 more variables:
 ## #   keterangan <lgl>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -3800,19 +3848,19 @@ output_for
 ## 
 ## [[2]]
 ## # A tibble: 763 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1     1002260 Jasa Konsu…       NA 2014-02-21      
-##  2     1003260 Jasa Konsu…   625017 2014-02-21      
-##  3     1008260 Pengoperas…       NA 2014-03-03      
-##  4     1007260 Pengoperas…       NA 2014-03-03      
-##  5     1009260 Jasa Konsu…   792674 2014-03-10      
-##  6     1013260 Kajian Mod…       NA 2014-03-12      
-##  7     1014260 Belanja Pr…       NA 2014-03-14      
-##  8     1016260 Jasa Tenag…       NA 2014-03-18      
-##  9     1015260 Jasa Konsu…       NA 2014-03-18      
-## 10     1017260 Jasa Tenag…       NA 2014-03-18      
-## # … with 753 more rows, and 28 more variables:
+##  1     1002260 Jasa Konsu~       NA 2014-02-21      
+##  2     1003260 Jasa Konsu~   625017 2014-02-21      
+##  3     1008260 Pengoperas~       NA 2014-03-03      
+##  4     1007260 Pengoperas~       NA 2014-03-03      
+##  5     1009260 Jasa Konsu~   792674 2014-03-10      
+##  6     1013260 Kajian Mod~       NA 2014-03-12      
+##  7     1014260 Belanja Pr~       NA 2014-03-14      
+##  8     1016260 Jasa Tenag~       NA 2014-03-18      
+##  9     1015260 Jasa Konsu~       NA 2014-03-18      
+## 10     1017260 Jasa Tenag~       NA 2014-03-18      
+## # ... with 753 more rows, and 28 more variables:
 ## #   keterangan <lgl>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -3829,19 +3877,19 @@ output_for
 ## 
 ## [[3]]
 ## # A tibble: 638 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1     2161260 Belanja Ba…       NA 2015-01-06      
-##  2     2164260 Pengadaan …  2558197 2015-02-09      
-##  3     2166260 Perawatan …       NA 2015-02-10      
-##  4     2165260 Perawatan …       NA 2015-02-10      
-##  5     2163260 "Pengadaan…  2837522 2015-02-12      
-##  6     2173260 Peningkata…  3024560 2015-02-17      
-##  7     2174260 Peningkata…  3024515 2015-02-17      
-##  8     2178260 Peningkata…  3024663 2015-02-17      
-##  9     2172260 Peningkata…  3024534 2015-02-17      
-## 10     2167260 Peningkata…  3024431 2015-02-17      
-## # … with 628 more rows, and 28 more variables:
+##  1     2161260 Belanja Ba~       NA 2015-01-06      
+##  2     2164260 Pengadaan ~  2558197 2015-02-09      
+##  3     2166260 Perawatan ~       NA 2015-02-10      
+##  4     2165260 Perawatan ~       NA 2015-02-10      
+##  5     2163260 "Pengadaan~  2837522 2015-02-12      
+##  6     2173260 Peningkata~  3024560 2015-02-17      
+##  7     2174260 Peningkata~  3024515 2015-02-17      
+##  8     2178260 Peningkata~  3024663 2015-02-17      
+##  9     2172260 Peningkata~  3024534 2015-02-17      
+## 10     2167260 Peningkata~  3024431 2015-02-17      
+## # ... with 628 more rows, and 28 more variables:
 ## #   keterangan <lgl>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -3858,19 +3906,19 @@ output_for
 ## 
 ## [[4]]
 ## # A tibble: 785 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1     2994260 Belanja Ba…  5035789 2015-12-11      
-##  2     2995260 Belanja Ja…  5026929 2015-12-11      
-##  3     2996260 Belanja Ma…  5027086 2015-12-11      
-##  4     2997260 Belanja Ja…  5027006 2015-12-11      
-##  5     2998260 Belanja Ja…  5037194 2015-12-11      
-##  6     2999260 Belanja Ja…  5037172 2015-12-11      
-##  7     3000260 Belanja Ja…  5037210 2015-12-11      
-##  8     3007260 Jasa Penga…  5054575 2015-12-11      
-##  9     3013260 Penyediaan…  5057427 2015-12-11      
-## 10     3014260 Pengadaan …  5043143 2016-01-12      
-## # … with 775 more rows, and 28 more variables:
+##  1     2994260 Belanja Ba~  5035789 2015-12-11      
+##  2     2995260 Belanja Ja~  5026929 2015-12-11      
+##  3     2996260 Belanja Ma~  5027086 2015-12-11      
+##  4     2997260 Belanja Ja~  5027006 2015-12-11      
+##  5     2998260 Belanja Ja~  5037194 2015-12-11      
+##  6     2999260 Belanja Ja~  5037172 2015-12-11      
+##  7     3000260 Belanja Ja~  5037210 2015-12-11      
+##  8     3007260 Jasa Penga~  5054575 2015-12-11      
+##  9     3013260 Penyediaan~  5057427 2015-12-11      
+## 10     3014260 Pengadaan ~  5043143 2016-01-12      
+## # ... with 775 more rows, and 28 more variables:
 ## #   keterangan <chr>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -3887,19 +3935,19 @@ output_for
 ## 
 ## [[5]]
 ## # A tibble: 414 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1     4542260 Pengadaan … 11633430 2017-09-08      
-##  2     4135260 Belanja Al… 11005893 2017-05-03      
-##  3     4244260 Belanja Ja… 11367750 2017-06-09      
-##  4     4462260 Belanja Ja… 12437947 2017-08-11      
-##  5     4393260 Belanja Ja… 11999277 2017-07-27      
-##  6     4231260 Belanja ja… 12162438 2017-05-31      
-##  7     4233260 Belanja ja… 12156963 2017-05-31      
-##  8     4234260 Belanja ja… 12150139 2017-05-31      
-##  9     4232260 Belanja ja… 12150318 2017-05-31      
-## 10     4238260 Belanja ja… 12156804 2017-05-31      
-## # … with 404 more rows, and 28 more variables:
+##  1     4542260 Pengadaan ~ 11633430 2017-09-08      
+##  2     4135260 Belanja Al~ 11005893 2017-05-03      
+##  3     4244260 Belanja Ja~ 11367750 2017-06-09      
+##  4     4462260 Belanja Ja~ 12437947 2017-08-11      
+##  5     4393260 Belanja Ja~ 11999277 2017-07-27      
+##  6     4231260 Belanja ja~ 12162438 2017-05-31      
+##  7     4233260 Belanja ja~ 12156963 2017-05-31      
+##  8     4234260 Belanja ja~ 12150139 2017-05-31      
+##  9     4232260 Belanja ja~ 12150318 2017-05-31      
+## 10     4238260 Belanja ja~ 12156804 2017-05-31      
+## # ... with 404 more rows, and 28 more variables:
 ## #   keterangan <chr>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -3956,19 +4004,19 @@ df_for
 
 ```
 ## # A tibble: 3,280 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1        5260 J5-Peningk…       NA 2013-02-19      
-##  2      171260 B2-Peningk…       NA 2013-02-21      
-##  3      374260 J126-Penin…       NA 2013-04-24      
-##  4      452260 J140-Penin…       NA 2013-05-19      
-##  5      521260 Belanja Mo…       NA 2013-05-20      
-##  6      571260 Pengadaan …       NA 2013-06-11      
-##  7      727260 Pembanguna…       NA 2013-08-07      
-##  8      628260 SS-06 Bang…       NA 2013-06-25      
-##  9      772260 Belanja Mo…       NA 2013-08-13      
-## 10      889260 PKP1-Penga…       NA 2013-09-18      
-## # … with 3,270 more rows, and 28 more variables:
+##  1        5260 J5-Peningk~       NA 2013-02-19      
+##  2      171260 B2-Peningk~       NA 2013-02-21      
+##  3      374260 J126-Penin~       NA 2013-04-24      
+##  4      452260 J140-Penin~       NA 2013-05-19      
+##  5      521260 Belanja Mo~       NA 2013-05-20      
+##  6      571260 Pengadaan ~       NA 2013-06-11      
+##  7      727260 Pembanguna~       NA 2013-08-07      
+##  8      628260 SS-06 Bang~       NA 2013-06-25      
+##  9      772260 Belanja Mo~       NA 2013-08-13      
+## 10      889260 PKP1-Penga~       NA 2013-09-18      
+## # ... with 3,270 more rows, and 28 more variables:
 ## #   keterangan <chr>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -4123,19 +4171,19 @@ output_lapply
 ```
 ## [[1]]
 ## # A tibble: 680 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>       <lgl>    <date>          
-##  1        5260 J5-Peningk… NA       2013-02-19      
-##  2      171260 B2-Peningk… NA       2013-02-21      
-##  3      374260 J126-Penin… NA       2013-04-24      
-##  4      452260 J140-Penin… NA       2013-05-19      
-##  5      521260 Belanja Mo… NA       2013-05-20      
-##  6      571260 Pengadaan … NA       2013-06-11      
-##  7      727260 Pembanguna… NA       2013-08-07      
-##  8      628260 SS-06 Bang… NA       2013-06-25      
-##  9      772260 Belanja Mo… NA       2013-08-13      
-## 10      889260 PKP1-Penga… NA       2013-09-18      
-## # … with 670 more rows, and 28 more variables:
+##  1        5260 J5-Peningk~ NA       2013-02-19      
+##  2      171260 B2-Peningk~ NA       2013-02-21      
+##  3      374260 J126-Penin~ NA       2013-04-24      
+##  4      452260 J140-Penin~ NA       2013-05-19      
+##  5      521260 Belanja Mo~ NA       2013-05-20      
+##  6      571260 Pengadaan ~ NA       2013-06-11      
+##  7      727260 Pembanguna~ NA       2013-08-07      
+##  8      628260 SS-06 Bang~ NA       2013-06-25      
+##  9      772260 Belanja Mo~ NA       2013-08-13      
+## 10      889260 PKP1-Penga~ NA       2013-09-18      
+## # ... with 670 more rows, and 28 more variables:
 ## #   keterangan <lgl>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -4152,19 +4200,19 @@ output_lapply
 ## 
 ## [[2]]
 ## # A tibble: 763 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1     1002260 Jasa Konsu…       NA 2014-02-21      
-##  2     1003260 Jasa Konsu…   625017 2014-02-21      
-##  3     1008260 Pengoperas…       NA 2014-03-03      
-##  4     1007260 Pengoperas…       NA 2014-03-03      
-##  5     1009260 Jasa Konsu…   792674 2014-03-10      
-##  6     1013260 Kajian Mod…       NA 2014-03-12      
-##  7     1014260 Belanja Pr…       NA 2014-03-14      
-##  8     1016260 Jasa Tenag…       NA 2014-03-18      
-##  9     1015260 Jasa Konsu…       NA 2014-03-18      
-## 10     1017260 Jasa Tenag…       NA 2014-03-18      
-## # … with 753 more rows, and 28 more variables:
+##  1     1002260 Jasa Konsu~       NA 2014-02-21      
+##  2     1003260 Jasa Konsu~   625017 2014-02-21      
+##  3     1008260 Pengoperas~       NA 2014-03-03      
+##  4     1007260 Pengoperas~       NA 2014-03-03      
+##  5     1009260 Jasa Konsu~   792674 2014-03-10      
+##  6     1013260 Kajian Mod~       NA 2014-03-12      
+##  7     1014260 Belanja Pr~       NA 2014-03-14      
+##  8     1016260 Jasa Tenag~       NA 2014-03-18      
+##  9     1015260 Jasa Konsu~       NA 2014-03-18      
+## 10     1017260 Jasa Tenag~       NA 2014-03-18      
+## # ... with 753 more rows, and 28 more variables:
 ## #   keterangan <lgl>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -4181,19 +4229,19 @@ output_lapply
 ## 
 ## [[3]]
 ## # A tibble: 638 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1     2161260 Belanja Ba…       NA 2015-01-06      
-##  2     2164260 Pengadaan …  2558197 2015-02-09      
-##  3     2166260 Perawatan …       NA 2015-02-10      
-##  4     2165260 Perawatan …       NA 2015-02-10      
-##  5     2163260 "Pengadaan…  2837522 2015-02-12      
-##  6     2173260 Peningkata…  3024560 2015-02-17      
-##  7     2174260 Peningkata…  3024515 2015-02-17      
-##  8     2178260 Peningkata…  3024663 2015-02-17      
-##  9     2172260 Peningkata…  3024534 2015-02-17      
-## 10     2167260 Peningkata…  3024431 2015-02-17      
-## # … with 628 more rows, and 28 more variables:
+##  1     2161260 Belanja Ba~       NA 2015-01-06      
+##  2     2164260 Pengadaan ~  2558197 2015-02-09      
+##  3     2166260 Perawatan ~       NA 2015-02-10      
+##  4     2165260 Perawatan ~       NA 2015-02-10      
+##  5     2163260 "Pengadaan~  2837522 2015-02-12      
+##  6     2173260 Peningkata~  3024560 2015-02-17      
+##  7     2174260 Peningkata~  3024515 2015-02-17      
+##  8     2178260 Peningkata~  3024663 2015-02-17      
+##  9     2172260 Peningkata~  3024534 2015-02-17      
+## 10     2167260 Peningkata~  3024431 2015-02-17      
+## # ... with 628 more rows, and 28 more variables:
 ## #   keterangan <lgl>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -4210,19 +4258,19 @@ output_lapply
 ## 
 ## [[4]]
 ## # A tibble: 785 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1     2994260 Belanja Ba…  5035789 2015-12-11      
-##  2     2995260 Belanja Ja…  5026929 2015-12-11      
-##  3     2996260 Belanja Ma…  5027086 2015-12-11      
-##  4     2997260 Belanja Ja…  5027006 2015-12-11      
-##  5     2998260 Belanja Ja…  5037194 2015-12-11      
-##  6     2999260 Belanja Ja…  5037172 2015-12-11      
-##  7     3000260 Belanja Ja…  5037210 2015-12-11      
-##  8     3007260 Jasa Penga…  5054575 2015-12-11      
-##  9     3013260 Penyediaan…  5057427 2015-12-11      
-## 10     3014260 Pengadaan …  5043143 2016-01-12      
-## # … with 775 more rows, and 28 more variables:
+##  1     2994260 Belanja Ba~  5035789 2015-12-11      
+##  2     2995260 Belanja Ja~  5026929 2015-12-11      
+##  3     2996260 Belanja Ma~  5027086 2015-12-11      
+##  4     2997260 Belanja Ja~  5027006 2015-12-11      
+##  5     2998260 Belanja Ja~  5037194 2015-12-11      
+##  6     2999260 Belanja Ja~  5037172 2015-12-11      
+##  7     3000260 Belanja Ja~  5037210 2015-12-11      
+##  8     3007260 Jasa Penga~  5054575 2015-12-11      
+##  9     3013260 Penyediaan~  5057427 2015-12-11      
+## 10     3014260 Pengadaan ~  5043143 2016-01-12      
+## # ... with 775 more rows, and 28 more variables:
 ## #   keterangan <chr>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -4239,19 +4287,19 @@ output_lapply
 ## 
 ## [[5]]
 ## # A tibble: 414 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1     4542260 Pengadaan … 11633430 2017-09-08      
-##  2     4135260 Belanja Al… 11005893 2017-05-03      
-##  3     4244260 Belanja Ja… 11367750 2017-06-09      
-##  4     4462260 Belanja Ja… 12437947 2017-08-11      
-##  5     4393260 Belanja Ja… 11999277 2017-07-27      
-##  6     4231260 Belanja ja… 12162438 2017-05-31      
-##  7     4233260 Belanja ja… 12156963 2017-05-31      
-##  8     4234260 Belanja ja… 12150139 2017-05-31      
-##  9     4232260 Belanja ja… 12150318 2017-05-31      
-## 10     4238260 Belanja ja… 12156804 2017-05-31      
-## # … with 404 more rows, and 28 more variables:
+##  1     4542260 Pengadaan ~ 11633430 2017-09-08      
+##  2     4135260 Belanja Al~ 11005893 2017-05-03      
+##  3     4244260 Belanja Ja~ 11367750 2017-06-09      
+##  4     4462260 Belanja Ja~ 12437947 2017-08-11      
+##  5     4393260 Belanja Ja~ 11999277 2017-07-27      
+##  6     4231260 Belanja ja~ 12162438 2017-05-31      
+##  7     4233260 Belanja ja~ 12156963 2017-05-31      
+##  8     4234260 Belanja ja~ 12150139 2017-05-31      
+##  9     4232260 Belanja ja~ 12150318 2017-05-31      
+## 10     4238260 Belanja ja~ 12156804 2017-05-31      
+## # ... with 404 more rows, and 28 more variables:
 ## #   keterangan <chr>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -4417,19 +4465,19 @@ output_map
 
 ```
 ## # A tibble: 3,280 x 32
-##    kode_lelang nama_lelang kode_rup tanggal_pembuat…
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~
 ##          <dbl> <chr>          <dbl> <date>          
-##  1        5260 J5-Peningk…       NA 2013-02-19      
-##  2      171260 B2-Peningk…       NA 2013-02-21      
-##  3      374260 J126-Penin…       NA 2013-04-24      
-##  4      452260 J140-Penin…       NA 2013-05-19      
-##  5      521260 Belanja Mo…       NA 2013-05-20      
-##  6      571260 Pengadaan …       NA 2013-06-11      
-##  7      727260 Pembanguna…       NA 2013-08-07      
-##  8      628260 SS-06 Bang…       NA 2013-06-25      
-##  9      772260 Belanja Mo…       NA 2013-08-13      
-## 10      889260 PKP1-Penga…       NA 2013-09-18      
-## # … with 3,270 more rows, and 28 more variables:
+##  1        5260 J5-Peningk~       NA 2013-02-19      
+##  2      171260 B2-Peningk~       NA 2013-02-21      
+##  3      374260 J126-Penin~       NA 2013-04-24      
+##  4      452260 J140-Penin~       NA 2013-05-19      
+##  5      521260 Belanja Mo~       NA 2013-05-20      
+##  6      571260 Pengadaan ~       NA 2013-06-11      
+##  7      727260 Pembanguna~       NA 2013-08-07      
+##  8      628260 SS-06 Bang~       NA 2013-06-25      
+##  9      772260 Belanja Mo~       NA 2013-08-13      
+## 10      889260 PKP1-Penga~       NA 2013-09-18      
+## # ... with 3,270 more rows, and 28 more variables:
 ## #   keterangan <chr>, tahapan_lelang <chr>,
 ## #   instansi <chr>, satuan_kerja <chr>,
 ## #   kategori <chr>, metode_pengadaan <chr>,
@@ -4679,7 +4727,7 @@ iris_tbl
 ##  8          5           3.4          1.5         0.2
 ##  9          4.4         2.9          1.4         0.2
 ## 10          4.9         3.1          1.5         0.1
-## # … with 140 more rows, and 1 more variable:
+## # ... with 140 more rows, and 1 more variable:
 ## #   Species <fct>
 ```
 
@@ -4821,7 +4869,7 @@ print(iris_tbl, n=15, width=Inf)
 ## 13 setosa 
 ## 14 setosa 
 ## 15 setosa 
-## # … with 135 more rows
+## # ... with 135 more rows
 ```
 
 Kita juga dapat mengontrol print default dengan melakukan pengaturan menggunakan fungsi `options()`. Berikut adalah contoh penerapannya:
@@ -4861,7 +4909,7 @@ iris_tbl
 ##  8          5           3.4          1.5         0.2
 ##  9          4.4         2.9          1.4         0.2
 ## 10          4.9         3.1          1.5         0.1
-## # … with 140 more rows, and 1 more variable:
+## # ... with 140 more rows, and 1 more variable:
 ## #   Species <fct>
 ```
 
@@ -5019,10 +5067,14 @@ Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu terlebih dah
 
 Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan *tidy*. Ketiga syarat tersebut dapat divisualisasikan melalui Gambar \@ref(fig:tidy)
 
-<div class="figure" style="text-align: center">
-<img src="tidy.png" alt="Visualisasi 3 rule tidy data"  />
-<p class="caption">(\#fig:tidy)Visualisasi 3 rule tidy data</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{tidy} 
+
+}
+
+\caption{Visualisasi 3 rule tidy data}(\#fig:tidy)
+\end{figure}
 
 Dengan menggunakan prinsip data *tidy* kita akan menganalisa data tersebut satu persatu. Berikut adalah analisa terkait data-data tesebut:
 
@@ -5067,10 +5119,14 @@ gather(data, key, value, ...)
 
 Visualisasi dari fungsi `gather` ini disajikan pada Gambar \@ref(fig:gather)
 
-<div class="figure" style="text-align: center">
-<img src="gather.png" alt="Visualisasi fungsi gather (Sumber: Rstudio,2017)"  />
-<p class="caption">(\#fig:gather)Visualisasi fungsi gather (Sumber: Rstudio,2017)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{gather} 
+
+}
+
+\caption{Visualisasi fungsi gather (Sumber: Rstudio,2017)}(\#fig:gather)
+\end{figure}
 
 Berikut adalah contoh penerapannya pada dataset `table4a` dan `table4b`:
 
@@ -5178,10 +5234,14 @@ Fungsi `spread()` berkebalikan dengan `gather()`. Fungsi `gather()` menggabungka
 
 Visualisasi dari fungsi `spread()` ini disajikan pada Gambar \@ref(fig:spread)
 
-<div class="figure" style="text-align: center">
-<img src="spread.png" alt="Visualisasi fungsi spread (Sumber: Rstudio,2017)"  />
-<p class="caption">(\#fig:spread)Visualisasi fungsi spread (Sumber: Rstudio,2017)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{spread} 
+
+}
+
+\caption{Visualisasi fungsi spread (Sumber: Rstudio,2017)}(\#fig:spread)
+\end{figure}
 
 Pada contoh kasus pada data `table2`, kita dapat memisahkan kolom `type` menjadi kolom baru yaitu kolom `cases` dan `population`. Untuk melakukannya jalankan sintaks berikut:
 
@@ -5214,17 +5274,25 @@ Terlihat bahwa data `table2_new` tampak memenuhi syarat kerapihan data (*tidy*).
 
 Fungsi `separate()` merupakan fungsi yang digunakan untuk memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi ini berbeda dengan fungsi sebelumnya seperti `gather()` dan `spread()` yang menggabung atau memisahkan 2 atau beberapa kolom. Visualisasi dari fungsi `separate()` ini disajikan pada Gambar \@ref(fig:separate)
 
-<div class="figure" style="text-align: center">
-<img src="separate.png" alt="Visualisasi fungsi separate (Sumber: Rstudio,2017)"  />
-<p class="caption">(\#fig:separate)Visualisasi fungsi separate (Sumber: Rstudio,2017)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{separate} 
+
+}
+
+\caption{Visualisasi fungsi separate (Sumber: Rstudio,2017)}(\#fig:separate)
+\end{figure}
 
 Jika fungsi `separate()` memisahkan sejumlah nilai menajdi beberapa kolom sesuai dengan karakter pemisah, fungsi `separate_rows()` memisahkan nilai menjadi beberapa baris berdasarkan karakter pemisah. Visualisasi dari fungsi `separate_rows()` ini disajikan pada Gambar \@ref(fig:separaterows)
 
-<div class="figure" style="text-align: center">
-<img src="separate_rows.png" alt="Visualisasi fungsi separate rows"  />
-<p class="caption">(\#fig:separaterows)Visualisasi fungsi separate rows</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{separate_rows} 
+
+}
+
+\caption{Visualisasi fungsi separate rows}(\#fig:separaterows)
+\end{figure}
 
 Format sederhana fungsi `separate()`  dan `separate_rows()` adalah sebagai berikut:
 
@@ -5332,10 +5400,14 @@ unite(data, col, ..., sep = "_")
 
 Visualisasi dari fungsi `unite()` ini disajikan pada Gambar \@ref(fig:spread)
 
-<div class="figure" style="text-align: center">
-<img src="unite.png" alt="Visualisasi fungsi unite (Sumber: Rstudio,2017)"  />
-<p class="caption">(\#fig:unite)Visualisasi fungsi unite (Sumber: Rstudio,2017)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{unite} 
+
+}
+
+\caption{Visualisasi fungsi unite (Sumber: Rstudio,2017)}(\#fig:unite)
+\end{figure}
 
 Pada dataset `table5_new` kita akan menggabungkan kolom `century` dan kolom `year` menjadi kolom `year` tanpa pemisah. Berikut adalah sintaks untuk melakukannya: 
 
@@ -5421,7 +5493,7 @@ flights
 ##  8  2013     1     1      557            600        -3
 ##  9  2013     1     1      557            600        -3
 ## 10  2013     1     1      558            600        -2
-## # … with 336,766 more rows, and 13 more variables:
+## # ... with 336,766 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -5526,10 +5598,14 @@ filter(data, ....)
 
 Visualisasi dari fungsi `filter()`disajikan pada Gambar \@ref(fig:filtervis)
 
-<div class="figure" style="text-align: center">
-<img src="filtervis.png" alt="Visualisasi fungsi filter (Sumber: Rstudio,2017)"  />
-<p class="caption">(\#fig:filtervis)Visualisasi fungsi filter (Sumber: Rstudio,2017)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{filtervis} 
+
+}
+
+\caption{Visualisasi fungsi filter (Sumber: Rstudio,2017)}(\#fig:filtervis)
+\end{figure}
 
 MIsalkan menggunakan dataset `flights` kita ingin mentehaui penerbangan apa saja yang berlangsung pada `month==1` dan `day==1` (1 Januari). Berikut adalah sintaks untuk memfilter datanya:
 
@@ -5552,7 +5628,7 @@ filter(flights, month == 1 & day == 1)
 ##  8  2013     1     1      557            600        -3
 ##  9  2013     1     1      557            600        -3
 ## 10  2013     1     1      558            600        -2
-## # … with 832 more rows, and 13 more variables:
+## # ... with 832 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -5582,7 +5658,7 @@ head(jan1, 10)
 ##  8  2013     1     1      557            600        -3
 ##  9  2013     1     1      557            600        -3
 ## 10  2013     1     1      558            600        -2
-## # … with 13 more variables: arr_time <int>,
+## # ... with 13 more variables: arr_time <int>,
 ## #   sched_arr_time <int>, arr_delay <dbl>,
 ## #   carrier <chr>, flight <int>, tailnum <chr>,
 ## #   origin <chr>, dest <chr>, air_time <dbl>,
@@ -5594,10 +5670,14 @@ Operator ">" merupakan operator relasi (lihat chapter 2: operator relasi). Opera
 
 Operator "==" merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Gambar \@ref(fig:filter) berikut:
 
-<div class="figure" style="text-align: center">
-<img src="filter.png" alt="Diagram operasi Boolean (Sumber: Wichham dan Grolemund, 2016)"  />
-<p class="caption">(\#fig:filter)Diagram operasi Boolean (Sumber: Wichham dan Grolemund, 2016)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{filter} 
+
+}
+
+\caption{Diagram operasi Boolean (Sumber: Wichham dan Grolemund, 2016)}(\#fig:filter)
+\end{figure}
 
 > **Note: ** Bagian yang di arsir adalah observasi yang akan ditampilkan pada output.
 
@@ -5707,7 +5787,7 @@ filter_all(flights, all_vars(. > 150))
 
 ```
 ## # A tibble: 0 x 19
-## # … with 19 variables: year <int>, month <int>,
+## # ... with 19 variables: year <int>, month <int>,
 ## #   day <int>, dep_time <int>, sched_dep_time <int>,
 ## #   dep_delay <dbl>, arr_time <int>,
 ## #   sched_arr_time <int>, arr_delay <dbl>,
@@ -5736,7 +5816,7 @@ filter_all(flights, any_vars(. > 150))
 ##  8  2013     1     1      557            600        -3
 ##  9  2013     1     1      557            600        -3
 ## 10  2013     1     1      558            600        -2
-## # … with 336,766 more rows, and 13 more variables:
+## # ... with 336,766 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -5770,7 +5850,7 @@ filter_at(flights,
 ##  8  2013     1     1      558            600        -2
 ##  9  2013     1     1      558            600        -2
 ## 10  2013     1     1      558            600        -2
-## # … with 286,353 more rows, and 13 more variables:
+## # ... with 286,353 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -5797,7 +5877,7 @@ filter_at(flights, vars(arr_time, arr_delay), ~.%%2==0)
 ##  8  2013     1     1      602            610        -8
 ##  9  2013     1     1      606            610        -4
 ## 10  2013     1     1      624            630        -6
-## # … with 82,780 more rows, and 13 more variables:
+## # ... with 82,780 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -5826,7 +5906,7 @@ filter_if(flights[,16:17], ~ all(floor(.) == .), all_vars(. != 0))
 ##  8      229     6
 ##  9      944     6
 ## 10      733     6
-## # … with 336,766 more rows
+## # ... with 336,766 more rows
 ```
 
 > **Note: ** `filter_at()` dan `filter_if()` menghilangkan kolom yang tidak sesuai kriteria. Sedangkan `filter_all()` digunakan untuk memfilter baris.
@@ -5863,7 +5943,7 @@ distinct(flights, tailnum)
 ##  8 N829AS 
 ##  9 N593JB 
 ## 10 N3ALAA 
-## # … with 4,034 more rows
+## # ... with 4,034 more rows
 ```
 
 ```r
@@ -5875,17 +5955,17 @@ sample_frac(flights, 0.1, replace=TRUE)
 ## # A tibble: 33,678 x 19
 ##     year month   day dep_time sched_dep_time dep_delay
 ##    <int> <int> <int>    <int>          <int>     <dbl>
-##  1  2013     5    16     2050           2100       -10
-##  2  2013     5    18      653            655        -2
-##  3  2013    12    29     1707           1700         7
-##  4  2013     3    29      932            935        -3
-##  5  2013     6     1     1848           1820        28
-##  6  2013    12    26     1025           1030        -5
-##  7  2013     2     1     1028            829       119
-##  8  2013     7    30      950            830        80
-##  9  2013     4    19      749            655        54
-## 10  2013     3    10      853            900        -7
-## # … with 33,668 more rows, and 13 more variables:
+##  1  2013     1    23      648            630        18
+##  2  2013     9     5       NA           1930        NA
+##  3  2013     6     7     1939           1800        99
+##  4  2013     5     2      949            950        -1
+##  5  2013     3     2      707            710        -3
+##  6  2013    11    23     1605           1618       -13
+##  7  2013    11    14     1729           1735        -6
+##  8  2013    11    25     1843           1840         3
+##  9  2013     5    23      956            855        61
+## 10  2013     1     6     1651           1640        11
+## # ... with 33,668 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -5902,17 +5982,17 @@ sample_n(flights, 10, replace=TRUE)
 ## # A tibble: 10 x 19
 ##     year month   day dep_time sched_dep_time dep_delay
 ##    <int> <int> <int>    <int>          <int>     <dbl>
-##  1  2013     1    20     1502           1510        -8
-##  2  2013     5    29     1504           1515       -11
-##  3  2013     6    24     1259           1250         9
-##  4  2013    10    20     1839           1835         4
-##  5  2013     7    13     1314           1323        -9
-##  6  2013    12    31     1134           1135        -1
-##  7  2013     3    30      843            850        -7
-##  8  2013     4    20     1134           1140        -6
-##  9  2013    11     6     2242           2250        -8
-## 10  2013     6     5      539            545        -6
-## # … with 13 more variables: arr_time <int>,
+##  1  2013    12     3     2045           2005        40
+##  2  2013    12    11      736            745        -9
+##  3  2013    12    19     1324           1326        -2
+##  4  2013    11    16     1746           1755        -9
+##  5  2013    10    18     1755           1659        56
+##  6  2013     6    27      855            900        -5
+##  7  2013     9    17      956           1000        -4
+##  8  2013     2     6     1637           1645        -8
+##  9  2013    10     2     1004           1005        -1
+## 10  2013     4    23      826            835        -9
+## # ... with 13 more variables: arr_time <int>,
 ## #   sched_arr_time <int>, arr_delay <dbl>,
 ## #   carrier <chr>, flight <int>, tailnum <chr>,
 ## #   origin <chr>, dest <chr>, air_time <dbl>,
@@ -5940,7 +6020,7 @@ slice(flights, 25:35)
 ##  9  2013     1     1      623            627        -4
 ## 10  2013     1     1      624            630        -6
 ## 11  2013     1     1      624            630        -6
-## # … with 13 more variables: arr_time <int>,
+## # ... with 13 more variables: arr_time <int>,
 ## #   sched_arr_time <int>, arr_delay <dbl>,
 ## #   carrier <chr>, flight <int>, tailnum <chr>,
 ## #   origin <chr>, dest <chr>, air_time <dbl>,
@@ -5967,7 +6047,7 @@ top_n(flights, 10, arr_time)
 ##  8  2013     1    25     2055           1725       210
 ##  9  2013     1    28     2303           2250        13
 ## 10  2013     1    30     2155           1915       160
-## # … with 140 more rows, and 13 more variables:
+## # ... with 140 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -6001,10 +6081,14 @@ arrange(data, ....)
 
 Visualisasi dari fungsi `arrange()`disajikan pada Gambar \@ref(fig:arrange)
 
-<div class="figure" style="text-align: center">
-<img src="arrange.png" alt="Visualisasi fungsi arrange (Sumber: Rstudio,2017)"  />
-<p class="caption">(\#fig:arrange)Visualisasi fungsi arrange (Sumber: Rstudio,2017)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{arrange} 
+
+}
+
+\caption{Visualisasi fungsi arrange (Sumber: Rstudio,2017)}(\#fig:arrange)
+\end{figure}
 
 Misalkan kita ingin mengurutkan penerbangan berdasarkan variabel `year`, `month`, dan `day`. `R` akan melakukan pengurutan berdasarkan `year` terlebih dahulu. Jika ditemukan nilai yang seimbang, maka pengurutan dilakukan oleh variabel berikutnya. Berikut adalah sintaks yang digunakan:
 
@@ -6027,7 +6111,7 @@ arrange(flights, year, month, day)
 ##  8  2013     1     1      557            600        -3
 ##  9  2013     1     1      557            600        -3
 ## 10  2013     1     1      558            600        -2
-## # … with 336,766 more rows, and 13 more variables:
+## # ... with 336,766 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -6056,7 +6140,7 @@ arrange(flights, desc(year, month, day))
 ##  8  2013     1     1      557            600        -3
 ##  9  2013     1     1      557            600        -3
 ## 10  2013     1     1      558            600        -2
-## # … with 336,766 more rows, and 13 more variables:
+## # ... with 336,766 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -6087,7 +6171,7 @@ flights[order(year, month, day), ]
 ##  8  2013     1     1      557            600        -3
 ##  9  2013     1     1      557            600        -3
 ## 10  2013     1     1      558            600        -2
-## # … with 336,766 more rows, and 13 more variables:
+## # ... with 336,766 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -6114,7 +6198,7 @@ flights[order(-year, -month, -day), ]
 ##  8  2013    12    31      552            600        -8
 ##  9  2013    12    31      553            600        -7
 ## 10  2013    12    31      554            550         4
-## # … with 336,766 more rows, and 13 more variables:
+## # ... with 336,766 more rows, and 13 more variables:
 ## #   arr_time <int>, sched_arr_time <int>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>,
@@ -6150,10 +6234,14 @@ select(data, ....)
 
 Visualisasi dari fungsi `select()`disajikan pada Gambar \@ref(fig:select)
 
-<div class="figure" style="text-align: center">
-<img src="select.png" alt="Visualisasi fungsi select (Sumber: Rstudio,2017)"  />
-<p class="caption">(\#fig:select)Visualisasi fungsi select (Sumber: Rstudio,2017)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{select} 
+
+}
+
+\caption{Visualisasi fungsi select (Sumber: Rstudio,2017)}(\#fig:select)
+\end{figure}
 
 Berikut adalah contoh penerapan `select()` pada data frame `flights`.
 
@@ -6177,7 +6265,7 @@ select(flights, year, month, day)
 ##  8  2013     1     1
 ##  9  2013     1     1
 ## 10  2013     1     1
-## # … with 336,766 more rows
+## # ... with 336,766 more rows
 ```
 
 ```r
@@ -6199,7 +6287,7 @@ select(flights, year:day)
 ##  8  2013     1     1
 ##  9  2013     1     1
 ## 10  2013     1     1
-## # … with 336,766 more rows
+## # ... with 336,766 more rows
 ```
 
 ```r
@@ -6221,7 +6309,7 @@ select(flights, -(year:day))
 ##  8      557            600        -3      709
 ##  9      557            600        -3      838
 ## 10      558            600        -2      753
-## # … with 336,766 more rows, and 12 more variables:
+## # ... with 336,766 more rows, and 12 more variables:
 ## #   sched_arr_time <int>, arr_delay <dbl>,
 ## #   carrier <chr>, flight <int>, tailnum <chr>,
 ## #   origin <chr>, dest <chr>, air_time <dbl>,
@@ -6248,7 +6336,7 @@ select(flights, ends_with("time"))
 ##  8      557            600      709            723
 ##  9      557            600      838            846
 ## 10      558            600      753            745
-## # … with 336,766 more rows, and 1 more variable:
+## # ... with 336,766 more rows, and 1 more variable:
 ## #   air_time <dbl>
 ```
 
@@ -6271,7 +6359,7 @@ select(flights, contains("arr"))
 ##  8      709            723       -14 EV     
 ##  9      838            846        -8 B6     
 ## 10      753            745         8 AA     
-## # … with 336,766 more rows
+## # ... with 336,766 more rows
 ```
 
 Kita juga dapat menggunakan fungsi tambahan `everything()` yang berguna jika kita ingin memindahkan variabel yang menjadi fokus kita ke awal data frame tanpa melakukan drop variabel. Berikut adalah contoh sintaksnya:
@@ -6296,7 +6384,7 @@ select(flights, contains("time"), everything())
 ##  8      557            600      709            723
 ##  9      557            600      838            846
 ## 10      558            600      753            745
-## # … with 336,766 more rows, and 15 more variables:
+## # ... with 336,766 more rows, and 15 more variables:
 ## #   air_time <dbl>, time_hour <dttm>, year <int>,
 ## #   month <int>, day <int>, dep_delay <dbl>,
 ## #   arr_delay <dbl>, carrier <chr>, flight <int>,
@@ -6354,7 +6442,7 @@ select_all(flights, toupper)
 ##  8  2013     1     1      557            600        -3
 ##  9  2013     1     1      557            600        -3
 ## 10  2013     1     1      558            600        -2
-## # … with 336,766 more rows, and 13 more variables:
+## # ... with 336,766 more rows, and 13 more variables:
 ## #   ARR_TIME <int>, SCHED_ARR_TIME <int>,
 ## #   ARR_DELAY <dbl>, CARRIER <chr>, FLIGHT <int>,
 ## #   TAILNUM <chr>, ORIGIN <chr>, DEST <chr>,
@@ -6382,7 +6470,7 @@ select_if(flights, ~is_character(.), toupper)
 ##  8 EV      N829AS  LGA    IAD  
 ##  9 B6      N593JB  JFK    MCO  
 ## 10 AA      N3ALAA  LGA    ORD  
-## # … with 336,766 more rows
+## # ... with 336,766 more rows
 ```
 
 ```r
@@ -6404,7 +6492,7 @@ select_at(flights, vars(contains("time")), toupper)
 ##  8      557            600      709            723
 ##  9      557            600      838            846
 ## 10      558            600      753            745
-## # … with 336,766 more rows, and 2 more variables:
+## # ... with 336,766 more rows, and 2 more variables:
 ## #   AIR_TIME <dbl>, TIME_HOUR <dttm>
 ```
 
@@ -6424,10 +6512,14 @@ pull(.data, var = -1)
 
 Visualisasi dari fungsi `pull()`disajikan pada Gambar \@ref(fig:pull)
 
-<div class="figure" style="text-align: center">
-<img src="pull.png" alt="Visualisasi fungsi pull (Sumber: Rstudio,2017)"  />
-<p class="caption">(\#fig:pull)Visualisasi fungsi pull (Sumber: Rstudio,2017)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{pull} 
+
+}
+
+\caption{Visualisasi fungsi pull (Sumber: Rstudio,2017)}(\#fig:pull)
+\end{figure}
 
 Berikut adalah contoh sintaks menggunakan fungsi `pull()`:
 
@@ -6502,7 +6594,7 @@ mutate(flights_sml,
 ##  8  2013     1     1        -3       -14      229
 ##  9  2013     1     1        -3        -8      944
 ## 10  2013     1     1        -2         8      733
-## # … with 336,766 more rows, and 4 more variables:
+## # ... with 336,766 more rows, and 4 more variables:
 ## #   air_time <dbl>, gain <dbl>, hours <dbl>,
 ## #   gain_per_hour <dbl>
 ```
@@ -6532,7 +6624,7 @@ transmute(flights,
 ##  8   -11 0.883        -12.5 
 ##  9    -5 2.33          -2.14
 ## 10    10 2.3            4.35
-## # … with 336,766 more rows
+## # ... with 336,766 more rows
 ```
 
 Adapaun fungsi-fungsi dan operator yang dapat digunakan pada `mutate()` untuk membuat variabel baru adalah sebagai berikut:
@@ -6562,7 +6654,7 @@ transmute(flights,
 ##  8      557     5     57
 ##  9      557     5     57
 ## 10      558     5     58
-## # … with 336,766 more rows
+## # ... with 336,766 more rows
 ```
 
 2. **Fungsi aritmetik** (`log()`,`sin()`,`cos()`,dll)
@@ -7081,7 +7173,7 @@ by_day <- group_by(flights, year, month, day)
 ##  8  2013     1     8  2.55
 ##  9  2013     1     9  2.28
 ## 10  2013     1    10  2.84
-## # … with 355 more rows
+## # ... with 355 more rows
 ```
 
 ### Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%>%)
@@ -7172,7 +7264,7 @@ delays
 ##  8 BGR     375  378   8.03
 ##  9 BHM     297  866. 16.9 
 ## 10 BNA    6333  758. 11.8 
-## # … with 86 more rows
+## # ... with 86 more rows
 ```
 
 
@@ -7189,10 +7281,14 @@ geom_smooth(se = FALSE)
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/distvsave-1.png" alt="Jarak vs rata-rata delay" width="70%" />
-<p class="caption">(\#fig:distvsave)Jarak vs rata-rata delay</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/distvsave-1} 
+
+}
+
+\caption{Jarak vs rata-rata delay}(\#fig:distvsave)
+\end{figure}
 
 Berdasarkan Gambar \@ref(fig:distvsave), rata-rata delay meningkat seiring dengan pertambahan jarak penerbangan.
 
@@ -7265,10 +7361,14 @@ for (i in type){
 }
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/plot-1.png" alt="Plot berbagai jenis setting type" width="80%" />
-<p class="caption">(\#fig:plot)Plot berbagai jenis setting type</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/plot-1} 
+
+}
+
+\caption{Plot berbagai jenis setting type}(\#fig:plot)
+\end{figure}
 
 
 
@@ -7303,7 +7403,7 @@ trees
 ##  8  11       75   18.2
 ##  9  11.1     80   22.6
 ## 10  11.2     75   19.9
-## # … with 21 more rows
+## # ... with 21 more rows
 ```
 
 Pada dataset tersebut kita ingin membuat scatterplot untuk melihat korelasi antara variabel `Height` dan `Volume`. Untuk melakukannya jalankan sintaks berikut:
@@ -7319,10 +7419,14 @@ plot(trees$Height, trees$Volume)
 with(trees, plot(Height, Volume))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/scatter-1.png" alt="Scatterplot Height vs Volume" width="70%" />
-<p class="caption">(\#fig:scatter)Scatterplot Height vs Volume</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/scatter-1} 
+
+}
+
+\caption{Scatterplot Height vs Volume}(\#fig:scatter)
+\end{figure}
 
 Kita juga dapat menggunakan formula untuk membuat scatterplot pada Gambar \@ref(fig:scatter). Berikut adalah contoh sintaks yang digunakan:
 
@@ -7341,10 +7445,14 @@ Fungsi `plot()` juga dapat digunakan untuk membentuk matriks scatterplot. Untuk 
 plot(trees)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/scatter2-1.png" alt="Matriks scatterplot dataset trees" width="80%" />
-<p class="caption">(\#fig:scatter2)Matriks scatterplot dataset trees</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/scatter2-1} 
+
+}
+
+\caption{Matriks scatterplot dataset trees}(\#fig:scatter2)
+\end{figure}
 
 Selain itu jika kita memasukkan objek `lm()` yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi `plot()`, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar \@ref(fig:diag):
 
@@ -7357,10 +7465,14 @@ par(mfrow=c(2,2))
 plot(lm(Volume~Height, data=trees))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/diag-1.png" alt="Plot diagnostik regresi linier" width="80%" />
-<p class="caption">(\#fig:diag)Plot diagnostik regresi linier</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/diag-1} 
+
+}
+
+\caption{Plot diagnostik regresi linier}(\#fig:diag)
+\end{figure}
 
 
 
@@ -7405,7 +7517,7 @@ iris
 ##  8          5           3.4          1.5         0.2
 ##  9          4.4         2.9          1.4         0.2
 ## 10          4.9         3.1          1.5         0.1
-## # … with 140 more rows, and 1 more variable:
+## # ... with 140 more rows, and 1 more variable:
 ## #   Species <fct>
 ```
 
@@ -7416,10 +7528,14 @@ Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek `iris` kedal
 pairs(iris)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/matscat-1.png" alt="Matriks scatterplot iris" width="80%" />
-<p class="caption">(\#fig:matscat)Matriks scatterplot iris</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat-1} 
+
+}
+
+\caption{Matriks scatterplot iris}(\#fig:matscat)
+\end{figure}
 
 Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter `lower.panel=NULL`. Output yang dihasilkan akan tampak seperti pada Gambar \@ref(fig:matscat2).
 
@@ -7428,10 +7544,14 @@ Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukann
 pairs(iris, lower.panel=NULL)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/matscat2-1.png" alt="Matriks scatterplot iris tanpa panel bawah" width="80%" />
-<p class="caption">(\#fig:matscat2)Matriks scatterplot iris tanpa panel bawah</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat2-1} 
+
+}
+
+\caption{Matriks scatterplot iris tanpa panel bawah}(\#fig:matscat2)
+\end{figure}
 
 Kita dapat merubah warna titik berdasarkan factor `Species`. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel `Species` pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi `pairs()`. Warna berdasarkan grup diberikan dengan menambahkan parameter `col= ` pada fungsi `pairs()`. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Gambar \@ref(fig:matscat3):
 
@@ -7459,7 +7579,7 @@ iris2
 ##  8          5           3.4          1.5         0.2
 ##  9          4.4         2.9          1.4         0.2
 ## 10          4.9         3.1          1.5         0.1
-## # … with 140 more rows
+## # ... with 140 more rows
 ```
 
 ```r
@@ -7472,10 +7592,14 @@ pairs(iris2, lower.panel=NULL,
       col= my_col[iris$Species])
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/matscat3-1.png" alt="Matriks scatterplot iris tanpa panel bawah" width="80%" />
-<p class="caption">(\#fig:matscat3)Matriks scatterplot iris tanpa panel bawah</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat3-1} 
+
+}
+
+\caption{Matriks scatterplot iris tanpa panel bawah}(\#fig:matscat3)
+\end{figure}
 
 Kita juga dapat mengganti panel bawah menjadi nilai korelasi antar variabel. Untuk melakukannya kita perlu mendefinisikan sebuah fungsi untuk panel bawah dan panel atas (jika ingin warna titik berdasarkan factor). Setelah fungsi panel bawah dan atas didefinisikan, langkah selanjutnya adalah melakukan memasukkan nilainya kedalam fungsi `pairs()`. Berikut adalah sintaks yang digunakan serta output yang dihasilkan pada Gambar \@ref(fig:matscat4):
 
@@ -7508,10 +7632,14 @@ pairs(iris2,
       upper.panel= upper.panel)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/matscat4-1.png" alt="Matriks scatterplot iris dengan koefisien korelasi" width="80%" />
-<p class="caption">(\#fig:matscat4)Matriks scatterplot iris dengan koefisien korelasi</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat4-1} 
+
+}
+
+\caption{Matriks scatterplot iris dengan koefisien korelasi}(\#fig:matscat4)
+\end{figure}
 
 Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter `upper.panel= `. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:matscat5):
 
@@ -7532,10 +7660,14 @@ pairs(iris2, lower.panel = NULL,
       upper.panel = upper.panel)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/matscat5-1.png" alt="Matriks scatterplot iris dengan koefisien korelasi di panel atas" width="80%" />
-<p class="caption">(\#fig:matscat5)Matriks scatterplot iris dengan koefisien korelasi di panel atas</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/matscat5-1} 
+
+}
+
+\caption{Matriks scatterplot iris dengan koefisien korelasi di panel atas}(\#fig:matscat5)
+\end{figure}
 
 ## Box plot
 
@@ -7546,10 +7678,14 @@ Box plot pada `R` dapat dibuat menggunakan fungsi `boxplot()`. Berikut adalah si
 boxplot(iris$Sepal.Length)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/boxplot-1.png" alt="Boxplot variabel Sepal.Length" width="70%" />
-<p class="caption">(\#fig:boxplot)Boxplot variabel Sepal.Length</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/boxplot-1} 
+
+}
+
+\caption{Boxplot variabel Sepal.Length}(\#fig:boxplot)
+\end{figure}
 
 Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel `Species`. Output yang dihasilkan disajikan pada Gambar \@ref(fig:boxplot2):
 
@@ -7558,10 +7694,14 @@ Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk mel
 boxplot(iris$Sepal.Length~iris$Species)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/boxplot2-1.png" alt="Boxplot berdasarkan variabel species" width="70%" />
-<p class="caption">(\#fig:boxplot2)Boxplot berdasarkan variabel species</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/boxplot2-1} 
+
+}
+
+\caption{Boxplot berdasarkan variabel species}(\#fig:boxplot2)
+\end{figure}
 
 Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut adalah contoh sintaks yang digunakan untuk melakukannya dan output yang dihasilkan disajikan pada Gambar \@ref(fig:boxplot3):
 
@@ -7574,10 +7714,14 @@ boxplot(iris$Sepal.Length~iris$Species,
         col= c("#999999", "#E69F00", "#56B4E9"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/boxplot3-1.png" alt="Boxplot dengan warna berdasarkan spesies" width="70%" />
-<p class="caption">(\#fig:boxplot3)Boxplot dengan warna berdasarkan spesies</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/boxplot3-1} 
+
+}
+
+\caption{Boxplot dengan warna berdasarkan spesies}(\#fig:boxplot3)
+\end{figure}
 
 Kita juga dapat membuat boxplot pada *multiple group*. Data yang digunakan untuk contoh tersebut adalah dataset `ToothGrowth`. Berikut adalah sintaks untuk memuat dataset tersebut:
 
@@ -7604,7 +7748,7 @@ ToothGrowth
 ##  8  11.2 VC      0.5
 ##  9   5.2 VC      0.5
 ## 10   7   VC      0.5
-## # … with 50 more rows
+## # ... with 50 more rows
 ```
 
 ```r
@@ -7629,7 +7773,7 @@ ToothGrowth
 ##  8  11.2 VC    0.5  
 ##  9   5.2 VC    0.5  
 ## 10   7   VC    0.5  
-## # … with 50 more rows
+## # ... with 50 more rows
 ```
 
 Contoh sintaks dan output boxplot *multiple group* disajikan pada Gambar \@ref(fig:boxplot4):
@@ -7640,10 +7784,14 @@ boxplot(len ~ supp*dose, data = ToothGrowth,
         col = c("white", "steelblue"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/boxplot4-1.png" alt="Boxplot multiple group" width="70%" />
-<p class="caption">(\#fig:boxplot4)Boxplot multiple group</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/boxplot4-1} 
+
+}
+
+\caption{Boxplot multiple group}(\#fig:boxplot4)
+\end{figure}
 
 ## Bar Plot
 
@@ -7672,10 +7820,14 @@ barplot(VADeaths[, "Rural Male"], main="a")
 barplot(VADeaths[, "Rural Male"], main="b", horiz=TRUE)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/barplot-1.png" alt="a. bar plot vertikal; b. bar plot horizontal" width="70%" />
-<p class="caption">(\#fig:barplot)a. bar plot vertikal; b. bar plot horizontal</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barplot-1} 
+
+}
+
+\caption{a. bar plot vertikal; b. bar plot horizontal}(\#fig:barplot)
+\end{figure}
 
 
 ```r
@@ -7698,10 +7850,14 @@ barplot(VADeaths[, "Rural Male"],
         horiz=TRUE)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/barplot2-1.png" alt="Kustomisasi bar plot" width="70%" />
-<p class="caption">(\#fig:barplot2)Kustomisasi bar plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barplot2-1} 
+
+}
+
+\caption{Kustomisasi bar plot}(\#fig:barplot2)
+\end{figure}
 
 Untuk bar plot dengan *multiple group*, tersedia dua pengaturan posisi yaitu *stacked bar plot*(menunjukkan proporsi penyusun pada masing-masing grup) dan *grouped bar plot*(melihat perbedaan individual pada masing-masing grup). Pada Gambar \@ref(fig:barplot3) dan Gambar \@ref(fig:barplot4) , disajikan kedua jenis bar plot tersebut.
 
@@ -7714,10 +7870,14 @@ barplot(VADeaths,
         legend = rownames(VADeaths))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/barplot3-1.png" alt="Stacked bar plot" width="70%" />
-<p class="caption">(\#fig:barplot3)Stacked bar plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barplot3-1} 
+
+}
+
+\caption{Stacked bar plot}(\#fig:barplot3)
+\end{figure}
 
 
 ```r
@@ -7728,10 +7888,14 @@ barplot(VADeaths,
         legend = rownames(VADeaths), beside = TRUE)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/barplot4-1.png" alt="Grouped bar plot" width="70%" />
-<p class="caption">(\#fig:barplot4)Grouped bar plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barplot4-1} 
+
+}
+
+\caption{Grouped bar plot}(\#fig:barplot4)
+\end{figure}
 
 ## Line Plot
 
@@ -7759,10 +7923,14 @@ legend("topleft", legend=c("Line 1", "Line 2"),
        col=c("red", "blue"), lty = 1:2, cex=0.8)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/line-1.png" alt="Line plot" width="70%" />
-<p class="caption">(\#fig:line)Line plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/line-1} 
+
+}
+
+\caption{Line plot}(\#fig:line)
+\end{figure}
 
 ## Pie Chart
 
@@ -7779,10 +7947,14 @@ pie(
 )
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/pie-1.png" alt="Pie chart" width="70%" />
-<p class="caption">(\#fig:pie)Pie chart</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/pie-1} 
+
+}
+
+\caption{Pie chart}(\#fig:pie)
+\end{figure}
 
 ## Histogram dan Density Plot
 
@@ -7806,10 +7978,14 @@ hist(trees$Height)
 
 Output yang dihasilkan disajikan pada Gambar \@ref(fig:hist): 
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/hist-1.png" alt="Histogram" width="70%" />
-<p class="caption">(\#fig:hist)Histogram</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/hist-1} 
+
+}
+
+\caption{Histogram}(\#fig:hist)
+\end{figure}
 
 Density plot pada `R` dapat dibuat menggunakan fungsi `density()`. Berbeda dengan fungsi `hist()`, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi `density()` hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi `plot()`. Berikut adalah sintaks dan output yang dihasilkan pada  Gambar \@ref(fig:dens):
 
@@ -7822,10 +7998,14 @@ dens <- density(trees$Height)
 plot(dens,col="red")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dens-1.png" alt="Density plot" width="70%" />
-<p class="caption">(\#fig:dens)Density plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/dens-1} 
+
+}
+
+\caption{Density plot}(\#fig:dens)
+\end{figure}
 
 Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan argumen `freq=FALSE` pada fungsi `hist()`. Selanjutnya tambahkan fungsi `polygon()` untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada  Gambar \@ref(fig:denshist):
 
@@ -7841,10 +8021,14 @@ hist(trees$Height, freq=FALSE, col="steelblue")
 polygon(dens, border="red")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/denshist-1.png" alt="Density plot dan histogram" width="70%" />
-<p class="caption">(\#fig:denshist)Density plot dan histogram</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/denshist-1} 
+
+}
+
+\caption{Density plot dan histogram}(\#fig:denshist)
+\end{figure}
 
 ## QQ Plot
 
@@ -7858,10 +8042,14 @@ qqnorm(trees$Volume)
 qqline(trees$Volume, col="red")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/qq-1.png" alt="QQ plot" width="70%" />
-<p class="caption">(\#fig:qq)QQ plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/qq-1} 
+
+}
+
+\caption{QQ plot}(\#fig:qq)
+\end{figure}
 
 ## Dot Chart
 
@@ -7901,10 +8089,14 @@ dotchart(mtcars$mpg, labels = row.names(mtcars),
          cex = 0.6,  pch = 19, xlab = "mpg")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dot-1.png" alt="Dot chart" width="70%" />
-<p class="caption">(\#fig:dot)Dot chart</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/dot-1} 
+
+}
+
+\caption{Dot chart}(\#fig:dot)
+\end{figure}
 
 ## Kustomisasi Parameter Grafik
 
@@ -7935,10 +8127,14 @@ barplot(c(2,5), main="Main title",
         sub="Sub-title")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/title-1.png" alt="Menambahkan Judul" width="70%" />
-<p class="caption">(\#fig:title)Menambahkan Judul</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/title-1} 
+
+}
+
+\caption{Menambahkan Judul}(\#fig:title)
+\end{figure}
 
 kita juga dapat melakukan kustomisasi pada warna, *font style*, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan argumen sebagai berikut:
 
@@ -7993,10 +8189,14 @@ barplot(c(2,5),
         cex.sub=1.2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/title2-1.png" alt="Menambahkan Judul (2)" width="70%" />
-<p class="caption">(\#fig:title2)Menambahkan Judul (2)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/title2-1} 
+
+}
+
+\caption{Menambahkan Judul (2)}(\#fig:title2)
+\end{figure}
 
 Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi `title()`. argumen yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar \@ref(fig:title3):
 
@@ -8024,10 +8224,14 @@ title(main="Main title",
       cex.sub=1.2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/title3-1.png" alt="Menambahkan Judul (3)" width="70%" />
-<p class="caption">(\#fig:title3)Menambahkan Judul (3)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/title3-1} 
+
+}
+
+\caption{Menambahkan Judul (3)}(\#fig:title3)
+\end{figure}
 
 ### Menambahkan Legend
 
@@ -8066,10 +8270,14 @@ legend(1, 95, legend=c("Line 1", "Line 2"),
        col=c("red", "blue"), lty=1:2, cex=0.8)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/legend-1.png" alt="Menambahkan legend" width="70%" />
-<p class="caption">(\#fig:legend)Menambahkan legend</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/legend-1} 
+
+}
+
+\caption{Menambahkan legend}(\#fig:legend)
+\end{figure}
 
 Kita dapat menambahkan judul, merubah font, dan merubah warna backgroud pada legend. Argumen  yang ditambahkan pada legend adalah sebagai berikut:
 
@@ -8097,10 +8305,14 @@ legend(1, 95, legend=c("Line 1", "Line 2"),
        title="Line types", text.font=4, bg='lightblue')
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/legend2-1.png" alt="Menambahkan legend (2)" width="70%" />
-<p class="caption">(\#fig:legend2)Menambahkan legend (2)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/legend2-1} 
+
+}
+
+\caption{Menambahkan legend (2)}(\#fig:legend2)
+\end{figure}
 
 Kita dapat melakukan kustomisasi pada border dari legend melalui argumen `box.lty= `(jenis garis), `box.lwd= `(ukuran garis), dan `box.col= `(warna box). Berikut adalah penerapan argumen tersebut beserta output yang dihasilkan pada Gambar \@ref(fig:legend3):
 
@@ -8119,10 +8331,14 @@ legend(1, 95, legend=c("Line 1", "Line 2"),
        box.lty=2, box.lwd=2, box.col="steelblue")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/legend3-1.png" alt="Menambahkan legend (3)" width="70%" />
-<p class="caption">(\#fig:legend3)Menambahkan legend (3)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/legend3-1} 
+
+}
+
+\caption{Menambahkan legend (3)}(\#fig:legend3)
+\end{figure}
 
 Selain menggunakan koordinat, kita juga dapat melakukan kustomisasi posisi legend menggunakan *keyword* seperti: bottomright", "bottom", "bottomleft", "left", "topleft", "top", "topright", "right" and "center". Sejumlah kustomisasi legend berdasarkan *keyword* disajikan pada Gambar \@ref(fig:legend4):
 
@@ -8171,10 +8387,14 @@ legend("bottomright",
        title = "bottomright")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/legend4-1.png" alt="Kustomisasi posisi legend" width="70%" />
-<p class="caption">(\#fig:legend4)Kustomisasi posisi legend</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/legend4-1} 
+
+}
+
+\caption{Kustomisasi posisi legend}(\#fig:legend4)
+\end{figure}
 
 ### Menambahkan Teks Pada Grafik
 
@@ -8210,10 +8430,14 @@ text(d$wt, d$mpg,  row.names(d),
      cex=0.65, pos=3,col="red")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/text-1.png" alt="Menambahkan teks" width="70%" />
-<p class="caption">(\#fig:text)Menambahkan teks</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/text-1} 
+
+}
+
+\caption{Menambahkan teks}(\#fig:text)
+\end{figure}
 
 Sedangkan sintaks berikut adalah contoh bagaimana menambahkan persamaan kedalam bidang grafik dan output yang dihasilkan pada Gambar \@ref(fig:text2):
 
@@ -8225,10 +8449,14 @@ text(4, 9, expression(hat(beta) == (X^t * X)^{-1} * X^t * y))
 text(7, 4, expression(bar(x) == sum(frac(x[i], n), i==1, n)))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/text2-1.png" alt="Menambahkan teks (2)" width="70%" />
-<p class="caption">(\#fig:text2)Menambahkan teks (2)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/text2-1} 
+
+}
+
+\caption{Menambahkan teks (2)}(\#fig:text2)
+\end{figure}
 
 Fungsi `mtext()` berguna untuk menambahkan teks pada frame sekitar bidang grafik. Format yang digunakan adalah sebagai berikut:
 
@@ -8255,10 +8483,14 @@ plot(1:10, 1:10,
 mtext("Magic function", side=3)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/text3-1.png" alt="Menambahkan teks (3)" width="70%" />
-<p class="caption">(\#fig:text3)Menambahkan teks (3)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/text3-1} 
+
+}
+
+\caption{Menambahkan teks (3)}(\#fig:text3)
+\end{figure}
 
 ### Menambahkan Garis Pada Plot
 
@@ -8287,10 +8519,14 @@ abline(h=mean(mtcars$mpg), col="blue", lwd=3, lty=3)
 abline(lm(mpg~wt, data=mtcars), lwd=4, lty=4)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/abline-1.png" alt="Menambahkan garis" width="70%" />
-<p class="caption">(\#fig:abline)Menambahkan garis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/abline-1} 
+
+}
+
+\caption{Menambahkan garis}(\#fig:abline)
+\end{figure}
 
 ### Merubah Simbol plot dan Jenis Garis
 
@@ -8345,10 +8581,14 @@ generateRPointShapes<-function(){
 generateRPointShapes()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/symbol-1.png" alt="Symbol plot" width="70%" />
-<p class="caption">(\#fig:symbol)Symbol plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/symbol-1} 
+
+}
+
+\caption{Symbol plot}(\#fig:symbol)
+\end{figure}
 
 Pada `R` kita juga dapat mengatur jenis garis yang akan ditampilkan pada plot dengan menambahkan argumen `lty= ` (*line type*) pada fungsi plot. Nilai yang dapat dimasukkan adalah nilai integer. Keterangan masing-masing nilai tersebut adalah sebagai berikut:
 
@@ -8377,10 +8617,14 @@ generateRLineTypes<-function(){
 generateRLineTypes()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/lty-1.png" alt="Line type" width="70%" />
-<p class="caption">(\#fig:lty)Line type</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/lty-1} 
+
+}
+
+\caption{Line type}(\#fig:lty)
+\end{figure}
 
 ### Mengatur Axis Plot
 
@@ -8424,10 +8668,14 @@ axis(3, col = "darkgreen", lty = 2, lwd = 0.5)
 axis(4, col = "violet", col.axis = "dark violet", lwd = 2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/axis-1.png" alt="Menambahkan axis" width="70%" />
-<p class="caption">(\#fig:axis)Menambahkan axis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/axis-1} 
+
+}
+
+\caption{Menambahkan axis}(\#fig:axis)
+\end{figure}
 
 Kita dapat mengubah rentang nilai pada axis menggunakan fungsi `xlim()` dan `ylim()` yang menyatakan vektor nilai masimum dan minimum rentang. Selain itu kita dapat juga melakukan tranformasi baik pada sumbu x dan sumbu y. Berikut adalah argumen yang dapat ditambahkan pada fungsi grafik:
 
@@ -8460,10 +8708,14 @@ plot(x, y, xlim=c(1,15), ylim=c(1,150))
 plot(x, y, log="y")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/axis2-1.png" alt="Mengubah rentang dan skala axis" width="80%" />
-<p class="caption">(\#fig:axis2)Mengubah rentang dan skala axis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/axis2-1} 
+
+}
+
+\caption{Mengubah rentang dan skala axis}(\#fig:axis2)
+\end{figure}
 
 
 
@@ -8504,10 +8756,14 @@ plot(x,y,
      xaxt="n")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/axis3-1.png" alt="Kustomisasi tick mark" width="70%" />
-<p class="caption">(\#fig:axis3)Kustomisasi tick mark</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/axis3-1} 
+
+}
+
+\caption{Kustomisasi tick mark}(\#fig:axis3)
+\end{figure}
 
 ### Mengatur Warna
 
@@ -8538,10 +8794,14 @@ showCols(bg="gray20", cl=colors()[1:60], rot=30, cex=0.9)
 ## Loading required package: grid
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/color-1.png" alt="Nama warna" width="70%" />
-<p class="caption">(\#fig:color)Nama warna</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/color-1} 
+
+}
+
+\caption{Nama warna}(\#fig:color)
+\end{figure}
 
 ## Alternatif Library Dasar Lain
 
@@ -8563,10 +8823,14 @@ library(car)
 scatterplot(Volume~Height, data=trees)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/carscatter-1.png" alt="Enhanced scatterplot" width="70%" />
-<p class="caption">(\#fig:carscatter)Enhanced scatterplot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/carscatter-1} 
+
+}
+
+\caption{Enhanced scatterplot}(\#fig:carscatter)
+\end{figure}
 
 Pada grafik tersebut terkandung beberapa elemen penting, yaitu:
 
@@ -8598,10 +8862,14 @@ pairs.panels(trees,
              )
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/psychscatter-1.png" alt="Enhanced scatterplot matrices" width="70%" />
-<p class="caption">(\#fig:psychscatter)Enhanced scatterplot matrices</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/psychscatter-1} 
+
+}
+
+\caption{Enhanced scatterplot matrices}(\#fig:psychscatter)
+\end{figure}
 
 ### Box Plot Menggunakan Library gplots
 
@@ -8619,10 +8887,14 @@ library(gplots)
 boxplot2(len ~ dose, data = ToothGrowth)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gplotsboxplot2-1.png" alt="Enhanced box plot" width="70%" />
-<p class="caption">(\#fig:gplotsboxplot2)Enhanced box plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gplotsboxplot2-1} 
+
+}
+
+\caption{Enhanced box plot}(\#fig:gplotsboxplot2)
+\end{figure}
 
 ### QQ Plot Menggunakan Library car
 
@@ -8640,10 +8912,14 @@ library(car)
 qqPlot(trees$Height)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/carqqplot-1.png" alt="Enhanced qq plot" width="70%" />
-<p class="caption">(\#fig:carqqplot)Enhanced qq plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/carqqplot-1} 
+
+}
+
+\caption{Enhanced qq plot}(\#fig:carqqplot)
+\end{figure}
 
 ```
 ## [1]  3 20
@@ -8665,10 +8941,14 @@ library(gplots)
 plotmeans(len ~ dose, data = ToothGrowth)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/plotmeans-1.png" alt="Plot group means" width="70%" />
-<p class="caption">(\#fig:plotmeans)Plot group means</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/plotmeans-1} 
+
+}
+
+\caption{Plot group means}(\#fig:plotmeans)
+\end{figure}
 
 ## Referensi
 
@@ -8743,12 +9023,12 @@ glimpse(gapminder)
 ```
 ## Observations: 1,704
 ## Variables: 6
-## $ country   <fct> Afghanistan, Afghanistan, Afghanis…
-## $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia…
-## $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977…
-## $ lifeExp   <dbl> 28.80, 30.33, 32.00, 34.02, 36.09,…
-## $ pop       <int> 8425333, 9240934, 10267083, 115379…
-## $ gdpPercap <dbl> 779.4, 820.9, 853.1, 836.2, 740.0,…
+## $ country   <fct> Afghanistan, Afghanistan, Afghan...
+## $ continent <fct> Asia, Asia, Asia, Asia, Asia, As...
+## $ year      <int> 1952, 1957, 1962, 1967, 1972, 19...
+## $ lifeExp   <dbl> 28.80, 30.33, 32.00, 34.02, 36.0...
+## $ pop       <int> 8425333, 9240934, 10267083, 1153...
+## $ gdpPercap <dbl> 779.4, 820.9, 853.1, 836.2, 740....
 ```
 
 ```r
@@ -8763,31 +9043,56 @@ unique(gapminder$year)
 
 Dataset gapminder memiliki 6 variabel dan 1704 observasi. 20 observasi pertama dataset gapminder dapat dilihat pada Tabel \@ref(tab:gapminder)
 
+\begin{table}[t]
 
-Table: (\#tab:gapminder)20 observasi pertama dataset gapminder
-
-country       continent    year   lifeExp        pop   gdpPercap
-------------  ----------  -----  --------  ---------  ----------
-Afghanistan   Asia         1952     28.80    8425333       779.4
-Afghanistan   Asia         1957     30.33    9240934       820.9
-Afghanistan   Asia         1962     32.00   10267083       853.1
-Afghanistan   Asia         1967     34.02   11537966       836.2
-Afghanistan   Asia         1972     36.09   13079460       740.0
-Afghanistan   Asia         1977     38.44   14880372       786.1
-Afghanistan   Asia         1982     39.85   12881816       978.0
-Afghanistan   Asia         1987     40.82   13867957       852.4
-Afghanistan   Asia         1992     41.67   16317921       649.3
-Afghanistan   Asia         1997     41.76   22227415       635.3
-Afghanistan   Asia         2002     42.13   25268405       726.7
-Afghanistan   Asia         2007     43.83   31889923       974.6
-Albania       Europe       1952     55.23    1282697      1601.1
-Albania       Europe       1957     59.28    1476505      1942.3
-Albania       Europe       1962     64.82    1728137      2312.9
-Albania       Europe       1967     66.22    1984060      2760.2
-Albania       Europe       1972     67.69    2263554      3313.4
-Albania       Europe       1977     68.93    2509048      3533.0
-Albania       Europe       1982     70.42    2780097      3630.9
-Albania       Europe       1987     72.00    3075321      3738.9
+\caption{(\#tab:gapminder)20 observasi pertama dataset gapminder}
+\centering
+\begin{tabular}{l|l|r|r|r|r}
+\hline
+country & continent & year & lifeExp & pop & gdpPercap\\
+\hline
+Afghanistan & Asia & 1952 & 28.80 & 8425333 & 779.4\\
+\hline
+Afghanistan & Asia & 1957 & 30.33 & 9240934 & 820.9\\
+\hline
+Afghanistan & Asia & 1962 & 32.00 & 10267083 & 853.1\\
+\hline
+Afghanistan & Asia & 1967 & 34.02 & 11537966 & 836.2\\
+\hline
+Afghanistan & Asia & 1972 & 36.09 & 13079460 & 740.0\\
+\hline
+Afghanistan & Asia & 1977 & 38.44 & 14880372 & 786.1\\
+\hline
+Afghanistan & Asia & 1982 & 39.85 & 12881816 & 978.0\\
+\hline
+Afghanistan & Asia & 1987 & 40.82 & 13867957 & 852.4\\
+\hline
+Afghanistan & Asia & 1992 & 41.67 & 16317921 & 649.3\\
+\hline
+Afghanistan & Asia & 1997 & 41.76 & 22227415 & 635.3\\
+\hline
+Afghanistan & Asia & 2002 & 42.13 & 25268405 & 726.7\\
+\hline
+Afghanistan & Asia & 2007 & 43.83 & 31889923 & 974.6\\
+\hline
+Albania & Europe & 1952 & 55.23 & 1282697 & 1601.1\\
+\hline
+Albania & Europe & 1957 & 59.28 & 1476505 & 1942.3\\
+\hline
+Albania & Europe & 1962 & 64.82 & 1728137 & 2312.9\\
+\hline
+Albania & Europe & 1967 & 66.22 & 1984060 & 2760.2\\
+\hline
+Albania & Europe & 1972 & 67.69 & 2263554 & 3313.4\\
+\hline
+Albania & Europe & 1977 & 68.93 & 2509048 & 3533.0\\
+\hline
+Albania & Europe & 1982 & 70.42 & 2780097 & 3630.9\\
+\hline
+Albania & Europe & 1987 & 72.00 & 3075321 & 3738.9\\
+\hline
+\end{tabular}
+\end{table}
 
 ## Scatterplot
 
@@ -8807,10 +9112,14 @@ ggplot(gapminder, aes(gdpPercap, lifeExp))+
   geom_point()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggscatter-1.png" alt="Scatterplot lifeExp vs gdpPercap" width="70%" />
-<p class="caption">(\#fig:ggscatter)Scatterplot lifeExp vs gdpPercap</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap}(\#fig:ggscatter)
+\end{figure}
 
 Kita dapat mengubah warna, jenis, dan ukuran titik pada scatterplot. Pengubahan warna dan jenis titik berguna untuk menunjukkan grup data pada grafik. Sedangkan perubahan ukuran titik sangat berguna untuk menunjukkan nilai variabel lain khususnya variabel kontinyu pada sebuah titik. Berikut adalah contoh penerapannya. Output yang dihasilkan disajikan pada Gambar \@ref(fig:ggscatter2) sampai dengan Gambar \@ref(fig:ggscatter4):
 
@@ -8822,10 +9131,14 @@ ggplot(gapminder, aes(gdpPercap,lifeExp, color=continent))+
   scale_x_log10()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggscatter2-1.png" alt="Scatterplot lifeExp vs gdpPercap tiap benua (1)" width="70%" />
-<p class="caption">(\#fig:ggscatter2)Scatterplot lifeExp vs gdpPercap tiap benua (1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter2-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap tiap benua (1)}(\#fig:ggscatter2)
+\end{figure}
 
 
 ```r
@@ -8835,10 +9148,14 @@ ggplot(gapminder, aes(gdpPercap,lifeExp, shape=continent))+
   scale_x_log10()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggscatter3-1.png" alt="Scatterplot lifeExp vs gdpPercap tiap benua (2)" width="70%" />
-<p class="caption">(\#fig:ggscatter3)Scatterplot lifeExp vs gdpPercap tiap benua (2)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter3-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap tiap benua (2)}(\#fig:ggscatter3)
+\end{figure}
 
 
 ```r
@@ -8849,10 +9166,14 @@ ggplot(gapminder, aes(gdpPercap,lifeExp,
   scale_x_log10()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggscatter4-1.png" alt="Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua" width="70%" />
-<p class="caption">(\#fig:ggscatter4)Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter4-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua}(\#fig:ggscatter4)
+\end{figure}
 
 Untuk menujukkan asosiasi antara dua variabel kontinyu kita juga dapat menambahkan garis regresi dan confidence interval garis regresinya. Fungsi yang digunakan adalah `geom_smooth()`. Secara default fungsi tersebut akan membuat garis loess regression pada grafik. Agar dapat membuat garis regresi linier kita perlu menambahkan argumen `method="lm"`. Selain itu, jika kita tidak ingin menampilkan garis confidence interval kita dapat menambahkan argumen `se=FALSE`. Format sederhananya disajikan pada sintaks berikut:
 
@@ -8884,10 +9205,14 @@ ggplot(gapminder, aes(gdpPercap,lifeExp))+
   geom_smooth(method="lm", level=0.99)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggscatter5-1.png" alt="Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier" width="70%" />
-<p class="caption">(\#fig:ggscatter5)Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggscatter5-1} 
+
+}
+
+\caption{Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier}(\#fig:ggscatter5)
+\end{figure}
 
 ## Box Plot dan Violin Plot
 
@@ -8915,10 +9240,14 @@ ggplot(gapminder, aes("", lifeExp))+
   geom_boxplot()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggboxplot-1.png" alt="Box plot variabel lifeExp" width="70%" />
-<p class="caption">(\#fig:ggboxplot)Box plot variabel lifeExp</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggboxplot-1} 
+
+}
+
+\caption{Box plot variabel lifeExp}(\#fig:ggboxplot)
+\end{figure}
 
 Kita dapat melakukan visualisasi bagi setiap kelompok data. Pada sintaks berikut visualisasi dilakukan untuk variabel `lifeExp` pada tiap `continent`. Pada contoh berikut akan ditampilkan cara menmabahkan titik rata-rata dan warna pada masing-masing grup. Output yang dihasilkan disajikan pada Gambar \@ref(fig:ggboxplot2):
 
@@ -8930,10 +9259,14 @@ ggplot(gapminder, aes(continent, lifeExp, color=continent))+
                shape=23, size=3, color="red")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggboxplot2-1.png" alt="Box plot variabel lifeExp pada tiap continent" width="70%" />
-<p class="caption">(\#fig:ggboxplot2)Box plot variabel lifeExp pada tiap continent</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggboxplot2-1} 
+
+}
+
+\caption{Box plot variabel lifeExp pada tiap continent}(\#fig:ggboxplot2)
+\end{figure}
 
 
 Misalkan kita ingin mengetahui perubahan distribusi dari variabel `lifeExp` pada masing-masing `continet` pada tahun 1952 dan 2007. Untuk melakukannya kita perlu melakukan subset pada dataset `gapminder` untuk memfilter data pada tahun 1952 dan 2007. Data selanjutnya dilakukan input kedalam fungsi `ggplot()`. Berikut adalah contoh sintaks yang digunakan. Output yang dihasilkan disajikan pada Gambar \@ref(fig:ggboxplot3):
@@ -8946,10 +9279,14 @@ gapminder %>%
   geom_boxplot(notch=TRUE)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggboxplot3-1.png" alt="Box plot variabel lifeExp pada tiap continent (1952 dan 2007)" width="70%" />
-<p class="caption">(\#fig:ggboxplot3)Box plot variabel lifeExp pada tiap continent (1952 dan 2007)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggboxplot3-1} 
+
+}
+
+\caption{Box plot variabel lifeExp pada tiap continent (1952 dan 2007)}(\#fig:ggboxplot3)
+\end{figure}
 
 Berdasarkan Gambar \@ref(fig:ggboxplot3) terlihat bahwa usia harapan hidup pada tiap benua meningkat sejak tahun 1952 sampai 2007. Selain itu, peningkatan tersebut bersifat signifikan yang ditunjukkan dari tidak adanya *notch* yang saling overlap pada masing-masing benua.
 
@@ -8963,10 +9300,14 @@ gapminder %>%
   geom_boxplot()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggboxplot4-1.png" alt="Box plot variabel lifeExp Benua Asia" width="70%" />
-<p class="caption">(\#fig:ggboxplot4)Box plot variabel lifeExp Benua Asia</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggboxplot4-1} 
+
+}
+
+\caption{Box plot variabel lifeExp Benua Asia}(\#fig:ggboxplot4)
+\end{figure}
 
 Violin plot memiliki kesamaan dengan box plot. Perbedaanya terletak pada violin plot tidak hanya menyajikan data titik-titikkuartil data, namun violin plot juga menampilkan kernel probabilitas distibusi data. Fungsi yang digunakan untuk membuatnya adalah `geom_violin()`.
 
@@ -8980,10 +9321,14 @@ gapminder %>%
   geom_violin()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggviolin-1.png" alt="Violin plot variabel lifeExp pada masing-masing benua" width="70%" />
-<p class="caption">(\#fig:ggviolin)Violin plot variabel lifeExp pada masing-masing benua</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggviolin-1} 
+
+}
+
+\caption{Violin plot variabel lifeExp pada masing-masing benua}(\#fig:ggviolin)
+\end{figure}
 
 Kita juga dapat melakukan modifikasi terhadap violin plot tersebut seperti penambahan titik kuartil, titik mean dan modifikasi terhadap warna tampilaknnya. COntoh sintaksnya dan output disajikan pada Gambar \@ref(fig:ggviolin2):
 
@@ -9003,10 +9348,14 @@ gapminder %>%
                color="red", fill="white")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggviolin2-1.png" alt="Violin plot variabel lifeExp pada masing-masing benua (2)" width="70%" />
-<p class="caption">(\#fig:ggviolin2)Violin plot variabel lifeExp pada masing-masing benua (2)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggviolin2-1} 
+
+}
+
+\caption{Violin plot variabel lifeExp pada masing-masing benua (2)}(\#fig:ggviolin2)
+\end{figure}
 
 ## Bar Plot
 
@@ -9027,10 +9376,14 @@ gapminder %>%
   geom_bar(stat="identity")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggbar-1.png" alt="Bar plot rata-rata lifeExp masing-masing benua" width="70%" />
-<p class="caption">(\#fig:ggbar)Bar plot rata-rata lifeExp masing-masing benua</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggbar-1} 
+
+}
+
+\caption{Bar plot rata-rata lifeExp masing-masing benua}(\#fig:ggbar)
+\end{figure}
 
 Kita juga dapat membuat bar plot dengan garis confidence interval. Untuk melakukannya kita perlu terlebih dahulu menghitung standard error dari data. Standard error selanjutnya digunakan untuk menghitung nilai atas dan bawah dari nilai rata-rata. Berikut adalah contoh visualisasi bar plot dengan confidence interval (Gambar \@ref(fig:ggbar2)):
 
@@ -9053,10 +9406,14 @@ gapminder %>%
                 width=0.2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggbar2-1.png" alt="Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval" width="70%" />
-<p class="caption">(\#fig:ggbar2)Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggbar2-1} 
+
+}
+
+\caption{Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval}(\#fig:ggbar2)
+\end{figure}
 
 Kita juga dapat melakukannya pada visualisasi data beberapa grup. Berikut adalah contoh sintaks dan output (Gambar \@ref(fig:ggbar3)) bar plot dengan beberapa grup:
 
@@ -9086,10 +9443,14 @@ gapminder %>%
                 position=position_dodge(0.9))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggbar3-1.png" alt="Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval" width="70%" />
-<p class="caption">(\#fig:ggbar3)Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggbar3-1} 
+
+}
+
+\caption{Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval}(\#fig:ggbar3)
+\end{figure}
 
 ## Line Plot
 
@@ -9111,10 +9472,14 @@ gapminder%>%
   geom_point()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggline-1.png" alt="Line plot lifeExp masing-masing benua " width="70%" />
-<p class="caption">(\#fig:ggline)Line plot lifeExp masing-masing benua </p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggline-1} 
+
+}
+
+\caption{Line plot lifeExp masing-masing benua }(\#fig:ggline)
+\end{figure}
 
 Kita juga dapat menambahkan error bar pada line plot. Berikut adalah contoh sintak dan grafik (Gambar \@ref(fig:ggline2)) yang dihasilkan:
 
@@ -9140,10 +9505,14 @@ gapminder%>%
                 width=0.2, color="red")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggline2-1.png" alt="Histogram lifeExp " width="70%" />
-<p class="caption">(\#fig:ggline2)Histogram lifeExp </p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggline2-1} 
+
+}
+
+\caption{Histogram lifeExp }(\#fig:ggline2)
+\end{figure}
 
 ## Pie Chart
 
@@ -9162,10 +9531,14 @@ gapminder%>%
   coord_polar("y", start=0)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggpie-1.png" alt="Pie chart pop" width="70%" />
-<p class="caption">(\#fig:ggpie)Pie chart pop</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggpie-1} 
+
+}
+
+\caption{Pie chart pop}(\#fig:ggpie)
+\end{figure}
 
 
 ## Histogram dan Desity Plot
@@ -9179,10 +9552,14 @@ gapminder %>%
   geom_histogram()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gghist-1.png" alt="Histogram lifeExp " width="70%" />
-<p class="caption">(\#fig:gghist)Histogram lifeExp </p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gghist-1} 
+
+}
+
+\caption{Histogram lifeExp }(\#fig:gghist)
+\end{figure}
 
 Kita dapat membuat grafik histogram berdasarkan grup data. Pada contoh sebelumnya dibuat histogram berdasarkan variabel `continent`. Berikut adalah sintaks dan output yang dihasilkan pada Gambar \@ref(fig:gghist2):
 
@@ -9196,10 +9573,14 @@ gapminder %>%
                  color="black")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gghist2-1.png" alt="Histogram lifeExp berdasarkan benua" width="70%" />
-<p class="caption">(\#fig:gghist2)Histogram lifeExp berdasarkan benua</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gghist2-1} 
+
+}
+
+\caption{Histogram lifeExp berdasarkan benua}(\#fig:gghist2)
+\end{figure}
 
 Density plot dapat dibuat dengan menggunakan fungsi `geom_density()`. Berikut adalah contoh sintaks untuk membuat density plot variabel `lifeExp`. Output yang dihasilkan disajikan pada Gambar \@ref(fig:ggdens):
 
@@ -9210,10 +9591,14 @@ gapminder %>%
   geom_density()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggdens-1.png" alt="Density plot lifeExp " width="70%" />
-<p class="caption">(\#fig:ggdens)Density plot lifeExp </p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggdens-1} 
+
+}
+
+\caption{Density plot lifeExp }(\#fig:ggdens)
+\end{figure}
 
 Kita juga dapat membuat grafik density berdasarkan grup data. Pada contoh sebelumnya dibuat density plot berdasarkan variabel `continent`. Berikut adalah sintaks dan output yang dihasilkan pada Gambar \@ref(fig:ggdens2):
 
@@ -9227,10 +9612,14 @@ gapminder %>%
                  color="black")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggdens2-1.png" alt="Density plot lifeExp berdasarkan benua" width="70%" />
-<p class="caption">(\#fig:ggdens2)Density plot lifeExp berdasarkan benua</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggdens2-1} 
+
+}
+
+\caption{Density plot lifeExp berdasarkan benua}(\#fig:ggdens2)
+\end{figure}
 
 Jika dinginkan kita juga dapat menambahkan density plot pada histogram. Pada Gambar \@ref(fig:hist) ditambahkan density plot sehingga dihasilkan output seperti Gambar \@ref(fig:ggdenshist).
 
@@ -9244,10 +9633,14 @@ gapminder %>%
   geom_density(fill="red", alpha=0.3)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggdenshist-1.png" alt="histogram dan density plot lifeExp " width="70%" />
-<p class="caption">(\#fig:ggdenshist)histogram dan density plot lifeExp </p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggdenshist-1} 
+
+}
+
+\caption{histogram dan density plot lifeExp }(\#fig:ggdenshist)
+\end{figure}
 
 ## QQ Plot
 
@@ -9262,10 +9655,14 @@ ggplot(gapminder, aes(sample=lifeExp))+
   stat_qq_line()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggqq-1.png" alt="QQ plot variabel lifeExp" width="70%" />
-<p class="caption">(\#fig:ggqq)QQ plot variabel lifeExp</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggqq-1} 
+
+}
+
+\caption{QQ plot variabel lifeExp}(\#fig:ggqq)
+\end{figure}
 
 ## Dot Plot
 
@@ -9287,10 +9684,14 @@ gapminder %>%
 ## Warning: Ignoring unknown parameters: size
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dotplot-1.png" alt="Dot plot variabel lifeExp masing-masing benua (1952-2007)" width="70%" />
-<p class="caption">(\#fig:dotplot)Dot plot variabel lifeExp masing-masing benua (1952-2007)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/dotplot-1} 
+
+}
+
+\caption{Dot plot variabel lifeExp masing-masing benua (1952-2007)}(\#fig:dotplot)
+\end{figure}
 
 Kita juga dapat menambahkan plot dari dari plot yang sudah ada seperti box plot atau violin plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar \@ref(fig:dotplot2):
 
@@ -9308,10 +9709,14 @@ gapminder %>%
                position=position_dodge(0.8))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dotplot2-1.png" alt="Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)" width="70%" />
-<p class="caption">(\#fig:dotplot2)Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/dotplot2-1} 
+
+}
+
+\caption{Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)}(\#fig:dotplot2)
+\end{figure}
 
 ## ECDF Plot
 
@@ -9323,10 +9728,14 @@ ggplot(gapminder, aes(lifeExp))+
   stat_ecdf(geom="line")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggecdf-1.png" alt="ECDF plot variabel lifeExp" width="70%" />
-<p class="caption">(\#fig:ggecdf)ECDF plot variabel lifeExp</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggecdf-1} 
+
+}
+
+\caption{ECDF plot variabel lifeExp}(\#fig:ggecdf)
+\end{figure}
 
 ## Parameter Grafik
 
@@ -9362,10 +9771,14 @@ ggplot(gapminder, aes(continent, gdpPercap, fill=continent))+
        x="Benua", y="GDP Per Kapita")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggtitle-1.png" alt="Mengubah judul grafik dan keterangan axis" width="70%" />
-<p class="caption">(\#fig:ggtitle)Mengubah judul grafik dan keterangan axis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtitle-1} 
+
+}
+
+\caption{Mengubah judul grafik dan keterangan axis}(\#fig:ggtitle)
+\end{figure}
 
 Pada Gambar \@ref(fig:ggtitle) kita belum mengubah keterangan legend. Berikut adalah sintaks untuk mengubah keterangan legend pada grafik tersebut beserta output yang disajikan pada Gambar \@ref(fig:ggtitle2).
 
@@ -9384,10 +9797,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
        fill="Benua")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggtitle2-1.png" alt="Mengubah keterangan legend pada grafik" width="70%" />
-<p class="caption">(\#fig:ggtitle2)Mengubah keterangan legend pada grafik</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtitle2-1} 
+
+}
+
+\caption{Mengubah keterangan legend pada grafik}(\#fig:ggtitle2)
+\end{figure}
 
 Judul, keterangan axis, dan keterangan legend dapat dikustomisasi menggunakan fungsi `theme()` dan `element_text()`. Berikut adalah format yang digunakan:
 
@@ -9433,10 +9850,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
       )
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggtitle3-1.png" alt="Kustomisasi judul grafik dan keterangan axis" width="70%" />
-<p class="caption">(\#fig:ggtitle3)Kustomisasi judul grafik dan keterangan axis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtitle3-1} 
+
+}
+
+\caption{Kustomisasi judul grafik dan keterangan axis}(\#fig:ggtitle3)
+\end{figure}
 
 
 ### Merubah Tampilan dan Posisi Legend
@@ -9461,10 +9882,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
   theme(legend.position="top")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglegend-1.png" alt="Kustomisasi posisi legend berdasarkan karakter" width="70%" />
-<p class="caption">(\#fig:gglegend)Kustomisasi posisi legend berdasarkan karakter</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglegend-1} 
+
+}
+
+\caption{Kustomisasi posisi legend berdasarkan karakter}(\#fig:gglegend)
+\end{figure}
 
 
 ```r
@@ -9482,10 +9907,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
   theme(legend.position=c(0.9,0.75))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglegend2-1.png" alt="Kustomisasi posisi legend berdasarkan vektor numerik" width="70%" />
-<p class="caption">(\#fig:gglegend2)Kustomisasi posisi legend berdasarkan vektor numerik</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglegend2-1} 
+
+}
+
+\caption{Kustomisasi posisi legend berdasarkan vektor numerik}(\#fig:gglegend2)
+\end{figure}
 
 Pada fungsi `theme()` kita juga dapat merubah backgroud dari legend box menggunakan argumen `legend.bacground` dan `element_rect`. Selain itu kita juga dapat mengubah orientasi dari legend yang semula vertikal menjadi horizontal dengan menambahkan argumen `legend.box`. Berikut adalah contoh sintaks penerapannya. Output yang dihasilkan disajikan pada Gambar \@ref(fig:gglegend3).
 
@@ -9514,10 +9943,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
         legend.box= "horizontal")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglegend3-1.png" alt="Kustomisasi tampilan legend" width="70%" />
-<p class="caption">(\#fig:gglegend3)Kustomisasi tampilan legend</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglegend3-1} 
+
+}
+
+\caption{Kustomisasi tampilan legend}(\#fig:gglegend3)
+\end{figure}
 
 Kita dapat juga menghilangkan legend baik seluruh legend maupun legend spesifik. Pada Gambar \@ref(fig:gglegend4) dan Gambar \@ref(fig:gglegend5) disajikan contoh cara menghilangkan seluruh legend maupun sebagian legend. 
 
@@ -9539,10 +9972,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
   theme(legend.position="none")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglegend4-1.png" alt="Menghilangkan seluruh legend" width="70%" />
-<p class="caption">(\#fig:gglegend4)Menghilangkan seluruh legend</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglegend4-1} 
+
+}
+
+\caption{Menghilangkan seluruh legend}(\#fig:gglegend4)
+\end{figure}
 
 
 ```r
@@ -9569,10 +10006,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
   guides(color=FALSE)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglegend5-1.png" alt="Menghilangkan sebagian legend legend" width="70%" />
-<p class="caption">(\#fig:gglegend5)Menghilangkan sebagian legend legend</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglegend5-1} 
+
+}
+
+\caption{Menghilangkan sebagian legend legend}(\#fig:gglegend5)
+\end{figure}
 
 ### Merubah Warana Pada Grafik Secara Otomatis dan Manual
 
@@ -9587,10 +10028,14 @@ ggplot(gapminder, aes(continent, lifeExp))+
   geom_boxplot(color="darkred",fill="#A4A4A4")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggcolor-1.png" alt="Merubah warna grup berdasarkan satu warna" width="70%" />
-<p class="caption">(\#fig:ggcolor)Merubah warna grup berdasarkan satu warna</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggcolor-1} 
+
+}
+
+\caption{Merubah warna grup berdasarkan satu warna}(\#fig:ggcolor)
+\end{figure}
 
 Selain itu, kita dapat mengubah warna berdasarkan grup baik secara otomatis maupun manual. Berikut adalah contoh sintaks warna berdasarkan grup secara otomatis. Output yang dihasilkan disajikan pada Gambar \@ref(fig:ggcolor2).
 
@@ -9602,10 +10047,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
   geom_boxplot()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggcolor2-1.png" alt="Merubah warna grup secara otomatis" width="70%" />
-<p class="caption">(\#fig:ggcolor2)Merubah warna grup secara otomatis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggcolor2-1} 
+
+}
+
+\caption{Merubah warna grup secara otomatis}(\#fig:ggcolor2)
+\end{figure}
 
 Kita dapat mengatur pecahayaan (l) dan intensitas warna (c) dari warna yang kita tampilkan menggunakan fungsi `scale_fill_hue()`. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggcolor3).
 
@@ -9619,10 +10068,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
   scale_color_hue(l=40, c=35)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggcolor3-1.png" alt="Merubah pencahayaan dan intensitas warna" width="70%" />
-<p class="caption">(\#fig:ggcolor3)Merubah pencahayaan dan intensitas warna</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggcolor3-1} 
+
+}
+
+\caption{Merubah pencahayaan dan intensitas warna}(\#fig:ggcolor3)
+\end{figure}
 
 Jika kita tidak menginginkan warna yang secara otomatis ditampilkan oleh `ggplot2`, kita dapat mengubahnya secara manual menggunakan fungsi `scale_fill_manual()` (untuk box plot, bar plot, dll) dan `scale_color_manual()` (untuk line plot, dot plot dan scatterplot). Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggcolor4).
 
@@ -9637,10 +10090,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
                              "#B47846","#B4464B"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggcolor4-1.png" alt="Merubah warna secara manual" width="70%" />
-<p class="caption">(\#fig:ggcolor4)Merubah warna secara manual</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggcolor4-1} 
+
+}
+
+\caption{Merubah warna secara manual}(\#fig:ggcolor4)
+\end{figure}
 
 JIka kita tidak hafal dengan kode hexadesimal warna tersebut kita dapat juga menggunakan palet warna. Contoh palet warna yang akan digunakan adalah dari library `RColorBrewer`. Berikut adalah contoh sintaks untuk menginstal dan memuat paket tersebut:
 
@@ -9660,10 +10117,14 @@ Pada sintak berikut penulis akan menampilkan seluruh palet warna pada pekt terse
 display.brewer.all()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggcolor5-1.png" alt="Palet warna RColorBrewer" width="672" />
-<p class="caption">(\#fig:ggcolor5)Palet warna RColorBrewer</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{EnvStat_files/figure-latex/ggcolor5-1} 
+
+}
+
+\caption{Palet warna RColorBrewer}(\#fig:ggcolor5)
+\end{figure}
 
 Pada Gambar \@ref(fig:ggcolor5) terdapat 3 jenis warna antara lain:
 
@@ -9683,10 +10144,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
   scale_color_brewer(palette="Dark2")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggcolor6-1.png" alt="Merubah warna menggunakan palet" width="70%" />
-<p class="caption">(\#fig:ggcolor6)Merubah warna menggunakan palet</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggcolor6-1} 
+
+}
+
+\caption{Merubah warna menggunakan palet}(\#fig:ggcolor6)
+\end{figure}
 
 Jika kita tidak menginginkan warna-warna terang, kita dapat menggunakan fungsi `scale_color_grey()` (untuk line plot, dot plot, dan scatterplot) dan `scale_fill_grey()` (untuk bar plot, histogram, box plot, dll). Funsi tersebut akan memberikan warna palet gray pada plot. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggcolor7).
 
@@ -9700,10 +10165,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
   scale_fill_grey()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggcolor7-1.png" alt="Merubah warna menggunakan palet gray" width="70%" />
-<p class="caption">(\#fig:ggcolor7)Merubah warna menggunakan palet gray</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggcolor7-1} 
+
+}
+
+\caption{Merubah warna menggunakan palet gray}(\#fig:ggcolor7)
+\end{figure}
 
 ### Kustomisasi Titik 
 
@@ -9716,10 +10185,14 @@ ggplot(gapminder, aes(gdpPercap, lifeExp))+
   geom_point(shape=4, size=2, color="blue")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggpoint-1.png" alt="Kustomisasi jenis, ukuran dan warna titik" width="70%" />
-<p class="caption">(\#fig:ggpoint)Kustomisasi jenis, ukuran dan warna titik</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggpoint-1} 
+
+}
+
+\caption{Kustomisasi jenis, ukuran dan warna titik}(\#fig:ggpoint)
+\end{figure}
 
 Untuk data dengan multiple group, kita dapat mengubah jenis, ukuran dan warna secara otomatis dengan memasukkan nama variabel kedalam argumen `shape`, `size` dan `color`. Sedangkan secara manual kita dapat menambahkan fungsi `scale_shape_manual()` (jenis titik), `scale_color_manual()` (warna titik), dan `scale_size_manual()` (ukuran titik). Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggpoint2) dan Gambar \@ref(fig:ggpoint3).
 
@@ -9733,10 +10206,14 @@ ggplot(gapminder, aes(gdpPercap, lifeExp,
   geom_point()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggpoint2-1.png" alt="Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara otomatis" width="70%" />
-<p class="caption">(\#fig:ggpoint2)Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara otomatis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggpoint2-1} 
+
+}
+
+\caption{Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara otomatis}(\#fig:ggpoint2)
+\end{figure}
 
 
 ```r
@@ -9751,10 +10228,14 @@ ggplot(gapminder, aes(gdpPercap, lifeExp,
                              "#B47846","#B4464B"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggpoint3-1.png" alt="Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara manual" width="70%" />
-<p class="caption">(\#fig:ggpoint3)Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara manual</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggpoint3-1} 
+
+}
+
+\caption{Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara manual}(\#fig:ggpoint3)
+\end{figure}
 
 ### Kustomisasi Jenis Garis
 
@@ -9773,10 +10254,14 @@ gapminder%>%
     geom_point(shape=1, color="red")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglty-1.png" alt="Kustomisasi jenis, ukuran dan warna garis" width="70%" />
-<p class="caption">(\#fig:gglty)Kustomisasi jenis, ukuran dan warna garis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglty-1} 
+
+}
+
+\caption{Kustomisasi jenis, ukuran dan warna garis}(\#fig:gglty)
+\end{figure}
 
 Untuk data dengan multiple group, kita dapat mengubah jenis garis, warna dan ukuran secara manual maupun secara otomatis. Secara otomatis kita dapat menginputkan nama variabel kedalam argumen `linetype`, `size` dan `color`. Secara manual, kita dapat mengubah jenis, warna dan ukuran menggunakan fungsi `scale_linetype_manual()` (jenis garis), `scale_color_manual()` (warna garis), dan `scale_size_manual()` (ukuran garis). Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:gglty2) dan Gambar \@ref(fig:gglty3).
 
@@ -9795,10 +10280,14 @@ gapminder%>%
     geom_point(shape=1, color="red")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglty2-1.png" alt="Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara otomatis" width="70%" />
-<p class="caption">(\#fig:gglty2)Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara otomatis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglty2-1} 
+
+}
+
+\caption{Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara otomatis}(\#fig:gglty2)
+\end{figure}
 
 
 ```r
@@ -9817,10 +10306,14 @@ gapminder%>%
     scale_color_manual(values=c("red","blue"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglty3-1.png" alt="Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara manual" width="70%" />
-<p class="caption">(\#fig:gglty3)Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara manual</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglty3-1} 
+
+}
+
+\caption{Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara manual}(\#fig:gglty3)
+\end{figure}
 
 ### Menambahkan Label Pada Titik Observasi dan Bidang Plot
 
@@ -9839,10 +10332,14 @@ ggplot(gapminder, aes(gdpPercap, pop))+
   geom_point()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglabel-1.png" alt="Scatterplot variabel pop vs gdpPercap" width="70%" />
-<p class="caption">(\#fig:gglabel)Scatterplot variabel pop vs gdpPercap</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglabel-1} 
+
+}
+
+\caption{Scatterplot variabel pop vs gdpPercap}(\#fig:gglabel)
+\end{figure}
 
 Misalkan kita ingin menandai negara yang memiliki gdpPercap > 50000. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:gglabel2).
 
@@ -9859,10 +10356,14 @@ ggplot(gapminder, aes(gdpPercap, pop))+
     size = 3)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglabel2-1.png" alt="Scatterplot variabel pop vs gdpPercap dengan label" width="70%" />
-<p class="caption">(\#fig:gglabel2)Scatterplot variabel pop vs gdpPercap dengan label</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglabel2-1} 
+
+}
+
+\caption{Scatterplot variabel pop vs gdpPercap dengan label}(\#fig:gglabel2)
+\end{figure}
 
 Selain teks yang menunjukkan observasi, kita dapat menambahkan anotasi pada grafik. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:gglabel3).
 
@@ -9883,10 +10384,14 @@ ggplot(gapminder, aes(gdpPercap, pop))+
           color="red")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglabel3-1.png" alt="Scatterplot variabel pop vs gdpPercap dengan label dan notasi" width="70%" />
-<p class="caption">(\#fig:gglabel3)Scatterplot variabel pop vs gdpPercap dengan label dan notasi</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglabel3-1} 
+
+}
+
+\caption{Scatterplot variabel pop vs gdpPercap dengan label dan notasi}(\#fig:gglabel3)
+\end{figure}
 
 Kita dapat pula menambahkan teks statik yang sama pada setiap panel. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:gglabel4).
 
@@ -9907,10 +10412,14 @@ ggplot(gapminder, aes(gdpPercap, pop))+
   facet_wrap(~continent, scales="free")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglabel4-1.png" alt="Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada tiap panel" width="70%" />
-<p class="caption">(\#fig:gglabel4)Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada tiap panel</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglabel4-1} 
+
+}
+
+\caption{Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada tiap panel}(\#fig:gglabel4)
+\end{figure}
 
 ### Kustomisasi Tema Pada Plot
 
@@ -9936,10 +10445,14 @@ ggplot(gapminder, aes(gdpPercap, lifeExp))+
   theme_bw()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggtema-1.png" alt="Scatterplot dengan tema black and white" width="70%" />
-<p class="caption">(\#fig:ggtema)Scatterplot dengan tema black and white</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtema-1} 
+
+}
+
+\caption{Scatterplot dengan tema black and white}(\#fig:ggtema)
+\end{figure}
 
 Kita juga dapat menggunakan tema kustom yang terdapat pada library `ggthemes`. Berikut adalah sintaks yang digunakan untuk menginstall dan memuat paket tersebut:
 
@@ -9974,10 +10487,14 @@ ggplot(gapminder, aes(gdpPercap, lifeExp,
   theme_wsj()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggtema2-1.png" alt="Scatterplot dengan tema Wall Street Journal" width="70%" />
-<p class="caption">(\#fig:ggtema2)Scatterplot dengan tema Wall Street Journal</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtema2-1} 
+
+}
+
+\caption{Scatterplot dengan tema Wall Street Journal}(\#fig:ggtema2)
+\end{figure}
 
 Kita dapat juga membuat tema kustom berdasarkan tema yang telah ada. Untuk melakukannya kita hanya perlu merubah sejumlah argument default yang ada pada fungsi tema dan menamai tema sesuai dengan yang kita inginkan menggunakan *user define function*. Berikut adalah contoh argumen yang dapat diubah pada `theme_wsj`.
 
@@ -10009,7 +10526,7 @@ theme_wsj
 ##             plot.title = element_text(hjust = 0, face = "bold"), 
 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())
 ## }
-## <bytecode: 0x4bbfaf0>
+## <bytecode: 0xfb852e8>
 ## <environment: namespace:ggthemes>
 ```
 
@@ -10057,10 +10574,14 @@ gapminder%>%
   ylim(0,90)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglimits-1.png" alt="Scatterplot dengan axis limits " width="70%" />
-<p class="caption">(\#fig:gglimits)Scatterplot dengan axis limits </p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglimits-1} 
+
+}
+
+\caption{Scatterplot dengan axis limits }(\#fig:gglimits)
+\end{figure}
 
 Kita juga dapat menggunakan fungsi `scale_x_continuous()` dan `scale_y_continuous()` untuk mengatur limit axis ,*axis tick* dan label. Format yang digunakan adalah sebagai berikut:
 
@@ -10105,10 +10626,14 @@ gapminder%>%
                      limits=c(0,100))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglimits2-1.png" alt="Scatterplot dengan axis limits (2) " width="70%" />
-<p class="caption">(\#fig:gglimits2)Scatterplot dengan axis limits (2) </p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglimits2-1} 
+
+}
+
+\caption{Scatterplot dengan axis limits (2) }(\#fig:gglimits2)
+\end{figure}
 
 Tranformasi axis dapat dilakukan dengan fungsi bawaan dari `ggplot2`. Fungsi transformasi bawaan berupa transformasi log dan sqrt. Berikut adalah fungsi bawaan untuk transformasi tersebut:
 
@@ -10135,10 +10660,14 @@ gapminder%>%
   scale_x_log10()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglimits3-1.png" alt="Scatterplot dengan transformasi axis " width="70%" />
-<p class="caption">(\#fig:gglimits3)Scatterplot dengan transformasi axis </p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglimits3-1} 
+
+}
+
+\caption{Scatterplot dengan transformasi axis }(\#fig:gglimits3)
+\end{figure}
 
 *Tick mark* pada axis juga dapat kita atur menggunakan fungsi `scale_x_continous()` dan `scale_y_continous()`. Untuk mengubah format dan label *tick mark* kita perlu menginstall dan memuat library `scales` yang berfungsi untuk mengakses fungsi pada argumen break. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:gglimits4).
 
@@ -10162,10 +10691,14 @@ ggplot(gapminder, aes(gdpPercap, lifeExp))+
   scale_x_continuous(labels = dollar)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gglimits4-1.png" alt="Scatterplot dengan transformasi tick mark axis " width="70%" />
-<p class="caption">(\#fig:gglimits4)Scatterplot dengan transformasi tick mark axis </p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gglimits4-1} 
+
+}
+
+\caption{Scatterplot dengan transformasi tick mark axis }(\#fig:gglimits4)
+\end{figure}
 
 ### Kustomisasi Tick Mark Axis
 
@@ -10209,10 +10742,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
                                      angle=30))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggtick-1.png" alt="Mengubah tampilan dari tick mark" width="70%" />
-<p class="caption">(\#fig:ggtick)Mengubah tampilan dari tick mark</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtick-1} 
+
+}
+
+\caption{Mengubah tampilan dari tick mark}(\#fig:ggtick)
+\end{figure}
 
 Untuk menonaktifkan *tick mark* pada plot kita dapat menggunakan fungsi `element_blank()`. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggtick2).
 
@@ -10229,10 +10766,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
   axis.ticks=element_blank())
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggtick2-1.png" alt="Menyembunyikan tampilan dari tick mark" width="70%" />
-<p class="caption">(\#fig:ggtick2)Menyembunyikan tampilan dari tick mark</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtick2-1} 
+
+}
+
+\caption{Menyembunyikan tampilan dari tick mark}(\#fig:ggtick2)
+\end{figure}
  
 Kita dapat melakukan pengaturan terhadap garis axis menggunakan argumen `axis.lines` dan fungsi `element_line`. Berikut adalah format yang digunakan:
 
@@ -10263,10 +10804,14 @@ ggplot(gapminder, aes(continent, gdpPercap,
                       size = 1, linetype = "solid"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggtick3-1.png" alt="Kustomisasi tampilan dari garis axis" width="70%" />
-<p class="caption">(\#fig:ggtick3)Kustomisasi tampilan dari garis axis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtick3-1} 
+
+}
+
+\caption{Kustomisasi tampilan dari garis axis}(\#fig:ggtick3)
+\end{figure}
 
 Kita dapat mengatur *tick* pada axis baik yang memiliki skala diskrit maupun kontinyu. Fungsi yang digunakan adalah `scale_x_continous()` dan `scale_y_continous()` untuk *tick* dengan nilai kontinyu dan `scale_x_discrete()` dan `scale_y_discrete()`.
 
@@ -10285,10 +10830,14 @@ ggplot(gapminder, aes(continent, lifeExp,
     breaks=seq(0,100,10))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggtick4-1.png" alt="Kustomisasi tick mark" width="70%" />
-<p class="caption">(\#fig:ggtick4)Kustomisasi tick mark</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggtick4-1} 
+
+}
+
+\caption{Kustomisasi tick mark}(\#fig:ggtick4)
+\end{figure}
 
 ### Menambahkan Garis Lurus Pada Plot
 
@@ -10321,10 +10870,14 @@ ggplot(gapminder, aes(lifeExp, fill=..count..))+
              size=1.5)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggvline-1.png" alt="Penerapan vline" width="70%" />
-<p class="caption">(\#fig:ggvline)Penerapan vline</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggvline-1} 
+
+}
+
+\caption{Penerapan vline}(\#fig:ggvline)
+\end{figure}
 
 
 ```r
@@ -10340,10 +10893,14 @@ ggplot(gapminder, aes(continent, lifeExp,
              size=1.5)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gghline-1.png" alt="Penerapan hline" width="70%" />
-<p class="caption">(\#fig:gghline)Penerapan hline</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gghline-1} 
+
+}
+
+\caption{Penerapan hline}(\#fig:gghline)
+\end{figure}
 
 Selain menggunakan fungsi `geom_smooth()`, garis regresi dapat ditambahkan melalui fungsi `geom_abline(). Format yang digunakan adalah sebagai berikut:
 
@@ -10401,10 +10958,14 @@ ggplot(gapminder, aes(gdpPercap, lifeExp))+
              size=1)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggabline-1.png" alt="Penerapan abline" width="70%" />
-<p class="caption">(\#fig:ggabline)Penerapan abline</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggabline-1} 
+
+}
+
+\caption{Penerapan abline}(\#fig:ggabline)
+\end{figure}
 
 Kita dapat menambahkan garis segment untuk menunjukkan sebuah observasi. Format yang digunakan adalah sebagai berikut:
 
@@ -10430,10 +10991,14 @@ ggplot(gapminder, aes(gdpPercap, lifeExp))+
                size=1)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggsegment-1.png" alt="Penerapan garis segmen" width="70%" />
-<p class="caption">(\#fig:ggsegment)Penerapan garis segmen</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggsegment-1} 
+
+}
+
+\caption{Penerapan garis segmen}(\#fig:ggsegment)
+\end{figure}
 
 ### Melakukan Rotasi Pada Grafik
 
@@ -10455,10 +11020,14 @@ ggplot(gapminder, aes(continent, lifeExp,
   coord_flip()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggcoord-1.png" alt="Rotasi axis" width="70%" />
-<p class="caption">(\#fig:ggcoord)Rotasi axis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggcoord-1} 
+
+}
+
+\caption{Rotasi axis}(\#fig:ggcoord)
+\end{figure}
 
 Kita dapat juga melakukan pembalikan skala pada axis sehingga skala yang semula berawal dari min ke max menjadi sebaliknya. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggyreverse).
 
@@ -10471,10 +11040,14 @@ ggplot(gapminder, aes(lifeExp, fill=..count..))+
   scale_y_reverse()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggyreverse-1.png" alt="Pembalikan sumbu y" width="70%" />
-<p class="caption">(\#fig:ggyreverse)Pembalikan sumbu y</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/ggyreverse-1} 
+
+}
+
+\caption{Pembalikan sumbu y}(\#fig:ggyreverse)
+\end{figure}
 
 ### Facet
 
@@ -10493,10 +11066,14 @@ ggplot(gapminder, aes(lifeExp, fill=..count..))+
   facet_grid(.~continent)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggfacetgrid-1.png" alt="Facet horizontal satu variabel" width="90%" />
-<p class="caption">(\#fig:ggfacetgrid)Facet horizontal satu variabel</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/ggfacetgrid-1} 
+
+}
+
+\caption{Facet horizontal satu variabel}(\#fig:ggfacetgrid)
+\end{figure}
 
 
 ```r
@@ -10506,10 +11083,14 @@ ggplot(gapminder, aes(lifeExp, fill=..count..))+
   facet_grid(continent~.)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggfacetgrid2-1.png" alt="Facet vertikal satu variabel" width="80%" />
-<p class="caption">(\#fig:ggfacetgrid2)Facet vertikal satu variabel</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/ggfacetgrid2-1} 
+
+}
+
+\caption{Facet vertikal satu variabel}(\#fig:ggfacetgrid2)
+\end{figure}
 
 Kita dapat pula melakukan facet terhadap dua buah variabel.Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggfacetgrid3) untuk membuat facet pada dua variabel.
 
@@ -10526,10 +11107,14 @@ gapminder%>%
   facet_grid(continent~factor(year))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggfacetgrid3-1.png" alt="Facet dua variabel" width="80%" />
-<p class="caption">(\#fig:ggfacetgrid3)Facet dua variabel</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/ggfacetgrid3-1} 
+
+}
+
+\caption{Facet dua variabel}(\#fig:ggfacetgrid3)
+\end{figure}
 
 Kita dapat mengatur skala dari axis menggunakan argument sebagai berikut:
 
@@ -10553,10 +11138,14 @@ gapminder%>%
   facet_grid(continent~factor(year), scales="free_y")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/ggfacetgrid4-1.png" alt="Facet dua variabel dengan skala bebas pada sumbu y" width="80%" />
-<p class="caption">(\#fig:ggfacetgrid4)Facet dua variabel dengan skala bebas pada sumbu y</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{EnvStat_files/figure-latex/ggfacetgrid4-1} 
+
+}
+
+\caption{Facet dua variabel dengan skala bebas pada sumbu y}(\#fig:ggfacetgrid4)
+\end{figure}
 
 ## Referensi
 
@@ -10627,15 +11216,23 @@ dimana $\overline{X}_{\left(j\right)}$ adalah nilai mean seluruh observasi kecua
 
 Untuk lebih memahami pengaruh observasi terhadap nilai rata-rata, disajikan dua buah gambar yaitu: Gambar \@ref(fig:mean1) dan Gambar \@ref(fig:mean2)
 
-<div class="figure" style="text-align: center">
-<img src="mean1.png" alt="Nilai mean (segitiga) sebagai titik kesetimbangan pada data." width="70%" />
-<p class="caption">(\#fig:mean1)Nilai mean (segitiga) sebagai titik kesetimbangan pada data.</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="mean2.png" alt="Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier." width="70%" />
-<p class="caption">(\#fig:mean2)Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.</p>
-</div>
+{\centering \includegraphics[width=0.7\linewidth]{mean1} 
+
+}
+
+\caption{Nilai mean (segitiga) sebagai titik kesetimbangan pada data.}(\#fig:mean1)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{mean2} 
+
+}
+
+\caption{Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.}(\#fig:mean2)
+\end{figure}
 
 Pada Gambar \@ref(fig:mean1) disajikan 7 buah data konsentrasi TSS di suatu sungai. Nilai rata-rata TSS pada sungai tersebut adalah 11 mg/l. Jika kita amati sebagian besar data (6 observasi) berada pada interval nilai konsentrasi TSS 2 sampai 12 mg/l. Observasi yang lain terletak jauh dari mayoritas observasi lainnya yaitu sebesar 37 mg/l. Observasi yang berbeda secara ekstrim dari nilai secara umum pada suatu data disebut sebagai *outlier*. Nilai *outlier* tersebut menyebabkan nilai rata-rata yang terbentuk tidak representatif terhadap keseluruhan data yang ada dan cenderung menggeser nilai rata-rata mendekati nilai *outlier* tersebut. Nilai observasi yang ekstrim biasanya muncul dari adanya kesalahan perlakuan terhadap sampel seperti botol sampel yang digunakan tidak bersih atau prosedur analisa yang dilakukan tidak standar sehingga memungkinkan adanya partikulat udara yang terukur pada proses penimbangan.
 
@@ -10664,30 +11261,51 @@ mean(x, trim = 0, na.rm = FALSE)
 
 Untuk lebih memahami penerapannya pada `R`, pada Tabel \@ref(tab:debitsungai) berikut disajikan data terkait debit air suatu sungai.
 
+\begin{table}[t]
 
-Table: (\#tab:debitsungai)Data Debit Sampel (m3/detik)
-
- observasi   debit
-----------  ------
-         1     457
-         2     185
-         3     133
-         4     160
-         5     119
-         6     115
-         7     101
-         8      58
-         9      68
-        10      50
-        11      65
-        12     128
+\caption{(\#tab:debitsungai)Data Debit Sampel (m3/detik)}
+\centering
+\begin{tabular}{r|r}
+\hline
+observasi & debit\\
+\hline
+1 & 457\\
+\hline
+2 & 185\\
+\hline
+3 & 133\\
+\hline
+4 & 160\\
+\hline
+5 & 119\\
+\hline
+6 & 115\\
+\hline
+7 & 101\\
+\hline
+8 & 58\\
+\hline
+9 & 68\\
+\hline
+10 & 50\\
+\hline
+11 & 65\\
+\hline
+12 & 128\\
+\hline
+\end{tabular}
+\end{table}
 
 Data pada Tabel \@ref(tab:debitsungai) dapat divisualisasikan seperti pada Gambar \@ref(fig:debitvis):
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/debitvis-1.png" alt="Visualisasi debit sungai pada sampel" width="70%" />
-<p class="caption">(\#fig:debitvis)Visualisasi debit sungai pada sampel</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/debitvis-1} 
+
+}
+
+\caption{Visualisasi debit sungai pada sampel}(\#fig:debitvis)
+\end{figure}
 
 Berdasarkan Gambar \@ref(fig:debitvis), terdapat *outlier* yang ditunjukkan pada debit sungai yang lebih besar dari 400 m3/detik. Hasil tersebut dapat terjadi salah satunya karena adanya kondisi ekstrim seperti banjir yang menyebabkan sungai meluap atau terjadi kesalahan pengukuran dari alat ukur yang ada di lapangan.
 
@@ -10750,67 +11368,124 @@ data_gw<-data_gw %>%
 ```
 
 
+\begin{table}[t]
 
-Table: (\#tab:gwtdsur)Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan
-
-    TDS   Uranium  Bicarbonate 
--------  --------  ------------
-  682.6    0.9315  0           
-  819.1    1.9380  0           
-  303.8    0.2919  0           
- 1151.4   11.9042  0           
-  582.4    1.5674  0           
- 1043.4    2.0623  0           
-  634.8    3.8858  0           
- 1087.2    0.9772  0           
- 1123.5    1.9354  0           
-  688.1    0.4367  0           
- 1174.5   10.1142  0           
-  599.5    0.7551  0           
- 1240.8    6.8559  0           
-  538.4    0.4806  0           
-  607.8    1.1452  0           
-  705.9    6.0876  0           
- 1290.6   10.8823  0           
-  526.1    0.1473  0           
-  784.7    2.6741  0           
-  953.1    3.0918  0           
- 1149.3    0.7592  0           
- 1074.2    3.7101  0           
- 1116.6    7.2446  0           
-  301.2    5.7129  1           
-  265.4    4.7366  1           
-  295.9    2.8057  1           
-  442.4    5.6290  1           
-  342.7    3.0950  1           
-  361.3    3.5774  1           
-  262.1    1.7711  1           
-  546.2   11.2724  1           
-  273.9    4.9807  1           
-  281.4    4.0833  1           
-  588.9   14.6342  1           
-  574.1   12.3835  1           
-  307.1    1.5291  1           
-  409.4    4.4647  1           
-  327.1    2.4574  1           
-  425.7    6.3042  1           
-  310.1    4.5441  1           
-  289.8    0.9672  1           
-  408.2    2.1568  1           
-  383.0    8.3810  1           
-  255.2    2.7957  1           
+\caption{(\#tab:gwtdsur)Kosentrasi TDS dan Uranium dalam berbagai kondisi kesadahan}
+\centering
+\begin{tabular}{r|r|l}
+\hline
+TDS & Uranium & Bicarbonate\\
+\hline
+682.6 & 0.9315 & 0\\
+\hline
+819.1 & 1.9380 & 0\\
+\hline
+303.8 & 0.2919 & 0\\
+\hline
+1151.4 & 11.9042 & 0\\
+\hline
+582.4 & 1.5674 & 0\\
+\hline
+1043.4 & 2.0623 & 0\\
+\hline
+634.8 & 3.8858 & 0\\
+\hline
+1087.2 & 0.9772 & 0\\
+\hline
+1123.5 & 1.9354 & 0\\
+\hline
+688.1 & 0.4367 & 0\\
+\hline
+1174.5 & 10.1142 & 0\\
+\hline
+599.5 & 0.7551 & 0\\
+\hline
+1240.8 & 6.8559 & 0\\
+\hline
+538.4 & 0.4806 & 0\\
+\hline
+607.8 & 1.1452 & 0\\
+\hline
+705.9 & 6.0876 & 0\\
+\hline
+1290.6 & 10.8823 & 0\\
+\hline
+526.1 & 0.1473 & 0\\
+\hline
+784.7 & 2.6741 & 0\\
+\hline
+953.1 & 3.0918 & 0\\
+\hline
+1149.3 & 0.7592 & 0\\
+\hline
+1074.2 & 3.7101 & 0\\
+\hline
+1116.6 & 7.2446 & 0\\
+\hline
+301.2 & 5.7129 & 1\\
+\hline
+265.4 & 4.7366 & 1\\
+\hline
+295.9 & 2.8057 & 1\\
+\hline
+442.4 & 5.6290 & 1\\
+\hline
+342.7 & 3.0950 & 1\\
+\hline
+361.3 & 3.5774 & 1\\
+\hline
+262.1 & 1.7711 & 1\\
+\hline
+546.2 & 11.2724 & 1\\
+\hline
+273.9 & 4.9807 & 1\\
+\hline
+281.4 & 4.0833 & 1\\
+\hline
+588.9 & 14.6342 & 1\\
+\hline
+574.1 & 12.3835 & 1\\
+\hline
+307.1 & 1.5291 & 1\\
+\hline
+409.4 & 4.4647 & 1\\
+\hline
+327.1 & 2.4574 & 1\\
+\hline
+425.7 & 6.3042 & 1\\
+\hline
+310.1 & 4.5441 & 1\\
+\hline
+289.8 & 0.9672 & 1\\
+\hline
+408.2 & 2.1568 & 1\\
+\hline
+383.0 & 8.3810 & 1\\
+\hline
+255.2 & 2.7957 & 1\\
+\hline
+\end{tabular}
+\end{table}
 
 Visualisasi data Tabel \@ref(tab:gwtdsur), disajikan pada  Gambar \@ref(fig:gwvis1) dan Gambar \@ref(fig:gwvis2):
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gwvis1-1.png" alt="Visualisasi konsentrasi TDS pada air tanah" width="70%" />
-<p class="caption">(\#fig:gwvis1)Visualisasi konsentrasi TDS pada air tanah</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gwvis2-1.png" alt="Visualisasi konsentrasi Uranium pada air tanah" width="70%" />
-<p class="caption">(\#fig:gwvis2)Visualisasi konsentrasi Uranium pada air tanah</p>
-</div>
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gwvis1-1} 
+
+}
+
+\caption{Visualisasi konsentrasi TDS pada air tanah}(\#fig:gwvis1)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gwvis2-1} 
+
+}
+
+\caption{Visualisasi konsentrasi Uranium pada air tanah}(\#fig:gwvis2)
+\end{figure}
 
 Pada dataset tersebut kita ingin melihat apakah terdapat perbedaan antara konsentrasi TDS dan uranium pada kondisi kesadahan bikarbonat $\leq 50$% dan $> 50$%. Untuk melakukannya pada `R` kita perlu mengelompokkan data tersebut terlebih dahulu berdasarkan variabel bikarbonat. Setelah itu nilai rata-rata dapat dihitung. Berikut sintaks yang digunakan:
 
@@ -10951,10 +11626,14 @@ Berdasarkan hasil komputasi diperoleh nilai *geometric mean* debit sungai sebesa
 
 Kompromi antara median dan mean tersedia dengan memotong beberapa observasi terendah dan tertinggi, dan menghitung mean dari apa yang tersisa. Perkiraan pemusatan data seperti itu tidak dipengaruhi oleh observasi yang paling ekstrem (dan mungkin anomali), seperti mean. Namun mereka memungkinkan besarnya sebagian besar nilai untuk mempengaruhi estimasi, tidak seperti median. Estimator ini disebut "*trimmed mean*", dan persentase data yang diinginkan dapat dipangkas. Pemangkasan yang paling umum adalah menghapus 25 persen dari data di setiap ujung - rata-rata yang dihasilkan dari 50 persen pusat data biasanya disebut "*trimmed mean*", tetapi lebih tepatnya 25 persen *trimmed mean*. "*trimmed mean* 0%" adalah mean sampel itu sendiri, sementara memangkas semua kecuali 1 atau 2 nilai pusat menghasilkan median. Persentase pemangkasan harus secara eksplisit dinyatakan saat digunakan. *Trimmed mean* adalah estimator yang resistan, karena tidak sangat dipengaruhi oleh *outlier*, dan bekerja dengan baik untuk berbagai macam bentuk distribusi (normal, lognormal, dll). Ini dapat dianggap sebagai rata-rata tertimbang (*weighted mean*), di mana data di luar 'jendela' cutoff diberi bobot 0, dan mereka yang berada di dalam jendela bobot 1,0 (lihat Gambar \@ref(fig:tm)).
 
-<div class="figure" style="text-align: center">
-<img src="tm.png" alt="Jendela diagram trimmed mean." width="70%" />
-<p class="caption">(\#fig:tm)Jendela diagram trimmed mean.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{tm} 
+
+}
+
+\caption{Jendela diagram trimmed mean.}(\#fig:tm)
+\end{figure}
 
 Pada `R` *trimmed mean* dapat dihitung dengan spesifikasi argumen `trim` pada fungsi `mean()`. Pada data debit sungai (Tabel \@ref(tab:debitsungai)) dihitung *trimmed mean* dengan data yang dipangkas adalah 5% di kedua ujung observasi atau `trim=0.1`.
 
@@ -11248,15 +11927,23 @@ stat.desc(data_gw)
 
 Ketika data memiliki kemencengan, nilai mean tidak sama dengan median, tetapi bergeser ke arah ekor distribusi. Jadi untuk kemencengan positif, nilai mean melebihi lebih dari 50% dari data, seperti pada Gambar \@ref(fig:skew) dan Gambar \@ref(fig:skew2). Simpangan baku juga meningkat dengan data di bagian ekor. Data yang menceng juga mempertanyakan penerapan tes hipotesis yang didasarkan pada asumsi bahwa data memiliki distribusi normal. Tes-tes ini, yang disebut tes parametrik, mungkin bernilai dipertanyakan ketika diterapkan pada data seperti data sumber daya air, karena data seringkali tidak normal atau bahkan simetris. 
 
-<div class="figure" style="text-align: center">
-<img src="skewness.png" alt="a) Kemencengan negatif, b) Kemencengan positif." width="70%" />
-<p class="caption">(\#fig:skew)a) Kemencengan negatif, b) Kemencengan positif.</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="skewnessbox.png" alt="Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif." width="70%" />
-<p class="caption">(\#fig:skew2)Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.</p>
-</div>
+{\centering \includegraphics[width=0.7\linewidth]{skewness} 
+
+}
+
+\caption{a) Kemencengan negatif, b) Kemencengan positif.}(\#fig:skew)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{skewnessbox} 
+
+}
+
+\caption{Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.}(\#fig:skew2)
+\end{figure}
 
 ### Ukuran Kemencengan Klasik
 
@@ -11373,10 +12060,14 @@ Untuk membuat distribusi asimetris menjadi lebih simetris, data dapat diubah ata
 
 Transformasi data biasanya melibatkan fungsi power seperti pada fungsi $y=x^\theta$, dimana x merupakan data yang belum ditransformasi, y adalah data yang telah ditransformasi, dan $\theta$ merupakan power eksponensial. Pada Gambar \@ref(fig:power) nilai $\theta$ di-list kedalam "*ladder of powers*" (Velleman dan Hoaglin, 1981 dalam helsel dan Hirsch, 2002), sebuah struktur yang berguna untuk menentukan nilai $\theta$ yang tepat.
 
-<div class="figure" style="text-align: center">
-<img src="ladder.png" alt="Ladder of power" width="70%" />
-<p class="caption">(\#fig:power)Ladder of power</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{ladder} 
+
+}
+
+\caption{Ladder of power}(\#fig:power)
+\end{figure}
 
 Seperti yang dapat dilihat dari *ladder of powers*, setiap transformasi dengan $\theta$ kurang dari 1 dapat digunakan untuk membuat data dengan kemencengan positif lebih simetris. Dengan membuat box plot atau plot Q-Q dari data yang diubah kita dapat mengetahui apakah transformasi yang telah dilakukan sesuai. Jika transformasi logaritmik memberikan kompensasi yang berlebihan untuk kemiringan yang tepat dan menghasilkan distribusi yang sedikit kiri (kemencengan negatif), transformasi 'lebih ringan' dengan $\theta$ lebih dekat ke 1, seperti transformasi kuadrat atau akar kubik, harus digunakan. Transformasi dengan $\theta$> 1 akan membantu membuat data yang condong ke kiri lebih simetris.
 
@@ -11384,10 +12075,14 @@ Namun, kecenderungan untuk mencari transformasi 'terbaik' harus dihindari. Misal
 
 Pada Gambar \@ref(fig:gwvis2) kosentrasi distribusi `Uranium` pada tiap grup memiliki kemencengan positif. Untuk membuatnya simetris kita perlu melakukan transformasi yang sesuai jenis transformasi yang dilakukan dapat dimulai dari akar kuadrat sampai invers akar kuadrat (berdasarkan Gambar \@ref(fig:power)). Pada contoh ini kita akan mencoba melakukan trasnformasi logaritmik. Berikut adalah contoh visualisasi hasil transformasinya (lihat Gambar \@ref(fig:urantrans):
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/urantrans-1.png" alt="Visualisasi konsentrasi Uranium  hasil tansformasi pada air tanah" width="70%" />
-<p class="caption">(\#fig:urantrans)Visualisasi konsentrasi Uranium  hasil tansformasi pada air tanah</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/urantrans-1} 
+
+}
+
+\caption{Visualisasi konsentrasi Uranium  hasil tansformasi pada air tanah}(\#fig:urantrans)
+\end{figure}
 
 Berdasarkan hasil transformasi, kita telah memperoleh ditribusi yang cukup simetris untuk kedua grup data tersebut. Pembaca dapat mencobanya menggunakan transformasi lainnya sendiri.
 
@@ -11411,10 +12106,14 @@ Penulis dan pembaca pasti sepakat bahwa visualisasi data merupakan tahapan awal 
 
 Pada Gambar \@ref(fig:visscat) disajikan delapan buah scatterplot dengan koefisien korelasi yang sama persis. Komputasi statistik tanpa melihat pada visualisasi data akan menyebabkan misinterpretasi pada data. Grafik memberikan ringkasan visual data dengan cepat dan lengkap dibandingkan penyajian data dalam tabel angka.
 
-<div class="figure" style="text-align: center">
-<img src="visscat.png" alt="Scatterplot dengan koefisien korelasi r=0,7." width="90%" />
-<p class="caption">(\#fig:visscat)Scatterplot dengan koefisien korelasi r=0,7.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{visscat} 
+
+}
+
+\caption{Scatterplot dengan koefisien korelasi r=0,7.}(\#fig:visscat)
+\end{figure}
 
 Grafik sangat penting untuk dua tujuan:
 
@@ -11446,24 +12145,36 @@ library(ggthemes)
 sungai <- read_excel("hhappc.xls", sheet="appc1")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/histeda-1.png" alt="Histogram dengan bin.width=default debit sungai Saddle" width="70%" />
-<p class="caption">(\#fig:histeda)Histogram dengan bin.width=default debit sungai Saddle</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/histeda2-1.png" alt="Histogram dengan bin.width=500 debit sungai Saddle" width="70%" />
-<p class="caption">(\#fig:histeda2)Histogram dengan bin.width=500 debit sungai Saddle</p>
-</div>
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/histeda-1} 
+
+}
+
+\caption{Histogram dengan bin.width=default debit sungai Saddle}(\#fig:histeda)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/histeda2-1} 
+
+}
+
+\caption{Histogram dengan bin.width=500 debit sungai Saddle}(\#fig:histeda2)
+\end{figure}
 
 ### Density Plot
 
 Density plot memecahkan masalah yang dimiliki histogram dalam melihat grafik dengan menyajikan data bukan dari jumlah kejadian atau observasi, namun data disajikan berdasarkan frekuensi relatif data (density) yang digambarkan dalam bentuk *smooth curve*. Contoh density plot dapat dilijat pada Gambar \@ref(fig:denseda). Dari grafik yang dihasilkan sekaran tampak jelas bahwa distibusi data memiliki kemencengan positif dengan frekuensi relatif debit terbanyak berada pada debit 1000 cfs.
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/denseda-1.png" alt="Density plot debit sungai Saddle" width="70%" />
-<p class="caption">(\#fig:denseda)Density plot debit sungai Saddle</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/denseda-1} 
+
+}
+
+\caption{Density plot debit sungai Saddle}(\#fig:denseda)
+\end{figure}
 
 ### QQ-plot
 
@@ -11479,10 +12190,14 @@ ggplot(sungai, aes(sample=Flow))+
   theme_economist()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/qqeda-1.png" alt="QQ plot debit sungai Saddle" width="70%" />
-<p class="caption">(\#fig:qqeda)QQ plot debit sungai Saddle</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/qqeda-1} 
+
+}
+
+\caption{QQ plot debit sungai Saddle}(\#fig:qqeda)
+\end{figure}
 
 Bentuk lain yang dapat digunakan untuk menguji kecocokan suatu distribusi dengan distribusi normal adalah grafik ECDF. Berbeda dengan QQ-plot, grafik ini dapat digunakan untuk melakukan pengecekan distribusi secara umum.
 
@@ -11500,10 +12215,14 @@ ggplot(sungai, aes(x="", y=Flow))+
   theme_economist()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/bpeda-1.png" alt="Box plot dan violin plot debit sungai Saddle" width="70%" />
-<p class="caption">(\#fig:bpeda)Box plot dan violin plot debit sungai Saddle</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/bpeda-1} 
+
+}
+
+\caption{Box plot dan violin plot debit sungai Saddle}(\#fig:bpeda)
+\end{figure}
 
 Berdasarkan grafik yang dihasilkan pada Gambar \@ref(fig:bpeda) kita dapat melihat bahwa ditribusi data debit sungai memiliki kemencengan positif. Hal ini terjadi karena terdapat satu *outlier* pada data yang disebabkan karena nilai observasinya diluar dari nilai maksimum data yang ditetapkan sebagai $max=Q3 + 1,5*IQR$.
 
@@ -11589,10 +12308,14 @@ ggplot(atrazine, aes(month, concentration, fill=month))+
   scale_fill_economist()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/bpgeda-1.png" alt="Box plot konsentrasi Atrazine pada bulan Juni dan September" width="70%" />
-<p class="caption">(\#fig:bpgeda)Box plot konsentrasi Atrazine pada bulan Juni dan September</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/bpgeda-1} 
+
+}
+
+\caption{Box plot konsentrasi Atrazine pada bulan Juni dan September}(\#fig:bpgeda)
+\end{figure}
 
 
 ```r
@@ -11606,10 +12329,14 @@ atrazine %>%
     scale_fill_economist()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/bargeda-1.png" alt="Bar plot konsentrasi Atrazine pada bulan Juni dan September" width="70%" />
-<p class="caption">(\#fig:bargeda)Bar plot konsentrasi Atrazine pada bulan Juni dan September</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/bargeda-1} 
+
+}
+
+\caption{Bar plot konsentrasi Atrazine pada bulan Juni dan September}(\#fig:bargeda)
+\end{figure}
 
 Pada visualisasi yang dihasilkan terdapat perbedaan signifikan antara distribusi dan nilai rata-rata konsentrasi Atrazine pada dua periode tersebut. Hal ini disebabkan karena terdapat sebuah outlier pada periode Sepetember yang menyebabkan nilai rata-rata yang dihasilkan bergeser jauh kearah outlier. Pembaca dapat membuat visualisasi data pada data tersebut tanpa *outlier* dengan terlebih dahulu melakukan filter terhadap *outlier*.
 
@@ -11633,10 +12360,14 @@ ggplot(gw, aes(TDS, Uranium))+
   theme_economist()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/scateda-1.png" alt="Scatterplot hubungan antara konsentrasi TDS dan Uranium pada airtanah" width="70%" />
-<p class="caption">(\#fig:scateda)Scatterplot hubungan antara konsentrasi TDS dan Uranium pada airtanah</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/scateda-1} 
+
+}
+
+\caption{Scatterplot hubungan antara konsentrasi TDS dan Uranium pada airtanah}(\#fig:scateda)
+\end{figure}
 
 Berdasarkan grafik yang dihasilkan terdapat hubungan linier antara konsentrasi TDS dan Uranium pada airtanah. Meningkatnya konsentrasi TDS pada air tanah juga menyebabkan peningkatan konsentrasi Uranium pada airtanah.
 
@@ -11680,10 +12411,14 @@ corbicula %>%
     scale_fill_economist()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/barteneda-1.png" alt="Bar plot Jumlah rata-rata corbicula pada sungai Tennessee" width="70%" />
-<p class="caption">(\#fig:barteneda)Bar plot Jumlah rata-rata corbicula pada sungai Tennessee</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/barteneda-1} 
+
+}
+
+\caption{Bar plot Jumlah rata-rata corbicula pada sungai Tennessee}(\#fig:barteneda)
+\end{figure}
 
 Berdasarkan grafik yang dihasilkan terdapat pengaruh musim dan strata terhadap jumlah corbicula di sungai Tennessee. Jumlah tertinggi berada saat musim semi pada strata 3, sedangkan terendah berada pada musim dingin juga pada strata 3.
 
@@ -11702,10 +12437,14 @@ corbicula %>%
     theme_economist()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/lineeda-1.png" alt="Line plot perubahan jumlah rata-rata corbicula di sungai Tennessee" width="70%" />
-<p class="caption">(\#fig:lineeda)Line plot perubahan jumlah rata-rata corbicula di sungai Tennessee</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/lineeda-1} 
+
+}
+
+\caption{Line plot perubahan jumlah rata-rata corbicula di sungai Tennessee}(\#fig:lineeda)
+\end{figure}
 
 Berdasarkan garfik yang dihasilkan dapat disimpulkan bahwa jumlah rata-rata corbicula menurun setiap tahunnya.
 
@@ -11851,10 +12590,14 @@ $$
 
 Peristiwa pada contoh soal tersebut dapat digambarkan menggunakan diagram venn yang ditunjukkan pada Gambar \@ref(fig:pmevis)).
 
-<div class="figure" style="text-align: center">
-<img src="pmevis.png" alt="Diagram venn peristiwa mutually exclusive" width="80%" />
-<p class="caption">(\#fig:pmevis)Diagram venn peristiwa mutually exclusive</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{pmevis} 
+
+}
+
+\caption{Diagram venn peristiwa mutually exclusive}(\#fig:pmevis)
+\end{figure}
 
 Jika pembaca ingin menggunakan `R` untuk menghitung probabilitas peristiwa *mutually exclusive*, pembaca dapat menggunakan fungsi `Prob()` pada library `prob` untuk menghitung secara langsung probabilitas dari *subset* data. Berikut adalah contoh sintak untuk menghitung probabilitas munculnya angka 1 atau 6 dari pelemparan sebuah dadu:
 
@@ -11932,10 +12675,14 @@ $$
 
 Peristiwa *not mutually exclusiev* dapat digambarkan menggunakan diagram venn yang ditunjukkan pada Gambar \@ref(fig:pnmevis)).
 
-<div class="figure" style="text-align: center">
-<img src="pnmevis.png" alt="Diagram venn peristiwa not mutually exclusive" width="80%" />
-<p class="caption">(\#fig:pnmevis)Diagram venn peristiwa not mutually exclusive</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{pnmevis} 
+
+}
+
+\caption{Diagram venn peristiwa not mutually exclusive}(\#fig:pnmevis)
+\end{figure}
 
 Pada `R` peristiwa tersebut dapat dihitung menggunakan sintaks berikut:
 
@@ -12969,10 +13716,14 @@ runif(n, min = 0, max = 1)
 
 Visualisasi disajikan pada Gambar \@ref(fig:uniformvis).
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/uniformvis-1.png" alt="Distribusi uniform dengan nilai min 1 dan max 3" width="70%" />
-<p class="caption">(\#fig:uniformvis)Distribusi uniform dengan nilai min 1 dan max 3</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/uniformvis-1} 
+
+}
+
+\caption{Distribusi uniform dengan nilai min 1 dan max 3}(\#fig:uniformvis)
+\end{figure}
 
 Berdasarkan Gambar \@ref(fig:uniformvis), probabilitas distribusinya adalah sebagai berikut:
 
@@ -12992,10 +13743,14 @@ $$
 
 Jika contoh tersebut divisualisasikan, maka akan tampak seperti pada Gambar \@ref(fig:uniformvis2).
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/uniformvis2-1.png" alt="Probabilitas distribusi uniform pada rentang nilai x 3 sampai 4" width="70%" />
-<p class="caption">(\#fig:uniformvis2)Probabilitas distribusi uniform pada rentang nilai x 3 sampai 4</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/uniformvis2-1} 
+
+}
+
+\caption{Probabilitas distribusi uniform pada rentang nilai x 3 sampai 4}(\#fig:uniformvis2)
+\end{figure}
 
 Pada `R` terdapat 2 buah fungsi untuk menghitung probabilitas distribusi unifofm. Fungsi pertama adalah `dunif()` dan yang kedua adalah `punif()`. Fungsi pertama akan menghasilkan probabilitas (*likelihood*) dari suatu nilai yang kita inginkan, sedangkan fungsi kedua adalah fungsi probabilitas kumulatif yang akan menghasilkan nilai berdasarkan rentang yang dimasukkan (rentang satu arah bisa $\le$ atau $\ge$).
 
@@ -13054,28 +13809,40 @@ Berdasarkan persamaan di atas terdapat dua parameter penting dalam distribusi no
 
 Pada Gambar \@ref(fig:normvis) disajikan visualisasi dua buah distribusi normal dengan nilai $\mu$ sama dan $\sigma$ berbeda.
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/normvis-1.png" alt="Distribusi normal dengan nilai mean sama dan simpangan baku berbeda." width="70%" />
-<p class="caption">(\#fig:normvis)Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/normvis-1} 
+
+}
+
+\caption{Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.}(\#fig:normvis)
+\end{figure}
 
 - **Distribusi normal dengan $\mu$ sama dan $\sigma$ yang berbeda.**
 
 Pada Gambar \@ref(fig:normvis2) disajikan visualisasi dua buah distribusi normal dengan nilai $\mu$ berbeda dan $\sigma$ sama. Perbedaan $\sigma$ menyebabkan bentuk distribusi yang lebih datar. $\sigma$ kecil membuat bentuk distribusi yang lebih lancip (sebaran data kecil), sedangkan $\sigma$ akan berlaku sebaliknya.
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/normvis2-1.png" alt="Distribusi normal dengan nilai mean sama dan simpangan baku berbeda." width="70%" />
-<p class="caption">(\#fig:normvis2)Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/normvis2-1} 
+
+}
+
+\caption{Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.}(\#fig:normvis2)
+\end{figure}
 
 - **Distribusi normal dengan $\mu$ berbeda dan $\sigma$ yang berbeda.**
 
 Pada Gambar \@ref(fig:normvis3) disajikan visualisasi dua buah distribusi normal dengan nilai $\mu$ berbeda dan $\sigma$ yang berbeda pula. Perbedaan tersebut menyebabkan perbedaan letak distribsui normal serta bentuk distribusinya.
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/normvis3-1.png" alt="Distribusi normal dengan nilai mean berbeda dan simpangan baku berbeda." width="70%" />
-<p class="caption">(\#fig:normvis3)Distribusi normal dengan nilai mean berbeda dan simpangan baku berbeda.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/normvis3-1} 
+
+}
+
+\caption{Distribusi normal dengan nilai mean berbeda dan simpangan baku berbeda.}(\#fig:normvis3)
+\end{figure}
 
 Berdasarkan visualisasi di atas, sifat-sifat dasar distribusi normal adalah sebagai berikut:
 
@@ -13101,10 +13868,14 @@ $$
 P\left(x_1<X<x_2\right)=\int_{x_1}^{x_2}n\left(x;\mu,\sigma\right)dx=\frac{1}{\sqrt{2\pi\sigma}}\int_{x_1}^{x_2}e^{-\frac{1}{2\sigma^2}\left(x-\mu\right)^2}dx
 $$
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/normvis4-1.png" alt="Luas area di bawah kurva normal." width="70%" />
-<p class="caption">(\#fig:normvis4)Luas area di bawah kurva normal.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/normvis4-1} 
+
+}
+
+\caption{Luas area di bawah kurva normal.}(\#fig:normvis4)
+\end{figure}
 
 
 Menghitung luas area di bawah kurva normal bukanlah pekerjaan yang mudah dilakukan sehingga terkadang kita memerlukan alat bantu untuk melakukan proses perhitungan. Alat bantu yang umum digunakan adalah Tabel distribusi normal standard (distribusi normal dengan $\mu$ 0 dan $\sigma^2$ 1) yang dapat pembaca unduh pada tautan [berikut](https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf). Untuk dapat menggunakan Tabel tersebut kita perlu mengubah nilai $x_1$ dan $x_2$ pada Gambar \@ref(fig:normvis4) menjadi $Z$. Untuk melakukannya kita dapat menggunakan Persamaan \@ref(eq:dnorm2).
@@ -13131,10 +13902,14 @@ c. Lampu dengan masa layan lebih dari atau sama dengan 830 jam
 
 Distribusi dan luasan yang dicari dapat digambarkan berdasarkan Gambar \@ref(fig:normvis5) berikut:
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/normvis5-1.png" alt="Luas area masa layan lampu antara 750 sampai 830 jam." width="70%" />
-<p class="caption">(\#fig:normvis5)Luas area masa layan lampu antara 750 sampai 830 jam.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/normvis5-1} 
+
+}
+
+\caption{Luas area masa layan lampu antara 750 sampai 830 jam.}(\#fig:normvis5)
+\end{figure}
 
 Nilai rentang perlu dikonversi kedalam nilai distribusi normal standard menggunakan Persamaan \@ref(eq:dnorm2). Berikut adalah proses perhitungannya:
 
@@ -13160,10 +13935,14 @@ $$
 
 Distribusi dan luasan yang dicari dapat digambarkan berdasarkan Gambar \@ref(fig:normvis6) berikut:
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/normvis6-1.png" alt="Luas area masa layan lampu lebih dari atau sama dengan 830 jam." width="70%" />
-<p class="caption">(\#fig:normvis6)Luas area masa layan lampu lebih dari atau sama dengan 830 jam.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/normvis6-1} 
+
+}
+
+\caption{Luas area masa layan lampu lebih dari atau sama dengan 830 jam.}(\#fig:normvis6)
+\end{figure}
 
 Probabilitas berdasarkan luas area tersebut dapat dihitung seperti berikut:
 
@@ -13234,12 +14013,12 @@ glimpse(airquality)
 ```
 ## Observations: 153
 ## Variables: 6
-## $ Ozone   <int> 41, 36, 12, 18, NA, 28, 23, 19, 8, N…
-## $ Solar.R <int> 190, 118, 149, 313, NA, NA, 299, 99,…
-## $ Wind    <dbl> 7.4, 8.0, 12.6, 11.5, 14.3, 14.9, 8.…
-## $ Temp    <int> 67, 72, 74, 62, 56, 66, 65, 59, 61, …
-## $ Month   <int> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ Day     <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 1…
+## $ Ozone   <int> 41, 36, 12, 18, NA, 28, 23, 19, 8,...
+## $ Solar.R <int> 190, 118, 149, 313, NA, NA, 299, 9...
+## $ Wind    <dbl> 7.4, 8.0, 12.6, 11.5, 14.3, 14.9, ...
+## $ Temp    <int> 67, 72, 74, 62, 56, 66, 65, 59, 61...
+## $ Month   <int> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5...
+## $ Day     <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,...
 ```
 
 Kita akan mengecek distribusi dari konsentrasi ozon apakah berdistribusi normal atau tidak, kita dapat memvisualisasikannya menggunakan grafik dalam contoh ini adalah grafik QQ-plot dan ECDF. Berikut adalah visualisasi yang dihasilkan
@@ -13302,10 +14081,14 @@ ggarrange(dens,bxp,ecdf,qq,
           labels=c("a)","b)","c)","d)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/normvis7-1.png" alt="Visualisasi distribusi konsentrasi ozon Kota New York a)density plot, b)boxplot, c)ecdf, d)qq-plot" width="90%" />
-<p class="caption">(\#fig:normvis7)Visualisasi distribusi konsentrasi ozon Kota New York a)density plot, b)boxplot, c)ecdf, d)qq-plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/normvis7-1} 
+
+}
+
+\caption{Visualisasi distribusi konsentrasi ozon Kota New York a)density plot, b)boxplot, c)ecdf, d)qq-plot}(\#fig:normvis7)
+\end{figure}
 
 Berdasarkan kedua grafik tersebut terlihat bahwa titik observasi tidak mengikuti garis referensi distribusi normal sehingga dapat disimpulkan bahwa distribusi konsentrasi ozon tidak berdistribusi normal.
 
@@ -13375,10 +14158,14 @@ $$
 P\left(X<30\right)\approx P\left(Z<-2,14\right)=0,0162.
 $$
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/normvis8-1.png" alt="Luas area jumlah pompa rusak kurang dari 30." width="70%" />
-<p class="caption">(\#fig:normvis8)Luas area jumlah pompa rusak kurang dari 30.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/normvis8-1} 
+
+}
+
+\caption{Luas area jumlah pompa rusak kurang dari 30.}(\#fig:normvis8)
+\end{figure}
 
 Pada `R` probabilitas dari peristiwa tersebut dapat dihitung seperti berikut:
 
@@ -13441,10 +14228,14 @@ ecdf <- ggplot(data, aes(x=value, y=cum_dens, color=alpha))+
 ggarrange(dens, ecdf, nrow=1, ncol=2, labels=c("a)","b)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gammavis-1.png" alt="Visualisasi distribusi gamma dengan variasi alpha dengan beta 1 a) density plot, b)ecdf" width="90%" />
-<p class="caption">(\#fig:gammavis)Visualisasi distribusi gamma dengan variasi alpha dengan beta 1 a) density plot, b)ecdf</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/gammavis-1} 
+
+}
+
+\caption{Visualisasi distribusi gamma dengan variasi alpha dengan beta 1 a) density plot, b)ecdf}(\#fig:gammavis)
+\end{figure}
 
 Distribusi eksponensial merupakan kasus khusus dari distribusi gamma dengan nilai $\alpha=1$. Distribusi probabilitas eksponensial dituliskan kedalam Persamaan \@ref(eq:deksponen).
 
@@ -13621,10 +14412,14 @@ ecdf <- ggplot(data, aes(x=value, y=cum_dens, color=df))+
 ggarrange(dens, ecdf, nrow=1, ncol=2, labels=c("a)","b)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/csqvis-1.png" alt="Visualisasi distribusi chi-square dengan variasi derajat kebebasan a) density plot, b)ecdf" width="90%" />
-<p class="caption">(\#fig:csqvis)Visualisasi distribusi chi-square dengan variasi derajat kebebasan a) density plot, b)ecdf</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/csqvis-1} 
+
+}
+
+\caption{Visualisasi distribusi chi-square dengan variasi derajat kebebasan a) density plot, b)ecdf}(\#fig:csqvis)
+\end{figure}
 
 Pada `R` terdapat dua buah fungsi yang digunakan untuk menghitung probabilitas distribusi chi-square yaitu `dchisq()` dan `pchisq()` (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:
 
@@ -13679,10 +14474,14 @@ ecdf <- ggplot(data, aes(x=value, y=cum_dens, color=df))+
 ggarrange(dens, ecdf, nrow=1, ncol=2, labels=c("a)","b)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dtvis-1.png" alt="Visualisasi distribusi t dengan variasi derajat kebebasan a) density plot, b)ecdf" width="90%" />
-<p class="caption">(\#fig:dtvis)Visualisasi distribusi t dengan variasi derajat kebebasan a) density plot, b)ecdf</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/dtvis-1} 
+
+}
+
+\caption{Visualisasi distribusi t dengan variasi derajat kebebasan a) density plot, b)ecdf}(\#fig:dtvis)
+\end{figure}
 
 Jika kita perhatikan dengan seksama terlihat bahwa peningkatan derajat kebebasan akan membuat distribusi yag dihasilkan semakin mendekati kurva normal.
 
@@ -13747,10 +14546,14 @@ ecdf <- ggplot(data, aes(x=value, y=cum_dens, color=df1, linetype=df2))+
 ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c("a)","b)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dFvis-1.png" alt="Visualisasi distribusi F dengan variasi derajat kebebasan a) density plot, b)ecdf" width="90%" />
-<p class="caption">(\#fig:dFvis)Visualisasi distribusi F dengan variasi derajat kebebasan a) density plot, b)ecdf</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/dFvis-1} 
+
+}
+
+\caption{Visualisasi distribusi F dengan variasi derajat kebebasan a) density plot, b)ecdf}(\#fig:dFvis)
+\end{figure}
 
 Pada `R` terdapat dua fungsi yang berguna untuk menghitung probabilitas distribusi F yaitu `df()` dan `pf()` (probabilitas kumulatif). Format fungsi yang digunakan adalah sebagai berikut:
 
@@ -13829,10 +14632,14 @@ ecdf <- ggplot(data, aes(x=value, y=cum_dens, color=alpha, linetype=beta))+
 ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c("a)","b)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dbeta-1.png" alt="Visualisasi distribusi beta dengan variasi derajat kebebasan a) density plot, b)ecdf" width="90%" />
-<p class="caption">(\#fig:dbeta)Visualisasi distribusi beta dengan variasi derajat kebebasan a) density plot, b)ecdf</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/dbeta-1} 
+
+}
+
+\caption{Visualisasi distribusi beta dengan variasi derajat kebebasan a) density plot, b)ecdf}(\#fig:dbeta)
+\end{figure}
 
 Pada `R` terdapat dua fungsi yang berguna untuk menghitung probabilitas distribusi beta yaitu `dbeta()` dan `pbeta()` (probabilitas kumulatif). Format fungsi yang digunakan adalah sebagai berikut:
 
@@ -13903,10 +14710,14 @@ ecdf <- ggplot(data, aes(x=value, y=cum_dens, color=mean, linetype=sd))+
 ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c("a)","b)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dlognnormalvis-1.png" alt="Visualisasi distribusi beta dengan variasi mean dan sd a) density plot, b)ecdf" width="90%" />
-<p class="caption">(\#fig:dlognnormalvis)Visualisasi distribusi beta dengan variasi mean dan sd a) density plot, b)ecdf</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/dlognnormalvis-1} 
+
+}
+
+\caption{Visualisasi distribusi beta dengan variasi mean dan sd a) density plot, b)ecdf}(\#fig:dlognnormalvis)
+\end{figure}
 
 Pada `R`, fungsi utama yang digunakan untuk menghitung probabilitas distribusi lognormal adalah `dlnorm()` dan `plnorm()` (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:
 
@@ -13965,10 +14776,14 @@ ecdf <- ggplot(data, aes(x=value, y=cum_dens, color=m, linetype=beta))+
 ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c("a)","b)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dcauchyvis-1.png" alt="Visualisasi distribusi t dengan variasi m dan beta a) density plot, b)ecdf" width="90%" />
-<p class="caption">(\#fig:dcauchyvis)Visualisasi distribusi t dengan variasi m dan beta a) density plot, b)ecdf</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/dcauchyvis-1} 
+
+}
+
+\caption{Visualisasi distribusi t dengan variasi m dan beta a) density plot, b)ecdf}(\#fig:dcauchyvis)
+\end{figure}
 
 Pada `R`, fungsi utama yang digunakan untuk menghitung probabilitas distribusi Cauchy adalah `dcauchy()` dan `pcauchy()` (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:
 
@@ -14027,10 +14842,14 @@ ecdf <- ggplot(data, aes(x=value, y=cum_dens, color=mean, linetype=sd))+
 ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c("a)","b)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/dlogistikvis-1.png" alt="Visualisasi distribusi logistik dengan variasi mean dan simpangan baku, a) density plot, b)ecdf" width="90%" />
-<p class="caption">(\#fig:dlogistikvis)Visualisasi distribusi logistik dengan variasi mean dan simpangan baku, a) density plot, b)ecdf</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/dlogistikvis-1} 
+
+}
+
+\caption{Visualisasi distribusi logistik dengan variasi mean dan simpangan baku, a) density plot, b)ecdf}(\#fig:dlogistikvis)
+\end{figure}
 
 Pada `R`, fungsi utama yang digunakan untuk menghitung probabilitas distribusi Logistik adalah `dlogis()` dan `plogis()` (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:
 
@@ -14088,10 +14907,14 @@ ecdf <- ggplot(data, aes(x=value, y=cum_dens, color=alpha))+
 ggarrange(dens, ecdf, nrow=1, ncol=2, labels=c("a)","b)"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/weibullvis-1.png" alt="Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a) density plot, b)ecdf" width="90%" />
-<p class="caption">(\#fig:weibullvis)Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a) density plot, b)ecdf</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{EnvStat_files/figure-latex/weibullvis-1} 
+
+}
+
+\caption{Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a) density plot, b)ecdf}(\#fig:weibullvis)
+\end{figure}
 
 Pada `R` probabilitas distribusi Weibull dapat dihitung menggunakan fungsi `dweibull()` dan `pweibull()` (probabilitas kumulatif). Format fungsi tersebut adalah sebagi berikut:
 
@@ -14183,10 +15006,14 @@ Kesepuluh interval pada contoh di atas disebut dengan dengan **interval kepercay
 
 Lebar interval kepercayaan adalah fungsi dari bentuk distribusi data (variabilitas dan kemencengannya), ukuran sampel, dan tingkat kepercayaan yang diinginkan. Ketika tingkat kepercayaan meningkat, lebar interval juga meningkat, karena interval yang lebih besar lebih mungkin mengandung nilai sebenarnya daripada interval yang lebih pendek. Dengan demikian interval kepercayaan 95% akan lebih luas daripada interval 90% untuk data yang sama.
 
-<div class="figure" style="text-align: center">
-<img src="iievis.png" alt="Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)" width="65%" />
-<p class="caption">(\#fig:iievis)Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{iievis} 
+
+}
+
+\caption{Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)}(\#fig:iievis)
+\end{figure}
 
 Interval kepercayaan simetris pada rata-rata biasanya dihitung dengan asumsi data mengikuti distribusi normal. Jika tidak, distribusi rerata itu sendiri akan mendekati normal sepanjang ukuran sampel besar (katakanlah 50 pengamatan atau lebih besar). Interval kepercayaan dengan asumsi normalitas kemudian akan memasukkan mean sebenarnya ($1-\alpha$)% dari waktu. Dalam contoh di atas, data dihasilkan dari distribusi normal, sehingga ukuran sampel kecil 12 tidak menjadi masalah. Namun ketika data memiliki kemencengan dan ukuran sampel di bawah 50 atau lebih, interval kepercayaan simetris tidak akan mengandung rata-rata ($1-\alpha$)% sepanjang waktu. Dalam contoh di bawah ini, interval kepercayaan simetris secara salah dihitung untuk data yang miring (Gambar \@ref(fig:iiedata)). Hasil (Gambar \@ref(fig:iievis2) dan Tabel \@ref(tab:iie2)) menunjukkan bahwa interval kepercayaan kehilangan nilai sebenarnya dari 1 lebih sering daripada yang seharusnya. Semakin besar skewness, semakin besar ukuran sampel harus sebelum interval kepercayaan simetris dapat diandalkan. Sebagai alternatif, interval kepercayaan asimetris dapat dihitung untuk situasi umum data yang memiliki kemencengan. 
 
@@ -14206,16 +15033,24 @@ Interval kepercayaan simetris pada rata-rata biasanya dihitung dengan asumsi dat
 
 : (\#tab:iie2) Sepuluh  interval kepercayaan 90% sekitar nilai mean sebenarnya sebesar 1 (Data tidak berdistribusi normal dan Tanda plus menyatakan data tidak disertakan dalam nilai mean sebenarnya)
 
-<div class="figure" style="text-align: center">
-<img src="iiedata.png" alt="Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)" width="70%" />
-<p class="caption">(\#fig:iiedata)Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{iiedata} 
+
+}
+
+\caption{Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)}(\#fig:iiedata)
+\end{figure}
 
 
-<div class="figure" style="text-align: center">
-<img src="iievis2.png" alt="Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya  (Helsel dan Hirsch, 2002)" width="65%" />
-<p class="caption">(\#fig:iievis2)Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya  (Helsel dan Hirsch, 2002)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{iievis2} 
+
+}
+
+\caption{Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya  (Helsel dan Hirsch, 2002)}(\#fig:iievis2)
+\end{figure}
 
 ## Interval Kepercayaan Median
 
@@ -14225,10 +15060,14 @@ Interval kepercayaan median populasi dapat dihitung tanpa perlu mengikuti asumsi
 
 Interval estimasi nonparametrik untuk median populasi sebenarnya dihitung menggunakan distribusi binomial. Pertama, tingkat signifikansi yang diinginkan $\alpha$ dinyatakan, error yang dapat diterima tidak termasuk median yang sebenarnya. Satu-setengah ($\alpha/2$) dari error ini digunakan untuk setiap akhir interval (Gambar \@ref(fig:iemednp)). Tabel distribusi binomial memberikan nilai kritis bawah dan atas $x'$ dan $x$ pada setengah tingkat alfa yang diinginkan ($\alpha/2$). Nilai-nilai kritis ini ditransformasikan ke dalam rangking $R_l$ dan $R_u$ yang sesuai dengan titik data $C_l$ dan $C_u$ di ujung interval kepercayaan.
 
-<div class="figure" style="text-align: center">
-<img src="iemednp.png" alt="Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)" width="65%" />
-<p class="caption">(\#fig:iemednp)Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{iemednp} 
+
+}
+
+\caption{Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)}(\#fig:iemednp)
+\end{figure}
 
 Untuk ukuran sampel kecil, tabel binomial dimasukkan pada kolom p = 0,5 (median) untuk menghitung interval kepercayaan pada median.  Nilai kritis $x'$ diperoleh dari tabel distribusi binomial yang sesuai dengan $\alpha/2$, atau sedekat mungkin dengan $\alpha/2$. Nilai kritis ini kemudian digunakan untuk menghitung peringkat $R_u$ dan $R_l$ yang sesuai dengan nilai data pada batas kepercayaan atas dan bawah untuk median. Batas-batas ini adalah titik data peringkat $R_l$th yang masuk dari setiap ujung daftar n  observasi. Interval kepercayaan yang dihasilkan akan mencerminkan bentuk (menceng atau simetris) dari data asli.
 
@@ -14246,50 +15085,88 @@ Interval nonparametrik tidak selalu dapat secara tepat menghasilkan tingkat kepe
 
 Untuk lebih memahaminya diberikan data 25 pengukuran konsentrasi arsenin di air tanah dalam ppb yang disajikan pada Tabel \@ref(tab:gwardat).
 
+\begin{table}[t]
 
-Table: (\#tab:gwardat)Konsentrasi Arsenik dalam air tanah (ppb)
-
- observasi   konsentrasi
-----------  ------------
-         1           1.3
-         2           1.5
-         3           1.8
-         4           2.6
-         5           2.8
-         6           3.5
-         7           4.0
-         8           4.8
-         9           8.0
-        10           9.5
-        11          12.0
-        12          14.0
-        13          19.0
-        14          23.0
-        15          41.0
-        16          80.0
-        17         100.0
-        18         110.0
-        19         120.0
-        20         190.0
-        21         240.0
-        22         250.0
-        23         300.0
-        24         340.0
-        25         580.0
+\caption{(\#tab:gwardat)Konsentrasi Arsenik dalam air tanah (ppb)}
+\centering
+\begin{tabular}{r|r}
+\hline
+observasi & konsentrasi\\
+\hline
+1 & 1.3\\
+\hline
+2 & 1.5\\
+\hline
+3 & 1.8\\
+\hline
+4 & 2.6\\
+\hline
+5 & 2.8\\
+\hline
+6 & 3.5\\
+\hline
+7 & 4.0\\
+\hline
+8 & 4.8\\
+\hline
+9 & 8.0\\
+\hline
+10 & 9.5\\
+\hline
+11 & 12.0\\
+\hline
+12 & 14.0\\
+\hline
+13 & 19.0\\
+\hline
+14 & 23.0\\
+\hline
+15 & 41.0\\
+\hline
+16 & 80.0\\
+\hline
+17 & 100.0\\
+\hline
+18 & 110.0\\
+\hline
+19 & 120.0\\
+\hline
+20 & 190.0\\
+\hline
+21 & 240.0\\
+\hline
+22 & 250.0\\
+\hline
+23 & 300.0\\
+\hline
+24 & 340.0\\
+\hline
+25 & 580.0\\
+\hline
+\end{tabular}
+\end{table}
 
 Visualisasi Tabel \@ref(tab:gwardat) ditunjukkan pada Gambar \@ref(fig:gwardatvis). Berdasarkan gambar tersebut terlihat bahwa data memiliki kemencengan yang positif sehingga penaksiran rata-rata populasi menggunakan nilai mean tidak dapat dilakukan.
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gwardatvis-1.png" alt="Distribusi konsentrasi arsenik dalam air tanah" width="70%" />
-<p class="caption">(\#fig:gwardatvis)Distribusi konsentrasi arsenik dalam air tanah</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gwardatvis-1} 
+
+}
+
+\caption{Distribusi konsentrasi arsenik dalam air tanah}(\#fig:gwardatvis)
+\end{figure}
 
 Berdasarkan data pada Tabel \@ref(tab:gwardat), median konsentrasi arsenik $\hat{C}_{0.5}$=19 yang berada pada urutan data ke-13 dari data yang telah diurutkan dari yang terkecil ke yang terbesar. Untuk menentukan interval kepercayaan 95% median kosentrasi arsenik $C_{0.5}$, nilai kritis berdasarkan nilai error mendekati $\alpha/2$=0,025 adalah $x'$=7. Untuk lebih memahaminya pembaca dapat mengunduh tabel distribusi binomial pada laman [berikut](https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf). Nilai $x'$=7 diperoleh menggunakan Tabel distribusi binomial dengan $n$=25 dan $p$=0,5 yang ditampilkan pada Gambar \@ref(fig:tabbinom) dengan nilai probabilitas sebesar 0,022 (mendekati 0,025) yang setara dengan area yang diarsir pada Gambar \@ref(fig:iemednp).
 
-<div class="figure" style="text-align: center">
-<img src="tabbinom.png" alt="Lokasi probabilitas x berdasarkan tabel distribusi binomial" width="65%" />
-<p class="caption">(\#fig:tabbinom)Lokasi probabilitas x berdasarkan tabel distribusi binomial</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{tabbinom} 
+
+}
+
+\caption{Lokasi probabilitas x berdasarkan tabel distribusi binomial}(\#fig:tabbinom)
+\end{figure}
 
 Berdasarkan Persamaan \@ref(eq:rl) dan Persamaan \@ref(eq:ru), rangking $R_l$ pada observasi yang menyatakan batas kepercayaan bawah (*lower confidence limit*) adalah 8 ($R_i$=7+1) dan $R_u$ yang menyatakan batas kepercayaan atas (*upper confidence level*) adalah 25-7=18. Berdasarkan nilai probabilitas $x'$=0,022, maka nilai alpha yang sesunggunya sebesar $\alpha=2*0,022=0,044$. Nilai tersebut setara dengan tingkat kepercayaan $1-0,044$ atau 95,6%. Nilai interval kepercayaan median antara observasi ke-8 dan 18 adalah $C_l=4,8\le C_{0.5}\le110=C_u\ \ pada\ \alpha=0,044$. Nilai asimetrik disekitar $\hat{C}_{0.5}$=19 mencerminkan kemencengan pada data.
 
@@ -14542,43 +15419,77 @@ dimana $s_{y}^2$= varians sampel y pada unit log natural.
 
 Pada Tabel \@ref(tab:gwardat), untuk menghitung interval keyakinan median menggunakan pendekatan mean geometrik $GM_x$ kita perlu mentransformasi datanya terlebih dahulu sehingga menjadi bentuk natural log. hasil transformasi disajikan pada Tabel \@ref(tab:gwardat2).
 
+\begin{table}[t]
 
-Table: (\#tab:gwardat2)Tranformasi logaritmik konsentrasi Arsenik dalam air tanah (ppb)
-
- observasi   konsentrasi
-----------  ------------
-         1        0.2624
-         2        0.4055
-         3        0.5878
-         4        0.9555
-         5        1.0296
-         6        1.2528
-         7        1.3863
-         8        1.5686
-         9        2.0794
-        10        2.2513
-        11        2.4849
-        12        2.6391
-        13        2.9444
-        14        3.1355
-        15        3.7136
-        16        4.3820
-        17        4.6052
-        18        4.7005
-        19        4.7875
-        20        5.2470
-        21        5.4806
-        22        5.5215
-        23        5.7038
-        24        5.8289
-        25        6.3630
+\caption{(\#tab:gwardat2)Tranformasi logaritmik konsentrasi Arsenik dalam air tanah (ppb)}
+\centering
+\begin{tabular}{r|r}
+\hline
+observasi & konsentrasi\\
+\hline
+1 & 0.2624\\
+\hline
+2 & 0.4055\\
+\hline
+3 & 0.5878\\
+\hline
+4 & 0.9555\\
+\hline
+5 & 1.0296\\
+\hline
+6 & 1.2528\\
+\hline
+7 & 1.3863\\
+\hline
+8 & 1.5686\\
+\hline
+9 & 2.0794\\
+\hline
+10 & 2.2513\\
+\hline
+11 & 2.4849\\
+\hline
+12 & 2.6391\\
+\hline
+13 & 2.9444\\
+\hline
+14 & 3.1355\\
+\hline
+15 & 3.7136\\
+\hline
+16 & 4.3820\\
+\hline
+17 & 4.6052\\
+\hline
+18 & 4.7005\\
+\hline
+19 & 4.7875\\
+\hline
+20 & 5.2470\\
+\hline
+21 & 5.4806\\
+\hline
+22 & 5.5215\\
+\hline
+23 & 5.7038\\
+\hline
+24 & 5.8289\\
+\hline
+25 & 6.3630\\
+\hline
+\end{tabular}
+\end{table}
 
 visualisasi distribusi yang baru disajikan pada Gambar \@ref(fig:gwardatvis2).
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/gwardatvis2-1.png" alt="Distribusi logaritmik konsentrasi arsenik dalam air tanah" width="70%" />
-<p class="caption">(\#fig:gwardatvis2)Distribusi logaritmik konsentrasi arsenik dalam air tanah</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{EnvStat_files/figure-latex/gwardatvis2-1} 
+
+}
+
+\caption{Distribusi logaritmik konsentrasi arsenik dalam air tanah}(\#fig:gwardatvis2)
+\end{figure}
 
 Nilai mean dari data tersebut adalah 3,17 dengan simpangan baku sebesar 1,96. Berdasarkan Gambar \@ref(fig:gwardatvis2), kita telah memperoleh distribusi yang simetris.
 
@@ -15233,10 +16144,14 @@ Interval prediksi tingkat kepercayaan nonparametrik $\alpha$ secara sederhana di
   (\#eq:eqipnds)
 \end{equation}
 
-<div class="figure" style="text-align: center">
-<img src="ipnds.png" alt="Prediksi interval dua sisi (Helsel dan Hirsch, 2002)" width="65%" />
-<p class="caption">(\#fig:ipnds)Prediksi interval dua sisi (Helsel dan Hirsch, 2002)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{ipnds} 
+
+}
+
+\caption{Prediksi interval dua sisi (Helsel dan Hirsch, 2002)}(\#fig:ipnds)
+\end{figure}
 
 Kita akan kembali menggunakan data pada Tabel \@ref(tab:gwardat). Dengan menggunakan tingkat kepercayaan 90% kita diminta untuk menentukan interval prediksi dari konsentrasi arsenik pada data tersebut tanpa mengasumsikan distribusi dari data.
 
@@ -15304,10 +16219,14 @@ PInp(x=gwardat$konsentrasi, alpha=0.1)
 
 Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan $\alpha$ dibanding $\alpha/2$ sebagai nilai error, menempatkan semua error di satu sisi interval (Gambar \@ref(fig:ipss)). Interval prediksi dituliskan berdasarkan Persamaan \@ref(eq:eqipss).
 
-<div class="figure" style="text-align: center">
-<img src="ipss.png" alt="Prediksi interval satu sisi (Helsel dan Hirsch, 2002)" width="65%" />
-<p class="caption">(\#fig:ipss)Prediksi interval satu sisi (Helsel dan Hirsch, 2002)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{ipss} 
+
+}
+
+\caption{Prediksi interval satu sisi (Helsel dan Hirsch, 2002)}(\#fig:ipss)
+\end{figure}
 
 \begin{equation}
   PI_{np}:\ x_{baru}<X_{\alpha\cdot\left(n+1\right)}\ atau\ x_{baru}>X_{\left[1-\alpha\right]\cdot\left(n+1\right)}
@@ -15749,20 +16668,32 @@ Pengujian persentil dilakukan untuk mengecek apakah sebuah persentil berbeda (le
 
 Pengujian apakah sebuah nilai $X_0$ berbeda dengan sejumlah rentang nilai yang ditetapkan dapat dilakukan dengan pengujian dua sisi dan satu sisi. Pengujian satu sisi melihat apakah suatu nilai $X_0$ berada diluar interval kepercayaan persentil atau diantara nilai batas bawah $X_l$ dan nilai batas atasnya $X_u$ (lihat Gambar \@ref(fig:unup1)). Sedangkan pengujian satu sisi melihat apakah suatu nilai lebih besar atau lebih kecil (tergantung apakah pengujian satu sisi sebelah atas distribusi atau sebelah bawah distribusi) dari interval kepercayaan persentil yang digunakan (lihat Gambar \@ref(fig:unup2) dan Gambar \@ref(fig:unup3)).
 
-<div class="figure" style="text-align: center">
-<img src="unup1.png" alt="Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)" width="65%" />
-<p class="caption">(\#fig:unup1)Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="unup2.png" alt="Interval estimasi persentil Xp sebagai penguji apakah Xp&gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)" width="65%" />
-<p class="caption">(\#fig:unup2)Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)</p>
-</div>
+{\centering \includegraphics[width=0.65\linewidth]{unup1} 
 
-<div class="figure" style="text-align: center">
-<img src="unup3.png" alt="Interval estimasi persentil Xp sebagai penguji apakah Xp&gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)" width="65%" />
-<p class="caption">(\#fig:unup3)Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)</p>
-</div>
+}
+
+\caption{Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)}(\#fig:unup1)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{unup2} 
+
+}
+
+\caption{Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)}(\#fig:unup2)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{unup3} 
+
+}
+
+\caption{Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)}(\#fig:unup3)
+\end{figure}
 
 Untuk menghitungnya secara nonparametrik menggunakan Persamaan  \@ref(eq:iknp3) dan Persamaan  \@ref(eq:iknp4) untuk jumlah sampel kecil sedangkan untuk sampel besar kita dapat menggunakan Persamaan  \@ref(eq:iknp3) dan Persamaan  \@ref(eq:iknp4).
 
@@ -15910,10 +16841,14 @@ Berdasarkan hasil yang diperoleh diketahui bahwa median dataset original sebesar
 
 Untuk mengetahui distribusi sampling yang telah kita lakukan. kita dapat melihat distribusi dengan mengeplotkan semua sampel bootstrap pada histogram dan QQ-plot dengan menjalankan sintaks berikut:
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/boot1-1.png" alt="Distribusi bootstrap median" width="65%" />
-<p class="caption">(\#fig:boot1)Distribusi bootstrap median</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{EnvStat_files/figure-latex/boot1-1} 
+
+}
+
+\caption{Distribusi bootstrap median}(\#fig:boot1)
+\end{figure}
 
 Berdasarkan Gambar \@ref(fig:boot1) diketahui bahwa median tidak berdistribusi normal. Hal ini ditunjukkan dari distribusi pada histogram yang membentuk kemencengan positif. Selain itu, distribusi data pada QQ-plot juga tidak mengikuti garis referensi yang ada sehingga dapat disimpulkan bahwa distribusi median bootstrap tidak berdistribusi normal.
 
@@ -15990,10 +16925,14 @@ mean.boot
 
 Distribusi mean bootstrap disajikan pada Gambar \@ref(fig:boot2)
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/boot2-1.png" alt="Distribusi bootstrap mean" width="65%" />
-<p class="caption">(\#fig:boot2)Distribusi bootstrap mean</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{EnvStat_files/figure-latex/boot2-1} 
+
+}
+
+\caption{Distribusi bootstrap mean}(\#fig:boot2)
+\end{figure}
 
 Berdasrkan hasil yang diperoleh, distribusi mean bootstrap mengikuti distribusi normal. Untuk memperoleh interval kepercayaan mean bootstrap jalankan sintaks berikut:
 
@@ -16065,10 +17004,14 @@ p90.boot
 
 Visualisasi distribusi bootstrap persentil 90 disajikan pada Gambar \@ref(fig:boot3)
 
-<div class="figure" style="text-align: center">
-<img src="EnvStat_files/figure-html/boot3-1.png" alt="Distribusi bootstrap persentil 90" width="65%" />
-<p class="caption">(\#fig:boot3)Distribusi bootstrap persentil 90</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{EnvStat_files/figure-latex/boot3-1} 
+
+}
+
+\caption{Distribusi bootstrap persentil 90}(\#fig:boot3)
+\end{figure}
 
 Bentuk visualisasi distribusi bootstrap persentil ke-90 yang dihasilkan pada Gambar \@ref(fig:boot3) terlihat sedikit memiliki kemencengan positif. untuk menghitung interval kepercayaan 95% persentil ke-90 jalankan sintaks berikut:
 
@@ -16209,10 +17152,14 @@ Untuk mempermudah proses pemilihan uji yang sesuai, Gardener (2012) membuat skem
 
 \newpage
 \begin{landscape}
-<div class="figure" style="text-align: center">
-<img src="test.png" alt="Skema pemilihan uji hipotesis (sumber: Gradener, 2012)."  />
-<p class="caption">(\#fig:test)Skema pemilihan uji hipotesis (sumber: Gradener, 2012).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{test} 
+
+}
+
+\caption{Skema pemilihan uji hipotesis (sumber: Gradener, 2012).}(\#fig:test)
+\end{figure}
 \end{landscape}
 
 ### Hipotesis Nol dan Alternatif
@@ -16315,10 +17262,14 @@ Untuk mempermudahnya, pada Gambar \@ref(fig:singletest) penulis sajikan skema pe
 
 \newpage
 \begin{landscape}
-<div class="figure" style="text-align: center">
-<img src="singletest.png" alt="Skema pemilihan uji hipotesis untuk satu populasi." width="90%" />
-<p class="caption">(\#fig:singletest)Skema pemilihan uji hipotesis untuk satu populasi.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{singletest} 
+
+}
+
+\caption{Skema pemilihan uji hipotesis untuk satu populasi.}(\#fig:singletest)
+\end{figure}
 \end{landscape}
 
 ### Uji Parametrik
