@@ -89,7 +89,11 @@ mean(x, trim = 0, na.rm = FALSE)
 > - **trim**: menyatakan fraksi data (berkisar antara 0 sampai 0,5) yang perlu dilakukan pemotongan (*trim*) pada observasi awal dan akhir **x** (yang telah diurutkan) sebelum nilai mean dihitung.
 > **na.rm**: nilai logis yang menyatakan apakah *missing value* perlu disertakan dalam perhitungan atau tidak. Jika disertakan maka output yang akan dihasilkan adalah NA.
 
-**Analisa Nilai Mean Grup Data Tunggal (Single Group)**
+---------------------------------
+
+**Contoh**
+
+- **Analisa Nilai Mean Grup Data Tunggal (Single Group)**
 
 Untuk lebih memahami penerapannya pada `R`, pada Tabel \@ref(tab:debitsungai) berikut disajikan data terkait debit air suatu sungai.
 
@@ -136,7 +140,7 @@ Kita dapat menghitung nilai mean dengan terlebih dahulu menghilangkan *outlier* 
 
 ```{r, message=FALSE}
 # memuat paket
-library(dplyr)
+library(tidyverse)
 
 # melakukan filter terhadap data
 sungai_subset<-sungai%>%
@@ -148,7 +152,8 @@ mean(sungai_subset$debit)
 
 Berdasarkan hasil yang diperoleh terlihat bahwa nilai rata-rata yang baru lebih kecil dari yang sebelumnya (bergeser ke kiri) dengan nilai mean debit sungai yang baru sebesar `r mean(sungai_subset$debit)` $m^3/detik$. Hal ini terjadi karena pengaruh dari data *outlier* yang telah dihilangkan.
 
-**Analisa Nilai Rata-Rata Berdarsarkan Grup Data**
+
+- **Analisa Nilai Rata-Rata Berdarsarkan Grup Data**
 
 Pada contoh sebelumnya kita telah melakukan perhitungan nilai mean untuk studi kasus grup tunggal. Pada contoh ini akan disajikan contoh kasus perhitungan nilai mean untuk data berkelompok.
 
@@ -181,24 +186,18 @@ knitr::kable(
 Visualisasi data Tabel \@ref(tab:gwtdsur), disajikan pada  Gambar \@ref(fig:gwvis1) dan Gambar \@ref(fig:gwvis2):
 
 ```{r gwvis1,fig.cap='Visualisasi konsentrasi TDS pada air tanah', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE, echo=FALSE, message=FALSE}
-
-library(ggplot2)
-library(ggthemes)
-
 # plot
-ggplot(data_gw, aes(TDS, fill=Bicarbonate))+
+ggplot(data_gw, aes(TDS, fill=Bicarbonate, color=Bicarbonate))+
   geom_density(alpha=0.5)+
-  theme_stata()+
-  scale_fill_stata()
+  theme_classic()
   
 ```
 
 ```{r gwvis2,fig.cap='Visualisasi konsentrasi Uranium pada air tanah', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE, echo=FALSE, message=FALSE}
 # plot
-ggplot(data_gw, aes(Uranium, fill=Bicarbonate))+
+ggplot(data_gw, aes(Uranium, fill=Bicarbonate, color=Bicarbonate))+
   geom_density(alpha=0.5)+
-  theme_stata()+
-  scale_fill_stata()
+  theme_classic()
   
 ```
 
@@ -211,6 +210,8 @@ data_gw %>%
 ```
 
 Berdasarkan hasil yang diperoleh konsentrasi TDS dan Uranium dipengaruhi oleh kesadahan airtanah. Pada konsentrasi Bikarbonate > 50% konsentrasi TDS akan lebih rendah sedangkan konsentrasi Uranium sebaliknya. Untuk menguji apakah nilai tersebut berbeda signifikan, kita perlu melakukan uji hipotesis yang akan dibahas pada Chapter selanjutnya.
+
+---------------------------------------------------------
 
 ### Median Sebagai Ukuran Pemusatan Data yang Resistan
 
@@ -228,7 +229,11 @@ Median atau persentil 50 ($P_{50}$) merupakan nilai pusat dari distribusi suatu 
 
 Median hanya dipengaruhi minimal oleh besarnya nilai observasi tunggal, yang ditentukan semata-mata oleh urutan relatif observasi. Resitensi terhadap efek dari perubahan nilai atau kehadiran pengamatan terpencil (*outlier*) sering merupakan sifat yang diinginkan. Meski demikian median memiliki kelemahan utama yaitu kurang representatif dalam mendeskripsikan rata-rata dari data dibandingkan mean. Hal ini disebabkan karena median tidak menggunakan seluruh nilai yang ada pada data.
 
-**Analisa Nilai Median Grup Data Tunggal (Single Group)**
+---------------------------------------------------------
+
+**Contoh**
+
+- **Analisa Nilai Median Grup Data Tunggal (Single Group)**
 
 Kita akan menggunakan kembali data pada Tabel \@ref(tab:debitsungai) untuk menghitung median data tersebut. Pada `R` median dihitung menggunakan fungsi `median()`. Fotmat yang digunakan adalah sebagai berikut:
 
@@ -251,7 +256,7 @@ Berdasarkan hasil komputasi diperoleh median debit sungai sebesar `r median(sung
 
 Jika kita melakukan perhitungan menggunakan menggunakan data `sungai_subset` (tanpa *outlier*), maka diperoleh `r median(sungai_subset$debit)` $m^3/detik$ yang nilainya juga tidak bergeser jauh dengan median sebelumnya yang membuktikan bahwa median resisten terhadap *outlier*.
 
-**Analisa Nilai Median Berdarsarkan Grup Data**
+- **Analisa Nilai Median Berdarsarkan Grup Data**
 
 Paca contoh ini kita akan menggunakan kembali data pada Tabel \@ref(tab:gwtdsur). Sintaks berikut adalah cara menghitung median untuk data berkelompok:
 
@@ -262,6 +267,8 @@ data_gw %>%
 ```
 
 Pada median TDS kita tidak menemui perbedaan dengan nilai rata-ratanya. Hal ini disebabkan karena bentuk distribusinya yang relatif simetris. Sedangkan pada Uranium distribusi yang terbentuk memiliki kemencengan (*skewness*) positif. Hal ini menyebabkan nilai mean yang terbentuk akan sangat dipengaruhi oleh observasi dengan nilai ekstrim yang dimiliki.
+
+---------------------------------------------------------
 
 ### Ukuran Pemusatan Data Lainnya
 
@@ -356,7 +363,11 @@ sd(x, na.rm = FALSE)
 > - **x**: objek atau vektor numerik.
 > - **na.rm**: nilai logis yang menyatakan apakah *missing value* perlu disertakan dalam komputasi atau tidak.
 
-**Analisa Varian dan simpangan baku Grup Tunggal**
+---------------------------------------------------------
+
+**Contoh**
+
+- **Analisa Varian dan simpangan baku Grup Tunggal**
 
 Kita akan menggunakan kembali data pada Tabel \@ref(tab:debitsungai) untuk menghitung varian dan simpangan baku data tersebut. Berikut adalah sintaks untuk melakukannya:
 
@@ -380,7 +391,7 @@ sd(sungai_subset$debit)
 
 Berdasarkan hasil yang diperoleh terlihat bahwa nilai varian dan simpangan baku data dengan *outlier* jauh lebih besar dibanding data tanpa *outlier*.
 
-**Analisa Varian dan simpangan baku Multi Grup**
+- **Analisa Varian dan simpangan baku Multi Grup**
 
 Paca contoh ini kita akan menggunakan kembali data pada Tabel \@ref(tab:gwtdsur). Sintaks berikut adalah cara menghitung varian dan simpangan baku untuk data berkelompok:
 
@@ -392,6 +403,8 @@ data_gw %>%
 ```
 
 Jika kita perhatikan nilai varian dan simpangan baku Uranium pada dua kondisi kesadahan memiliki nilai yang nyaris sama. Hal sebaliknya terjadi pada variabel TDS yang menunjukkan perbedaan pada dua ukuran sebaran datanya. TDS pada kesadahan >50% memiliki varian dan simpangan baku yang lebih kecil dibanding kondisi kesadahan satunya, yang menunjukkan data pada kondisi kesadahan >50% lebih tidak tersebar dibanding kesadahan satunya.
+
+---------------------------------------------------------
 
 ### Ukuran Sebaran Data yang Resisten Terhadap Outlier
 
@@ -458,12 +471,18 @@ MAD <- function(x){
 }
 ```
 
+---------------------------------------------------------
+
+**Contoh**
+
 Pada Tabel \@ref(tab:debitsungai), kita dapat menghitung MAD dari data menggunakan fungsi yang telah dibuat. Berikut adalah contoh sintaks yang digunakan:
 
 ```{r}
 MAD(sungai$debit)
 
 ```
+
+---------------------------------------------------------
 
 ## Ringkasan Data Menggunakan Fungsi summary() dan stat.desc()
 
@@ -530,6 +549,10 @@ Koefisien kemencengan ($g$) merupakan ukuran kemencengan yang sering digunakan. 
 
 Kemencengan positif (ekor panjang kekanan) memiliki nilai $g$ positif sedangkan kemencengan negatif (ekor panjang kekiri) memiliki nilai $g$ negatif. Sekali lagi, Pengaruh beberapa *outlier* adalah penting - suatu distribusi simetris yang memiliki satu *outlier* akan menghasilkan ukuran kemencengan ($g$) yang besar (dan mungkin menyesatkan).
 
+---------------------------------------------------------
+
+**Contoh**
+
 Pada `R` Kita dapat menghitung sendiri koefisien kemencengan ($g$) menggunakan *user define function*. Berikut adalah contoh sintaks fungsi yang dibuat:
 
 ```{r}
@@ -547,6 +570,8 @@ Pada contoh sebelumnya dengan menggunakan fungsi yang telah dibuat diperoleh koe
 ```{r}
 skew(data_gw$Uranium)
 ```
+
+---------------------------------------------------------
 
 ### Ukuran Kemencengan yang Resisten
 
@@ -569,11 +594,17 @@ qs <- function(x){
 }
 ```
 
+---------------------------------------------------------
+
+**Contoh**
+
 Pada contoh sebelumnya dengan menggunakan fungsi yang telah dibuat diperoleh koefisien kemencengan sebagai berikut:
 
 ```{r}
 qs(data_gw$Uranium)
 ```
+
+---------------------------------------------------------
 
 ## Outlier
 
@@ -624,10 +655,9 @@ Pada Gambar \@ref(fig:gwvis2) kosentrasi distribusi `Uranium` pada tiap grup mem
 
 ```{r urantrans,fig.cap='Visualisasi konsentrasi Uranium  hasil tansformasi pada air tanah', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE, echo=FALSE, message=FALSE}
 # plot
-ggplot(data_gw, aes(log(Uranium), fill=Bicarbonate))+
+ggplot(data_gw, aes(log(Uranium), fill=Bicarbonate, color=Bicarbonate))+
   geom_density(alpha=0.5)+
-  theme_stata()+
-  scale_fill_stata()
+  theme_classic()
   
 ```
 

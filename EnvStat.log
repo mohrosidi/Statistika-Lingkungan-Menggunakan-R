@@ -1,0 +1,2468 @@
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.3.11)  6 JUN 2019 18:11
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**EnvStat.tex
+(./EnvStat.tex
+LaTeX2e <2018-12-01>
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2018/09/03 v1.4i Standard LaTeX document class
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.s
+ty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.
+sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.st
+y
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip43
+For additional information on amsmath, use the `?' option.
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.st
+y
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen103
+))
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen104
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks16
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks17
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ifxetex/ifxetex.
+sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/ifluate
+x.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+) (c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fixltx2e.st
+y
+Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
+Applying: [2015/01/01] Old fixltx2e package on input line 46.
+
+Package fixltx2e Warning: fixltx2e is not required with releases after 2015
+(fixltx2e)                All fixes are now in the LaTeX kernel.
+(fixltx2e)                See the latexrelease package for details.
+
+Already applied: [0000/00/00] Old fixltx2e package on input line 53.
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/xelatex/mathspec/mathspe
+c.sty
+Package: mathspec 2016/12/22 v0.2b LaTeX Package (Mathematics font selection fo
+r XeLaTeX)
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.
+sty
+Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count101
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.
+sty
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/
+xparse.sty
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2019-02-15 L3 programming layer (loader) 
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3-cod
+e.tex
+Package: expl3 2019-02-15 L3 programming layer (code)
+\c_max_int=\count102
+\l_tmpa_int=\count103
+\l_tmpb_int=\count104
+\g_tmpa_int=\count105
+\g_tmpb_int=\count106
+\g__kernel_prg_map_int=\count107
+\c_log_iow=\count108
+\l_iow_line_count_int=\count109
+\l__iow_line_target_int=\count110
+\l__iow_one_indent_int=\count111
+\l__iow_indent_int=\count112
+\c_zero_dim=\dimen112
+\c_max_dim=\dimen113
+\l_tmpa_dim=\dimen114
+\l_tmpb_dim=\dimen115
+\g_tmpa_dim=\dimen116
+\g_tmpb_dim=\dimen117
+\c_zero_skip=\skip46
+\c_max_skip=\skip47
+\l_tmpa_skip=\skip48
+\l_tmpb_skip=\skip49
+\g_tmpa_skip=\skip50
+\g_tmpb_skip=\skip51
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+\l_keys_choice_int=\count113
+\l__intarray_loop_int=\count114
+\c__intarray_sp_dim=\dimen118
+\g__intarray_font_int=\count115
+\c__fp_leading_shift_int=\count116
+\c__fp_middle_shift_int=\count117
+\c__fp_trailing_shift_int=\count118
+\c__fp_big_leading_shift_int=\count119
+\c__fp_big_middle_shift_int=\count120
+\c__fp_big_trailing_shift_int=\count121
+\c__fp_Bigg_leading_shift_int=\count122
+\c__fp_Bigg_middle_shift_int=\count123
+\c__fp_Bigg_trailing_shift_int=\count124
+\g__fp_array_int=\count125
+\l__fp_array_loop_int=\count126
+\l__sort_length_int=\count127
+\l__sort_min_int=\count128
+\l__sort_top_int=\count129
+\l__sort_max_int=\count130
+\l__sort_true_max_int=\count131
+\l__sort_block_int=\count132
+\l__sort_begin_int=\count133
+\l__sort_end_int=\count134
+\l__sort_A_int=\count135
+\l__sort_B_int=\count136
+\l__sort_C_int=\count137
+\l__tl_analysis_normal_int=\count138
+\l__tl_analysis_index_int=\count139
+\l__tl_analysis_nesting_int=\count140
+\l__tl_analysis_type_int=\count141
+\l__regex_internal_a_int=\count142
+\l__regex_internal_b_int=\count143
+\l__regex_internal_c_int=\count144
+\l__regex_balance_int=\count145
+\l__regex_group_level_int=\count146
+\l__regex_mode_int=\count147
+\c__regex_cs_in_class_mode_int=\count148
+\c__regex_cs_mode_int=\count149
+\l__regex_catcodes_int=\count150
+\l__regex_default_catcodes_int=\count151
+\c__regex_catcode_L_int=\count152
+\c__regex_catcode_O_int=\count153
+\c__regex_catcode_A_int=\count154
+\c__regex_all_catcodes_int=\count155
+\l__regex_show_lines_int=\count156
+\l__regex_min_state_int=\count157
+\l__regex_max_state_int=\count158
+\l__regex_left_state_int=\count159
+\l__regex_right_state_int=\count160
+\l__regex_capturing_group_int=\count161
+\l__regex_min_pos_int=\count162
+\l__regex_max_pos_int=\count163
+\l__regex_curr_pos_int=\count164
+\l__regex_start_pos_int=\count165
+\l__regex_success_pos_int=\count166
+\l__regex_curr_char_int=\count167
+\l__regex_curr_catcode_int=\count168
+\l__regex_last_char_int=\count169
+\l__regex_case_changed_char_int=\count170
+\l__regex_curr_state_int=\count171
+\l__regex_step_int=\count172
+\l__regex_min_active_int=\count173
+\l__regex_max_active_int=\count174
+\l__regex_replacement_csnames_int=\count175
+\l__regex_match_count_int=\count176
+\l__regex_min_submatch_int=\count177
+\l__regex_submatch_int=\count178
+\l__regex_zeroth_submatch_int=\count179
+\g__regex_trace_regex_int=\count180
+\c_empty_box=\box29
+\l_tmpa_box=\box30
+\l_tmpb_box=\box31
+\g_tmpa_box=\box32
+\g_tmpb_box=\box33
+\l__box_top_dim=\dimen119
+\l__box_bottom_dim=\dimen120
+\l__box_left_dim=\dimen121
+\l__box_right_dim=\dimen122
+\l__box_top_new_dim=\dimen123
+\l__box_bottom_new_dim=\dimen124
+\l__box_left_new_dim=\dimen125
+\l__box_right_new_dim=\dimen126
+\l__box_internal_box=\box34
+\l__coffin_internal_box=\box35
+\l__coffin_internal_dim=\dimen127
+\l__coffin_offset_x_dim=\dimen128
+\l__coffin_offset_y_dim=\dimen129
+\l__coffin_x_dim=\dimen130
+\l__coffin_y_dim=\dimen131
+\l__coffin_x_prime_dim=\dimen132
+\l__coffin_y_prime_dim=\dimen133
+\c_empty_coffin=\box36
+\l__coffin_aligned_coffin=\box37
+\l__coffin_aligned_internal_coffin=\box38
+\l_tmpa_coffin=\box39
+\l_tmpb_coffin=\box40
+\g_tmpa_coffin=\box41
+\g_tmpb_coffin=\box42
+\c__coffin_empty_coffin=\box43
+\l__coffin_display_coffin=\box44
+\l__coffin_display_coord_coffin=\box45
+\l__coffin_display_pole_coffin=\box46
+\l__coffin_display_offset_dim=\dimen134
+\l__coffin_display_x_dim=\dimen135
+\l__coffin_display_y_dim=\dimen136
+\g__file_internal_ior=\read1
+\l__coffin_bounding_shift_dim=\dimen137
+\l__coffin_left_corner_dim=\dimen138
+\l__coffin_right_corner_dim=\dimen139
+\l__coffin_bottom_corner_dim=\dimen140
+\l__coffin_top_corner_dim=\dimen141
+\l__coffin_scaled_total_height_dim=\dimen142
+\l__coffin_scaled_width_dim=\dimen143
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/l3xdvipdf
+mx.def
+File: l3xdvipdfmx.def 2019-02-15 v L3 Experimental driver: xdvipdfmx
+\g__driver_image_int=\count181
+\g__driver_pdf_object_int=\count182
+))
+Package: xparse 2018-10-17 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count183
+\g__xparse_grabber_int=\count184
+\l__xparse_m_args_int=\count185
+\l__xparse_mandatory_args_int=\count186
+\l__xparse_v_nesting_int=\count187
+)
+Package: fontspec 2019/02/12 v2.7b Font selection for XeLaTeX and LuaLaTeX
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-
+xetex.sty
+Package: fontspec-xetex 2019/02/12 v2.7b Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count188
+\l__fontspec_language_int=\count189
+\l__fontspec_strnum_int=\count190
+\l__fontspec_tmp_int=\count191
+\l__fontspec_tmpa_int=\count192
+\l__fontspec_tmpb_int=\count193
+\l__fontspec_tmpc_int=\count194
+\l__fontspec_em_int=\count195
+\l__fontspec_emdef_int=\count196
+\l__fontspec_strong_int=\count197
+\l__fontspec_strongdef_int=\count198
+\l__fontspec_tmpa_dim=\dimen144
+\l__fontspec_tmpb_dim=\dimen145
+\l__fontspec_tmpc_dim=\dimen146
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/tuenc.def
+File: tuenc.def 2018/08/11 v2.0j Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TU on input line 82.
+))
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.
+cfg)
+LaTeX Info: Redefining \itshape on input line 4044.
+LaTeX Info: Redefining \slshape on input line 4049.
+LaTeX Info: Redefining \scshape on input line 4054.
+LaTeX Info: Redefining \upshape on input line 4059.
+LaTeX Info: Redefining \em on input line 4089.
+LaTeX Info: Redefining \emph on input line 4114.
+))
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.st
+y
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.
+tex
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils
+.tex
+\XKV@toks=\toks20
+\XKV@tempa@toks=\toks21
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.t
+ex))
+\XKV@depth=\count199
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\c@eu@=\count266
+\c@eu@i=\count267
+\c@mkern=\count268
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/upquote/upquote.st
+y
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+))
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.
+sty
+Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/hobsub-
+hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/hobsub-
+generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/auxhook.s
+ty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/kvoptions
+.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen147
+\Hy@linkcounter=\count269
+\Hy@pagecounter=\count270
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.de
+f
+File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count271
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/hyperr
+ef.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4519.
+Package hyperref Info: Link nesting OFF on input line 4524.
+Package hyperref Info: Hyper index ON on input line 4527.
+Package hyperref Info: Plain pages OFF on input line 4534.
+Package hyperref Info: Backreferencing OFF on input line 4539.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4772.
+\c@Hy@tempcnt=\count272
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5125.
+\XeTeXLinkMargin=\dimen148
+\Fld@menulength=\count273
+\Field@Width=\dimen149
+\Fld@charsize=\dimen150
+Package hyperref Info: Hyper figures OFF on input line 6380.
+Package hyperref Info: Link nesting OFF on input line 6385.
+Package hyperref Info: Hyper index ON on input line 6388.
+Package hyperref Info: backreferencing OFF on input line 6395.
+Package hyperref Info: Link coloring OFF on input line 6400.
+Package hyperref Info: Link coloring with OCG OFF on input line 6405.
+Package hyperref Info: PDF/A mode OFF on input line 6410.
+LaTeX Info: Redefining \ref on input line 6450.
+LaTeX Info: Redefining \pageref on input line 6454.
+\Hy@abspage=\count274
+\c@Item=\count275
+\c@Hfootnote=\count276
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.de
+f
+File: hxetex.def 2018/11/30 v6.88e Hyperref driver for XeTeX
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2018/11/30 v6.88e Hyperref: PDF Unicode definition (HO)
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/stringe
+nc.sty
+Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box47
+\c@Hy@AnnotLevel=\count277
+\HyField@AnnotCount=\count278
+\Fld@listcount=\count279
+\c@bookmark@seq@number=\count280
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/rerunfile
+check.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip52
+)
+Package hyperref Info: Option `unicode' set `true' on input line 33.
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/se-asci
+i-print.def
+File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
+
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 33.
+Package hyperref Info: Option `breaklinks' set `true' on input line 33.
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip53
+\bibsep=\skip54
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count281
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color
+.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: xetex.def on input line 147.
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex
+.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.
+def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.
+sty
+Package: fancyvrb 2019/01/15
+Style option: `fancyvrb' v3.2a <2019/01/15> (tvz)
+\FV@CodeLineNo=\count282
+\FV@InFile=\read2
+\FV@TabBox=\box48
+\c@FancyVerbLine=\count283
+\FV@StepNumber=\count284
+\FV@OutFile=\write3
+) (c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/framed.st
+y
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip55
+\fb@frw=\dimen151
+\fb@frh=\dimen152
+\FrameRule=\dimen153
+\FrameSep=\dimen154
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.st
+y
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
+\LTleft=\skip56
+\LTright=\skip57
+\LTpre=\skip58
+\LTpost=\skip59
+\LTchunksize=\count285
+\LTcapwidth=\dimen155
+\LT@head=\box49
+\LT@firsthead=\box50
+\LT@foot=\box51
+\LT@lastfoot=\box52
+\LT@cols=\count286
+\LT@rows=\count287
+\c@LT@tables=\count288
+\c@LT@chunks=\count289
+\LT@p@ftn=\toks22
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.
+sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen156
+\lightrulewidth=\dimen157
+\cmidrulewidth=\dimen158
+\belowrulesep=\dimen159
+\belowbottomsep=\dimen160
+\aboverulesep=\dimen161
+\abovetopsep=\dimen162
+\cmidrulesep=\dimen163
+\cmidrulekern=\dimen164
+\defaultaddspace=\dimen165
+\@cmidla=\count290
+\@cmidlb=\count291
+\@aboverulesep=\dimen166
+\@belowrulesep=\dimen167
+\@thisruleclass=\count292
+\@lastruleclass=\count293
+\@thisrulewidth=\dimen168
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.
+sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.
+sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graph
+ics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 99.
+)
+\Gin@req@height=\dimen169
+\Gin@req@width=\dimen170
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/grffile.s
+ty
+Package: grffile 2017/06/30 v1.18 Extended file name support for graphics (HO)
+Package grffile Info: Option `multidot' is set to `true'.
+Package grffile Info: Option `extendedchars' is set to `false'.
+Package grffile Info: Option `space' is set to `true'.
+Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titling/titling.st
+y
+Package: titling 2009/09/04 v2.1d maketitle typesetting
+\thanksmarkwidth=\skip60
+\thanksmargin=\skip61
+\droptitle=\skip62
+)
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.st
+y
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+) (./EnvStat.aux
+
+LaTeX Warning: Label `tab:oparitmatika' multiply defined.
+
+)
+\openout1 = `EnvStat.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 136.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 136.
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+\AtBeginShipoutBox=\box53
+Package hyperref Info: Link coloring ON on input line 136.
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.s
+ty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/gettitl
+estring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count294
+)
+LaTeX Info: Redefining \ref on input line 136.
+LaTeX Info: Redefining \pageref on input line 136.
+LaTeX Info: Redefining \nameref on input line 136.
+(./EnvStat.out) (./EnvStat.out)
+\@outlinefile=\write4
+\openout4 = `EnvStat.out'.
+
+[1
+
+
+] [2
+
+] (./EnvStat.toc)
+\tf@toc=\write5
+\openout5 = `EnvStat.toc'.
+
+[3] [4
+
+] (./EnvStat.lot)
+\tf@lot=\write6
+\openout6 = `EnvStat.lot'.
+
+[5] [6
+
+] (./EnvStat.lof)
+\tf@lof=\write7
+\openout7 = `EnvStat.lof'.
+
+[7] [8
+
+] [9] [10
+
+] [11] [12]
+Chapter 1.
+File: r-icon.png Graphic file (type bmp)
+<r-icon.png>
+[13
+
+]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 228.
+[14]
+Underfull \hbox (badness 1776) in paragraph at lines 312--316
+[]\TU/lmr/bx/n/10 Programable\TU/lmr/m/n/10 . Pengguna dapat memprogram metode 
+baru atau
+ []
+
+[15] [16]
+File: jendela_r.png Graphic file (type bmp)
+<jendela_r.png>
+File: jendela_rstudio.png Graphic file (type bmp)
+<jendela_rstudio.png>
+[17]
+File: working.png Graphic file (type bmp)
+<working.png>
+[18]
+File: default.png Graphic file (type bmp)
+<default.png>
+[19]
+File: meandoc.png Graphic file (type bmp)
+<meandoc.png>
+[20] [21] [22]
+File: generalhelp.png Graphic file (type bmp)
+<generalhelp.png>
+[23]
+File: helpsearch.png Graphic file (type bmp)
+<helpsearch.png>
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 782.
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 782.
+
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 782
+.
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 782
+.
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 782.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 782.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 782.
+LaTeX Font Info:    Try loading font information for U+msa on input line 782.
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 782.
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 2253) in paragraph at lines 780--784
+[]\TU/lmr/m/n/10 STHDA. Running RStudio and Setting Up Your Working Direc-
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 780--784
+\TU/lmr/m/n/10 tory - Easy R Programming .[][]$[][][][] [] [] [] [][][] [] [][]
+[][][] [] [][][] [] [][][][][][][] [] [][][][] []
+ []
+
+
+Overfull \hbox (22.68997pt too wide) in paragraph at lines 780--784
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][] []
+ []
+
+
+Overfull \hbox (13.83998pt too wide) in paragraph at lines 784--788
+[][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][][][] [] [][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][]$[][]
+ []
+
+[24] [25] [26
+
+]
+Chapter 2.
+[27] [28] [29]
+Overfull \vbox (34.38882pt too high) has occurred while \output is active []
+
+[30] [31] [32] [33] [34]
+Overfull \hbox (1.99168pt too wide) in paragraph at lines 1504--1506
+[]|\TU/lmr/m/n/10 Character|  
+ []
+
+[35] [36] [37] [38] [39] [40] [41] [42] [43]
+Underfull \hbox (badness 1454) in paragraph at lines 2147--2150
+\TU/lmr/m/n/10 Untuk membuat matriks kita dapat menggunakan fungsi \TU/lmtt/m/n
+/10 cbind() \TU/lmr/m/n/10 atau
+ []
+
+[44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59]
+[60]
+File: skema_loop.png Graphic file (type bmp)
+<skema_loop.png>
+[61]
+Underfull \hbox (badness 2334) in paragraph at lines 3354--3358
+[]\TU/lmr/m/it/10 Loop \TU/lmr/m/n/10 akan dimulai dari blok \TU/lmr/m/it/10 st
+atement for \TU/lmr/m/n/10 sampai dengan \TU/lmtt/m/n/10 print(i)\TU/lmr/m/n/10
+ .
+ []
+
+[62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 4209.
+[75] [76] [77]
+File: ifstatement.png Graphic file (type bmp)
+<ifstatement.png>
+File: ifelse.png Graphic file (type bmp)
+<ifelse.png>
+[78]
+File: switch.png Graphic file (type bmp)
+<switch.png>
+[79]
+Underfull \hbox (badness 1565) in paragraph at lines 4511--4514
+[]\TU/lmr/m/n/10 Fungsi-fungsi buatan pengguna haruslah dideklarasikan (dibuat)
+ terlebih
+ []
+
+[80] [81] [82]
+Chapter 3.
+[83
+
+]
+Underfull \hbox (badness 1472) in paragraph at lines 4670--4672
+[]\TU/lmr/m/n/10 Untuk menginstall dan menjalankan library \TU/lmtt/m/n/10 tidy
+verse \TU/lmr/m/n/10 jalankan sintaks
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 4692--4692
+[]\TU/lmtt/m/n/10 ## -- Attaching packages ---------------------------------- t
+idyverse 1.2.1 --[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 4735--4735
+[]\TU/lmtt/m/n/10 ## -- Conflicts ------------------------------------- tidyver
+se_conflicts() --[] 
+ []
+
+[84]
+Underfull \hbox (badness 1448) in paragraph at lines 4771--4774
+[]\TU/lmr/bx/n/10 read.csv()\TU/lmr/m/n/10 : untuk membaca file dengan format \
+TU/lmr/m/it/10 comma separated
+ []
+
+
+Underfull \hbox (badness 3612) in paragraph at lines 4778--4781
+[]\TU/lmr/bx/n/10 read.delim()\TU/lmr/m/n/10 : untuk membaca file dengan format
+ \TU/lmr/m/it/10 tab-separated
+ []
+
+[85]
+Overfull \hbox (11.98999pt too wide) in paragraph at lines 4808--4813
+[]\TU/lmr/bx/n/10 file\TU/lmr/m/n/10 : nama file diakhiri dengan format file (m
+isal: “nama_file.txt”)
+ []
+
+
+Overfull \hbox (22.59198pt too wide) in paragraph at lines 4808--4813
+\TU/lmr/m/n/10 tersebut berada, misal:(C:/Users/My PC/Documents/nama_file.txt
+ []
+
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 4813
+.
+(c:/Users/My PC/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [86] [87] [88]
+Underfull \hbox (badness 5954) in paragraph at lines 5009--5012
+[]\TU/lmr/bx/n/10 col_character()\TU/lmr/m/n/10 : meninggalkan string apa adany
+a.Tidak men-
+ []
+
+
+Underfull \hbox (badness 2970) in paragraph at lines 5018--5021
+[]\TU/lmr/bx/n/10 col_date() \TU/lmr/m/n/10 (alias = “D”), \TU/lmr/bx/n/10 col_
+datetime() \TU/lmr/m/n/10 (alias = “T”) dan
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 5034--5041
+[]\TU/lmr/m/n/10 Untuk mempermudah pembaca dalam mempelajari materi ini, pembac
+a
+ []
+
+
+Underfull \hbox (badness 5119) in paragraph at lines 5034--5041
+\TU/lmr/m/n/10 dapat melihat dokumentasi yang berisi perintah-perintah dasar pa
+da
+ []
+
+
+Underfull \hbox (badness 7832) in paragraph at lines 5034--5041
+\TU/lmr/m/n/10 lembar \TU/lmr/m/it/10 cheatsheet \TU/lmr/m/n/10 yang berguna sa
+at pembaca kebingungan dengan
+ []
+
+
+Underfull \hbox (badness 3884) in paragraph at lines 5034--5041
+\TU/lmr/m/n/10 fungsi-fungsi yang ada namum pembaca tidak ingin membuka doku-
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 5034--5041
+\TU/lmr/m/n/10 mentasi pada situs tersebut. *Cheatsheet dapat di unduh pada sit
+us
+ []
+
+[89]
+Underfull \hbox (badness 1418) in paragraph at lines 5124--5128
+[]\TU/lmr/m/n/10 Dokumentasi dari library ini dapat diakses pada tautan [][]$[]
+[][][][] [] [] [] [][][][][][] []
+ []
+
+[90]
+Underfull \hbox (badness 2229) in paragraph at lines 5152--5158
+[]\TU/lmr/m/n/10 Terdapat dua buah fungsi yang disediakan pada paket tersebut y
+aitu
+ []
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 5197--5202
+\TU/lmr/m/n/10 SAS, dan STATA kita perlu menginstal dan memuat paket-paket yang
+
+ []
+
+[91] [92]
+Underfull \hbox (badness 2418) in paragraph at lines 5274--5274
+[]\TU/lmr/bx/n/14.4 Import Beberapa File Dalam Beberapa
+ []
+
+[93] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [1
+07] [108] [109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [12
+0] [121] [122]
+File: tidy.png Graphic file (type bmp)
+<tidy.png>
+
+Overfull \hbox (96.22882pt too wide) in paragraph at lines 7039--7040
+ [][] 
+ []
+
+[123] [124]
+File: gather.png Graphic file (type bmp)
+<gather.png>
+[125] [126] [127]
+File: spread.png Graphic file (type bmp)
+<spread.png>
+[128]
+Underfull \vbox (badness 5681) has occurred while \output is active []
+
+[129]
+File: separate.png Graphic file (type bmp)
+<separate.png>
+
+Overfull \hbox (23.17578pt too wide) in paragraph at lines 7340--7341
+ [][] 
+ []
+
+File: separate_rows.png Graphic file (type bmp)
+<separate_rows.png>
+
+Overfull \hbox (4.35823pt too wide) in paragraph at lines 7356--7357
+ [][] 
+ []
+
+[130] [131] [132]
+File: unite.png Graphic file (type bmp)
+<unite.png>
+[133]
+Underfull \vbox (badness 4582) has occurred while \output is active []
+
+[134]
+Underfull \hbox (badness 3623) in paragraph at lines 7601--7604
+[]\TU/lmr/m/n/10 Mengambil atau subset terhadap sebuah atau beberapa variabel
+ []
+
+[135] [136] [137] [138]
+File: filtervis.png Graphic file (type bmp)
+<filtervis.png>
+[139]
+File: filter.png Graphic file (type bmp)
+<filter.png>
+
+Overfull \hbox (11.1509pt too wide) in paragraph at lines 7880--7881
+ [][] 
+ []
+
+[140] [141] [142] [143] [144] [145] [146] [147] [148]
+File: arrange.png Graphic file (type bmp)
+<arrange.png>
+[149] [150] [151] [152]
+Underfull \hbox (badness 2617) in paragraph at lines 8557--8559
+[]\TU/lmtt/m/n/10 num_range("x", 1:3)\TU/lmr/m/n/10 , cocokkan berdasarkan kolo
+m dengan nama
+ []
+
+File: select.png Graphic file (type bmp)
+<select.png>
+[153] [154] [155] [156] [157] [158]
+File: pull.png Graphic file (type bmp)
+<pull.png>
+[159] [160] [161] [162]
+Underfull \hbox (badness 7291) in paragraph at lines 9156--9161
+[]\TU/lmr/bx/n/10 Fungsi kumulatif \TU/lmr/m/n/10 (\TU/lmtt/m/n/10 cumsum()\TU/
+lmr/m/n/10 ,\TU/lmtt/m/n/10 cumprod()\TU/lmr/m/n/10 ,\TU/lmtt/m/n/10 cummin()\T
+U/lmr/m/n/10 ,\TU/lmtt/m/n/10 cummax()\TU/lmr/m/n/10 , dan
+ []
+
+[163] [164] [165] [166] [167] [168] [169] [170] [171] [172]
+Underfull \hbox (badness 5231) in paragraph at lines 9740--9740
+[]\TU/lmr/bx/n/12 Mengkombinasikan Beberapa Operasi Menggu-
+ []
+
+[173] [174]
+File: EnvStat_files/figure-latex/distvsave-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/distvsave-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 9902--9905
+[]\TU/lmr/m/n/10 Quick-R. \TU/lmr/bx/n/10 Data Management\TU/lmr/m/n/10 . [][]$
+[][][][][] [] [] [] [][][] [] [][][][][][][][][][][] [] [][][] []
+ []
+
+[175] [176] [177
+
+] [178]
+Chapter 4.
+[179
+
+]
+File: EnvStat_files/figure-latex/plot-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/plot-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 180 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[180]
+File: EnvStat_files/figure-latex/scatter-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/scatter-1.pdf>
+[181]
+File: EnvStat_files/figure-latex/scatter2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/scatter2-1.pdf>
+File: EnvStat_files/figure-latex/diag-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/diag-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 182 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[182] [183]
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 184 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[184]
+File: EnvStat_files/figure-latex/matscat-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/matscat-1.pdf>
+File: EnvStat_files/figure-latex/matscat2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/matscat2-1.pdf>
+[185]
+File: EnvStat_files/figure-latex/matscat3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/matscat3-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 186 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[186] [187]
+File: EnvStat_files/figure-latex/matscat4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/matscat4-1.pdf>
+File: EnvStat_files/figure-latex/matscat5-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/matscat5-1.pdf>
+
+Underfull \vbox (badness 7047) has occurred while \output is active []
+
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 188 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[188]
+File: EnvStat_files/figure-latex/boxplot-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/boxplot-1.pdf>
+File: EnvStat_files/figure-latex/boxplot2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/boxplot2-1.pdf>
+File: EnvStat_files/figure-latex/boxplot3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/boxplot3-1.pdf>
+[189]
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 190 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[190] [191]
+File: EnvStat_files/figure-latex/boxplot4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/boxplot4-1.pdf>
+
+Underfull \hbox (badness 1442) in paragraph at lines 10511--10515
+\TU/lmr/m/n/10 Barplot pada \TU/lmtt/m/n/10 R \TU/lmr/m/n/10 dapat dibuat mengg
+unakan fungsi \TU/lmtt/m/n/10 barplot()\TU/lmr/m/n/10 . Untuk
+ []
+
+
+Underfull \vbox (badness 3068) has occurred while \output is active []
+
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 192 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[192]
+File: EnvStat_files/figure-latex/barplot-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/barplot-1.pdf>
+[193]
+File: EnvStat_files/figure-latex/barplot2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/barplot2-1.pdf>
+File: EnvStat_files/figure-latex/barplot3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/barplot3-1.pdf>
+File: EnvStat_files/figure-latex/barplot4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/barplot4-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 194 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[194] [195]
+File: EnvStat_files/figure-latex/line-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/line-1.pdf>
+
+Underfull \vbox (badness 2080) has occurred while \output is active []
+
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 196 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[196]
+File: EnvStat_files/figure-latex/pie-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/pie-1.pdf>
+[197]
+File: EnvStat_files/figure-latex/hist-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/hist-1.pdf>
+File: EnvStat_files/figure-latex/dens-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dens-1.pdf>
+
+Underfull \hbox (badness 1168) in paragraph at lines 10766--10773
+[]\TU/lmr/m/n/10 Kita juga dapat menambahkan grafik densitas pada histogram seh
+ingga
+ []
+
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 198 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[198]
+File: EnvStat_files/figure-latex/denshist-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/denshist-1.pdf>
+File: EnvStat_files/figure-latex/qq-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/qq-1.pdf>
+[199]
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 200 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[200]
+File: EnvStat_files/figure-latex/dot-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dot-1.pdf>
+[201]
+File: EnvStat_files/figure-latex/title-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/title-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 202 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[202] [203]
+File: EnvStat_files/figure-latex/title2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/title2-1.pdf>
+
+Underfull \vbox (badness 1024) has occurred while \output is active []
+
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 204 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[204]
+File: EnvStat_files/figure-latex/title3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/title3-1.pdf>
+[205]
+File: EnvStat_files/figure-latex/legend-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/legend-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 206 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[206]
+File: EnvStat_files/figure-latex/legend2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/legend2-1.pdf>
+File: EnvStat_files/figure-latex/legend3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/legend3-1.pdf>
+
+Overfull \hbox (155.34502pt too wide) in paragraph at lines 11238--11243
+\TU/lmr/m/n/10 legend menggunakan \TU/lmr/m/it/10 keyword \TU/lmr/m/n/10 sepert
+i: bottomright“,”bottom“,”bottomleft“,”left“,”topleft“,”top“,”topright“,”right”
+
+ []
+
+[207]
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 208 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[208]
+Overfull \vbox (1.25996pt too high) detected at line 11288
+ []
+
+[209]
+File: EnvStat_files/figure-latex/legend4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/legend4-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 210 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[210]
+File: EnvStat_files/figure-latex/text-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/text-1.pdf>
+File: EnvStat_files/figure-latex/text2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/text2-1.pdf>
+[211]
+File: EnvStat_files/figure-latex/text3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/text3-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 212 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[212]
+File: EnvStat_files/figure-latex/abline-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/abline-1.pdf>
+[213]
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 214 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[214]
+File: EnvStat_files/figure-latex/symbol-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/symbol-1.pdf>
+[215]
+File: EnvStat_files/figure-latex/lty-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/lty-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 216 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[216]
+File: EnvStat_files/figure-latex/axis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/axis-1.pdf>
+[217]
+File: EnvStat_files/figure-latex/axis2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/axis2-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 218 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[218]
+Underfull \hbox (badness 1735) in paragraph at lines 11793--11796
+[]\TU/lmr/bx/n/10 xaxt \TU/lmr/m/n/10 dan \TU/lmr/bx/n/10 yaxt\TU/lmr/m/n/10 : 
+karakter untuk menunjukkan apakah axis akan
+ []
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 11793--11796
+\TU/lmr/m/n/10 ditampilkan atau tidak. nilai dapat berupa “n”(sembunyika) dan
+ []
+
+[219]
+File: EnvStat_files/figure-latex/axis3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/axis3-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 220 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[220]
+File: EnvStat_files/figure-latex/color-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/color-1.pdf>
+[221]
+File: EnvStat_files/figure-latex/carscatter-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/carscatter-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 222 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[222]
+File: EnvStat_files/figure-latex/psychscatter-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/psychscatter-1.pdf>
+[223]
+File: EnvStat_files/figure-latex/gplotsboxplot2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gplotsboxplot2-1.pdf>
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 224 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[224]
+File: EnvStat_files/figure-latex/carqqplot-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/carqqplot-1.pdf>
+File: EnvStat_files/figure-latex/plotmeans-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/plotmeans-1.pdf>
+[225]
+Underfull \hbox (badness 2635) in paragraph at lines 12111--12113
+[]\TU/lmr/m/n/10 STHDA. \TU/lmr/bx/n/10 R Base Graphs\TU/lmr/m/n/10 . [][]$[][]
+[][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][][][] []
+ []
+
+
+Overfull \hbox (5.13452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 226 \TU/lmr/m/sl/10 CHAPTER 4.  VISUALISASI DATA MENGGUNAKAN FUN
+GSI DASAR R
+ []
+
+[226]
+Chapter 5.
+
+Underfull \hbox (badness 2020) in paragraph at lines 12157--12161
+[]\TU/lmr/m/n/10 Sebelum kita mulai memcoba melakukan visualisasi data mengguna
+kan
+ []
+
+[227
+
+] [228]
+File: EnvStat_files/figure-latex/ggscatter-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggscatter-1.pdf>
+[229]
+File: EnvStat_files/figure-latex/ggscatter2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggscatter2-1.pdf>
+File: EnvStat_files/figure-latex/ggscatter3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggscatter3-1.pdf>
+File: EnvStat_files/figure-latex/ggscatter4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggscatter4-1.pdf>
+[230] [231] [232]
+File: EnvStat_files/figure-latex/ggscatter5-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggscatter5-1.pdf>
+[233]
+Underfull \hbox (badness 5036) in paragraph at lines 12481--12484
+[]\TU/lmr/m/n/10 Berikut merupakan contoh visualisasi variabel \TU/lmtt/m/n/10 
+lifeExp \TU/lmr/m/n/10 pada dataset
+ []
+
+File: EnvStat_files/figure-latex/ggboxplot-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggboxplot-1.pdf>
+File: EnvStat_files/figure-latex/ggboxplot2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggboxplot2-1.pdf>
+[234]
+File: EnvStat_files/figure-latex/ggboxplot3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggboxplot3-1.pdf>
+File: EnvStat_files/figure-latex/ggboxplot4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggboxplot4-1.pdf>
+[235] [236]
+File: EnvStat_files/figure-latex/ggviolin-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggviolin-1.pdf>
+File: EnvStat_files/figure-latex/ggviolin2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggviolin2-1.pdf>
+
+Underfull \vbox (badness 2126) has occurred while \output is active []
+
+[237]
+File: EnvStat_files/figure-latex/ggbar-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggbar-1.pdf>
+[238]
+File: EnvStat_files/figure-latex/ggbar2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggbar2-1.pdf>
+[239]
+File: EnvStat_files/figure-latex/ggbar3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggbar3-1.pdf>
+[240]
+File: EnvStat_files/figure-latex/ggline-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggline-1.pdf>
+[241]
+File: EnvStat_files/figure-latex/ggline2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggline2-1.pdf>
+File: EnvStat_files/figure-latex/ggpie-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggpie-1.pdf>
+[242] [243]
+File: EnvStat_files/figure-latex/gghist-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gghist-1.pdf>
+File: EnvStat_files/figure-latex/gghist2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gghist2-1.pdf>
+[244]
+File: EnvStat_files/figure-latex/ggdens-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggdens-1.pdf>
+File: EnvStat_files/figure-latex/ggdens2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggdens2-1.pdf>
+File: EnvStat_files/figure-latex/ggdenshist-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggdenshist-1.pdf>
+[245] [246]
+File: EnvStat_files/figure-latex/ggqq-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggqq-1.pdf>
+[247]
+File: EnvStat_files/figure-latex/dotplot-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dotplot-1.pdf>
+File: EnvStat_files/figure-latex/dotplot2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dotplot2-1.pdf>
+[248] [249]
+File: EnvStat_files/figure-latex/ggecdf-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggecdf-1.pdf>
+[250]
+File: EnvStat_files/figure-latex/ggtitle-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggtitle-1.pdf>
+[251]
+File: EnvStat_files/figure-latex/ggtitle2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggtitle2-1.pdf>
+[252]
+File: EnvStat_files/figure-latex/ggtitle3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggtitle3-1.pdf>
+
+Underfull \vbox (badness 1275) has occurred while \output is active []
+
+[253]
+File: EnvStat_files/figure-latex/gglegend-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglegend-1.pdf>
+File: EnvStat_files/figure-latex/gglegend2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglegend2-1.pdf>
+[254] [255]
+File: EnvStat_files/figure-latex/gglegend3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglegend3-1.pdf>
+[256]
+File: EnvStat_files/figure-latex/gglegend4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglegend4-1.pdf>
+[257]
+File: EnvStat_files/figure-latex/gglegend5-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglegend5-1.pdf>
+[258]
+File: EnvStat_files/figure-latex/ggcolor-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggcolor-1.pdf>
+File: EnvStat_files/figure-latex/ggcolor2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggcolor2-1.pdf>
+File: EnvStat_files/figure-latex/ggcolor3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggcolor3-1.pdf>
+
+Underfull \hbox (badness 1931) in paragraph at lines 13500--13506
+[]\TU/lmr/m/n/10 Jika kita tidak menginginkan warna yang secara otomatis ditamp
+ilkan
+ []
+
+
+Overfull \hbox (8.88399pt too wide) in paragraph at lines 13500--13506
+\TU/lmtt/m/n/10 scale_fill_manual() \TU/lmr/m/n/10 (untuk box plot, bar plot, d
+ll) dan \TU/lmtt/m/n/10 scale_color_manual()
+ []
+
+[259] [260]
+File: EnvStat_files/figure-latex/ggcolor4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggcolor4-1.pdf>
+[261]
+File: EnvStat_files/figure-latex/ggcolor5-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggcolor5-1.pdf>
+[262]
+File: EnvStat_files/figure-latex/ggcolor6-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggcolor6-1.pdf>
+File: EnvStat_files/figure-latex/ggcolor7-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggcolor7-1.pdf>
+[263]
+File: EnvStat_files/figure-latex/ggpoint-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggpoint-1.pdf>
+File: EnvStat_files/figure-latex/ggpoint2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggpoint2-1.pdf>
+[264] [265]
+File: EnvStat_files/figure-latex/ggpoint3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggpoint3-1.pdf>
+File: EnvStat_files/figure-latex/gglty-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglty-1.pdf>
+[266]
+File: EnvStat_files/figure-latex/gglty2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglty2-1.pdf>
+[267]
+File: EnvStat_files/figure-latex/gglty3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglty3-1.pdf>
+File: EnvStat_files/figure-latex/gglabel-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglabel-1.pdf>
+[268] [269]
+File: EnvStat_files/figure-latex/gglabel2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglabel2-1.pdf>
+File: EnvStat_files/figure-latex/gglabel3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglabel3-1.pdf>
+[270]
+File: EnvStat_files/figure-latex/gglabel4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglabel4-1.pdf>
+[271]
+File: EnvStat_files/figure-latex/ggtema-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggtema-1.pdf>
+[272]
+File: EnvStat_files/figure-latex/ggtema2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggtema2-1.pdf>
+[273]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ## function (base_size = 12, color = "brown", base_family = "
+sans",[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##     theme_foundation(base_size = base_size, base_family = 
+base_family) +[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##         theme(line = element_line(linetype = 1, colour = "
+black"),[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##                 colour = NA), text = element_text(colour =
+ "black"),[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             title = element_text(family = title_family, si
+ze = rel(2)),[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             axis.title = element_blank(), axis.text = elem
+ent_text(face = "bold",[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##                 size = rel(1)), axis.text.x = element_text
+(colour = NULL),[] 
+ []
+
+
+Overfull \hbox (174.75pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             axis.text.y = element_text(colour = NULL), axi
+s.ticks = element_line(colour = NULL),[] 
+ []
+
+
+Overfull \hbox (127.5pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             axis.ticks.y = element_blank(), axis.ticks.x =
+ element_line(colour = NULL),[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             axis.line = element_line(), axis.line.y = elem
+ent_blank(),[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             legend.background = element_rect(), legend.pos
+ition = "top",[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             legend.direction = "horizontal", legend.box = 
+"vertical",[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             panel.grid = element_line(colour = NULL, linet
+ype = 3),[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             panel.grid.major.x = element_blank(), panel.gr
+id.minor = element_blank(),[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             plot.title = element_text(hjust = 0, face = "b
+old"),[] 
+ []
+
+
+Overfull \hbox (143.25pt too wide) in paragraph at lines 14089--14089
+[]\TU/lmtt/m/n/10 ##             plot.margin = unit(c(1, 1, 1, 1), "lines"), st
+rip.background = element_rect())[] 
+ []
+
+[274]
+File: EnvStat_files/figure-latex/gglimits-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglimits-1.pdf>
+
+Overfull \hbox (45.93pt too wide) in paragraph at lines 14163--14166
+[]\TU/lmr/m/n/10 Kita juga dapat menggunakan fungsi \TU/lmtt/m/n/10 scale_x_con
+tinuous() \TU/lmr/m/n/10 dan \TU/lmtt/m/n/10 scale_y_continuous()
+ []
+
+[275] [276]
+File: EnvStat_files/figure-latex/gglimits2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglimits2-1.pdf>
+
+Overfull \hbox (56.04001pt too wide) in paragraph at lines 14258--14261
+[]\TU/lmr/bx/n/10 scale_x_continuous(trans=“log2”) \TU/lmr/m/n/10 dan \TU/lmr/b
+x/n/10 scale_y_continuous(trans=“log2”)\TU/lmr/m/n/10 :
+ []
+
+[277]
+File: EnvStat_files/figure-latex/gglimits3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglimits3-1.pdf>
+
+Overfull \hbox (22.33667pt too wide) in paragraph at lines 14292--14298
+[]\TU/lmr/m/it/10 Tick mark \TU/lmr/m/n/10 pada axis juga dapat kita atur mengg
+unakan fungsi \TU/lmtt/m/n/10 scale_x_continous()
+ []
+
+[278]
+File: EnvStat_files/figure-latex/gglimits4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gglimits4-1.pdf>
+[279]
+File: EnvStat_files/figure-latex/ggtick-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggtick-1.pdf>
+File: EnvStat_files/figure-latex/ggtick2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggtick2-1.pdf>
+[280] [281]
+File: EnvStat_files/figure-latex/ggtick3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggtick3-1.pdf>
+
+Underfull \hbox (badness 1917) in paragraph at lines 14489--14494
+[]\TU/lmr/m/n/10 Kita dapat mengatur \TU/lmr/m/it/10 tick \TU/lmr/m/n/10 pada a
+xis baik yang memiliki skala diskrit
+ []
+
+
+Overfull \hbox (10.58pt too wide) in paragraph at lines 14489--14494
+\TU/lmtt/m/n/10 scale_y_continous() \TU/lmr/m/n/10 untuk \TU/lmr/m/it/10 tick \
+TU/lmr/m/n/10 dengan nilai kontinyu dan \TU/lmtt/m/n/10 scale_x_discrete()
+ []
+
+[282]
+File: EnvStat_files/figure-latex/ggtick4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggtick4-1.pdf>
+[283]
+File: EnvStat_files/figure-latex/ggvline-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggvline-1.pdf>
+File: EnvStat_files/figure-latex/gghline-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gghline-1.pdf>
+[284] [285]
+File: EnvStat_files/figure-latex/ggabline-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggabline-1.pdf>
+[286]
+File: EnvStat_files/figure-latex/ggsegment-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggsegment-1.pdf>
+[287]
+File: EnvStat_files/figure-latex/ggcoord-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggcoord-1.pdf>
+File: EnvStat_files/figure-latex/ggyreverse-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggyreverse-1.pdf>
+[288]
+File: EnvStat_files/figure-latex/ggfacetgrid-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggfacetgrid-1.pdf>
+File: EnvStat_files/figure-latex/ggfacetgrid2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggfacetgrid2-1.pdf>
+[289] [290]
+File: EnvStat_files/figure-latex/ggfacetgrid3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggfacetgrid3-1.pdf>
+File: EnvStat_files/figure-latex/ggfacetgrid4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/ggfacetgrid4-1.pdf>
+[291] [292] [293
+
+] [294]
+Chapter 6.
+
+Underfull \vbox (badness 1769) has occurred while \output is active []
+
+[295
+
+] [296]
+File: mean1.png Graphic file (type bmp)
+<mean1.png>
+File: mean2.png Graphic file (type bmp)
+<mean2.png>
+[297]
+File: EnvStat_files/figure-latex/debitvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/debitvis-1.pdf>
+[298] [299]
+
+LaTeX Warning: Float too large for page by 28.5097pt on input line 15354.
+
+File: EnvStat_files/figure-latex/gwvis1-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gwvis1-1.pdf>
+File: EnvStat_files/figure-latex/gwvis2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gwvis2-1.pdf>
+[300] [301] [302]
+Underfull \hbox (badness 1137) in paragraph at lines 15492--15495
+[]\TU/lmr/m/n/10 Berdasarkan hasil komputasi diperoleh median debit sungai sebe
+sar 117
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15496--15501
+[]\TU/lmr/m/n/10 Jika kita melakukan perhitungan menggunakan menggunakan data
+ []
+
+
+Underfull \hbox (badness 1478) in paragraph at lines 15496--15501
+\TU/lmtt/m/n/10 sungai_subset \TU/lmr/m/n/10 (tanpa \TU/lmr/m/it/10 outlier\TU/
+lmr/m/n/10 ), maka diperoleh 115 $\OML/lmm/m/it/10 m[]=detik$ \TU/lmr/m/n/10 ya
+ng ni-
+ []
+
+[303] [304]
+File: tm.png Graphic file (type bmp)
+<tm.png>
+[305] [306] [307] [308] [309] [310]
+Overfull \hbox (64.95454pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 6.3.  RINGKASAN DATA MENGGUNAKAN FUNGSI SUMMARY() DAN STAT.DESC
+() \TU/lmr/m/n/10 311
+ []
+
+[311]
+File: skewness.png Graphic file (type bmp)
+<skewness.png>
+File: skewnessbox.png Graphic file (type bmp)
+<skewnessbox.png>
+[312] [313] [314] [315] [316]
+File: ladder.png Graphic file (type bmp)
+<ladder.png>
+[317]
+File: EnvStat_files/figure-latex/urantrans-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/urantrans-1.pdf>
+[318] [319] [320]
+Chapter 7.
+File: visscat.png Graphic file (type bmp)
+<visscat.png>
+[321
+
+] [322]
+Missing character: There is no ≥ in font rm-lmr10!
+[323]
+File: EnvStat_files/figure-latex/histeda-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/histeda-1.pdf>
+File: EnvStat_files/figure-latex/histeda2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/histeda2-1.pdf>
+File: EnvStat_files/figure-latex/denseda-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/denseda-1.pdf>
+[324] [325]
+File: EnvStat_files/figure-latex/qqeda-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/qqeda-1.pdf>
+[326]
+File: EnvStat_files/figure-latex/bpeda-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/bpeda-1.pdf>
+
+Overfull \hbox (13.65233pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.2.  GRAFIK UNTUK MELIHAT BEDA DISTRIBUSI DATA ANTAR GRUP \TU/
+lmr/m/n/10 327
+ []
+
+[327] [328]
+File: EnvStat_files/figure-latex/bpgeda-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/bpgeda-1.pdf>
+File: EnvStat_files/figure-latex/bargeda-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/bargeda-1.pdf>
+
+Overfull \hbox (13.65233pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.2.  GRAFIK UNTUK MELIHAT BEDA DISTRIBUSI DATA ANTAR GRUP \TU/
+lmr/m/n/10 329
+ []
+
+[329]
+File: EnvStat_files/figure-latex/scateda-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/scateda-1.pdf>
+[330]
+Overfull \hbox (126.53235pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.4.  GRAFIK YANG DIGUNAKAN UNTUK MEMVISUALISASIKAN ASOSIASI AN
+TAR VARIABEL \TU/lmr/m/n/10 331
+ []
+
+[331]
+File: EnvStat_files/figure-latex/barteneda-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/barteneda-1.pdf>
+
+Underfull \hbox (badness 1215) in paragraph at lines 16878--16878
+[]\TU/lmr/bx/n/14.4 Grafik Yang Digunakan Untuk Memisu-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[332]
+File: EnvStat_files/figure-latex/lineeda-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/lineeda-1.pdf>
+
+Overfull \hbox (265.64905pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.5.  GRAFIK YANG DIGUNAKAN UNTUK MEMISUALISASIKAN UKURAN SAMPE
+L DAN PERUBAHAN SEPANJANG WAKTU \TU/lmr/m/n/10 333
+ []
+
+[333] [334] [335
+
+] [336]
+Chapter 8.
+[337
+
+] [338] [339] [340]
+File: pmevis.png Graphic file (type bmp)
+<pmevis.png>
+[341] [342]
+Overfull \hbox (67.32037pt too wide) detected at line 17282
+\OML/lmm/m/it/10 P [] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 P [] \OT1/lmr/m/n/10 +
+ \OML/lmm/m/it/10 P [] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 P [] \OT1/lmr/m/n/
+10 = [] + [] \OMS/lmsy/m/n/10 ^^@ [] \OT1/lmr/m/n/10 = [] = []
+ []
+
+File: pnmevis.png Graphic file (type bmp)
+<pnmevis.png>
+[343]
+Overfull \hbox (56.06882pt too wide) detected at line 17342
+\OML/lmm/m/it/10 P [] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 P [] \OT1/lmr/m/n/10 +
+ \OML/lmm/m/it/10 P [] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 P []
+ []
+
+
+Overfull \hbox (48.0539pt too wide) detected at line 17356
+[]\OML/lmm/m/it/10 P [] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 P [] \OT1/lmr/m/n/10
+ + \OML/lmm/m/it/10 P [] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 P [] \OMS/lmsy/m/n/
+10 ^^@ \OML/lmm/m/it/10 P [] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 P [] \OMS/lm
+sy/m/n/10 ^^@ \OML/lmm/m/it/10 P [] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 P []
+ []
+
+[344] [345] [346]
+Underfull \hbox (badness 2707) in paragraph at lines 17502--17513
+\TU/lmr/m/n/10 Untuk menentukan probabilitas dua atau lebih peristiwa akan terj
+adi
+ []
+
+
+Underfull \hbox (badness 1152) in paragraph at lines 17502--17513
+\TU/lmr/m/n/10 bersamaan, perlu ditentukan terlebih dahulu apakaha peristiwa-pe
+ristiwa
+ []
+
+
+Underfull \hbox (badness 1342) in paragraph at lines 17502--17513
+\TU/lmr/m/n/10 maka probabilitas kejadiannya adalah hasil perkalian kedua proba
+bilitas
+ []
+
+[347] [348] [349] [350]
+Chapter 9.
+[351
+
+] [352]
+Underfull \hbox (badness 1097) in paragraph at lines 17852--17858
+\TU/lmr/m/n/10 Jumlah $\OML/lmm/m/it/10 X$ \TU/lmr/m/n/10 keberhasilan atau jum
+lah percobaan sukses dalam percobaan
+ []
+
+[353] [354] [355] [356]
+Overfull \hbox (42.91177pt too wide) detected at line 18128
+\OML/lmm/m/it/10 n \OT1/lmr/m/n/10 = 8;  \OML/lmm/m/it/10 x[] \OT1/lmr/m/n/10 =
+ 2 \OML/lmm/m/it/10 dengan p[] \OT1/lmr/m/n/10 = 0\OML/lmm/m/it/10 ; \OT1/lmr/m
+/n/10 30;  \OML/lmm/m/it/10 x[] \OT1/lmr/m/n/10 = 5 \OML/lmm/m/it/10 dengan p[]
+ \OT1/lmr/m/n/10 = 0\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 50\OML/lmm/m/it/10 ;  da
+n x[] \OT1/lmr/m/n/10 = 1 \OML/lmm/m/it/10 dengan p[] \OT1/lmr/m/n/10 = 0\OML/l
+mm/m/it/10 ; \OT1/lmr/m/n/10 20 
+ []
+
+[357] [358] [359] [360]
+Overfull \hbox (3.66452pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 9.4.  DISTRIBUSI BINOMIAL NEGATIF DAN DISTRIBUSI GEOMETRIS \TU/
+lmr/m/n/10 361
+ []
+
+[361] [362]
+Overfull \hbox (3.66452pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 9.4.  DISTRIBUSI BINOMIAL NEGATIF DAN DISTRIBUSI GEOMETRIS \TU/
+lmr/m/n/10 363
+ []
+
+[363] [364]
+Underfull \hbox (badness 1776) in paragraph at lines 18682--18687
+[]\TU/lmr/m/n/10 Terkadang kita tertarik untuk mempelajari probabilitas kejadia
+n sukses
+ []
+
+
+Underfull \hbox (badness 1424) in paragraph at lines 18682--18687
+\OML/lmm/m/it/10 P [] ;  P [] ;  atau P []$ \TU/lmr/m/n/10 yang dapat dituliska
+n pada
+ []
+
+
+Overfull \hbox (3.66452pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 9.4.  DISTRIBUSI BINOMIAL NEGATIF DAN DISTRIBUSI GEOMETRIS \TU/
+lmr/m/n/10 365
+ []
+
+[365] [366] [367] [368]
+File: EnvStat_files/figure-latex/uniformvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/uniformvis-1.pdf>
+[369]
+File: EnvStat_files/figure-latex/uniformvis2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/uniformvis2-1.pdf>
+[370] [371]
+File: EnvStat_files/figure-latex/normvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/normvis-1.pdf>
+File: EnvStat_files/figure-latex/normvis2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/normvis2-1.pdf>
+File: EnvStat_files/figure-latex/normvis3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/normvis3-1.pdf>
+[372] [373]
+File: EnvStat_files/figure-latex/normvis4-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/normvis4-1.pdf>
+[374]
+File: EnvStat_files/figure-latex/normvis5-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/normvis5-1.pdf>
+[375]
+File: EnvStat_files/figure-latex/normvis6-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/normvis6-1.pdf>
+[376] [377] [378]
+Underfull \vbox (badness 10000) detected at line 19486
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 19486
+ []
+
+[379]
+File: EnvStat_files/figure-latex/normvis7-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/normvis7-1.pdf>
+[380] [381]
+File: EnvStat_files/figure-latex/normvis8-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/normvis8-1.pdf>
+[382]
+File: EnvStat_files/figure-latex/gammavis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gammavis-1.pdf>
+[383] [384] [385] [386]
+Underfull \hbox (badness 1810) in paragraph at lines 19880--19880
+[]\TU/lmr/bx/n/14.4 Distribusi Chi-Square, Student’s t, dan
+ []
+
+[387]
+File: EnvStat_files/figure-latex/csqvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/csqvis-1.pdf>
+[388]
+File: EnvStat_files/figure-latex/dtvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dtvis-1.pdf>
+[389] [390]
+File: EnvStat_files/figure-latex/dFvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dFvis-1.pdf>
+[391] [392]
+File: EnvStat_files/figure-latex/dbeta-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dbeta-1.pdf>
+[393] [394]
+File: EnvStat_files/figure-latex/dlognnormalvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dlognnormalvis-1.pdf>
+
+Underfull \vbox (badness 1755) has occurred while \output is active []
+
+[395] [396]
+File: EnvStat_files/figure-latex/dcauchyvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dcauchyvis-1.pdf>
+[397] [398]
+File: EnvStat_files/figure-latex/dlogistikvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/dlogistikvis-1.pdf>
+[399]
+File: EnvStat_files/figure-latex/weibullvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/weibullvis-1.pdf>
+[400]
+Underfull \hbox (badness 5970) in paragraph at lines 20621--20625
+\TU/lmr/bx/n/10 CHECKS FOR NORMALITY\TU/lmr/m/n/10 . [][]$[][][][] [] [] [] [][
+][] [] [][][][][][][] [] [][][] [] [][][][][] []
+ []
+
+[401]
+Underfull \hbox (badness 8019) in paragraph at lines 20628--20631
+[]\TU/lmr/m/n/10 Quick-R. \TU/lmr/bx/n/10 Probability Plots \TU/lmr/m/n/10 . []
+[]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][] [] [][][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20634--20637
+[]\TU/lmr/m/n/10 ____.\TU/lmr/bx/n/10 Hypergeometric Distribution\TU/lmr/m/n/10
+ . [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] []
+ []
+
+
+Overfull \hbox (57.15334pt too wide) in paragraph at lines 20637--20640
+[]\TU/lmr/m/n/10 ____. \TU/lmr/bx/n/10 Multinomial Distribution\TU/lmr/m/n/10 .
+ [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] [] [][][][][][][][][][][][
+][][][][][][][][][][][][][][] []
+ []
+
+
+Overfull \hbox (33.00333pt too wide) in paragraph at lines 20643--20646
+[]\TU/lmr/m/n/10 ____. \TU/lmr/bx/n/10 Poisson Distribution\TU/lmr/m/n/10 . [][
+]$[][][][][] [] [] [] [][][][][][][][] [] [][][] [] [][][][][][][][][][][][][][
+][][][][][][][][][][][][] []
+ []
+
+
+Underfull \hbox (badness 6063) in paragraph at lines 20646--20649
+[]\TU/lmr/m/n/10 UBC. \TU/lmr/bx/n/10 Probability DIstribution\TU/lmr/m/n/10 . 
+[][]$[][][][][] [] [] [] [][][] [] [][][][][][][] [] [][][] [] [][] []
+ []
+
+[402] [403
+
+] [404]
+Chapter 10.
+[405
+
+] [406]
+File: iievis.png Graphic file (type bmp)
+<iievis.png>
+[407]
+File: iiedata.png Graphic file (type bmp)
+<iiedata.png>
+File: iievis2.png Graphic file (type bmp)
+<iievis2.png>
+
+Underfull \vbox (badness 6461) has occurred while \output is active []
+
+[408] [409]
+File: iemednp.png Graphic file (type bmp)
+<iemednp.png>
+File: EnvStat_files/figure-latex/gwardatvis-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gwardatvis-1.pdf>
+[410]
+File: tabbinom.png Graphic file (type bmp)
+<tabbinom.png>
+[411] [412] [413] [414] [415] [416] [417]
+File: EnvStat_files/figure-latex/gwardatvis2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/gwardatvis2-1.pdf>
+[418] [419] [420] [421] [422] [423] [424] [425] [426] [427] [428] [429]
+Underfull \hbox (badness 1831) in paragraph at lines 22061--22066
+[]\TU/lmr/m/n/10 Pada contoh berikut akan disajikan sintaks untuk menghitung in
+terval
+ []
+
+[430] [431] [432] [433]
+File: ipnds.png Graphic file (type bmp)
+<ipnds.png>
+[434]
+Underfull \hbox (badness 2096) in paragraph at lines 22307--22314
+[]\TU/lmr/m/n/10 Untuk melakukannya kita perlu menentukan observasi ke-2,5 dan 
+97,5
+ []
+
+
+Overfull \hbox (38.70903pt too wide) detected at line 22317
+\OML/lmm/m/it/10 X[] \OT1/lmr/m/n/10 + [] \OMS/lmsy/m/n/10 ^^A []  \OML/lmm/m/i
+t/10 sampai dengan X[] \OT1/lmr/m/n/10 + [] \OMS/lmsy/m/n/10 ^^A []
+ []
+
+[435]
+File: ipss.png Graphic file (type bmp)
+<ipss.png>
+[436] [437]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 22503--22503
+[]\TU/lmtt/m/n/10 ## ----------------------------------------------------------
+------------[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 22503--22503
+[]\TU/lmtt/m/n/10 ## nilai observasi lebih besar dibandingkan sebagian besar ni
+lai yang ada[] 
+ []
+
+[438]
+Overfull \hbox (29.06932pt too wide) detected at line 22549
+\OML/lmm/m/it/10 PI  \OT1/lmr/m/n/10 =  98\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 4 
+\OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 t[] \OMS/lmsy/m/n/10 ^^A []\OML/lmm/m/it/
+10 sampai  \OT1/lmr/m/n/10 98\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 4 + \OML/lmm/m/
+it/10 t[] \OMS/lmsy/m/n/10 ^^A []
+ []
+
+
+Underfull \hbox (badness 1789) in paragraph at lines 22559--22565
+[]\TU/lmr/m/n/10 Berdasarkan hasil perhitungan yang dilakukan terlihat bahwa li
+mit in-
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 22559--22565
+\TU/lmr/m/n/10 terval prediksi yang dihasilkanterdapat nilai negatif. Kosentras
+i negatif
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 22559--22565
+\TU/lmr/m/n/10 mengindikasikan bahwa data yang digunakan tidaklah simetris sehi
+ngga
+ []
+
+[439] [440]
+Underfull \hbox (badness 1496) in paragraph at lines 22660--22660
+[]\TU/lmr/bx/n/12 Interval Prediksi Untuk Distribusi Data Yang
+ []
+
+[441]
+Overfull \hbox (32.39886pt too wide) detected at line 22681
+[]\OML/lmm/m/it/10 PI \OT1/lmr/m/n/10 = [] []  \OML/lmm/m/it/10 sampai  [] []
+ []
+
+
+Overfull \hbox (28.02713pt too wide) detected at line 22686
+[]\OML/lmm/m/it/10 PI \OT1/lmr/m/n/10 = [] []  \OML/lmm/m/it/10 sampai   [] []
+ []
+
+
+Overfull \hbox (30.24944pt too wide) detected at line 22705
+[] []  \OT1/lmr/m/n/10 =  3\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 71 \OMS/lmsy/m/n/
+10 ^^@ \OML/lmm/m/it/10 t[] \OMS/lmsy/m/n/10 ^^A []\OML/lmm/m/it/10 sampai  \OT
+1/lmr/m/n/10 3\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 71 + \OML/lmm/m/it/10 t[] \OMS
+/lmsy/m/n/10 ^^A []
+ []
+
+[442]
+Overfull \vbox (0.35997pt too high) detected at line 22791
+ []
+
+[443]
+Underfull \vbox (badness 4441) has occurred while \output is active []
+
+[444]
+Overfull \hbox (12.43562pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.7.  INTERVAL KEPERCAYAAN PERSENTIL (INTERVAL TOLERANSI) \TU/
+lmr/m/n/10 445
+ []
+
+[445] [446]
+Overfull \hbox (12.43562pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.7.  INTERVAL KEPERCAYAAN PERSENTIL (INTERVAL TOLERANSI) \TU/
+lmr/m/n/10 447
+ []
+
+[447] [448]
+File: unup1.png Graphic file (type bmp)
+<unup1.png>
+File: unup2.png Graphic file (type bmp)
+<unup2.png>
+File: unup3.png Graphic file (type bmp)
+<unup3.png>
+
+Overfull \hbox (12.43562pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.7.  INTERVAL KEPERCAYAAN PERSENTIL (INTERVAL TOLERANSI) \TU/
+lmr/m/n/10 449
+ []
+
+[449] [450]
+Overfull \hbox (12.43562pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.7.  INTERVAL KEPERCAYAAN PERSENTIL (INTERVAL TOLERANSI) \TU/
+lmr/m/n/10 451
+ []
+
+[451] [452]
+Overfull \hbox (8.26068pt too wide) in paragraph at lines 23235--23235
+[]\TU/lmr/bx/n/14.4 Interval Kepercayaan Menggunakan Metode
+ []
+
+
+Overfull \hbox (29.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.8.  INTERVAL KEPERCAYAAN MENGGUNAKAN METODE BOOTSTRAP \TU/lm
+r/m/n/10 453
+ []
+
+[453]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 23330--23330
+[]\TU/lmtt/m/n/10 ## boot(data = gwardat$konsentrasi, statistic = med.boot.func
+, R = 1000)[] 
+ []
+
+[454]
+File: EnvStat_files/figure-latex/boot1-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/boot1-1.pdf>
+
+Overfull \hbox (29.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.8.  INTERVAL KEPERCAYAAN MENGGUNAKAN METODE BOOTSTRAP \TU/lm
+r/m/n/10 455
+ []
+
+[455] [456]
+File: EnvStat_files/figure-latex/boot2-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/boot2-1.pdf>
+
+Overfull \hbox (29.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.8.  INTERVAL KEPERCAYAAN MENGGUNAKAN METODE BOOTSTRAP \TU/lm
+r/m/n/10 457
+ []
+
+[457] [458]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 23558--23558
+[]\TU/lmtt/m/n/10 ## boot(data = gwardat$konsentrasi, statistic = p90.boot.func
+, R = 1000)[] 
+ []
+
+File: EnvStat_files/figure-latex/boot3-1.pdf Graphic file (type pdf)
+<use EnvStat_files/figure-latex/boot3-1.pdf>
+
+Overfull \hbox (29.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.8.  INTERVAL KEPERCAYAAN MENGGUNAKAN METODE BOOTSTRAP \TU/lm
+r/m/n/10 459
+ []
+
+[459] [460] [461] [462] [463] [464]
+Chapter 11.
+[465
+
+] [466] [467]
+File: test.png Graphic file (type bmp)
+<test.png>
+
+Overfull \hbox (69.03087pt too wide) in paragraph at lines 23930--23931
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 24.52182pt on input line 23935.
+
+[468] [469
+
+
+]
+
+LaTeX Warning: Reference `tab:error' on page 470 undefined on input line 24045.
+
+
+[470] [471] [472] [473]
+File: singletest.png Graphic file (type bmp)
+<singletest.png>
+[474] [475
+
+
+] [476]
+Underfull \hbox (badness 1286) in paragraph at lines 24397--24401
+\TU/lmr/m/n/10 sis apakah satu sisi(“less” dan “greater”), atau dua sisi
+ []
+
+[477]
+
+LaTeX Warning: Reference `eq:stparam3' on page 478 undefined on input line 2444
+3.
+
+
+LaTeX Warning: Reference `eq:stparam4' on page 478 undefined on input line 2449
+7.
+
+[478] [479]
+Overfull \vbox (9.90337pt too high) has occurred while \output is active []
+
+[480]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 11.5 on input line 24641.
+
+[481] [482] [483] [484] [485]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 11.6 on input line 25018.
+
+
+LaTeX Warning: Reference `tab:signtest' on page 486 undefined on input line 250
+21.
+
+[486]
+Underfull \hbox (badness 1286) in paragraph at lines 25077--25081
+\TU/lmr/m/n/10 sis apakah satu sisi(“less” dan “greater”), atau dua sisi
+ []
+
+[487]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 11.7 on input line 25138.
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 25144--25149
+[]\TU/lmr/m/n/10 Dengan menggunakan \TU/lmtt/m/n/10 R \TU/lmr/m/n/10 kita dapat
+ melakukan uji menggunakan fungsi
+ []
+
+[488]
+No file EnvStat.bbl.
+
+Package longtable Warning: Table widths have changed. Rerun LaTeX.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 25186.
+[489]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 25186.
+(./EnvStat.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 25186.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 25186
+.
+Package rerunfilecheck Info: File `EnvStat.out' has not changed.
+(rerunfilecheck)             Checksum: 4453A20C23193392D58CFC416239AF9A.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 24172 strings out of 494921
+ 465663 string characters out of 6176112
+ 573461 words of memory out of 5000000
+ 27666 multiletter control sequences out of 15000+600000
+ 545494 words of font info for 64 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 45i,11n,45p,804b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on EnvStat.pdf (489 pages).

@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Uji Hipotesis | Statistika Lingkungan Menggunakan R</title>
+  <meta name="description" content="Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Uji Hipotesis | Statistika Lingkungan Menggunakan R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="cover.png" />
+  <meta property="og:description" content="Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Uji Hipotesis | Statistika Lingkungan Menggunakan R" />
+  
+  <meta name="twitter:description" content="Buku yang membahas penerapan R pada komputasi statistik di bidang Teknik Lingkungan" />
+  <meta name="twitter:image" content="cover.png" />
+
+<meta name="author" content="Moh. Rosidi" />
+
+
+<meta name="date" content="2019-06-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="Rosidi.png" />
+  <link rel="shortcut icon" href="Rosidi.png" type="image/x-icon" />
+<link rel="prev" href="penaksiran-secara-statistika.html">
+
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistika Lingkungan Menggunakan R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pengantar</a></li>
+<li class="part"><span><b>Bahasa Pemrograman R</b></span></li>
+<li class="chapter" data-level="1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html"><i class="fa fa-check"></i><b>1</b> Mengenal Bahasa R</a><ul>
+<li class="chapter" data-level="1.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#sejarah-r"><i class="fa fa-check"></i><b>1.1</b> Sejarah R</a></li>
+<li class="chapter" data-level="1.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fitur-dan-karakteristik-r"><i class="fa fa-check"></i><b>1.2</b> Fitur dan Karakteristik R</a></li>
+<li class="chapter" data-level="1.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#kelebihan-dan-kekurangan-r"><i class="fa fa-check"></i><b>1.3</b> Kelebihan dan Kekurangan R</a></li>
+<li class="chapter" data-level="1.4" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#rstudio"><i class="fa fa-check"></i><b>1.4</b> RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#menginstall-r-dan-rstudio"><i class="fa fa-check"></i><b>1.5</b> Menginstall R dan RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#working-directory"><i class="fa fa-check"></i><b>1.6</b> Working Directory</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory"><i class="fa fa-check"></i><b>1.6.1</b> Mengubah Lokasi Working Directory</a></li>
+<li class="chapter" data-level="1.6.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mengubah-lokasi-working-directory-default"><i class="fa fa-check"></i><b>1.6.2</b> Mengubah Lokasi Working Directory Default</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help"><i class="fa fa-check"></i><b>1.7</b> Fasilitas Help</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#mencari-help-dari-suatu-perintah-tertentu"><i class="fa fa-check"></i><b>1.7.1</b> Mencari Help dari Suatu Perintah Tertentu</a></li>
+<li class="chapter" data-level="1.7.2" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#general-help"><i class="fa fa-check"></i><b>1.7.2</b> General Help</a></li>
+<li class="chapter" data-level="1.7.3" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#fasilitas-help-lainnya"><i class="fa fa-check"></i><b>1.7.3</b> Fasilitas Help Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="mengenal-bahasa-r.html"><a href="mengenal-bahasa-r.html#referensi"><i class="fa fa-check"></i><b>1.8</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html"><i class="fa fa-check"></i><b>2</b> Dasar Pemrograman Menggunakan R</a><ul>
+<li class="chapter" data-level="2.1" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#operator-aritmatika"><i class="fa fa-check"></i><b>2.1</b> Operator Aritmatika</a></li>
+<li class="chapter" data-level="2.2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#fungsi-aritmetik"><i class="fa fa-check"></i><b>2.2</b> Fungsi Aritmetik</a></li>
+<li class="chapter" data-level="2.3" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#operator-relasi"><i class="fa fa-check"></i><b>2.3</b> Operator Relasi</a></li>
+<li class="chapter" data-level="2.4" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#operator-logika"><i class="fa fa-check"></i><b>2.4</b> Operator Logika</a></li>
+<li class="chapter" data-level="2.5" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#memasukkan-nilai-kedalam-variabel"><i class="fa fa-check"></i><b>2.5</b> Memasukkan Nilai Kedalam Variabel</a></li>
+<li class="chapter" data-level="2.6" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#tipe-dan-struktur-data"><i class="fa fa-check"></i><b>2.6</b> Tipe dan Struktur Data</a></li>
+<li class="chapter" data-level="2.7" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#vektor"><i class="fa fa-check"></i><b>2.7</b> Vektor</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#membuat-vektor"><i class="fa fa-check"></i><b>2.7.1</b> Membuat vektor</a></li>
+<li class="chapter" data-level="2.7.2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#missing-values"><i class="fa fa-check"></i><b>2.7.2</b> Missing Values</a></li>
+<li class="chapter" data-level="2.7.3" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#subset-pada-vektor"><i class="fa fa-check"></i><b>2.7.3</b> Subset Pada Vektor</a></li>
+<li class="chapter" data-level="2.7.4" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#operasi-matematis-menggunakan-vektor"><i class="fa fa-check"></i><b>2.7.4</b> Operasi Matematis Menggunakan Vektor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#matriks"><i class="fa fa-check"></i><b>2.8</b> Matriks</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#membuat-matriks"><i class="fa fa-check"></i><b>2.8.1</b> Membuat matriks</a></li>
+<li class="chapter" data-level="2.8.2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#subset-pada-matriks"><i class="fa fa-check"></i><b>2.8.2</b> Subset Pada Matriks</a></li>
+<li class="chapter" data-level="2.8.3" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#perhitungan-menggunakan-matriks"><i class="fa fa-check"></i><b>2.8.3</b> Perhitungan Menggunakan Matriks</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#faktor"><i class="fa fa-check"></i><b>2.9</b> Faktor</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#membuat-variabel-faktor"><i class="fa fa-check"></i><b>2.9.1</b> Membuat Variabel Faktor</a></li>
+<li class="chapter" data-level="2.9.2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#perhitungan-menggunakan-faktor"><i class="fa fa-check"></i><b>2.9.2</b> Perhitungan Menggunakan Faktor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#data-frames"><i class="fa fa-check"></i><b>2.10</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#membuat-data-frame"><i class="fa fa-check"></i><b>2.10.1</b> Membuat Data Frame</a></li>
+<li class="chapter" data-level="2.10.2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#subset-pada-data-frame"><i class="fa fa-check"></i><b>2.10.2</b> Subset Pada Data Frame</a></li>
+<li class="chapter" data-level="2.10.3" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#memperluas-data-frame"><i class="fa fa-check"></i><b>2.10.3</b> Memperluas Data Frame</a></li>
+<li class="chapter" data-level="2.10.4" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#perhitungan-pada-data-frame"><i class="fa fa-check"></i><b>2.10.4</b> Perhitungan Pada Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#list"><i class="fa fa-check"></i><b>2.11</b> List</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#membuat-list"><i class="fa fa-check"></i><b>2.11.1</b> Membuat List</a></li>
+<li class="chapter" data-level="2.11.2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#subset-list"><i class="fa fa-check"></i><b>2.11.2</b> Subset List</a></li>
+<li class="chapter" data-level="2.11.3" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#memperluas-list"><i class="fa fa-check"></i><b>2.11.3</b> Memperluas List</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#loop"><i class="fa fa-check"></i><b>2.12</b> Loop</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#for-loop"><i class="fa fa-check"></i><b>2.12.1</b> For Loop</a></li>
+<li class="chapter" data-level="2.12.2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#while-loop"><i class="fa fa-check"></i><b>2.12.2</b> While Loop</a></li>
+<li class="chapter" data-level="2.12.3" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#repeat-loop"><i class="fa fa-check"></i><b>2.12.3</b> Repeat Loop</a></li>
+<li class="chapter" data-level="2.12.4" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#break"><i class="fa fa-check"></i><b>2.12.4</b> Break</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#loop-menggunakan-apply-family-function"><i class="fa fa-check"></i><b>2.13</b> Loop Menggunakan Apply Family Function</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#apply"><i class="fa fa-check"></i><b>2.13.1</b> Apply</a></li>
+<li class="chapter" data-level="2.13.2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#lapply"><i class="fa fa-check"></i><b>2.13.2</b> lapply</a></li>
+<li class="chapter" data-level="2.13.3" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#sapply"><i class="fa fa-check"></i><b>2.13.3</b> sapply</a></li>
+<li class="chapter" data-level="2.13.4" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#vapply"><i class="fa fa-check"></i><b>2.13.4</b> vapply</a></li>
+<li class="chapter" data-level="2.13.5" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#tapply"><i class="fa fa-check"></i><b>2.13.5</b> tapply</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#loop-menggunakan-map-function-pada-library-purrr"><i class="fa fa-check"></i><b>2.14</b> Loop Menggunakan map function pada Library <code>purrr</code></a></li>
+<li class="chapter" data-level="2.15" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#decision-making"><i class="fa fa-check"></i><b>2.15</b> Decision Making</a><ul>
+<li class="chapter" data-level="2.15.1" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#if-statement"><i class="fa fa-check"></i><b>2.15.1</b> if statement</a></li>
+<li class="chapter" data-level="2.15.2" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#if-else-statement"><i class="fa fa-check"></i><b>2.15.2</b> if else statement</a></li>
+<li class="chapter" data-level="2.15.3" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#switch-statement"><i class="fa fa-check"></i><b>2.15.3</b> switch statement</a></li>
+</ul></li>
+<li class="chapter" data-level="2.16" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#fungsi"><i class="fa fa-check"></i><b>2.16</b> Fungsi</a></li>
+<li class="chapter" data-level="2.17" data-path="dasar-pemrograman-menggunakan-r.html"><a href="dasar-pemrograman-menggunakan-r.html#referensi-1"><i class="fa fa-check"></i><b>2.17</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html"><i class="fa fa-check"></i><b>3</b> Manajemen Data R</a><ul>
+<li class="chapter" data-level="3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tidyverse"><i class="fa fa-check"></i><b>3.1</b> Tidyverse</a></li>
+<li class="chapter" data-level="3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file"><i class="fa fa-check"></i><b>3.2</b> Import File</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-menggunakan-fungsi-bawaan-r"><i class="fa fa-check"></i><b>3.2.1</b> Import File Menggunakan Fungsi Bawaan R</a></li>
+<li class="chapter" data-level="3.2.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-csv-dan-txt-menggunakan-library-readr"><i class="fa fa-check"></i><b>3.2.2</b> Membaca File CSV dan TXT Menggunakan Library readr</a></li>
+<li class="chapter" data-level="3.2.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-file-excel-pada-r"><i class="fa fa-check"></i><b>3.2.3</b> Import File Excel Pada R</a></li>
+<li class="chapter" data-level="3.2.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membaca-file-dari-format-aplikasi-statistik"><i class="fa fa-check"></i><b>3.2.4</b> Membaca File Dari Format Aplikasi Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#import-beberapa-file-dalam-beberapa-baris-kode"><i class="fa fa-check"></i><b>3.3</b> Import Beberapa File Dalam Beberapa Baris Kode</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#for-loop-1"><i class="fa fa-check"></i><b>3.3.1</b> for loop</a></li>
+<li class="chapter" data-level="3.3.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#apply-family-function"><i class="fa fa-check"></i><b>3.3.2</b> Apply Family Function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#map-family-function"><i class="fa fa-check"></i><b>3.3.3</b> Map Family Function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-file"><i class="fa fa-check"></i><b>3.4</b> Eksport File</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-txt-dan-csv"><i class="fa fa-check"></i><b>3.4.1</b> Eksport Data Menjadi Format TXT dan CSV</a></li>
+<li class="chapter" data-level="3.4.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-data-menjadi-format-excel"><i class="fa fa-check"></i><b>3.4.2</b> Eksport Data Menjadi Format Excel</a></li>
+<li class="chapter" data-level="3.4.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#eksport-file-dalam-format-sas-spss-dan-stata"><i class="fa fa-check"></i><b>3.4.3</b> Eksport File Dalam Format SAS, SPSS, dan STATA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-data-format"><i class="fa fa-check"></i><b>3.5</b> Tibble Data Format</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#membuat-tibble"><i class="fa fa-check"></i><b>3.5.1</b> Membuat Tibble</a></li>
+<li class="chapter" data-level="3.5.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#tibble-vs-data-frame"><i class="fa fa-check"></i><b>3.5.2</b> Tibble vs Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#merapikan-data"><i class="fa fa-check"></i><b>3.6</b> Merapikan Data</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#gather"><i class="fa fa-check"></i><b>3.6.1</b> Gather</a></li>
+<li class="chapter" data-level="3.6.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#spread"><i class="fa fa-check"></i><b>3.6.2</b> Spread</a></li>
+<li class="chapter" data-level="3.6.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#separate"><i class="fa fa-check"></i><b>3.6.3</b> Separate</a></li>
+<li class="chapter" data-level="3.6.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#unite"><i class="fa fa-check"></i><b>3.6.4</b> Unite</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#transformasi-data"><i class="fa fa-check"></i><b>3.7</b> Transformasi Data</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#paket-dplyr"><i class="fa fa-check"></i><b>3.7.1</b> Paket dplyr</a></li>
+<li class="chapter" data-level="3.7.2" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#filter"><i class="fa fa-check"></i><b>3.7.2</b> filter()</a></li>
+<li class="chapter" data-level="3.7.3" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#arrange"><i class="fa fa-check"></i><b>3.7.3</b> arrange()</a></li>
+<li class="chapter" data-level="3.7.4" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#select"><i class="fa fa-check"></i><b>3.7.4</b> select()</a></li>
+<li class="chapter" data-level="3.7.5" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mutate"><i class="fa fa-check"></i><b>3.7.5</b> mutate()</a></li>
+<li class="chapter" data-level="3.7.6" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#summarize-dan-group_by"><i class="fa fa-check"></i><b>3.7.6</b> summarize() dan group_by()</a></li>
+<li class="chapter" data-level="3.7.7" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#mengkombinasikan-beberapa-operasi-menggunakan-operator-pipe"><i class="fa fa-check"></i><b>3.7.7</b> Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%&gt;%)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="manajemen-data-r.html"><a href="manajemen-data-r.html#referensi-2"><i class="fa fa-check"></i><b>3.8</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Visualisasi Data - R</b></span></li>
+<li class="chapter" data-level="4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html"><i class="fa fa-check"></i><b>4</b> Visualisasi Data Menggunakan Fungsi Dasar R</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#visualisasi-data-menggunakan-fungsi-plot"><i class="fa fa-check"></i><b>4.1</b> Visualisasi Data Menggunakan Fungsi plot()</a></li>
+<li class="chapter" data-level="4.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot"><i class="fa fa-check"></i><b>4.2</b> Matriks Scatterplot</a></li>
+<li class="chapter" data-level="4.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot"><i class="fa fa-check"></i><b>4.3</b> Box plot</a></li>
+<li class="chapter" data-level="4.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#bar-plot"><i class="fa fa-check"></i><b>4.4</b> Bar Plot</a></li>
+<li class="chapter" data-level="4.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#line-plot"><i class="fa fa-check"></i><b>4.5</b> Line Plot</a></li>
+<li class="chapter" data-level="4.6" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#pie-chart"><i class="fa fa-check"></i><b>4.6</b> Pie Chart</a></li>
+<li class="chapter" data-level="4.7" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#histogram-dan-density-plot"><i class="fa fa-check"></i><b>4.7</b> Histogram dan Density Plot</a></li>
+<li class="chapter" data-level="4.8" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#qq-plot"><i class="fa fa-check"></i><b>4.8</b> QQ Plot</a></li>
+<li class="chapter" data-level="4.9" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#dot-chart"><i class="fa fa-check"></i><b>4.9</b> Dot Chart</a></li>
+<li class="chapter" data-level="4.10" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#kustomisasi-parameter-grafik"><i class="fa fa-check"></i><b>4.10</b> Kustomisasi Parameter Grafik</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-judul"><i class="fa fa-check"></i><b>4.10.1</b> Menambahkan Judul</a></li>
+<li class="chapter" data-level="4.10.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-legend"><i class="fa fa-check"></i><b>4.10.2</b> Menambahkan Legend</a></li>
+<li class="chapter" data-level="4.10.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-teks-pada-grafik"><i class="fa fa-check"></i><b>4.10.3</b> Menambahkan Teks Pada Grafik</a></li>
+<li class="chapter" data-level="4.10.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#menambahkan-garis-pada-plot"><i class="fa fa-check"></i><b>4.10.4</b> Menambahkan Garis Pada Plot</a></li>
+<li class="chapter" data-level="4.10.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#merubah-simbol-plot-dan-jenis-garis"><i class="fa fa-check"></i><b>4.10.5</b> Merubah Simbol plot dan Jenis Garis</a></li>
+<li class="chapter" data-level="4.10.6" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-axis-plot"><i class="fa fa-check"></i><b>4.10.6</b> Mengatur Axis Plot</a></li>
+<li class="chapter" data-level="4.10.7" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#mengatur-warna"><i class="fa fa-check"></i><b>4.10.7</b> Mengatur Warna</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#alternatif-library-dasar-lain"><i class="fa fa-check"></i><b>4.11</b> Alternatif Library Dasar Lain</a><ul>
+<li class="chapter" data-level="4.11.1" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#scatterplot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.1</b> Scatterplot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.2" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#matriks-scatterplot-menggunakan-library-psych"><i class="fa fa-check"></i><b>4.11.2</b> Matriks Scatterplot Menggunakan Library psych</a></li>
+<li class="chapter" data-level="4.11.3" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#box-plot-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.3</b> Box Plot Menggunakan Library gplots</a></li>
+<li class="chapter" data-level="4.11.4" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#qq-plot-menggunakan-library-car"><i class="fa fa-check"></i><b>4.11.4</b> QQ Plot Menggunakan Library car</a></li>
+<li class="chapter" data-level="4.11.5" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#plot-group-means-menggunakan-library-gplots"><i class="fa fa-check"></i><b>4.11.5</b> Plot Group Means Menggunakan Library gplots</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="visualisasi-data-menggunakan-fungsi-dasar-r.html"><a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#referensi-3"><i class="fa fa-check"></i><b>4.12</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html"><i class="fa fa-check"></i><b>5</b> Visualisasi Data Menggunakan GGPLOT</a><ul>
+<li class="chapter" data-level="5.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#scatterplot"><i class="fa fa-check"></i><b>5.1</b> Scatterplot</a></li>
+<li class="chapter" data-level="5.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#box-plot-dan-violin-plot"><i class="fa fa-check"></i><b>5.2</b> Box Plot dan Violin Plot</a></li>
+<li class="chapter" data-level="5.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#bar-plot-1"><i class="fa fa-check"></i><b>5.3</b> Bar Plot</a></li>
+<li class="chapter" data-level="5.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#line-plot-1"><i class="fa fa-check"></i><b>5.4</b> Line Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#pie-chart-1"><i class="fa fa-check"></i><b>5.5</b> Pie Chart</a></li>
+<li class="chapter" data-level="5.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#histogram-dan-desity-plot"><i class="fa fa-check"></i><b>5.6</b> Histogram dan Desity Plot</a></li>
+<li class="chapter" data-level="5.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#qq-plot-1"><i class="fa fa-check"></i><b>5.7</b> QQ Plot</a></li>
+<li class="chapter" data-level="5.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#dot-plot"><i class="fa fa-check"></i><b>5.8</b> Dot Plot</a></li>
+<li class="chapter" data-level="5.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#ecdf-plot"><i class="fa fa-check"></i><b>5.9</b> ECDF Plot</a></li>
+<li class="chapter" data-level="5.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#parameter-grafik"><i class="fa fa-check"></i><b>5.10</b> Parameter Grafik</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-judul-grafik-keterangan-axis-dan-legend"><i class="fa fa-check"></i><b>5.10.1</b> Merubah Judul Grafik, Keterangan Axis dan Legend</a></li>
+<li class="chapter" data-level="5.10.2" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-tampilan-dan-posisi-legend"><i class="fa fa-check"></i><b>5.10.2</b> Merubah Tampilan dan Posisi Legend</a></li>
+<li class="chapter" data-level="5.10.3" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#merubah-warana-pada-grafik-secara-otomatis-dan-manual"><i class="fa fa-check"></i><b>5.10.3</b> Merubah Warana Pada Grafik Secara Otomatis dan Manual</a></li>
+<li class="chapter" data-level="5.10.4" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-titik"><i class="fa fa-check"></i><b>5.10.4</b> Kustomisasi Titik</a></li>
+<li class="chapter" data-level="5.10.5" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-jenis-garis"><i class="fa fa-check"></i><b>5.10.5</b> Kustomisasi Jenis Garis</a></li>
+<li class="chapter" data-level="5.10.6" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-label-pada-titik-observasi-dan-bidang-plot"><i class="fa fa-check"></i><b>5.10.6</b> Menambahkan Label Pada Titik Observasi dan Bidang Plot</a></li>
+<li class="chapter" data-level="5.10.7" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tema-pada-plot"><i class="fa fa-check"></i><b>5.10.7</b> Kustomisasi Tema Pada Plot</a></li>
+<li class="chapter" data-level="5.10.8" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#penskalaan-dan-transformasi-axis"><i class="fa fa-check"></i><b>5.10.8</b> Penskalaan dan Transformasi Axis</a></li>
+<li class="chapter" data-level="5.10.9" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#kustomisasi-tick-mark-axis"><i class="fa fa-check"></i><b>5.10.9</b> Kustomisasi Tick Mark Axis</a></li>
+<li class="chapter" data-level="5.10.10" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#menambahkan-garis-lurus-pada-plot"><i class="fa fa-check"></i><b>5.10.10</b> Menambahkan Garis Lurus Pada Plot</a></li>
+<li class="chapter" data-level="5.10.11" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#melakukan-rotasi-pada-grafik"><i class="fa fa-check"></i><b>5.10.11</b> Melakukan Rotasi Pada Grafik</a></li>
+<li class="chapter" data-level="5.10.12" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#facet"><i class="fa fa-check"></i><b>5.10.12</b> Facet</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="visualisasi-data-menggunakan-ggplot.html"><a href="visualisasi-data-menggunakan-ggplot.html#referensi-4"><i class="fa fa-check"></i><b>5.11</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Statistika Deskriptif - R</b></span></li>
+<li class="chapter" data-level="6" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html"><i class="fa fa-check"></i><b>6</b> Ringkasan Numerik</a><ul>
+<li class="chapter" data-level="6.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-pemusatan-data"><i class="fa fa-check"></i><b>6.1</b> Ukuran Pemusatan Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#pengukuran-klasik-mean"><i class="fa fa-check"></i><b>6.1.1</b> Pengukuran Klasik-Mean</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#median-sebagai-ukuran-pemusatan-data-yang-resistan"><i class="fa fa-check"></i><b>6.1.2</b> Median Sebagai Ukuran Pemusatan Data yang Resistan</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-pemusatan-data-lainnya"><i class="fa fa-check"></i><b>6.1.3</b> Ukuran Pemusatan Data Lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-sebaran-data"><i class="fa fa-check"></i><b>6.2</b> Ukuran Sebaran Data</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#pengukuran-klasik-varian-dan-simpangan-baku"><i class="fa fa-check"></i><b>6.2.1</b> Pengukuran Klasik (Varian dan Simpangan Baku)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-sebaran-data-yang-resisten-terhadap-outlier"><i class="fa fa-check"></i><b>6.2.2</b> Ukuran Sebaran Data yang Resisten Terhadap Outlier</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ringkasan-data-menggunakan-fungsi-summary-dan-stat.desc"><i class="fa fa-check"></i><b>6.3</b> Ringkasan Data Menggunakan Fungsi summary() dan stat.desc()</a></li>
+<li class="chapter" data-level="6.4" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-kemencengan-data"><i class="fa fa-check"></i><b>6.4</b> Ukuran Kemencengan Data</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-kemencengan-klasik"><i class="fa fa-check"></i><b>6.4.1</b> Ukuran Kemencengan Klasik</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#ukuran-kemencengan-yang-resisten"><i class="fa fa-check"></i><b>6.4.2</b> Ukuran Kemencengan yang Resisten</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#outlier"><i class="fa fa-check"></i><b>6.5</b> Outlier</a></li>
+<li class="chapter" data-level="6.6" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#transformasi-data-1"><i class="fa fa-check"></i><b>6.6</b> Transformasi Data</a></li>
+<li class="chapter" data-level="6.7" data-path="ringkasan-numerik.html"><a href="ringkasan-numerik.html#referensi-5"><i class="fa fa-check"></i><b>6.7</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html"><i class="fa fa-check"></i><b>7</b> Ekplorasi Data Menggunakan Grafik</a><ul>
+<li class="chapter" data-level="7.1" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-untuk-melihat-ditribusi-data"><i class="fa fa-check"></i><b>7.1</b> Grafik Untuk Melihat Ditribusi Data</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#histogram"><i class="fa fa-check"></i><b>7.1.1</b> Histogram</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#density-plot"><i class="fa fa-check"></i><b>7.1.2</b> Density Plot</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#qq-plot-2"><i class="fa fa-check"></i><b>7.1.3</b> QQ-plot</a></li>
+<li class="chapter" data-level="7.1.4" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#box-plot-dan-violin-plot-1"><i class="fa fa-check"></i><b>7.1.4</b> Box Plot dan Violin Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-untuk-melihat-beda-distribusi-data-antar-grup"><i class="fa fa-check"></i><b>7.2</b> Grafik Untuk Melihat Beda Distribusi Data Antar Grup</a></li>
+<li class="chapter" data-level="7.3" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-untuk-memvisualisasikan-korelasi-antar-variabel"><i class="fa fa-check"></i><b>7.3</b> Grafik Untuk Memvisualisasikan Korelasi Antar Variabel</a></li>
+<li class="chapter" data-level="7.4" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-yang-digunakan-untuk-memvisualisasikan-asosiasi-antar-variabel"><i class="fa fa-check"></i><b>7.4</b> Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar Variabel</a></li>
+<li class="chapter" data-level="7.5" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#grafik-yang-digunakan-untuk-memisualisasikan-ukuran-sampel-dan-perubahan-sepanjang-waktu"><i class="fa fa-check"></i><b>7.5</b> Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang Waktu</a></li>
+<li class="chapter" data-level="7.6" data-path="ekplorasi-data-menggunakan-grafik.html"><a href="ekplorasi-data-menggunakan-grafik.html#referensi-6"><i class="fa fa-check"></i><b>7.6</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Probabilitas dan Distribusi Probabilitas</b></span></li>
+<li class="chapter" data-level="8" data-path="probabilitas.html"><a href="probabilitas.html"><i class="fa fa-check"></i><b>8</b> Probabilitas</a><ul>
+<li class="chapter" data-level="8.1" data-path="probabilitas.html"><a href="probabilitas.html#aturan-dasar-probabilitas"><i class="fa fa-check"></i><b>8.1</b> Aturan Dasar Probabilitas</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="probabilitas.html"><a href="probabilitas.html#peristiwa-mutually-exclusive"><i class="fa fa-check"></i><b>8.1.1</b> Peristiwa <em>Mutually Exclusive</em></a></li>
+<li class="chapter" data-level="8.1.2" data-path="probabilitas.html"><a href="probabilitas.html#peristiwa-not-mutually-exclusive"><i class="fa fa-check"></i><b>8.1.2</b> Peristiwa <em>Not Mutually Exclusive</em></a></li>
+<li class="chapter" data-level="8.1.3" data-path="probabilitas.html"><a href="probabilitas.html#peristiwa-dependent"><i class="fa fa-check"></i><b>8.1.3</b> Peristiwa <em>Dependent</em></a></li>
+<li class="chapter" data-level="8.1.4" data-path="probabilitas.html"><a href="probabilitas.html#peristiwa-independent"><i class="fa fa-check"></i><b>8.1.4</b> Peristiwa <em>Independent</em></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="probabilitas.html"><a href="probabilitas.html#teori-bayes"><i class="fa fa-check"></i><b>8.2</b> Teori Bayes</a></li>
+<li class="chapter" data-level="8.3" data-path="probabilitas.html"><a href="probabilitas.html#ekspektasi-matematis"><i class="fa fa-check"></i><b>8.3</b> Ekspektasi Matematis</a></li>
+<li class="chapter" data-level="8.4" data-path="probabilitas.html"><a href="probabilitas.html#referensi-7"><i class="fa fa-check"></i><b>8.4</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html"><i class="fa fa-check"></i><b>9</b> Distribusi Probabilitas</a><ul>
+<li class="chapter" data-level="9.1" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#properti-umum-dari-distribusi-probabilitas"><i class="fa fa-check"></i><b>9.1</b> Properti Umum dari Distribusi Probabilitas</a></li>
+<li class="chapter" data-level="9.2" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-binomial-dan-multinomial"><i class="fa fa-check"></i><b>9.2</b> Distribusi Binomial dan Multinomial</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-binomial"><i class="fa fa-check"></i><b>9.2.1</b> Distribusi Binomial</a></li>
+<li class="chapter" data-level="9.2.2" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#multinomial-eksperimen-dan-distribusi-multinomial"><i class="fa fa-check"></i><b>9.2.2</b> Multinomial Eksperimen dan Distribusi Multinomial</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-hipergeometris"><i class="fa fa-check"></i><b>9.3</b> Distribusi Hipergeometris</a></li>
+<li class="chapter" data-level="9.4" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-binomial-negatif-dan-distribusi-geometris"><i class="fa fa-check"></i><b>9.4</b> Distribusi Binomial Negatif dan Distribusi Geometris</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-binomial-negatif"><i class="fa fa-check"></i><b>9.4.1</b> Distribusi Binomial Negatif</a></li>
+<li class="chapter" data-level="9.4.2" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-geometris"><i class="fa fa-check"></i><b>9.4.2</b> Distribusi Geometris</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-poisson"><i class="fa fa-check"></i><b>9.5</b> Distribusi Poisson</a></li>
+<li class="chapter" data-level="9.6" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-uniform"><i class="fa fa-check"></i><b>9.6</b> Distribusi Uniform</a></li>
+<li class="chapter" data-level="9.7" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-normal"><i class="fa fa-check"></i><b>9.7</b> Distribusi Normal</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#luas-area-di-bawah-kurva-normal"><i class="fa fa-check"></i><b>9.7.1</b> Luas Area Di Bawah Kurva Normal</a></li>
+<li class="chapter" data-level="9.7.2" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#uji-kecocokan-distribusi-normal"><i class="fa fa-check"></i><b>9.7.2</b> Uji Kecocokan Distribusi Normal</a></li>
+<li class="chapter" data-level="9.7.3" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#pendekatan-distribusi-binomial-menggunakan-distribusi-normal"><i class="fa fa-check"></i><b>9.7.3</b> Pendekatan Distribusi Binomial Menggunakan Distribusi Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-gamma-dan-eksponensial"><i class="fa fa-check"></i><b>9.8</b> Distribusi Gamma dan Eksponensial</a></li>
+<li class="chapter" data-level="9.9" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-chi-square-students-t-dan-snedecors-f."><i class="fa fa-check"></i><b>9.9</b> Distribusi Chi-Square, Student’s t, dan Snedecor’s F.</a><ul>
+<li class="chapter" data-level="9.9.1" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-chi-square"><i class="fa fa-check"></i><b>9.9.1</b> Distribusi Chi-Square</a></li>
+<li class="chapter" data-level="9.9.2" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-students-t"><i class="fa fa-check"></i><b>9.9.2</b> Distribusi Student’s t</a></li>
+<li class="chapter" data-level="9.9.3" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-snedecors-f"><i class="fa fa-check"></i><b>9.9.3</b> Distribusi Snedecor’s F</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-kontinu-lainnya"><i class="fa fa-check"></i><b>9.10</b> Distribusi Kontinu Lainnya</a><ul>
+<li class="chapter" data-level="9.10.1" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-beta"><i class="fa fa-check"></i><b>9.10.1</b> Distribusi Beta</a></li>
+<li class="chapter" data-level="9.10.2" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-lognormal"><i class="fa fa-check"></i><b>9.10.2</b> Distribusi Lognormal</a></li>
+<li class="chapter" data-level="9.10.3" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-cauchy"><i class="fa fa-check"></i><b>9.10.3</b> Distribusi Cauchy</a></li>
+<li class="chapter" data-level="9.10.4" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-logistik"><i class="fa fa-check"></i><b>9.10.4</b> Distribusi Logistik</a></li>
+<li class="chapter" data-level="9.10.5" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#distribusi-weibull"><i class="fa fa-check"></i><b>9.10.5</b> Distribusi Weibull</a></li>
+</ul></li>
+<li class="chapter" data-level="9.11" data-path="distribusi-probabilitas.html"><a href="distribusi-probabilitas.html#referensi-8"><i class="fa fa-check"></i><b>9.11</b> Referensi</a></li>
+</ul></li>
+<li class="part"><span><b>Statistika Inferensial - R</b></span></li>
+<li class="chapter" data-level="10" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html"><i class="fa fa-check"></i><b>10</b> Penaksiran Secara Statistika</a><ul>
+<li class="chapter" data-level="10.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#definisi-interval-estimasi"><i class="fa fa-check"></i><b>10.1</b> Definisi Interval Estimasi</a></li>
+<li class="chapter" data-level="10.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interpretasi-interval-estimasi"><i class="fa fa-check"></i><b>10.2</b> Interpretasi Interval Estimasi</a></li>
+<li class="chapter" data-level="10.3" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-median"><i class="fa fa-check"></i><b>10.3</b> Interval Kepercayaan Median</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-estimasi-median-metode-nonparametrik"><i class="fa fa-check"></i><b>10.3.1</b> Interval Estimasi Median Metode Nonparametrik</a></li>
+<li class="chapter" data-level="10.3.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#metode-parametrik-interval-estimasi-median"><i class="fa fa-check"></i><b>10.3.2</b> Metode Parametrik Interval Estimasi Median</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-mean"><i class="fa fa-check"></i><b>10.4</b> Interval Kepercayaan Mean</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-mean-untuk-distribusi-yang-simetris"><i class="fa fa-check"></i><b>10.4.1</b> Interval Kepercayaan Mean Untuk Distribusi Yang Simetris</a></li>
+<li class="chapter" data-level="10.4.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-mean-untuk-distribusi-yang-asimetris"><i class="fa fa-check"></i><b>10.4.2</b> Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-nonparametrik"><i class="fa fa-check"></i><b>10.5</b> Interval Prediksi Nonparametrik</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-nonparametrik-dua-sisi"><i class="fa fa-check"></i><b>10.5.1</b> Interval Prediksi Nonparametrik Dua Sisi</a></li>
+<li class="chapter" data-level="10.5.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-nonparametrik-satu-sisi"><i class="fa fa-check"></i><b>10.5.2</b> Interval Prediksi Nonparametrik Satu Sisi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-parametrik"><i class="fa fa-check"></i><b>10.6</b> Interval Prediksi Parametrik</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-distribusi-simetris"><i class="fa fa-check"></i><b>10.6.1</b> Interval Prediksi Distribusi Simetris</a></li>
+<li class="chapter" data-level="10.6.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-prediksi-untuk-distribusi-data-yang-tidak-simetris"><i class="fa fa-check"></i><b>10.6.2</b> Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-persentil-interval-toleransi"><i class="fa fa-check"></i><b>10.7</b> Interval Kepercayaan Persentil (Interval Toleransi)</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-nonparametrik-persentil"><i class="fa fa-check"></i><b>10.7.1</b> Interval Kepercayaan Nonparametrik Persentil</a></li>
+<li class="chapter" data-level="10.7.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#uji-nonparametrik-untuk-persentil"><i class="fa fa-check"></i><b>10.7.2</b> Uji Nonparametrik Untuk Persentil</a></li>
+<li class="chapter" data-level="10.7.3" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-parametrik-untuk-persentil"><i class="fa fa-check"></i><b>10.7.3</b> Interval Kepercayaan Parametrik Untuk Persentil</a></li>
+<li class="chapter" data-level="10.7.4" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#uji-parametrik-untuk-persentil"><i class="fa fa-check"></i><b>10.7.4</b> Uji Parametrik Untuk Persentil</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#interval-kepercayaan-menggunakan-metode-bootstrap"><i class="fa fa-check"></i><b>10.8</b> Interval Kepercayaan Menggunakan Metode Bootstrap</a></li>
+<li class="chapter" data-level="10.9" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#kegunaan-lain-dari-interval-kepercayaan"><i class="fa fa-check"></i><b>10.9</b> Kegunaan Lain Dari Interval Kepercayaan</a><ul>
+<li class="chapter" data-level="10.9.1" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#implikasi-non-normalitas-pada-pendeteksian-outlier"><i class="fa fa-check"></i><b>10.9.1</b> Implikasi Non-Normalitas Pada Pendeteksian <em>Outlier</em></a></li>
+<li class="chapter" data-level="10.9.2" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#implikasi-non-normalitas-pada-kontrol-kualitas"><i class="fa fa-check"></i><b>10.9.2</b> Implikasi Non-Normalitas Pada Kontrol Kualitas</a></li>
+<li class="chapter" data-level="10.9.3" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#implikasi-non-normalitas-terhadap-desain-sampling"><i class="fa fa-check"></i><b>10.9.3</b> Implikasi Non-Normalitas Terhadap Desain Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="10.10" data-path="penaksiran-secara-statistika.html"><a href="penaksiran-secara-statistika.html#referensi-9"><i class="fa fa-check"></i><b>10.10</b> Referensi</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html"><i class="fa fa-check"></i><b>11</b> Uji Hipotesis</a><ul>
+<li class="chapter" data-level="11.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#klasifikasi-uji-hipotesis"><i class="fa fa-check"></i><b>11.1</b> Klasifikasi Uji Hipotesis</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#klasifikasi-berdasarkan-skala-pengukuran"><i class="fa fa-check"></i><b>11.1.1</b> Klasifikasi Berdasarkan Skala Pengukuran</a></li>
+<li class="chapter" data-level="11.1.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#klasifikasi-berdasarkan-distribusi-data"><i class="fa fa-check"></i><b>11.1.2</b> Klasifikasi Berdasarkan Distribusi Data</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#menyiapkan-prosedur-uji-hipotesis"><i class="fa fa-check"></i><b>11.2</b> Menyiapkan Prosedur UJi Hipotesis</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#memilih-uji-yang-sesuai"><i class="fa fa-check"></i><b>11.2.1</b> Memilih Uji yang Sesuai</a></li>
+<li class="chapter" data-level="11.2.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#hipotesis-nol-dan-alternatif"><i class="fa fa-check"></i><b>11.2.2</b> Hipotesis Nol dan Alternatif</a></li>
+<li class="chapter" data-level="11.2.3" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#statistik-uji-dan-aturan-penolakan"><i class="fa fa-check"></i><b>11.2.3</b> Statistik Uji dan Aturan Penolakan</a></li>
+<li class="chapter" data-level="11.2.4" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#p-value"><i class="fa fa-check"></i><b>11.2.4</b> P-Value</a></li>
+<li class="chapter" data-level="11.2.5" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#membuat-keputusan-untuk-menolak-hipotesis-nol-atau-tidak"><i class="fa fa-check"></i><b>11.2.5</b> Membuat Keputusan Untuk Menolak Hipotesis Nol atau Tidak</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-nilai-rata-rata-sampel-tunggal"><i class="fa fa-check"></i><b>11.3</b> Uji Nilai Rata-Rata Sampel Tunggal</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-parametrik"><i class="fa fa-check"></i><b>11.3.1</b> Uji Parametrik</a></li>
+<li class="chapter" data-level="11.3.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-nonparametrik"><i class="fa fa-check"></i><b>11.3.2</b> Uji Nonparametrik</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistika Lingkungan Menggunakan R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="uji-hipotesis" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Uji Hipotesis</h1>
+<p>Environmental Engineer sering mengumpulkan sejumlah data dari lingkungan untuk mempelajari proses yang terjadi pada sistem lingkungan dimana data tersebut berada. Sering kali mereka memiliki dugaan awal yang selanjutnya kita sebut sebagai hipotesis bagaimana suatu sistem bekerja. Tujuan pengumpulan data yang dilakukan untuk menguji apakah hipotesis yang telah terbentuk dapat dipertahankan sesuai dengan bukti-bukti yang disajikan oleh data. Ui statistik merupakan cara kuantitatif untuk menentukan apakah suatu hipotesis dapat dipertahankan atau hipotesis tersebut perlu ditolak.</p>
+<div id="klasifikasi-uji-hipotesis" class="section level2">
+<h2><span class="header-section-number">11.1</span> Klasifikasi Uji Hipotesis</h2>
+<p>Uji hipotesis dapat diklasifikasikan berdasarkan beberapa kriteria sebagai berikut:</p>
+<div id="klasifikasi-berdasarkan-skala-pengukuran" class="section level3">
+<h3><span class="header-section-number">11.1.1</span> Klasifikasi Berdasarkan Skala Pengukuran</h3>
+<p>Skala pengukuran dalam suatu data dapat berupa kategorikal atau numerikal. Suatu pengukuran dapat melakukan perbandingan antara dua buah grup (kategori) berdasarkan data kontinu yang dimiliki masing-masing grup. Uji hipotesis yang digunakan adalah uji perbandingan dua populasi. Jika terdapat lebih dari dua populasi maka uji yang digunakan adalah uji anova.</p>
+<p>Contoh lainnya misalkan kita memiliki dua buah data dengan skala kontinu. Kita ingin mengetahui korelasi antara dua variabel tersebut, maka uji hipotesis yang digunakan adalah uji korelasi.</p>
+<p>Bagaimana jika skala pengukuran data kita seluruhnya kategorikal? jika skala pengukuran data kita seluruhnya adalah kategori, kita perlu membuat tabel kontingensi yang mengukur frekuensi kejadian pada masing-masing grup atau antara satu gruo terhadap grup yang lain. Uji hipotesis yang digunakan adalah uji asosiasi.</p>
+<p>Pada Chapter ini kita hanya akan membahas uji hipotesis yang digunakan pada satu populasi. Uji hipotesis lain seperti uji hipotesis untuk 2 populasi, anova, korelasi dan asosiasi akan dibahas pada Chapter lainnya.</p>
+</div>
+<div id="klasifikasi-berdasarkan-distribusi-data" class="section level3">
+<h3><span class="header-section-number">11.1.2</span> Klasifikasi Berdasarkan Distribusi Data</h3>
+<p>Uji hipotesis yang melibatkan sejumlah asumsi seperti ditribusi data mengikuti distribusi tertentu (biasanya ditribusi normal) disebut sebagai <strong>uji hipotesis parametrik</strong>. Dinamakan uji parametrik karena uji ini melibatkan parameter-parameter yang ada pada data seperti nilai mean dan simpangan baku. Uji ini sangat bagus digunakan jika data kita benar-benar mengikuti asumsi ditribusi yang diinginkan. Jika tidak maka hasil uji yang diperoleh dapat menghasilkan keputusan yang salah. Hal ini disebabkan karena uji ini memiliki sensitifitas yang rendah (power) untuk mendeteksi efek nyata.</p>
+<p>Alternatif lain yang dapat digunakan untuk melakukan uji hipotesis adalah dengan melakukan uji hipotesis <strong>nonparameterik</strong>. Uji ini tidak mengasumsikan data mengikuti distribusi tertentu. Informasi pada uji ini diperoleh dengan melakukan rangking pada data. Hal ini tentu berbeda dengan uji parametrik yang mengharuskan kita mengekstrak parameter pada data. Kesalahpahaman yang umum adalah pada uji nonparametrik memungkinkan terjadinya kehilangan informasi dibandingkan dengan tes parametrik karena tes nonparametrik membuang nilai data. Bradley (1968) dalam bukunya “<em>Distribution-Free Statistical Tests</em>” menanggapi kesalahpahaman ini: “Sebenarnya, pemanfaatan informasi sampel tambahan [dalam parameter] dimungkinkan oleh informasi populasi tambahan yang terkandung dalam asumsi uji parametrik. Oleh karena itu, uji bebas distribusi hanya membuang informasi hanya jika pada uji parametrik asumsi diketahui benar (data mengikuti distribusi tertentu).” Alih-alih membuang informasi, tes nonparametrik secara efisien mengekstraksi informasi pada besaran relatif (rangking) data tanpa menciutkan informasi menjadi hanya beberapa statistik sederhana.</p>
+</div>
+</div>
+<div id="menyiapkan-prosedur-uji-hipotesis" class="section level2">
+<h2><span class="header-section-number">11.2</span> Menyiapkan Prosedur UJi Hipotesis</h2>
+<div id="memilih-uji-yang-sesuai" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> Memilih Uji yang Sesuai</h3>
+<p>Prosedur uji dipilih berdasarkan karakteristik data dan tujuan studi. Kriteria pertama untuk memilih uji statistik yang sesuai adalah dengan melihat skala pengukuran pada data. Kita telah membahas ini pada klasifikasi uji berdasarkan skala pengukuran data.</p>
+<p>Kriteria kedua yang digunakan adalah tujuan dari pengujian. Uji hipotesis yang tersedia dapat digunakan untuk melihat beda antara dua nilai sentral dua grup, tiga atau lebih grup, sebaran data antar grup, kovariansi antara dua atau lebi variabel antara satu sama lain.</p>
+<p>Kriteria ketiga yang digunakan adalah memilih apakah akan melakukan uji parameterik atau nonparameterik. Pemilihan berdasarkan kriteria ini perlu melihat asumsi distribusi uji statististik apakah telah terpenuhi atau belum. Jika suatu data berdistribusi normal maka uji parametrik akan lebih dipilih, jika sebaliknya atau distribusi data tidak mengikuti distribusi tertentu maka uji yang digunakan adalah uji nonparametrik. Power dar uji parametrik untuk menolah hipotesis nol ketika hipotesis nol salah dapat sangat rendah jika digunakan pada data yang tidak berdistribusi normal. Selain itu, error tipe II biasanya juga terjadi pada uji parametrikpada data dengan distribusi tidak normal.</p>
+<p>Transformasi data sering digunakan agar distribusi data mendekati distribusi normal. Jenis tranformasi akan berbeda pada setiap data sehingga proses transformasi akan mencoba pada berbagai format. Kendala yang timbul pada proses ini adalah jika kita akan melakukan uji pada dua atau lebih grup data. Jenis transformasi pada satu grup data bisa saja tidak berlaku untuk grup data lainnya. Jika kita paksakan transformasi ynag berbeda-beda pada tiap grup, maka pembacaan hasil yang diperoleh akan lebih sulit. Hal ini tidak terjadi jika sejak awal data yang tidak mengikuti distribusi normal dilakukan uji nonparametrik.</p>
+<p>Untuk mempermudah proses pemilihan uji yang sesuai, Gardener (2012) membuat skema pemilihan uji hipotesis yang disajikan pada Gambar <a href="#fig:test"><strong>??</strong></a></p>
+
+
+</div>
+<div id="hipotesis-nol-dan-alternatif" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> Hipotesis Nol dan Alternatif</h3>
+<p>Uji hipotesis akan melakukan perbandingan antara dua buah hipotesis, hipotesis nol (<span class="math inline">\(H_0\)</span>) dan hipotesis alternatif (<span class="math inline">\(H_a\)</span>). Desain <span class="math inline">\(H_0\)</span> dan <span class="math inline">\(H_a\)</span> yang benar merupakan tahapan yang paling penting sebab prosedur uji hipotesis didesain untuk cenderung memilih hipotesis nol, sehingga <span class="math inline">\(H_0\)</span> tidak akan ditolak kecuali terdapat bukti kuat untuk menolaknya berdasarkan data yang kita miliki. Analogi ini mirip dengan istilah “praduga tak bersalah”, dimana tersangka akan dianggap tidak bersalah kecuali terbukti sebaliknya berdasarkan bukti-bukti persidangan.</p>
+<p>Impilkasi dari kondisi yang telah dijelaskan di atas adalah ketika <span class="math inline">\(H_0\)</span> diterima, kita tidak bisa menyatakan bahwa hipotesis tersebut benar. Hal yang tepat pada kondisi tersebut adalah tidak ada bukti yang cukup kuat pada data untuk menolaknya. Untuk memahaminya kita akan menggunakan contoh prosedur uji berbasis rentang kepercayaan (<em>confidence interval</em>) yang menolak <span class="math inline">\(H_0:\mu=\mu_0\)</span> jika <span class="math inline">\(\mu_0\)</span> tidak berada pada rentang kepercayaan <span class="math inline">\(\mu\)</span> (lihat lagi pada Chapter 10). Karena setiap nilai dalam rentang kepercayaan adalah kandidat yang masuk akal (diberikan pada set data) untuk nilai parameter sebenarnya, jelas bahwa dengan tidak menolak <span class="math inline">\(H_0:\mu=\mu_0\)</span>, kita belum membuktikan bahwa <span class="math inline">\(H_0\)</span> benar. Prosedur pengujian memberikan bukti statistik hanya ketika H0 ditolak. Dalam hal ini dapat diklaim bahwa alternatif telah dibuktikan (dalam arti statistik) pada tingkat signifikansi <span class="math inline">\(\alpha\)</span>. Tingkat signifikansi mengkuantifikasi keraguan wajar yang bersedia kita terima ketika menolak hipotesis nol.</p>
+<p>Berdasarkan pembahasan di atas dapat disimpulkan bahwa pernyataan yang perlu dibuktikan secara statistika disebut sebagai <span class="math inline">\(H_a\)</span>. Penyataan pelengkapnya disebut sebagai <span class="math inline">\(H_0\)</span> atau peryataan yang dianggap benar kecuali terbukti sebaliknya. Hal terpenting dalam desain <span class="math inline">\(H_0\)</span> adalah perlunya penggunaan <em>equality sign</em> (=, <span class="math inline">\(\le\)</span>, atau <span class="math inline">\(\ge\)</span>) sebagai bagian dari desain <span class="math inline">\(H_0\)</span>.</p>
+<p>Untuk memahaminya misalkan diinginkan pengujian hipotesis bahwa rata-rata populasi adalah 100. Buatlah format hipotesis yang digunakan jika hipotesis alternatifnya menginginkan nilai rata-rata yang lebih besar?. Berdasarkan kondisi tersebut maka format hipotesisnya adalah sebagai berikut.</p>
+<p><strong><span class="math inline">\(H_0\)</span></strong>: <span class="math inline">\(\mu=100\)</span></p>
+<p><strong><span class="math inline">\(H_a\)</span></strong>: <span class="math inline">\(\mu &gt; 100\)</span></p>
+</div>
+<div id="statistik-uji-dan-aturan-penolakan" class="section level3">
+<h3><span class="header-section-number">11.2.3</span> Statistik Uji dan Aturan Penolakan</h3>
+<p>Pada uji statistik terdapat dua buah nilai yang penting untuk diketahui yaitu <strong>nilai statistik uji</strong> dan <strong>aturan penolakan</strong>. Uji statistik yang digunakan untuk menguji <span class="math inline">\(H_0\)</span> terkait parameter <span class="math inline">\(\mu\)</span> dapat didasarkan pada titik estimasi <span class="math inline">\(\hat\mu\)</span> dari <span class="math inline">\(\mu\)</span>. Aturan penolakan menentukan kapan <span class="math inline">\(H_0\)</span> harus ditolak. Pada dasarnya <span class="math inline">\(H_0\)</span> ditolak ketika nilai uji statistik berada pada sejumlah rentang (lebih besar, atau lebih kecil, atau keduanya tergantung pada <span class="math inline">\(H_a\)</span>) yang menyatakan bahwa pada nilai tersebut tidak mungkin jika <span class="math inline">\(H_0\)</span> benar.</p>
+<p>Menggunakan contoh kasus sebelumnya dimana kita kan menguji <strong><span class="math inline">\(H_0\)</span></strong>: <span class="math inline">\(\mu=100\)</span>. <span class="math inline">\(H_0\)</span> ditolak jika nilai statistik uji lebih kecil sama dengan 100 atau <span class="math inline">\(H_a\le C_1\)</span> sebagai contoh nilai statistika ujinya adalah 90,80, dst. Bagaimana jika hipotesis ujinya <strong><span class="math inline">\(H_a\)</span></strong>: <span class="math inline">\(\mu \le 100\)</span>?. Sama dengan sebelumnya maka penolakan <span class="math inline">\(H_0\)</span> terjadi jika nilai uji statistiknya <span class="math inline">\(H_a&gt;C_2\)</span> seperti 110, 120, dst. Kondisi lain yang dapat juga diterapkan jika <strong><span class="math inline">\(H_a\)</span></strong>: <span class="math inline">\(\mu \neq 100\)</span>, maka <span class="math inline">\(H_0\)</span> ditolak jika nilai statistika ujinya adalah <span class="math inline">\(H_a&lt;C_3\)</span> atau <span class="math inline">\(H_a&gt;C_4\)</span></p>
+<p>Bagaimana cara tepat untuk memilih menggunakan nilai konstanta <span class="math inline">\(C_1\)</span>, <span class="math inline">\(C_2\)</span>, <span class="math inline">\(C_3\)</span>, atau <span class="math inline">\(C_4\)</span>? jawabannya adalah dengan menggunakan <strong>tingkat signifikansinya</strong> atau <strong>error</strong> (tingkat kesalahan). Tingkat signifikansi didefinisikan sebagai probabilitas (terbesar) untuk menolak <span class="math inline">\(H_0\)</span> secara tidak benar, atau, dengan kata lain, probabilitas (terbesar) untuk menolak <span class="math inline">\(H_0\)</span> ketika <span class="math inline">\(H_0\)</span> benar.</p>
+<p>Seperti yang telah disebutkan, tingkat signifikansi menentukan risiko (atau, dalam hal legalistik, keraguan yang masuk akal) kita bersedia menerima kesalahan karena menyimpulkan bahwa <span class="math inline">\(H_0\)</span> salah. Ternyata konstanta <span class="math inline">\(C_1\)</span> dan <span class="math inline">\(C_2\)</span> dapat ditentukan dengan menentukan tingkat signifikansi.</p>
+<div id="probabilitas-error-tipe-i" class="section level4">
+<h4><span class="header-section-number">11.2.3.1</span> Probabilitas Error Tipe I</h4>
+<p>Terdapat dua buah error yang terjadi pada saat pengambilan keputusan. Secara sederhana penulis akan menjelaskan error tersebut dengan menggunakan contoh pemberian vaksin kepada pasien. Vaksin baru tersebut tidak lebih baik atau sama kualitasnya dengan vaksin yang telah ada sebelumnya (<span class="math inline">\(H_0\)</span> benar). Sebagai data pendukung, pengujian telah dilakukan dengan memilih individu secara acak, dimana 8 individu melewati 2 tahun tanpa tertular virus. Kita akan melakukan kesalahan dengan menolak <span class="math inline">\(H_0\)</span> dan mendukung <span class="math inline">\(H_a\)</span> (vaksin lebih baik) sedangkan kenyataannya <span class="math inline">\(H_0\)</span> benar. Error yang disebabkan oleh penolakan <span class="math inline">\(H_0\)</span> padahal <span class="math inline">\(H_0\)</span> benar disebut sebagai <strong>error tipe I</strong>.</p>
+<p>Jenis error kedua dapat terjadi jika 8 individu atau kurang melewati dua tahun periode penggunaan vaksin secara sukses, namun kita tidak dapat menyimpulkan bahwa vaksin tersebut lebih baik meskipun pada kenyataannya demikian (<span class="math inline">\(H_a\)</span> benar). Sehingga pada kasus ini kita gagal menolak <span class="math inline">\(H_0\)</span> meskipun kenyataannya <span class="math inline">\(H_0\)</span> salah. Kondisi dimana kita tidak menolak <span class="math inline">\(H_0\)</span> meskipun <span class="math inline">\(H_0\)</span> salah disebut sebagai <strong>error tipe II</strong>.</p>
+<p>Dalam menguji hipotesis statistik apa pun, ada empat kemungkinan situasi yang menentukan apakah keputusan kita benar atau salah. Keempat kemungkinan tersebut disajikan pada Tabel <a href="#tab:error"><strong>??</strong></a>:</p>
+<table>
+<caption><span id="tab:oparitmatika">Tabel 2.1: </span> Kondisi yang mungkin terjadi pada saat pengujian hipotesis.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong><span class="math inline">\(H_0\)</span> Benar</strong></th>
+<th><strong><span class="math inline">\(H_0\)</span> Salah</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Terima <span class="math inline">\(H_0\)</span></strong></td>
+<td>Keputusan benar</td>
+<td>Error tipe II</td>
+</tr>
+<tr class="even">
+<td><strong>Tolak <span class="math inline">\(H_0\)</span></strong></td>
+<td>Error tipe I</td>
+<td>Keputusan benar</td>
+</tr>
+</tbody>
+</table>
+<p>Peluang untuk melakukan error tipe I disebut sebagai <strong>tingkat signifikansi</strong>, dilambangkan dengan huruf Yunani <span class="math inline">\(\alpha\)</span>. Dalam kondisi di atas kesalahan tipe satu terjadi ketika lebih dari 8 orang dari 20 orang yang diinokulasi dengan vaksin baru melampaui periode 2 tahun tanpa tertular virus dan peneliti menyimpulkan bahwa vaksin baru lebih baik padahal kenyataannya setara dengan vaksin yang sudah ada. Oleh karena itu, jika <span class="math inline">\(X\)</span> adalah jumlah orang yang tetap bebas dari virus selama minimal 2 tahun dengan probabilitas sukses <span class="math inline">\(p=0,25\)</span>, maka probabilitas error tipe satu adalah sebagai berikut:</p>
+<p><span class="math display">\[
+\alpha=P\left(error\ tipe\ I\right)=P\left(X&gt;8\ ketika\ p=\frac{1}{4}\right)=\sum_{x=9}^{20}b\left(x;20,\frac{1}{4}\right)
+\]</span></p>
+<p><span class="math display">\[
+\alpha=1-\sum_{x=0}^8b\left(x;20,\frac{1}{4}\right)=1-0,9591=0,0409
+\]</span></p>
+<p>Kita dapat mengatakan bahwa hipotesis nol dengan probabilitas kejadian sukses sebesar <span class="math inline">\(p=0,25\)</span> telah teruji dengan tingkat signifikansi <span class="math inline">\(\alpha=0,0409\)</span>. Nilai yang dihasilkan sangat kecil, sehingga error tipe I kemungkinan tidak terjadi. Akibatnya, akan lebih tidak biasa bagi lebih dari 8 orang untuk tetap kebal terhadap virus selama periode 2 tahun menggunakan vaksin baru yang pada dasarnya setara dengan yang sekarang ada di pasaran.</p>
+</div>
+<div id="probabilitas-error-tipe-ii" class="section level4">
+<h4><span class="header-section-number">11.2.3.2</span> Probabilitas Error Tipe II</h4>
+<p>Probabilitas terjadinya error tipe II disimbolkan dengan <span class="math inline">\(\beta\)</span>. Error tipe II sulit untuk dihitung kecuali kita memiliki hipotesis alternatif. Pada contoh kali ini kita akan menguji hipotesis nol dengan nilai <span class="math inline">\(p=0,25\)</span> melawan hipotesis alternatif dengan <span class="math inline">\(p=0,5\)</span>, sehingga kita dapat melakukan perhitungan probabilitas untuk tidak menolak <span class="math inline">\(H_0\)</span> meskipun <span class="math inline">\(H_0\)</span> salah. Kita selanjutnya dapat menghitung probabilitas 8 individu atau kurang yang melampaui periode 2 tahun ketika nilai <span class="math inline">\(p=0,5\)</span>.</p>
+<p><span class="math display">\[
+\beta =P\left(error\ tipe\ II\right)=P\left(X\le 8\ ketika\ p=\frac{1}{2}\right)
+\]</span></p>
+<p><span class="math display">\[
+\beta=\sum_{x-0}^8b\left(x;20,\frac{1}{2}\right)=0,2517
+\]</span></p>
+<p>Berdasarkan hasil perhitungan diperoleh nilai probabilitas yang relatif tinggi. Hal ini mengidikasikan penolakan vaksin baru tersebut meskipun kenyataannya vaksin baru tersebut lebih superior dibandingkan vaksin yang telah ada.</p>
+<p>Idealnya kita akan menggunakan prosedur pengujian dimana probabilitas error tipe I dan II sangat kecil. Berdasarkan berbagai <em>text book</em> probabilitas error tipe I dan II dapat diturunkan dengan cara meningkatkan jumlah sampel yang kita miliki.</p>
+<p>Berdasarkan pembahasan terkait error pada pengujian hipotesis, terdapat beberapa properti penting terkait pengujian hipotesis, antara lain:</p>
+<ol style="list-style-type: decimal">
+<li>Error tipe I dan tipe II pada pengujian hipotesis saling terkait. Penurunan salah satu akan meningkatkan error lainnya.</li>
+<li>Ukuran wilayah kritis dan probabilitas melakukan error tipe I selalu dapat dikurangi dengan menyesuaikan nilai kritis (meningkatkan atau menurunkan tingkat signifikansi).</li>
+<li>Peningkatan ukuran sampel akan menurunkan nilai <span class="math inline">\(\alpha\)</span> dan <span class="math inline">\(\beta\)</span> secara simultan.</li>
+<li>Jika hipotesis nol salah, nilai <span class="math inline">\(\beta\)</span> akan maksimum ketika nilai sebenarnya dari suatu parameter mendekati nilai yang sebenarnya. Semakin besar jarak antara nilai sebenarnya dengan nilai yang dihipotesiskan maka semakin kecil nilai <span class="math inline">\(\beta\)</span>.</li>
+</ol>
+</div>
+</div>
+<div id="p-value" class="section level3">
+<h3><span class="header-section-number">11.2.4</span> P-Value</h3>
+<p>P-value merupakan probabilitas untuk memperoleh statistik uji yang dihitung, atau yang lebih kecil kemungkinannya, ketika hipotesis nolnya benar. P-value mengukur “kepercayaan” dari hipotesis nol. Semakin kecil p-value, semakin kecil kemungkinan statistik uji kemungkinan statistik uji yang diamati ketika <span class="math inline">\(H_0\)</span> benar, dan semaikn kuat bukti penolakan <span class="math inline">\(H_0\)</span>. P-value disebut juga sebagai <strong>tingkat signifikansi yang dicapai</strong> oleh data.</p>
+<p>Bagaimana bisa p-value berbeda dengan <span class="math inline">\(\alpha\)</span>-level?. <span class="math inline">\(\alpha\)</span>-level tidak bergantung pada data, tapi telah ditetapkan sebagai suatu resiko untuk melakukan error tipe I yang dapat diterima. <span class="math inline">\(\alpha\)</span>-level merupakan nilai kritis yang memungkinkan sebuah keputusan “ya/tidak” dibuat. P-value menyediakan informasi lebih sepeti bukti kuat secara scientific. Penggunaan p-value memungkinkan seseorang dengan toleransi resiko berbeda-beda (<span class="math inline">\(\alpha\)</span> berbeda) untuk membuat keputusannya sendiri.</p>
+</div>
+<div id="membuat-keputusan-untuk-menolak-hipotesis-nol-atau-tidak" class="section level3">
+<h3><span class="header-section-number">11.2.5</span> Membuat Keputusan Untuk Menolak Hipotesis Nol atau Tidak</h3>
+<p>Ketika p-value lebih kecil dari <span class="math inline">\(\alpha\)</span>-level, maka <span class="math inline">\(H_0\)</span> ditolak. Sebaliknya jika p-value lebih besar dari <span class="math inline">\(\alpha\)</span>, maka <span class="math inline">\(H_0\)</span> diterima. Telah dijelaskan sebelumnya bahwa penerimaan hipotesis nol tidak berarti <span class="math inline">\(H_0\)</span> pasti benar. <span class="math inline">\(H_0\)</span> siasumsikan benar sampai terbukti sebaliknya dan tidak ditolak sampai dengan terdapat bukti yang cukup kuat untuk menolaknya.</p>
+</div>
+</div>
+<div id="uji-nilai-rata-rata-sampel-tunggal" class="section level2">
+<h2><span class="header-section-number">11.3</span> Uji Nilai Rata-Rata Sampel Tunggal</h2>
+<p>Pada bagian ini penulis akan menjelaskan prosedur uji hipotesis untuk satu populasi. Sebelum pembahasan dilakukan pembaca perlu mengingat bahwa uji ini sangat berkaitan dengan perhitungan interval kepercayaan yang telah kita bahas pada Chapter sebelumnya. Jika sebelumnya kita menghitung nilai mean suatu observasi pada selang tertentu, pada bagian ini kita akan membahas bagaimana menguji suatu rata-rata apakah berasal dari suatu populasi atau tidak berdasarkan p-value.</p>
+<p>Prosedur uji hipotesis untuk satu populasi yang akan penulis bahas kali ini akan bergantung pada berbagai kondisi. Kondisi yang menjadi pertimbangan antara lain:</p>
+<ol style="list-style-type: decimal">
+<li>Apakah sampel berdistribusi normal?</li>
+<li>Apakah jumlah sampel besar atau kecil?</li>
+</ol>
+<p>Untuk mempermudahnya, pada Gambar <a href="#fig:singletest"><strong>??</strong></a> penulis sajikan skema pemilihan uji hipotesis untuk satu sampel.</p>
+
+
+<div id="uji-parametrik" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> Uji Parametrik</h3>
+<p>Pada uji parametrik asumsi normalitas distribusi sampel menjadi sesuatu yang penting agar hasil yang diperoleh valid. Pada uji satu populasi untuk uji parametrik terdapat dua pertimbangan dalam pemilihan metode uji yaitu varians populasi serta ukuran sampel.</p>
+<p>Jika varians populasi diketahui maka kita dapat menggunakan pendekatan distribusi normal. Jika simpangan baku populasi (<span class="math inline">\(\sigma\)</span>) tidak diketahui serta jumlah sampel kecil maka pendekatan dilakukan menggunakan distribusi t. Kondisi lain yang perlu dipertimbangkan adalah saat sampel yang kita miliki besar, namun simpangan baku populasi tidak diketahui. Hal ini merupakan kondisi yang banyak ditemukan di lingkungan. Beberapa <em>textbook</em> menjelaskan bahwa uji satu sampel untuk kondisi tersebut dapat menggunakan pendekatan distribusi normal sehingga simpangan baku populasi didekati dengan simpangan baku sampel (<span class="math inline">\(s\)</span>). Hal ini sesuai dengan teori limit pusat dimana semakin besar ukuran sampel, maka nilai statistik sampel (mean dan simpangan baku) akan mendekati populasinya. Berikut adalah prosedur dalam melakukan uji hipotesisnya:</p>
+<p><strong>Prosedur Uji Hipotesis</strong></p>
+<ul>
+<li><strong>Asumsi</strong> : Distribusi normal</li>
+<li><strong>Hipotesis nol (<span class="math inline">\(H_0\)</span>)</strong> : <span class="math inline">\(\mu=\mu_0\)</span></li>
+<li><strong>Statistik Uji</strong>:</li>
+</ul>
+<span class="math display" id="eq:stparam">\[\begin{equation}
+  Z_{H_0}=\frac{\overline{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}\ \ \ n&gt;30\ atau\ \sigma\ diketahui
+  \tag{11.1}
+\end{equation}\]</span>
+<span class="math display" id="eq:stparam2">\[\begin{equation}
+  T_{H_0}=\frac{\overline{X}-\mu_0}{\frac{s}{\sqrt{n}}}\ \ \ n\le30\ atau\ \sigma\ tidak\ diketahui
+  \tag{11.2}
+\end{equation}\]</span>
+<ul>
+<li><strong>Aturan penolakan (RR) berdasarkan variasi <span class="math inline">\(H_a\)</span></strong></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th><strong><span class="math inline">\(H_a\)</span></strong></th>
+<th><strong>RR pada level <span class="math inline">\(\alpha\)</span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mu&gt;\mu_0\)</span></td>
+<td><span class="math inline">\(Z_{H_0}\ge Z_\alpha\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\mu&lt;\mu_0\)</span> | <span class="math inline">\(Z_{H_0}\le -Z_\alpha\)</span> <span class="math inline">\(\mu\neq\mu_0\)</span> | <span class="math inline">\(\left|Z_{H_0}\right|\ge Z_{\frac{\alpha}{2}}\)</span></p>
+<table>
+<caption><span id="tab:stha">Tabel 11.1: </span> Aturan penolakan berdasakan hipotesis alternatif distribusi normal.</caption>
+<thead>
+<tr class="header">
+<th><strong><span class="math inline">\(H_a\)</span></strong></th>
+<th><strong>RR pada level <span class="math inline">\(\alpha\)</span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mu&gt;\mu_0\)</span></td>
+<td><span class="math inline">\(T_{H_0}&gt;t_{n-1,\alpha}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\mu&lt;\mu_0\)</span> | <span class="math inline">\(T_{H_0}&lt; -t_{n-1,\alpha}\)</span> <span class="math inline">\(\mu\neq\mu_0\)</span>| <span class="math inline">\(\left|T_{H_0}\right|&gt; t_{n-1,\frac{\alpha}{2}}\)</span></p>
+<p>: (#tab:stha1) Aturan penolakan berdasakan hipotesis alternatif distribusi t.</p>
+<ul>
+<li><p><strong>Formula p-value</strong></p></li>
+<li><p><em>Distribusi Normal</em></p></li>
+</ul>
+<span class="math display" id="eq:stparam3">\[\begin{equation}
+p-value =
+  \begin{cases}
+    1-\Phi\left(Z_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\mu&gt;\mu_0\\
+    \Phi\left(Z_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\mu&lt;\mu_0\\
+    2\left[1-\Phi\left|Z_{H_0}\right|\right]\ \ \ \ \ \ \ untuk\ H_a:\mu\ne \mu_0
+    \end{cases}
+  \tag{11.3}
+\end{equation}\]</span>
+<ul>
+<li><em>Distribusi t</em></li>
+</ul>
+<span class="math display" id="eq:stparam4">\[\begin{equation}
+p-value =
+  \begin{cases}
+    1-G_{n-1}\left(T_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\mu&gt;\mu_0\\
+    G_{n-1}\left(T_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\mu&lt;\mu_0\\
+    2\left[1-G_{n-1}\left|T_{H_0}\right|\right]\ \ \ \ \ \ \ untuk\ H_a:\mu\ne \mu_0
+    \end{cases}
+  \tag{11.4}
+\end{equation}\]</span>
+<p>dimana <span class="math inline">\(G_{n-1}\)</span> adalah CDF (fungsi densitas kumulatif) dari distribusi t.</p>
+<p><strong>Uji Hipotesis Menggunakan <code>R</code></strong></p>
+<ul>
+<li><strong>Distribusi Normal</strong></li>
+</ul>
+<p>Untuk menghitung p-value pada distribusi normal kita dapat menggunakan fungsi <code>pnorm()</code> (probabilitas kumulatif). Berikut adalah sintaks yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># uji satu sisi</span>
+<span class="dv">1</span><span class="op">-</span><span class="kw">pnorm</span>(((x<span class="op">/</span>n)<span class="op">-</span>mu)<span class="op">/</span>(sd<span class="op">/</span><span class="kw">sqrt</span>(n)))
+<span class="kw">pnorm</span>(((x<span class="op">/</span>n)<span class="op">-</span>mu)<span class="op">/</span>(sd<span class="op">/</span><span class="kw">sqrt</span>(n)))
+
+<span class="co"># uji dua sisi</span>
+<span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="kw">abs</span>(((x<span class="op">/</span>n)<span class="op">-</span>mu)<span class="op">/</span>(sd<span class="op">/</span><span class="kw">sqrt</span>(n)))))</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x/n</strong>: rata-rata sampel</li>
+<li><strong>mu</strong>: rata-rata populasi</li>
+<li><strong>sd</strong>: simpangan baku</li>
+<li><strong>n</strong>: ukuran sampel</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>Distribusi t</strong></li>
+</ul>
+<p>Pada uji hipotesis menggunakan distribusi t, fungsi yang digunakan sudah tersedia pada <code>R</code>. Fungsi yang digunakan adalah <code>t.test()</code>. Berikut adalah format fungsi yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, <span class="dt">y =</span> <span class="ot">NULL</span>,
+       <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),
+       <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">paired =</span> <span class="ot">FALSE</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>,
+       <span class="dt">conf.level =</span> <span class="fl">0.95</span>, ...)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x,y</strong>: vektor numerik. Kedua argumen akan terisi jika akan dilakukan uji hipotesis untuk dua populasi.</li>
+<li><strong>alternative</strong>: diguanakan untuk menentukan jenis uji hipotesis apakah satu sisi(“less” dan “greater”), atau dua sisi (“two.sided”).</li>
+<li><strong>mu</strong>: rata-rata populasi. Secara default nilainya 0</li>
+<li><strong>paired</strong>: vektor logikal yang menentukan apakah uji dua populasi digunakan untuk sampel berpasangan (TRUE) atau tidak (FALSE).</li>
+<li><strong>conf.level</strong>: tingkat kepercayaan. Secara default tingkat kepercayaan yang digunakan adalah 95%.</li>
+</ul>
+</blockquote>
+<p><strong>Contoh 1 (<span class="math inline">\(\sigma\)</span> dikeathui)</strong></p>
+<p>Suatu produk kompos dalam kantong berisi rata-rata 16 kg per kantong, dengan simpangan baku=0,2 kg. Bila berat tersebut secara signifikan lebih kecil, maka toko penyalur berhak untuk menolak. Untuk mengujinya diambil sampel secara acak sebanyak 36 kantong, kemudian ditimbang, dan berat rata-rata yang diperoleh sebesar 15,7 kg. Dengan menggunakan <span class="math inline">\(\alpha=0,01\)</span> tentukan apakah berat rata-rata sampel lebih kecil dari berat seharusnya dengan asumsi distribusi yang terbentuk adalah distribusi normal?</p>
+<p><strong>Jawab</strong>:</p>
+<p><span class="math display">\[
+Hipotesis
+  \begin{cases}
+    H_0:\mu=16kg\\
+    H_a:\mu&lt;16kg
+    \end{cases}
+\]</span></p>
+<p>dengan <span class="math inline">\(n&gt;30\)</span> dan <span class="math inline">\(\sigma\)</span> diketahui, maka digunakan distribusi normal. Nilai Z untuk <span class="math inline">\(\alpha=0,01\)</span> adalah <span class="math inline">\(-2,33\)</span> dengan daerah penolakan berada pada rentang <span class="math inline">\(Z_{H_0}\le -Z_\alpha\)</span>.</p>
+<p>Statistik uji diperoleh berdasarkan Persamaan <a href="uji-hipotesis.html#eq:stparam">(11.1)</a>.</p>
+<p><span class="math display">\[
+Z_{H_0}=\frac{15,7-16}{\frac{0,2}{\sqrt{36}}}=-9,00
+\]</span></p>
+<p>Nilai p-value selanjutnya dapat dihitung menggunakan Persamaan <a href="uji-hipotesis.html#eq:stparam3">(11.3)</a>.</p>
+<p><span class="math display">\[
+\Phi\left(Z_{-9}\right)=1.128588e-19
+\]</span></p>
+<p>Pada <code>R</code> p-value dapat dihitung menggunakan sintaks berikut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(((<span class="fl">15.7</span>)<span class="op">-</span><span class="dv">16</span>)<span class="op">/</span>(<span class="fl">0.2</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">36</span>)))</code></pre></div>
+<pre><code>## [1] 1.129e-19</code></pre>
+<p><strong>Kesimpulan</strong>: p-value &lt; <span class="math inline">\(\alpha\)</span>, atau <span class="math inline">\(H_0\)</span> ditolak. Berat rata-rata sampel &lt; 16 kg (di bawah standard) sehingga diperlukan pembenahan dalam penimbangan kompos ke kantongnya agar sesuai standard.</p>
+<p><strong>Contoh 2 (<span class="math inline">\(\sigma\)</span> tidak diketahui)</strong></p>
+<p>Menurut seorang pengusaha industri, unit pengolah limbahnya mengeluarkan effluent dengan parameter BOD rata-rata harian sebesar 17 mg/l. Untuk itu dilakukan sampling komposit selama 7 hari berturut-turut, dan ternyata rerata BOD sampelnya adalah 19 mg/l, dengan simpangan baku 4 mg/l. Bila fenomena tersebut berdistribusi normal, lakukan pengujian dengan tingkat keyakinan <span class="math inline">\(\alpha=0,01\)</span>?</p>
+<p><strong>Jawab</strong>:</p>
+<p><span class="math display">\[
+Hipotesis
+  \begin{cases}
+    H_0:\mu=17kg\\
+    H_a:\mu\ne17kg
+    \end{cases}
+\]</span></p>
+<p>dengan <span class="math inline">\(n\le30\)</span> dan <span class="math inline">\(\sigma\)</span> tidak diketahui maka pengujian dilakukan dengan menggunakan distribusi t. Daerah penerimaan <span class="math inline">\(H_0\)</span> untuk <span class="math inline">\(\alpha=0,01\)</span> dan <span class="math inline">\(df=7-1=6\)</span> berada pada rentang <span class="math inline">\(-3,143&lt;T{H_0}&lt;3,143\)</span>.</p>
+<p>Statistik uji dihitung menggunakan Persamaan <a href="uji-hipotesis.html#eq:stparam2">(11.2)</a>.</p>
+<p><span class="math display">\[
+T_{H_0}=\frac{19-17}{\frac{4}{\sqrt{7}}}=1,322876
+\]</span></p>
+<p>p-value selanjutnya dapat dihitung menggunakan Persamaan <a href="uji-hipotesis.html#eq:stparam4">(11.4)</a>.</p>
+<p><span class="math display">\[
+2\left[1-G_{6}\left|T_{1,323}\right|\right]=0,2340573
+\]</span></p>
+<p>p-value pada <code>R</code> dapat dihitung menggunakan fungsi <code>pt()</code> (fungsi densitas kumulatif). Berikut adalah sintaks yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pt</span>(<span class="fl">1.322876</span>, <span class="dt">df=</span><span class="dv">6</span>))</code></pre></div>
+<pre><code>## [1] 0.2341</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
+<span class="kw">set.seed</span>(<span class="dv">48</span>)
+<span class="kw">t.test</span>(<span class="dt">x=</span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">7</span>, <span class="dt">mean=</span><span class="dv">19</span>, <span class="dt">sd=</span><span class="dv">4</span>), 
+       <span class="dt">mu=</span><span class="dv">17</span>,<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
+       <span class="dt">conf.level=</span><span class="fl">0.99</span>)</code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  rnorm(n = 7, mean = 19, sd = 4)
+## t = 1.2, df = 6, p-value = 0.3
+## alternative hypothesis: true mean is not equal to 17
+## 99 percent confidence interval:
+##  10.97 28.62
+## sample estimates:
+## mean of x 
+##     19.79</code></pre>
+<p><strong>Kesimpulan</strong>: p-value &gt; <span class="math inline">\(\alpha\)</span>. Terima <span class="math inline">\(H_0\)</span>. Pernyataan pengusaha tersebut dapat diterima.</p>
+<p>Berdasarkan hasil perhitungan di atas penulis menggunakan dua cara yaitu dengan menggunakan fungsi <code>pt()</code> dan <code>t.test()</code>. Pada fungsi <code>t.test()</code> penulis perlu mereproduksi kembali data berdasarkan nilai mean dan simpangan baku yang ada. Hal ini tentu berbeda dengan cara satunya, namun kelebihan cara ini kita bisa melakukan uji hipotesis sekaligus menghitung rentang keyakinan dari sampel. Hasil yang diperoleh juga tidak berbeda antara kedua cara tersebut, sehingga pembaca bebas untuk menggunakan salah satunya.</p>
+</div>
+<div id="uji-nonparametrik" class="section level3">
+<h3><span class="header-section-number">11.3.2</span> Uji Nonparametrik</h3>
+<p>Uji nonparametrik tidak memerlukan asumsi sampel untuk mengikuti distribusi tertentu. Untuk uji hipotesis satu populasi terdapat dua macam uji nonparametrik, yaitu: sign test dan signed-rank test. Kedua uji tersebut menggunakan nilai median sebagai nilai pemusatan data (data tidak berdistribusi normal).</p>
+<div id="sign-test" class="section level4">
+<h4><span class="header-section-number">11.3.2.1</span> Sign Test</h4>
+<p>Sign test digunakan untuk menguji hipotesis terhadap nilai median populasi. Uji ini sangat cocok digunakan untuk sampel yang kecil dengan ukuran sampel <span class="math inline">\(n&lt;30\)</span>.</p>
+<p>Pada uji sign test, nilai sampel yang selisihnya positif akan diganti nilainya dengan tanda “+”, Sedangkan jika hasilnya negatif nilainya diganti dengan “-”. Jika hipotesis nol benar (<span class="math inline">\(H_0:\tilde{\mu}=\tilde{\mu_0}\)</span>) dan populasi simetris, maka jumlah tanda positif dan tanda negatif akan sama. Ketika salah satu tanda muncul lebih sering, maka kita dapat menolak <span class="math inline">\(H_0\)</span>.</p>
+<p>Secara teorotis, sign test dapat diaplikasikan hanya pada situasi dimana <span class="math inline">\(\tilde{\mu_0}\)</span> tidak sama dengan nilai observasi yang ada (selisih median terhadap observasi tidak menghasilkan angka nol). Meskipun terdapat nol peluang untuk memperoleh sampel dengan nilai tepat sama dengan <span class="math inline">\(\tilde{\mu_0}\)</span> ketika distribusi populasinya berasal dari distribusi kontinu. Pada kondisi aktual nilai sampel sama dengan <span class="math inline">\(\tilde{\mu_0}\)</span> berasal dari kurang presisinya proses pengukuran data. Jika memang benar diketahui nilai sampel sama dengan <span class="math inline">\(\tilde{\mu_0}\)</span>, maka nilai tersebut selanjutnya akan dikecualikan pada proses perhitungan.</p>
+<p>p-value pada sign test dihitung menggunakan menggunakan distribusi binomial, dimana kejadian sukses didefinisikan sebagai jumlah observasi dengan tanda “+” dengan probabilitas sukses <span class="math inline">\(p=0,5\)</span>. Pembaca dapat membuka kembali Chapter yang membahas mengenai distribusi probabilitas binomial untuk memahami cara perhitungannya.</p>
+<p><strong>Prosedur Uji Hipotesis</strong></p>
+<ul>
+<li><strong>Asumsi</strong> : jumlah sampel <span class="math inline">\(n&lt;30\)</span></li>
+<li><strong>Hipotesis nol (<span class="math inline">\(H_0\)</span>)</strong> : <span class="math inline">\(\tilde{\mu}=\tilde{\mu_0}\)</span></li>
+<li><strong>Hipotesis nol terkonversi</strong>: <span class="math inline">\(H_0:p=0,5\)</span>, dimana p merupakan probabilitas observasi <span class="math inline">\(&gt;\tilde{\mu_0}\)</span>.</li>
+<li><strong>Sign Statistic</strong>: Y = # observasi yang <span class="math inline">\(&gt;\tilde{\mu_0}\)</span></li>
+<li><strong>Hipotesis alternatif terkonversi</strong></li>
+</ul>
+<table>
+<caption><span id="tab:signtest">Tabel 11.3: </span> Hipotesis alternatif terkonversi.</caption>
+<thead>
+<tr class="header">
+<th><strong><span class="math inline">\(H_a\)</span> untuk <span class="math inline">\(\tilde{\mu}\)</span></strong></th>
+<th><strong><span class="math inline">\(H_a\)</span> untuk <span class="math inline">\(p\)</span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\tilde{\mu}&gt;\tilde{\mu_0}\)</span></td>
+<td><span class="math inline">\(p&gt;0,5\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\tilde{\mu}&lt;\tilde{\mu_0}\)</span></td>
+<td><span class="math inline">\(p&lt;0,5\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\tilde{\mu}\ne\tilde{\mu_0}\)</span></td>
+<td><span class="math inline">\(p\ne0,5\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:signtest">Tabel 11.3: </span> Hipotesis alternatif terkonversi pendekatan distribusi normal.</caption>
+<thead>
+<tr class="header">
+<th><strong><span class="math inline">\(H_a\)</span></strong></th>
+<th><strong>RR pada level <span class="math inline">\(\alpha\)</span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\tilde{\mu}&gt; \tilde{\mu_0}\)</span></td>
+<td><span class="math inline">\(Z_{H_0}\ge Z_\alpha\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\tilde{\mu}&lt; \tilde{\mu_0}\)</span></td>
+<td><span class="math inline">\(Z_{H_0}\le -Z_\alpha\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\tilde{\mu}\ne\tilde{\mu_0}\)</span></td>
+<td>$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Statistik Uji</strong></li>
+</ul>
+<p><strong><span class="math inline">\(n&lt;10\)</span></strong>: Fungsi densitas kumulatif distribusi binomial. Lihat tabel distribusi binomial untuk <span class="math inline">\(p=0,5\)</span>.</p>
+<p><strong><span class="math inline">\(n\ge10\)</span></strong>:</p>
+<span class="math display" id="eq:signtesteq">\[\begin{equation}
+Z_{H_0}=\frac{x-np}{\sqrt{npq}}
+  \tag{11.5}
+\end{equation}\]</span>
+<p>dimana <span class="math inline">\(X\)</span> merupakan jumlah observasi bertanda “+”. <span class="math inline">\(p\)</span> merupakan probabilitas kejadian sukses, dimana <span class="math inline">\(p=q=0,5\)</span>. <span class="math inline">\(n\)</span> merupakan jumlah observasi.</p>
+<ul>
+<li><strong>p-value</strong></li>
+</ul>
+<p><strong><span class="math inline">\(n&lt;10\)</span></strong></p>
+<span class="math display" id="eq:signtesteq2">\[\begin{equation}
+p-value =
+  \begin{cases}
+    P\left(X\ge x,\ \text{dimana}\ p=\frac{1}{2}\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}&gt;\tilde{\mu_0}\\
+    P\left(X\le x,\ \text{dimana}\ p=\frac{1}{2}\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}&lt;\tilde{\mu_0}\\
+    2\left(P\left(X\le x,\ \text{dimana}\ p=\frac{1}{2}\right)\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}\ne \tilde{\mu_0}
+    \end{cases}
+  \tag{11.6}
+\end{equation}\]</span>
+<p><strong><span class="math inline">\(n\ge10\)</span></strong></p>
+<span class="math display" id="eq:signtesteq3">\[\begin{equation}
+p-value =
+  \begin{cases}
+    1-\Phi\left(Z_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}&gt;\tilde{\mu_0}\\
+    \Phi\left(Z_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}&lt;\tilde{\mu_0}\\
+    2\left[1-\Phi\left(Z_{H_0}\right)\right]\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}\ne \tilde{\mu_0}
+    \end{cases}
+  \tag{11.7}
+\end{equation}\]</span>
+<p><strong>Contoh</strong></p>
+<p>Nilai di bawah ini merupakan waktu yang diperlukan untuk menyisihkan suatu polutan di air sebesar 70% melalui proses sedimentasi pada percobaan di laboratorium:</p>
+<pre><code>1,1; 2,2; 0,9; 1,3; 2,0; 1,6; 1,8; 1,5; 2,0; 1,2; 1,7.</code></pre>
+<p>Gunakan sign test untuk mengecek apakah median dari hasil tersebut sesuai sama dengan yang dihasilkan penelitian sebelumnya sebesar 1,8 jam? Gunakan tingkat keyakinan 0,05 pendekatan distribusi binomial dan normal untuk kasus tersebut.</p>
+<p><strong>Jawab</strong>:</p>
+<ul>
+<li><span class="math inline">\(H_0:\tilde{\mu}=1,8\)</span></li>
+<li><span class="math inline">\(H_a:\tilde{\mu}\ne1,8\)</span></li>
+<li><span class="math inline">\(\alpha=0,05\)</span></li>
+<li>Uji statistik: Binomial variabel X dengan p=0,5.</li>
+<li>perhitungan statistik uji:</li>
+</ul>
+<p>Gnatilah tiap selisih nilai observasi terhadap median 1,8. Jika nilai selisih lebih besar dari median maka ganti dengan tanda “+”, sedangkan jika lebih kecil ganti dengan tanda “-”. Jika nilai nol yang dihasilkan maka kecualikan observasi tersebut. Berikut adalah hasil yang diperoleh:</p>
+<p><span class="math display">\[
+- + - - + - - + - -
+\]</span></p>
+<p>Berdassarkan hasil tersebut diperoleh jumlah kejadian sukses (nilai positif) <span class="math inline">\(x=3\)</span> dan <span class="math inline">\(n=10\)</span> (satu observasi nol dikecualikan).</p>
+<p><strong>Pendekatan Distribusi Binomial</strong></p>
+<p>Pembaca dapat menggunakan tabel distribusi binomial untuk menghitung probabilitas binomial dengan <span class="math inline">\(n=10\)</span>, <span class="math inline">\(p=0,5\)</span>, dan <span class="math inline">\(x=3\)</span>. Berikut adalah hasil perhitungan yang dilakukan:</p>
+<p><span class="math display">\[
+P=2P\left(X\le3\ ketika\ p=\frac{1}{2}\right)=2\sum_{x=0}^3b\left(x;10;\frac{1}{2}\right)=0,3438&gt;0,05
+\]</span></p>
+<p>Dengan menggunakan <code>R</code> kita dapat menggunakan fungsi <code>pbinom()</code> untuk menghitung probabilitas kumulatif dari distribusi binomial. Langkah pertama yang perlu dilakukan adalah membuat vektor yang berisikan observasi tersebut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor numerik</span>
+df &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.5</span>, <span class="fl">2.2</span>, <span class="fl">0.9</span>, <span class="fl">1.3</span>, <span class="fl">2.0</span>, 
+        <span class="fl">1.6</span>, <span class="fl">1.8</span>, <span class="fl">1.5</span>, <span class="fl">2.0</span>, <span class="fl">1.2</span>, <span class="fl">1.7</span>)
+
+<span class="co"># cek panjang vektor</span>
+<span class="kw">length</span>(df)</code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<p>Langkah selanjutnya yang perlu dilakukan adalah menghitung selisih dari elemen vektor tersebut dengan nilai median yang telah kita miliki.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># menghitung selisih nilai elemen vektor dengan median</span>
+df_new &lt;-<span class="st"> </span>df<span class="op">-</span><span class="fl">1.8</span>
+
+<span class="co"># print</span>
+df_new</code></pre></div>
+<pre><code>##  [1] -0.3  0.4 -0.9 -0.5  0.2 -0.2  0.0 -0.3  0.2 -0.6
+## [11] -0.1</code></pre>
+<p>Selanjutnya menghitung nilai x (jumlah observasi bernilai positif) dan ukuran sampel yang baru (n).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subset nilai vektor positif</span>
+df_new2 &lt;-<span class="st"> </span>df_new[df_new<span class="op">&gt;</span><span class="dv">0</span>]
+
+<span class="co"># print</span>
+df_new2</code></pre></div>
+<pre><code>## [1] 0.4 0.2 0.2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># x</span>
+x &lt;-<span class="st"> </span><span class="kw">length</span>(df_new2)
+
+<span class="co"># n</span>
+n &lt;-<span class="st"> </span><span class="kw">length</span>(df_new[df_new<span class="op">!=</span><span class="dv">0</span>])</code></pre></div>
+<p>Langkah terakhir setelah kita memperoleh nilai x dan n adalah menghitung probabilitas binomial menggunakan fungsi <code>pbinom()</code> dengan <span class="math inline">\(p=0,5\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">*</span><span class="kw">pbinom</span>(<span class="dt">q=</span>x, <span class="dt">size=</span>n, <span class="dt">prob=</span><span class="fl">0.5</span>)</code></pre></div>
+<pre><code>## [1] 0.3438</code></pre>
+<p><strong>Pendekatan Distribusi Normal</strong></p>
+<p>Untuk menghitung p-value dengan menggunakan pendekatan distribusi normal, kita perlu menghitung nilai mean dan simpangan baku dari contoh kasus di atas. Contoh kasus di atas merupakan contoh kasus percobaan binomial. Kita perlu menghitung nilai mean dan simpangan baku dari percobaan di atas. Data yang diperlukan untuk melakukannya adalah data yang telah dikonversi kedalam bentuk tanda “+” dan “-”. Berdasarkan hasil perhitungan di atas telah diketahui <span class="math inline">\(n=10\)</span> dan <span class="math inline">\(x=3\)</span>. Berikut adalah hasil perhitungan nilai mean dan simpangan baku contoh kasus tersebut:</p>
+<p><span class="math display">\[
+\tilde{\mu}=np=\left(10\right)\left(0,5\right)=5
+\]</span></p>
+<p><span class="math display">\[
+\sigma=\sqrt{npq}=\sqrt{\left(10\right)\left(0,5\right)\left(0,5\right)}=1,581139
+\]</span></p>
+<p>Setelah kedua nilai tersebut dihitung selanjutnya kita dapat menghitung nilai Z dan menggunakan tabel distribusi normal untuk menghitung p-value.</p>
+<p><span class="math display">\[
+Z_{H_0}=\frac{2,5-5}{1,581139}=-1,581139
+\]</span></p>
+<p>Sehingga nilai p-value yang diperoleh:</p>
+<p><span class="math display">\[
+P=2\left[\Phi\left(Z_{-1,581139}\right)\right]=0,1138463
+\]</span></p>
+<p>Pada <code>R</code> kita dapat menggunakan fungsi <code>pnorm()</code> untuk menghitung probabilitas kumulatif dari distribusi normal. Berikut adalah sintaks yang digunakan:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">*</span><span class="kw">pnorm</span>(<span class="dt">q=</span><span class="fl">2.5</span>, <span class="dt">mean=</span>n<span class="op">*</span><span class="fl">0.5</span>, <span class="dt">sd=</span><span class="kw">sqrt</span>(n<span class="op">*</span>(<span class="fl">0.5</span><span class="op">^</span><span class="dv">2</span>)))</code></pre></div>
+<pre><code>## [1] 0.1138</code></pre>
+<p><strong>Kesimpulan</strong>: p-value &gt; <span class="math inline">\(\alpha\)</span>. Terima <span class="math inline">\(H_0\)</span>. Median hasil observasi tidak berbeda signifikan dengan median hasil percobaan sebelumnya.</p>
+<p>Berdasarkan kedua pendekatan tersebut terlihat bahwa p-value yang diperoleh berbeda hampir 2 kali lipat, namun kesimpulan yang diperoleh tidak berbeda. Pada penerapannya pembaca dapat memilih salah satu pendekatan tersebut dengan memperhatikan jumlah sampel (<span class="math inline">\(n\)</span>) yang dimiliki oleh pembaca. Jika jumlah sampel <span class="math inline">\(n\ge10\)</span> maka gunakan pendekatan distribusi normal.</p>
+<p>Kita juga dapat membuat <em>user define function</em> kita sendiri jika suatu saat kita akan melakukan perhitungan kembali. Berikut adalah contoh sintaks yang digunakan untuk melakukan sign test:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sign.test &lt;-<span class="st"> </span><span class="cf">function</span>(df, median, alternative){
+  df_new &lt;-<span class="st"> </span>df<span class="op">-</span>median
+  x &lt;-<span class="st"> </span><span class="kw">length</span>(df_new[df_new<span class="op">&gt;</span><span class="dv">0</span>])
+  n &lt;-<span class="st"> </span><span class="kw">length</span>(df_new[df_new<span class="op">!=</span><span class="dv">0</span>])
+  <span class="cf">if</span>(n<span class="op">&lt;</span><span class="dv">10</span>){
+    <span class="cf">if</span>(alternative<span class="op">==</span><span class="st">&quot;two.sided&quot;</span>){
+      p.value=<span class="dv">2</span><span class="op">*</span><span class="kw">pbinom</span>(<span class="dt">q=</span>x, <span class="dt">size=</span>n, <span class="dt">prob=</span><span class="fl">0.5</span>)
+    }<span class="cf">else</span> <span class="cf">if</span>(alternative<span class="op">==</span><span class="st">&quot;greater&quot;</span>){
+      p.value=<span class="dv">1</span><span class="op">-</span><span class="kw">pbinom</span>(<span class="dt">q=</span>x, <span class="dt">size=</span>n, <span class="dt">prob=</span><span class="fl">0.5</span>)
+    }<span class="cf">else</span> <span class="cf">if</span>(alternative<span class="op">==</span><span class="st">&quot;lower&quot;</span>){
+      p.value=<span class="kw">pbinom</span>(<span class="dt">q=</span>x, <span class="dt">size=</span>n, <span class="dt">prob=</span><span class="fl">0.5</span>)
+    }<span class="cf">else</span>{
+      <span class="kw">warning</span>(<span class="st">&quot;You must determine the alternative&quot;</span>)
+    }
+  }<span class="cf">else</span>{
+    <span class="cf">if</span>(alternative<span class="op">==</span><span class="st">&quot;two.sided&quot;</span>){
+      p.value=<span class="dv">2</span><span class="op">*</span><span class="kw">pnorm</span>(<span class="dt">q=</span>x<span class="op">-</span><span class="fl">0.5</span>, <span class="dt">mean=</span>n<span class="op">*</span><span class="fl">0.5</span>, 
+                      <span class="dt">sd=</span><span class="kw">sqrt</span>(n<span class="op">*</span>(<span class="fl">0.5</span><span class="op">^</span><span class="dv">2</span>)))
+    }<span class="cf">else</span> <span class="cf">if</span>(alternative<span class="op">==</span><span class="st">&quot;greater&quot;</span>){
+      p.value=<span class="fl">0.5</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="dt">q=</span>x<span class="op">-</span><span class="fl">0.5</span>, <span class="dt">mean=</span>n<span class="op">*</span><span class="fl">0.5</span>, 
+                      <span class="dt">sd=</span><span class="kw">sqrt</span>(n<span class="op">*</span>(<span class="fl">0.5</span><span class="op">^</span><span class="dv">2</span>)))
+    }<span class="cf">else</span> <span class="cf">if</span>(alternative<span class="op">==</span><span class="st">&quot;lower&quot;</span>){
+      p.value=<span class="kw">pnorm</span>(<span class="dt">q=</span>x<span class="op">-</span><span class="fl">0.5</span>, <span class="dt">mean=</span>n<span class="op">*</span><span class="fl">0.5</span>, 
+                      <span class="dt">sd=</span><span class="kw">sqrt</span>(n<span class="op">*</span>(<span class="fl">0.5</span><span class="op">^</span><span class="dv">2</span>)))
+    }<span class="cf">else</span>{
+    <span class="kw">warning</span>(<span class="st">&quot;You must determine the alternative&quot;</span>)
+    }
+  }
+  p.value
+}</code></pre></div>
+<p>Pembaca juga dapat mengedit script di atas sesuai dengan apa yang pembaca inginkan. Berikut adalah contoh output script tersebut menggunakan objek <code>df</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sign.test</span>(<span class="dt">df=</span>df, <span class="dt">median=</span><span class="fl">1.8</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre></div>
+<pre><code>## [1] 0.1138</code></pre>
+</div>
+<div id="signed-rank-test" class="section level4">
+<h4><span class="header-section-number">11.3.2.2</span> Signed-Rank Test</h4>
+<p>signed-rank test disebut juga sebagai <strong>Wilcoxon signed-rank test</strong> merupakan metode nonparameterik untuk melakukan uji median pada satu populasi dengan distribusi yang simetris. Dengan kondisi tersebut, kita dapat melakukan uji hipotesis nol (<span class="math inline">\(H_0=\tilde{\mu}=\tilde{\mu_0}\)</span>). Langkah pertama kita perlu menguragi seluruh nilai sampel dengan <span class="math inline">\(\tilde{\mu_0}\)</span>, serta mengecualikan hasil pengurangan bernilai nol. Hasil pengurangan selanjutnya dirangking (diperingkat) tanpa memperdulikan tandanya. Rangking pertama merupakan nilai absolut terkecil dari hasil pengurangan (tanpa mempedulikan tanda), rangkin kedua merupakan absolut terkecil kedua, dst. Ketika nilai absolut hasil pengurangan memiliki nilai yang sama, maka peringkat masing-masing nilai merupakan rata-rata dari peringkat tersebut. Sebagai contoh misalnya nilai hasil pengurangan peringkat 5 dan 6 sama, maka peringkat masing-masing selanjutnya di ubah menjadi 5,5 (rata-rata kedua peringkat). Jika hipotesis nol benar, maka total rangking hasil penurangan yang positif akan sama dengan total rangkin hasil pengurangan yang negatif. Total pengurangan yang positif selanjutnya dilambangkan dengan <span class="math inline">\(w_+\)</span> dan total pengurangan yang negatif dengan <span class="math inline">\(w_-\)</span>. Nilai terkecil dari kedua nilai tersebut dilambangkan dengan <span class="math inline">\(w\)</span>.</p>
+<p>Dalam penentuan penerimaan hipotesis terdapat beberapa hal yang perlu pembaca cermati. Jika hipotesis alternatif yang digunakan adalah <span class="math inline">\(\tilde{\mu}&lt;\tilde{\mu_0}\)</span>, hipotesis nol dapat ditolak hanya jika nilai <span class="math inline">\(w_+\)</span> kecil dan <span class="math inline">\(w_-\)</span> besar. Sebaliknya jika hipotesis alternatif yang digunakan adalah <span class="math inline">\(\tilde{\mu}&gt;\tilde{\mu_0}\)</span>, hipotesis nol dapat ditolak hanya jika nilai <span class="math inline">\(w_+\)</span> besar dan <span class="math inline">\(w_-\)</span> kecil. Untuk uji dua sisi, hipotesis nol akan ditolak jika kedua nilai <span class="math inline">\(w_+\)</span> dan <span class="math inline">\(w_-\)</span> cukup kecil.</p>
+<p><strong>Prosedur Uji Hipotesis</strong></p>
+<ul>
+<li><strong>Asumsi</strong> : Distribusi simetris.</li>
+<li><strong>Hipotesis nol (<span class="math inline">\(H_0\)</span>)</strong> : <span class="math inline">\(\tilde{\mu}=\tilde{\mu_0}\)</span></li>
+<li><strong>signed-rank</strong>: Menghitung:</li>
+</ul>
+<p><span class="math inline">\(d_i\)</span> = selisih nilai observasi dengan median pembanding.</p>
+<p><span class="math inline">\(r_i\)</span> = rangking <span class="math inline">\(d_i\)</span> tanpa mempedulikan tanda (nol dikecualikan)</p>
+<p><span class="math inline">\(w_+\)</span> = Total <span class="math inline">\(r_i\)</span> positif</p>
+<p><span class="math inline">\(w_-\)</span> = Total <span class="math inline">\(r_i\)</span> negatif</p>
+<p><span class="math inline">\(w\)</span> = Nilai terkecil antara <span class="math inline">\(w_-\)</span> dan <span class="math inline">\(w_+\)</span></p>
+<ul>
+<li><strong>Komputasi jumlah rangking dan aturan penolakan berdasarkan <span class="math inline">\(H_a\)</span></strong></li>
+</ul>
+<table>
+<caption><span id="tab:signranktest">Tabel 11.4: </span> Komputasi jumlah rangking dan aturan penolakan berdasarkan hipotesif alternatif.</caption>
+<thead>
+<tr class="header">
+<th><strong><span class="math inline">\(H_a\)</span></strong></th>
+<th><strong>RR pada level <span class="math inline">\(\alpha\)</span></strong></th>
+<th><strong>komputasi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\tilde{\mu}&gt; \tilde{\mu_0}\)</span></td>
+<td><span class="math inline">\(w \le w_\alpha\)</span></td>
+<td><span class="math inline">\(w_-\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\tilde{\mu}&lt; \tilde{\mu_0}\)</span></td>
+<td><span class="math inline">\(w \le w_\alpha\)</span></td>
+<td><span class="math inline">\(w_+\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\tilde{\mu}\ne\tilde{\mu_0}\)</span></td>
+<td><span class="math inline">\(w \le w_\alpha\)</span></td>
+<td><span class="math inline">\(w\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Untuk <span class="math inline">\(n\ge15\)</span> aturan penolakan dapat menggunakan pendekatan distribusi normal seperti pada Tabel <a href="uji-hipotesis.html#tab:signtest">11.3</a>.</p>
+<ul>
+<li><strong>Statistik Uji</strong></li>
+</ul>
+<p>Untuk ukuran sampel <span class="math inline">\(n&lt;15\)</span> nilai kritis dapat ditentukan berdasarkan tabel nilai kritis untuk Signed-Rank Test yang dapat pembaca unduh pada tautan <a href="https://math.ucalgary.ca/files/math/wilcoxon_signed_rank_table.pdf">berikut</a>.</p>
+<p>Untuk ukuran sampel <span class="math inline">\(n\ge15\)</span> dapat menggunakan pendekatan distribusi normal dengan sebelumnya menghitung nilai Z berdasarka nilai <span class="math inline">\(w_+\)</span> (atau <span class="math inline">\(w_-\)</span>).</p>
+<span class="math display" id="eq:signranktesteq">\[\begin{equation}
+\mu w_+=\frac{n\left(n+1\right)}{4}\ dan\ \sigma_{w_+}^2=\frac{n\left(n+1\right)\left(2n+1\right)}{24}
+  \tag{11.8}
+\end{equation}\]</span>
+<p>Sehingga nilai Z dapat dihitung menggunakan persamaan berikut:</p>
+<span class="math display" id="eq:signranktesteq2">\[\begin{equation}
+Z=\frac{w_+-\mu w_+}{\sigma w_+}
+  \tag{11.9}
+\end{equation}\]</span>
+<p><strong>Prosedur Uji Hipotesis</strong></p>
+<p>Prosedur uji signed-rank test juga dapat dilakukan di <code>R</code> menggunakan fungsi <code>wilcox.test()</code>. Fungsi ini dapat digunakan untuk melakukan dua buah uji yaitu signed-rank dan Wilcoxon Rank Sum. Khusus untuk signed rank kita dapat melakukan test untuk satu atau dua populasi. Jika kita ingin melakukannya untuk satu populasi, maka kita hanya perlu menginputkan satu vektor saja. Berikut adalah format fungsi tersebut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(x, <span class="dt">y =</span> <span class="ot">NULL</span>,
+            <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),
+            <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">paired =</span> <span class="ot">FALSE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, ...)</code></pre></div>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x,y</strong>: vektor numerik. Kedua argumen akan terisi jika akan dilakukan uji hipotesis untuk dua populasi.</li>
+<li><strong>alternative</strong>: diguanakan untuk menentukan jenis uji hipotesis apakah satu sisi(“less” dan “greater”), atau dua sisi (“two.sided”).</li>
+<li><strong>mu</strong>: rata-rata populasi. Secara default nilainya 0</li>
+<li><strong>paired</strong>: vektor logikal yang menentukan apakah uji dua populasi digunakan untuk sampel berpasangan (TRUE) atau tidak (FALSE).</li>
+<li><strong>conf.level</strong>: tingkat kepercayaan. Secara default tingkat kepercayaan yang digunakan adalah 95%.</li>
+</ul>
+</blockquote>
+<p><strong>Contoh</strong></p>
+<p>Kita akan menggunakan kembali data pada contoh soal sebelumnya. Pada contoh kali ini hitunglah menggunakan signed-rank test?</p>
+<p><strong>Jawab</strong>:</p>
+<ul>
+<li><span class="math inline">\(H_0: \tilde{\mu}=1,8\)</span></li>
+<li><span class="math inline">\(H_a: \tilde{\mu}\ne1,8\)</span></li>
+<li><span class="math inline">\(\alpha=0,05\)</span></li>
+<li><p>Berdasarkan Tabel nilai kritis signed-rank test diperoleh nilai kritis untuk <span class="math inline">\(\alpha=0,05\)</span> sebesar 8 dengan menggunakan parameter n=10 (pengecualian selisih sama dengan nol) dan median=1.8. Aturan penolakan berdasarkan nilai tersebut berada pada rentang nilai <span class="math inline">\(w\le8\)</span>.</p></li>
+<li><p>Hasil perhitungan <span class="math inline">\(d_i\)</span> dan rangking masing-masing nilai disajikan sebagai berikut:</p></li>
+</ul>
+<table>
+<caption><span id="tab:signranktest2">Tabel 11.5: </span> Komputasi signed-rank test.</caption>
+<thead>
+<tr class="header">
+<th><strong><span class="math inline">\(d_i\)</span></strong></th>
+<th><strong><span class="math inline">\(r_i\)</span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-0,3</td>
+<td>5,5</td>
+</tr>
+<tr class="even">
+<td>0,4</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>-0,9</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>-0,5</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>0,2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>-0,2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>-0,3</td>
+<td>5,5</td>
+</tr>
+<tr class="even">
+<td>0,2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>-0,6</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>-0,1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Berdasarkan nilai <span class="math inline">\(w_+=13\)</span> dan <span class="math inline">\(w_-=42\)</span>. Karena berupa uji dua sisi maka nilai <span class="math inline">\(w\)</span> perlu ditentukan. Berdasarkan kedua nilai tersebut nilai <span class="math inline">\(w=13\)</span> (nilai terkecil).</p>
+<p>Dengan menggunakan <code>R</code> kita dapat melakukan uji menggunakan fungsi <code>wilcox.test()</code>. Uji ini akan menghasilkan p-value sehingga aturan penolakan <span class="math inline">\(H_0\)</span> menggunakan p-value akan sama seperti uji lainnya, dimana jika p-value <span class="math inline">\(\ge H_0\)</span>, maka hipotesis nol diterima. Berikut adalah sintaks untuk melakukannya:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(<span class="dt">x=</span>df, <span class="dt">alternative =</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">mu =</span> <span class="fl">1.8</span>,
+            <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</code></pre></div>
+<pre><code>## Warning in wilcox.test.default(x = df, alternative =
+## &quot;two.sided&quot;, mu = 1.8, : cannot compute exact p-value
+## with ties</code></pre>
+<pre><code>## Warning in wilcox.test.default(x = df, alternative =
+## &quot;two.sided&quot;, mu = 1.8, : cannot compute exact p-value
+## with zeroes</code></pre>
+<pre><code>## 
+##  Wilcoxon signed rank test with continuity
+##  correction
+## 
+## data:  df
+## V = 13, p-value = 0.2
+## alternative hypothesis: true location is not equal to 1.8</code></pre>
+<p><strong>Kesimpulan</strong>: <span class="math inline">\(w\)</span> &gt; <span class="math inline">\(w_\alpha\)</span>. Terima <span class="math inline">\(H_0\)</span>. Median hasil observasi tidak berbeda signifikan dengan median hasil percobaan sebelumnya.</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="penaksiran-secara-statistika.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["EnvStat.pdf", "EnvStat.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

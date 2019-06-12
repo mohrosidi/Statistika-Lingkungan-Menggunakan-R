@@ -3,9 +3,9 @@ body{
 text-align: justify}
 </style>
 
-# Sintaks Bahasa R
+# Dasar Pemrograman Menggunakan R
 
-Pada *chapter* ini penulis hendak mengajak pembaca lebih familiar dengan sintaks atau perintah yang ada pada `R`. Pembaca akan mempelajari penggunaan operator dalam melakukan operasi pengolahan data pada `R`, jenis data yang ada pada `R`, sampai dengan bagaimana kita melakukan proses *decision making* menggunakan `R`. 
+Pada *chapter* ini penulis hendak mengajak pembaca lebih familiar dengan sintaks atau perintah yang ada pada `R` yang akan membantu pembaca untuk melakukan pemrograman pada `R`. Pembaca akan mempelajari penggunaan operator dalam melakukan operasi pengolahan data pada `R`, jenis data yang ada pada `R`, sampai dengan bagaimana kita melakukan proses *decision making* menggunakan `R`. 
 
 ## Operator Aritmatika
 
@@ -38,7 +38,7 @@ Operator aritmatika yang disediakan `R` disajikan pada Tabel \@ref(tab:oparitmat
 %%             | *Modulus*, Untuk mencari sisa pembagian
 %/%            | *Integer*, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian
 
-*: (\#tab:oparitmatika) Operator Aritmatika `R`.**
+*: (\#tab:oparitmatika) Operator Aritmatika `R`.*
 
 Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.
 
@@ -161,10 +161,10 @@ Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau com
 **Simbol**     | **Keterangan**           
 ---------------|----------------------------------
 &&             | Operator logika AND
-||             | Operator logika OR
+'||'           | Operator logika OR
 !              | Opeartor logika NOT
 &              | Operator logika AND element wise
-|              | Operator logika OR element wise
+'|'            | Operator logika OR element wise
  
 : (\#tab:oplogika) Operator logika `R`.
 
@@ -279,20 +279,21 @@ ls()
 
 > **Note: ** Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.
 
-## Tipe Data
+## Tipe dan Struktur Data
 
 Data pada `R` dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada `R` disajikan pada Tabel \@ref(tab:tipedata).
 
 **Tipe Data**  | **Contoh**              | **Keterangan**
----------------|-------------------------|--------------------------------------------------
+---------------|-------------------------|---------------------------------------------------------------------------------
 Logical        | TRUE, FALSE             | Nilai Boolean
 Numeric        | 12.3, 5, 999            | Segala jenis angka
 Integer        | 23L, 97L, 3L            | Bilangan integer (bilangan bulat)
 Complex        | 2i, 3i, 9i              | Bilangan kompleks
 Character      | 'a', "b", "123"         | Karakter dan string
+Factor         | 1, 0, "Merah"           | Dapat berupa numerik atau string (namun pada proses akan terbaca sebagai angka)
 Raw            | Identik dengan "hello"  | Segala jenis data yang disimpan sebagai raw bytes
 
-: (\#tab:tipedata) Tipe Data `R`.
+: (\#tab:tipedata) Tipe data `R`.
 
 Sintaks berikut adalah contoh dari tipe data pada `R`. Untuk mengetahui tipa data suatu objek kita dapat menggunakan perintah `class()`
 
@@ -375,6 +376,20 @@ Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik 
 "My friend's name \"Adi\""
 ```
 
+Struktur data diklasifikasikan berdasarkan dimensi data dan tie data di dalamnya (homogen atau heterogen). Klasifikasi jenis data disajikan pada Tabel \@ref(tab:strukturdata).
+
+**Dimensi**  | **Homogen**      | **Heterogen**
+-------------|------------------|---------------
+1d           | Atomik vektor    | List
+2d           | Matriks          | Dataframe
+nd           | Array            |               
+
+: (\#tab:strukturdata) Struktur data `R`.
+
+Berdasarkan Tabel tersebut dapat kita lihat bahwa objek terbagi atas dua buah struktur data yaitu homogen dan heterogen. Objek dengan struktur data homogen hanya dapat menyimpan satu tipe atau jenis data saja (numerik saja atau factor saja), sedangkan objek dengan struktur data heterogen akan dapat menyimpan berbagai jenis data. 
+
+Berdasarkan daftar yang ada di Tabel \@ref(tab:strukturdata), kita tidak akan membahas struktur data Array pada buku ini. Struktur data tersebut lebih banyak digunakan untuk kepentingan akademis seperti membuat model matematis yang akan penulis bahas pada buku lain.
+
 ## Vektor
 
 Vektor merupakan kombinasi berbagai nilai (numerik, karakter, logical, dan sebagainya berdasarkan jenis input data) pada objek yang sma. Pada contoh kasus berikut, pembaca akan memiliki sesuai jenis data input yaitu**vektor numerik**, **vector karakter**, **vektor logical**, dll.
@@ -455,7 +470,7 @@ Jumlah[2]
 Jumlah[c(2, 4)]
 ```
 
-Selain melalui urutan (indeks), kita juga dapat melakukan subset berdasarkan nama elemen vektornya.
+Selain melalui urutan (indeks), kita juga dapat melakukan subset (membuat himpunan bagian) berdasarkan nama elemen vektornya.
 
 ```{r}
 Jumlah["Jeruk"]
@@ -490,7 +505,7 @@ Jumlah[merah==TRUE]
 Jumlah[!is.na(Jumlah)]
 ```
 
-### Perhitungan Menggunakan Vektor
+### Operasi Matematis Menggunakan Vektor
 
 Jika pembaca melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:
 

@@ -1,229 +1,258 @@
-\contentsline {chapter}{Pengantar}{15}{chapter*.4}% 
-\contentsline {part}{Bahasa Pemrograman R}{19}{part*.5}% 
-\contentsline {chapter}{\numberline {1}Mengenal Bahasa R}{19}{chapter.1}% 
-\contentsline {section}{\numberline {1.1}Sejarah R}{19}{section.1.1}% 
-\contentsline {section}{\numberline {1.2}Fitur dan Karakteristik R}{20}{section.1.2}% 
-\contentsline {section}{\numberline {1.3}Kelebihan dan Kekurangan R}{20}{section.1.3}% 
-\contentsline {section}{\numberline {1.4}RStudio}{21}{section.1.4}% 
-\contentsline {section}{\numberline {1.5}Menginstall R dan RStudio}{21}{section.1.5}% 
-\contentsline {section}{\numberline {1.6}Working Directory}{22}{section.1.6}% 
-\contentsline {subsection}{\numberline {1.6.1}Mengubah Lokasi Working Directory}{22}{subsection.1.6.1}% 
-\contentsline {subsection}{\numberline {1.6.2}Mengubah Lokasi Working Directory Default}{23}{subsection.1.6.2}% 
-\contentsline {section}{\numberline {1.7}Fasilitas Help}{23}{section.1.7}% 
-\contentsline {subsection}{\numberline {1.7.1}Mencari Help dari Suatu Perintah Tertentu}{25}{subsection.1.7.1}% 
-\contentsline {subsection}{\numberline {1.7.2}General Help}{27}{subsection.1.7.2}% 
-\contentsline {subsection}{\numberline {1.7.3}Fasilitas Help Lainnya}{27}{subsection.1.7.3}% 
-\contentsline {section}{\numberline {1.8}Referensi}{28}{section.1.8}% 
-\contentsline {chapter}{\numberline {2}Sintaks Bahasa R}{29}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Operator Aritmatika}{29}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Fungsi Aritmetik}{30}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}Operator Relasi}{31}{section.2.3}% 
-\contentsline {section}{\numberline {2.4}Operator Logika}{32}{section.2.4}% 
-\contentsline {section}{\numberline {2.5}Memasukkan Nilai Kedalam Variabel}{34}{section.2.5}% 
-\contentsline {section}{\numberline {2.6}Tipe Data}{35}{section.2.6}% 
-\contentsline {section}{\numberline {2.7}Vektor}{38}{section.2.7}% 
-\contentsline {subsection}{\numberline {2.7.1}Membuat vektor}{38}{subsection.2.7.1}% 
-\contentsline {subsection}{\numberline {2.7.2}Missing Values}{39}{subsection.2.7.2}% 
-\contentsline {subsection}{\numberline {2.7.3}Subset Pada Vektor}{40}{subsection.2.7.3}% 
-\contentsline {subsection}{\numberline {2.7.4}Perhitungan Menggunakan Vektor}{41}{subsection.2.7.4}% 
-\contentsline {section}{\numberline {2.8}Matriks}{42}{section.2.8}% 
-\contentsline {subsection}{\numberline {2.8.1}Membuat matriks}{42}{subsection.2.8.1}% 
-\contentsline {subsection}{\numberline {2.8.2}Subset Pada Matriks}{44}{subsection.2.8.2}% 
-\contentsline {subsection}{\numberline {2.8.3}Perhitungan Menggunakan Matriks}{46}{subsection.2.8.3}% 
-\contentsline {section}{\numberline {2.9}Faktor}{48}{section.2.9}% 
-\contentsline {subsection}{\numberline {2.9.1}Membuat Variabel Faktor}{48}{subsection.2.9.1}% 
-\contentsline {subsection}{\numberline {2.9.2}Perhitungan Menggunakan Faktor}{49}{subsection.2.9.2}% 
-\contentsline {section}{\numberline {2.10}Data Frames}{50}{section.2.10}% 
-\contentsline {subsection}{\numberline {2.10.1}Membuat Data Frame}{50}{subsection.2.10.1}% 
-\contentsline {subsection}{\numberline {2.10.2}Subset Pada Data Frame}{51}{subsection.2.10.2}% 
-\contentsline {subsection}{\numberline {2.10.3}Memperluas Data Frame}{53}{subsection.2.10.3}% 
-\contentsline {subsection}{\numberline {2.10.4}Perhitungan Pada Data Frame}{53}{subsection.2.10.4}% 
-\contentsline {section}{\numberline {2.11}List}{53}{section.2.11}% 
-\contentsline {subsection}{\numberline {2.11.1}Membuat List}{53}{subsection.2.11.1}% 
-\contentsline {subsection}{\numberline {2.11.2}Subset List}{54}{subsection.2.11.2}% 
-\contentsline {subsection}{\numberline {2.11.3}Memperluas List}{55}{subsection.2.11.3}% 
-\contentsline {section}{\numberline {2.12}Loop}{56}{section.2.12}% 
-\contentsline {subsection}{\numberline {2.12.1}For Loop}{56}{subsection.2.12.1}% 
-\contentsline {subsection}{\numberline {2.12.2}While Loop}{57}{subsection.2.12.2}% 
-\contentsline {subsection}{\numberline {2.12.3}Repeat Loop}{58}{subsection.2.12.3}% 
-\contentsline {subsection}{\numberline {2.12.4}Break}{58}{subsection.2.12.4}% 
-\contentsline {section}{\numberline {2.13}Loop Menggunakan Apply Family Function}{59}{section.2.13}% 
-\contentsline {subsection}{\numberline {2.13.1}Apply}{60}{subsection.2.13.1}% 
-\contentsline {subsection}{\numberline {2.13.2}lapply}{61}{subsection.2.13.2}% 
-\contentsline {subsection}{\numberline {2.13.3}sapply}{63}{subsection.2.13.3}% 
-\contentsline {subsection}{\numberline {2.13.4}vapply}{65}{subsection.2.13.4}% 
-\contentsline {subsection}{\numberline {2.13.5}tapply}{66}{subsection.2.13.5}% 
-\contentsline {section}{\numberline {2.14}Loop Menggunakan map function pada Library \texttt {purrr}}{68}{section.2.14}% 
-\contentsline {section}{\numberline {2.15}Decision Making}{69}{section.2.15}% 
-\contentsline {subsection}{\numberline {2.15.1}if statement}{70}{subsection.2.15.1}% 
-\contentsline {subsection}{\numberline {2.15.2}if else statement}{70}{subsection.2.15.2}% 
-\contentsline {subsection}{\numberline {2.15.3}switch statement}{71}{subsection.2.15.3}% 
-\contentsline {section}{\numberline {2.16}Fungsi}{72}{section.2.16}% 
-\contentsline {section}{\numberline {2.17}Referensi}{73}{section.2.17}% 
-\contentsline {chapter}{\numberline {3}Manajemen Data R}{75}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Import File}{75}{section.3.1}% 
-\contentsline {subsection}{\numberline {3.1.1}Import File Menggunakan Fungsi Bawaan R}{75}{subsection.3.1.1}% 
-\contentsline {subsection}{\numberline {3.1.2}Membaca File CSV dan TXT Menggunakan Library readr}{77}{subsection.3.1.2}% 
-\contentsline {subsection}{\numberline {3.1.3}Import File Excel Pada R}{78}{subsection.3.1.3}% 
-\contentsline {subsection}{\numberline {3.1.4}Membaca File Dari Format Aplikasi Statistik}{80}{subsection.3.1.4}% 
-\contentsline {section}{\numberline {3.2}Eksport File}{80}{section.3.2}% 
-\contentsline {subsection}{\numberline {3.2.1}Eksport Data Menjadi Format TXT dan CSV}{81}{subsection.3.2.1}% 
-\contentsline {subsection}{\numberline {3.2.2}Eksport Data Menjadi Format Excel}{82}{subsection.3.2.2}% 
-\contentsline {section}{\numberline {3.3}Tibble Data Format}{83}{section.3.3}% 
-\contentsline {subsection}{\numberline {3.3.1}Membuat Tibble}{83}{subsection.3.3.1}% 
-\contentsline {subsection}{\numberline {3.3.2}Tibble vs Data Frame}{86}{subsection.3.3.2}% 
-\contentsline {section}{\numberline {3.4}Merapikan Data}{89}{section.3.4}% 
-\contentsline {subsection}{\numberline {3.4.1}Gather}{92}{subsection.3.4.1}% 
-\contentsline {subsection}{\numberline {3.4.2}Spread}{93}{subsection.3.4.2}% 
-\contentsline {subsection}{\numberline {3.4.3}Separate}{95}{subsection.3.4.3}% 
-\contentsline {subsection}{\numberline {3.4.4}Unite}{96}{subsection.3.4.4}% 
-\contentsline {section}{\numberline {3.5}Transformasi Data}{97}{section.3.5}% 
-\contentsline {subsection}{\numberline {3.5.1}Paket dplyr}{97}{subsection.3.5.1}% 
-\contentsline {subsection}{\numberline {3.5.2}filter()}{98}{subsection.3.5.2}% 
-\contentsline {subsection}{\numberline {3.5.3}arrange()}{99}{subsection.3.5.3}% 
-\contentsline {subsection}{\numberline {3.5.4}select()}{101}{subsection.3.5.4}% 
-\contentsline {subsection}{\numberline {3.5.5}mutate()}{105}{subsection.3.5.5}% 
-\contentsline {subsection}{\numberline {3.5.6}summarize() dan group\_by()}{108}{subsection.3.5.6}% 
-\contentsline {subsection}{\numberline {3.5.7}Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (\%\textgreater {}\%)}{108}{subsection.3.5.7}% 
-\contentsline {section}{\numberline {3.6}Referensi}{110}{section.3.6}% 
-\contentsline {part}{Visualisasi Data - R}{115}{part*.6}% 
-\contentsline {chapter}{\numberline {4}Visualisasi Data Menggunakan Fungsi Dasar R}{115}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Visualisasi Data Menggunakan Fungsi plot()}{115}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}Matriks Scatterplot}{118}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Box plot}{123}{section.4.3}% 
-\contentsline {section}{\numberline {4.4}Bar Plot}{127}{section.4.4}% 
-\contentsline {section}{\numberline {4.5}Line Plot}{128}{section.4.5}% 
-\contentsline {section}{\numberline {4.6}Pie Chart}{130}{section.4.6}% 
-\contentsline {section}{\numberline {4.7}Histogram dan Density Plot}{131}{section.4.7}% 
-\contentsline {section}{\numberline {4.8}QQ Plot}{133}{section.4.8}% 
-\contentsline {section}{\numberline {4.9}Dot Chart}{134}{section.4.9}% 
-\contentsline {section}{\numberline {4.10}Kustomisasi Parameter Grafik}{135}{section.4.10}% 
-\contentsline {subsection}{\numberline {4.10.1}Menambahkan Judul}{135}{subsection.4.10.1}% 
-\contentsline {subsection}{\numberline {4.10.2}Menambahkan Legend}{138}{subsection.4.10.2}% 
-\contentsline {subsection}{\numberline {4.10.3}Menambahkan Teks Pada Grafik}{142}{subsection.4.10.3}% 
-\contentsline {subsection}{\numberline {4.10.4}Menambahkan Garis Pada Plot}{144}{subsection.4.10.4}% 
-\contentsline {subsection}{\numberline {4.10.5}Merubah Simbol plot dan Jenis Garis}{146}{subsection.4.10.5}% 
-\contentsline {subsection}{\numberline {4.10.6}Mengatur Axis Plot}{148}{subsection.4.10.6}% 
-\contentsline {subsection}{\numberline {4.10.7}Mengatur Warna}{152}{subsection.4.10.7}% 
-\contentsline {section}{\numberline {4.11}Alternatif Library Dasar Lain}{153}{section.4.11}% 
-\contentsline {subsection}{\numberline {4.11.1}Scatterplot Menggunakan Library car}{153}{subsection.4.11.1}% 
-\contentsline {subsection}{\numberline {4.11.2}Matriks Scatterplot Menggunakan Library psych}{154}{subsection.4.11.2}% 
-\contentsline {subsection}{\numberline {4.11.3}Box Plot Menggunakan Library gplots}{155}{subsection.4.11.3}% 
-\contentsline {subsection}{\numberline {4.11.4}QQ Plot Menggunakan Library car}{155}{subsection.4.11.4}% 
-\contentsline {subsection}{\numberline {4.11.5}Plot Group Means Menggunakan Library gplots}{156}{subsection.4.11.5}% 
-\contentsline {section}{\numberline {4.12}Referensi}{158}{section.4.12}% 
-\contentsline {chapter}{\numberline {5}Visualisasi Data Menggunakan GGPLOT}{159}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Scatterplot}{160}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Box Plot dan Violin Plot}{165}{section.5.2}% 
-\contentsline {section}{\numberline {5.3}Bar Plot}{168}{section.5.3}% 
-\contentsline {section}{\numberline {5.4}Line Plot}{172}{section.5.4}% 
-\contentsline {section}{\numberline {5.5}Pie Chart}{173}{section.5.5}% 
-\contentsline {section}{\numberline {5.6}Histogram dan Desity Plot}{174}{section.5.6}% 
-\contentsline {section}{\numberline {5.7}QQ Plot}{176}{section.5.7}% 
-\contentsline {section}{\numberline {5.8}Dot Plot}{178}{section.5.8}% 
-\contentsline {section}{\numberline {5.9}ECDF Plot}{180}{section.5.9}% 
-\contentsline {section}{\numberline {5.10}Parameter Grafik}{180}{section.5.10}% 
-\contentsline {subsection}{\numberline {5.10.1}Merubah Judul Grafik, Keterangan Axis dan Legend}{180}{subsection.5.10.1}% 
-\contentsline {subsection}{\numberline {5.10.2}Merubah Tampilan dan Posisi Legend}{183}{subsection.5.10.2}% 
-\contentsline {subsection}{\numberline {5.10.3}Merubah Warana Pada Grafik Secara Otomatis dan Manual}{187}{subsection.5.10.3}% 
-\contentsline {subsection}{\numberline {5.10.4}Kustomisasi Titik}{192}{subsection.5.10.4}% 
-\contentsline {subsection}{\numberline {5.10.5}Kustomisasi Jenis Garis}{194}{subsection.5.10.5}% 
-\contentsline {subsection}{\numberline {5.10.6}Menambahkan Label Pada Titik Observasi dan Bidang Plot}{197}{subsection.5.10.6}% 
-\contentsline {subsection}{\numberline {5.10.7}Kustomisasi Tema Pada Plot}{200}{subsection.5.10.7}% 
-\contentsline {subsection}{\numberline {5.10.8}Penskalaan dan Transformasi Axis}{203}{subsection.5.10.8}% 
-\contentsline {subsection}{\numberline {5.10.9}Kustomisasi Tick Mark Axis}{207}{subsection.5.10.9}% 
-\contentsline {subsection}{\numberline {5.10.10}Menambahkan Garis Lurus Pada Plot}{211}{subsection.5.10.10}% 
-\contentsline {subsection}{\numberline {5.10.11}Melakukan Rotasi Pada Grafik}{214}{subsection.5.10.11}% 
-\contentsline {subsection}{\numberline {5.10.12}Facet}{215}{subsection.5.10.12}% 
-\contentsline {section}{\numberline {5.11}Referensi}{218}{section.5.11}% 
-\contentsline {part}{Statistika Deskriptif - R}{223}{part*.7}% 
-\contentsline {chapter}{\numberline {6}Ringkasan Numerik}{223}{chapter.6}% 
-\contentsline {section}{\numberline {6.1}Ukuran Pemusatan Data}{223}{section.6.1}% 
-\contentsline {subsection}{\numberline {6.1.1}Pengukuran Klasik-Mean}{223}{subsection.6.1.1}% 
-\contentsline {subsection}{\numberline {6.1.2}Median Sebagai Ukuran Pemusatan Data yang Resistan}{228}{subsection.6.1.2}% 
-\contentsline {subsection}{\numberline {6.1.3}Ukuran Pemusatan Data Lainnya}{229}{subsection.6.1.3}% 
-\contentsline {section}{\numberline {6.2}Ukuran Sebaran Data}{231}{section.6.2}% 
-\contentsline {subsection}{\numberline {6.2.1}Pengukuran Klasik (Varian dan Simpangan Baku)}{231}{subsection.6.2.1}% 
-\contentsline {subsection}{\numberline {6.2.2}Ukuran Sebaran Data yang Resisten Terhadap Outlier}{233}{subsection.6.2.2}% 
-\contentsline {section}{\numberline {6.3}Ringkasan Data Menggunakan Fungsi summary() dan stat.desc()}{234}{section.6.3}% 
-\contentsline {section}{\numberline {6.4}Ukuran Kemencengan Data}{235}{section.6.4}% 
-\contentsline {subsection}{\numberline {6.4.1}Ukuran Kemencengan Klasik}{236}{subsection.6.4.1}% 
-\contentsline {subsection}{\numberline {6.4.2}Ukuran Kemencengan yang Resisten}{237}{subsection.6.4.2}% 
-\contentsline {section}{\numberline {6.5}Outlier}{237}{section.6.5}% 
-\contentsline {section}{\numberline {6.6}Transformasi Data}{238}{section.6.6}% 
-\contentsline {section}{\numberline {6.7}Referensi}{240}{section.6.7}% 
-\contentsline {chapter}{\numberline {7}Ekplorasi Data Menggunakan Grafik}{243}{chapter.7}% 
-\contentsline {section}{\numberline {7.1}Grafik Untuk Melihat Ditribusi Data}{243}{section.7.1}% 
-\contentsline {subsection}{\numberline {7.1.1}Histogram}{245}{subsection.7.1.1}% 
-\contentsline {subsection}{\numberline {7.1.2}Density Plot}{246}{subsection.7.1.2}% 
-\contentsline {subsection}{\numberline {7.1.3}QQ-plot}{246}{subsection.7.1.3}% 
-\contentsline {subsection}{\numberline {7.1.4}Box Plot dan Violin Plot}{246}{subsection.7.1.4}% 
-\contentsline {section}{\numberline {7.2}Grafik Untuk Melihat Beda Distribusi Data Antar Grup}{248}{section.7.2}% 
-\contentsline {section}{\numberline {7.3}Grafik Untuk Memvisualisasikan Korelasi Antar Variabel}{250}{section.7.3}% 
-\contentsline {section}{\numberline {7.4}Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar Variabel}{251}{section.7.4}% 
-\contentsline {section}{\numberline {7.5}Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang Waktu}{252}{section.7.5}% 
-\contentsline {section}{\numberline {7.6}Referensi}{253}{section.7.6}% 
-\contentsline {part}{Probabilitas dan Distribusi Probabilitas}{257}{part*.8}% 
-\contentsline {chapter}{\numberline {8}Probabilitas}{257}{chapter.8}% 
-\contentsline {section}{\numberline {8.1}Aturan Dasar Probabilitas}{258}{section.8.1}% 
-\contentsline {subsection}{\numberline {8.1.1}Peristiwa \emph {Mutually Exclusive}}{259}{subsection.8.1.1}% 
-\contentsline {subsection}{\numberline {8.1.2}Peristiwa \emph {Not Mutually Exclusive}}{261}{subsection.8.1.2}% 
-\contentsline {subsection}{\numberline {8.1.3}Peristiwa \emph {Dependent}}{263}{subsection.8.1.3}% 
-\contentsline {subsection}{\numberline {8.1.4}Peristiwa \emph {Independent}}{264}{subsection.8.1.4}% 
-\contentsline {section}{\numberline {8.2}Teori Bayes}{265}{section.8.2}% 
-\contentsline {section}{\numberline {8.3}Ekspektasi Matematis}{266}{section.8.3}% 
-\contentsline {section}{\numberline {8.4}Referensi}{267}{section.8.4}% 
-\contentsline {chapter}{\numberline {9}Distribusi Probabilitas}{269}{chapter.9}% 
-\contentsline {section}{\numberline {9.1}Properti Umum dari Distribusi Probabilitas}{269}{section.9.1}% 
-\contentsline {section}{\numberline {9.2}Distribusi Binomial dan Multinomial}{270}{section.9.2}% 
-\contentsline {subsection}{\numberline {9.2.1}Distribusi Binomial}{270}{subsection.9.2.1}% 
-\contentsline {subsection}{\numberline {9.2.2}Multinomial Eksperimen dan Distribusi Multinomial}{273}{subsection.9.2.2}% 
-\contentsline {section}{\numberline {9.3}Distribusi Hipergeometris}{274}{section.9.3}% 
-\contentsline {section}{\numberline {9.4}Distribusi Binomial Negatif dan Distribusi Geometris}{277}{section.9.4}% 
-\contentsline {subsection}{\numberline {9.4.1}Distribusi Binomial Negatif}{277}{subsection.9.4.1}% 
-\contentsline {subsection}{\numberline {9.4.2}Distribusi Geometris}{279}{subsection.9.4.2}% 
-\contentsline {section}{\numberline {9.5}Distribusi Poisson}{281}{section.9.5}% 
-\contentsline {section}{\numberline {9.6}Distribusi Uniform}{282}{section.9.6}% 
-\contentsline {section}{\numberline {9.7}Distribusi Normal}{284}{section.9.7}% 
-\contentsline {subsection}{\numberline {9.7.1}Luas Area Di Bawah Kurva Normal}{287}{subsection.9.7.1}% 
-\contentsline {subsection}{\numberline {9.7.2}Uji Kecocokan Distribusi Normal}{290}{subsection.9.7.2}% 
-\contentsline {subsection}{\numberline {9.7.3}Pendekatan Distribusi Binomial Menggunakan Distribusi Normal}{292}{subsection.9.7.3}% 
-\contentsline {section}{\numberline {9.8}Distribusi Gamma dan Eksponensial}{294}{section.9.8}% 
-\contentsline {section}{\numberline {9.9}Distribusi Chi-Square, Student's t, dan Snedecor's F.}{297}{section.9.9}% 
-\contentsline {subsection}{\numberline {9.9.1}Distribusi Chi-Square}{297}{subsection.9.9.1}% 
-\contentsline {subsection}{\numberline {9.9.2}Distribusi Student's t}{299}{subsection.9.9.2}% 
-\contentsline {subsection}{\numberline {9.9.3}Distribusi Snedecor's F}{300}{subsection.9.9.3}% 
-\contentsline {section}{\numberline {9.10}Distribusi Kontinu Lainnya}{301}{section.9.10}% 
-\contentsline {subsection}{\numberline {9.10.1}Distribusi Beta}{301}{subsection.9.10.1}% 
-\contentsline {subsection}{\numberline {9.10.2}Distribusi Lognormal}{304}{subsection.9.10.2}% 
-\contentsline {subsection}{\numberline {9.10.3}Distribusi Cauchy}{305}{subsection.9.10.3}% 
-\contentsline {subsection}{\numberline {9.10.4}Distribusi Logistik}{306}{subsection.9.10.4}% 
-\contentsline {subsection}{\numberline {9.10.5}Distribusi Weibull}{308}{subsection.9.10.5}% 
-\contentsline {section}{\numberline {9.11}Referensi}{310}{section.9.11}% 
-\contentsline {part}{Statistika Inferensial - R}{313}{part*.9}% 
-\contentsline {chapter}{\numberline {10}Penaksiran Secara Statistika}{313}{chapter.10}% 
-\contentsline {section}{\numberline {10.1}Definisi Interval Estimasi}{313}{section.10.1}% 
-\contentsline {section}{\numberline {10.2}Interpretasi Interval Estimasi}{314}{section.10.2}% 
-\contentsline {section}{\numberline {10.3}Interval Kepercayaan Median}{315}{section.10.3}% 
-\contentsline {subsection}{\numberline {10.3.1}Interval Estimasi Median Metode Nonparametrik}{315}{subsection.10.3.1}% 
-\contentsline {subsection}{\numberline {10.3.2}Metode Parametrik Interval Estimasi Median}{322}{subsection.10.3.2}% 
-\contentsline {section}{\numberline {10.4}Interval Kepercayaan Mean}{327}{section.10.4}% 
-\contentsline {subsection}{\numberline {10.4.1}Interval Kepercayaan Mean Untuk Distribusi Yang Simetris}{327}{subsection.10.4.1}% 
-\contentsline {subsection}{\numberline {10.4.2}Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris}{332}{subsection.10.4.2}% 
-\contentsline {section}{\numberline {10.5}Interval Prediksi Nonparametrik}{335}{section.10.5}% 
-\contentsline {subsection}{\numberline {10.5.1}Interval Prediksi Nonparametrik Dua Sisi}{336}{subsection.10.5.1}% 
-\contentsline {subsection}{\numberline {10.5.2}Interval Prediksi Nonparametrik Satu Sisi}{337}{subsection.10.5.2}% 
-\contentsline {section}{\numberline {10.6}Interval Prediksi Parametrik}{339}{section.10.6}% 
-\contentsline {subsection}{\numberline {10.6.1}Interval Prediksi Distribusi Simetris}{339}{subsection.10.6.1}% 
-\contentsline {subsection}{\numberline {10.6.2}Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris}{341}{subsection.10.6.2}% 
-\contentsline {section}{\numberline {10.7}Interval Kepercayaan Persentil (Interval Toleransi)}{344}{section.10.7}% 
-\contentsline {subsection}{\numberline {10.7.1}Interval Kepercayaan Nonparametrik Persentil}{344}{subsection.10.7.1}% 
-\contentsline {subsection}{\numberline {10.7.2}Uji Nonparametrik Untuk Persentil}{346}{subsection.10.7.2}% 
-\contentsline {subsection}{\numberline {10.7.3}Interval Kepercayaan Parametrik Untuk Persentil}{349}{subsection.10.7.3}% 
-\contentsline {subsection}{\numberline {10.7.4}Uji Parametrik Untuk Persentil}{350}{subsection.10.7.4}% 
-\contentsline {section}{\numberline {10.8}Interval Kepercayaan Menggunakan Metode Bootstrap}{350}{section.10.8}% 
-\contentsline {section}{\numberline {10.9}Kegunaan Lain Dari Interval Kepercayaan}{356}{section.10.9}% 
-\contentsline {subsection}{\numberline {10.9.1}Implikasi Non-Normalitas Pada Pendeteksian \emph {Outlier}}{356}{subsection.10.9.1}% 
-\contentsline {subsection}{\numberline {10.9.2}Implikasi Non-Normalitas Pada Kontrol Kualitas}{357}{subsection.10.9.2}% 
-\contentsline {subsection}{\numberline {10.9.3}Implikasi Non-Normalitas Terhadap Desain Sampling}{357}{subsection.10.9.3}% 
-\contentsline {section}{\numberline {10.10}Referensi}{358}{section.10.10}% 
+\contentsline {chapter}{Pengantar}{9}{chapter*.4}% 
+\contentsline {part}{Bahasa Pemrograman R}{13}{part*.5}% 
+\contentsline {chapter}{\numberline {1}Mengenal Bahasa R}{13}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Sejarah R}{13}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}Fitur dan Karakteristik R}{14}{section.1.2}% 
+\contentsline {section}{\numberline {1.3}Kelebihan dan Kekurangan R}{15}{section.1.3}% 
+\contentsline {section}{\numberline {1.4}RStudio}{16}{section.1.4}% 
+\contentsline {section}{\numberline {1.5}Menginstall R dan RStudio}{17}{section.1.5}% 
+\contentsline {section}{\numberline {1.6}Working Directory}{17}{section.1.6}% 
+\contentsline {subsection}{\numberline {1.6.1}Mengubah Lokasi Working Directory}{18}{subsection.1.6.1}% 
+\contentsline {subsection}{\numberline {1.6.2}Mengubah Lokasi Working Directory Default}{19}{subsection.1.6.2}% 
+\contentsline {section}{\numberline {1.7}Fasilitas Help}{19}{section.1.7}% 
+\contentsline {subsection}{\numberline {1.7.1}Mencari Help dari Suatu Perintah Tertentu}{20}{subsection.1.7.1}% 
+\contentsline {subsection}{\numberline {1.7.2}General Help}{22}{subsection.1.7.2}% 
+\contentsline {subsection}{\numberline {1.7.3}Fasilitas Help Lainnya}{23}{subsection.1.7.3}% 
+\contentsline {section}{\numberline {1.8}Referensi}{24}{section.1.8}% 
+\contentsline {chapter}{\numberline {2}Dasar Pemrograman Menggunakan R}{27}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Operator Aritmatika}{27}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Fungsi Aritmetik}{29}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Operator Relasi}{30}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Operator Logika}{31}{section.2.4}% 
+\contentsline {section}{\numberline {2.5}Memasukkan Nilai Kedalam Variabel}{33}{section.2.5}% 
+\contentsline {section}{\numberline {2.6}Tipe dan Struktur Data}{35}{section.2.6}% 
+\contentsline {section}{\numberline {2.7}Vektor}{39}{section.2.7}% 
+\contentsline {subsection}{\numberline {2.7.1}Membuat vektor}{39}{subsection.2.7.1}% 
+\contentsline {subsection}{\numberline {2.7.2}Missing Values}{40}{subsection.2.7.2}% 
+\contentsline {subsection}{\numberline {2.7.3}Subset Pada Vektor}{41}{subsection.2.7.3}% 
+\contentsline {subsection}{\numberline {2.7.4}Operasi Matematis Menggunakan Vektor}{43}{subsection.2.7.4}% 
+\contentsline {section}{\numberline {2.8}Matriks}{44}{section.2.8}% 
+\contentsline {subsection}{\numberline {2.8.1}Membuat matriks}{44}{subsection.2.8.1}% 
+\contentsline {subsection}{\numberline {2.8.2}Subset Pada Matriks}{47}{subsection.2.8.2}% 
+\contentsline {subsection}{\numberline {2.8.3}Perhitungan Menggunakan Matriks}{49}{subsection.2.8.3}% 
+\contentsline {section}{\numberline {2.9}Faktor}{51}{section.2.9}% 
+\contentsline {subsection}{\numberline {2.9.1}Membuat Variabel Faktor}{51}{subsection.2.9.1}% 
+\contentsline {subsection}{\numberline {2.9.2}Perhitungan Menggunakan Faktor}{52}{subsection.2.9.2}% 
+\contentsline {section}{\numberline {2.10}Data Frames}{54}{section.2.10}% 
+\contentsline {subsection}{\numberline {2.10.1}Membuat Data Frame}{54}{subsection.2.10.1}% 
+\contentsline {subsection}{\numberline {2.10.2}Subset Pada Data Frame}{55}{subsection.2.10.2}% 
+\contentsline {subsection}{\numberline {2.10.3}Memperluas Data Frame}{57}{subsection.2.10.3}% 
+\contentsline {subsection}{\numberline {2.10.4}Perhitungan Pada Data Frame}{58}{subsection.2.10.4}% 
+\contentsline {section}{\numberline {2.11}List}{58}{section.2.11}% 
+\contentsline {subsection}{\numberline {2.11.1}Membuat List}{58}{subsection.2.11.1}% 
+\contentsline {subsection}{\numberline {2.11.2}Subset List}{59}{subsection.2.11.2}% 
+\contentsline {subsection}{\numberline {2.11.3}Memperluas List}{60}{subsection.2.11.3}% 
+\contentsline {section}{\numberline {2.12}Loop}{61}{section.2.12}% 
+\contentsline {subsection}{\numberline {2.12.1}For Loop}{61}{subsection.2.12.1}% 
+\contentsline {subsection}{\numberline {2.12.2}While Loop}{62}{subsection.2.12.2}% 
+\contentsline {subsection}{\numberline {2.12.3}Repeat Loop}{63}{subsection.2.12.3}% 
+\contentsline {subsection}{\numberline {2.12.4}Break}{64}{subsection.2.12.4}% 
+\contentsline {section}{\numberline {2.13}Loop Menggunakan Apply Family Function}{65}{section.2.13}% 
+\contentsline {subsection}{\numberline {2.13.1}Apply}{66}{subsection.2.13.1}% 
+\contentsline {subsection}{\numberline {2.13.2}lapply}{67}{subsection.2.13.2}% 
+\contentsline {subsection}{\numberline {2.13.3}sapply}{69}{subsection.2.13.3}% 
+\contentsline {subsection}{\numberline {2.13.4}vapply}{72}{subsection.2.13.4}% 
+\contentsline {subsection}{\numberline {2.13.5}tapply}{74}{subsection.2.13.5}% 
+\contentsline {section}{\numberline {2.14}Loop Menggunakan map function pada Library \texttt {purrr}}{75}{section.2.14}% 
+\contentsline {section}{\numberline {2.15}Decision Making}{77}{section.2.15}% 
+\contentsline {subsection}{\numberline {2.15.1}if statement}{78}{subsection.2.15.1}% 
+\contentsline {subsection}{\numberline {2.15.2}if else statement}{79}{subsection.2.15.2}% 
+\contentsline {subsection}{\numberline {2.15.3}switch statement}{79}{subsection.2.15.3}% 
+\contentsline {section}{\numberline {2.16}Fungsi}{80}{section.2.16}% 
+\contentsline {section}{\numberline {2.17}Referensi}{82}{section.2.17}% 
+\contentsline {chapter}{\numberline {3}Manajemen Data R}{83}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Tidyverse}{83}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Import File}{85}{section.3.2}% 
+\contentsline {subsection}{\numberline {3.2.1}Import File Menggunakan Fungsi Bawaan R}{85}{subsection.3.2.1}% 
+\contentsline {subsection}{\numberline {3.2.2}Membaca File CSV dan TXT Menggunakan Library readr}{87}{subsection.3.2.2}% 
+\contentsline {subsection}{\numberline {3.2.3}Import File Excel Pada R}{89}{subsection.3.2.3}% 
+\contentsline {subsection}{\numberline {3.2.4}Membaca File Dari Format Aplikasi Statistik}{91}{subsection.3.2.4}% 
+\contentsline {section}{\numberline {3.3}Import Beberapa File Dalam Beberapa Baris Kode}{93}{section.3.3}% 
+\contentsline {subsection}{\numberline {3.3.1}for loop}{94}{subsection.3.3.1}% 
+\contentsline {subsection}{\numberline {3.3.2}Apply Family Function}{101}{subsection.3.3.2}% 
+\contentsline {subsection}{\numberline {3.3.3}Map Family Function}{107}{subsection.3.3.3}% 
+\contentsline {section}{\numberline {3.4}Eksport File}{111}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.4.1}Eksport Data Menjadi Format TXT dan CSV}{111}{subsection.3.4.1}% 
+\contentsline {subsection}{\numberline {3.4.2}Eksport Data Menjadi Format Excel}{113}{subsection.3.4.2}% 
+\contentsline {subsection}{\numberline {3.4.3}Eksport File Dalam Format SAS, SPSS, dan STATA}{114}{subsection.3.4.3}% 
+\contentsline {section}{\numberline {3.5}Tibble Data Format}{114}{section.3.5}% 
+\contentsline {subsection}{\numberline {3.5.1}Membuat Tibble}{115}{subsection.3.5.1}% 
+\contentsline {subsection}{\numberline {3.5.2}Tibble vs Data Frame}{118}{subsection.3.5.2}% 
+\contentsline {section}{\numberline {3.6}Merapikan Data}{121}{section.3.6}% 
+\contentsline {subsection}{\numberline {3.6.1}Gather}{125}{subsection.3.6.1}% 
+\contentsline {subsection}{\numberline {3.6.2}Spread}{128}{subsection.3.6.2}% 
+\contentsline {subsection}{\numberline {3.6.3}Separate}{130}{subsection.3.6.3}% 
+\contentsline {subsection}{\numberline {3.6.4}Unite}{133}{subsection.3.6.4}% 
+\contentsline {section}{\numberline {3.7}Transformasi Data}{135}{section.3.7}% 
+\contentsline {subsection}{\numberline {3.7.1}Paket dplyr}{135}{subsection.3.7.1}% 
+\contentsline {subsection}{\numberline {3.7.2}filter()}{138}{subsection.3.7.2}% 
+\contentsline {subsubsection}{\numberline {3.7.2.1}Scope Filtering}{143}{subsubsection.3.7.2.1}% 
+\contentsline {subsubsection}{\numberline {3.7.2.2}Fungsi Lain Untuk Mengekstrak Observasi}{146}{subsubsection.3.7.2.2}% 
+\contentsline {subsection}{\numberline {3.7.3}arrange()}{149}{subsection.3.7.3}% 
+\contentsline {subsection}{\numberline {3.7.4}select()}{152}{subsection.3.7.4}% 
+\contentsline {subsubsection}{\numberline {3.7.4.1}Scope Varian dari Fungsi Select}{157}{subsubsection.3.7.4.1}% 
+\contentsline {subsubsection}{\numberline {3.7.4.2}Fungsi Pull Untuk Mengambil Nilai Pada Kolom}{159}{subsubsection.3.7.4.2}% 
+\contentsline {subsection}{\numberline {3.7.5}mutate()}{160}{subsection.3.7.5}% 
+\contentsline {subsubsection}{\numberline {3.7.5.1}Scope Variant Fungsi Mutate dan Transmute}{164}{subsubsection.3.7.5.1}% 
+\contentsline {subsubsection}{\numberline {3.7.5.2}Kustomisasi Nama Kolom dan Nama Baris}{169}{subsubsection.3.7.5.2}% 
+\contentsline {subsection}{\numberline {3.7.6}summarize() dan group\_by()}{172}{subsection.3.7.6}% 
+\contentsline {subsection}{\numberline {3.7.7}Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (\%\textgreater {}\%)}{173}{subsection.3.7.7}% 
+\contentsline {section}{\numberline {3.8}Referensi}{175}{section.3.8}% 
+\contentsline {part}{Visualisasi Data - R}{179}{part*.6}% 
+\contentsline {chapter}{\numberline {4}Visualisasi Data Menggunakan Fungsi Dasar R}{179}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Visualisasi Data Menggunakan Fungsi plot()}{179}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Matriks Scatterplot}{184}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Box plot}{189}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}Bar Plot}{193}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}Line Plot}{196}{section.4.5}% 
+\contentsline {section}{\numberline {4.6}Pie Chart}{197}{section.4.6}% 
+\contentsline {section}{\numberline {4.7}Histogram dan Density Plot}{197}{section.4.7}% 
+\contentsline {section}{\numberline {4.8}QQ Plot}{199}{section.4.8}% 
+\contentsline {section}{\numberline {4.9}Dot Chart}{201}{section.4.9}% 
+\contentsline {section}{\numberline {4.10}Kustomisasi Parameter Grafik}{201}{section.4.10}% 
+\contentsline {subsection}{\numberline {4.10.1}Menambahkan Judul}{202}{subsection.4.10.1}% 
+\contentsline {subsection}{\numberline {4.10.2}Menambahkan Legend}{205}{subsection.4.10.2}% 
+\contentsline {subsection}{\numberline {4.10.3}Menambahkan Teks Pada Grafik}{210}{subsection.4.10.3}% 
+\contentsline {subsection}{\numberline {4.10.4}Menambahkan Garis Pada Plot}{212}{subsection.4.10.4}% 
+\contentsline {subsection}{\numberline {4.10.5}Merubah Simbol plot dan Jenis Garis}{213}{subsection.4.10.5}% 
+\contentsline {subsection}{\numberline {4.10.6}Mengatur Axis Plot}{216}{subsection.4.10.6}% 
+\contentsline {subsection}{\numberline {4.10.7}Mengatur Warna}{220}{subsection.4.10.7}% 
+\contentsline {section}{\numberline {4.11}Alternatif Library Dasar Lain}{221}{section.4.11}% 
+\contentsline {subsection}{\numberline {4.11.1}Scatterplot Menggunakan Library car}{221}{subsection.4.11.1}% 
+\contentsline {subsection}{\numberline {4.11.2}Matriks Scatterplot Menggunakan Library psych}{222}{subsection.4.11.2}% 
+\contentsline {subsection}{\numberline {4.11.3}Box Plot Menggunakan Library gplots}{223}{subsection.4.11.3}% 
+\contentsline {subsection}{\numberline {4.11.4}QQ Plot Menggunakan Library car}{224}{subsection.4.11.4}% 
+\contentsline {subsection}{\numberline {4.11.5}Plot Group Means Menggunakan Library gplots}{225}{subsection.4.11.5}% 
+\contentsline {section}{\numberline {4.12}Referensi}{226}{section.4.12}% 
+\contentsline {chapter}{\numberline {5}Visualisasi Data Menggunakan GGPLOT}{227}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Scatterplot}{229}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Box Plot dan Violin Plot}{233}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Bar Plot}{238}{section.5.3}% 
+\contentsline {section}{\numberline {5.4}Line Plot}{240}{section.5.4}% 
+\contentsline {section}{\numberline {5.5}Pie Chart}{242}{section.5.5}% 
+\contentsline {section}{\numberline {5.6}Histogram dan Desity Plot}{244}{section.5.6}% 
+\contentsline {section}{\numberline {5.7}QQ Plot}{247}{section.5.7}% 
+\contentsline {section}{\numberline {5.8}Dot Plot}{247}{section.5.8}% 
+\contentsline {section}{\numberline {5.9}ECDF Plot}{248}{section.5.9}% 
+\contentsline {section}{\numberline {5.10}Parameter Grafik}{250}{section.5.10}% 
+\contentsline {subsection}{\numberline {5.10.1}Merubah Judul Grafik, Keterangan Axis dan Legend}{250}{subsection.5.10.1}% 
+\contentsline {subsection}{\numberline {5.10.2}Merubah Tampilan dan Posisi Legend}{254}{subsection.5.10.2}% 
+\contentsline {subsection}{\numberline {5.10.3}Merubah Warana Pada Grafik Secara Otomatis dan Manual}{258}{subsection.5.10.3}% 
+\contentsline {subsection}{\numberline {5.10.4}Kustomisasi Titik}{263}{subsection.5.10.4}% 
+\contentsline {subsection}{\numberline {5.10.5}Kustomisasi Jenis Garis}{266}{subsection.5.10.5}% 
+\contentsline {subsection}{\numberline {5.10.6}Menambahkan Label Pada Titik Observasi dan Bidang Plot}{268}{subsection.5.10.6}% 
+\contentsline {subsection}{\numberline {5.10.7}Kustomisasi Tema Pada Plot}{271}{subsection.5.10.7}% 
+\contentsline {subsection}{\numberline {5.10.8}Penskalaan dan Transformasi Axis}{275}{subsection.5.10.8}% 
+\contentsline {subsection}{\numberline {5.10.9}Kustomisasi Tick Mark Axis}{279}{subsection.5.10.9}% 
+\contentsline {subsection}{\numberline {5.10.10}Menambahkan Garis Lurus Pada Plot}{283}{subsection.5.10.10}% 
+\contentsline {subsection}{\numberline {5.10.11}Melakukan Rotasi Pada Grafik}{287}{subsection.5.10.11}% 
+\contentsline {subsection}{\numberline {5.10.12}Facet}{288}{subsection.5.10.12}% 
+\contentsline {section}{\numberline {5.11}Referensi}{292}{section.5.11}% 
+\contentsline {part}{Statistika Deskriptif - R}{295}{part*.7}% 
+\contentsline {chapter}{\numberline {6}Ringkasan Numerik}{295}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Ukuran Pemusatan Data}{295}{section.6.1}% 
+\contentsline {subsection}{\numberline {6.1.1}Pengukuran Klasik-Mean}{296}{subsection.6.1.1}% 
+\contentsline {subsection}{\numberline {6.1.2}Median Sebagai Ukuran Pemusatan Data yang Resistan}{302}{subsection.6.1.2}% 
+\contentsline {subsection}{\numberline {6.1.3}Ukuran Pemusatan Data Lainnya}{304}{subsection.6.1.3}% 
+\contentsline {section}{\numberline {6.2}Ukuran Sebaran Data}{306}{section.6.2}% 
+\contentsline {subsection}{\numberline {6.2.1}Pengukuran Klasik (Varian dan Simpangan Baku)}{306}{subsection.6.2.1}% 
+\contentsline {subsection}{\numberline {6.2.2}Ukuran Sebaran Data yang Resisten Terhadap Outlier}{308}{subsection.6.2.2}% 
+\contentsline {section}{\numberline {6.3}Ringkasan Data Menggunakan Fungsi summary() dan stat.desc()}{310}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Ukuran Kemencengan Data}{312}{section.6.4}% 
+\contentsline {subsection}{\numberline {6.4.1}Ukuran Kemencengan Klasik}{312}{subsection.6.4.1}% 
+\contentsline {subsection}{\numberline {6.4.2}Ukuran Kemencengan yang Resisten}{314}{subsection.6.4.2}% 
+\contentsline {section}{\numberline {6.5}Outlier}{314}{section.6.5}% 
+\contentsline {section}{\numberline {6.6}Transformasi Data}{316}{section.6.6}% 
+\contentsline {section}{\numberline {6.7}Referensi}{318}{section.6.7}% 
+\contentsline {chapter}{\numberline {7}Ekplorasi Data Menggunakan Grafik}{321}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}Grafik Untuk Melihat Ditribusi Data}{323}{section.7.1}% 
+\contentsline {subsection}{\numberline {7.1.1}Histogram}{323}{subsection.7.1.1}% 
+\contentsline {subsection}{\numberline {7.1.2}Density Plot}{324}{subsection.7.1.2}% 
+\contentsline {subsection}{\numberline {7.1.3}QQ-plot}{324}{subsection.7.1.3}% 
+\contentsline {subsection}{\numberline {7.1.4}Box Plot dan Violin Plot}{326}{subsection.7.1.4}% 
+\contentsline {section}{\numberline {7.2}Grafik Untuk Melihat Beda Distribusi Data Antar Grup}{327}{section.7.2}% 
+\contentsline {section}{\numberline {7.3}Grafik Untuk Memvisualisasikan Korelasi Antar Variabel}{330}{section.7.3}% 
+\contentsline {section}{\numberline {7.4}Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar Variabel}{331}{section.7.4}% 
+\contentsline {section}{\numberline {7.5}Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang Waktu}{333}{section.7.5}% 
+\contentsline {section}{\numberline {7.6}Referensi}{333}{section.7.6}% 
+\contentsline {part}{Probabilitas dan Distribusi Probabilitas}{337}{part*.8}% 
+\contentsline {chapter}{\numberline {8}Probabilitas}{337}{chapter.8}% 
+\contentsline {section}{\numberline {8.1}Aturan Dasar Probabilitas}{338}{section.8.1}% 
+\contentsline {subsection}{\numberline {8.1.1}Peristiwa \emph {Mutually Exclusive}}{340}{subsection.8.1.1}% 
+\contentsline {subsection}{\numberline {8.1.2}Peristiwa \emph {Not Mutually Exclusive}}{342}{subsection.8.1.2}% 
+\contentsline {subsection}{\numberline {8.1.3}Peristiwa \emph {Dependent}}{345}{subsection.8.1.3}% 
+\contentsline {subsection}{\numberline {8.1.4}Peristiwa \emph {Independent}}{347}{subsection.8.1.4}% 
+\contentsline {section}{\numberline {8.2}Teori Bayes}{348}{section.8.2}% 
+\contentsline {section}{\numberline {8.3}Ekspektasi Matematis}{349}{section.8.3}% 
+\contentsline {section}{\numberline {8.4}Referensi}{350}{section.8.4}% 
+\contentsline {chapter}{\numberline {9}Distribusi Probabilitas}{351}{chapter.9}% 
+\contentsline {section}{\numberline {9.1}Properti Umum dari Distribusi Probabilitas}{351}{section.9.1}% 
+\contentsline {section}{\numberline {9.2}Distribusi Binomial dan Multinomial}{352}{section.9.2}% 
+\contentsline {subsection}{\numberline {9.2.1}Distribusi Binomial}{353}{subsection.9.2.1}% 
+\contentsline {subsection}{\numberline {9.2.2}Multinomial Eksperimen dan Distribusi Multinomial}{356}{subsection.9.2.2}% 
+\contentsline {section}{\numberline {9.3}Distribusi Hipergeometris}{358}{section.9.3}% 
+\contentsline {section}{\numberline {9.4}Distribusi Binomial Negatif dan Distribusi Geometris}{361}{section.9.4}% 
+\contentsline {subsection}{\numberline {9.4.1}Distribusi Binomial Negatif}{362}{subsection.9.4.1}% 
+\contentsline {subsection}{\numberline {9.4.2}Distribusi Geometris}{365}{subsection.9.4.2}% 
+\contentsline {section}{\numberline {9.5}Distribusi Poisson}{367}{section.9.5}% 
+\contentsline {section}{\numberline {9.6}Distribusi Uniform}{369}{section.9.6}% 
+\contentsline {section}{\numberline {9.7}Distribusi Normal}{371}{section.9.7}% 
+\contentsline {subsection}{\numberline {9.7.1}Luas Area Di Bawah Kurva Normal}{374}{subsection.9.7.1}% 
+\contentsline {subsection}{\numberline {9.7.2}Uji Kecocokan Distribusi Normal}{378}{subsection.9.7.2}% 
+\contentsline {subsection}{\numberline {9.7.3}Pendekatan Distribusi Binomial Menggunakan Distribusi Normal}{381}{subsection.9.7.3}% 
+\contentsline {section}{\numberline {9.8}Distribusi Gamma dan Eksponensial}{382}{section.9.8}% 
+\contentsline {section}{\numberline {9.9}Distribusi Chi-Square, Student's t, dan Snedecor's F.}{387}{section.9.9}% 
+\contentsline {subsection}{\numberline {9.9.1}Distribusi Chi-Square}{387}{subsection.9.9.1}% 
+\contentsline {subsection}{\numberline {9.9.2}Distribusi Student's t}{389}{subsection.9.9.2}% 
+\contentsline {subsection}{\numberline {9.9.3}Distribusi Snedecor's F}{390}{subsection.9.9.3}% 
+\contentsline {section}{\numberline {9.10}Distribusi Kontinu Lainnya}{392}{section.9.10}% 
+\contentsline {subsection}{\numberline {9.10.1}Distribusi Beta}{392}{subsection.9.10.1}% 
+\contentsline {subsection}{\numberline {9.10.2}Distribusi Lognormal}{394}{subsection.9.10.2}% 
+\contentsline {subsection}{\numberline {9.10.3}Distribusi Cauchy}{396}{subsection.9.10.3}% 
+\contentsline {subsection}{\numberline {9.10.4}Distribusi Logistik}{398}{subsection.9.10.4}% 
+\contentsline {subsection}{\numberline {9.10.5}Distribusi Weibull}{400}{subsection.9.10.5}% 
+\contentsline {section}{\numberline {9.11}Referensi}{401}{section.9.11}% 
+\contentsline {part}{Statistika Inferensial - R}{405}{part*.9}% 
+\contentsline {chapter}{\numberline {10}Penaksiran Secara Statistika}{405}{chapter.10}% 
+\contentsline {section}{\numberline {10.1}Definisi Interval Estimasi}{405}{section.10.1}% 
+\contentsline {section}{\numberline {10.2}Interpretasi Interval Estimasi}{406}{section.10.2}% 
+\contentsline {section}{\numberline {10.3}Interval Kepercayaan Median}{408}{section.10.3}% 
+\contentsline {subsection}{\numberline {10.3.1}Interval Estimasi Median Metode Nonparametrik}{410}{subsection.10.3.1}% 
+\contentsline {subsection}{\numberline {10.3.2}Metode Parametrik Interval Estimasi Median}{418}{subsection.10.3.2}% 
+\contentsline {section}{\numberline {10.4}Interval Kepercayaan Mean}{423}{section.10.4}% 
+\contentsline {subsection}{\numberline {10.4.1}Interval Kepercayaan Mean Untuk Distribusi Yang Simetris}{423}{subsection.10.4.1}% 
+\contentsline {subsection}{\numberline {10.4.2}Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris}{429}{subsection.10.4.2}% 
+\contentsline {section}{\numberline {10.5}Interval Prediksi Nonparametrik}{434}{section.10.5}% 
+\contentsline {subsection}{\numberline {10.5.1}Interval Prediksi Nonparametrik Dua Sisi}{434}{subsection.10.5.1}% 
+\contentsline {subsection}{\numberline {10.5.2}Interval Prediksi Nonparametrik Satu Sisi}{436}{subsection.10.5.2}% 
+\contentsline {section}{\numberline {10.6}Interval Prediksi Parametrik}{438}{section.10.6}% 
+\contentsline {subsection}{\numberline {10.6.1}Interval Prediksi Distribusi Simetris}{439}{subsection.10.6.1}% 
+\contentsline {subsection}{\numberline {10.6.2}Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris}{441}{subsection.10.6.2}% 
+\contentsline {section}{\numberline {10.7}Interval Kepercayaan Persentil (Interval Toleransi)}{445}{section.10.7}% 
+\contentsline {subsection}{\numberline {10.7.1}Interval Kepercayaan Nonparametrik Persentil}{445}{subsection.10.7.1}% 
+\contentsline {subsection}{\numberline {10.7.2}Uji Nonparametrik Untuk Persentil}{448}{subsection.10.7.2}% 
+\contentsline {subsection}{\numberline {10.7.3}Interval Kepercayaan Parametrik Untuk Persentil}{451}{subsection.10.7.3}% 
+\contentsline {subsection}{\numberline {10.7.4}Uji Parametrik Untuk Persentil}{452}{subsection.10.7.4}% 
+\contentsline {section}{\numberline {10.8}Interval Kepercayaan Menggunakan Metode Bootstrap}{453}{section.10.8}% 
+\contentsline {section}{\numberline {10.9}Kegunaan Lain Dari Interval Kepercayaan}{460}{section.10.9}% 
+\contentsline {subsection}{\numberline {10.9.1}Implikasi Non-Normalitas Pada Pendeteksian \emph {Outlier}}{460}{subsection.10.9.1}% 
+\contentsline {subsection}{\numberline {10.9.2}Implikasi Non-Normalitas Pada Kontrol Kualitas}{461}{subsection.10.9.2}% 
+\contentsline {subsection}{\numberline {10.9.3}Implikasi Non-Normalitas Terhadap Desain Sampling}{462}{subsection.10.9.3}% 
+\contentsline {section}{\numberline {10.10}Referensi}{463}{section.10.10}% 
+\contentsline {chapter}{\numberline {11}Uji Hipotesis}{465}{chapter.11}% 
+\contentsline {section}{\numberline {11.1}Klasifikasi Uji Hipotesis}{465}{section.11.1}% 
+\contentsline {subsection}{\numberline {11.1.1}Klasifikasi Berdasarkan Skala Pengukuran}{465}{subsection.11.1.1}% 
+\contentsline {subsection}{\numberline {11.1.2}Klasifikasi Berdasarkan Distribusi Data}{466}{subsection.11.1.2}% 
+\contentsline {section}{\numberline {11.2}Menyiapkan Prosedur UJi Hipotesis}{466}{section.11.2}% 
+\contentsline {subsection}{\numberline {11.2.1}Memilih Uji yang Sesuai}{466}{subsection.11.2.1}% 
+\contentsline {subsection}{\numberline {11.2.2}Hipotesis Nol dan Alternatif}{469}{subsection.11.2.2}% 
+\contentsline {subsection}{\numberline {11.2.3}Statistik Uji dan Aturan Penolakan}{469}{subsection.11.2.3}% 
+\contentsline {subsubsection}{\numberline {11.2.3.1}Probabilitas Error Tipe I}{470}{subsubsection.11.2.3.1}% 
+\contentsline {subsubsection}{\numberline {11.2.3.2}Probabilitas Error Tipe II}{471}{subsubsection.11.2.3.2}% 
+\contentsline {subsection}{\numberline {11.2.4}P-Value}{472}{subsection.11.2.4}% 
+\contentsline {subsection}{\numberline {11.2.5}Membuat Keputusan Untuk Menolak Hipotesis Nol atau Tidak}{472}{subsection.11.2.5}% 
+\contentsline {section}{\numberline {11.3}Uji Nilai Rata-Rata Sampel Tunggal}{473}{section.11.3}% 
+\contentsline {subsection}{\numberline {11.3.1}Uji Parametrik}{475}{subsection.11.3.1}% 
+\contentsline {subsection}{\numberline {11.3.2}Uji Nonparametrik}{479}{subsection.11.3.2}% 
+\contentsline {subsubsection}{\numberline {11.3.2.1}Sign Test}{480}{subsubsection.11.3.2.1}% 
+\contentsline {subsubsection}{\numberline {11.3.2.2}Signed-Rank Test}{485}{subsubsection.11.3.2.2}% 
