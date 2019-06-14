@@ -80,9 +80,15 @@ Peristiwa *mutually exclusive* merupakan suatu kondisi dimana peristiwa peristiw
   (\#eq:pme)
 \end{equation}
 
-**Contoh**
+---------------------------------------------------------
 
-Bayangkan pembaca diminta melemparkan sebuah dadu. Pembaca diminta untuk menentukan peluang munculnya angka 1 atau 6 pada dadu. Kedua peristiwa tersebut tidak mungkin terjadi bersamaan karena hanya dilakukan menggunakan satu dadu. Selain itu, jumlah himpunan masing-masing peristiwa pertama dan kedua hanyalah satu sehingga tidak memungkinkan adanya irisan pada kedua peristiwa tersebut. Untuk menghitungnya kita dapat langsung menggunakan Persamaan \@ref(eq:pme).
+```{example, mutexp}
+Bayangkan pembaca diminta melemparkan sebuah dadu. Satu buah dadu memiliki 6 buah ruang sampel berupa bilangan diskrit dari angka 1 sampai 6. Hitunglah probabilitas munculnya angka 1 atau 6 pada perlemparan sebuah dadu?
+```
+
+---------------------------------------------------------
+
+Kedua peristiwa tersebut (munculnya angka 1 atau 6) tidak mungkin terjadi bersamaan karena hanya dilakukan menggunakan satu dadu. Selain itu, jumlah himpunan masing-masing peristiwa pertama dan kedua hanyalah satu sehingga tidak memungkinkan adanya irisan pada kedua peristiwa tersebut. Untuk menghitungnya kita dapat langsung menggunakan Persamaan \@ref(eq:pme).
 
 $$
 P\left(1\cup 6\right)=P\left(1\right)+P\left(6\right)=\frac{1}{6}+\frac{1}{6}=\frac{1}{3}
@@ -139,9 +145,15 @@ Bila dua buah peristiwa tidak *mutually exclusive*, maka kedua peristiwa tersebu
   (\#eq:pnme)
 \end{equation}
 
-**Contoh 1**
+---------------------------------------------------------
 
-Pembaca dapat membayangkan kembali melempar sebuah dadu. Pembaca diminta menghitung probabilitas keluar angka ganjil pada dadu atau angka prima pada dadu. Kedua peristiwa tersebut memiliki himpunannya masing-masing. Untuk peristiwa angka ganjil himpunan yang terjadi adalah ganjil={1, 3, 5}, sedangkan untuk angka prima adalah prima={1, 2, 3, 5}. Kedua peristiwa tersebut memiliki irisan himpunan yaitu saat mata dadu menunjukkan angka 1, 3, dan 5. Nilai probabilitas kedua peristiwa tersebut tidak bisa dihitung dengan langsung menjumlahkan probabilitas keduanya masing-masing karena terdapat satu peristiwa yang merupakan bagian dari peristiwa lain sehingga peristiwa tersebut sebagian perlu dihilangkan dari probabilitas salah satunya seperti yang ditulikan pada Persamaan \@ref(eq:pnme). Berdasarkan persamaan tersebut probabilitas yang peristiwa tersebut adalah sebagai berikut:
+```{example, nmutexp1}
+Pembaca diminta melemparkan sebuah dadu. Hitung kembali probabilitas munculnya angka ganjil atau prima pada perlemparan sebuah dadu?
+```
+
+---------------------------------------------------------
+
+Kedua peristiwa tersebut memiliki himpunannya masing-masing. Untuk peristiwa angka ganjil himpunan yang terjadi adalah ganjil={1, 3, 5}, sedangkan untuk angka prima adalah prima={1, 2, 3, 5}. Kedua peristiwa tersebut memiliki irisan himpunan yaitu saat mata dadu menunjukkan angka 1, 3, dan 5. Nilai probabilitas kedua peristiwa tersebut tidak bisa dihitung dengan langsung menjumlahkan probabilitas keduanya masing-masing karena terdapat satu peristiwa yang merupakan bagian dari peristiwa lain sehingga peristiwa tersebut sebagian perlu dihilangkan dari probabilitas salah satunya seperti yang ditulikan pada Persamaan \@ref(eq:pnme). Berdasarkan persamaan tersebut probabilitas yang peristiwa tersebut adalah sebagai berikut:
 
 $$
 P\left(ganjil\cup prima\right)=P\left(ganjil\right)+P\left(prima\right)-P\left(ganjil\cap prima\right)=\frac{3}{6}+\frac{4}{6}-\frac{3}{6}=\frac{3+4-3}{6}=\frac{2}{3}
@@ -170,9 +182,15 @@ irisan <- intersect(ganjil, prima)
 Prob(ganjil)+Prob(prima)-Prob(irisan)
 ```
 
-**Contoh 2**
+---------------------------------------------------------
 
-Misalkan seorang konsultan pengendalian kerugian diberikan data kerugian klien akibat kebakaran. Terdapat 250 kasus kebakaran dengan sejumlah penyebab. Penyebab utama disebabkan oleh membuang putung rokok sembarangan sebanyak 108 kasus, peralatan memasak sebanyak 95 kasus, pembakaran sebanyak 12 kasus, dan sumber kebakaran tidak diketahui sebanyak 35 kasus. Konsultan pengendalian kerugian ingin mengetahui berapa probabilitas untuk memilih klaim kebakaran dari kelompok dengan penyebab utama akibat aktivitas merokok sembarangan atau akibat pembakaran. Karena konsultan menentukan probabilitas "satu atau yang lain," ia akan menentukan probabilitas berdasarkan peristiwa majemuk. Konsultan kemudian harus menentukan apakah peristiwa tersebut *mutually exclusive* atau tidak. Untuk melakukannya ia harus menjawab pertanyaan "Dapatkan seseorang melakukan klaim bahwa peristiwa kebakaran dapat disebabkan oleh aktivitas merokok dan pembakaran yang dilakukan secara bersamaan?. Konsultan menentukan bahwa ini tidak mungkin Oleh karena itu, peristiwa-peristiwa tersebut *mutually exclusive* dan probabilitas dari kedua peristiwa yang terjadi pada saat yang sama adalah nol. Probabilitas selanjutnya dapat dihitung menggunakan Persamaan \@ref(eq:pnme).
+```{example, nmutexp2}
+seorang konsultan pengendalian kerugian diberikan data kerugian klien akibat kebakaran. Terdapat 250 kasus kebakaran dengan sejumlah penyebab. Penyebab utama disebabkan oleh membuang putung rokok sembarangan sebanyak 108 kasus, peralatan memasak sebanyak 95 kasus, pembakaran sebanyak 12 kasus, dan sumber kebakaran tidak diketahui sebanyak 35 kasus. Tentukan apakah kejadian tersebut bersifat *mutually exclusive* atau bukan?. Hitunglah probabilitas untuk memilih klaim kebakaran dari kelompok dengan penyebab utama akibat aktivitas merokok sembarangan atau akibat pembakaran?  
+```
+
+---------------------------------------------------------
+
+Karena konsultan menentukan probabilitas "satu atau yang lain," ia akan menentukan probabilitas berdasarkan peristiwa majemuk. Konsultan kemudian harus menentukan apakah peristiwa tersebut *mutually exclusive* atau tidak. Untuk melakukannya ia harus menjawab pertanyaan "Dapatkan seseorang melakukan klaim bahwa peristiwa kebakaran dapat disebabkan oleh aktivitas merokok dan pembakaran yang dilakukan secara bersamaan?". Kedua kejadian tersebut tidak mungkin terjadi secara bersamaan sehingga peristiwa-peristiwa tersebut bersifat *mutually exclusive* dan probabilitas dari kedua peristiwa yang terjadi pada saat yang sama adalah nol. Probabilitas selanjutnya dapat dihitung menggunakan Persamaan \@ref(eq:pnme).
 
 $$
 P\left(merokok\cup pembakaran\right)=P\left(merokor\right)+P\left(pembakaran\right)-P\left(merokok\cap pembakaran\right)
@@ -200,9 +218,15 @@ Peristiwa *dependent* terjadi bila probabilitas terjadinya satu peristiwa (peris
   (\#eq:pd)
 \end{equation}
 
-**Contoh**
+---------------------------------------------------------
 
+```{example, depexp}
 Bayangkan pembaca harus melakukan survey terkait studi AMDAL di suatu kota. Responden yang digunakan merupakan seseorang yang telah menyelesaikan kuliahnya atau telah memperoleh gelar sarjana. Kategorisasi terhadap populasi dilakukan berdasarkan jenis kelamin dan status pekerjaan dengan jumlah yang proporsional dengan jumlah populasinya yang dapat dilihat pada Tabel \@ref(tab:tabpd). Sampel diambil dari populasi tersebut sesuai dengan proporsi jenis kelamin dan status pekerjaan. Pada studi ini ingin diketahui manfaat dari pembangunan industri pendirian industri baru bagi kota tersebut.
+
+Proses survey dilakukan dengan metode wawancara. Responden yang telah dilakukan wawancara selanjutnya tidak boleh diwawancarai lagi sehingga pada jumlah keseluruhan sampel terus berkurang. Hitunglah probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja?.
+```
+
+---------------------------------------------------------
 
 **Jenis Kelamin**  | **Bekerja** | **Belum Bekerja** | **Total**
 -------------------|-------------|-------------------|----------  
@@ -211,8 +235,6 @@ Perempuan          | 140         | 260               | 400
 **Total**          | 600         | 300               | 900
 
 : (\#tab:tabpd) Populasi orang yang telah menyelesaikan masa studinya di suatu kota.
-
-Proses survey dilakukan dengan metode wawancara. Responden yang telah dilakukan wawancara selanjutnya tidak boleh diwawancarai lagi sehingga pada jumlah keseluruhan sampel terus berkurang. Hitunglah probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja?.
 
 Berdasarkan contoh tersebut terdapat dua buah peristiwa yaitu peristiwa responden yang telah bekerja (dilambangkan dengan E) dan responden laki-laki (dilambangkan dengan M) atau dapat dituliskan sebagai berikut:
 
@@ -285,9 +307,15 @@ Untuk menentukan probabilitas dua atau lebih peristiwa akan terjadi bersamaan, p
   (\#eq:pi)
 \end{equation}
 
-**Contoh**
+---------------------------------------------------------
 
-Dengan menggunakan contoh soal sebelumnya, kita akan menentukan probabilitas responden penelitian kita adalah laki-laki (L) dan bekerja (E). Berdasarkan Persamaan \@ref(eq:pi), probabilitas terpilihnya jenis responden tersebut adalah sebagai berikut:
+```{example, indepexp}
+Dengan menggunakan data pada Contoh \@ref(exm:depexp), tentukan probabilitas responden penelitian kita adalah laki-laki (L) dan bekerja (E)?
+```
+
+---------------------------------------------------------
+
+Berdasarkan Persamaan \@ref(eq:pi), probabilitas terpilihnya jenis responden tersebut adalah laki-laki (L) dan bekerja (E) sebagai berikut:
 
 $$
 P\left(L\cap E\right)=\frac{500}{900}\cdot\frac{300}{900}=\frac{5}{27}
@@ -341,8 +369,9 @@ Sekarang ingat kembaili bahwa $\left\{B_k\right\}$ adalah partisi, teorema proba
 
 Apa artinya? Biasanya dalam aplikasinya kita diberikan (atau tahu) probabilitas apriori $P\left(B_k\right)$. Kita keluar dan mengumpulkan sejumlah data yang kita gunakan untuk mewakili peristiwa A. Kita ingin tahu: bagaimana kita dapat memperbaharui $P\left(B_k\mid A\right)$ menjadi $P\left(B_k\mid A\right)$? Jawabannya adalah dengan teori Bayes.
 
-**Contoh**
+---------------------------------------------------------
 
+```{example, bayesexp}
 Sebuah instalasi air menggunakan tawas sebagai koagulannya. Tawas ini disuplai dari 4 perusahaan pemasok bahan kimia. Spesifikasi yang diinginkan adalah paling tidak tawas tersebut mengandung kadar efektif 60%. Data tentang perusaan pemasok dan kegagalan untuk memenuhi standar yang diinginkan adalah:
 
 - Perusahaan 1: memasok 20% dengan kegagalan 1 dalam 20 atau kegagalan = 0,05,
@@ -350,7 +379,12 @@ Sebuah instalasi air menggunakan tawas sebagai koagulannya. Tawas ini disuplai d
 - Perusahaan 3: memasok 15% dengan kegagalan 1 dalam 10 atau kegagalan = 0,10,
 - Perusahaan 4: memasok 5% dengan kegagalan 1 dalam 20 atau kegagalan = 0,05.
 
-Bila dari stok tawas digudang tersebut direksi ingin mengetahui berapa kemungkinan terjadinya kegagalan pada stok tawas dari perusaan 1, dengan menggunakan teori Bayes kita dapat menghitungnya seperti berikut:
+Hitunglah probabilitas kemungkinan terjadinya kegagalan pada stok tawas dari perusaan 1?
+```
+
+---------------------------------------------------------
+
+Dengan menggunakan teori Bayes kita dapat menghitung probabilitas pada contoh kasus tersebut seperti berikut:
 
 $$
 P\left(B_i\mid A\right)=\frac{0,20\cdot0,05}{\left(0,6\cdot0,1+0,15\cdot0,1+0,05\cdot0,05\right)}=0,114
@@ -370,8 +404,9 @@ Misalkan terdapat eksperimen yang menghasilkan i buah peristiwa, dan masing-masi
 sehingga: p1+p2+p3+...+pk=1
 maka ekspektasinya adalah $E=p1\cdot x1+p2\cdot x2+p3\cdot x3+...+pi\cdot xi$. Hasil perjumlahan tersebut akan menghasilkan Persamaan \@ref(eq:em).
 
-**Contoh**
+---------------------------------------------------------
 
+```{example, expekmatemexp}
 Misalkan sebuah konsultan sedang menyiapkan proposal untuk sebuah proyek. Biaya untuk menyiapkan proposal adalah 5 juta rupiah, sedang keuntunga kotor bila proyek ini diperoleh adalah:
 
 - 50 juta rupiah dengan probabilitas 0,20
@@ -379,14 +414,19 @@ Misalkan sebuah konsultan sedang menyiapkan proposal untuk sebuah proyek. Biaya 
 - 10 juta rupiah dengan probabilitas 0,20
 - 0 rupiah dengan probabilitas 0,10.
 
-Bila kemungkinan mendapatkan proyek tersebut adalah 0,30, maka keuntungan yang diharapkan adalah:
+Bila kemungkinan mendapatkan proyek tersebut adalah 0,30, hitunglah ekspektasi matematis keuntungan dari proyek tersebut?
+```
+
+---------------------------------------------------------
+
+Berdasarkan data pada contoh tersebut, maka keuntungan yang diharapkan dari masing-masing proyek dapat dihitung sebagai berikut:
 
 - Probabilitas memperoleh keuntungan 45 juta rupiah (keuntungan kotor-modal)=probabilitas mendapatkan proyek x keuntungan proyek tersebut=0,30 x 0,20 = 0,06
 - Probabilitas memperoleh keuntungan 25 juta = 0,30 x 0,50 = 0,15
 - Probabilitas memperoleh keuntungan 5 juta = 0,30 x 0,20 = 0,06
 - Probabilitas memperoleh kerugian 5 juta = (0,30 x 0,10)+0,70 = 0,73
 
-Maka ekspektasinya = (45 juta x 0,06)+(5 juta x 0,15)+(5 juta x 0,06)-(5 juta x 0,73)=3,1 juta. Dengan demikian perusahaan tersebut dapat memutuskan apakah akan meneruskan membuat proposal tersebut, dengan kemungkinan merugi sebesar 5 juta rupiah (biaya membuat proposal) dan kemungkinan untung 3 juta rupiah.
+Maka ekspektasinya = (45 juta x 0,06)+(5 juta x 0,15)+(5 juta x 0,06)-(5 juta x 0,73)=3,1 juta. Dengan demikian perusahaan tersebut dapat memutuskan apakah akan meneruskan membuat proposal tersebut, dengan kemungkinan merugi sebesar 5 juta rupiah (biaya membuat proposal) dan kemungkinan untung 3,1 juta rupiah.
 
 ## Referensi
 

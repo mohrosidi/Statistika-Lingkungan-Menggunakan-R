@@ -105,7 +105,10 @@ include_graphics(img1_path)
 ```
 
 
-> **Note: ** Sebaiknya install `R` terlebih dahulu sebelum `RStudio`
+```{block2, type = "rmdtip"}
+Sebaiknya install `R` terlebih dahulu sebelum `RStudio`
+
+```
 
 ##  Working Directory
 
@@ -121,7 +124,9 @@ Berikut adalah cara mengubah *working directory* pada `R`.
 2. Jika pengguna menggunakan `RStudio`, pada menu `RStudio` pilih **Session > Set Working Directory > Chooses Directory**. Proses tersebut ditampilkan pada Gambar \@ref(fig:working)
 3. Pilih folder yang telah dibuat pada step 1 sebagai *working directory.
 
-> **Note: ** Data atau file yang hendak dibaca selama proses kerja pada `R` harus selalu diletakkan pada working directory. Jika tidak maka data atau file tidak akan terbaca.
+```{block2, type = "rmdimportant"}
+Data atau file yang hendak dibaca selama proses kerja pada `R` harus selalu diletakkan pada working directory. Jika tidak maka data atau file tidak akan terbaca.
+```
 
 Untuk mengecek apakah proses perubahan telah terjadi, kita dapat mengeceknya dengan menjalankan perintah berikut untuk melihat lokasi *working directory* kita yang baru.
 
@@ -143,7 +148,9 @@ Selain itu kita dapat mengubah *working directory* menggunakan perintah berikut:
 setwd("/Documents/R")
 ```
 
-> **Note: ** Pada proses pengisian lokasi folder pastikan pemisah pada lokasi folder menggunakan tanda "/" bukan "\"
+```{block2, type = "rmdwarning"}
+Pada proses pengisian lokasi folder pastikan pemisah pada lokasi folder menggunakan tanda "/" bukan "\"
+```
 
 ### Mengubah Lokasi Working Directory Default
 

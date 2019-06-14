@@ -21,17 +21,17 @@ Fungsi `plot()` merupakan fungsi umum yang digunakan untuk membuat plot pada `R`
 plot(x, y, type="p")
 ```
 
-> **Note: **
->
-> - **x dan y**: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.
-> - **type**: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:
->   + type="p" : membuat plot titik atau scatterplot. Nilai ini merupakan default pada fungsi `plot()`.
->   + type="l" : membuat plot garis.
->   + type="b" : membuat plot titik yang terhubung dengan garis.
->   + type="o" : membuat plot titik yang ditimpa oleh garis.
->   + type="h" : membuat plot garis vertikal dari titik ke garis y=0.
->   + type="s" : membuat fungsi tangga.
->   + type="n" : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.
+```{block2, type = "rmdnote"}
+- `x dan y`: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.
+- `type`: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:
+    + type="p" : membuat plot titik atau scatterplot. Nilai ini merupakan default pada fungsi `plot()`.
+    + type="l" : membuat plot garis.
+    + type="b" : membuat plot titik yang terhubung dengan garis.
+    + type="o" : membuat plot titik yang ditimpa oleh garis.
+    + type="h" : membuat plot garis vertikal dari titik ke garis y=0.
+    + type="s" : membuat fungsi tangga.
+    + type="n" : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.
+```
 
 Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Gambar \@ref(fig:plot):
 
@@ -41,8 +41,8 @@ x <- c(1:10); y <- x^2
 ```
 
 ```{r plot, fig.cap='Plot berbagai jenis setting type', tidy=FALSE, fig.align='center', out.width='80%'}
-# membagi jendela grafik menajdi 4 baris dan 2 kolom
-par(mfrow=c(3,3))
+# membagi jendela grafik menajdi 2 baris dan 4 kolom
+par(mfrow=c(2,4))
 
 # loop
 type <- c("p","l","b","o","h","s","n")
@@ -121,10 +121,10 @@ Pada bagian sebelumnya kita telah belajar bagaimana membuat matriks scatterplot 
 pairs(data, lower.panel=NULL)
 ```
 
-> **Note: **
->
-> - **data**: data frame
-> - **lower.panel**: menampilkan atau tidak menampilkan panel bawah
+```{block2, type = "rmdnote"}
+- `data`: data frame
+- `lower.panel`: menampilkan atau tidak menampilkan panel bawah
+```
 
 Untuk lebih memahami penggunaan fungsi tersebut, berikut akan disajikan contoh penggunaannya pada dataset `iris`. Sebelum melakukannya jalankan sintaks berikut untuk memuat dataset:
 
@@ -424,13 +424,14 @@ dotchart(x, labels = NULL, groups = NULL,
          gcolor = par("fg"), color = par("fg"))
 ```
 
-> **Note: **
->
-> - **x**: vektor atau matriks numerik.
-> - **labels**: vektor label untuk tiap titik.
-> - **groups**: grouping variabel yang mengindikasikan bagaimana **x** dikelompokkan.
-> - **gcolor**: warna yang digunakan pada label grup dan nilai observasi.
-> - **color**: warna yang digunakan untuk titik dan label.
+```{block2, type = "rmdnote"}
+- `x`: vektor atau matriks numerik.
+- `labels`: vektor label untuk tiap titik.
+- `groups`: grouping variabel yang mengindikasikan bagaimana `x` dikelompokkan.
+- `gcolor`: warna yang digunakan pada label grup dan nilai observasi.
+- `color`: warna yang digunakan untuk titik dan label.
+
+```
 
 Pada contoh berikut disajikan cara membuat dot chart pada dataset `mtcars` untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel `mpg` dan jumlah silinder (`cyl`). Berikut sintaks yang digunakan dan output yang dihasilkan pada Gambar \@ref(fig:dot):
 
@@ -491,15 +492,16 @@ a. **font.main**: *font style* untuk judul.
 b. **font.lab**: *font style* untuk keterangan axis.
 c. **font.sub**: *font style* untuk sub-judul.
 
-> **Note: **
-> 
-> Nilai yang dapat dimasukkan antara lain:
->
-> - **1**: untuk teks normal.
-> - **2**: untuk teks cetak tebal.
-> - **3**: untuk teks cetak miring.
-> - **4**: untuk teks cetak tebal dan miring.
-> - **5**: untuk font simbol.
+```{block2, type = "rmdimportant"}
+Nilai yang dapat dimasukkan antara lain:
+
+- **1**: untuk teks normal.
+- **2**: untuk teks cetak tebal.
+- **3**: untuk teks cetak miring.
+- **4**: untuk teks cetak tebal dan miring.
+- **5**: untuk font simbol.
+
+```
 
 Sedangkan untuk ukuran font, kita dapat menambahkan variabel berikut:
 
@@ -564,13 +566,14 @@ Fungsi `legend()` pada `R` dapat digunakan untuk menambahkan legend pada grafik.
 legend(x, y=NULL, legend, fill, col, bg)
 ```
 
-> **Note: **
->
-> - **x** dan **y**: koordinat yang digunakan untuk posisi legend.
-> - **legend**: teks pada legend
-> - **fill**: warna yang digunakan untuk mengisi box disamping teks legend.
-> - **col**: warna garis dan titik disamping teks legend.
-> - **bg**: warna latar belakang legend box.
+```{block2, type = "rmdnote"}
+- `x` dan `y`: koordinat yang digunakan untuk posisi legend.
+- `legend`: teks pada legend
+- `fill`: warna yang digunakan untuk mengisi box disamping teks legend.
+- `col`: warna garis dan titik disamping teks legend.
+- `bg`: warna latar belakang legend box.
+
+```
 
 Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada Gambar \@ref(fig:legend):
 
@@ -688,10 +691,10 @@ FUngsi `text()` berguna untuk menambahkan teks di dalam bidang grafik seperti la
 text(x, y, labels)
 ```
 
-> **Note: **
->
-> - **x** dan **y**: vektor numerik yang menunjukkan koordinat posisi teks.
-> - **labels**: vektor karakter yang menunjukkan teks yang hendak ditulis.
+```{block2, type = "rmdnote"}
+- `x` dan `y`: vektor numerik yang menunjukkan koordinat posisi teks.
+- `labels`: vektor karakter yang menunjukkan teks yang hendak ditulis.
+```
 
 Berikut adalah contoh sintaks untuk memberi label pada sejumlah data yang memiliki kriteria yang kita inginkan dan output yang dihasilkan pada Gambar \@ref(fig:text):
 
@@ -729,14 +732,14 @@ Fungsi `mtext()` berguna untuk menambahkan teks pada frame sekitar bidang grafik
 mtext(text, side=3)
 ```
 
-> **Note: **
->
-> - **text**: teks yang akan ditulis.
-> - **side**: integer yang menunjukkan lokasi teks yang akan ditulis. Nilai yang dapat dimasukkan antara lain:
->   + **1**: bawah
->   + **2**: kiri
->   + **3**: atas
->   + **4**: kanan.
+```{block2, type = "rmdnote"}
+- `text`: teks yang akan ditulis.
+- `side`: integer yang menunjukkan lokasi teks yang akan ditulis. Nilai yang dapat dimasukkan antara lain:
+   + 1: bawah
+   + 2: kiri
+   + 3: atas
+   + 4: kanan.
+```
 
 Berikut adalah contoh penerapan dan output yang dihasilkan pada Gambar \@ref(fig:text3):
 
@@ -860,15 +863,16 @@ Untuk menambahkan axis pada `R` kita dapat menambahkan fungsi `axis()` setelah p
 axis(side, at=NULL, labels=TRUE)
 ```
 
-> **Note: **
->
-> - **side**: nilai integer yang mengidikasikan posisi axix yang hendak ditambahkan. Nilai yang dapat dimasukkan adalah sebagai berikut:
->     + **1**: bawah
->     + **2**: kiri
->     + **3**: atas
->     + **4**: kanan.
-> - **at**: titik dimana *tick-mark* hendak digambarkan. Nilai yang dapat dimasukkan sama dengan **side**.
-> - **labels**: Teks label *tick-mark*. Dapat juga secara logis menentukan apakah anotasi harus dibuat pada *tick mark*.
+```{block2, type = "rmdnote"}
+- `side`: nilai integer yang mengidikasikan posisi axix yang hendak ditambahkan. Nilai yang dapat dimasukkan adalah sebagai berikut:
+   + 1: bawah
+   + 2: kiri
+   + 3: atas
+   + 4: kanan.
+- `at`: titik dimana *tick-mark* hendak digambarkan. Nilai yang dapat dimasukkan sama dengan `side`.
+- `labels`: Teks label *tick-mark*. Dapat juga secara logis menentukan apakah anotasi harus dibuat pada *tick mark*.
+
+```
 
 Berikut contoh sintaks penerapan fungsi tersebut dan output yang dihasilkan pada Gambar \@ref(fig:axis):
 

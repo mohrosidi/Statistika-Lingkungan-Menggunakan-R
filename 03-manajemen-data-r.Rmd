@@ -58,19 +58,23 @@ Masing-masing fungsi diatas dapat dituliskan kedalam `R` dengan format sebagai b
 read.table(file, header = FALSE, sep = "", dec = ".")
 # Membaca"comma separated value" files (".csv")
 read.csv(file, header = TRUE, sep = ",", dec = ".", ...)
-# atau gunakan read.csv2 jika tanda desimal pada data adalah "," dan pemisah kolom adalah ";"
+# atau gunakan read.csv2 jika tanda desimal 
+# pada data adalah "," dan pemisah kolom adalah ";"
 read.csv2(file, header = TRUE, sep = ";", dec = ",", ...)
 # MembacaTAB delimited files
 read.delim(file, header = TRUE, sep = "\t", dec = ".", ...)
 read.delim2(file, header = TRUE, sep = "\t", dec = ",", ...)
 ```
 
-> **Note: **
->
-> - **file**: nama file diakhiri dengan format file (misal: "nama_file.txt") yang akan di import ke dalam file. Dapat pula diisi lokasi file tersebut berada, misal:(C:/Users/My PC/Documents/nama_file.txt atau .csv)
-> - **sep**: pemisah antar kolom. "\t" digunakan untuk tab-delimited file.
-> - **header**: nilai logik. jika TRUE, maka `read.table()` akan menganggap bahwa file yang akan dibaca pada baris pertama file merupakan header data. 
-> - **dec**: karakter yang digunakan sebagai penunjuk desimal pada data.
+```{block2, type = "rmdnote"}
+- `file`: nama file diakhiri dengan format file (misal: "nama_file.txt") yang akan di import ke dalam file. Dapat pula diisi lokasi file tersebut berada, misal:(C:/Users/My PC/Documents/nama_file.txt atau .csv)
+
+- `sep`: pemisah antar kolom. "\t" digunakan untuk tab-delimited file.
+
+- `header`: nilai logik. jika `TRUE`, maka `read.table()` akan menganggap bahwa file yang akan dibaca pada baris pertama file merupakan header data. 
+
+- `dec`: karakter yang digunakan sebagai penunjuk desimal pada data.
+```
 
 Untuk info lebih lanjut terkait fungsi-fungsi tersebut dan contoh bagaimana menggunakannya, pembaca dapat mengakses fitur batuan dari fungsi tersebut menggunakan sintaks berikut:
 
@@ -97,7 +101,10 @@ Kita juga dapat memilih file yang akan kita baca secara interakti. Misal pada *w
 data <- read.csv(file.choose())
 ```
 
-> **Note: ** pastikan format file yang dibaca sama dengan fungsi import yang digunakan.
+```{block2, type = "rmdtip"}
+pastikan format file yang dibaca sama dengan fungsi import yang digunakan.
+
+```
 
 Kita juga dapat membaca file dari internet. Untuk melakukannya kit hanya perlu meng-copy url file tersebut. Berikut adalah contoh file yang dibaca dari internet:
 
@@ -144,11 +151,13 @@ read_csv2(file, col_names = TRUE)
 read_tsv(file, col_names = TRUE)
 ```
 
-> **Note: **
->
-> - **file**: path file, koneksi atau raw vector. File yang berakhiran .gz, .bz2, .xz, atau .zip akan secara otomatis tidak terkompresi. File yang dimulai dengan "http: //", "https: //", "ftp: //", atau "ftps: //" akan diunduh secara otomatis. File gz jarak jauh juga dapat diunduh & didekompresi secara otomatis.
-> - **delim**: karakter yang membatasi tiap nilai pada file.
-> - **col_names**: nilai logik. Jika TRUE, maka baris pertama akan menjadi header.
+```{block2, type = "rmdnote"}
+- `file`: path file, koneksi atau raw vector. File yang berakhiran .gz, .bz2, .xz, atau .zip akan secara otomatis tidak terkompresi. File yang dimulai dengan "http: //", "https: //", "ftp: //", atau "ftps: //" akan diunduh secara otomatis. File gz jarak jauh juga dapat diunduh & didekompresi secara otomatis.
+
+- `delim`: karakter yang membatasi tiap nilai pada file.
+
+- `col_names`: nilai logik. Jika `TRUE`, maka baris pertama akan menjadi header.
+```
 
 Berikut adalah contoh bagaimana cara membaca file menggunakan fungsi pada paket `readr`:
 
@@ -252,11 +261,13 @@ read.xlsx(file, sheetIndex, header=TRUE)
 read.xlsx2(file, sheetIndex, header=TRUE)
 ```
 
-> **Note: **
->
-> - **file**: nama atau lokasi file berada
-> - **sheetIndex**: Indeks dari sheet yang hendak dibaca
-> - **header**: nilai logik. Jika bernilai TRUE, maka baris pertama dari sheet menjadi header.
+```{block2, type = "rmdnote"}
+- `file`: nama atau lokasi file berada
+
+- `sheetIndex`: Indeks dari sheet yang hendak dibaca
+
+- `header`: nilai logik. Jika bernilai `TRUE`, maka baris pertama dari sheet menjadi header.
+```
 
 Berikut adalah contoh penggunaanya:
 
@@ -264,7 +275,9 @@ Berikut adalah contoh penggunaanya:
 data <- read.xlsx(file.choose(), 1) # membaca sheet 1
 ```
 
-> **Note: ** kita juga dapat membaca file dari internet seperti pada sub-bab 3.1.1.
+```{block2, type = "rmdwarning"}
+kita juga dapat membaca file dari internet seperti pada Chapter 3.1.1.
+```
 
 ### Membaca File Dari Format Aplikasi Statistik
 
@@ -290,7 +303,8 @@ data out.mydata;
 set sasuser.mydata;
 run;
 data <- sasxport.get("c:/mydata.xpt") 
-# Variabel yang berupa karakter akan dikonversi menjadi factor
+# Variabel yang berupa karakter a
+# kan dikonversi menjadi factor
 
 
 # membaca file STATA
@@ -341,11 +355,13 @@ Untuk melakukan import, langkah pertama yang perlu kita lakukan adalah membuat l
 list.files(path = ".", pattern = NULL, full.names = FALSE)
 ```
 
-> **Note: **
->
-> - **path**: path (jalur) lokasi file data berada.
-> - **patern**: pola nama file yang hendak di import.
-> - **full.names**: nilai logik. Jika TRUE, jalur direktori didahului dengan nama file untuk memberikan jalur file relatif. Jika FALSE, nama file (bukan path) dikembalikan.
+```{block2, type = "rmdnote"}
+- `path`: path (jalur) lokasi file data berada.
+
+- `patern`: pola nama file yang hendak di import.
+
+- `full.names`: nilai logik. Jika `TRUE`, jalur direktori didahului dengan nama file untuk memberikan jalur file relatif. Jika `FALSE`, nama file (bukan path) dikembalikan.
+```
 
 File yang akan penulis import terletak di folder data pada *working directory*. Pada contoh ini penulis akan menggunakan path relatif (biasanya didahului oleh titik dan bukan lokasi drive yang digunakan) agar pemabaca juga dapat melakukannya sendiri. File yang akan di upload memiliki pola penamaan yang sama yaitu mengandung kata `lelang-bandung`. Berikut adalah sintaks untuk membuat list lokasi file akan di import.
 
@@ -365,10 +381,11 @@ Cara pertama untuk melakukan import seluruh file adalah dengan menggunakan for l
 vector(mode = "logical", length = 0)
 ```
 
-> **Note: **
->
-> - **mode**: jenis file yang hendak dibuat.
-> - **length**: panjang file yang hendak dibuat.
+```{block2, type = "rmdnote"}
+- `mode`: jenis file yang hendak dibuat.
+
+- `length`: panjang file yang hendak dibuat.
+```
 
 Berikut adalah sintaks yang digunakan:
 
@@ -403,10 +420,11 @@ Kita dapat juga menggabungkan list `output_for` menjadi satu data frame utuh men
 Reduce(f, x)
 ```
 
-> **Note: **
->
-> - **f**: fungsi yang digunakan.
-> - **length**: objek (vektor, list, data frame, dan matriks) yang hendak dikenai fungsi.
+```{block2, type = "rmdnote"}
+- `f`: fungsi yang digunakan.
+
+- `length`: objek (vektor, list, data frame, dan matriks) yang hendak dikenai fungsi.
+```
 
 Berikut adalah sintaks yang digunakan:
 
@@ -475,14 +493,19 @@ write.table(x, file, sep= " ", dec = ",",
             row.names = TRUE, col.names = TRUE)
 ```
 
-> **Note: **
->
-> - **x**: matriks atau data frame yang akan ditulis.
-> - **file**: karakter yang menentukan nama file yang dihasilkan.
-> - **sep**: string pemisah bidang atau kolom, mis., sep = “\ t” (untuk nilai yang dipisahkan tab).
-> - **dec**: string yang akan digunakan sebagai pemisah desimal. Standarnya adalah “.”.
-> - **row.names**: nilai logik yang menunjukkan apakah nama baris x harus ditulis bersama dengan x, atau vektor karakter nama baris yang akan ditulis.
-> - **col.names**: baik nilai logik yang menunjukkan apakah nama kolom x harus ditulis bersama dengan x, atau vektor karakter nama kolom yang akan ditulis. Jika `col.names = NA` dan `row.names = TRUE` ditambahkan nama kolom kosong, yang merupakan konvensi yang digunakan untuk file CSV untuk dibaca oleh spreadsheet.
+```{block2, type = "rmdnote"}
+- `x`: matriks atau data frame yang akan ditulis.
+
+- `file`: karakter yang menentukan nama file yang dihasilkan.
+
+- `sep`: string pemisah bidang atau kolom, mis., sep = “\ t” (untuk nilai yang dipisahkan tab).
+
+- `dec`: string yang akan digunakan sebagai pemisah desimal. Standarnya adalah “.”.
+
+- `row.names`: nilai logik yang menunjukkan apakah nama baris x harus ditulis bersama dengan x, atau vektor karakter nama baris yang akan ditulis.
+
+- `col.names`: baik nilai logik yang menunjukkan apakah nama kolom x harus ditulis bersama dengan x, atau vektor karakter nama kolom yang akan ditulis. Jika `col.names = NA` dan `row.names = TRUE` ditambahkan nama kolom kosong, yang merupakan konvensi yang digunakan untuk file CSV untuk dibaca oleh spreadsheet.
+```
 
 Selain menggunakan fungsi tersebut, untuk eksport ke dalam format CSV juga dapa menggunakan fungsi `write.csv()` atau `write.csv2()`. Berikut adalah format yang digunakan:
 
@@ -493,10 +516,12 @@ write.csv2(data, file="data.csv")
 
 Secara penampakan kedua fungsi tersebut pada dasarnya sama dengan fungsi `write.table()`, bedanya adalah kedua fungsi tersebut spesifik digunakan untuk eksport file kedalam format CSV.
 
-> **Note: **
-> 
-> - **write.csv()** menggunakan "." sebagai titik desimal serta "," sebagai pemisah antar kolom data.
-> - **write.csv2()** menggunakan "," sebagai titik desimal serta ";" sebagai pemisah antar kolom data.
+
+```{block2, type = "rmdimportant"}
+  - `write.csv()` menggunakan "." sebagai titik desimal serta "," sebagai pemisah antar kolom data.
+
+- `write.csv2()` menggunakan "," sebagai titik desimal serta ";" sebagai pemisah antar kolom data.
+```
 
 Misalkan kita ingin melakukan eksport data objek `mtcars` kedalam format CSV. Untuk melakukannya dapat dilakukan dengan sintaks berikut:
 
@@ -522,11 +547,13 @@ write_csv(file, path)
 write_tsv(file, path)
 ```
 
-> **Note: **
->
-> - **x**: data frame yang akan ditulis
-> - **path**: path ke file hasil (dapat berupa nama file disertai ekstensi file yang akan dibuat)
-> - **delim**: Delimiter digunakan untuk memisahkan nilai. Harus karakter tunggal.
+```{block2, type = "rmdnote"}
+- `x`: data frame yang akan ditulis
+
+- `path`: path ke file hasil (dapat berupa nama file disertai ekstensi file yang akan dibuat)
+
+- `delim`: Delimiter digunakan untuk memisahkan nilai. Harus karakter tunggal.
+```
 
 Berikut adalah contoh penerapan dari fungsi tersebut:
 
@@ -553,13 +580,17 @@ write.xlsx2(x, file, sheetName = "Sheet1",
   col.names = TRUE, row.names = TRUE, append = FALSE)
 ```
 
-> **Note: **
->
-> - **x**: sebuah data frame untuk ditulis ke dalam worksheet.
-> - **file**: path ke file output.
-> - **sheetName**: string karakter yang digunakan untuk nama sheet.
-> - **col.names, row.names**: nilai logik yang menentukan apakah nama kolom / nama baris x akan ditulis ke file.
-> - **append**: nilai logis yang menunjukkan apakah x harus ditambahkan ke file yang ada.
+```{block2, type = "rmdnote"}
+- `x`: sebuah data frame untuk ditulis ke dalam worksheet.
+
+- `file`: path ke file output.
+
+- `sheetName`: string karakter yang digunakan untuk nama sheet.
+
+- `col.names, row.names`: nilai logik yang menentukan apakah nama kolom / nama baris x akan ditulis ke file.
+
+- `append`: nilai logis yang menunjukkan apakah x harus ditambahkan ke file yang ada.
+```
 
 Berikut adalah contoh penerapannya:
 
@@ -633,7 +664,10 @@ iris_tbl <- as_tibble(iris)
 iris_tbl
 ```
 
-> **Note: ** Kita dapat mengkonversi tibble menjadi data frame menggunakan fungsi `as.data.frame()`
+```{block2, type = "rmdtip"}
+Kita dapat mengkonversi tibble menjadi data frame menggunakan fungsi `as.data.frame()`
+
+```
 
 Secara default saat kita print tibble, maka akan dimunculkan 10 observasi pertama. Pada data frame biasa jika kita print data tersebut maka seluruh observasi akan ditampilkan.
 
@@ -776,15 +810,21 @@ library(tidyr)
 gather(data, key, value, ...)
 ```
 
+```{block2, type = "rmdnote"}
+- `data`: data frame
+
+- `key, value`: nama kunci dan kolom nilai yang akan dibuat di output
+
+- `...`: Spesifikasi kolom untuk dikumpulkan. Nilai yang diizinkan adalah:
+
+       + nama variabel
+       + jika kita ingin memilih semua variabel antara a dan e, gunakan a:e
+       + jika kita ingin mengecualikan nama kolom y gunakan -y        + untuk opsi lainnya, lihat: `dplyr::select()`
+```
+
 > **Note: **
 >
-> - **data**: data frame
-> - **key, value**: nama kunci dan kolom nilai yang akan dibuat di output
-> - **...**: Spesifikasi kolom untuk dikumpulkan. Nilai yang diizinkan adalah:
->       + nama variabel
->       + jika kita ingin memilih semua variabel antara a dan e, gunakan a:e
->       + jika kita ingin mengecualikan nama kolom y gunakan -y 
->       + untuk opsi lainnya, lihat: `dplyr::select()`
+> 
 
 Visualisasi dari fungsi `gather` ini disajikan pada Gambar \@ref(fig:gather)
 
@@ -840,11 +880,13 @@ Data yang diperoleh sekaran telah rapi (*tidy*), sehingga sudah siap untuk dilak
 
 Fungsi `spread()` berkebalikan dengan `gather()`. Fungsi `gather()` menggabungkan beberapa kolom menjadi 2 buah kolom kolom kunci sedangkan `spread()` merubah dua kolom menjadi beberapa kolom. Format sederhanya adalah sebagai berikut:
 
-> **Note: **
->
-> - **data**: data frame
-> - **key**: nama kolom yang akan dijadikan heading pada kolom baru
-> - **value**: nama kolom yang nilainya akan mengisi setiap sel
+```{block2, type = "rmdnote"}
+- `data`: data frame
+
+- `key`: nama kolom yang akan dijadikan heading pada kolom baru
+
+- `value`: nama kolom yang nilainya akan mengisi setiap sel
+```
 
 Visualisasi dari fungsi `spread()` ini disajikan pada Gambar \@ref(fig:spread)
 
@@ -897,15 +939,20 @@ separate(data, col, into, sep = "[^[:alnum:]]+", convert= FALSE)
 separate(data,...., sep = "[^[:alnum:]]+", convert= FALSE)
 ```
 
-> **Note: **
->
-> - **data**: data frame.
-> - **col**: Nama kolom yang tidak dikutip.
-> - **into**: Vektor karakter menentukan nama variabel baru yang akan dibuat.
-> - **sep**: Pemisah antar kolom:
->    + Jika karakter, diartikan sebagai ekspresi reguler.
-Jika numerik, diartikan sebagai posisi untuk dibelah. Nilai-nilai positif mulai dari 1 di ujung kiri string; nilai negatif mulai dari -1 di ujung kanan string.
-> - **convert**: nilai logik. Jika bernilai TRUE maka kolom baru yang akan diperoleh akan dikonversi berdasarkan jenis data yang seharusnya.
+```{block2, type = "rmdnote"}
+- **data**: data frame.
+
+- **col**: Nama kolom yang tidak dikutip.
+
+- **into**: Vektor karakter menentukan nama variabel baru yang akan dibuat.
+
+- **sep**: Pemisah antar kolom:
+  
+  + Jika karakter, diartikan sebagai ekspresi reguler. 
+  + Jika numerik, diartikan sebagai posisi untuk dibelah. Nilai-nilai positif mulai dari `1` di ujung kiri string; nilai negatif mulai dari `-1` di ujung kanan string.
+
+- `convert`: nilai logik. Jika bernilai `TRUE` maka kolom baru yang akan diperoleh akan dikonversi berdasarkan jenis data yang seharusnya.
+```
 
 Pada `table3` dan `table5` kita akan mencoba memisahkan kolom `rate` menjadi 2 kolom yaitu kolom `cases` dan kolom `population`. Berikut adalah sintaks yang digunakan:
 
@@ -939,11 +986,13 @@ Fungsi `unite()` merupakan kebalikan dari fungsi `separate()`, dimana fungsi ini
 unite(data, col, ..., sep = "_")
 ```
 
-> **Note: **
->
-> - **data**: data frame.
-> - **col**: nama kolom baru (tanpa tanda kutip) untuk ditambahkan.
-> - **sep**: pemisah yang akan digunakan pada antar nilai.
+```{block2, type = "rmdnote"}
+- `data`: data frame.
+
+- `col`: nama kolom baru (tanpa tanda kutip) untuk ditambahkan.
+
+- `sep`: pemisah yang akan digunakan pada antar nilai.
+```
 
 Visualisasi dari fungsi `unite()` ini disajikan pada Gambar \@ref(fig:spread)
 
@@ -1025,10 +1074,11 @@ Fungsi `filter()` digunakan untuk mengekstrak himpunan bagian (subset) baris dar
 filter(data, ....)
 ```
 
-> **Note: **
->
-> - **data** : data frame
-> - **....** : Predikat logis didefinisikan dalam istilah variabel dalam **data**. Beberapa kondisi digabungkan dengan & (lihat Chapter 2 opeator relasi dan operator logika. Hanya baris tempat kondisi bernilai TRUE disimpan.
+```{block2, type = "rmdnote"}
+- `data` : data frame
+
+- `....` : Predikat logis didefinisikan dalam istilah variabel dalam `data`. Beberapa kondisi digabungkan dengan & (lihat `Chapter 2` opeator relasi dan operator logika. Hanya baris tempat kondisi bernilai `TRUE` disimpan.
+```
 
 Visualisasi dari fungsi `filter()`disajikan pada Gambar \@ref(fig:filtervis)
 
@@ -1063,7 +1113,10 @@ include_graphics(img1_path)
 
 ```
 
-> **Note: ** Bagian yang di arsir adalah observasi yang akan ditampilkan pada output.
+```{block2, type = "rmdimportant"}
+Bagian yang di arsir adalah observasi yang akan ditampilkan pada output.
+
+```
 
 Salah satu bagian terpenting dan paling sering penulis gunakan pada fungsi ini memfilter *missing value* (melihat observasi yang mengandung *missing value* atau tidak melibatkan *missing value*). Berikut adalah contoh filter terhadap data pada  `flights` yang tidak mengandung *missing value*.
 
@@ -1097,13 +1150,17 @@ filter_if(.tbl, .predicate, .vars_predicate, .preserve = FALSE)
 filter_at(.tbl, .vars, .vars_predicate, .preserve = FALSE)
 ```
 
-> **Note: **
->
-> - **.tbl**: tibble atau dataframe.
-> - **.vars_predicate**: Ekspresi predikat yang dikutip seperti yang dikembalikan oleh `all_vars()` atau `any_vars()`. `all_vars()` melakukan filter seperti pada efek *intersect* (irisan himpunan), sedangkan  `any_vars()` melakukan filter seperti efek *union* (himpunan gabungan).
-> - **.preserve**: ketika `FALSE` (default), struktur pengelompokan dihitung ulang berdasarkan data yang dihasilkan.
-> - **.predicate**: fungsi predikat yang diaplikasikan pada kolom atau vektor logikal.
-> - **.vars**: daftar kolom yang dihasilkan oleh `vars()`, vektor karakter dari nama kolom, vektor numerik dari posisi kolom, atau `NULL`.
+```{block2, type = "rmdnote"}
+- `.tbl`: tibble atau dataframe.
+
+- `.vars_predicate`: Ekspresi predikat yang dikutip seperti yang dikembalikan oleh `all_vars()` atau `any_vars()`. `all_vars()` melakukan filter seperti pada efek *intersect* (irisan himpunan), sedangkan  `any_vars()` melakukan filter seperti efek *union* (himpunan gabungan).
+
+- `.preserve`: ketika `FALSE` (default), struktur pengelompokan dihitung ulang berdasarkan data yang dihasilkan.
+
+- `.predicate`: fungsi predikat yang diaplikasikan pada kolom atau vektor logikal.
+
+- `.vars`: daftar kolom yang dihasilkan oleh `vars()`, vektor karakter dari nama kolom, vektor numerik dari posisi kolom, atau `NULL`.
+```
 
 Berikut adalahcontoh sintaks penerapan fungsi-fungsi tersebut:
 
@@ -1133,7 +1190,10 @@ filter_at(flights, vars(arr_time, arr_delay), ~.%%2==0)
 filter_if(flights[,16:17], ~ all(floor(.) == .), all_vars(. != 0))
 ```
 
-> **Note: ** `filter_at()` dan `filter_if()` menghilangkan kolom yang tidak sesuai kriteria. Sedangkan `filter_all()` digunakan untuk memfilter baris.
+```{block2, type = "rmdimportant"}
+`filter_at()` dan `filter_if()` menghilangkan kolom yang tidak sesuai kriteria. Sedangkan `filter_all()` digunakan untuk memfilter baris.
+
+```
 
 #### Fungsi Lain Untuk Mengekstrak Observasi
 
@@ -1181,10 +1241,11 @@ Fungsi `arrange()` mirip dengan fungsi `order()` pada paket dasar `R`. Format se
 arrange(data, ....)
 ```
 
-> **Note: **
->
-> - **data** : data frame
-> - **....** : daftar nama variabel yang tidak dikutip yang dipisahkan tanda koma, atau ekspresi yang melibatkan nama variabel. Gunakan `desc()` untuk mengurutkan variabel dalam urutan menurun.
+```{block2, type = "rmdnote"}
+- `data` : data frame
+
+- `....` : daftar nama variabel yang tidak dikutip yang dipisahkan tanda koma, atau ekspresi yang melibatkan nama variabel. Gunakan `desc()` untuk mengurutkan variabel dalam urutan menurun.
+```
 
 Visualisasi dari fungsi `arrange()`disajikan pada Gambar \@ref(fig:arrange)
 
@@ -1219,7 +1280,10 @@ flights[order(-year, -month, -day), ]
 
 ```
 
-> **Note: ** *missing value* akan selalu diurutkan pada observasi terakhir baik menggunakan urutan dari terbesar ke terkecil maupun sebaliknya.
+```{block2, type = "rmdimportant"}
+*missing value* akan selalu diurutkan pada observasi terakhir baik menggunakan urutan dari terbesar ke terkecil maupun sebaliknya.
+
+```
 
 ### select()
 
@@ -1239,10 +1303,11 @@ Berdasarkan fungsi bantuan tersebut, fungsi `select()` lebih powerfull dibanding
 select(data, ....)
 ```
 
-> **Note: **
->
-> - **data** : data frame
-> - **....** : Satu atau lebih ekspresi kutip yang dipisahkan oleh koma. kita dapat memperlakukan nama variabel seperti posisi, sehingga kita dapat menggunakan ekspresi seperti x: y untuk memilih rentang variabel.Nilai positif pilih variabel; nilai negatif drop variabel. Jika ekspresi pertama negatif, `select()` akan secara otomatis dimulai dengan semua variabel. Gunakan argumen bernama, mis. `new_name = old_name`, untuk mengganti nama variabel yang dipilih.
+```{block2, type = "rmdnote"}
+- `data` : data frame
+
+- `....` : Satu atau lebih ekspresi kutip yang dipisahkan oleh koma. kita dapat memperlakukan nama variabel seperti posisi, sehingga kita dapat menggunakan ekspresi seperti x: y untuk memilih rentang variabel.Nilai positif pilih variabel; nilai negatif drop variabel. Jika ekspresi pertama negatif, `select()` akan secara otomatis dimulai dengan semua variabel. Gunakan argumen bernama, mis. `new_name = old_name`, untuk mengganti nama variabel yang dipilih.
+```
 
 Visualisasi dari fungsi `select()`disajikan pada Gambar \@ref(fig:select)
 
@@ -1297,13 +1362,18 @@ select_if(.tbl, .predicate, .funs = list(), ...)
 select_at(.tbl, .vars, .funs = list(), ...)
 ```
 
-> **Note: **
->
-> - **.tbl**: tibble atau dataframe
-> - **.funs**: fungsi yang akan diaplikasikan.
-> - **...**: argumen tambahan fungsi.
-> - **.predicate**: fungsi predikat yang akan diaplikasikan pada kolom.
-> - **.vars**: daftar kolom yang dibuat oleh fungsi `vars()`.
+```{block2, type = "rmdnote"}
+- `.tbl`: tibble atau dataframe
+
+- `.funs`: fungsi yang akan diaplikasikan.
+
+- `...`: argumen tambahan fungsi.
+
+- `.predicate`: fungsi predikat yang akan diaplikasikan pada kolom.
+
+- `.vars`: daftar kolom yang dibuat oleh fungsi `vars()`.
+
+```
 
 Berikut adalah contoh sintaks fungsi-fungsi tersebut:
 
@@ -1328,10 +1398,11 @@ Fungsi `pull()` digunakan untuk mengambil nilai pada variabel. Output yang dihas
 pull(.data, var = -1)
 ```
 
-> **Note: **
->
-> - **.data**: tibble atau dataframe.
-> - **var**: nama variabel atau indeks. Untuk indeks positif, tabel akan dibaca dari kanan. Jika negatif akan dibaca dari kiri.
+```{block2, type = "rmdnote"}
+- `.data`: tibble atau dataframe.
+
+- `var`: nama variabel atau indeks. Untuk indeks positif, tabel akan dibaca dari kanan. Jika negatif akan dibaca dari kiri.
+```
 
 Visualisasi dari fungsi `pull()`disajikan pada Gambar \@ref(fig:pull)
 
@@ -1360,10 +1431,11 @@ Fungsi `mutate()` digunakan untuk melakukan transformasi variabel dalam data fra
 mutate(data, ....)
 ```
 
-> **Note: **
->
-> - **data** : data frame
-> - **....** : Pasangan nama-nilai ekspresi, masing-masing dengan panjang 1 atau panjang yang sama dengan jumlah baris dalam grup (jika menggunakan group_by ()) atau di seluruh input (jika tidak menggunakan grup). Nama setiap argumen akan menjadi nama variabel baru, dan nilainya akan menjadi nilai yang sesuai. Gunakan nilai NULL dalam mutasi untuk menjatuhkan drop variabel lama, sehingga variabel baru menimpa variabel yang ada dengan nama yang sama.
+```{block2, type = "rmdnote"}
+- `data` : data frame
+
+- `....` : Pasangan nama-nilai ekspresi, masing-masing dengan panjang 1 atau panjang yang sama dengan jumlah baris dalam grup (jika menggunakan group_by ()) atau di seluruh input (jika tidak menggunakan grup). Nama setiap argumen akan menjadi nama variabel baru, dan nilainya akan menjadi nilai yang sesuai. Gunakan nilai NULL dalam mutasi untuk menjatuhkan drop variabel lama, sehingga variabel baru menimpa variabel yang ada dengan nama yang sama.
+```
 
 ```{r}
 # subset data frame
@@ -1450,13 +1522,17 @@ transmute_if(.tbl, .predicate, .funs, ...)
 transmute_at(.tbl, .vars, .funs, ...)
 ```
 
-> **Note: **
->
-> - **.tbl**: tibble atau dataframe.
-> - **.funs**: fungsi yang diaplikasikan.
-> - **...**: argumen tambahan pada fungsi.
-> - **.predicate**: fungsi predikat yang diaplikasikan pada kolom.
-> - **.vars**: daftra kolom yang dibuat menggunakan fungsi `vars()`.
+```{block2, type = "rmdnote"}
+- `.tbl`: tibble atau dataframe.
+
+- `.funs`: fungsi yang diaplikasikan.
+
+- `...`: argumen tambahan pada fungsi.
+
+- `.predicate`: fungsi predikat yang diaplikasikan pada kolom.
+
+- `.vars`: daftra kolom yang dibuat menggunakan fungsi `vars()`.
+```
 
 Berikut adalah contoh sintaks dari fungsi-fungsi tersebut:
 
@@ -1488,10 +1564,12 @@ rownames_to_column(.data, var = "rowname")
 column_to_rownames(.data, var = "rowname")
 ```
 
-> **Note: **
->
-> - **.data**: dataframe.
-> - **var**: nama kolom yang akan digunakan atau dibuat.
+```{block2, type = "rmdnote"}
+- `.data`: dataframe.
+
+- `var`: nama kolom yang akan digunakan atau dibuat.
+
+```
 
 Berikut adalah contoh sintaks pada fungsi tersebut:
 
@@ -1511,10 +1589,11 @@ Sering kali nama variabel atau kolom yang kita miliki tidak sesuai dengan deskri
 rename(.data, ...)
 ```
 
-> **Note: **
->
-> - **.data**: dataframe.
-> - **...**: Argumen tambahan pada yan berisi nam kolom baru disertai nama kolom lama.
+```{block2, type = "rmdnote"}
+- `.data`: dataframe.
+
+- `...`: Argumen tambahan pada yan berisi nam kolom baru disertai nama kolom lama.
+```
 
 Berikut adalah contoh sintaks untuk mengubah nama kolom:
 

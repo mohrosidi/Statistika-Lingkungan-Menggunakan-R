@@ -24,7 +24,7 @@
 <meta name="author" content="Moh. Rosidi" />
 
 
-<meta name="date" content="2019-06-05" />
+<meta name="date" content="2019-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,32 +56,38 @@ table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
 table.sourceCode { width: 100%; line-height: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #0000ff; } /* Keyword */
-code > span.ch { color: #008080; } /* Char */
-code > span.st { color: #008080; } /* String */
-code > span.co { color: #008000; } /* Comment */
-code > span.ot { color: #ff4000; } /* Other */
-code > span.al { color: #ff0000; } /* Alert */
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
 code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #008000; font-weight: bold; } /* Warning */
-code > span.cn { } /* Constant */
-code > span.sc { color: #008080; } /* SpecialChar */
-code > span.vs { color: #008080; } /* VerbatimString */
-code > span.ss { color: #008080; } /* SpecialString */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
 code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { color: #0000ff; } /* ControlFlow */
-code > span.op { } /* Operator */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
 code > span.bu { } /* BuiltIn */
 code > span.ex { } /* Extension */
-code > span.pp { color: #ff4000; } /* Preprocessor */
-code > span.do { color: #008000; } /* Documentation */
-code > span.an { color: #008000; } /* Annotation */
-code > span.cv { color: #008000; } /* CommentVar */
-code > span.at { } /* Attribute */
-code > span.in { color: #008000; } /* Information */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -466,15 +472,21 @@ Gambar 6.2: Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlie
 <p>Pada contoh tersebut dapat kita simpulkan bahwa nilai mean sangat sensitif terhadap adanya <em>outlier</em>. Pada prakteknya nilai mean tidaklah berdiri sendiri selama proses analisa. Nilai mean memerlukan nilai lain seperti median untuk menganalisa apakah data yang diperoleh tidak simetris yang dapat mengindikasikan adanya outlier.</p>
 <p>Pada <code>R</code> untuk menghitung nilai rata-rata, kita dapat menggunakan fungsi <code>mean()</code>. Format fungsi yang digunakan dituliskan pada persamaan berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(x, <span class="dt">trim =</span> <span class="dv">0</span>, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note:</strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: objek atau vektor numerik.</li>
-<li><strong>trim</strong>: menyatakan fraksi data (berkisar antara 0 sampai 0,5) yang perlu dilakukan pemotongan (<em>trim</em>) pada observasi awal dan akhir <strong>x</strong> (yang telah diurutkan) sebelum nilai mean dihitung. <strong>na.rm</strong>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam perhitungan atau tidak. Jika disertakan maka output yang akan dihasilkan adalah NA.</li>
+<li><p><code>x</code>: objek atau vektor numerik.</p></li>
+<li><p><code>trim</code>: menyatakan fraksi data (berkisar antara <code>0</code> sampai <code>0,5</code>) yang perlu dilakukan pemotongan (<em>trim</em>) pada observasi awal dan akhir <code>x</code> (yang telah diurutkan) sebelum nilai mean dihitung.</p></li>
+<li><code>na.rm</code>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam perhitungan atau tidak. Jika disertakan maka output yang akan dihasilkan adalah <code>NA</code>.
+</div>
+</li>
 </ul>
-</blockquote>
-<p><strong>Analisa Nilai Mean Grup Data Tunggal (Single Group)</strong></p>
-<p>Untuk lebih memahami penerapannya pada <code>R</code>, pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> berikut disajikan data terkait debit air suatu sungai.</p>
+<hr />
+
+<div class="example">
+<span id="exm:mgdt" class="example"><strong>Contoh 6.1  (Analisa Nilai Mean Grup Data Tunggal (Single Group))  </strong></span>Pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> berikut disajikan data terkait debit air suatu sungai. Hitunglah nilai rata-rata debit sungai tersebut?
+</div>
+
 <table>
 <caption><span id="tab:debitsungai">Tabel 6.1: </span>Data Debit Sampel (m3/detik)</caption>
 <thead>
@@ -534,6 +546,7 @@ Gambar 6.2: Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlie
 </tr>
 </tbody>
 </table>
+<hr />
 <p>Data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> dapat divisualisasikan seperti pada Gambar <a href="ringkasan-numerik.html#fig:debitvis">6.3</a>:</p>
 <div class="figure" style="text-align: center"><span id="fig:debitvis"></span>
 <img src="EnvStat_files/figure-html/debitvis-1.png" alt="Visualisasi debit sungai pada sampel" width="70%" />
@@ -548,7 +561,7 @@ Gambar 6.3: Visualisasi debit sungai pada sampel
 <p>Berdasarkan hasil yang diperoleh, dapat dilihat bahwa nilai rata-rata debit pada sungai tersebut adalah 136.5833 <span class="math inline">\(m^3/detik\)</span>.</p>
 <p>Kita dapat menghitung nilai mean dengan terlebih dahulu menghilangkan <em>outlier</em> pada data. Untuk melakukannya kita perlu melakukan subset terhadap data tanpa <em>outlier</em> di dalamnya sebelum data tersebut dimasukkan kedalam fungsi mean(). Berikut sintaks yang digunakan untuk melakukan hal tersebut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat paket</span>
-<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(tidyverse)
 
 <span class="co"># melakukan filter terhadap data</span>
 sungai_subset&lt;-sungai<span class="op">%&gt;%</span>
@@ -558,12 +571,17 @@ sungai_subset&lt;-sungai<span class="op">%&gt;%</span>
 <span class="kw">mean</span>(sungai_subset<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 107.5</code></pre>
 <p>Berdasarkan hasil yang diperoleh terlihat bahwa nilai rata-rata yang baru lebih kecil dari yang sebelumnya (bergeser ke kiri) dengan nilai mean debit sungai yang baru sebesar 107.4545 <span class="math inline">\(m^3/detik\)</span>. Hal ini terjadi karena pengaruh dari data <em>outlier</em> yang telah dihilangkan.</p>
-<p><strong>Analisa Nilai Rata-Rata Berdarsarkan Grup Data</strong></p>
-<p>Pada contoh sebelumnya kita telah melakukan perhitungan nilai mean untuk studi kasus grup tunggal. Pada contoh ini akan disajikan contoh kasus perhitungan nilai mean untuk data berkelompok.</p>
-<p>Dataset pada contoh kasus ini diambil dari buku <strong>Statistical Methods in Water Resources</strong>. Data yang digunakan adalah data konsentrasi TDS dan Uranium di airtanah dengan perbedaan konsentrasi bikarbonate dalam air tanah yaitu <span class="math inline">\(\leq 50\)</span>% (0) dan <span class="math inline">\(&gt;50\)</span>% (1). Dataset yang digunakan disajikan pada Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>.</p>
-<blockquote>
-<p><strong>Note: </strong> data yang digunakan dapat diunduh pada link berikut <a href="https://drive.google.com/open?id=1-k_1Fkl2hWmI9ZohG9hWGrqKe4o8GArW">google.drive</a>. Simpan dataset tersebut pada <em>working directory</em> pembaca agar mudah dalam proses membaca data.</p>
-</blockquote>
+<hr />
+
+<div class="example">
+<span id="exm:mgd" class="example"><strong>Contoh 6.2  (Analisa Nilai Rata-Rata Berdarsarkan Grup Data)  </strong></span>Pada Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a> disajikan data konsentrasi TDS dan Uranium di airtanah dengan perbedaan konsentrasi bikarbonate dalam air tanah yaitu <span class="math inline">\(\leq 50\)</span>% (0) dan <span class="math inline">\(&gt;50\)</span>% (1). Dataset ini diambil dari buku <strong>Statistical Methods in Water Resources</strong>. Hitunglah nilai rata-rata konsentrasi TDS dan Uranium berdasarkan kesadahan air tanah?
+</div>
+
+
+<div class="rmdimportant">
+data yang digunakan dapat diunduh pada link berikut <a href="https://drive.google.com/open?id=1-k_1Fkl2hWmI9ZohG9hWGrqKe4o8GArW">google.drive</a>. Simpan dataset tersebut pada <em>working directory</em> pembaca agar mudah dalam proses membaca data.
+</div>
+
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat library</span>
 <span class="kw">library</span>(readxl)</code></pre></div>
 <pre><code>## Warning: package &#39;readxl&#39; was built under R version
@@ -807,6 +825,7 @@ data_gw&lt;-data_gw <span class="op">%&gt;%</span>
 </tr>
 </tbody>
 </table>
+<hr />
 <p>Visualisasi data Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>, disajikan pada Gambar <a href="ringkasan-numerik.html#fig:gwvis1">6.4</a> dan Gambar <a href="ringkasan-numerik.html#fig:gwvis2">6.5</a>:</p>
 <div class="figure" style="text-align: center"><span id="fig:gwvis1"></span>
 <img src="EnvStat_files/figure-html/gwvis1-1.png" alt="Visualisasi konsentrasi TDS pada air tanah" width="70%" />
@@ -843,23 +862,36 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
   \tag{6.6}
 \end{equation}\]</span>
 <p>Median hanya dipengaruhi minimal oleh besarnya nilai observasi tunggal, yang ditentukan semata-mata oleh urutan relatif observasi. Resitensi terhadap efek dari perubahan nilai atau kehadiran pengamatan terpencil (<em>outlier</em>) sering merupakan sifat yang diinginkan. Meski demikian median memiliki kelemahan utama yaitu kurang representatif dalam mendeskripsikan rata-rata dari data dibandingkan mean. Hal ini disebabkan karena median tidak menggunakan seluruh nilai yang ada pada data.</p>
-<p><strong>Analisa Nilai Median Grup Data Tunggal (Single Group)</strong></p>
-<p>Kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> untuk menghitung median data tersebut. Pada <code>R</code> median dihitung menggunakan fungsi <code>median()</code>. Fotmat yang digunakan adalah sebagai berikut:</p>
+<p>Pada <code>R</code> median dihitung menggunakan fungsi <code>median()</code>. Berikut adalah format fungsi tersebut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(x, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note:</strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: objek atau vektor numerik.</li>
-<li><strong>na.rm</strong>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam komputasi atau tidak.</li>
+<li><p><code>x</code>: objek atau vektor numerik.</p></li>
+<li><code>na.rm</code>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam komputasi atau tidak.
+</div>
+</li>
 </ul>
-</blockquote>
+<hr />
+
+<div class="example">
+<span id="exm:medgdt" class="example"><strong>Contoh 6.3  (Analisa Nilai Median Grup Data Tunggal (Single Group))  </strong></span>Kita akan menggunakan kembali data yang disajikan pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>. Hitunglah median dari debit sungai pada dat tersebut?
+</div>
+
+<hr />
 <p>Untuk data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, median dapat dihitung menggunakan sintaks berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 117</code></pre>
 <p>Berdasarkan hasil komputasi diperoleh median debit sungai sebesar 117 <span class="math inline">\(m^3/detik\)</span>. Nilai tersebut tidak berbeda juah dengan nilai mean tanpa <em>outlier</em> data sungai sebesar 107.4545 <span class="math inline">\(m^3/detik\)</span>.</p>
 <p>Jika kita melakukan perhitungan menggunakan menggunakan data <code>sungai_subset</code> (tanpa <em>outlier</em>), maka diperoleh 115 <span class="math inline">\(m^3/detik\)</span> yang nilainya juga tidak bergeser jauh dengan median sebelumnya yang membuktikan bahwa median resisten terhadap <em>outlier</em>.</p>
-<p><strong>Analisa Nilai Median Berdarsarkan Grup Data</strong></p>
-<p>Paca contoh ini kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>. Sintaks berikut adalah cara menghitung median untuk data berkelompok:</p>
+<hr />
+
+<div class="example">
+<span id="exm:medgd" class="example"><strong>Contoh 6.4  (Analisa Nilai Median Berdarsarkan Grup Data)  </strong></span>Paca contoh ini kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>. Hitunglah median konsentrasi TDS dan URanium dalam air tanah berdasarkan konsentrasi bikarbonat pada air tanah?
+</div>
+
+<hr />
+<p>Sintaks berikut adalah cara menghitung median untuk data berkelompok menggunakan <code>R</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_gw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Bicarbonate) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">TDS=</span><span class="kw">median</span>(TDS), <span class="dt">Uranium=</span><span class="kw">median</span>(Uranium))</code></pre></div>
@@ -890,6 +922,13 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
   GM =<span class="st"> </span><span class="kw">exp</span>(<span class="kw">mean</span>(y))
   <span class="kw">return</span>(GM)
 }</code></pre></div>
+<hr />
+
+<div class="example">
+<span id="exm:geometmean" class="example"><strong>Contoh 6.5  </strong></span>Dengan menggunakan Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, hitunglah nilai rata-rata debit sungai menggunakan metode <em>geometric mean</em>?
+</div>
+
+<hr />
 <p>Data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> merupakan data dengan kemencengan positif. Nilai <em>geometric mean</em> data tersebut dihitung menggunakan sintaks berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geomean</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 112.4</code></pre>
@@ -901,6 +940,13 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
 Gambar 6.6: Jendela diagram trimmed mean.
 </p>
 </div>
+<hr />
+
+<div class="example">
+<span id="exm:trimedmean" class="example"><strong>Contoh 6.6  </strong></span>Dengan menggunakan Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, hitunglah nilai rata-rata debit sungai menggunakan metode <em>trimmed mean</em>?
+</div>
+
+<hr />
 <p>Pada <code>R</code> <em>trimmed mean</em> dapat dihitung dengan spesifikasi argumen <code>trim</code> pada fungsi <code>mean()</code>. Pada data debit sungai (Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>) dihitung <em>trimmed mean</em> dengan data yang dipangkas adalah 5% di kedua ujung observasi atau <code>trim=0.1</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sungai<span class="op">$</span>debit, <span class="dt">trim=</span><span class="fl">0.1</span>)</code></pre></div>
 <pre><code>## [1] 113.2</code></pre>
@@ -913,8 +959,8 @@ Gambar 6.6: Jendela diagram trimmed mean.
 <p>Variabilitas suatu data diukur dengan melihat sebaran data dari nilai rata-ratanya (mean). Semakin besar sebaran suatu data, semakin tidak berarti nilai rata-ratanya karena nilai rata-ratanya bisa sangat berbeda dari sejumlah nilai pada datanya.</p>
 <div id="pengukuran-klasik-varian-dan-simpangan-baku" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Pengukuran Klasik (Varian dan Simpangan Baku)</h3>
-<p>Varian sampel dan nilai akar dari varian sampel (Simpangan Baku) merupakan ukuran penyebaran data klasik. Sama dengan mean varian dan simpangan baku dipengaruhi oleh <em>outlier</em>. Semakin besar nilai keduanya, semakin besar variabilitas datanya. Kedua ukuran tersebut dinyatakan pada Persamaan <a href="ringkasan-numerik.html#eq:var">(6.9)</a> dan Persamaan <a href="ringkasan-numerik.html#eq:sd">(6.10)</a>.</p>
-<p><strong>Varian Sampel</strong></p>
+<p>Varian sampel dan nilai akar dari varians sampel (Simpangan Baku) merupakan ukuran penyebaran data klasik. Sama dengan mean varians dan simpangan baku dipengaruhi oleh <em>outlier</em>. Semakin besar nilai keduanya, semakin besar variabilitas datanya. Kedua ukuran tersebut dinyatakan pada Persamaan <a href="ringkasan-numerik.html#eq:var">(6.9)</a> dan Persamaan <a href="ringkasan-numerik.html#eq:sd">(6.10)</a>.</p>
+<p><strong>Varians Sampel</strong></p>
 <span class="math display" id="eq:var">\[\begin{equation}
   s^2=\sum_{i=1}^n\frac{\left(X_i-\overline{X}\right)^2}{\left(n-1\right)}
   \tag{6.9}
@@ -925,34 +971,47 @@ Gambar 6.6: Jendela diagram trimmed mean.
   \tag{6.10}
 \end{equation}\]</span>
 <p>Kedua nilai tersebut di hitung berdasarkan kuadrat deviasi nilai observasi dari rata-ratanya, sehingga jika pada data terdapat <em>outlier</em> maka nilai outlier akan memperbesar deviasi data dari nilai mean. Ketika <em>outlier</em> hadir, pengukuran menjadi tidak stabil. Hal ini akan memberi kesan sebaran data menjadi jauh lebih besar daripada yang ditunjukkan oleh mayoritas nilai pada data.</p>
-<p>Varian dan simpangan baku pada <code>R</code> dihitung menggunakan fungsi <code>var()</code> (varian) dan <code>sd()</code>. Format yang digunakan adalah sebagai berikut:</p>
+<p>Varian dan simpangan baku pada <code>R</code> dihitung menggunakan fungsi <code>var()</code> (varians) dan <code>sd()</code>. Format yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(x, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)
 <span class="kw">sd</span>(x, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note:</strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: objek atau vektor numerik.</li>
-<li><strong>na.rm</strong>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam komputasi atau tidak.</li>
+<li><p><code>x</code>: objek atau vektor numerik.</p></li>
+<li><code>na.rm</code>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam komputasi atau tidak.
+</div>
+</li>
 </ul>
-</blockquote>
-<p><strong>Analisa Varian dan simpangan baku Grup Tunggal</strong></p>
-<p>Kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> untuk menghitung varian dan simpangan baku data tersebut. Berikut adalah sintaks untuk melakukannya:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># varian data sungai</span>
+<hr />
+
+<div class="example">
+<span id="exm:varsddt" class="example"><strong>Contoh 6.7  (Analisa Varian dan simpangan baku Grup Tunggal)  </strong></span>Dengan menggunakan Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, hitunglah nilai varians dan simpangan baku debit sungai?
+</div>
+
+<hr />
+<p>Nilai varians dan simpangan baku dapat dihitung secara manual menggunakan Persamaan <a href="ringkasan-numerik.html#eq:var">(6.9)</a> dan Persamaan <a href="ringkasan-numerik.html#eq:sd">(6.10)</a> atau menggunakan <code>R</code> menggunakan fungsi <code>var()</code> dan <code>sd()</code>. Berikut adalah sintaks <code>R</code> untuk menghitung nilai varians dan simpangan baku:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># varians data sungai</span>
 <span class="kw">var</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 11926</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># simpangan baku data sungai</span>
 <span class="kw">sd</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 109.2</code></pre>
 <p>Sekarang mari kita bandingkan dengan data yang tidak menyertakan outlier.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># varian data sungai</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># varians data sungai</span>
 <span class="kw">var</span>(sungai_subset<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 1919</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># simpangan baku data sungai</span>
 <span class="kw">sd</span>(sungai_subset<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 43.8</code></pre>
-<p>Berdasarkan hasil yang diperoleh terlihat bahwa nilai varian dan simpangan baku data dengan <em>outlier</em> jauh lebih besar dibanding data tanpa <em>outlier</em>.</p>
-<p><strong>Analisa Varian dan simpangan baku Multi Grup</strong></p>
-<p>Paca contoh ini kita akan menggunakan kembali data pada Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>. Sintaks berikut adalah cara menghitung varian dan simpangan baku untuk data berkelompok:</p>
+<p>Berdasarkan hasil yang diperoleh terlihat bahwa nilai varians dan simpangan baku data dengan <em>outlier</em> jauh lebih besar dibanding data tanpa <em>outlier</em>.</p>
+<hr />
+
+<div class="example">
+<span id="exm:varsdd" class="example"><strong>Contoh 6.8  (Analisa Varian dan simpangan baku Multi Grup)  </strong></span>Dengan menggunakan Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>, hitunglah nilai varians dan simpangan baku konsentrasi TDS dan Uranium pada air tanah berdasarkan konsentrasi bikarbonat dalam air tanah?
+</div>
+
+<hr />
+<p>Sintaks berikut adalah cara menghitung varians dan simpangan baku untuk data berkelompok:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_gw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Bicarbonate) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">var_TDS=</span><span class="kw">var</span>(TDS), <span class="dt">var_Uranium=</span><span class="kw">var</span>(Uranium),
@@ -962,7 +1021,8 @@ Gambar 6.6: Jendela diagram trimmed mean.
 ##   &lt;fct&gt;         &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 0            79471.        13.0   282.       3.61
 ## 2 1            10559.        13.5   103.       3.68</code></pre>
-<p>Jika kita perhatikan nilai varian dan simpangan baku Uranium pada dua kondisi kesadahan memiliki nilai yang nyaris sama. Hal sebaliknya terjadi pada variabel TDS yang menunjukkan perbedaan pada dua ukuran sebaran datanya. TDS pada kesadahan &gt;50% memiliki varian dan simpangan baku yang lebih kecil dibanding kondisi kesadahan satunya, yang menunjukkan data pada kondisi kesadahan &gt;50% lebih tidak tersebar dibanding kesadahan satunya.</p>
+<p>Jika kita perhatikan nilai varians dan simpangan baku Uranium pada dua kondisi kesadahan memiliki nilai yang nyaris sama. Hal sebaliknya terjadi pada variabel TDS yang menunjukkan perbedaan pada dua ukuran sebaran datanya. TDS pada kesadahan &gt;50% memiliki varians dan simpangan baku yang lebih kecil dibanding kondisi kesadahan satunya, yang menunjukkan data pada kondisi kesadahan &gt;50% lebih tidak tersebar dibanding kesadahan satunya.</p>
+<hr />
 </div>
 <div id="ukuran-sebaran-data-yang-resisten-terhadap-outlier" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Ukuran Sebaran Data yang Resisten Terhadap Outlier</h3>
@@ -982,14 +1042,22 @@ Gambar 6.6: Jendela diagram trimmed mean.
 
 <span class="co"># atau</span>
 <span class="kw">quantile</span>(x, .<span class="dv">75</span>)<span class="op">-</span><span class="kw">quantile</span>(x, .<span class="dv">25</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note:</strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: objek atau vektor numerik.</li>
-<li><strong>na.rm</strong>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam komputasi atau tidak.</li>
+<li><p><code>x</code>: objek atau vektor numerik.</p></li>
+<li><code>na.rm</code>: nilai logis yang menyatakan apakah <em>missing value</em> perlu disertakan dalam komputasi atau tidak.
+</div>
+</li>
 </ul>
-</blockquote>
-<p>Pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, kita dapat menghitung IQR dari data. Berikut adalah contoh sintaks yang digunakan:</p>
+<hr />
+
+<div class="example">
+<span id="exm:iqrexm" class="example"><strong>Contoh 6.9  </strong></span>Dengan menggunakan Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, hitunglah nilai IQR debit sungai?
+</div>
+
+<hr />
+<p>Kita dapat menghitung nilai IQR menggunakan fungsi <code>IQR()</code> pada <code>R</code>. Berikut adalah contoh sintaks yang digunakan:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">IQR</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 72.5</code></pre>
 <p>Salah satu penaksir penyebaran yang resisten selain IQR adalah <em>Median Absolute Deviation</em>, atau MAD. MAD dihitung dengan pertama-tama mendaftar nilai absolut dari semua selisih <span class="math inline">\(|d|\)</span> antara masing-masing pengamatan dan median. Median dari nilai absolut ini adalah MAD yang ditulis berdasarkan Persamaan <a href="ringkasan-numerik.html#eq:mad">(6.12)</a>.</p>
@@ -1012,7 +1080,14 @@ Gambar 6.6: Jendela diagram trimmed mean.
   <span class="co"># print</span>
   <span class="kw">return</span> (mad)
 }</code></pre></div>
-<p>Pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, kita dapat menghitung MAD dari data menggunakan fungsi yang telah dibuat. Berikut adalah contoh sintaks yang digunakan:</p>
+<hr />
+
+<div class="example">
+<span id="exm:madexm" class="example"><strong>Contoh 6.10  </strong></span>Dengan menggunakan Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, hitunglah nilai MAD debit sungai?
+</div>
+
+<hr />
+<p>Kita dapat menghitung MAD dari data menggunakan fungsi yang telah dibuat. Berikut adalah contoh sintaks yang digunakan:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">MAD</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 60.42</code></pre>
 </div>
@@ -1094,7 +1169,14 @@ Gambar 6.8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan po
   g=(n<span class="op">/</span>((n<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>(n<span class="op">-</span><span class="dv">2</span>)))<span class="op">*</span><span class="kw">sum</span>(((x<span class="op">-</span>ave)<span class="op">^</span><span class="dv">3</span>)<span class="op">/</span>(sd<span class="op">^</span><span class="dv">3</span>))
   <span class="kw">return</span>(g)
 }</code></pre></div>
-<p>Pada contoh sebelumnya dengan menggunakan fungsi yang telah dibuat diperoleh koefisien kemencengan sebagai berikut:</p>
+<hr />
+
+<div class="example">
+<span id="exm:qexp" class="example"><strong>Contoh 6.11  </strong></span>Dengan menggunakan Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>, hitunglah nilai koefisien kemencengan konsentrasi Uranium pada air tanah?
+</div>
+
+<hr />
+<p>Dengan menggunakan fungsi yang telah dibuat diperoleh koefisien kemencengan sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">skew</span>(data_gw<span class="op">$</span>Uranium)</code></pre></div>
 <pre><code>## [1] 1.184</code></pre>
 </div>
@@ -1113,7 +1195,14 @@ Gambar 6.8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan po
   skew =<span class="st"> </span>((p75<span class="op">-</span>p50)<span class="op">-</span>(p50<span class="op">-</span>p25))<span class="op">/</span>(p75<span class="op">-</span>p25)
   <span class="kw">return</span>(skew)
 }</code></pre></div>
-<p>Pada contoh sebelumnya dengan menggunakan fungsi yang telah dibuat diperoleh koefisien kemencengan sebagai berikut:</p>
+<hr />
+
+<div class="example">
+<span id="exm:qsexp" class="example"><strong>Contoh 6.12  </strong></span>Dengan menggunakan Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>, hitunglah nilai koefisien kemencengan (qs) konsentrasi Uranium pada air tanah?
+</div>
+
+<hr />
+<p>Dengan menggunakan fungsi yang telah dibuat diperoleh koefisien kemencengan sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qs</span>(data_gw<span class="op">$</span>Uranium)</code></pre></div>
 <pre><code>##    75% 
 ## 0.2772</code></pre>
@@ -1139,7 +1228,7 @@ Gambar 6.8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan po
 <ol style="list-style-type: decimal">
 <li>membuat data lebih simetris,</li>
 <li>membuat data lebih linier, dan</li>
-<li>membuat data memiliki varian yang konsisten.</li>
+<li>membuat data memiliki varians yang konsisten.</li>
 </ol>
 <p>Beberapa ilmuwan lingkungan takut bahwa dengan mentransformasikan data, hasilnya diperoleh yang sesuai dengan gagasan yang telah terbentuk sebelumnya. Oleh karena itu, transformasi adalah metode untuk <strong>melihat apa yang ingin kita lihat</strong> dari data. Namun dalam kenyataannya, masalah serius dapat terjadi ketika prosedur dengan asumsi simetri, linieritas, atau homoseksualitas (varians konstan) digunakan pada data yang tidak memiliki karakteristik yang diperlukan ini. Transformasi dapat menghasilkan karakteristik ini, dan dengan demikian penggunaan variabel yang diubah memenuhi tujuan.</p>
 <p>Satu unit pengukuran tidak lebih valid secara apriori daripada yang lainnya. Sebagai contoh, logaritma negatif konsentrasi ion hidrogen (pH), sama validnya dengan sistem pengukuran dengan konsentrasi ion hidrogen itu sendiri. Transformasi seperti akar kuadrat kedalaman air pada sumur sumur, atau akar kubik volume curah hujan, seharusnya tidak mengandung stigma lebih daripada pH. Skala pengukuran ini mungkin lebih sesuai untuk analisis data daripada unit aslinya. Hoaglin (1988) telah menulis artikel yang bagus tentang transformasi tersembunyi, secara konsisten diterima begitu saja, yang umum digunakan oleh semua orang. Oktaf dalam musik adalah transformasi frekuensi logaritmik. Setiap kali piano dimainkan, transformasi logaritmik digunakan! Begitu pula dengan skala Richter untukgempa bumi, mil per galon untuk konsumsi bensin, f-stop untuk eksposur kamera, dll. semua menggunakan transformasi. Dalam ilmu analisis data, keputusan yang menggunakan skala pengukuran harus ditentukan oleh data, bukan dengan kriteria yang ditentukan sebelumnya. Tujuan penggunaan transformasi adalah untuk kesimetrian, linieritas, dan homoskedastisitas. Selain itu, penggunaan banyak teknik tahan seperti persentil dan prosedur uji nonparametrik (akan dibahas kemudian) tidak berbeda dengan skala pengukuran. Hasil <em>rank-sum test</em>, setara nonparametrik dari uji-t, akan persis sama apakah unit asli atau logaritma dari unit tersebut digunakan.</p>

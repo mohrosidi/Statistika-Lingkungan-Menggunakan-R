@@ -1,2 +1,76 @@
 \usepackage{booktabs}
 \usepackage{lscape}
+
+\usepackage[many]{tcolorbox}
+\usepackage{graphicx}
+\usetikzlibrary{calc}
+
+\definecolor{customGrey}{HTML}{F2F4F4}
+\definecolor{customRed}{HTML}{B03A2E}
+
+% Create our custom box without images
+\newtcolorbox{customBlock}{
+  colback = customGrey,
+  colframe = customRed,
+  boxsep=5pt,
+  arc=4pt}
+
+
+% Create our custom box: template for images
+\newtcolorbox{customBlockImage}[2][]{
+  enhanced,
+  top=10pt,
+  bottom=10pt,
+  colframe = white,
+  width=\textwidth,
+  boxsep=5pt,
+  arc=4pt,
+  outer arc=4pt,
+  leftupper=1.5cm,
+overlay={
+    \node[anchor=west] 
+      at ([xshift=10pt] $ (interior.north west)!0.5!(interior.south west) $ )
+       {{\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{#2}}};},
+#1}
+
+
+% Define HTML colours for use
+\definecolor{customPurple}{HTML}{6C3483}
+\definecolor{customGreen}{HTML}{117A65}
+\definecolor{customOrange}{HTML}{B9770E}
+\definecolor{customBlue}{HTML}{2E86C1}
+
+% Create the new environments for R Markdown
+\newenvironment{rmdnote}
+  {\begin{customBlockImage}[colframe=customGreen]{images/note}}
+  {\end{customBlockImage}}
+  
+\newenvironment{rmdimportant}
+  {\begin{customBlockImage}[colframe=customPurple]{images/important}}
+  {\end{customBlockImage}}
+  
+\newenvironment{rmdtip}
+  {\begin{customBlockImage}[colframe=customOrange]{images/tip}}
+  {\end{customBlockImage}}
+  
+\newenvironment{rmdwarning}
+  {\begin{customBlockImage}[colframe=customRed]{images/warning.png}}
+  {\end{customBlockImage}}
+  
+\newenvironment{rmdcustom}
+  {\begin{customBlockImage}[colframe=customBlue]{images/warning.png}}
+  {\end{customBlockImage}}
+
+% Examples including titles
+\newenvironment{rmdhelp}
+  {\begin{customBlockImage}[colframe=black, title=Did you know?]{images/help.png}}
+  {\end{customBlockImage}}
+  
+\newenvironment{rmdtip2}
+  {\begin{customBlockImage}[colframe=customOrange, title=Tip]{images/tip}}
+  {\end{customBlockImage}}
+  
+\newenvironment{rmdwarning2}
+  {\begin{customBlockImage}[colframe=customRed, title=Warning]{images/warning.png}}
+  {\end{customBlockImage}}
+  

@@ -19,14 +19,17 @@ Grafik `ggplot2` terdiri dari sejumlah komponen kunci. Berikut adalah sejumlah k
 - **scales**: skala apa yang digunakan oleh *aesthetic map* (contoh: pria = merah, wanita = biru).
 - **coordinate system**: menggambarkan sistem di mana lokasi geom akan digambarkan.
 
-Sebelum kita mulai memcoba melakukan visualisasi data menggunakan `ggplot2`, kita perlu menginstall dan memuat terlebih dahulu library `ggplot2`. Berikut adalah sintaks yang digunakan untuk menginstall dan memuat paket `ggplot2`:
+Sebelum kita mulai memcoba melakukan visualisasi data menggunakan `ggplot2`, kita perlu menginstall dan memuat terlebih dahulu library `ggplot2`. Library `ggplot2` dapat diinstal secara tunggal atau melalui kumpulan paket `tidyverse`. Berikut adalah sintaks yang digunakan untuk menginstall dan memuat paket `tidyverse`:
 
 ```{r, message=FALSE}
 # memasang paket
 # install.packages('ggplot2')
 
+# atau
+# install.packages('tidyverse')
+
 # memuat paket
-library(ggplot2)
+library(tidyverse)
 ```
 
 Dataset yang akan kita gunakan adalah dataset `gapminder`. Dataset ini berisi data demografi penduduk dari berbagai negara dan benua. Untuk dapat menggunakannya kita perlu menginstall dan memuatnya terlebih dahulu. Berikut adalah sintaks untuk menginstall dan memuat dataset tersebut:
@@ -37,10 +40,6 @@ Dataset yang akan kita gunakan adalah dataset `gapminder`. Dataset ini berisi da
 
 # memuat paket
 library(gapminder)
-
-# memuat paket dplyr dan tibble
-library(dplyr)
-library(tibble)
 ```
 
 ```{r}
@@ -106,16 +105,16 @@ Untuk menujukkan asosiasi antara dua variabel kontinyu kita juga dapat menambahk
 geom_smooth(method="auto", se=TRUE, fullrange=FALSE, level=0.95)
 ```
 
-> **Note: **
->
-> - **method**: metode penghalusan yang digunakan. Nilai yang dapat dimasukkan adalah lm, glm, gam, loess, rlm.
-> 
->    + method="loess": merupakan nilai default pada fungsi dan menghasilkan metode penghalusan loess regression.
->    + method="lm": menghasilkan metode penghalusan regresi linier. Kita juga dapat melakukan spesifikasi terhadap fungsi persamaan regresi yang digunakan dengan menambahkan argumen formula=y~x....
->
-> - **se**: nilai logis. Jika TRUE garis confidence interval akan ditampilkan sepanjang garis penghalusan.
-> - **fullrange**: nilai logis. Jika TRUE kecocokan mencakup seluruh plot.
-> - level: level confidence interal yang digunakan. Secara default bernilai 0.95.
+```{block2, type = "rmdnote"}
+- `method`: metode penghalusan yang digunakan. Nilai yang dapat dimasukkan adalah lm, glm, gam, loess, rlm.
+ 
+    + method="loess": merupakan nilai default pada fungsi dan menghasilkan metode penghalusan loess regression.
+    + method="lm": menghasilkan metode penghalusan regresi linier. Kita juga dapat melakukan spesifikasi terhadap fungsi persamaan regresi yang digunakan dengan menambahkan argumen formula=y~x....
+
+- `se`: nilai logis. Jika `TRUE` garis confidence interval akan ditampilkan sepanjang garis penghalusan.
+- `fullrange`: nilai logis. Jika `TRUE` kecocokan mencakup seluruh plot.
+- level: level confidence interal yang digunakan. Secara default bernilai `0.95`.
+```
 
 Berikut adalah contoh sintaks penerapan pada variabel `gdpPercap` dan `lifeExp`. Output yang dihasilkan disajikan pada Gambar \@ref(fig:ggscatter5):
 
@@ -140,10 +139,10 @@ ggplot(data, aes(...))+
                             notch=FALSE))
 ```
 
-> **Note: **
->
-> - **outlier.colour, outlier.shape, outlier.size**: Warna, bentuk dan ukuran untuk titik-titik outlier.
-> - **notch**: nilai logis. Jika TRUE, buat **notched box plot**. *Notch* menunjukkan *confidence interval* di sekitar median yang biasanya didasarkan pada median $\pm1,58\cdot\frac{\left(IQR\right)}{\sqrt{\left(n\right)}}$. *Notch* digunakan untuk membandingkan kelompok; jika takik dua kotak tidak tumpang tindih, ini adalah bukti kuat bahwa median berbeda.
+```{block2, type = "rmdnote"}
+- `outlier.colour, outlier.shape, outlier.size`: Warna, bentuk dan ukuran untuk titik-titik outlier.
+- `notch`: nilai logis. Jika `TRUE`, buat **notched box plot**. *Notch* menunjukkan *confidence interval* di sekitar median yang biasanya didasarkan pada median $\pm1,58\cdot\frac{\left(IQR\right)}{\sqrt{\left(n\right)}}$. *Notch* digunakan untuk membandingkan kelompok; jika takik dua kotak tidak tumpang tindih, ini adalah bukti kuat bahwa median berbeda.
+```
 
 Berikut merupakan contoh visualisasi variabel `lifeExp` pada dataset `gapminder`. Output yang dihasilkan disajikan pada Gambar \@ref(fig:ggboxplot):
 
@@ -509,12 +508,12 @@ Judul, keterangan axis, dan keterangan legend dapat dikustomisasi menggunakan fu
 <ggplot> + theme(axis.title.y = element_text(family, face, colour, size))
 ```
 
-> **Note: **
->
-> - **family**: font family.
-> - **face**: tampilan font. Nilai yang dapat digunakan antara lain:  “plain”, “italic”, “bold” dan “bold.italic”.
-> - **colour**: warna teks.
-> - **size**: ukuran teks
+```{block2, type = "rmdnote"}
+- `family`: font family.
+- `face`: tampilan font. Nilai yang dapat digunakan antara lain:  “plain”, “italic”, “bold” dan “bold.italic”.
+- `colour`: warna teks.
+- `size`: ukuran teks
+```
 
 Berikut adalah contoh penerapan fungsi tersebut pada grafik Gambar \@ref(fig:ggtitle2). Output yang dihasilkan disajikan pada Gambar \@ref(fig:ggtitle3).
 
@@ -991,22 +990,21 @@ scale_x_continuous(name, breaks, labels, limits, trans)
 scale_y_continuous(name, breaks, labels, limits, trans)
 ```
 
-> **Note: **
->
-> - **name**: label axis sumbu x dan y.
-> - **breaks**: untuk mengontrol jeda dalam panduan (*axis tick*, garis grid, ...). Di antara nilai-nilai yang mungkin, adalah sebagai berikut:
->
->   + NULL: menyembunyikan seluruh breaks.
->   + **waiver()**: komputasi break default.
->   + vektor numerik atau karakter untuk menspesifikasikan break yang akan ditampilkan.
->
-> - **labels**: label axis. Nilai yang dapat dimasukkan antara lain;
->   + NULL: tanpa label.
->   + **waiver()**: label default.
->   + vektor karakter yang digunakan untuk spesifikasi label break.
->
-> - **limits**: vektor numerik untuk spesifikasi limit sumbu x dan y.
-> - **trans**: transformasi axis. Nilai yang dapat digunakan adalah "log2", "log10", dll.
+```{block2, type = "rmdnote"}
+- `name`: label axis sumbu x dan y.
+- `breaks`: untuk mengontrol jeda dalam panduan (*axis tick*, garis grid, ...). Di antara nilai-nilai yang mungkin, adalah sebagai berikut:
+   + NULL: menyembunyikan seluruh breaks.
+   + `waiver()`: komputasi break default.
+   + vektor numerik atau karakter untuk menspesifikasikan break yang akan ditampilkan.
+
+- `labels`: label axis. Nilai yang dapat dimasukkan antara lain;
+   + NULL: tanpa label.
+   + `waiver()`: label default.
+   + vektor karakter yang digunakan untuk spesifikasi label break.
+
+- `limits`: vektor numerik untuk spesifikasi limit sumbu x dan y.
+- `trans`: transformasi axis. Nilai yang dapat digunakan adalah "log2", "log10", dll.
+```
 
 Pada contoh berikut disajikan contoh mengatur limit axis dan label axis menggunakan fungsi `scale_x_continous()` dan `scale_y_continous()`. Grafik yang dihasilkan akan tampak seperti Gambar \@ref(fig:gglimits2).
 
@@ -1085,13 +1083,13 @@ Warna, ukuran font, dan tampilan font (*font style*) pada *tick mark* dapat diub
 <plot> + theme(axis.text.y = element_text(family, face, colour, size, angle))
 ```
 
-> **Note: **
->
-> - **family**: *font family*, seperti: "sans","times new roman", dll.
-> - **face**: *font face*, nilai yang mungkin adalah “plain”, “italic”, “bold” dan “bold.italic”.
-> - **color**: warna teks.
-> - **size**: ukuran teks dalam satuan pts.
-> - **angle**: sudut kemiringan teks berkisar antara 0 sampai 360.
+```{block2, type = "rmdnote"}
+- `family`: *font family*, seperti: "sans","times new roman", dll.
+- `face`: *font face*, nilai yang mungkin adalah “plain”, “italic”, “bold” dan “bold.italic”.
+- `color`: warna teks.
+- `size`: ukuran teks dalam satuan pts.
+- `angle`: sudut kemiringan teks berkisar antara 0 sampai 360.
+```
 
 Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggtick).
 
@@ -1135,12 +1133,12 @@ Kita dapat melakukan pengaturan terhadap garis axis menggunakan argumen `axis.li
                                         lineend, color))
 ```
 
-> **Note: **
->
-> - **color**: warna garis.
-> - **size**: ukuran garis.
-> - **linetype**: jenis garis.
-> - **lineend**: akhir dari garis. Nilai yang dapat dimasukkan antara lain: “round”, “butt” atau “square”.
+```{block2, type = "rmdnote"}
+- `color`: warna garis.
+- `size`: ukuran garis.
+- `linetype`: jenis garis.
+- `lineend`: akhir dari garis. Nilai yang dapat dimasukkan antara lain: “round”, “butt” atau “square”.
+```
 
 Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar \@ref(fig:ggtick3).
 

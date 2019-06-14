@@ -24,7 +24,7 @@
 <meta name="author" content="Moh. Rosidi" />
 
 
-<meta name="date" content="2019-06-05" />
+<meta name="date" content="2019-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,32 +56,38 @@ table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
 table.sourceCode { width: 100%; line-height: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #0000ff; } /* Keyword */
-code > span.ch { color: #008080; } /* Char */
-code > span.st { color: #008080; } /* String */
-code > span.co { color: #008000; } /* Comment */
-code > span.ot { color: #ff4000; } /* Other */
-code > span.al { color: #ff0000; } /* Alert */
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
 code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #008000; font-weight: bold; } /* Warning */
-code > span.cn { } /* Constant */
-code > span.sc { color: #008080; } /* SpecialChar */
-code > span.vs { color: #008080; } /* VerbatimString */
-code > span.ss { color: #008080; } /* SpecialString */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
 code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { color: #0000ff; } /* ControlFlow */
-code > span.op { } /* Operator */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
 code > span.bu { } /* BuiltIn */
 code > span.ex { } /* Extension */
-code > span.pp { color: #ff4000; } /* Preprocessor */
-code > span.do { color: #008000; } /* Documentation */
-code > span.an { color: #008000; } /* Annotation */
-code > span.cv { color: #008000; } /* CommentVar */
-code > span.at { } /* Attribute */
-code > span.in { color: #008000; } /* Information */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -428,7 +434,7 @@ code > span.in { color: #008000; } /* Information */
 <p>Jumlah seluruh probabilitas adalah 1. Selain itu retang nilai probabilitas berkisar antara 0 sampai 1, dimana hal ini telah penulis jelaskan pada Chapter sebelumnya.</p>
 <p>Distribusi probabilitas menjelaskan sebaran nilai variabel acak. Akibatnya, jenis variabel menentukan jenis distribusi probabilitas. Untuk variabel acak tunggal, ahli statistik membagi distribusi menjadi dua jenis berikut:</p>
 <ul>
-<li><strong>Distribusi probabilitas yang diskrit</strong></li>
+<li><strong>Distribusi probabilitas diskrit</strong></li>
 </ul>
 <p>Fungsi probabilitas diskrit dikenal sebagai fungsi massa probabilitas, dimana kita dapat mengasumsikan sejumlah nilai diskrit. Misalnya pelemparan dadu serta perhitungan sebuah peristiwa seperti flu di suatu daerah merupakan fungsi tersendiri. Kedua contoh tersebut merupakah contoh peristiwa diskrit karena tidak ada nilai antara, misalnya pada dadu tidak ada nilai antara 1 dan 2, dan seterunya. Pada perhitungan jumlah peristiwa flu juga tidak ada nilai antara orang terserang dlu dan tidak. Contoh lainnya adalah perhitungan jumlah buku diperpustakaan yang diperiksa tiap jam. Kita dapat menghitung jumlah buku perjam seperti 21 buku atau 22 buku, tetapi kita tidak dapat menghitung jumlah buku pada nilai antara kedua nilai tersebut. Distribusi probabilitas diskrit terdiri atas:</p>
 <ol style="list-style-type: lower-alpha">
@@ -439,7 +445,7 @@ code > span.in { color: #008000; } /* Information */
 <li>Multinomial</li>
 </ol>
 <ul>
-<li><strong>Distribusi probabilitas yang bersifat kontinu</strong></li>
+<li><strong>Distribusi probabilitas kontinu</strong></li>
 </ul>
 <p>Fungsi probabilitas kontinu dikenal juga sebagai fungsi densitas probabilitas. Suatu distribusi dikatakan sebagai distribusi kontinu jika nilai yang terkandung dalam distribusi tersebut tidak terbatas serta skala yang digunakan dapat pula mengandung nilai desimal. Contoh suatu pengukuran yang menghasilkan distribusi kontinu adalah tinggi, berat, suhu, dll. Distribusi probabilitas kontinu terdiri atas:</p>
 <ol style="list-style-type: lower-alpha">
@@ -460,7 +466,8 @@ code > span.in { color: #008000; } /* Information */
 <li>Probabilitas sukses (dinotasikan <span class="math inline">\(p\)</span>) konstan dari setiap perulangan.</li>
 <li>Setiap perulangan percobaan bersifat independen.</li>
 </ul>
-<p>Untuk memahami <strong>Bernoulli process</strong> kita akan menggunakan contoh pelemparan dadu. Misalkan kita akan melakukan percobaan pelemparan dadu sebanyak 3 kali. Probabilitas munculnya bagian angka 1 pada dadu adalah <span class="math inline">\(\frac{1}{6}\)</span>. Probabilitas ini konstan pada setiap perulangan. Jika kita menginginkan ketiga perulangan tersebut menghasilkan angka 1. Probabilitasnya merupakan hasil kali probabilitas pada tiap giliran pelemparan seperti berikut:</p>
+<p><strong>Contoh</strong></p>
+<p>Misalkan kita akan melakukan percobaan pelemparan dadu sebanyak 3 kali. Probabilitas munculnya bagian angka 1 pada dadu adalah <span class="math inline">\(\frac{1}{6}\)</span>. Probabilitas ini konstan pada setiap perulangan. Jika kita menginginkan ketiga perulangan tersebut menghasilkan angka 1. Probabilitasnya merupakan hasil kali probabilitas pada tiap giliran pelemparan seperti berikut:</p>
 <p><span class="math display">\[
 P\left(111\right)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{216}
 \]</span></p>
@@ -477,6 +484,7 @@ P\left(111\right)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{216}
    nC_x=\frac{n!}{x!\left(n-x\right)!}
   \tag{9.3}
 \end{equation}\]</span>
+<p><strong>Contoh</strong></p>
 <p>Dengan menggunakan contoh sebelumnya kita dapat menghitung probabilitas keluarnya angka 1 pada dadu untuk 3 kali percobaan (<span class="math inline">\(n\)</span>) atau seluruh percobaan menghasilkan angka 1 (<span class="math inline">\(n=x=3\)</span>) adalah:</p>
 <p><span class="math display">\[
 b\left(3;3,\frac{1}{6}\right)=\left(\frac{3!}{3!\left(3-3\right)!}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^{\left(3-3\right)}
@@ -495,7 +503,8 @@ b\left(3;3,\frac{1}{6}\right)=\left(1\right)\cdot\left(\frac{1}{6}\right)^3\cdot
   \tag{9.4}
 \end{equation}\]</span>
 <p>dimana <span class="math inline">\(r\)</span> adalah kondisi probabilitas yang kita inginkan yang dapat dituliskan sebagai <span class="math inline">\(P\left(X&lt;r\right)\)</span> atau <span class="math inline">\(P\left(X&gt;r\right)\)</span>. Kondisi lain yang dapat kita gunakan adalah <span class="math inline">\(P\left(a\le X\le b\right)\)</span>.</p>
-<p>Untuk memahaminya kita akan membuat sebuah contoh kasus. Misalkan kita diminta untuk melakukan analisis kerusakan <em>diffused aerator</em> pada suatu instalasi air limbah. Jumlah aerator total pada instalasi tersebut adalah 10 buah. Probabilitas sebuah aerator rusak sebesar <span class="math inline">\(\frac{1}{10}\)</span>. Tentukan berapa probabilitas jika (a) setidaknya 3 aerator tersebut tidak rusak? (b) 4 sampai 5 buah aerator rusak? serta (c) sebanyak 5 aerator rusak?.</p>
+<p><strong>Contoh</strong></p>
+<p>Misalkan kita diminta untuk melakukan analisis kerusakan <em>diffused aerator</em> pada suatu instalasi air limbah. Jumlah aerator total pada instalasi tersebut adalah 10 buah. Probabilitas sebuah aerator rusak sebesar <span class="math inline">\(\frac{1}{10}\)</span>. Tentukan berapa probabilitas jika (a) setidaknya 3 aerator tersebut tidak rusak? (b) 4 sampai 5 buah aerator rusak? serta (c) sebanyak 5 aerator rusak?.</p>
 <ol style="list-style-type: lower-alpha">
 <li>jika setidaknya 3 aerator tidak rusak</li>
 </ol>
@@ -577,7 +586,8 @@ f\left(x_1,x_2,...,x_k;\ p_1,p_2,...,p_k\right)
    \sum_{i=1}^kx_i=n\ dan\ \sum_{i=1}^kp_i=1
   \tag{9.8}
 \end{equation}\]</span>
-<p>Untuk memahami penerapan distribusi multinomial, penulis akan memberikan sebuah studi kasus. Probabilitas sejenis pompa memiliki umur ekonomis 2 tahun sebesar 0,30, antara 2-4 tahun adalah 0,50, dan 4-5 tahun adalah 0,20. Hitunglah probabilitas 8 buah pompa dimana pompa dengan umur ekonomis 2 tahun sebanyak 2 buah, 2-4 tahun sebanyak 5 buah, dan antara 4-5 sebanyak 1 buah.</p>
+<p><strong>Contoh</strong></p>
+<p>Probabilitas sejenis pompa memiliki umur ekonomis 2 tahun sebesar 0,30, antara 2-4 tahun adalah 0,50, dan 4-5 tahun adalah 0,20. Hitunglah probabilitas 8 buah pompa dimana pompa dengan umur ekonomis 2 tahun sebanyak 2 buah, 2-4 tahun sebanyak 5 buah, dan antara 4-5 sebanyak 1 buah.</p>
 <p>Untuk menyelesaikannya kita perlu mendata jumlah kemunculan disertai dengan probabilitas kejadia pada tiap grup seperti berikut:</p>
 <p><span class="math display">\[
 n=8;\ x_1=2\ dengan\ p_1=0,30;\ x_2=5\ dengan\ p_2=0,50,\ dan\ x_3=1\ dengan\ p_1=0,20\ 
@@ -620,7 +630,8 @@ f\left(2,5,1;0.30,0.50,0.20\right)=0,0945
   \tag{9.9}
 \end{equation}\]</span>
 <p>Range dari <span class="math inline">\(x\)</span> dapat ditentukan dari 3 koefisien binomial, dimana <span class="math inline">\(x\)</span> dan <span class="math inline">\(n-x\)</span> tidak lagi lebih besar dari <span class="math inline">\(k\)</span> dan <span class="math inline">\(N-k\)</span> dan nilai keduanya tidak boleh lebih kecil dari 0. Biasanya ketika kedua nilai <span class="math inline">\(k\)</span> dan <span class="math inline">\(N-k\)</span> lebih besar dari ukuran sampel <span class="math inline">\(n\)</span>, range dari variabel acak hipergeometris akan menjadi <span class="math inline">\(x=0,1,...,n\)</span>.</p>
-<p>Untuk memahami penerapan distribusi hipergeometris, kita dapat menerapkannya dalam sebuah contoh kasus. Misalkan pembaca ditugaskan untuk melakukan sortir terhadap 40 sak kompos yang akan dijual dengan berat rata-rata 2 kg. Pembaca diberi tahu bahwa 3 dari seluruh kompos tersebut memiliki berat kurang dari 2 kg sehingga tidak dapat dijual. Tugas pembaca adalah menemukan ketiga sak kompos tersebut. Untuk mempermudah proses tersebut pembaca melakukan sampling secara acak dengan jumlah sampling 5 buah kompos tanpa pengembalian. Hitunglah berapa peluang pada tiap sampling tersebut pembaca menemukan 1 kompos yang memiliki berat lebih kecil dari 2 kg tersebut?.</p>
+<p><strong>Contoh</strong></p>
+<p>Misalkan pembaca ditugaskan untuk melakukan sortir terhadap 40 sak kompos yang akan dijual dengan berat rata-rata 2 kg. Pembaca diberi tahu bahwa 3 dari seluruh kompos tersebut memiliki berat kurang dari 2 kg sehingga tidak dapat dijual. Tugas pembaca adalah menemukan ketiga sak kompos tersebut. Untuk mempermudah proses tersebut pembaca melakukan sampling secara acak dengan jumlah sampling 5 buah kompos tanpa pengembalian. Hitunglah berapa peluang pada tiap sampling tersebut pembaca menemukan 1 kompos yang memiliki berat lebih kecil dari 2 kg tersebut?.</p>
 <p>Berdasarkan studi kasus tersebut kita dapat menyimpulkan bahwa proses sampling yang dilakukan adalah dengan menggunakan prosedur sampling tanpa pengembalian, sehingga distribusi hipergeometris dapat diterapkan dengan nilai <span class="math inline">\(n=5\)</span>, <span class="math inline">\(N=40\)</span>, <span class="math inline">\(k=3\)</span>, dan <span class="math inline">\(x=1\)</span>. Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dhiper">(9.9)</a>, peluang ditemukan 1 sak kompos yang tidak sesuai adalah sebagai berikut:</p>
 <p><span class="math display">\[
 h\left(1;40,5,3\right)=\frac{\binom{3}{1}\binom{40-3}{5-1}}{\binom{40}{5}}=0,3011
@@ -694,7 +705,8 @@ P\left(X\le2\right)=b\left(0;40,5,3\right)+b\left(1;40,5,3\right)+b\left(2;40,5,
 <li>Setiap percobaan bersifat independen yang berarti hasil dari sebuah percobaan tidak akan mempengaruhi hasil percobaan lainnya.</li>
 <li>Percobaan dilakukan secara terus-menerus sampai dengan sejumlah <span class="math inline">\(k\)</span> sukses terjadi, dimana <span class="math inline">\(k\)</span> ditentukan terlebih dahulu.</li>
 </ol>
-<p>Untuk memahaminya misalkan kita menguji sebuah obat dengan memberikannya kepada pasien yang sakit. Keberhasilan obat tersebut Obat dinyatakan sukses jika secara efektif memberikan efek pemulihan bagi pasien. Probabilitas obat tersebut melakukannya berdasarkan hasil studi yang telah dilakukan sebesar 60%. Kita tertarik untuk mengetahui probabilitas pasien kelima yang mengalami efek penyembuhan dimana pasien ini merupakan pasien ketujuh yang diberikan obat tersebut. Untuk melakukannya kita definisikan kejadian sukses dengan simbol <span class="math inline">\(S\)</span> dan gagal dengan simbol <span class="math inline">\(F\)</span>, urutan yang mungkin dari ketujuh pasien berdasarkan respon terhadap obat adalah <span class="math inline">\(SFSSSFS\)</span> yang probabilitas kejadian berdasarkan urutan tersebut adalah sebagai berikut:</p>
+<p><strong>Contoh</strong></p>
+<p>Misalkan kita menguji sebuah obat dengan memberikannya kepada pasien yang sakit. Keberhasilan obat tersebut Obat dinyatakan sukses jika secara efektif memberikan efek pemulihan bagi pasien. Probabilitas obat tersebut melakukannya berdasarkan hasil studi yang telah dilakukan sebesar 60%. Kita tertarik untuk mengetahui probabilitas pasien kelima yang mengalami efek penyembuhan dimana pasien ini merupakan pasien ketujuh yang diberikan obat tersebut. Untuk melakukannya kita definisikan kejadian sukses dengan simbol <span class="math inline">\(S\)</span> dan gagal dengan simbol <span class="math inline">\(F\)</span>, urutan yang mungkin dari ketujuh pasien berdasarkan respon terhadap obat adalah <span class="math inline">\(SFSSSFS\)</span> yang probabilitas kejadian berdasarkan urutan tersebut adalah sebagai berikut:</p>
 <p><span class="math display">\[
 \left(0,6\right)\left(0,4\right)\left(0,6\right)\left(0,6\right)\left(0,6\right)\left(0,4\right)\left(0,6\right)=\left(0,6\right)^5\left(0,4\right)^2
 \]</span></p>
@@ -709,7 +721,8 @@ P\left(X=7\right)=\binom{6}{4}\left(0.6\right)^2\left(0,4\right)^2=0,1866
    b^{\ast}\left(x;k,p\right)=\binom{x-1}{k-1}p^kq^{x-k},\ \ \ \ \ x=k,k+1,k+2,....
   \tag{9.12}
 \end{equation}\]</span>
-<p>Untuk lebih memahami penerapan dari distribusi binomial negatif. Misalkan pada suatu evan NBA (Championship series) atau final antar juara wilayah, dimana pada pertandingan puncak kedua tim dari dua wilayah akan melakukan 7 pertandingan terkahir. Suatu tim dinyatakan juara jika berhasil meraih 4 kemenangan dari 7 pertandingan yang ada. Anggaplah tim A dan B berhadapan satu sama lain. Probabilitas A memenangkan suatu pertandingan terhadap tim B sebesar 0,55, tentukan:</p>
+<p><strong>Contoh</strong></p>
+<p>Misalkan pada suatu kejuaraan NBA (Championship series) atau final antar juara wilayah, dimana pada pertandingan puncak kedua tim dari dua wilayah akan melakukan 7 pertandingan terkahir. Suatu tim dinyatakan juara jika berhasil meraih 4 kemenangan dari 7 pertandingan yang ada. Anggaplah tim A dan B berhadapan satu sama lain. Probabilitas A memenangkan suatu pertandingan terhadap tim B sebesar 0,55, tentukan:</p>
 <ul>
 <li>Berapakah probabilitas tim A memenangkan kejuaraan pada pertandingan ke-6 dari 7 pertandingan yang ada?</li>
 <li>Berapakah probabilitas A memenangkan kejuaraan?</li>
@@ -777,7 +790,8 @@ b^{\ast}\left(4;4,0.55\right)+b^{\ast}\left(5;4,0.55\right)+b^{\ast}\left(6;4,0.
    g\left(x;p\right)=pq^{x-1},\ \ \ \ \ x=1,2,3,...
   \tag{9.13}
 \end{equation}\]</span>
-<p>Agar pembaca lebih memahaminya, misalkan suatu pabrik memiliki probabilitas 1 dari 100 barang produksinya merupakan produk cacat. Pemeriksaan dilakukan pada setiap barang tersebut. Tentukan probabilitas barang ke-5 hasil pengecekan merupakan barang yang cacat?</p>
+<p><strong>Contoh 1</strong></p>
+<p>Suatu pabrik memiliki probabilitas 1 dari 100 barang produksinya merupakan produk cacat. Pemeriksaan dilakukan pada setiap barang tersebut. Tentukan probabilitas barang ke-5 hasil pengecekan merupakan barang yang cacat?</p>
 <p>Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dgeom">(9.13)</a> probabilitas barang ke-5 merupakan produk gagal sebagai berikut:</p>
 <p><span class="math display">\[
 g\left(5;0.01\right)=\left(0,01\right)\left(0,99\right)^{5-1}=0,0096
@@ -800,6 +814,7 @@ g\left(5;0.01\right)=\left(0,01\right)\left(0,99\right)^{5-1}=0,0096
    G\left(r;p\right)=\sum _{x=0}^rg\left(x,p\right)
   \tag{9.14}
 \end{equation}\]</span>
+<p><strong>Contoh 2</strong></p>
 <p>Berdasarkan contoh sebelumnya hitunglah probabilitas barang cacat pertama kali ditemukan pada observasi kurang dari sama dengan observasi ke-5?</p>
 <p><span class="math display">\[
 P\left(P\le5\right)=g\left(0;0.01\right)+g\left(1;0.01\right)+...+g\left(5;0.01\right)=0.0585
@@ -857,7 +872,8 @@ P\left(P\le5\right)=g\left(0;0.01\right)+g\left(1;0.01\right)+...+g\left(5;0.01\
    \mu\ dan\ \sigma=\lambda t
   \tag{9.18}
 \end{equation}\]</span>
-<p>Untuk lebih memahami penerapan kedua persamaan tersebut, misalkan selama melakukan eksperimen laboratorium, rata-rata jumlah partikel radioaktif yang melewati couter pada 1 milidetik sebesar 4. Berapa probabilitas 6 partikel memasuki counter pada milidetik yang diberikan?</p>
+<p><strong>Contoh</strong></p>
+<p>Selama melakukan eksperimen laboratorium, rata-rata jumlah partikel radioaktif yang melewati couter pada 1 milidetik sebesar 4. Berapa probabilitas 6 partikel memasuki counter pada milidetik yang diberikan?</p>
 <p>Contoh kasus tersebut dapat diselesaikan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dpoisson">(9.16)</a> dengan nilai <span class="math inline">\(x=4\)</span> dan <span class="math inline">\(\lambda t=4\)</span> seperti berikut:</p>
 <p><span class="math display">\[
 p\left(6;4\right)=\frac{e^{-4}\left(4\right)^6}{6!}=0,1042

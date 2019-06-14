@@ -63,7 +63,7 @@ ggplot(sungai, aes(x=Flow, fill=..count..))+
 
 Density plot memecahkan masalah yang dimiliki histogram dalam melihat grafik dengan menyajikan data bukan dari jumlah kejadian atau observasi, namun data disajikan berdasarkan frekuensi relatif data (density) yang digambarkan dalam bentuk *smooth curve*. Contoh density plot dapat dilijat pada Gambar \@ref(fig:denseda). Dari grafik yang dihasilkan sekaran tampak jelas bahwa distibusi data memiliki kemencengan positif dengan frekuensi relatif debit terbanyak berada pada debit 1000 cfs.
 
-```{r denseda, echo=FALSE, fig.cap='Density plot debit sungai Saddle', tidy=FALSE, out.width='70%', fig.align='center', message=FALSE}
+```{r denseda, fig.cap='Density plot debit sungai Saddle', tidy=FALSE, out.width='70%', fig.align='center', message=FALSE}
 ggplot(sungai, aes(x=Flow))+
   geom_density(fill="blue", alpha=0.5, color="white")+
   theme_economist()+

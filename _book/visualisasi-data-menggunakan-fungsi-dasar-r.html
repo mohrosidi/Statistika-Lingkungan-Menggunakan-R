@@ -24,7 +24,7 @@
 <meta name="author" content="Moh. Rosidi" />
 
 
-<meta name="date" content="2019-06-05" />
+<meta name="date" content="2019-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,32 +56,38 @@ table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
 table.sourceCode { width: 100%; line-height: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #0000ff; } /* Keyword */
-code > span.ch { color: #008080; } /* Char */
-code > span.st { color: #008080; } /* String */
-code > span.co { color: #008000; } /* Comment */
-code > span.ot { color: #ff4000; } /* Other */
-code > span.al { color: #ff0000; } /* Alert */
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
 code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #008000; font-weight: bold; } /* Warning */
-code > span.cn { } /* Constant */
-code > span.sc { color: #008080; } /* SpecialChar */
-code > span.vs { color: #008080; } /* VerbatimString */
-code > span.ss { color: #008080; } /* SpecialString */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
 code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { color: #0000ff; } /* ControlFlow */
-code > span.op { } /* Operator */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
 code > span.bu { } /* BuiltIn */
 code > span.ex { } /* Extension */
-code > span.pp { color: #ff4000; } /* Preprocessor */
-code > span.do { color: #008000; } /* Documentation */
-code > span.an { color: #008000; } /* Annotation */
-code > span.cv { color: #008000; } /* CommentVar */
-code > span.at { } /* Attribute */
-code > span.in { color: #008000; } /* Information */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -423,25 +429,28 @@ code > span.in { color: #008000; } /* Information */
 <h2><span class="header-section-number">4.1</span> Visualisasi Data Menggunakan Fungsi plot()</h2>
 <p>Fungsi <code>plot()</code> merupakan fungsi umum yang digunakan untuk membuat plot pada <code>R</code>. Format dasarnya adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x, y, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x dan y</strong>: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.</li>
-<li><strong>type</strong>: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:</li>
+<li><code>x dan y</code>: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.</li>
+<li><code>type</code>: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:
+<ul>
 <li>type=“p” : membuat plot titik atau scatterplot. Nilai ini merupakan default pada fungsi <code>plot()</code>.</li>
 <li>type=“l” : membuat plot garis.</li>
 <li>type=“b” : membuat plot titik yang terhubung dengan garis.</li>
 <li>type=“o” : membuat plot titik yang ditimpa oleh garis.</li>
 <li>type=“h” : membuat plot garis vertikal dari titik ke garis y=0.</li>
 <li>type=“s” : membuat fungsi tangga.</li>
-<li>type=“n” : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.</li>
+<li>type=“n” : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.
+</div>
+</li>
+</ul></li>
 </ul>
-</blockquote>
 <p>Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:plot">4.1</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor data </span>
 x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>); y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membagi jendela grafik menajdi 4 baris dan 2 kolom</span>
-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membagi jendela grafik menajdi 2 baris dan 4 kolom</span>
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>))
 
 <span class="co"># loop</span>
 type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;p&quot;</span>,<span class="st">&quot;l&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;o&quot;</span>,<span class="st">&quot;h&quot;</span>,<span class="st">&quot;s&quot;</span>,<span class="st">&quot;n&quot;</span>)
@@ -517,13 +526,14 @@ Gambar 4.4: Plot diagnostik regresi linier
 <h2><span class="header-section-number">4.2</span> Matriks Scatterplot</h2>
 <p>Pada bagian sebelumnya kita telah belajar bagaimana membuat matriks scatterplot mengggunakan fungsi <code>plot()</code>. Pada bagian ini kita akan belajar cara membuat matriks scatterplot menggunakan fungsi <code>pairs()</code>. Secara umum format fungsi dituliskan sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(data, <span class="dt">lower.panel=</span><span class="ot">NULL</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>data</strong>: data frame</li>
-<li><strong>lower.panel</strong>: menampilkan atau tidak menampilkan panel bawah</li>
+<li><code>data</code>: data frame</li>
+<li><code>lower.panel</code>: menampilkan atau tidak menampilkan panel bawah
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Untuk lebih memahami penggunaan fungsi tersebut, berikut akan disajikan contoh penggunaannya pada dataset <code>iris</code>. Sebelum melakukannya jalankan sintaks berikut untuk memuat dataset:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat dataset irir</span>
 iris &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(iris)
@@ -899,16 +909,17 @@ Gambar 4.23: QQ plot
 <p>Fungsi <code>dotchart()</code> pada <code>R</code> digunakan untuk membuat dot chart. Format yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dotchart</span>(x, <span class="dt">labels =</span> <span class="ot">NULL</span>, <span class="dt">groups =</span> <span class="ot">NULL</span>, 
          <span class="dt">gcolor =</span> <span class="kw">par</span>(<span class="st">&quot;fg&quot;</span>), <span class="dt">color =</span> <span class="kw">par</span>(<span class="st">&quot;fg&quot;</span>))</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor atau matriks numerik.</li>
-<li><strong>labels</strong>: vektor label untuk tiap titik.</li>
-<li><strong>groups</strong>: grouping variabel yang mengindikasikan bagaimana <strong>x</strong> dikelompokkan.</li>
-<li><strong>gcolor</strong>: warna yang digunakan pada label grup dan nilai observasi.</li>
-<li><strong>color</strong>: warna yang digunakan untuk titik dan label.</li>
+<li><code>x</code>: vektor atau matriks numerik.</li>
+<li><code>labels</code>: vektor label untuk tiap titik.</li>
+<li><code>groups</code>: grouping variabel yang mengindikasikan bagaimana <code>x</code> dikelompokkan.</li>
+<li><code>gcolor</code>: warna yang digunakan pada label grup dan nilai observasi.</li>
+<li><code>color</code>: warna yang digunakan untuk titik dan label.</li>
 </ul>
-</blockquote>
+</div>
+
 <p>Pada contoh berikut disajikan cara membuat dot chart pada dataset <code>mtcars</code> untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel <code>mpg</code> dan jumlah silinder (<code>cyl</code>). Berikut sintaks yang digunakan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:dot">4.24</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mengurutkan dataset mtcars berdasarkan variabel mpg</span>
 mtcars &lt;-<span class="st"> </span>mtcars[<span class="kw">order</span>(mtcars<span class="op">$</span>mpg), ]
@@ -972,8 +983,8 @@ Gambar 4.25: Menambahkan Judul
 <li><strong>font.lab</strong>: <em>font style</em> untuk keterangan axis.</li>
 <li><strong>font.sub</strong>: <em>font style</em> untuk sub-judul.</li>
 </ol>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdimportant">
 <p>Nilai yang dapat dimasukkan antara lain:</p>
 <ul>
 <li><strong>1</strong>: untuk teks normal.</li>
@@ -982,7 +993,8 @@ Gambar 4.25: Menambahkan Judul
 <li><strong>4</strong>: untuk teks cetak tebal dan miring.</li>
 <li><strong>5</strong>: untuk font simbol.</li>
 </ul>
-</blockquote>
+</div>
+
 <p>Sedangkan untuk ukuran font, kita dapat menambahkan variabel berikut:</p>
 <ol style="list-style-type: lower-alpha">
 <li><strong>cex.main</strong>: ukuran teks judul.</li>
@@ -1047,16 +1059,17 @@ Gambar 4.27: Menambahkan Judul (3)
 <h3><span class="header-section-number">4.10.2</span> Menambahkan Legend</h3>
 <p>Fungsi <code>legend()</code> pada <code>R</code> dapat digunakan untuk menambahkan legend pada grafik. Format sederhananya adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">legend</span>(x, <span class="dt">y=</span><span class="ot">NULL</span>, legend, fill, col, bg)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong> dan <strong>y</strong>: koordinat yang digunakan untuk posisi legend.</li>
-<li><strong>legend</strong>: teks pada legend</li>
-<li><strong>fill</strong>: warna yang digunakan untuk mengisi box disamping teks legend.</li>
-<li><strong>col</strong>: warna garis dan titik disamping teks legend.</li>
-<li><strong>bg</strong>: warna latar belakang legend box.</li>
+<li><code>x</code> dan <code>y</code>: koordinat yang digunakan untuk posisi legend.</li>
+<li><code>legend</code>: teks pada legend</li>
+<li><code>fill</code>: warna yang digunakan untuk mengisi box disamping teks legend.</li>
+<li><code>col</code>: warna garis dan titik disamping teks legend.</li>
+<li><code>bg</code>: warna latar belakang legend box.</li>
 </ul>
-</blockquote>
+</div>
+
 <p>Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:legend">4.28</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor numerik</span>
 x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
@@ -1179,13 +1192,14 @@ Gambar 4.31: Kustomisasi posisi legend
 <p>Teks pada grafik dapat kita tambahkan baik sebagai keterangan yang menunjukkan label suatu observasi, keterangan tambahan disekitar bingkai grafik, maupun sebuah persamaan yang ada pada bidang grafik. Untuk menambahkannya kita dapat menggunakan dua buah fungsi yaitu: <code>text()</code> dan <code>mtext()</code>.</p>
 <p>FUngsi <code>text()</code> berguna untuk menambahkan teks di dalam bidang grafik seperti label titik observasi dan persamaan di dalam bidang grafik. Format yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">text</span>(x, y, labels)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong> dan <strong>y</strong>: vektor numerik yang menunjukkan koordinat posisi teks.</li>
-<li><strong>labels</strong>: vektor karakter yang menunjukkan teks yang hendak ditulis.</li>
+<li><code>x</code> dan <code>y</code>: vektor numerik yang menunjukkan koordinat posisi teks.</li>
+<li><code>labels</code>: vektor karakter yang menunjukkan teks yang hendak ditulis.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah contoh sintaks untuk memberi label pada sejumlah data yang memiliki kriteria yang kita inginkan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:text">4.32</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># tandai observasi yang memiliki nilai</span>
 <span class="co"># mpg &lt; 15 dan wt &gt; 5</span>
@@ -1218,17 +1232,18 @@ Gambar 4.33: Menambahkan teks (2)
 </div>
 <p>Fungsi <code>mtext()</code> berguna untuk menambahkan teks pada frame sekitar bidang grafik. Format yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mtext</span>(text, <span class="dt">side=</span><span class="dv">3</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>text</strong>: teks yang akan ditulis.</li>
-<li><strong>side</strong>: integer yang menunjukkan lokasi teks yang akan ditulis. Nilai yang dapat dimasukkan antara lain:</li>
-<li><strong>1</strong>: bawah</li>
-<li><strong>2</strong>: kiri</li>
-<li><strong>3</strong>: atas</li>
-<li><strong>4</strong>: kanan.</li>
+<li><code>text</code>: teks yang akan ditulis.</li>
+<li><code>side</code>: integer yang menunjukkan lokasi teks yang akan ditulis. Nilai yang dapat dimasukkan antara lain:</li>
+<li>1: bawah</li>
+<li>2: kiri</li>
+<li>3: atas</li>
+<li>4: kanan.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah contoh penerapan dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:text3">4.34</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, 
      <span class="dt">main=</span><span class="st">&quot;mtext(...) examples</span><span class="ch">\n</span><span class="st">~~~~~~~~~~~&quot;</span>)
@@ -1352,20 +1367,19 @@ Gambar 4.37: Line type
 <p>Kita dapat melakukan pengaturan lebih jauh terhadap axis, seperti: menambahkan axis tambahan pada atas dan bawah frame, mengubah rentang nilai axis, serta kustomisasi <em>tick mark</em> pada nilai axis. Hal ini diperlukan karena fungsi grafik dasar <code>R</code> tidak dapat mengatur axis secara otomatis saat plot baru ditambahkan pada plot pertama dan rentang nilai plot baru lebih besar dibanding plot pertama, sehingga sebagian nilai plot baru tidak ditampilkan pada hasil akhir.</p>
 <p>Untuk menambahkan axis pada <code>R</code> kita dapat menambahkan fungsi <code>axis()</code> setelah plot dilakukan. Format yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">axis</span>(side, <span class="dt">at=</span><span class="ot">NULL</span>, <span class="dt">labels=</span><span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>side</strong>: nilai integer yang mengidikasikan posisi axix yang hendak ditambahkan. Nilai yang dapat dimasukkan adalah sebagai berikut:
-<ul>
-<li><strong>1</strong>: bawah</li>
-<li><strong>2</strong>: kiri</li>
-<li><strong>3</strong>: atas</li>
-<li><strong>4</strong>: kanan.</li>
-</ul></li>
-<li><strong>at</strong>: titik dimana <em>tick-mark</em> hendak digambarkan. Nilai yang dapat dimasukkan sama dengan <strong>side</strong>.</li>
-<li><strong>labels</strong>: Teks label <em>tick-mark</em>. Dapat juga secara logis menentukan apakah anotasi harus dibuat pada <em>tick mark</em>.</li>
+<li><code>side</code>: nilai integer yang mengidikasikan posisi axix yang hendak ditambahkan. Nilai yang dapat dimasukkan adalah sebagai berikut:</li>
+<li>1: bawah</li>
+<li>2: kiri</li>
+<li>3: atas</li>
+<li>4: kanan.</li>
+<li><code>at</code>: titik dimana <em>tick-mark</em> hendak digambarkan. Nilai yang dapat dimasukkan sama dengan <code>side</code>.</li>
+<li><code>labels</code>: Teks label <em>tick-mark</em>. Dapat juga secara logis menentukan apakah anotasi harus dibuat pada <em>tick mark</em>.</li>
 </ul>
-</blockquote>
+</div>
+
 <p>Berikut contoh sintaks penerapan fungsi tersebut dan output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-fungsi-dasar-r.html#fig:axis">4.38</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># membuat vektor numerik</span>
 x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)

@@ -21,7 +21,10 @@ Bandingkan dengan sintaks berikut:
 (2+4)*2
 ```
 
-> `R` dapat digunakan sebagai kalkulator
+```{block2, type = "rmdtip"}
+`R` dapat digunakan sebagai kalkulator
+
+```
 
 Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, `R` akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian. 
 
@@ -38,7 +41,7 @@ Operator aritmatika yang disediakan `R` disajikan pada Tabel \@ref(tab:oparitmat
 %%             | *Modulus*, Untuk mencari sisa pembagian
 %/%            | *Integer*, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian
 
-*: (\#tab:oparitmatika) Operator Aritmatika `R`.*
+: (\#tab:oparitmatika) Operator Aritmatika `R`.
 
 Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.
 
@@ -66,7 +69,11 @@ Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.
 
 ```
 
-> *Note: * Pada `R` tanda `#` berfungsi menambahkan keterangan untuk menjelaskan sebuah sintaks pada `R`.
+```{block2, type = "rmdtip"}
+Pada `R` tanda `#` berfungsi menambahkan keterangan untuk menjelaskan sebuah sintaks pada `R`
+
+```
+
 
 ## Fungsi Aritmetik
 
@@ -95,7 +102,10 @@ asin(x) # arc-sin x
 atan(x) #arc-tan x
 ```
 
-> **Note: ** x dalam fungsi trigonometri memiliki satuan radian
+```{block2, type = "rmdimportant"}
+x dalam fungsi trigonometri memiliki satuan radian
+
+```
 
 Berikut adalah salah satu contoh penggunaannya:
 
@@ -118,7 +128,7 @@ sqrt(4) # akar kuadrat 4
 Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan `R` disajikan pada Tabel \@ref(tab:oprelasi).
 
 **Simbol**     | **Keterangan**           
----------------|---------------------------
+---------------|-----------------------------
 ">"            | Lebih besar dari
 "<"            | Lebih Kecil dari
 "=="           | Sama dengan
@@ -161,10 +171,10 @@ Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau com
 **Simbol**     | **Keterangan**           
 ---------------|----------------------------------
 &&             | Operator logika AND
-'||'           | Operator logika OR
+||           | Operator logika OR
 !              | Opeartor logika NOT
 &              | Operator logika AND element wise
-'|'            | Operator logika OR element wise
+|              | Operator logika OR element wise
  
 : (\#tab:oplogika) Operator logika `R`.
 
@@ -190,11 +200,12 @@ print(v&t)
 print(v|t)
 ```
 
-> **Note: ** 
->
-> operator & dan | akan mengecek logika tiap elemen pada vektor secara berpesangan (sesuai urutan dari kiri ke kanan). 
->
->Operator %% dan || hanya mengecek dari kiri ke kanan pada observasi pertama. Misal saat menggunakan && jika observasi pertama TRUE maka observasi pertama pada vektor lainnya akan dicek, namun jika observasi pertama FALSE maka proses akan segera dihentikan dan menghasilkan FALSE.
+```{block2, type = "rmdimportant"}
+- operator `&` dan `|` akan mengecek logika tiap elemen pada vektor secara berpesangan (sesuai urutan dari kiri ke kanan). 
+Operator `%%` dan `||` hanya mengecek dari kiri ke kanan pada 
+
+- observasi pertama. Misal saat menggunakan && jika observasi pertama `TRUE` maka observasi pertama pada vektor lainnya akan dicek, namun jika observasi pertama `FALSE` maka proses akan segera dihentikan dan menghasilkan FALSE.
+```
 
 ## Memasukkan Nilai Kedalam Variabel
 
@@ -212,11 +223,12 @@ lemon = 500
 
 ```
 
-> **Note: **
->
-> 1. `R` memungkinkan penggunaan <-,->, atau = sebagai perintah pengisi nilai variabel
->
-> 2. `R` bersifat *case-sensitive*. Maksudnya adalah variabel Lemon tidak sama dengan lemon (Besar kecil huruf berpengaruh)
+```{block2, type = "rmdimportant"}
+1. `R` memungkinkan penggunaan `<-`,`->`, atau `=` sebagai perintah pengisi nilai variabel
+
+2. `R` bersifat *case-sensitive*. Maksudnya adalah variabel Lemon tidak sama dengan lemon (Besar kecil huruf berpengaruh)
+
+```
 
 Untuk mengetahui nilai dari objek `lemon` kita dapat menggunakan fungsi `print()` atau mengetikkan nama objeknya secara langsung.
 
@@ -265,7 +277,10 @@ Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita 
 ls()
 ```
 
-> Kumpulan objek yang telah tersimpan dalam memori disebut sebagai **workspace**
+```{block2, type = "rmdimportant"}
+Kumpulan objek yang telah tersimpan dalam memori disebut sebagai **workspace**
+
+```
 
 Untuk menghapus objek pada memori kita dapat menggunakan fungsi `rm()`. Pada sintaks berikut penulis hendak menghapus objek `lemon` dan `volume`.
 
@@ -277,7 +292,10 @@ rm(lemon, volume)
 ls()
 ```
 
-> **Note: ** Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.
+```{block2, type = "rmdtip"}
+Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.
+
+```
 
 ## Tipe dan Struktur Data
 
@@ -364,7 +382,10 @@ as.numeric(minum)
 
 ```
 
-> **Note: ** Konversi karakter menjadi numerik akan menghasilkan output NA (*not available*). `R` tidak mengetahui bagaimana cara merubah karakter menjadi bentuk numerik.
+```{block2, type = "rmdimportant"}
+Konversi karakter menjadi numerik akan menghasilkan output NA (*not available*). `R` tidak mengetahui bagaimana cara merubah karakter menjadi bentuk numerik.
+
+```
 
 Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik *double quote* ("") maupun *single quote* ('').Jika pada teks yang kita tuliskan mengandung *quote* maka kita harus menghentikannya menggunakan tanda ( \ ). Sbegai contoh kita ingin menuliskan `**My friend's name is "Adi"**, pada sintaks akan dituliskan:
 
@@ -428,7 +449,10 @@ Jumlah <- c(Apel=5, Jeruk=5, Rambutan=6, Salak=7)
 Jumlah
 ```
 
-> **Note: ** Vektor hanya dapat memuat satu buah jenis data. Vektor hanya dapat mengandung jenis data numerik saja, karakter saja, dll.
+```{block2, type = "rmdimportant"}
+Vektor hanya dapat memuat satu buah jenis data. Vektor hanya dapat mengandung jenis data numerik saja, karakter saja, dll.
+
+```
 
 Untuk menentukan panjang sebuah vektor kita dapat menggunakan fungsi `lenght()`.
 
@@ -450,11 +474,12 @@ Untuk mengecek apakah dalam objek terdapat *missing value* dapat menggunakan fun
 is.na(Jumlah)
 ```
 
-> **Note: **
-> 
-> Selain NA terdapat NaN (*not a number*) sebagai *missing value8*. Nilai tersebut muncul ketika fungsi matematika yang digunakan pada proses perhitungan tidak bekerja sebagaimana mestinya. Contoh: 0/0 = NaN
->
-> `is.na()` juga akan menghasilkan nilai `TRUE` pada NaN. Untuk membedakannya dengan NA dapat digunakan fungsi `is.nan()`.
+```{block2, type = "rmdimportant"}
+1. Selain `NA` terdapat NaN (*not a number*) sebagai *missing value8*. Nilai tersebut muncul ketika fungsi matematika yang digunakan pada proses perhitungan tidak bekerja sebagaimana mestinya. Contoh: `0/0 = NaN`
+
+2. `is.na()` juga akan menghasilkan nilai `TRUE` pada NaN. Untuk membedakannya dengan `NA` dapat digunakan fungsi `is.nan()`.
+
+```
 
 ### Subset Pada Vektor
 
@@ -476,7 +501,10 @@ Selain melalui urutan (indeks), kita juga dapat melakukan subset (membuat himpun
 Jumlah["Jeruk"]
 ```
 
-> **Note: ** Indeks pada `R` dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]
+```{block2, type = "rmdimportant"}
+Indeks pada `R` dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]
+
+```
 
 * **Negative indexing**: mengecualikan (*exclude*) elemen vektor.
 
@@ -490,7 +518,10 @@ Jumlah[-c(1:3)]
 
 * **Subset berdasarkan vektor logical**: Hanya, elemen-elemen yang nilai yang bersesuaian dalam vektor pemilihan bernilai TRUE, akan disimpan dalam subset.
 
-> **Note: ** panjang vektor yang digunakan untuk subset harus sama.
+```{block2, type = "rmdimportant"}
+panjang vektor yang digunakan untuk subset harus sama.
+
+```
 
 ```{r}
 Jumlah <- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)
@@ -523,7 +554,8 @@ Seperti yang dapat dilihat, `R` mengalikan setiap elemen dengan bilangan pengali
 Kita juga dapat mengalikan vektor dengan vektor lainnya.Contohnya disajikan pada sintaks berikut:
 
 ```{r}
-# membuat vektor dengan panjang sama dengan dengan vektor pendapatan
+# membuat vektor dengan panjang 
+# sama dengan dengan vektor pendapatan
 coefs <- c(2, 1.5, 1, 3)
 
 # Mengalikan pendapatan dengan vektor coefs
@@ -538,10 +570,10 @@ Berikut adalah fungsi lain yang dapat digunakan pada operasi matematika vektor.
 max(x) # memperoleh nilai maksimum x
 min(x) # memperoleh nilai minimum x
 range(x) # memperoleh range vektor x
-length(x) # memperoleh jumlah elemen vektor x
-sum(x) # memperoleh total penjumlahan elemen vektor x
+length(x) # memperoleh jumlah vektor x
+sum(x) # memperoleh total penjumlahan vektor x
 prod(x) # memeperoleh produk elemen vektor x
-mean(x) # memperoleh nilai rata-rata seluruh elemen vektor x
+mean(x) # memperoleh nilai mean vektor x
 sd(x) # standar deviasi vektor x
 var(x) # varian vektor x
 sort(x) # mengurutkan elemen vektor x dari yang terbesar
@@ -578,16 +610,21 @@ my_data <- cbind(col1, col2, col3)
 my_data
 
 # Mengubah atau menambahkan nama baris
-rownames(my_data) <- c("row1", "row2", "row3", "row4", "row5")
+rownames(my_data) <- c("row1", "row2", 
+                       "row3", "row4", 
+                       "row5")
 my_data
 ```
 
-> **Note: **
->
-> + **cbind()**: menggabungkan objek `R` berdasarkan kolom
-> + **rbind()**: menggabungkan objek `R` berdasarkan baris
-> + **rownames()**: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks
-> + **colnames()**: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks
+```{block2, type = "rmdnote"}
++ `cbind()`: menggabungkan objek `R` berdasarkan kolom
+
++ `rbind()`: menggabungkan objek `R` berdasarkan baris
+
++ `rownames()`: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks
+
++ `colnames()`: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks
+```
 
 Kita dapat melakukan tranpose (merotasi matriks sehingga kolom menjadi baris dan sebaliknya) menggunakan fungsi `t()`. Berikut adalah contoh penerapannya:
 
@@ -602,12 +639,15 @@ matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
        dimnames = NULL)
 ```
 
-> **Note: **
->
-> + **data**: vektor data opsional
-> + **nrow**, **ncol**: jumlah baris dan kolom yang diinginkan, masing-masing.
-> + **byrow**: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.
-> + **dimnames**: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.
+```{block2, type = "rmdnote"}
++ `data`: vektor data opsional
+
++ `nrow`, **ncol**: jumlah baris dan kolom yang diinginkan, masing-masing.
+
++ `byrow`: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.
+
++ `dimnames`: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.
+```
 
 Dalam kode `R` di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini `nrow = 3`). `R` akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen `byrow = FALSE`. Jika kita ingin mengisi matriks dengan baris, gunakan `byrow = TRUE`. Berikut adalah contoh pembuatan matriks menggunakan fungsi `matrix()`.
 
@@ -615,7 +655,8 @@ Dalam kode `R` di bawah ini, data input memiliki panjang 6. Kita ingin membuat m
 data <- matrix(
            data = c(1,2,3, 11,12,13), 
            nrow = 2, byrow = TRUE,
-           dimnames = list(c("row1", "row2"), c("C.1", "C.2", "C.3"))
+           dimnames = list(c("row1", "row2"), 
+                           c("C.1", "C.2", "C.3"))
            )
 data
 ```
@@ -737,11 +778,13 @@ MARGIN <-1
 apply(x, MARGIN, FUN)
 ```
 
-> **Note: **
->
-> * x : data matriks
-> * MARGIN : Nilai yang dapat digunakan adalah 1 (untuk operasi pada baris) dan 2 (untuk operasi pada kolom)
-> * FUN : fungsi yang diterapkan pada baris atau kolom
+```{block2, type = "rmdnote"}
+* `x` : data matriks
+
+* `MARGIN` : Nilai yang dapat digunakan adalah `1` (untuk operasi pada baris) dan `2` (untuk operasi pada kolom)
+
+* `FUN` : fungsi yang diterapkan pada baris atau kolom
+```
 
 untuk mengetahui fungsi (`FUN`) apa saja yang dapat diterapkan pada fungsi `apply()` jalankan sintaks bantuan berikut:
 
@@ -795,10 +838,13 @@ faktor <- factor(faktor,
 faktor
 ```
 
-> **Note: **
->
-> * Fungsi `is.factor()` dapat digunakan untuk mengecek apakah sebuah variabel adalah faktor. Hasil yang dimunculkan dapat berupa TRUE (jika faktor) atau FALSE (jika bukan)
-> * Fungsi `as.factor()` dapat digunakan untuk merubah sebuah variabel menjadi faktor.
+```{block2, type = "rmdimportant"}
+* Fungsi `is.factor()` dapat digunakan untuk mengecek apakah sebuah variabel adalah faktor. Hasil yang dimunculkan dapat berupa TRUE (jika faktor) atau FALSE (jika bukan)
+
+* Fungsi `as.factor()` dapat digunakan untuk merubah sebuah variabel menjadi faktor.
+
+```
+
 
 ```{r}
 # Cek jika objek faktor adalah faktor
@@ -909,7 +955,8 @@ Kita ingin memilih data dengan kriteria teman yang telah menikah
 ```{r}
 data_teman[data_teman$menikah==TRUE, ]
 
-# Tampilkan hanya kolom nama dan gaji untuk yang telah menikah
+# Tampilkan hanya kolom nama 
+# dan gaji untuk yang telah menikah
 data_teman[data_teman$menikah==TRUE, 1:2]
 ```
 
@@ -1192,12 +1239,16 @@ Fungsi `apply()` bekerja dengan jenis data matrik atau array (jenis data homogen
 apply(X, MARGIN, FUN, ...)
 ```
 
-> **Note: **
->
-> - **X**: matriks atau array
-> - **MARGIN**: menentukan bagaimana fungsi bekerja terhadap matriks atau array. Jika nilai yang diinputkan 1, maka fungsi akan bekerja pada masing-masing baris pada matriks. Jika nilainya 2, maka fungsi akan bekerja pada tiap kolom pada matriks.
-> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function.
-> - **...**: opsional argumen pada fungsi yang digunakan.
+```{block2, type = "rmdnote"}
+- `X`: matriks atau array
+
+- `MARGIN`: menentukan bagaimana fungsi bekerja terhadap matriks atau array. Jika nilai yang diinputkan 1, maka fungsi akan bekerja pada masing-masing baris pada matriks. Jika nilainya 2, maka fungsi akan bekerja pada tiap kolom pada matriks.
+
+- `FUN`: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function.
+
+- `...`: opsional argumen pada fungsi yang digunakan.
+
+```
 
 Berikut adalah contoh bagaimana aplikasi fungsi tersebut pada matriks:
 
@@ -1227,11 +1278,13 @@ Fungsi ini melakukan loop fungsi terhadap input data berupa list. Output yang di
 lapply(X, FUN, ...)
 ```
 
-> **Note: **
->
-> - **X**: vektor, data frame atau list
-> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
-> - **...**: opsional argumen pada fungsi yang digunakan.
+```{block2, type = "rmdnote"}
+- `X`: vektor, data frame atau list
+
+- `FUN`: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
+
+- `...`: opsional argumen pada fungsi yang digunakan.
+```
 
 Berikut adalah contoh penerapan fungsi lapply:
 
@@ -1264,13 +1317,17 @@ Fungsi `sapply()` merupakan bentuk lain dari fungsi `lapply()`. Perbedaanya terl
 sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)
 ```
 
-> **Note: **
->
-> - **X**: vektor, data frame atau list
-> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
-> - **...**: opsional argumen pada fungsi yang digunakan.
-> - **simplify**: logical. Jika nilainya TRUE maka output yang dihasilkan adalah bentuk sederhana dari vektor, matrix atau array.
-> - **USE.NAMES**: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.
+```{block2, type = "rmdnote"}
+- `X`: vektor, data frame atau list
+
+- `FUN`: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
+
+- `...`: opsional argumen pada fungsi yang digunakan.
+
+- `simplify`: logical. Jika nilainya `TRUE` maka output yang dihasilkan adalah bentuk sederhana dari vektor, matrix atau array.
+
+- `USE.NAMES`: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.
+```
 
 Berikut adalah contoh penerapannya:
 
@@ -1300,13 +1357,17 @@ Funsgi ini merupakan bentuk lain dari `sapply()`. Bedanya secara kecepatan prose
 vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)
 ```
 
-> **Note: **
->
-> - **X**: vektor, data frame atau list
-> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
-> - **FUN.VALUE**: vektor, template dari return value FUN.
-> - **...**: opsional argumen pada fungsi yang digunakan.
-> - **USE.NAMES**: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.
+```{block2, type = "rmdnote"}
+- `X`: vektor, data frame atau list
+
+- `FUN`: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
+
+- `FUN.VALUE`: vektor, template dari return value FUN.
+
+- `...`: opsional argumen pada fungsi yang digunakan.
+
+- `USE.NAMES`: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.
+```
 
 Berikut adalah contoh penerapannya:
 
@@ -1334,13 +1395,17 @@ Fungsi ini sangat berguna jika pembaca ingin menghitung suatu nilai misalnya mea
 tapply(X, INDEX, FUN = NULL, ..., simplify = TRUE)
 ```
 
-> **Note: **
->
-> - **X**: vektor, data frame atau list
-> - **INDEX**: list satu atau beberapa factor yang memiliki panjang sama dengan X.
-> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
-> - **...**: opsional argumen pada fungsi yang digunakan.
-> - **simplify**: logical. Jika nilainya TRUE maka output yang dihasilkan adalah bentuk skalar.
+```{block2, type = "rmdnote"}
+- `X`: vektor, data frame atau list
+
+- `INDEX`: list satu atau beberapa factor yang memiliki panjang sama dengan X.
+
+- `FUN`: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
+
+- `...`: opsional argumen pada fungsi yang digunakan.
+
+- `simplify`: logical. Jika nilainya `TRUE` maka output yang dihasilkan adalah bentuk skalar.
+```
 
 Berikut adalah contoh penerapannya:
 
@@ -1389,11 +1454,13 @@ map_int(.x, .f, ...)
 map_dbl(.x, .f, ...)
 ```
 
-> **Note: **
->
-> - **.x**: list atau vaktor atomik.
-> - **.f**: formula fungsi.
-> - **...**: argumen tambahan dari fungsi.
+```{block2, type = "rmdnote"}
+- `.x`: list atau vaktor atomik.
+
+- `.f`: formula fungsi.
+
+- `...`: argumen tambahan dari fungsi.
+```
 
 Berikut adalah contoh dari penerapan fungsi-fungsi tersebut:
 
@@ -1517,12 +1584,15 @@ function_name <- function(argument_1, argument_2, ...){
 }
 ```
 
-> **Note: **
->
-> -  **function_name** : Nama dari fungsi `R`. `R` akan menyimpan fungsi tersebut sebagai objek
-> -  **argument_1, argument_2,...** : *Argument* bersifat opsional (tidak wajib). *Argument* dapat digunakan untuk memberi inputan kepada fungsi
-> -  **function body** : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.
-> -  **return** : Fungsi ada yang memiliki *output* atau *return value* ada juga yang tidak. Jika fungsi memiliki *return value* maka *return value* dapat diproses lebih lanjut
+```{block2, type = "rmdnote"}
+-  `function_name` : Nama dari fungsi `R`. `R` akan menyimpan fungsi tersebut sebagai objek
+
+-  `argument_1, argument_2, ...` : *Argument* bersifat opsional (tidak wajib). *Argument* dapat digunakan untuk memberi inputan kepada fungsi
+
+-  `function body` : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.
+
+-  `return` : Fungsi ada yang memiliki *output* atau *return value* ada juga yang tidak. Jika fungsi memiliki *return value* maka *return value* dapat diproses lebih lanjut
+```
 
 Berikut adalah contoh penerapan *user define function*:
 

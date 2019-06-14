@@ -24,7 +24,7 @@
 <meta name="author" content="Moh. Rosidi" />
 
 
-<meta name="date" content="2019-06-05" />
+<meta name="date" content="2019-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,32 +56,38 @@ table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
 table.sourceCode { width: 100%; line-height: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #0000ff; } /* Keyword */
-code > span.ch { color: #008080; } /* Char */
-code > span.st { color: #008080; } /* String */
-code > span.co { color: #008000; } /* Comment */
-code > span.ot { color: #ff4000; } /* Other */
-code > span.al { color: #ff0000; } /* Alert */
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
 code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #008000; font-weight: bold; } /* Warning */
-code > span.cn { } /* Constant */
-code > span.sc { color: #008080; } /* SpecialChar */
-code > span.vs { color: #008080; } /* VerbatimString */
-code > span.ss { color: #008080; } /* SpecialString */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
 code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { color: #0000ff; } /* ControlFlow */
-code > span.op { } /* Operator */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
 code > span.bu { } /* BuiltIn */
 code > span.ex { } /* Extension */
-code > span.pp { color: #ff4000; } /* Preprocessor */
-code > span.do { color: #008000; } /* Documentation */
-code > span.an { color: #008000; } /* Annotation */
-code > span.cv { color: #008000; } /* CommentVar */
-code > span.at { } /* Attribute */
-code > span.in { color: #008000; } /* Information */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -428,12 +434,15 @@ code > span.in { color: #008000; } /* Information */
 <li><strong>scales</strong>: skala apa yang digunakan oleh <em>aesthetic map</em> (contoh: pria = merah, wanita = biru).</li>
 <li><strong>coordinate system</strong>: menggambarkan sistem di mana lokasi geom akan digambarkan.</li>
 </ul>
-<p>Sebelum kita mulai memcoba melakukan visualisasi data menggunakan <code>ggplot2</code>, kita perlu menginstall dan memuat terlebih dahulu library <code>ggplot2</code>. Berikut adalah sintaks yang digunakan untuk menginstall dan memuat paket <code>ggplot2</code>:</p>
+<p>Sebelum kita mulai memcoba melakukan visualisasi data menggunakan <code>ggplot2</code>, kita perlu menginstall dan memuat terlebih dahulu library <code>ggplot2</code>. Library <code>ggplot2</code> dapat diinstal secara tunggal atau melalui kumpulan paket <code>tidyverse</code>. Berikut adalah sintaks yang digunakan untuk menginstall dan memuat paket <code>tidyverse</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
 <span class="co"># install.packages(&#39;ggplot2&#39;)</span>
 
+<span class="co"># atau</span>
+<span class="co"># install.packages(&#39;tidyverse&#39;)</span>
+
 <span class="co"># memuat paket</span>
-<span class="kw">library</span>(ggplot2)</code></pre></div>
+<span class="kw">library</span>(tidyverse)</code></pre></div>
 <p>Dataset yang akan kita gunakan adalah dataset <code>gapminder</code>. Dataset ini berisi data demografi penduduk dari berbagai negara dan benua. Untuk dapat menggunakannya kita perlu menginstall dan memuatnya terlebih dahulu. Berikut adalah sintaks untuk menginstall dan memuat dataset tersebut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memasang paket</span>
 <span class="co"># install.packages(&quot;gapminder&quot;)</span>
@@ -442,9 +451,6 @@ code > span.in { color: #008000; } /* Information */
 <span class="kw">library</span>(gapminder)</code></pre></div>
 <pre><code>## Warning: package &#39;gapminder&#39; was built under R version
 ## 3.5.3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># memuat paket dplyr dan tibble</span>
-<span class="kw">library</span>(dplyr)
-<span class="kw">library</span>(tibble)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># melihat struktur dataset</span>
 <span class="kw">glimpse</span>(gapminder)</code></pre></div>
 <pre><code>## Observations: 1,704
@@ -683,17 +689,20 @@ Gambar 5.4: Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua
 </div>
 <p>Untuk menujukkan asosiasi antara dua variabel kontinyu kita juga dapat menambahkan garis regresi dan confidence interval garis regresinya. Fungsi yang digunakan adalah <code>geom_smooth()</code>. Secara default fungsi tersebut akan membuat garis loess regression pada grafik. Agar dapat membuat garis regresi linier kita perlu menambahkan argumen <code>method=&quot;lm&quot;</code>. Selain itu, jika kita tidak ingin menampilkan garis confidence interval kita dapat menambahkan argumen <code>se=FALSE</code>. Format sederhananya disajikan pada sintaks berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;auto&quot;</span>, <span class="dt">se=</span><span class="ot">TRUE</span>, <span class="dt">fullrange=</span><span class="ot">FALSE</span>, <span class="dt">level=</span><span class="fl">0.95</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><p><strong>method</strong>: metode penghalusan yang digunakan. Nilai yang dapat dimasukkan adalah lm, glm, gam, loess, rlm.</p></li>
+<li><p><code>method</code>: metode penghalusan yang digunakan. Nilai yang dapat dimasukkan adalah lm, glm, gam, loess, rlm.</p>
+<ul>
 <li>method=“loess”: merupakan nilai default pada fungsi dan menghasilkan metode penghalusan loess regression.</li>
-<li><p>method=“lm”: menghasilkan metode penghalusan regresi linier. Kita juga dapat melakukan spesifikasi terhadap fungsi persamaan regresi yang digunakan dengan menambahkan argumen formula=y~x….</p></li>
-<li><strong>se</strong>: nilai logis. Jika TRUE garis confidence interval akan ditampilkan sepanjang garis penghalusan.</li>
-<li><strong>fullrange</strong>: nilai logis. Jika TRUE kecocokan mencakup seluruh plot.</li>
-<li><p>level: level confidence interal yang digunakan. Secara default bernilai 0.95.</p></li>
+<li>method=“lm”: menghasilkan metode penghalusan regresi linier. Kita juga dapat melakukan spesifikasi terhadap fungsi persamaan regresi yang digunakan dengan menambahkan argumen formula=y~x….</li>
+</ul></li>
+<li><code>se</code>: nilai logis. Jika <code>TRUE</code> garis confidence interval akan ditampilkan sepanjang garis penghalusan.</li>
+<li><code>fullrange</code>: nilai logis. Jika <code>TRUE</code> kecocokan mencakup seluruh plot.</li>
+<li>level: level confidence interal yang digunakan. Secara default bernilai <code>0.95</code>.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah contoh sintaks penerapan pada variabel <code>gdpPercap</code> dan <code>lifeExp</code>. Output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggscatter5">5.5</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap,lifeExp))<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
@@ -716,13 +725,14 @@ Gambar 5.5: Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi li
                             <span class="dt">outlier.shape=</span><span class="dv">16</span>,
                             <span class="dt">outlier.size=</span><span class="dv">2</span>, 
                             <span class="dt">notch=</span><span class="ot">FALSE</span>))</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>outlier.colour, outlier.shape, outlier.size</strong>: Warna, bentuk dan ukuran untuk titik-titik outlier.</li>
-<li><strong>notch</strong>: nilai logis. Jika TRUE, buat <strong>notched box plot</strong>. <em>Notch</em> menunjukkan <em>confidence interval</em> di sekitar median yang biasanya didasarkan pada median <span class="math inline">\(\pm1,58\cdot\frac{\left(IQR\right)}{\sqrt{\left(n\right)}}\)</span>. <em>Notch</em> digunakan untuk membandingkan kelompok; jika takik dua kotak tidak tumpang tindih, ini adalah bukti kuat bahwa median berbeda.</li>
+<li><code>outlier.colour, outlier.shape, outlier.size</code>: Warna, bentuk dan ukuran untuk titik-titik outlier.</li>
+<li><code>notch</code>: nilai logis. Jika <code>TRUE</code>, buat <strong>notched box plot</strong>. <em>Notch</em> menunjukkan <em>confidence interval</em> di sekitar median yang biasanya didasarkan pada median <span class="math inline">\(\pm1,58\cdot\frac{\left(IQR\right)}{\sqrt{\left(n\right)}}\)</span>. <em>Notch</em> digunakan untuk membandingkan kelompok; jika takik dua kotak tidak tumpang tindih, ini adalah bukti kuat bahwa median berbeda.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut merupakan contoh visualisasi variabel <code>lifeExp</code> pada dataset <code>gapminder</code>. Output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggboxplot">5.6</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, lifeExp))<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
@@ -1117,15 +1127,16 @@ Gambar 5.28: Mengubah keterangan legend pada grafik
 <span class="op">&lt;</span>ggplot<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(family, face, colour, size))
 <span class="co"># keterangan legend</span>
 <span class="op">&lt;</span>ggplot<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(family, face, colour, size))</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>family</strong>: font family.</li>
-<li><strong>face</strong>: tampilan font. Nilai yang dapat digunakan antara lain: “plain”, “italic”, “bold” dan “bold.italic”.</li>
-<li><strong>colour</strong>: warna teks.</li>
-<li><strong>size</strong>: ukuran teks</li>
+<li><code>family</code>: font family.</li>
+<li><code>face</code>: tampilan font. Nilai yang dapat digunakan antara lain: “plain”, “italic”, “bold” dan “bold.italic”.</li>
+<li><code>colour</code>: warna teks.</li>
+<li><code>size</code>: ukuran teks
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah contoh penerapan fungsi tersebut pada grafik Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggtitle2">5.28</a>. Output yang dihasilkan disajikan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggtitle3">5.29</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cara 2</span>
 <span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, gdpPercap, 
@@ -1613,7 +1624,7 @@ Gambar 5.53: Scatterplot dengan tema Wall Street Journal
 ##             plot.title = element_text(hjust = 0, face = &quot;bold&quot;), 
 ##             plot.margin = unit(c(1, 1, 1, 1), &quot;lines&quot;), strip.background = element_rect())
 ## }
-## &lt;bytecode: 0x0000000024a71b50&gt;
+## &lt;bytecode: 0x0000000005708e50&gt;
 ## &lt;environment: namespace:ggthemes&gt;</code></pre>
 <p>Berdasarkan output yang disajikan kita dapat merubah sejumlah argumen seperti base size, color, base_family, dll.</p>
 </div>
@@ -1658,22 +1669,23 @@ Gambar 5.54: Scatterplot dengan axis limits
 <p>Kita juga dapat menggunakan fungsi <code>scale_x_continuous()</code> dan <code>scale_y_continuous()</code> untuk mengatur limit axis ,<em>axis tick</em> dan label. Format yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">scale_x_continuous</span>(name, breaks, labels, limits, trans)
 <span class="kw">scale_y_continuous</span>(name, breaks, labels, limits, trans)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>name</strong>: label axis sumbu x dan y.</li>
-<li><p><strong>breaks</strong>: untuk mengontrol jeda dalam panduan (<em>axis tick</em>, garis grid, …). Di antara nilai-nilai yang mungkin, adalah sebagai berikut:</p></li>
+<li><code>name</code>: label axis sumbu x dan y.</li>
+<li><code>breaks</code>: untuk mengontrol jeda dalam panduan (<em>axis tick</em>, garis grid, …). Di antara nilai-nilai yang mungkin, adalah sebagai berikut:</li>
 <li>NULL: menyembunyikan seluruh breaks.</li>
-<li><strong>waiver()</strong>: komputasi break default.</li>
+<li><code>waiver()</code>: komputasi break default.</li>
 <li><p>vektor numerik atau karakter untuk menspesifikasikan break yang akan ditampilkan.</p></li>
-<li><strong>labels</strong>: label axis. Nilai yang dapat dimasukkan antara lain;</li>
+<li><code>labels</code>: label axis. Nilai yang dapat dimasukkan antara lain;</li>
 <li>NULL: tanpa label.</li>
-<li><strong>waiver()</strong>: label default.</li>
+<li><code>waiver()</code>: label default.</li>
 <li><p>vektor karakter yang digunakan untuk spesifikasi label break.</p></li>
-<li><strong>limits</strong>: vektor numerik untuk spesifikasi limit sumbu x dan y.</li>
-<li><p><strong>trans</strong>: transformasi axis. Nilai yang dapat digunakan adalah “log2”, “log10”, dll.</p></li>
+<li><code>limits</code>: vektor numerik untuk spesifikasi limit sumbu x dan y.</li>
+<li><code>trans</code>: transformasi axis. Nilai yang dapat digunakan adalah “log2”, “log10”, dll.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Pada contoh berikut disajikan contoh mengatur limit axis dan label axis menggunakan fungsi <code>scale_x_continous()</code> dan <code>scale_y_continous()</code>. Grafik yang dihasilkan akan tampak seperti Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:gglimits2">5.55</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
 gapminder<span class="op">%&gt;%</span>
@@ -1752,16 +1764,17 @@ Gambar 5.57: Scatterplot dengan transformasi tick mark axis
 <span class="op">&lt;</span>plot<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span> <span class="kw">element_text</span>(family, face, colour, size, angle))
 <span class="co"># y axis tick mark labels</span>
 <span class="op">&lt;</span>plot<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(family, face, colour, size, angle))</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>family</strong>: <em>font family</em>, seperti: “sans”,“times new roman”, dll.</li>
-<li><strong>face</strong>: <em>font face</em>, nilai yang mungkin adalah “plain”, “italic”, “bold” dan “bold.italic”.</li>
-<li><strong>color</strong>: warna teks.</li>
-<li><strong>size</strong>: ukuran teks dalam satuan pts.</li>
-<li><strong>angle</strong>: sudut kemiringan teks berkisar antara 0 sampai 360.</li>
+<li><code>family</code>: <em>font family</em>, seperti: “sans”,“times new roman”, dll.</li>
+<li><code>face</code>: <em>font face</em>, nilai yang mungkin adalah “plain”, “italic”, “bold” dan “bold.italic”.</li>
+<li><code>color</code>: warna teks.</li>
+<li><code>size</code>: ukuran teks dalam satuan pts.</li>
+<li><code>angle</code>: sudut kemiringan teks berkisar antara 0 sampai 360.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggtick">5.58</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, gdpPercap,
                       <span class="dt">fill=</span>continent))<span class="op">+</span>
@@ -1802,15 +1815,16 @@ Gambar 5.59: Menyembunyikan tampilan dari tick mark
 <p>Kita dapat melakukan pengaturan terhadap garis axis menggunakan argumen <code>axis.lines</code> dan fungsi <code>element_line</code>. Berikut adalah format yang digunakan:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&lt;</span>plot<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.line =</span> <span class="kw">element_line</span>(color,size, linetype,
                                         lineend, color))</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>color</strong>: warna garis.</li>
-<li><strong>size</strong>: ukuran garis.</li>
-<li><strong>linetype</strong>: jenis garis.</li>
-<li><strong>lineend</strong>: akhir dari garis. Nilai yang dapat dimasukkan antara lain: “round”, “butt” atau “square”.</li>
+<li><code>color</code>: warna garis.</li>
+<li><code>size</code>: ukuran garis.</li>
+<li><code>linetype</code>: jenis garis.</li>
+<li><code>lineend</code>: akhir dari garis. Nilai yang dapat dimasukkan antara lain: “round”, “butt” atau “square”.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="visualisasi-data-menggunakan-ggplot.html#fig:ggtick3">5.60</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(continent, gdpPercap,
                       <span class="dt">fill=</span>continent))<span class="op">+</span>
