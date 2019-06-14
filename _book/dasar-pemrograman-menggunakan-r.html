@@ -2014,13 +2014,13 @@ x <span class="co"># print</span></code></pre></div>
 groups &lt;-<span class="st"> </span><span class="kw">as.factor</span>(<span class="kw">rbinom</span>(<span class="dv">32</span>, <span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">prob =</span> <span class="fl">0.4</span>))
 
 <span class="kw">tapply</span>(groups, groups, length)</code></pre></div>
-<pre><code>##  7 10 14 
-##  1  2  2</code></pre>
+<pre><code>## 12 13 14 15 17 
+##  1  1  1  1  1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># atau</span>
 <span class="kw">table</span>(groups)</code></pre></div>
 <pre><code>## groups
-##  7 10 14 
-##  1  2  2</code></pre>
+## 12 13 14 15 17 
+##  1  1  1  1  1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## membuat tabel kontingensi
 <span class="co"># menghitung jumlah breaks berdasarkan faktor jenis wool</span>
 <span class="co"># dan tensi level</span>

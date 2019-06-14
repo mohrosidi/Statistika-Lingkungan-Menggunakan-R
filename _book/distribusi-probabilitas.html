@@ -466,8 +466,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Probabilitas sukses (dinotasikan <span class="math inline">\(p\)</span>) konstan dari setiap perulangan.</li>
 <li>Setiap perulangan percobaan bersifat independen.</li>
 </ul>
-<p><strong>Contoh</strong></p>
-<p>Misalkan kita akan melakukan percobaan pelemparan dadu sebanyak 3 kali. Probabilitas munculnya bagian angka 1 pada dadu adalah <span class="math inline">\(\frac{1}{6}\)</span>. Probabilitas ini konstan pada setiap perulangan. Jika kita menginginkan ketiga perulangan tersebut menghasilkan angka 1. Probabilitasnya merupakan hasil kali probabilitas pada tiap giliran pelemparan seperti berikut:</p>
+<hr />
+
+<div class="example">
+<span id="exm:bernouliprocess" class="example"><strong>Contoh 9.1  </strong></span>Misalkan kita akan melakukan percobaan pelemparan dadu sebanyak 3 kali. Probabilitas munculnya bagian angka 1 pada dadu adalah <span class="math inline">\(\frac{1}{6}\)</span>. Probabilitas ini konstan pada setiap perulangan. Hitunglah probabilitas jika diinginkan ketiga pelemparan dadu tersebut menghasilkan angka 1?
+</div>
+
+<hr />
+<p>Probabilitas dari ketiga proses pelemparan dadu tersebut merupakan hasil kali probabilitas pada tiap giliran pelemparan seperti berikut:</p>
 <p><span class="math display">\[
 P\left(111\right)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{216}
 \]</span></p>
@@ -484,8 +490,14 @@ P\left(111\right)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{216}
    nC_x=\frac{n!}{x!\left(n-x\right)!}
   \tag{9.3}
 \end{equation}\]</span>
-<p><strong>Contoh</strong></p>
-<p>Dengan menggunakan contoh sebelumnya kita dapat menghitung probabilitas keluarnya angka 1 pada dadu untuk 3 kali percobaan (<span class="math inline">\(n\)</span>) atau seluruh percobaan menghasilkan angka 1 (<span class="math inline">\(n=x=3\)</span>) adalah:</p>
+<hr />
+
+<div class="example">
+<span id="exm:distbernoulli" class="example"><strong>Contoh 9.2  </strong></span>Dengan menggunakan data pada Contoh <a href="distribusi-probabilitas.html#exm:bernouliprocess">9.1</a>, Hitunglah probabilitas pada ketiga pelemparan dadu tersebut menghasilkan angka 1 dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dbinom">(9.2)</a>?
+</div>
+
+<hr />
+<p>Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dbinom">(9.2)</a> kita dapat menghitung probabilitas keluarnya angka 1 pada dadu untuk 3 kali percobaan (<span class="math inline">\(n\)</span>) atau seluruh percobaan menghasilkan angka 1 (<span class="math inline">\(n=x=3\)</span>) sebagai berikut:</p>
 <p><span class="math display">\[
 b\left(3;3,\frac{1}{6}\right)=\left(\frac{3!}{3!\left(3-3\right)!}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^{\left(3-3\right)}
 \]</span> <span class="math display">\[
@@ -503,8 +515,14 @@ b\left(3;3,\frac{1}{6}\right)=\left(1\right)\cdot\left(\frac{1}{6}\right)^3\cdot
   \tag{9.4}
 \end{equation}\]</span>
 <p>dimana <span class="math inline">\(r\)</span> adalah kondisi probabilitas yang kita inginkan yang dapat dituliskan sebagai <span class="math inline">\(P\left(X&lt;r\right)\)</span> atau <span class="math inline">\(P\left(X&gt;r\right)\)</span>. Kondisi lain yang dapat kita gunakan adalah <span class="math inline">\(P\left(a\le X\le b\right)\)</span>.</p>
-<p><strong>Contoh</strong></p>
-<p>Misalkan kita diminta untuk melakukan analisis kerusakan <em>diffused aerator</em> pada suatu instalasi air limbah. Jumlah aerator total pada instalasi tersebut adalah 10 buah. Probabilitas sebuah aerator rusak sebesar <span class="math inline">\(\frac{1}{10}\)</span>. Tentukan berapa probabilitas jika (a) setidaknya 3 aerator tersebut tidak rusak? (b) 4 sampai 5 buah aerator rusak? serta (c) sebanyak 5 aerator rusak?.</p>
+<hr />
+
+<div class="example">
+<span id="exm:cdfbinomexm" class="example"><strong>Contoh 9.3  </strong></span>Misalkan kita diminta untuk melakukan analisis kerusakan <em>diffused aerator</em> pada suatu instalasi air limbah. Jumlah aerator total pada instalasi tersebut adalah 10 buah. Probabilitas sebuah aerator rusak sebesar <span class="math inline">\(\frac{1}{10}\)</span>. Tentukan berapa probabilitas jika (a) setidaknya 3 aerator tersebut tidak rusak? (b) 4 sampai 5 buah aerator rusak? serta (c) sebanyak 5 aerator rusak?.
+</div>
+
+<hr />
+<p>Untuk mengerjakan contoh soal tersebut kita dapat menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dbinom3">(9.4)</a>. Berikut adalah hasil perhitungan probabilitas contoh soal tersebut:</p>
 <ol style="list-style-type: lower-alpha">
 <li>jika setidaknya 3 aerator tidak rusak</li>
 </ol>
@@ -517,7 +535,7 @@ P\left(X\le3\right)=b\left(0;10,0.1\right)+b\left(1;10,0.1\right)+b\left(2;10,0.
 <p><span class="math display">\[
 P\left(X\le3\right)=0,987
 \]</span></p>
-<p>Kita juga dapat memperoleh nilai tersebut dengan melihat tabel statistika yang dapat pembaca lihat pada tautan <a href="https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf">berikut</a></p>
+<p>Kita juga dapat memperoleh nilai tersebut dengan melihat tabel statistika yang dapat pembaca lihat pada tautan <a href="https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf" class="uri">https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf</a></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>jika 4 sampai 5 aerator rusak</li>
 </ol>
@@ -586,8 +604,13 @@ f\left(x_1,x_2,...,x_k;\ p_1,p_2,...,p_k\right)
    \sum_{i=1}^kx_i=n\ dan\ \sum_{i=1}^kp_i=1
   \tag{9.8}
 \end{equation}\]</span>
-<p><strong>Contoh</strong></p>
-<p>Probabilitas sejenis pompa memiliki umur ekonomis 2 tahun sebesar 0,30, antara 2-4 tahun adalah 0,50, dan 4-5 tahun adalah 0,20. Hitunglah probabilitas 8 buah pompa dimana pompa dengan umur ekonomis 2 tahun sebanyak 2 buah, 2-4 tahun sebanyak 5 buah, dan antara 4-5 sebanyak 1 buah.</p>
+<hr />
+
+<div class="example">
+<span id="exm:multinomexm" class="example"><strong>Contoh 9.4  </strong></span>Probabilitas sejenis pompa memiliki umur ekonomis 2 tahun sebesar 0,30, antara 2-4 tahun adalah 0,50, dan 4-5 tahun adalah 0,20. Hitunglah probabilitas 8 buah pompa dimana pompa dengan umur ekonomis 2 tahun sebanyak 2 buah, 2-4 tahun sebanyak 5 buah, dan antara 4-5 sebanyak 1 buah?
+</div>
+
+<hr />
 <p>Untuk menyelesaikannya kita perlu mendata jumlah kemunculan disertai dengan probabilitas kejadia pada tiap grup seperti berikut:</p>
 <p><span class="math display">\[
 n=8;\ x_1=2\ dengan\ p_1=0,30;\ x_2=5\ dengan\ p_2=0,50,\ dan\ x_3=1\ dengan\ p_1=0,20\ 
@@ -601,14 +624,15 @@ f\left(2,5,1;0.30,0.50,0.20\right)=0,0945
 \]</span></p>
 <p>Pada <code>R</code> kita dapat menggunakan fungsi <code>dmultinom()</code> untuk menghitung probabilitas distribusi multinomial. Komponen dari fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dmultinom</span>(x, size, prob)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>size</strong>: jumlah percobaan atau perulangan</li>
-<li><strong>prob</strong>: vektor numerik probabilitas tiap grup hasil.</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>size</code>: jumlah percobaan atau perulangan</li>
+<li><code>prob</code>: vektor numerik probabilitas tiap grup hasil.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah sintaks untuk menghitung probabilitas multinomial pada contoh kasus di atas:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dmultinom</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">1</span>), <span class="co"># jumlah kejadian tiap grup </span>
           <span class="dt">size=</span><span class="dv">8</span>, <span class="co"># jumlah percobaan</span>
@@ -630,24 +654,30 @@ f\left(2,5,1;0.30,0.50,0.20\right)=0,0945
   \tag{9.9}
 \end{equation}\]</span>
 <p>Range dari <span class="math inline">\(x\)</span> dapat ditentukan dari 3 koefisien binomial, dimana <span class="math inline">\(x\)</span> dan <span class="math inline">\(n-x\)</span> tidak lagi lebih besar dari <span class="math inline">\(k\)</span> dan <span class="math inline">\(N-k\)</span> dan nilai keduanya tidak boleh lebih kecil dari 0. Biasanya ketika kedua nilai <span class="math inline">\(k\)</span> dan <span class="math inline">\(N-k\)</span> lebih besar dari ukuran sampel <span class="math inline">\(n\)</span>, range dari variabel acak hipergeometris akan menjadi <span class="math inline">\(x=0,1,...,n\)</span>.</p>
-<p><strong>Contoh</strong></p>
-<p>Misalkan pembaca ditugaskan untuk melakukan sortir terhadap 40 sak kompos yang akan dijual dengan berat rata-rata 2 kg. Pembaca diberi tahu bahwa 3 dari seluruh kompos tersebut memiliki berat kurang dari 2 kg sehingga tidak dapat dijual. Tugas pembaca adalah menemukan ketiga sak kompos tersebut. Untuk mempermudah proses tersebut pembaca melakukan sampling secara acak dengan jumlah sampling 5 buah kompos tanpa pengembalian. Hitunglah berapa peluang pada tiap sampling tersebut pembaca menemukan 1 kompos yang memiliki berat lebih kecil dari 2 kg tersebut?.</p>
-<p>Berdasarkan studi kasus tersebut kita dapat menyimpulkan bahwa proses sampling yang dilakukan adalah dengan menggunakan prosedur sampling tanpa pengembalian, sehingga distribusi hipergeometris dapat diterapkan dengan nilai <span class="math inline">\(n=5\)</span>, <span class="math inline">\(N=40\)</span>, <span class="math inline">\(k=3\)</span>, dan <span class="math inline">\(x=1\)</span>. Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dhiper">(9.9)</a>, peluang ditemukan 1 sak kompos yang tidak sesuai adalah sebagai berikut:</p>
+<hr />
+
+<div class="example">
+<span id="exm:hipergeoexm" class="example"><strong>Contoh 9.5  </strong></span>Misalkan pembaca ditugaskan untuk melakukan sortir terhadap 40 sak kompos yang akan dijual dengan berat rata-rata 2 kg. Pembaca diberi tahu bahwa 3 dari seluruh kompos tersebut memiliki berat kurang dari 2 kg sehingga tidak dapat dijual. Tugas pembaca adalah menemukan ketiga sak kompos tersebut. Untuk mempermudah proses tersebut pembaca melakukan sampling secara acak dengan jumlah sampling 5 buah kompos tanpa pengembalian. Hitunglah berapa peluang pada tiap sampling tersebut pembaca menemukan 1 kompos yang memiliki berat lebih kecil dari 2 kg tersebut?.
+</div>
+
+<hr />
+<p>Berdasarkan contoh soal tersebut kita dapat menyimpulkan bahwa proses sampling yang dilakukan adalah dengan menggunakan prosedur sampling tanpa pengembalian, sehingga distribusi hipergeometris dapat diterapkan dengan nilai <span class="math inline">\(n=5\)</span>, <span class="math inline">\(N=40\)</span>, <span class="math inline">\(k=3\)</span>, dan <span class="math inline">\(x=1\)</span>. Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dhiper">(9.9)</a>, peluang ditemukan 1 sak kompos yang tidak sesuai adalah sebagai berikut:</p>
 <p><span class="math display">\[
 h\left(1;40,5,3\right)=\frac{\binom{3}{1}\binom{40-3}{5-1}}{\binom{40}{5}}=0,3011
 \]</span></p>
 <p>Berdasarkan hasil perhitungan diketahui bahwa peluang untuk menemukan 1 sak kompos dari 3 sak kompos yang tidak sesuai sebesar 30% pada tiap kali sampling.</p>
 <p>Pada <code>R</code> distribusi probabilitas hipergeometris dapat dihitung menggunakan fungsi <code>dhyper()</code>. Format yang digunakan pada fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dhyper</span>(x, m, n, k)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik yang menyatakan observasi sukses pada tiap sampling</li>
-<li><strong>m</strong>: jumlah observasi sukses</li>
-<li><strong>n</strong>: jumlah observasi gagal</li>
-<li><strong>k</strong>: ukuran sampel</li>
+<li><code>x</code>: vektor numerik yang menyatakan observasi sukses pada tiap sampling</li>
+<li><code>m</code>: jumlah observasi sukses</li>
+<li><code>n</code>: jumlah observasi gagal</li>
+<li><code>k</code>: ukuran sampel
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah sintaks untuk menghitung probabilitas hipergeometris contoh kasus di atas:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dhyper</span>(<span class="dt">x=</span><span class="dv">1</span>, <span class="co"># observasi sukses tiap sampling</span>
        <span class="dt">m=</span><span class="dv">3</span>, <span class="co"># observasi sukses (k)</span>
@@ -660,23 +690,30 @@ h\left(1;40,5,3\right)=\frac{\binom{3}{1}\binom{40-3}{5-1}}{\binom{40}{5}}=0,301
    H\left(r;N,n,k\right)=\sum_{x=0}^rh\left(x;N,n,k\right)
   \tag{9.10}
 \end{equation}\]</span>
-<p>Pada contoh sebelumnya, hitunglah probabilitas jika paling banyak 2 sak kompos yang tidak memenuhi kriteria ditemukan pada sampel?.</p>
+<hr />
+
+<div class="example">
+<span id="exm:cdfhipergeoexm" class="example"><strong>Contoh 9.6  </strong></span>Dengan menggunakan data pada Contoh <a href="distribusi-probabilitas.html#exm:hipergeoexm">9.5</a>, hitunglah probabilitas jika paling banyak 2 sak kompos yang tidak memenuhi kriteria ditemukan pada sampel?
+</div>
+
+<hr />
 <p>Untuk melakukannya kita perlu menghitung probabilitas hipergeometris untuk kondisi saat <span class="math inline">\(x=0,1,2\)</span>. Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dhiper2">(9.10)</a>, nilai probabilitas yang dihasilkan adalah sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(X\le2\right)=b\left(0;40,5,3\right)+b\left(1;40,5,3\right)+b\left(2;40,5,3\right)=0,999
 \]</span></p>
 <p>Pada <code>R</code> probabilitas kumulatif dapat dihitung menggunakan fungsi <code>phyper()</code>. Format fungsi yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">phyper</span>(q, m, n, k, <span class="dt">lower.tail=</span><span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>q</strong>: vektor numerik yang menyatakan observasi maksimum yang sukses saat sampling</li>
-<li><strong>m</strong>: jumlah observasi sukses</li>
-<li><strong>n</strong>: jumlah observasi gagal</li>
-<li><strong>k</strong>: ukuran sampel</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE</li>
+<li><code>q</code>: vektor numerik yang menyatakan observasi maksimum yang sukses saat sampling</li>
+<li><code>m</code>: jumlah observasi sukses</li>
+<li><code>n</code>: jumlah observasi gagal</li>
+<li><code>k</code>: ukuran sampel</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Dengan menggunakan sintaks tersebut, probabilitas kumulatif dapat dihitung sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">phyper</span>(<span class="dt">q=</span><span class="dv">2</span>, <span class="co"># probabilitas &lt;=2</span>
        <span class="dt">m=</span><span class="dv">3</span>, <span class="co"># observasi sukses</span>
@@ -705,8 +742,14 @@ P\left(X\le2\right)=b\left(0;40,5,3\right)+b\left(1;40,5,3\right)+b\left(2;40,5,
 <li>Setiap percobaan bersifat independen yang berarti hasil dari sebuah percobaan tidak akan mempengaruhi hasil percobaan lainnya.</li>
 <li>Percobaan dilakukan secara terus-menerus sampai dengan sejumlah <span class="math inline">\(k\)</span> sukses terjadi, dimana <span class="math inline">\(k\)</span> ditentukan terlebih dahulu.</li>
 </ol>
-<p><strong>Contoh</strong></p>
-<p>Misalkan kita menguji sebuah obat dengan memberikannya kepada pasien yang sakit. Keberhasilan obat tersebut Obat dinyatakan sukses jika secara efektif memberikan efek pemulihan bagi pasien. Probabilitas obat tersebut melakukannya berdasarkan hasil studi yang telah dilakukan sebesar 60%. Kita tertarik untuk mengetahui probabilitas pasien kelima yang mengalami efek penyembuhan dimana pasien ini merupakan pasien ketujuh yang diberikan obat tersebut. Untuk melakukannya kita definisikan kejadian sukses dengan simbol <span class="math inline">\(S\)</span> dan gagal dengan simbol <span class="math inline">\(F\)</span>, urutan yang mungkin dari ketujuh pasien berdasarkan respon terhadap obat adalah <span class="math inline">\(SFSSSFS\)</span> yang probabilitas kejadian berdasarkan urutan tersebut adalah sebagai berikut:</p>
+<hr />
+
+<div class="example">
+<span id="exm:negbinomexm" class="example"><strong>Contoh 9.7  </strong></span>Misalkan kita menguji sebuah obat dengan memberikannya kepada pasien yang sakit. Keberhasilan obat tersebut Obat dinyatakan sukses jika secara efektif memberikan efek pemulihan bagi pasien. Probabilitas obat tersebut dalam melakukannya berdasarkan hasil studi yang telah dilakukan sebesar 60%. Hitunglah probabilitas pasien kelima mengalami efek penyembuhan dimana pasien ini merupakan pasien ketujuh yang diberikan obat tersebut.
+</div>
+
+<hr />
+<p>Untuk mengerjakan contoh soal tersebut kita perlu mendefinisikan kejadian sukses dengan simbol <span class="math inline">\(S\)</span> dan gagal dengan simbol <span class="math inline">\(F\)</span>, urutan yang mungkin dari ketujuh pasien berdasarkan respon terhadap obat adalah <span class="math inline">\(SFSSSFS\)</span> yang probabilitas kejadian berdasarkan urutan tersebut adalah sebagai berikut:</p>
 <p><span class="math display">\[
 \left(0,6\right)\left(0,4\right)\left(0,6\right)\left(0,6\right)\left(0,6\right)\left(0,4\right)\left(0,6\right)=\left(0,6\right)^5\left(0,4\right)^2
 \]</span></p>
@@ -721,12 +764,17 @@ P\left(X=7\right)=\binom{6}{4}\left(0.6\right)^2\left(0,4\right)^2=0,1866
    b^{\ast}\left(x;k,p\right)=\binom{x-1}{k-1}p^kq^{x-k},\ \ \ \ \ x=k,k+1,k+2,....
   \tag{9.12}
 \end{equation}\]</span>
-<p><strong>Contoh</strong></p>
-<p>Misalkan pada suatu kejuaraan NBA (Championship series) atau final antar juara wilayah, dimana pada pertandingan puncak kedua tim dari dua wilayah akan melakukan 7 pertandingan terkahir. Suatu tim dinyatakan juara jika berhasil meraih 4 kemenangan dari 7 pertandingan yang ada. Anggaplah tim A dan B berhadapan satu sama lain. Probabilitas A memenangkan suatu pertandingan terhadap tim B sebesar 0,55, tentukan:</p>
+<hr />
+
+<div class="example">
+<p><span id="exm:negbinomexm2" class="example"><strong>Contoh 9.8  </strong></span>Misalkan pada suatu kejuaraan NBA (Championship series) atau final antar juara wilayah, dimana pada pertandingan puncak kedua tim dari dua wilayah akan melakukan 7 pertandingan terkahir. Suatu tim dinyatakan juara jika berhasil meraih 4 kemenangan dari 7 pertandingan yang ada. Anggaplah tim A dan B berhadapan satu sama lain. Probabilitas A memenangkan suatu pertandingan terhadap tim B sebesar 0,55, tentukan:</p>
 <ul>
 <li>Berapakah probabilitas tim A memenangkan kejuaraan pada pertandingan ke-6 dari 7 pertandingan yang ada?</li>
-<li>Berapakah probabilitas A memenangkan kejuaraan?</li>
+<li>Berapakah probabilitas A memenangkan kejuaraan?
+</div>
+</li>
 </ul>
+<hr />
 <p>Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dnegbinom">(9.12)</a>, probabilitas kemenangan tim A terhadap tim B dapat dihitung sebagai berikut:</p>
 <ul>
 <li><strong>Tim A juara pada pertandingan ke-6 (<span class="math inline">\(x=6\)</span>, <span class="math inline">\(k=4\)</span>, dan <span class="math inline">\(p=0,55\)</span>)</strong></li>
@@ -746,14 +794,15 @@ b^{\ast}\left(4;4,0.55\right)+b^{\ast}\left(5;4,0.55\right)+b^{\ast}\left(6;4,0.
 \]</span></p>
 <p>Pada <code>R</code> kita dapat menghitung probabilitas binomial negatif menggunakan fungsi <code>dnbinom()</code>. Format fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dnbinom</span>(x, size, prob)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: jumlah observasi gagal</li>
-<li><strong>size</strong>: jumlah observasi sukses</li>
-<li><strong>prob</strong>: probabilitas kejadian sukses</li>
+<li><code>x</code>: jumlah observasi gagal</li>
+<li><code>size</code>: jumlah observasi sukses</li>
+<li><code>prob</code>: probabilitas kejadian sukses
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Dengan menggunakan fungsi <code>dnbinom()</code>, probabilitas Tim A menang pada pertandingan ke-6 dapat dihitung sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">2</span>, <span class="co"># jumlah observasi gagal</span>
         <span class="dt">size=</span><span class="dv">4</span>, <span class="co"># jumlah observasi sukses</span>
@@ -761,15 +810,16 @@ b^{\ast}\left(4;4,0.55\right)+b^{\ast}\left(5;4,0.55\right)+b^{\ast}\left(6;4,0.
 <pre><code>## [1] 0.1853</code></pre>
 <p>Pada pertanyaan kedua soal dapat kita impulkan bahwa kita hendak mencari probabilitas kumulatif kemenangan Tim A. Untuk melakukannya kita dapat menggunakan fungsi <code>pnbinom()</code>. Format fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnbinom</span>(q, size, prob, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>q</strong>: jumlah observasi gagal minimum</li>
-<li><strong>size</strong>: jumlah observasi sukses maksimum</li>
-<li><strong>prob</strong>: probabilitas sukses</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE</li>
+<li><code>q</code>: jumlah observasi gagal minimum</li>
+<li><code>size</code>: jumlah observasi sukses maksimum</li>
+<li><code>prob</code>: probabilitas sukses</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Dengan menggunakan fungsi tersebut, probabilitas kumulatif kemenangan Tim A adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnbinom</span>(<span class="dt">q=</span><span class="dv">3</span>, <span class="co"># jumlah observasi gagal min</span>
         <span class="dt">size=</span><span class="dv">4</span>, <span class="co"># jumlah observasi sukses maks</span>
@@ -790,21 +840,27 @@ b^{\ast}\left(4;4,0.55\right)+b^{\ast}\left(5;4,0.55\right)+b^{\ast}\left(6;4,0.
    g\left(x;p\right)=pq^{x-1},\ \ \ \ \ x=1,2,3,...
   \tag{9.13}
 \end{equation}\]</span>
-<p><strong>Contoh 1</strong></p>
-<p>Suatu pabrik memiliki probabilitas 1 dari 100 barang produksinya merupakan produk cacat. Pemeriksaan dilakukan pada setiap barang tersebut. Tentukan probabilitas barang ke-5 hasil pengecekan merupakan barang yang cacat?</p>
+<hr />
+
+<div class="example">
+<span id="exm:geomdistexm" class="example"><strong>Contoh 9.9  </strong></span>Suatu pabrik memiliki probabilitas 1 dari 100 barang produksinya merupakan produk cacat. Pemeriksaan dilakukan pada setiap barang tersebut. Tentukan probabilitas barang ke-5 hasil pengecekan merupakan barang yang cacat?
+</div>
+
+<hr />
 <p>Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dgeom">(9.13)</a> probabilitas barang ke-5 merupakan produk gagal sebagai berikut:</p>
 <p><span class="math display">\[
 g\left(5;0.01\right)=\left(0,01\right)\left(0,99\right)^{5-1}=0,0096
 \]</span></p>
 <p>Pada <code>R</code> probabilitas tersebut dapat dihitung menggunakan fungsi <code>dgeom()</code>. Format fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dgeom</span>(x, prob)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik observasi dimana kejadian sukses terjadi pertama kali</li>
-<li><strong>prob</strong>: probabilitas kejadian sukses</li>
+<li><code>x</code>: vektor numerik observasi dimana kejadian sukses terjadi pertama kali</li>
+<li><code>prob</code>: probabilitas kejadian sukses
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Dengan menggunakan fungsi tersebut, probabilitas geometris dapat dihitung seperti berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dgeom</span>(<span class="dt">x=</span><span class="dv">5</span>, <span class="co"># observasi kejadian sukses pertama terjadi</span>
       <span class="dt">prob=</span><span class="fl">0.01</span>) <span class="co"># probabilitas kejadian sukses</span></code></pre></div>
@@ -814,21 +870,28 @@ g\left(5;0.01\right)=\left(0,01\right)\left(0,99\right)^{5-1}=0,0096
    G\left(r;p\right)=\sum _{x=0}^rg\left(x,p\right)
   \tag{9.14}
 \end{equation}\]</span>
-<p><strong>Contoh 2</strong></p>
-<p>Berdasarkan contoh sebelumnya hitunglah probabilitas barang cacat pertama kali ditemukan pada observasi kurang dari sama dengan observasi ke-5?</p>
+<hr />
+
+<div class="example">
+<span id="exm:geomdistexm2" class="example"><strong>Contoh 9.10  </strong></span>Dengan menggunakan data pada Contoh <a href="distribusi-probabilitas.html#exm:geomdistexm">9.9</a>, hitunglah probabilitas barang cacat pertama kali ditemukan pada observasi kurang dari sama dengan observasi ke-5?
+</div>
+
+<hr />
+<p>Untuk menyelesaikannya kita dapat menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dgeom2">(9.14)</a>. Dengan menetapkan rentang probabilitas kejadian yang diinginkan adalah <span class="math inline">\(\le5\)</span>, probabilitas kejadian pada contoh soal tersebut adalah sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(P\le5\right)=g\left(0;0.01\right)+g\left(1;0.01\right)+...+g\left(5;0.01\right)=0.0585
 \]</span></p>
 <p>Pada <code>R</code> fungsi yang digunakan untuk menghitung probabilitas kumulatif distribusi probabilitas geometris adalah <code>pgeom()</code>. Format yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pgeom</span>(q, prob, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>q</strong>: batas observasi minimum terjadi</li>
-<li><strong>prob</strong>: probabilitas sukses</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE</li>
+<li><code>q</code>: batas observasi minimum terjadi</li>
+<li><code>prob</code>: probabilitas sukses</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berdasarkan hal tersebut, maka probabilitas dapat dihitung seperti berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pgeom</span>(<span class="dv">5</span>,<span class="fl">0.01</span>)</code></pre></div>
 <pre><code>## [1] 0.05852</code></pre>
@@ -872,34 +935,41 @@ P\left(P\le5\right)=g\left(0;0.01\right)+g\left(1;0.01\right)+...+g\left(5;0.01\
    \mu\ dan\ \sigma=\lambda t
   \tag{9.18}
 \end{equation}\]</span>
-<p><strong>Contoh</strong></p>
-<p>Selama melakukan eksperimen laboratorium, rata-rata jumlah partikel radioaktif yang melewati couter pada 1 milidetik sebesar 4. Berapa probabilitas 6 partikel memasuki counter pada milidetik yang diberikan?</p>
+<hr />
+
+<div class="example">
+<span id="exm:poissonexm" class="example"><strong>Contoh 9.11  </strong></span>Selama melakukan eksperimen laboratorium, rata-rata jumlah partikel radioaktif yang melewati couter pada 1 milidetik sebesar 4. Berapa probabilitas 6 partikel memasuki counter pada milidetik yang diberikan?
+</div>
+
+<hr />
 <p>Contoh kasus tersebut dapat diselesaikan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dpoisson">(9.16)</a> dengan nilai <span class="math inline">\(x=4\)</span> dan <span class="math inline">\(\lambda t=4\)</span> seperti berikut:</p>
 <p><span class="math display">\[
 p\left(6;4\right)=\frac{e^{-4}\left(4\right)^6}{6!}=0,1042
 \]</span></p>
 <p>Kita dapat menggunakan fungsi <code>dpois()</code> pada <code>R</code> untuk menghitung probabilitas Poisson. Format yag digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dpois</span>(x, lambda)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>lamda</strong>: jumlah rata-rata luaran</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>lamda</code>: jumlah rata-rata luaran
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Probabilitas 6 partikel memasuki counter berdasarkan fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dpois</span>(<span class="dt">x=</span><span class="dv">6</span>, <span class="dt">lambda=</span><span class="dv">4</span>)</code></pre></div>
 <pre><code>## [1] 0.1042</code></pre>
 <p>Contoh kasus tersebut juga dapat diselesaikan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dpoisson2">(9.17)</a> dengan terlebih dahulu menghitung selisih <span class="math inline">\(P(X\le6)\)</span> terhadap <span class="math inline">\(P(X\le5)\)</span>. Pada <code>R</code> fungsi yang digunakan adalah <code>ppois()</code>. Format fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ppois</span>(q, lambda, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>q</strong>: vektor numerik</li>
-<li><strong>lambda</strong>: jumlah rata-rata luaran</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE</li>
+<li><code>q</code>: vektor numerik</li>
+<li><code>lambda</code>: jumlah rata-rata luaran</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Dengan menggunakan fungsi tersebut, hasil yang diperoleh adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ppois</span>(<span class="dv">6</span>,<span class="dv">4</span>)<span class="op">-</span><span class="kw">ppois</span>(<span class="dv">5</span>,<span class="dv">4</span>)</code></pre></div>
 <pre><code>## [1] 0.1042</code></pre>
@@ -922,14 +992,15 @@ f(x;A,B) =
 \end{equation}\]</span>
 <p>Untuk memudahkan pemahaman pembaca mengenai distribusi ini, berikut penulis sajikan visualisasi distribusi uniform dengan nilai minimum=1 dan maksimum=3. Variabel acak dibuat menggunakan fungsi <code>runif()</code>. Format fungsi yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runif</span>(n, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">1</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>n</strong>: jumlah data atau panjang variabel acak</li>
-<li><strong>min</strong>: nilai minimum variabel acak</li>
-<li><strong>max</strong>: nilai maksimum variabel acak</li>
+<li><code>n</code>: jumlah data atau panjang variabel acak</li>
+<li><code>min</code>: nilai minimum variabel acak</li>
+<li><code>max</code>: nilai maksimum variabel acak
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Visualisasi disajikan pada Gambar <a href="distribusi-probabilitas.html#fig:uniformvis">9.1</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:uniformvis"></span>
 <img src="EnvStat_files/figure-html/uniformvis-1.png" alt="Distribusi uniform dengan nilai min 1 dan max 3" width="70%" />
@@ -959,25 +1030,27 @@ Gambar 9.2: Probabilitas distribusi uniform pada rentang nilai x 3 sampai 4
 <p>Pada <code>R</code> terdapat 2 buah fungsi untuk menghitung probabilitas distribusi unifofm. Fungsi pertama adalah <code>dunif()</code> dan yang kedua adalah <code>punif()</code>. Fungsi pertama akan menghasilkan probabilitas (<em>likelihood</em>) dari suatu nilai yang kita inginkan, sedangkan fungsi kedua adalah fungsi probabilitas kumulatif yang akan menghasilkan nilai berdasarkan rentang yang dimasukkan (rentang satu arah bisa <span class="math inline">\(\le\)</span> atau <span class="math inline">\(\ge\)</span>).</p>
 <p>Format fungsi <code>dunif()</code> adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dunif</span>(x, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">1</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>n</strong>: jumlah data atau panjang variabel acak</li>
-<li><strong>min</strong>: nilai minimum variabel acak</li>
-<li><strong>max</strong>: nilai maksimum variabel acak</li>
+<li><code>n</code>: jumlah data atau panjang variabel acak</li>
+<li><code>min</code>: nilai minimum variabel acak</li>
+<li><code>max</code>: nilai maksimum variabel acak
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Format fungsi <code>punif</code> adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">punif</span>(q, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>q</strong>: vektor numerik</li>
-<li><strong>min</strong>: nilai minimum variabel acak</li>
-<li><strong>max</strong>: nilai maksimum variabel acak</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>q</code>: vektor numerik</li>
+<li><code>min</code>: nilai minimum variabel acak</li>
+<li><code>max</code>: nilai maksimum variabel acak</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Nilai probabilitas berdasarkan contoh soal sebelumnya merupakan contoh kasus probabilitas kumulatif sehingga digunakan fungsi <code>punif()</code> untuk menghitung probabilitasnya.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">punif</span>(<span class="dv">3</span>, <span class="dt">min=</span><span class="dv">1</span>, <span class="dt">max=</span><span class="dv">4</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</code></pre></div>
 <pre><code>## [1] 0.3333</code></pre>
@@ -1048,7 +1121,7 @@ P\left(x_1&lt;X&lt;x_2\right)=\int_{x_1}^{x_2}n\left(x;\mu,\sigma\right)dx=\frac
 Gambar 9.6: Luas area di bawah kurva normal.
 </p>
 </div>
-<p>Menghitung luas area di bawah kurva normal bukanlah pekerjaan yang mudah dilakukan sehingga terkadang kita memerlukan alat bantu untuk melakukan proses perhitungan. Alat bantu yang umum digunakan adalah Tabel distribusi normal standard (distribusi normal dengan <span class="math inline">\(\mu\)</span> 0 dan <span class="math inline">\(\sigma^2\)</span> 1) yang dapat pembaca unduh pada tautan <a href="https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf">berikut</a>. Untuk dapat menggunakan Tabel tersebut kita perlu mengubah nilai <span class="math inline">\(x_1\)</span> dan <span class="math inline">\(x_2\)</span> pada Gambar <a href="distribusi-probabilitas.html#fig:normvis4">9.6</a> menjadi <span class="math inline">\(Z\)</span>. Untuk melakukannya kita dapat menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dnorm2">(9.22)</a>.</p>
+<p>Menghitung luas area di bawah kurva normal bukanlah pekerjaan yang mudah dilakukan sehingga terkadang kita memerlukan alat bantu untuk melakukan proses perhitungan. Alat bantu yang umum digunakan adalah Tabel distribusi normal standard (distribusi normal dengan <span class="math inline">\(\mu\)</span> 0 dan <span class="math inline">\(\sigma^2\)</span> 1) yang dapat pembaca unduh pada tautan <a href="https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf" class="uri">https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf</a>. Untuk dapat menggunakan Tabel tersebut kita perlu mengubah nilai <span class="math inline">\(x_1\)</span> dan <span class="math inline">\(x_2\)</span> pada Gambar <a href="distribusi-probabilitas.html#fig:normvis4">9.6</a> menjadi <span class="math inline">\(Z\)</span>. Untuk melakukannya kita dapat menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dnorm2">(9.22)</a>.</p>
 <span class="math display" id="eq:dnorm2">\[\begin{equation}
    Z=\frac{X-\mu}{\sigma}
   \tag{9.22}
@@ -1057,12 +1130,18 @@ Gambar 9.6: Luas area di bawah kurva normal.
 <p><span class="math display">\[
 P\left(x_1&lt;z\le x_2\right)=P\left(z&lt; x_2\right)+P\left(z&gt; x_1\right)
 \]</span></p>
-<p>Agar pembaca lebih memahami penerapan distribusi ini, misalkan kita diminta untuk menghitung probabilitas masa layan lampu. Rerata masa layan lampu suatu produk adalah 750 jam dengan simpangan baku 80 jam. Distribusi dari masa layan lampu tersebut diasumsikan mengikuti distribusi normal. Hitunglah probabilitas:</p>
+<hr />
+
+<div class="example">
+<p><span id="exm:normexm" class="example"><strong>Contoh 9.12  </strong></span>Misalkan kita diminta untuk menghitung probabilitas masa layan lampu. Rerata masa layan lampu suatu produk adalah 750 jam dengan simpangan baku 80 jam. Distribusi dari masa layan lampu tersebut diasumsikan mengikuti distribusi normal. Hitunglah probabilitas:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Lampu memiliki masa layan antara 750 sampai 830 jam?</li>
 <li>Lampu dengan masa layan tepat 830 jam?</li>
 <li>Lampu dengan masa layan lebih dari atau sama dengan 830 jam</li>
 </ol>
+</div>
+
+<hr />
 <p><strong>Masa layan lampu antara 750 sampai 830 jam</strong></p>
 <p>Distribusi dan luasan yang dicari dapat digambarkan berdasarkan Gambar <a href="distribusi-probabilitas.html#fig:normvis5">9.7</a> berikut:</p>
 <div class="figure" style="text-align: center"><span id="fig:normvis5"></span>
@@ -1099,14 +1178,15 @@ P\left(z&gt;1\right)=0,5-0,3413=0,1578
 <p>Pada <code>R</code> probabilitas distribusi normal dapat dihitung menggunakan dua buah fungsi yaitu <code>dnorm()</code> (probabilitas distribusi normal) dan <code>pnorm()</code> (probabilitas kumulatif distribusi normal). Format yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dnorm</span>(x, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)
 <span class="kw">pnorm</span>(q, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil</li>
-<li><strong>mean</strong>: rata-rata populasi</li>
-<li><strong>sd</strong>: simpangan baku populasi</li>
+<li><code>x,p</code>: vektor numerik atau kuantil</li>
+<li><code>mean</code>: rata-rata populasi</li>
+<li><code>sd</code>: simpangan baku populasi
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah contoh penyelesaian contoh soal masa layan lampu menggunakan sintaks <code>R</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># masa layan 750 sampai 830 jam</span>
 <span class="kw">pnorm</span>(<span class="dt">q=</span><span class="dv">830</span>, <span class="dt">mean=</span><span class="dv">750</span>, <span class="dt">sd=</span><span class="dv">80</span>)<span class="op">-</span><span class="kw">pnorm</span>(<span class="dt">q=</span><span class="dv">750</span>, <span class="dt">mean=</span><span class="dv">750</span>, <span class="dt">sd=</span><span class="dv">80</span>)</code></pre></div>
@@ -1134,8 +1214,7 @@ P\left(z&gt;1\right)=0,5-0,3413=0,1578
 ## $ Day     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,...</code></pre>
 <p>Kita akan mengecek distribusi dari konsentrasi ozon apakah berdistribusi normal atau tidak, kita dapat memvisualisasikannya menggunakan grafik dalam contoh ini adalah grafik QQ-plot dan ECDF. Berikut adalah visualisasi yang dihasilkan</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;ggpubr&quot;)</span>
-<span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(ggpubr)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## set tema default dari paket ggpubr
 <span class="kw">theme_set</span>(<span class="kw">theme_pubr</span>())
@@ -1192,10 +1271,11 @@ Gambar 9.9: Visualisasi distribusi konsentrasi ozon Kota New York a)density plot
 <p>Berdasarkan kedua grafik tersebut terlihat bahwa titik observasi tidak mengikuti garis referensi distribusi normal sehingga dapat disimpulkan bahwa distribusi konsentrasi ozon tidak berdistribusi normal.</p>
 <p>Metode lain yang digunakan untuk melakukan uji kecocokan terhadap distribusi normal adalah dengan menggunakan metode Shapiro-Wilk (SW). Metode ini merupakan metode nonparametrik yang memiliki power yang cukup besar untuk ukuran sampel relatif kecil (<span class="math inline">\(&lt;2000\)</span>). Perintah yang digunakan pada <code>R</code> untuk melakukan uji SW adalah <code>shapiro.test()</code>. Format yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shapiro.test</span>(x)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
-<p><strong>x</strong>: vektor numerik.</p>
-</blockquote>
+
+<div class="rmdnote">
+<code>x</code>: vektor numerik.
+</div>
+
 <p>Pengujian ini merupakan suatu bentuk pengujian statistik sehingga melibatkan dua buah hipotesis. Pengujian statistik tidak akan dijelaskan secara detail pada Chapter ini. Hipotesis yang digunakan adalah sebagai berikut</p>
 <p><span class="math inline">\(H_0\)</span>: Sampel berdistribusi normal</p>
 <p><span class="math inline">\(H_1\)</span>: Sampel data tidak berdistribusi normal</p>
@@ -1217,7 +1297,13 @@ Gambar 9.9: Visualisasi distribusi konsentrasi ozon Kota New York a)density plot
   \tag{9.23}
 \end{equation}\]</span>
 <p>dimana <span class="math inline">\(n\to\infty\)</span> merupakan distribusi normal standard <span class="math inline">\(n\left(z;0,1\right)\)</span>. Nilai <span class="math inline">\(z\)</span> yang diperoleh selanjutnya dapat digunakan untuk mencari luasan dibawah kurva normal menggunakan Tabel distribusi normal.</p>
-<p>Untuk memahami penerapannya, misalkan diketahui probabilitas suatu pompa air rusak disuatu kawasan adalah 0,4. Jika pada kawasan tersebut terdapat 100 buah pompa. Hitunglah probabilitas jumlah pompa rusak di kawasan tersebut kurang dari 30? ?</p>
+<hr />
+
+<div class="example">
+<span id="exm:normbinomexm" class="example"><strong>Contoh 9.13  </strong></span>Diketahui probabilitas suatu pompa air rusak disuatu kawasan adalah 0,4. Jika pada kawasan tersebut terdapat 100 buah pompa. Hitunglah probabilitas jumlah pompa rusak di kawasan tersebut kurang dari 30?
+</div>
+
+<hr />
 <p>Pada kasus tersebut kejadian sukses didefinisikan jika terdapat pompa yang rusak. Untuk menghitungnya pertama-tama kita perlu menghitung nilai mean dan simpangan baku dari populasinya.</p>
 <p><span class="math display">\[
 \mu=np=\left(100\right)\left(0,4\right)=40\ \ \ dan\ \ \ \sigma=\sqrt{npq}=\sqrt{\left(100\right)\left(0,4\right)\left(0,6\right)}=4,899
@@ -1305,7 +1391,13 @@ f\left(x;\beta \right) =
    \mu=\beta\ \ \ dan\ \ \ \sigma^2=\beta^2
   \tag{9.28}
 \end{equation}\]</span>
-<p>Misalkan dalam suatu kawasan terdapat sistem penyediaan air minum lingkup kecil dengan komponen utama pompa, dimana waktu dalam tahun dimana pompa tersebut gagal beroperasi (rusak) disimbolkan sebagai <span class="math inline">\(T\)</span>. Variabel acak <span class="math inline">\(T\)</span> dimodelkan dengan cukup baik menggunakan distribusi eksponensial dengan waktu sampai pompa tersebut gagal berfungsi <span class="math inline">\(\beta=5\)</span>. Jika 5 buah pompa dipasang pada sistem yang berbeda , berapa probabilitas setidaknya 2 buah pompa masih berfungsi hingga akhir tahun ke-8?</p>
+<hr />
+
+<div class="example">
+<p><span id="exm:gammaexm" class="example"><strong>Contoh 9.14  </strong></span>Dalam suatu kawasan terdapat sistem penyediaan air minum lingkup kecil dengan komponen utama pompa, dimana waktu dalam tahun dimana pompa tersebut gagal beroperasi (rusak) disimbolkan sebagai <span class="math inline">\(T\)</span>. Variabel acak <span class="math inline">\(T\)</span> dimodelkan dengan cukup baik menggunakan distribusi eksponensial dengan waktu sampai pompa tersebut gagal berfungsi <span class="math inline">\(\beta=5\)</span>. Jika 5 buah pompa dipasang pada sistem yang berbeda , berapa probabilitas setidaknya 2 buah pompa masih berfungsi hingga akhir tahun ke-8?</p>
+</div>
+
+<hr />
 <p>Probabilitas suatu pompa masih dapat berfungsi setelah 8 tahun dari kasus tersebut dapat dituliskan sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(T&gt;8\right)=\frac{1}{5}\int_0^{\infty}e^{-\frac{t}{5}}dt=e^{-\frac{8}{5}}\approx0,2.
@@ -1317,14 +1409,15 @@ P\left(X\ge2\right)=\sum_{x=2}^5b\left(x;5,0.2\right)=1-\sum_{x=0}^1b\left(x;5,0
 <p>Pada <code>R</code> probabilitas gamma dapat dihitung menggunakan 2 fungsi yaitu <code>dgamma()</code> dan <code>pgamma()</code> (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dexp</span>(x, <span class="dt">rate=</span><span class="dv">1</span>)
 <span class="kw">pexp</span>(q, <span class="dt">rate=</span><span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil</li>
-<li><strong>rate</strong>: nilai 1/beta</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil</li>
+<li><code>rate</code>: nilai 1/beta</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah sintaks yang digunakan untuk menghitung probabilitas pada contoh soal tersebut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># probabilitas pompa masih berfungsi lebih dari 8 tahun</span>
 <span class="kw">pexp</span>(<span class="dt">q=</span><span class="dv">8</span>, <span class="dt">rate=</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</code></pre></div>
@@ -1332,7 +1425,13 @@ P\left(X\ge2\right)=\sum_{x=2}^5b\left(x;5,0.2\right)=1-\sum_{x=0}^1b\left(x;5,0
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># probabilitas sedikitnya 2 pompa yang masih berfungsi</span>
 <span class="kw">pbinom</span>(<span class="dt">q=</span><span class="dv">1</span>, <span class="dt">size=</span><span class="dv">5</span>, <span class="dt">prob=</span><span class="fl">0.2018965</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</code></pre></div>
 <pre><code>## [1] 0.2666</code></pre>
-<p>Contoh lainnya misalkan pada pengujian toksikan terhadap hewan uji untuk menentukan dosis mematikan pada suatu hewan uji. Toksikan yang digunakan merupakan logam berat yang ada di perairan. Berdasarkan dosis tertentu, hasil percobaan menentukan bahwa <em>survival time</em>, dalam minggu dari hewan uji, memiliki distribusi gamma dengan <span class="math inline">\(\alpha=5\)</span> dan <span class="math inline">\(\beta=10\)</span>. Hitunglah probabilitas hewan uji tidak dapat selamat tidak lebih dari 60 minggu?</p>
+<hr />
+
+<div class="example">
+<p><span id="exm:expemp" class="example"><strong>Contoh 9.15  </strong></span>Pengujian suatu toksikan dilakukan terhadap hewan uji untuk menentukan dosis mematikan pada suatu hewan uji. Toksikan yang digunakan merupakan logam berat yang ada di perairan. Berdasarkan dosis tertentu, hasil percobaan menentukan bahwa <em>survival time</em>, dalam minggu dari hewan uji, memiliki distribusi gamma dengan <span class="math inline">\(\alpha=5\)</span> dan <span class="math inline">\(\beta=10\)</span>. Hitunglah probabilitas hewan uji tidak dapat selamat tidak lebih dari 60 minggu?</p>
+</div>
+
+<hr />
 <p>Diberikan variabel acak <span class="math inline">\(X\)</span> yang menyatakan <em>survival time</em> (waktu hingga mati). Probabilitas yang terjadi dapat dituliskan sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(X\le60\right)=\frac{1}{\beta^5}\int_0^{\infty}\frac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\Gamma\left(5\right)}dx
@@ -1352,15 +1451,16 @@ P\left(X\le60\right)=F\left(6;5\right)=0,715
 <p>Pada <code>R</code> probabilitas distribusi gamma dapat dihitung menggunakan fungsi <code>dgamma()</code> dan <code>pgamma()</code> (probabilitas kumulatif). Format fungsi tersebut adalah sebagi berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dgamma</span>(x, shape, scale)
 <span class="kw">pgamma</span>(q, shape, scale, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil</li>
-<li><strong>shape</strong>: nilai alpha</li>
-<li><strong>scale</strong>: niali beta</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil</li>
+<li><code>shape</code>: nilai alpha</li>
+<li><code>scale</code>: niali beta</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Berikut adalah nilai probabilitas dari contoh kasus tersebut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pgamma</span>(<span class="dt">q=</span><span class="dv">60</span>, <span class="dt">shape=</span><span class="dv">5</span>, <span class="dt">scale=</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>## [1] 0.7149</code></pre>
@@ -1412,14 +1512,15 @@ Gambar 9.12: Visualisasi distribusi chi-square dengan variasi derajat kebebasan 
 <p>Pada <code>R</code> terdapat dua buah fungsi yang digunakan untuk menghitung probabilitas distribusi chi-square yaitu <code>dchisq()</code> dan <code>pchisq()</code> (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dgamma</span>(x, df)
 <span class="kw">pgamma</span>(q, df, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil</li>
-<li><strong>df</strong>: derajat kebebasan (n-1)</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil</li>
+<li><code>df</code>: derajat kebebasan (n-1)</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>.
+</div>
+</li>
 </ul>
-</blockquote>
 </div>
 <div id="distribusi-students-t" class="section level3">
 <h3><span class="header-section-number">9.9.2</span> Distribusi Student’s t</h3>
@@ -1462,14 +1563,15 @@ Gambar 9.13: Visualisasi distribusi t dengan variasi derajat kebebasan a) densit
 <p>Pada <code>R</code> terdapat dua fungsi yang berguna untuk menghitung probabilitas distribusi t yaitu <code>dt()</code> dan <code>pt()</code> (probabilitas kumulatif). Format fungsi yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dt</span>(x, df)
 <span class="kw">pt</span>(q, df, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil</li>
-<li><strong>df</strong>: derajat kebebasan (n-1)</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil</li>
+<li><code>df</code>: derajat kebebasan (n-1)</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.
+</div>
+</li>
 </ul>
-</blockquote>
 </div>
 <div id="distribusi-snedecors-f" class="section level3">
 <h3><span class="header-section-number">9.9.3</span> Distribusi Snedecor’s F</h3>
@@ -1519,14 +1621,15 @@ Gambar 9.14: Visualisasi distribusi F dengan variasi derajat kebebasan a) densit
 <p>Pada <code>R</code> terdapat dua fungsi yang berguna untuk menghitung probabilitas distribusi F yaitu <code>df()</code> dan <code>pf()</code> (probabilitas kumulatif). Format fungsi yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dt</span>(x, df1, df2)
 <span class="kw">pt</span>(q, df1, df2, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil.</li>
-<li><strong>df1,df2</strong>: derajat kebebasan.</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil.</li>
+<li><code>df1,df2</code>: derajat kebebasan.</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.
+</div>
+</li>
 </ul>
-</blockquote>
 </div>
 </div>
 <div id="distribusi-kontinu-lainnya" class="section level2">
@@ -1589,15 +1692,16 @@ Gambar 9.15: Visualisasi distribusi beta dengan variasi derajat kebebasan a) den
 <p>Pada <code>R</code> terdapat dua fungsi yang berguna untuk menghitung probabilitas distribusi beta yaitu <code>dbeta()</code> dan <code>pbeta()</code> (probabilitas kumulatif). Format fungsi yang digunakan adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbeta</span>(x, shape1, shape2)
 <span class="kw">pbeta</span>(q, shape1, shape2, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil.</li>
-<li><strong>shape1</strong>: alpha.</li>
-<li><strong>shape2</strong>: beta.</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil.</li>
+<li><code>shape1</code>: alpha.</li>
+<li><code>shape2</code>: beta.</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>.
+</div>
+</li>
 </ul>
-</blockquote>
 </div>
 <div id="distribusi-lognormal" class="section level3">
 <h3><span class="header-section-number">9.10.2</span> Distribusi Lognormal</h3>
@@ -1652,15 +1756,16 @@ Gambar 9.16: Visualisasi distribusi beta dengan variasi mean dan sd a) density p
 <p>Pada <code>R</code>, fungsi utama yang digunakan untuk menghitung probabilitas distribusi lognormal adalah <code>dlnorm()</code> dan <code>plnorm()</code> (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>)
 <span class="kw">plnorm</span>(q, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil.</li>
-<li><strong>meanlog</strong>: mean dalam bentuk logaritmik.</li>
-<li><strong>sdlog</strong>: simpangan baku dalam bentuk logaritmik.</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil.</li>
+<li><code>meanlog</code>: mean dalam bentuk logaritmik.</li>
+<li><code>sdlog</code>: simpangan baku dalam bentuk logaritmik.</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>.
+</div>
+</li>
 </ul>
-</blockquote>
 </div>
 <div id="distribusi-cauchy" class="section level3">
 <h3><span class="header-section-number">9.10.3</span> Distribusi Cauchy</h3>
@@ -1706,15 +1811,16 @@ Gambar 9.17: Visualisasi distribusi t dengan variasi m dan beta a) density plot,
 <p>Pada <code>R</code>, fungsi utama yang digunakan untuk menghitung probabilitas distribusi Cauchy adalah <code>dcauchy()</code> dan <code>pcauchy()</code> (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dcauchy</span>(x, <span class="dt">location =</span> <span class="dv">0</span>, <span class="dt">scale =</span> <span class="dv">1</span>)
 <span class="kw">pcauchy</span>(q, <span class="dt">location =</span> <span class="dv">0</span>, <span class="dt">scale =</span> <span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil.</li>
-<li><strong>location</strong>: median.</li>
-<li><strong>scale</strong>: beta.</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil.</li>
+<li><code>location</code>: median.</li>
+<li><code>scale</code>: beta.</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.
+</div>
+</li>
 </ul>
-</blockquote>
 </div>
 <div id="distribusi-logistik" class="section level3">
 <h3><span class="header-section-number">9.10.4</span> Distribusi Logistik</h3>
@@ -1760,15 +1866,16 @@ Gambar 9.18: Visualisasi distribusi logistik dengan variasi mean dan simpangan b
 <p>Pada <code>R</code>, fungsi utama yang digunakan untuk menghitung probabilitas distribusi Logistik adalah <code>dlogis()</code> dan <code>plogis()</code> (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dlogis</span>(x, <span class="dt">location =</span> <span class="dv">0</span>, <span class="dt">scale =</span> <span class="dv">1</span>)
 <span class="kw">plogis</span>(q, <span class="dt">location =</span> <span class="dv">0</span>, <span class="dt">scale =</span> <span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil.</li>
-<li><strong>location</strong>: mean.</li>
-<li><strong>scale</strong>: simpangan baku</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil.</li>
+<li><code>location</code>: mean.</li>
+<li><code>scale</code>: simpangan baku</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>.
+</div>
+</li>
 </ul>
-</blockquote>
 </div>
 <div id="distribusi-weibull" class="section level3">
 <h3><span class="header-section-number">9.10.5</span> Distribusi Weibull</h3>
@@ -1813,15 +1920,16 @@ Gambar 9.19: Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a
 <p>Pada <code>R</code> probabilitas distribusi Weibull dapat dihitung menggunakan fungsi <code>dweibull()</code> dan <code>pweibull()</code> (probabilitas kumulatif). Format fungsi tersebut adalah sebagi berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dweibull</span>(x, shape, scale)
 <span class="kw">pweibull</span>(q, shape, scale, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x,p</strong>: vektor numerik atau kuantil</li>
-<li><strong>shape</strong>: nilai alpha</li>
-<li><strong>scale</strong>: niali beta</li>
-<li><strong>lower.tail</strong>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.</li>
+<li><code>x,p</code>: vektor numerik atau kuantil</li>
+<li><code>shape</code>: nilai alpha</li>
+<li><code>scale</code>: niali beta</li>
+<li><code>lower.tail</code>: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah <code>TRUE</code> atau <code>FALSE</code>.
+</div>
+</li>
 </ul>
-</blockquote>
 </div>
 </div>
 <div id="referensi-8" class="section level2">
