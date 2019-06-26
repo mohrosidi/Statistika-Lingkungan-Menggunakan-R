@@ -822,10 +822,6 @@ gather(data, key, value, ...)
        + jika kita ingin mengecualikan nama kolom y gunakan -y        + untuk opsi lainnya, lihat: `dplyr::select()`
 ```
 
-> **Note: **
->
-> 
-
 Visualisasi dari fungsi `gather` ini disajikan pada Gambar \@ref(fig:gather)
 
 ```{r gather, echo=FALSE, fig.cap='Visualisasi fungsi gather (Sumber: Rstudio,2017)', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}

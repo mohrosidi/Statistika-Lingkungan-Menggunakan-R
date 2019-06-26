@@ -113,7 +113,11 @@ Untuk ukuran sampel kecil, tabel binomial dimasukkan pada kolom p = 0,5 (median)
 
 Interval nonparametrik tidak selalu dapat secara tepat menghasilkan tingkat kepercayaan yang diinginkan ketika ukuran sampel kecil. Ini karena mereka terpisah, melompat dari satu nilai data ke yang berikutnya di ujung interval. Namun, tingkat kepercayaan yang dekat dengan yang diinginkan tersedia untuk semua kecuali ukuran sampel terkecil.
 
-Untuk lebih memahaminya diberikan data 25 pengukuran konsentrasi arsenin di air tanah dalam ppb yang disajikan pada Tabel \@ref(tab:gwardat).
+---------------------------------------------------------
+
+```{example, iemed}
+Untuk lebih memahaminya diberikan data 25 pengukuran konsentrasi arsenin di air tanah dalam ppb yang disajikan pada Tabel \@ref(tab:gwardat). Hitunglah interval estimasi median dari data tersebut?
+```
 
 ```{r gwardat,echo=FALSE}
 library(tibble)
@@ -153,6 +157,10 @@ knitr::kable(
 )
 ```
 
+---------------------------------------------------------
+
+**Jawab**:
+
 Visualisasi Tabel \@ref(tab:gwardat) ditunjukkan pada Gambar \@ref(fig:gwardatvis). Berdasarkan gambar tersebut terlihat bahwa data memiliki kemencengan yang positif sehingga penaksiran rata-rata populasi menggunakan nilai mean tidak dapat dilakukan.
 
 ```{r gwardatvis, echo=FALSE, fig.cap='Distribusi konsentrasi arsenik dalam air tanah', tidy=FALSE, out.width='70%', fig.align='center'}
@@ -165,7 +173,7 @@ ggplot(gwardat, aes(konsentrasi, fill=..count..))+
   xlab("konsentrasi (ppb)")
 ```
 
-Berdasarkan data pada Tabel \@ref(tab:gwardat), median konsentrasi arsenik $\hat{C}_{0.5}$=`r median(gwardat$konsentrasi)` yang berada pada urutan data ke-13 dari data yang telah diurutkan dari yang terkecil ke yang terbesar. Untuk menentukan interval kepercayaan 95% median kosentrasi arsenik $C_{0.5}$, nilai kritis berdasarkan nilai error mendekati $\alpha/2$=0,025 adalah $x'$=7. Untuk lebih memahaminya pembaca dapat mengunduh tabel distribusi binomial pada laman [berikut](https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf). Nilai $x'$=7 diperoleh menggunakan Tabel distribusi binomial dengan $n$=25 dan $p$=0,5 yang ditampilkan pada Gambar \@ref(fig:tabbinom) dengan nilai probabilitas sebesar 0,022 (mendekati 0,025) yang setara dengan area yang diarsir pada Gambar \@ref(fig:iemednp).
+Berdasarkan data pada Tabel \@ref(tab:gwardat), median konsentrasi arsenik $\hat{C}_{0.5}$=`r median(gwardat$konsentrasi)` yang berada pada urutan data ke-13 dari data yang telah diurutkan dari yang terkecil ke yang terbesar. Untuk menentukan interval kepercayaan 95% median kosentrasi arsenik $C_{0.5}$, nilai kritis berdasarkan nilai error mendekati $\alpha/2$=0,025 adalah $x'$=7. Untuk lebih memahaminya pembaca dapat mengunduh tabel distribusi binomial pada laman <https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf>. Nilai $x'$=7 diperoleh menggunakan Tabel distribusi binomial dengan $n$=25 dan $p$=0,5 yang ditampilkan pada Gambar \@ref(fig:tabbinom) dengan nilai probabilitas sebesar 0,022 (mendekati 0,025) yang setara dengan area yang diarsir pada Gambar \@ref(fig:iemednp).
 
 ```{r tabbinom, echo=FALSE, fig.cap='Lokasi probabilitas x berdasarkan tabel distribusi binomial', tidy=FALSE, out.width='65%', fig.align='center'}
 library(knitr)
@@ -212,10 +220,10 @@ med_npCI <- function(x,alpha){
 }
 ```
 
-> **Note: **
->
-> - **x**: vektor numerik
-> - **alpha**: alpha level yang digunakan
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik
+- `alpha`: alpha level yang digunakan
+```
 
 Fungsi yang telah dibuat tersebut selanjutnya dapat pembaca gunakan saat akan menghitung interval kepercayaan median populasi menggunakan metode Nonparametrik. Berikut penerapannya menggunakan data pada Tabel \@ref(tab:gwardat) yang telah disimpan kedalam objek `gwardat`.
 
@@ -235,7 +243,17 @@ Alternatif lain yang dapat digunakan untuk menghitung interval kepercayaan jika 
   (\#eq:ruz)
 \end{equation}
 
-Menggunakan contoh data pada Tabel \@ref(tab:gwardat), dengan 95% interval kepercayaan ($z_{\alpha/2}$=1,96) median dapat dihitung seperti berikut:
+---------------------------------------------------------
+
+```{example, iemed2}
+Menggunakan data pada Tabel \@ref(tab:gwardat), Hitunglah interval kepercayaan median dengan 95% interval kepercayaan ($z_{\alpha/2}$=1,96)?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
+
+95% interval kepercayaan ($z_{\alpha/2}$=1,96) median dapat dihitung seperti berikut:
 
 $$
   R_l=\frac{25-1,96\cdot\sqrt{25}}{2}=7,6 
@@ -275,10 +293,10 @@ Fungsi `med_norCI()` sama dengan fungsi `med_npCI()`. Perbedaannya terletak pada
 
 Dengan menggunakan fungsi `med_norCI()`, rentang kepercayaan median dapat dihitung seperti berikut:
 
-> **Note: **
->
-> - **x**: vektor numerik
-> - **alpha**: alpha level yang digunakan
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik
+- `alpha`: alpha level yang digunakan
+```
 
 ```{r}
 med_norCI(x=gwardat$konsentrasi, alpha=0.05)
@@ -294,7 +312,6 @@ sapply(X=airquality, FUN=med_norCI, alpha=0.05)
 library(purrr)
 map(.x=airquality, .f=med_norCI, alpha=0.05)
 ```
-
 
 Jika kita tidak ingin menggunakan vektor dalam fungsi, kita dapat juga menggunakan data frame sebagai inputnya. Kelebihannya adalah kita dapat menghitung rentang kepercayaan seluruh kolom dalam satu kali proses. Hal ini tentunya akan menghemat waktu yang digunakan. Berikut adalah contoh sintaks fungsi untuk menghitung interval kepercayaan median menggunakan distribusi normal dengan metode nonparametrik yang digunakan:
 
@@ -329,18 +346,16 @@ med_norCI <- function(df, alpha){
 }
 ```
 
-> **Note: **
->
-> - **df**: data frame
-> - **alpha**: alpha level yang digunakan
+```{block2, type = "rmdnote"}
+- `df`: data frame
+- `alpha`: alpha level yang digunakan
+```
 
 Fungsi tersebut dapat menghitung sekaligus Interval kepercayaan median dengan metode nonparametrik. Pembaca dapat mencobanya dengan menggunakan dataset yang pembaca miliki. Pembaca dapat mengabaikan peringatan yang muncul dan berfokus pada hasil yang diperoleh. Sebagai contoh jalankan fungsi tersebut menggunakan dataset `airquality` berikut:
 
 ```{r}
 med_norCI(df=airquality, alpha=0.05)
 ```
-
-
 
 ### Metode Parametrik Interval Estimasi Median
 
@@ -359,6 +374,16 @@ dimana $y=\ln(x)$ dan $\overline{y}$=mean sampel $y$.
 \end{equation}
 
 dimana $s_{y}^2$= varians sampel y pada unit log natural.
+
+---------------------------------------------------------
+
+```{example, iemedparam}
+Menggunakan data pada Tabel \@ref(tab:gwardat), Hitunglah interval kepercayaan median dengan 95% interval kepercayaan ($z_{\alpha/2}$=1,96) menggunakan pendekatan *mean geometrik*?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
 
 Pada Tabel \@ref(tab:gwardat), untuk menghitung interval keyakinan median menggunakan pendekatan mean geometrik $GM_x$ kita perlu mentransformasi datanya terlebih dahulu sehingga menjadi bentuk natural log. hasil transformasi disajikan pada Tabel \@ref(tab:gwardat2).
 
@@ -420,10 +445,10 @@ med_gm <- function(x, alpha){
 }
 ```
 
-> **Note: **
->
-> - **x**: vektor numerik
-> - **alpha**: alpha level yang digunakan
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik
+- `alpha`: alpha level yang digunakan
+```
 
 ```{r}
 med_gm(x=gwardat$konsentrasi, alpha=0.05)
@@ -438,7 +463,6 @@ sapply(airquality, med_gm, alpha=0.05)
 # menggunakan map function
 map(airquality, med_gm, alpha=0.05)
 ```
-
 
 Fungsi `med_gm()` dapat dilakukan sejumlah modifikasi seperti penggunaan data frame sebagai input serta proses transformasi yang dilakukan didalam fungsi yang ada sekaligus. Berikut adalah contoh fungsi yang digunakan untuk input berupa data frame dan proses transformasi termasuk didalamnya:
 
@@ -472,10 +496,10 @@ med_gm <- function(df, alpha){
 }
 ```
 
-> **Note: **
->
-> - **df**: data frame
-> - **alpha**: alpha level yang digunakan
+```{block2, type = "rmdnote"}
+- `df`: data frame
+- `alpha`: alpha level yang digunakan
+```
 
 Untuk menguji fungsi tersebut jalankan fungsi tersebut menggunakan dataset yang pembaca miliki. Dalam contoh ini ak diberikan contoh penerapannya menggunakan dataset `airquality`. Jalankan fungsi berikut untuk memperoleh hasilnya.
 
@@ -500,7 +524,17 @@ Lebar interval kepercayaan adalah fungsi dari nilai-nilai kritis dari tabel dist
   (\#eq:pmeancisim)
 \end{equation}
 
-Untuk lebih memahami cara penerapannya, kita akan menggunakan kembali data pada Tabel \@ref(tab:gwardat2). Langkah pertama yang perlu dilakukan adalah menghitung mean sampel $\overline{x}$ dan simpangan baku sampel $s$. Berdasarkan hasil perhitungan diperoleh nilai $\overline{x}$ =`r round(mean(gwardat$konsentrasi),3)` dan $s$ = `r round(sd(gwardat$konsentrasi), 3)`. Dengan meggunakan Persamaan \@ref(eq:pmeancisim), interval estimasi mean dengan tingkat kepercayaan 95% dapat dihitung sebagai berikut:
+---------------------------------------------------------
+
+```{example, iemeansim}
+Menggunakan data pada Tabel \@ref(tab:gwardat), Hitunglah interval kepercayaan mean dengan 95% interval kepercayaan ($z_{\alpha/2}$=1,96) menggunakan pendekatan distribusi yang simetris?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
+
+Langkah pertama yang perlu dilakukan adalah menghitung mean sampel $\overline{x}$ dan simpangan baku sampel $s$. Berdasarkan hasil perhitungan diperoleh nilai $\overline{x}$ =`r round(mean(gwardat$konsentrasi),3)` dan $s$ = `r round(sd(gwardat$konsentrasi), 3)`. Dengan meggunakan Persamaan \@ref(eq:pmeancisim), interval estimasi mean dengan tingkat kepercayaan 95% dapat dihitung sebagai berikut:
 
 $$
   3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}\le\mu\le3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}
@@ -576,6 +610,16 @@ Metode Cox dapat digunakan untuk menghitung interval keyakinan dengan nilai esti
 
 Persamaan \@ref(eq:pmeanciasimci) dapat dimodifikasi dengan menggunakan distribusi t dibanding menggunakan distribusi normal. Penggunaan distribusi t akan memperbaiki kelemahan penggunaan distribusi normal pada sampel yang berukuran kecil.
 
+---------------------------------------------------------
+
+```{example, iemeanasim}
+Menggunakan data pada Tabel \@ref(tab:gwardat), Hitunglah interval kepercayaan mean dengan 95% interval kepercayaan ($z_{\alpha/2}$=1,96) menggunakan pendekatan distribusi yang simetris?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
+
 Data Tabel \@ref(tab:gwardat) dapat kita gunakan untuk menghitung rata-rata menggunakan Persamaan \@ref(eq:pmeanciasimci). Hal ini disebabkan karena data yang ada memiliki kemencengan positif sehingga dapat dianggap bahwa transformasi logaritmik dapat membentuk distribusi ini menjadi lebih simetris. 
 
 Berdasarkan hasil perhitungan diperoleh nilai $\overline{Y}$ =`r round(mean(gwardat2$konsentrasi),3)` dan $s^2_y$ = `r round(sd(gwardat2$konsentrasi), 3)`. Sehingga nilai interval selanjutnya dapat dihitung menggunakan Persamaan \@ref(eq:pmeanciasimci) dengan interval keyakinan 95%.
@@ -626,11 +670,12 @@ mean_asci<-function(x,alpha){
 }
 ```
 
-> **Note: **
->
-> - **x**: vektor numerik
-> - **alpha**: alpha level yang digunakan
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik
+- `alpha`: alpha level yang digunakan
 
+```
+ 
 ```{r}
 mean_asci(x=gwardat$konsentrasi, alpha=0.05)
 ```
@@ -684,10 +729,10 @@ mean_asci<-function(df,alpha){
 }
 ```
 
-> **Note: **
->
-> - **df**: data frame
-> - **alpha**: alpha level yang digunakan
+```{block2, type = "rmdnote"}
+- `df`: data frame
+- `alpha`: alpha level yang digunakan
+```
 
 Untuk menguji fungsi tersebut, pembaca dapat memasukkan data frame yang pembaca miliki kedalam persamaan tersebut. Berikut adalah contoh sintaks yang digunakan untuk menghitung interval kepercayaan mean pada dataset `airquality`. Pembaca dapat menjalankannya pada komputer pembaca.
 
@@ -716,7 +761,15 @@ img1_path <- "ipnds.png"
 include_graphics(img1_path)
 ```
 
-Kita akan kembali menggunakan data pada Tabel \@ref(tab:gwardat). Dengan menggunakan tingkat kepercayaan 90% kita diminta untuk menentukan interval prediksi dari konsentrasi arsenik pada data tersebut tanpa mengasumsikan distribusi dari data.
+---------------------------------------------------------
+
+```{example, ipnonparam}
+Menggunakan data pada Tabel \@ref(tab:gwardat), Hitunglah interval prediksi dengan 90% interval kepercayaan menggunakan metode nonparametrik?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
 
 Untuk melakukannya kita perlu menentukan observasi ke-2,5 dan 97,5 (berdasarkan nilai $\alpha/2$) dengan rangking observasi berdasarkan Persamaan \@ref(eq:eqipnds) adalah $(0,05*26)$ atau rangking observasi antara observasi 1 ($R_1$) dan 2 ($R_2$) dan $(0,95*26)$ rangking observasi antara observasi 24 ($R_{24}$) dan 25 ($R_{25}$). Dengan menggunakan interpolasi linier pada observasi ke-1, 2 , 24 dan 25, interval prediksi yang diperoleh adalah sebagai berikut:
 
@@ -762,10 +815,10 @@ PInp <- function(x, alpha){
 }
 ```
 
-> **Note: **
->
-> - **x**: vektor numerik
-> - **alpha**: alpha level yang digunakan
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik
+- `alpha`: alpha level yang digunakan
+```
 
 ```{r}
 PInp(x=gwardat$konsentrasi, alpha=0.1)
@@ -786,7 +839,15 @@ include_graphics(img1_path)
   (\#eq:eqipss)
 \end{equation}
 
-Untuk memahami penerapannya, misalkan kita memiliki nilai arsenik baru dengan konsentrasi 355 ppb. Kita perlu menentukan apakah nilai tersebut lebih besar dari sebagian besar data yang ada.
+---------------------------------------------------------
+
+```{example, inprednpsatu}
+Misalkan kita memiliki nilai arsenik baru dengan konsentrasi 355 ppb. Tentukan apakah nilai tersebutlebih besar dari sebagian besar data yang ada pada Tabel \@ref(tab:gwardat)?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
 
 Dengan menggunakan Persamaan \@ref(eq:eqipss) dan $\alpha$=0,1 atau tingkat kepercayaan 90%, interval prediksi satu sisi atau data teratas dari persentil ke-90 dari data yang ada adalah $X_{0,9}*26=X_{23,4}$. Dengan menggunakan interpolasi linier pada observasi data dengan rangking ke-23 ($R_{23}$) dan 24 ($R_{23}$) diperoleh:
 
@@ -836,12 +897,12 @@ PInp_os <- function(x, obs, alpha, side){
 }
 ```
 
-> **Note: **
->
-> - **x**: vektor numerik
-> - **alpha**: alpha level yang digunakan
-> - **obs**: observasi baru yang akan dibandingkan
-> - **side**: untuk memilih jenis uji satu sisi yang digunakan. nilai yang mungkin adalah **Upper** (membandingkan dengan limit atas) dan **Lower** (membandingkan dengan limit bawah)
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik
+- `alpha`: alpha level yang digunakan
+- `obs`: observasi baru yang akan dibandingkan
+- `side`: untuk memilih jenis uji satu sisi yang digunakan. nilai yang mungkin adalah `Upper` (membandingkan dengan limit atas) dan `Lower` (membandingkan dengan limit bawah)
+```
 
 ```{r}
 PInp_os(x=gwardat$konsentrasi, obs=355, alpha=0.1, side="upper")
@@ -867,7 +928,15 @@ Untuk interval satu sisi Persamaan  \@ref(eq:ipds), menjadi Persamaan \@ref(eq:i
   (\#eq:ipds2)
 \end{equation}
 
-Untuk lebih memahaminya misalkan terdapat hasil pengukuran baru konsentrasi arsenik sebesar 350 ppb dengan menggunakan data pada Tabel \@ref(tab:gwardat) sebagai pembanding. Buktikan bahwa observasi baru tersebut berasal dari distrubusi yang sama dengan $\alpha$=5%.
+---------------------------------------------------------
+
+```{example, ipparamsimetris}
+Misalkan terdapat hasil pengukuran baru konsentrasi arsenik sebesar 350 ppb. Dengan menggunakan data pada Tabel \@ref(tab:gwardat) sebagai pembanding, buktikan bahwa observasi baru tersebut berasal dari distrubusi yang sama dengan $\alpha$=5%?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
 
 Dengan menggunakan Persamaan  \@ref(eq:ipds), interval prediksi dapat dihitung sebagai berikut:
 
@@ -942,12 +1011,12 @@ PI_sim <- function(x, obs, alpha, side){
 }
 ```
 
-> **Note: **
->
-> - **x**: vektor numerik
-> - **alpha**: alpha level yang digunakan
-> - **obs**: observasi baru yang akan dibandingkan
-> - **side**: untuk memilih jenis uji digunakan. nilai yang mungkin adalah **upper** (membandingkan dengan limit atas uji satu sisi), **lower** (membandingkan dengan limit bawah uji satu sisi) dan **two side** (uji dua sisi).
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik
+- `alpha`: alpha level yang digunakan
+- `obs`: observasi baru yang akan dibandingkan
+- `side`: untuk memilih jenis uji digunakan. nilai yang mungkin adalah `upper` (membandingkan dengan limit atas uji satu sisi), `lower` (membandingkan dengan limit bawah uji satu sisi) dan `two side` (uji dua sisi).
+```
 
 ```{r}
 # interval prediksi satu sisi
@@ -970,7 +1039,15 @@ Untuk distribusi data yang tidak simetris, data perlu dilakukan transformasi ter
 
 dimana $y=\ln{(x)}$, $\overline{y}$ adalah nilai rata-rata dari tranformasi logaritmik data, dan $s^2_y$ adalah varians dari tranformasi logaritmik data.
 
-Dengan menggunakan contoh soal sebelumnya misalkan terdapat observasi baru konsentrasi arsenik sebesar 350 ppb. Kita perlu menentukan apakah observasi baru tersebut berasal dari distribusi yang sama berdasarkan data pada Tabel \@ref(tab:gwardat). 
+---------------------------------------------------------
+
+```{example, ipparamdua}
+Misalkan terdapat hasil pengukuran baru konsentrasi arsenik sebesar 350 ppb. Dengan menggunakan data pada Tabel \@ref(tab:gwardat) sebagai pembanding, buktikan bahwa observasi baru tersebut berasal dari distrubusi yang sama dengan $\alpha$=5% dengan asumsi data tidak simetris?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
 
 Berdasarkan hasil visualisasi diketahui bahwa distribusi data yang dihasilkan memiliki bentuk kemencengan positif sehingga interval prediksi asimetris dapat digunakan. Dengan menggunakan $\alpha$=5% prediksi interval dua sisi dapat dihitung menggunakan Persamaan  \@ref(eq:ipdas).
 
@@ -1052,12 +1129,12 @@ PI_asim <- function(x, obs, alpha, side){
 }
 ```
 
-> **Note: **
->
-> - **x**: vektor numerik
-> - **alpha**: alpha level yang digunakan
-> - **obs**: observasi baru yang akan dibandingkan
-> - **side**: untuk memilih jenis uji digunakan. nilai yang mungkin adalah **upper** (membandingkan dengan limit atas uji satu sisi), **lower** (membandingkan dengan limit bawah uji satu sisi) dan **two side** (uji dua sisi).
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik
+- `alpha`: alpha level yang digunakan
+- `obs`: observasi baru yang akan dibandingkan
+- `side`: untuk memilih jenis uji digunakan. nilai yang mungkin adalah `upper` (membandingkan dengan limit atas uji satu sisi), `lower` (membandingkan dengan limit bawah uji satu sisi) dan `two side` (uji dua sisi).
+```
 
 ```{r}
 # interval prediksi satu sisi
@@ -1088,7 +1165,15 @@ Tabel binomial dimasukkan pada kolom dengan nilai $p$, persentil yang diinginkan
   (\#eq:iknp2)
 \end{equation}
 
-Untuk memahami mengenai penerapan interval kepercayaan persentil diberikan sebuah contoh kita diminta untuk menentukan 95% interval kepercayaan nilai persentil ke-20 ($C_{0.20}$)  data konsentrasi arsenik pada Tabel \@ref(tab:gwardat) (p=0,2).
+---------------------------------------------------------
+
+```{example, ikpersentilnp}
+Pada Tabel \@ref(tab:gwardat), hitunglah interval kepercayaan kepercayaan  persentil ke-20 ($C_{0.20}$) data pada tabel tersebut menggunakan metode nonparametrik?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
 
 Berdasarkan data pada Tabel \@ref(tab:gwardat), nilai persentil ke-20 ($\overline{C}_{0.20}$)= `r quantile(gwardat$konsentrasi, 20/100)`ppb, yaitu data yang berada pada rangking 0,2*(26)=5,2 atau dua per sepuluh jarak antara data ke-5 dan ke-6. Untuk menentukan rentang kepercayaan persentil ke-20 sebenarnya dari data, kita perlu menggunakan kembali tabel binomial dengan menginputkan nilai p=0,2. nilai kritis $x_l$ diperoleh dengan mencari probabilitas data pada kolom p=0,2 yang mendekati nilai $\alpha/2$=0,025 adalah 1 ($p'$=0,027, error probabilitas sisi bawah distribusi). Dengan menggunakan Persamaan  \@ref(eq:iknp), diperoleh $R_l=2$. Dengan cara sama untuk sisi atas distribusi nilai kritis atas $x_u$ diperoleh dengan menginputkan nilai p=0,20 dengan nilai probabilitas mendekati $1-\frac{\alpha}{2}$= 0,975 diperoleh sebesar 9 ($p'$=0,983, error probabilitas sisi atas distribusi). Sehingga rentang kepercayaang 95,6% (0,983-0,027=0,956) untuk persentil ke-20 berada pada range data dengan rangkin ke-2 dan ke-9, atau
 
@@ -1174,11 +1259,11 @@ CI_npPercent <- function(x, p, alpha){
 }
 ```
 
-> **Note: **
->
-> - **x**: vektor numerik.
-> - **p**: persentil yang ingin dicari. Nilai berkisar antara 0 sampai 1.
-> - **alpha**: alpha level yang digunakan.
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik.
+- `p`: persentil yang ingin dicari. Nilai berkisar antara 0 sampai 1.
+- `alpha`: alpha level yang digunakan.
+```
 
 Pembaca dapat menjalankan fungsi tersebut mengggunakan data pada contoh soal sebelumnya yaitu mencari interval kepercayaan persentil ke-20. Jalankan sintaks berikut untuk mengetahui hasil yang diperoleh.
 
@@ -1212,7 +1297,17 @@ include_graphics(img1_path)
 
 Untuk menghitungnya secara nonparametrik menggunakan Persamaan  \@ref(eq:iknp3) dan Persamaan  \@ref(eq:iknp4) untuk jumlah sampel kecil sedangkan untuk sampel besar kita dapat menggunakan Persamaan  \@ref(eq:iknp3) dan Persamaan  \@ref(eq:iknp4).
 
-Dengan menggunakan kembali data pada Tabel \@ref(tab:gwardat) kita akan menghitung apakah kadar arsenik kualitas air tanah tersebut melebihi baku mutu arsenik pada air minum dengan baku mutu konsentrasi arsenik tidak melampaui 300 ppb. Dengan menggunakan nilai $\alpha$=0,05 dan batas bawah persentil yang digunakan sebagai acuan pembanding adalah persentil ke-90 dapat dihitung sebagai berikut:
+---------------------------------------------------------
+
+```{example, unpikpersentil}
+Dengan menggunakan kembali data pada Tabel \@ref(tab:gwardat), tentukan apakah kadar arsenik kualitas air tanah tersebut melebihi baku mutu arsenik pada air minum dengan baku mutu konsentrasi arsenik tidak melampaui 300 ppb? ($\alpha$=0,05)
+```
+
+---------------------------------------------------------
+
+**Jawab**:
+
+Dengan menggunakan nilai $\alpha$=0,05 dan batas bawah persentil yang digunakan sebagai acuan pembanding adalah persentil ke-90 dapat dihitung sebagai berikut:
 
 $$
 \overline{C}_{0.90}=\left(25+1\right)\cdot0,9=23,4\ \left(data\ point\right)=300+0,4\left(340-300\right)=316\ ppb
@@ -1254,7 +1349,17 @@ Estimasi interval untuk median sebelumnya diberikan pada Persamaan \@ref(eq:gmci
 
 dimana $\zeta{\alpha/2}$ merupakan $\alpha/2$ dari kuantil distribusi t non-sentral untuk persentil dengan ukuran sampel $n$ yang diinginkan.
 
-Untuk lebih memahami penerapannya pembaca dapat mengerjakan contoh soal pada bagian sebelumnya. Dengan menggunakan estimasi interval 90% kita perlu menentukan interval estimasi persentil ke-90 dari data konsentrasi arsenik dengan asumsi distribusi yang digunakan berupa distribusi lognormal.
+---------------------------------------------------------
+
+```{example, ikpersentilp}
+Pada Tabel \@ref(tab:gwardat), hitunglah interval kepercayaan kepercayaan  persentil ke-90 ($C_{0.90}$) data pada tabel tersebut menggunakan metode parametrik? ($\alpha=0.1$)
+```
+
+---------------------------------------------------------
+
+**Jawab**:
+
+Dengan menggunakan estimasi interval 90% kita perlu menentukan interval estimasi persentil ke-90 dari data konsentrasi arsenik dengan asumsi distribusi yang digunakan berupa distribusi lognormal.
 
 Dengan menggunakan Persamaan  \@ref(eq:ikp1) estimasi titik persentil ke-90 dapat dihitung.
 

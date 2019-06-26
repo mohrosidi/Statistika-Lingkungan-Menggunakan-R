@@ -24,7 +24,7 @@
 <meta name="author" content="Moh. Rosidi" />
 
 
-<meta name="date" content="2019-06-14" />
+<meta name="date" content="2019-06-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -399,6 +399,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.3.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-parametrik"><i class="fa fa-check"></i><b>11.3.1</b> Uji Parametrik</a></li>
 <li class="chapter" data-level="11.3.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-nonparametrik"><i class="fa fa-check"></i><b>11.3.2</b> Uji Nonparametrik</a></li>
 </ul></li>
+<li class="chapter" data-level="11.4" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-asumsi-normalitas-distribusi-data"><i class="fa fa-check"></i><b>11.4</b> Uji Asumsi Normalitas Distribusi Data</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#shapiro-wilk"><i class="fa fa-check"></i><b>11.4.1</b> Shapiro-Wilk</a></li>
+<li class="chapter" data-level="11.4.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#cramer-von-mises"><i class="fa fa-check"></i><b>11.4.2</b> Cramer-von Mises</a></li>
+<li class="chapter" data-level="11.4.3" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#shapiro-francia"><i class="fa fa-check"></i><b>11.4.3</b> Shapiro-Francia</a></li>
+<li class="chapter" data-level="11.4.4" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#anderson-darling"><i class="fa fa-check"></i><b>11.4.4</b> Anderson-Darling</a></li>
+<li class="chapter" data-level="11.4.5" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#liliefors-kolmogorov-smirnov"><i class="fa fa-check"></i><b>11.4.5</b> Liliefors (Kolmogorov-Smirnov)</a></li>
+<li class="chapter" data-level="11.4.6" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#pearson-chi-square"><i class="fa fa-check"></i><b>11.4.6</b> Pearson Chi-square</a></li>
+<li class="chapter" data-level="11.4.7" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-normalitas-menggunakan-r"><i class="fa fa-check"></i><b>11.4.7</b> Uji Normalitas menggunakan <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#tranformasi-box-cox"><i class="fa fa-check"></i><b>11.5</b> Tranformasi Box-Cox</a></li>
+<li class="chapter" data-level="11.6" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#referensi-10"><i class="fa fa-check"></i><b>11.6</b> Referensi</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
@@ -524,6 +535,7 @@ P_{head}=\frac{Jumlah\ peristiwa\ head}{Jumlah\ peristiwa\ yang\ mungkin\ terjad
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Kedua peristiwa tersebut (munculnya angka 1 atau 6) tidak mungkin terjadi bersamaan karena hanya dilakukan menggunakan satu dadu. Selain itu, jumlah himpunan masing-masing peristiwa pertama dan kedua hanyalah satu sehingga tidak memungkinkan adanya irisan pada kedua peristiwa tersebut. Untuk menghitungnya kita dapat langsung menggunakan Persamaan <a href="probabilitas.html#eq:pme">(8.3)</a>.</p>
 <p><span class="math display">\[
 P\left(1\cup 6\right)=P\left(1\right)+P\left(6\right)=\frac{1}{6}+\frac{1}{6}=\frac{1}{3}
@@ -583,6 +595,7 @@ P1<span class="op">$</span>probs <span class="op">+</span><span class="st"> </sp
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Kedua peristiwa tersebut memiliki himpunannya masing-masing. Untuk peristiwa angka ganjil himpunan yang terjadi adalah ganjil={1, 3, 5}, sedangkan untuk angka prima adalah prima={1, 2, 3, 5}. Kedua peristiwa tersebut memiliki irisan himpunan yaitu saat mata dadu menunjukkan angka 1, 3, dan 5. Nilai probabilitas kedua peristiwa tersebut tidak bisa dihitung dengan langsung menjumlahkan probabilitas keduanya masing-masing karena terdapat satu peristiwa yang merupakan bagian dari peristiwa lain sehingga peristiwa tersebut sebagian perlu dihilangkan dari probabilitas salah satunya seperti yang ditulikan pada Persamaan <a href="probabilitas.html#eq:pnme">(8.6)</a>. Berdasarkan persamaan tersebut probabilitas yang peristiwa tersebut adalah sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(ganjil\cup prima\right)=P\left(ganjil\right)+P\left(prima\right)-P\left(ganjil\cap prima\right)=\frac{3}{6}+\frac{4}{6}-\frac{3}{6}=\frac{3+4-3}{6}=\frac{2}{3}
@@ -641,7 +654,6 @@ P\left(merokok\cup pembakaran\right)=\left(\frac{108}{250}\right)+\left(\frac{12
 Proses survey dilakukan dengan metode wawancara. Responden yang telah dilakukan wawancara selanjutnya tidak boleh diwawancarai lagi sehingga pada jumlah keseluruhan sampel terus berkurang. Hitunglah probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja?.
 </div>
 
-<hr />
 <table>
 <caption><span id="tab:tabpd">Tabel 8.1: </span> Populasi orang yang telah menyelesaikan masa studinya di suatu kota.</caption>
 <thead>
@@ -673,6 +685,8 @@ Proses survey dilakukan dengan metode wawancara. Responden yang telah dilakukan 
 </tr>
 </tbody>
 </table>
+<hr />
+<p><strong>Jawab</strong>:</p>
 <p>Berdasarkan contoh tersebut terdapat dua buah peristiwa yaitu peristiwa responden yang telah bekerja (dilambangkan dengan E) dan responden laki-laki (dilambangkan dengan M) atau dapat dituliskan sebagai berikut:</p>
 <p>M : seorang laki-laki yang terpilih. E : seseorang yang dipilih dan telah bekerja.</p>
 <p>Probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja selanjutnya dihitung seperti berikut:</p>
@@ -732,6 +746,7 @@ P_E_M<span class="op">/</span>P_E</code></pre></div>
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Berdasarkan Persamaan <a href="probabilitas.html#eq:pi">(8.9)</a>, probabilitas terpilihnya jenis responden tersebut adalah laki-laki (L) dan bekerja (E) sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(L\cap E\right)=\frac{500}{900}\cdot\frac{300}{900}=\frac{5}{27}
@@ -787,6 +802,7 @@ Hitunglah probabilitas kemungkinan terjadinya kegagalan pada stok tawas dari per
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Dengan menggunakan teori Bayes kita dapat menghitung probabilitas pada contoh kasus tersebut seperti berikut:</p>
 <p><span class="math display">\[
 P\left(B_i\mid A\right)=\frac{0,20\cdot0,05}{\left(0,6\cdot0,1+0,15\cdot0,1+0,05\cdot0,05\right)}=0,114
@@ -815,6 +831,7 @@ Bila kemungkinan mendapatkan proyek tersebut adalah 0,30, hitunglah ekspektasi m
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Berdasarkan data pada contoh tersebut, maka keuntungan yang diharapkan dari masing-masing proyek dapat dihitung sebagai berikut:</p>
 <ul>
 <li>Probabilitas memperoleh keuntungan 45 juta rupiah (keuntungan kotor-modal)=probabilitas mendapatkan proyek x keuntungan proyek tersebut=0,30 x 0,20 = 0,06</li>

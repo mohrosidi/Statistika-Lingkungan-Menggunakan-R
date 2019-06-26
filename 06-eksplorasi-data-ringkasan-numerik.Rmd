@@ -115,6 +115,8 @@ knitr::kable(
 
 ---------------------------------
 
+**Jawab**:
+
 Data pada Tabel \@ref(tab:debitsungai) dapat divisualisasikan seperti pada Gambar \@ref(fig:debitvis):
 
 ```{r debitvis,fig.cap='Visualisasi debit sungai pada sampel', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE, echo=FALSE, fig.height=1, fig.width=11}
@@ -189,6 +191,8 @@ knitr::kable(
 
 ---------------------------------
 
+**Jawab**:
+
 Visualisasi data Tabel \@ref(tab:gwtdsur), disajikan pada  Gambar \@ref(fig:gwvis1) dan Gambar \@ref(fig:gwvis2):
 
 ```{r gwvis1,fig.cap='Visualisasi konsentrasi TDS pada air tanah', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE, echo=FALSE, message=FALSE}
@@ -253,6 +257,8 @@ Kita akan menggunakan kembali data yang disajikan pada Tabel \@ref(tab:debitsung
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Untuk data pada Tabel \@ref(tab:debitsungai), median dapat dihitung menggunakan sintaks berikut:
 
 ```{r}
@@ -270,6 +276,8 @@ Paca contoh ini kita akan menggunakan kembali data pada Tabel \@ref(tab:gwtdsur)
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Sintaks berikut adalah cara menghitung median untuk data berkelompok menggunakan `R`:
 
@@ -319,6 +327,8 @@ Dengan menggunakan Tabel \@ref(tab:debitsungai), hitunglah nilai rata-rata debit
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Data pada Tabel \@ref(tab:debitsungai) merupakan data dengan kemencengan positif. Nilai *geometric mean* data tersebut dihitung menggunakan sintaks berikut:
 
 ```{r}
@@ -344,6 +354,7 @@ Dengan menggunakan Tabel \@ref(tab:debitsungai), hitunglah nilai rata-rata debit
 
 ---------------------------------------------------------
 
+**Jawab**:
 
 Pada `R` *trimmed mean* dapat dihitung dengan spesifikasi argumen `trim` pada fungsi `mean()`. Pada data debit sungai (Tabel \@ref(tab:debitsungai)) dihitung *trimmed mean* dengan data yang dipangkas adalah 5% di kedua ujung observasi atau `trim=0.1`.
 
@@ -400,6 +411,8 @@ Dengan menggunakan Tabel \@ref(tab:debitsungai), hitunglah nilai varians dan sim
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Nilai varians dan simpangan baku dapat dihitung secara manual menggunakan Persamaan \@ref(eq:var) dan Persamaan \@ref(eq:sd) atau menggunakan `R` menggunakan fungsi `var()` dan `sd()`. Berikut adalah sintaks `R` untuk menghitung nilai varians dan simpangan baku:
 
 ```{r}
@@ -430,6 +443,8 @@ Dengan menggunakan Tabel \@ref(tab:gwtdsur), hitunglah nilai varians dan simpang
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Sintaks berikut adalah cara menghitung varians dan simpangan baku untuk data berkelompok:
 
 ```{r}
@@ -441,7 +456,6 @@ data_gw %>%
 
 Jika kita perhatikan nilai varians dan simpangan baku Uranium pada dua kondisi kesadahan memiliki nilai yang nyaris sama. Hal sebaliknya terjadi pada variabel TDS yang menunjukkan perbedaan pada dua ukuran sebaran datanya. TDS pada kesadahan >50% memiliki varians dan simpangan baku yang lebih kecil dibanding kondisi kesadahan satunya, yang menunjukkan data pada kondisi kesadahan >50% lebih tidak tersebar dibanding kesadahan satunya.
 
----------------------------------------------------------
 
 ### Ukuran Sebaran Data yang Resisten Terhadap Outlier
 
@@ -482,6 +496,8 @@ Dengan menggunakan Tabel \@ref(tab:debitsungai), hitunglah nilai IQR debit sunga
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Kita dapat menghitung nilai IQR menggunakan fungsi `IQR()` pada `R`. Berikut adalah contoh sintaks yang digunakan:
 
@@ -524,6 +540,8 @@ Dengan menggunakan Tabel \@ref(tab:debitsungai), hitunglah nilai MAD debit sunga
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Kita dapat menghitung MAD dari data menggunakan fungsi yang telah dibuat. Berikut adalah contoh sintaks yang digunakan:
 
@@ -617,6 +635,8 @@ Dengan menggunakan Tabel \@ref(tab:gwtdsur), hitunglah nilai koefisien kemenceng
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Dengan menggunakan fungsi yang telah dibuat diperoleh koefisien kemencengan sebagai berikut:
 
 ```{r}
@@ -651,6 +671,8 @@ Dengan menggunakan Tabel \@ref(tab:gwtdsur), hitunglah nilai koefisien kemenceng
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Dengan menggunakan fungsi yang telah dibuat diperoleh koefisien kemencengan sebagai berikut:
 

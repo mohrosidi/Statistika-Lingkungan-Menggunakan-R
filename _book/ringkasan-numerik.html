@@ -24,7 +24,7 @@
 <meta name="author" content="Moh. Rosidi" />
 
 
-<meta name="date" content="2019-06-14" />
+<meta name="date" content="2019-06-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -399,6 +399,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.3.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-parametrik"><i class="fa fa-check"></i><b>11.3.1</b> Uji Parametrik</a></li>
 <li class="chapter" data-level="11.3.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-nonparametrik"><i class="fa fa-check"></i><b>11.3.2</b> Uji Nonparametrik</a></li>
 </ul></li>
+<li class="chapter" data-level="11.4" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-asumsi-normalitas-distribusi-data"><i class="fa fa-check"></i><b>11.4</b> Uji Asumsi Normalitas Distribusi Data</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#shapiro-wilk"><i class="fa fa-check"></i><b>11.4.1</b> Shapiro-Wilk</a></li>
+<li class="chapter" data-level="11.4.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#cramer-von-mises"><i class="fa fa-check"></i><b>11.4.2</b> Cramer-von Mises</a></li>
+<li class="chapter" data-level="11.4.3" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#shapiro-francia"><i class="fa fa-check"></i><b>11.4.3</b> Shapiro-Francia</a></li>
+<li class="chapter" data-level="11.4.4" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#anderson-darling"><i class="fa fa-check"></i><b>11.4.4</b> Anderson-Darling</a></li>
+<li class="chapter" data-level="11.4.5" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#liliefors-kolmogorov-smirnov"><i class="fa fa-check"></i><b>11.4.5</b> Liliefors (Kolmogorov-Smirnov)</a></li>
+<li class="chapter" data-level="11.4.6" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#pearson-chi-square"><i class="fa fa-check"></i><b>11.4.6</b> Pearson Chi-square</a></li>
+<li class="chapter" data-level="11.4.7" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-normalitas-menggunakan-r"><i class="fa fa-check"></i><b>11.4.7</b> Uji Normalitas menggunakan <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#tranformasi-box-cox"><i class="fa fa-check"></i><b>11.5</b> Tranformasi Box-Cox</a></li>
+<li class="chapter" data-level="11.6" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#referensi-10"><i class="fa fa-check"></i><b>11.6</b> Referensi</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
@@ -547,6 +558,7 @@ Gambar 6.2: Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlie
 </tbody>
 </table>
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> dapat divisualisasikan seperti pada Gambar <a href="ringkasan-numerik.html#fig:debitvis">6.3</a>:</p>
 <div class="figure" style="text-align: center"><span id="fig:debitvis"></span>
 <img src="EnvStat_files/figure-html/debitvis-1.png" alt="Visualisasi debit sungai pada sampel" width="70%" />
@@ -826,6 +838,7 @@ data_gw&lt;-data_gw <span class="op">%&gt;%</span>
 </tbody>
 </table>
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Visualisasi data Tabel <a href="ringkasan-numerik.html#tab:gwtdsur">6.2</a>, disajikan pada Gambar <a href="ringkasan-numerik.html#fig:gwvis1">6.4</a> dan Gambar <a href="ringkasan-numerik.html#fig:gwvis2">6.5</a>:</p>
 <div class="figure" style="text-align: center"><span id="fig:gwvis1"></span>
 <img src="EnvStat_files/figure-html/gwvis1-1.png" alt="Visualisasi konsentrasi TDS pada air tanah" width="70%" />
@@ -879,6 +892,7 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Untuk data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>, median dapat dihitung menggunakan sintaks berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 117</code></pre>
@@ -891,6 +905,7 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Sintaks berikut adalah cara menghitung median untuk data berkelompok menggunakan <code>R</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_gw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Bicarbonate) <span class="op">%&gt;%</span>
@@ -929,6 +944,7 @@ Gambar 6.5: Visualisasi konsentrasi Uranium pada air tanah
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Data pada Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a> merupakan data dengan kemencengan positif. Nilai <em>geometric mean</em> data tersebut dihitung menggunakan sintaks berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geomean</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 112.4</code></pre>
@@ -947,6 +963,7 @@ Gambar 6.6: Jendela diagram trimmed mean.
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Pada <code>R</code> <em>trimmed mean</em> dapat dihitung dengan spesifikasi argumen <code>trim</code> pada fungsi <code>mean()</code>. Pada data debit sungai (Tabel <a href="ringkasan-numerik.html#tab:debitsungai">6.1</a>) dihitung <em>trimmed mean</em> dengan data yang dipangkas adalah 5% di kedua ujung observasi atau <code>trim=0.1</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sungai<span class="op">$</span>debit, <span class="dt">trim=</span><span class="fl">0.1</span>)</code></pre></div>
 <pre><code>## [1] 113.2</code></pre>
@@ -989,6 +1006,7 @@ Gambar 6.6: Jendela diagram trimmed mean.
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Nilai varians dan simpangan baku dapat dihitung secara manual menggunakan Persamaan <a href="ringkasan-numerik.html#eq:var">(6.9)</a> dan Persamaan <a href="ringkasan-numerik.html#eq:sd">(6.10)</a> atau menggunakan <code>R</code> menggunakan fungsi <code>var()</code> dan <code>sd()</code>. Berikut adalah sintaks <code>R</code> untuk menghitung nilai varians dan simpangan baku:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># varians data sungai</span>
 <span class="kw">var</span>(sungai<span class="op">$</span>debit)</code></pre></div>
@@ -1011,6 +1029,7 @@ Gambar 6.6: Jendela diagram trimmed mean.
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Sintaks berikut adalah cara menghitung varians dan simpangan baku untuk data berkelompok:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_gw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Bicarbonate) <span class="op">%&gt;%</span>
@@ -1022,7 +1041,6 @@ Gambar 6.6: Jendela diagram trimmed mean.
 ## 1 0            79471.        13.0   282.       3.61
 ## 2 1            10559.        13.5   103.       3.68</code></pre>
 <p>Jika kita perhatikan nilai varians dan simpangan baku Uranium pada dua kondisi kesadahan memiliki nilai yang nyaris sama. Hal sebaliknya terjadi pada variabel TDS yang menunjukkan perbedaan pada dua ukuran sebaran datanya. TDS pada kesadahan &gt;50% memiliki varians dan simpangan baku yang lebih kecil dibanding kondisi kesadahan satunya, yang menunjukkan data pada kondisi kesadahan &gt;50% lebih tidak tersebar dibanding kesadahan satunya.</p>
-<hr />
 </div>
 <div id="ukuran-sebaran-data-yang-resisten-terhadap-outlier" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Ukuran Sebaran Data yang Resisten Terhadap Outlier</h3>
@@ -1057,6 +1075,7 @@ Gambar 6.6: Jendela diagram trimmed mean.
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Kita dapat menghitung nilai IQR menggunakan fungsi <code>IQR()</code> pada <code>R</code>. Berikut adalah contoh sintaks yang digunakan:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">IQR</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 72.5</code></pre>
@@ -1087,6 +1106,7 @@ Gambar 6.6: Jendela diagram trimmed mean.
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Kita dapat menghitung MAD dari data menggunakan fungsi yang telah dibuat. Berikut adalah contoh sintaks yang digunakan:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">MAD</span>(sungai<span class="op">$</span>debit)</code></pre></div>
 <pre><code>## [1] 60.42</code></pre>
@@ -1176,6 +1196,7 @@ Gambar 6.8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan po
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Dengan menggunakan fungsi yang telah dibuat diperoleh koefisien kemencengan sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">skew</span>(data_gw<span class="op">$</span>Uranium)</code></pre></div>
 <pre><code>## [1] 1.184</code></pre>
@@ -1202,6 +1223,7 @@ Gambar 6.8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan po
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Dengan menggunakan fungsi yang telah dibuat diperoleh koefisien kemencengan sebagai berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qs</span>(data_gw<span class="op">$</span>Uranium)</code></pre></div>
 <pre><code>##    75% 

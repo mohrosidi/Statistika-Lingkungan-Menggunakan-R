@@ -88,6 +88,8 @@ Bayangkan pembaca diminta melemparkan sebuah dadu. Satu buah dadu memiliki 6 bua
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Kedua peristiwa tersebut (munculnya angka 1 atau 6) tidak mungkin terjadi bersamaan karena hanya dilakukan menggunakan satu dadu. Selain itu, jumlah himpunan masing-masing peristiwa pertama dan kedua hanyalah satu sehingga tidak memungkinkan adanya irisan pada kedua peristiwa tersebut. Untuk menghitungnya kita dapat langsung menggunakan Persamaan \@ref(eq:pme).
 
 $$
@@ -152,6 +154,8 @@ Pembaca diminta melemparkan sebuah dadu. Hitung kembali probabilitas munculnya a
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Kedua peristiwa tersebut memiliki himpunannya masing-masing. Untuk peristiwa angka ganjil himpunan yang terjadi adalah ganjil={1, 3, 5}, sedangkan untuk angka prima adalah prima={1, 2, 3, 5}. Kedua peristiwa tersebut memiliki irisan himpunan yaitu saat mata dadu menunjukkan angka 1, 3, dan 5. Nilai probabilitas kedua peristiwa tersebut tidak bisa dihitung dengan langsung menjumlahkan probabilitas keduanya masing-masing karena terdapat satu peristiwa yang merupakan bagian dari peristiwa lain sehingga peristiwa tersebut sebagian perlu dihilangkan dari probabilitas salah satunya seperti yang ditulikan pada Persamaan \@ref(eq:pnme). Berdasarkan persamaan tersebut probabilitas yang peristiwa tersebut adalah sebagai berikut:
 
@@ -226,8 +230,6 @@ Bayangkan pembaca harus melakukan survey terkait studi AMDAL di suatu kota. Resp
 Proses survey dilakukan dengan metode wawancara. Responden yang telah dilakukan wawancara selanjutnya tidak boleh diwawancarai lagi sehingga pada jumlah keseluruhan sampel terus berkurang. Hitunglah probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja?.
 ```
 
----------------------------------------------------------
-
 **Jenis Kelamin**  | **Bekerja** | **Belum Bekerja** | **Total**
 -------------------|-------------|-------------------|----------  
 Laki-Laki          | 460         | 40                | 500
@@ -235,6 +237,10 @@ Perempuan          | 140         | 260               | 400
 **Total**          | 600         | 300               | 900
 
 : (\#tab:tabpd) Populasi orang yang telah menyelesaikan masa studinya di suatu kota.
+
+---------------------------------------------------------
+
+**Jawab**:
 
 Berdasarkan contoh tersebut terdapat dua buah peristiwa yaitu peristiwa responden yang telah bekerja (dilambangkan dengan E) dan responden laki-laki (dilambangkan dengan M) atau dapat dituliskan sebagai berikut:
 
@@ -315,6 +321,8 @@ Dengan menggunakan data pada Contoh \@ref(exm:depexp), tentukan probabilitas res
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Berdasarkan Persamaan \@ref(eq:pi), probabilitas terpilihnya jenis responden tersebut adalah laki-laki (L) dan bekerja (E) sebagai berikut:
 
 $$
@@ -384,6 +392,8 @@ Hitunglah probabilitas kemungkinan terjadinya kegagalan pada stok tawas dari per
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Dengan menggunakan teori Bayes kita dapat menghitung probabilitas pada contoh kasus tersebut seperti berikut:
 
 $$
@@ -418,6 +428,8 @@ Bila kemungkinan mendapatkan proyek tersebut adalah 0,30, hitunglah ekspektasi m
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Berdasarkan data pada contoh tersebut, maka keuntungan yang diharapkan dari masing-masing proyek dapat dihitung sebagai berikut:
 

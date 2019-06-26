@@ -6,7 +6,7 @@ text-align: justify}
 
 # Uji Hipotesis
 
-Environmental Engineer sering mengumpulkan sejumlah data dari lingkungan untuk mempelajari proses yang terjadi pada sistem lingkungan dimana data tersebut berada. Sering kali mereka memiliki dugaan awal yang selanjutnya kita sebut sebagai hipotesis bagaimana suatu sistem bekerja. Tujuan pengumpulan data yang dilakukan untuk menguji apakah hipotesis yang telah terbentuk dapat dipertahankan sesuai dengan bukti-bukti yang disajikan oleh data. Ui statistik merupakan cara kuantitatif untuk menentukan apakah suatu hipotesis dapat dipertahankan atau hipotesis tersebut perlu ditolak.
+Environmental Engineer sering mengumpulkan sejumlah data dari lingkungan untuk mempelajari proses yang terjadi pada sistem lingkungan dimana data tersebut berada. Sering kali mereka memiliki dugaan awal yang selanjutnya kita sebut sebagai hipotesis bagaimana suatu sistem bekerja. Tujuan pengumpulan data yang dilakukan untuk menguji apakah hipotesis yang telah terbentuk dapat dipertahankan sesuai dengan bukti-bukti yang disajikan oleh data. Uji statistik merupakan cara kuantitatif untuk menentukan apakah suatu hipotesis dapat dipertahankan atau hipotesis tersebut perlu ditolak.
 
 ## Klasifikasi Uji Hipotesis
 
@@ -72,7 +72,7 @@ Untuk memahaminya misalkan diinginkan pengujian hipotesis bahwa rata-rata popula
 
 Pada uji statistik terdapat dua buah nilai yang penting untuk diketahui yaitu **nilai statistik uji** dan **aturan penolakan**. Uji statistik yang digunakan untuk menguji $H_0$ terkait parameter $\mu$ dapat didasarkan pada titik estimasi $\hat\mu$ dari $\mu$. Aturan penolakan menentukan kapan $H_0$ harus ditolak. Pada dasarnya $H_0$ ditolak ketika nilai uji statistik berada pada sejumlah rentang (lebih besar, atau lebih kecil, atau keduanya tergantung pada $H_a$) yang menyatakan bahwa pada nilai tersebut tidak mungkin jika $H_0$ benar.
 
-Menggunakan contoh kasus sebelumnya dimana kita kan menguji **$H_0$**: $\mu=100$. $H_0$ ditolak jika nilai statistik uji lebih kecil sama dengan 100 atau $H_a\le C_1$ sebagai contoh nilai statistika ujinya adalah 90,80, dst. Bagaimana jika hipotesis ujinya  **$H_a$**: $\mu \le 100$?. Sama dengan sebelumnya maka penolakan $H_0$ terjadi jika nilai uji statistiknya $H_a>C_2$ seperti 110, 120, dst. Kondisi lain yang dapat juga diterapkan jika **$H_a$**: $\mu \neq 100$, maka $H_0$ ditolak jika nilai statistika ujinya adalah $H_a<C_3$ atau $H_a>C_4$
+Menggunakan contoh kasus sebelumnya dimana kita kan menguji **$H_0$**: $\mu=100$. $H_0$ ditolak jika nilai statistik uji lebih kecil sama dengan 100 atau $H_a\le C_1$ sebagai contoh nilai statistik ujinya adalah 90,80, dst. Bagaimana jika hipotesis ujinya  **$H_a$**: $\mu \le 100$?. Sama dengan sebelumnya maka penolakan $H_0$ terjadi jika nilai uji statistiknya $H_a>C_2$ seperti 110, 120, dst. Kondisi lain yang dapat juga diterapkan jika **$H_a$**: $\mu \neq 100$, maka $H_0$ ditolak jika nilai statistik ujinya adalah $H_a<C_3$ atau $H_a>C_4$
 
 Bagaimana cara tepat untuk memilih menggunakan nilai konstanta $C_1$, $C_2$, $C_3$, atau $C_4$? jawabannya adalah dengan menggunakan **tingkat signifikansinya** atau **error** (tingkat kesalahan). Tingkat signifikansi didefinisikan sebagai probabilitas (terbesar) untuk menolak $H_0$ secara tidak benar, atau, dengan kata lain, probabilitas (terbesar) untuk menolak $H_0$ ketika $H_0$ benar.
 
@@ -167,6 +167,8 @@ Pada uji parametrik asumsi normalitas distribusi sampel menjadi sesuatu yang pen
 
 Jika varians populasi diketahui maka kita dapat menggunakan pendekatan distribusi normal. Jika simpangan baku populasi ($\sigma$) tidak diketahui serta jumlah sampel kecil maka pendekatan dilakukan menggunakan distribusi t. Kondisi lain yang perlu dipertimbangkan adalah saat sampel yang kita miliki besar, namun simpangan baku populasi tidak diketahui. Hal ini merupakan kondisi yang banyak ditemukan di lingkungan. Beberapa *textbook* menjelaskan bahwa uji satu sampel untuk kondisi tersebut dapat menggunakan pendekatan distribusi normal sehingga simpangan baku populasi didekati dengan simpangan baku sampel ($s$). Hal ini sesuai dengan teori limit pusat dimana semakin besar ukuran sampel, maka nilai statistik sampel (mean dan simpangan baku) akan mendekati populasinya. Berikut adalah prosedur dalam melakukan uji hipotesisnya:
 
+--------------------------------------------------------------
+
 **Prosedur Uji Hipotesis**
 
 - **Asumsi** : Distribusi normal
@@ -186,19 +188,21 @@ Jika varians populasi diketahui maka kita dapat menggunakan pendekatan distribus
 - **Aturan penolakan (RR) berdasarkan variasi $H_a$**
 
 
-**$H_a$**       | **RR pada level $\alpha$**
-----------------|-----------------------------------------------------------
-$\mu>\mu_0$     | $Z_{H_0}\ge Z_\alpha$
-$\mu<\mu_0$     | $Z_{H_0}\le -Z_\alpha$
-$\mu\neq\mu_0$  | $Z_{\frac{\alpha}{2}} \le Z_{H_0}\le Z_{\frac{\alpha}{2}}$
+**$H_a$**         | **RR pada level $\alpha$**
+------------------|--------------------------------------------------------------|
+$\mu>\mu_0$       | $Z_{H_0}\ge Z_\alpha$                                        |  
+$\mu<\mu_0$       | $Z_{H_0}\le -Z_\alpha$                                       |
+$\mu\neq\mu_0$    | $Z_{\frac{\alpha}{2}} \le Z_{H_0}\le Z_{\frac{\alpha}{2}}$   |  
 
 : (\#tab:stha) Aturan penolakan berdasakan hipotesis alternatif distribusi normal.
 
+
+
 **$H_a$**          | **RR pada level $\alpha$**
--------------------|----------------------------------------------------------------
-$\mu>\mu_0$        | $T_{H_0}>t_{n-1,\alpha}$
-$\mu<\mu_0$        | $T_{H_0}< -t_{n-1,\alpha}$
-$\mu\neq\mu_0$     | $-t_{n-1,\frac{\alpha}{2}}<T_{H_0}< t_{n-1,\frac{\alpha}{2}}$
+-------------------|----------------------------------------------------------------|
+$\mu>\mu_0$        | $T_{H_0}>t_{n-1,\alpha}$                                       |
+$\mu<\mu_0$        | $T_{H_0}< -t_{n-1,\alpha}$                                     |
+$\mu\neq\mu_0$     | $-t_{n-1,\frac{\alpha}{2}}<T_{H_0}< t_{n-1,\frac{\alpha}{2}}$  |
 
 : (\#tab:stha1) Aturan penolakan berdasakan hipotesis alternatif distribusi t.
 
@@ -230,6 +234,8 @@ p-value =
 
 dimana $G_{n-1}$ adalah CDF (fungsi densitas kumulatif) dari distribusi t.
 
+--------------------------------------------------------------
+
 **Uji Hipotesis Menggunakan `R`**
 
 - **Distribusi Normal**
@@ -245,12 +251,12 @@ pnorm(((x/n)-mu)/(sd/sqrt(n)))
 2*(1-pnorm(abs(((x/n)-mu)/(sd/sqrt(n)))))
 ```
 
-> **Note: **
->
-> - **x/n**: rata-rata sampel
-> - **mu**: rata-rata populasi
-> - **sd**: simpangan baku
-> - **n**: ukuran sampel
+```{block2, type = "rmdnote"}
+- `x/n`: rata-rata sampel
+- `mu`: rata-rata populasi
+- `sd`: simpangan baku
+- `n`: ukuran sampel
+```
 
 - **Distribusi t**
 
@@ -263,18 +269,22 @@ t.test(x, y = NULL,
        conf.level = 0.95, ...)
 ```
 
-> **Note: **
->
-> - **x,y**: vektor numerik. Kedua argumen akan terisi jika akan dilakukan uji hipotesis untuk dua populasi.
-> - **alternative**: diguanakan untuk menentukan jenis uji hipotesis apakah satu sisi("less" dan "greater"), atau dua sisi ("two.sided").
-> - **mu**: rata-rata populasi. Secara default nilainya 0
-> - **paired**: vektor logikal yang menentukan apakah uji dua populasi digunakan untuk sampel berpasangan (TRUE) atau tidak (FALSE).
-> - **conf.level**: tingkat kepercayaan. Secara default tingkat kepercayaan yang digunakan adalah 95%.
+```{block2, type = "rmdnote"}
+- `x,y`: vektor numerik. Kedua argumen akan terisi jika akan dilakukan uji hipotesis untuk dua populasi.
+- `alternative`: diguanakan untuk menentukan jenis uji hipotesis apakah satu sisi("less" dan "greater"), atau dua sisi ("two.sided").
+- `mu`: rata-rata populasi. Secara default nilainya `0`
+- `paired`: vektor logikal yang menentukan apakah uji dua populasi digunakan untuk sampel berpasangan (`TRUE`) atau tidak (`FALSE`).
+- `conf.level`: tingkat kepercayaan. Secara default tingkat kepercayaan yang digunakan adalah `95%.`
+```
 
+---------------------------------------------------------
 
-**Contoh 1 ($\sigma$ dikeathui)**
-
+```{example, ujihipsastu1, name="Varian populasi diketahui"}
 Suatu produk kompos dalam kantong berisi rata-rata 16 kg per kantong, dengan simpangan baku=0,2 kg. Bila berat tersebut secara signifikan lebih kecil, maka toko penyalur berhak untuk menolak. Untuk mengujinya diambil sampel secara acak sebanyak 36 kantong, kemudian ditimbang, dan berat rata-rata yang diperoleh sebesar 15,7 kg. Dengan menggunakan $\alpha=0,01$ tentukan apakah berat rata-rata sampel lebih kecil dari berat seharusnya dengan asumsi distribusi yang terbentuk adalah distribusi normal?
+
+```
+
+---------------------------------------------------------
 
 **Jawab**:
 
@@ -308,9 +318,14 @@ pnorm(((15.7)-16)/(0.2/sqrt(36)))
 
 **Kesimpulan**: p-value < $\alpha$, atau $H_0$ ditolak. Berat rata-rata sampel < 16 kg (di bawah standard) sehingga diperlukan pembenahan dalam penimbangan kompos ke kantongnya agar sesuai standard.
 
-**Contoh 2 ($\sigma$ tidak diketahui)**
+---------------------------------------------------------
 
+```{example, ujihiposatu2, name="Varians populasi tidak diketahui"}
 Menurut seorang pengusaha industri, unit pengolah limbahnya mengeluarkan effluent dengan parameter BOD rata-rata harian sebesar 17 mg/l. Untuk itu dilakukan sampling komposit selama 7 hari berturut-turut, dan ternyata rerata BOD sampelnya adalah 19 mg/l, dengan simpangan baku 4 mg/l. Bila fenomena tersebut berdistribusi normal, lakukan pengujian dengan tingkat keyakinan $\alpha=0,01$?
+
+```
+
+---------------------------------------------------------
 
 **Jawab**:
 
@@ -366,6 +381,8 @@ Secara teorotis, sign test dapat diaplikasikan hanya pada situasi dimana $\tilde
 
 p-value pada sign test dihitung menggunakan menggunakan distribusi binomial, dimana kejadian sukses didefinisikan sebagai jumlah observasi dengan tanda "+" dengan probabilitas sukses $p=0,5$. Pembaca  dapat membuka kembali Chapter yang membahas mengenai distribusi probabilitas binomial untuk memahami cara perhitungannya.
 
+--------------------------------------------------------------
+
 **Prosedur Uji Hipotesis**
 
 - **Asumsi** : jumlah sampel $n<30$
@@ -378,7 +395,7 @@ p-value pada sign test dihitung menggunakan menggunakan distribusi binomial, dim
 ------------------------------|---------------------------
 $\tilde{\mu}>\tilde{\mu_0}$   | $p>0,5$
 $\tilde{\mu}<\tilde{\mu_0}$   | $p<0,5$
-$\tilde{\mu}\ne\tilde{\mu_0}$ | $p\ne0,5$.
+$\tilde{\mu}\ne\tilde{\mu_0}$ | $p\ne0,5$
 
 : (\#tab:signtest) Hipotesis alternatif terkonversi.
 
@@ -394,9 +411,8 @@ $\tilde{\mu}\ne\tilde{\mu_0}$  | $|Z_{H_0}|\ge z_{\frac{\alpha}{2}}$
 
 - **Statistik Uji**
 
-**$n<10$**: Fungsi densitas kumulatif distribusi binomial. Lihat tabel distribusi binomial untuk $p=0,5$.
-
-**$n\ge10$**:
+  + **$n<10$**: Fungsi densitas kumulatif distribusi binomial. Lihat tabel distribusi binomial untuk $p=0,5$.
+  + **$n\ge10$**:
 
 \begin{equation}
 Z_{H_0}=\frac{x-np}{\sqrt{npq}}
@@ -407,7 +423,7 @@ dimana $X$ merupakan jumlah observasi bertanda "+". $p$ merupakan probabilitas k
 
 - **p-value**
 
-**$n<10$**
+  + **$n<10$**
 
 \begin{equation}
 p-value =
@@ -419,7 +435,7 @@ p-value =
   (\#eq:signtesteq2)
 \end{equation}
 
-**$n\ge10$**
+  + **$n\ge10$**
 
 \begin{equation}
 p-value =
@@ -431,16 +447,18 @@ p-value =
   (\#eq:signtesteq3)
 \end{equation}
 
+---------------------------------------------------------
 
-**Contoh**
-
+```{example, npsatusam1}
 Nilai di bawah ini merupakan waktu yang diperlukan untuk menyisihkan suatu polutan di air sebesar 70% melalui proses sedimentasi pada percobaan di laboratorium:
 
-```
 1,1; 2,2; 0,9; 1,3; 2,0; 1,6; 1,8; 1,5; 2,0; 1,2; 1,7.
-```
 
 Gunakan sign test untuk mengecek apakah median dari hasil tersebut sesuai sama dengan yang dihasilkan penelitian sebelumnya sebesar 1,8 jam? Gunakan tingkat keyakinan 0,05 pendekatan distribusi binomial dan normal untuk kasus tersebut.
+
+```
+
+---------------------------------------------------------
 
 **Jawab**:
 
@@ -590,6 +608,8 @@ signed-rank test disebut juga sebagai **Wilcoxon signed-rank test** merupakan me
 
 Dalam penentuan penerimaan hipotesis terdapat beberapa hal yang perlu pembaca cermati. Jika hipotesis alternatif yang digunakan adalah $\tilde{\mu}<\tilde{\mu_0}$, hipotesis nol dapat ditolak hanya jika nilai $w_+$ kecil dan $w_-$ besar. Sebaliknya jika hipotesis alternatif yang digunakan adalah $\tilde{\mu}>\tilde{\mu_0}$, hipotesis nol dapat ditolak hanya jika nilai $w_+$ besar dan $w_-$ kecil. Untuk uji dua sisi, hipotesis nol akan ditolak jika kedua nilai $w_+$ dan $w_-$ cukup kecil.
 
+--------------------------------------------------------------
+
 **Prosedur Uji Hipotesis**
 
 - **Asumsi** : Distribusi simetris.
@@ -620,7 +640,7 @@ Untuk $n\ge15$ aturan penolakan dapat menggunakan pendekatan distribusi normal s
 
 - **Statistik Uji**
 
-Untuk ukuran sampel $n<15$ nilai kritis dapat ditentukan berdasarkan tabel nilai kritis untuk Signed-Rank Test yang dapat pembaca unduh pada tautan [berikut](https://math.ucalgary.ca/files/math/wilcoxon_signed_rank_table.pdf).
+Untuk ukuran sampel $n<15$ nilai kritis dapat ditentukan berdasarkan tabel nilai kritis untuk Signed-Rank Test yang dapat pembaca unduh pada tautan <https://math.ucalgary.ca/files/math/wilcoxon_signed_rank_table.pdf>.
 
 Untuk ukuran sampel $n\ge15$ dapat menggunakan pendekatan distribusi normal dengan sebelumnya menghitung nilai Z berdasarka nilai $w_+$ (atau $w_-$).
 
@@ -636,7 +656,9 @@ Z=\frac{w_+-\mu w_+}{\sigma w_+}
   (\#eq:signranktesteq2)
 \end{equation}
 
-**Prosedur Uji Hipotesis**
+--------------------------------------------------------------
+
+**Prosedur Uji Hipotesis Menggunakan R**
 
 Prosedur uji signed-rank test juga dapat dilakukan di `R` menggunakan fungsi `wilcox.test()`. Fungsi ini dapat digunakan untuk melakukan dua buah uji yaitu signed-rank dan Wilcoxon Rank Sum. Khusus untuk signed rank kita dapat melakukan test untuk satu atau dua populasi. Jika kita ingin melakukannya untuk satu populasi, maka kita hanya perlu menginputkan satu vektor saja. Berikut adalah format fungsi tersebut:
 
@@ -647,18 +669,21 @@ wilcox.test(x, y = NULL,
 
 ```
 
-> **Note: **
->
-> - **x,y**: vektor numerik. Kedua argumen akan terisi jika akan dilakukan uji hipotesis untuk dua populasi.
-> - **alternative**: diguanakan untuk menentukan jenis uji hipotesis apakah satu sisi("less" dan "greater"), atau dua sisi ("two.sided").
-> - **mu**: rata-rata populasi. Secara default nilainya 0
-> - **paired**: vektor logikal yang menentukan apakah uji dua populasi digunakan untuk sampel berpasangan (TRUE) atau tidak (FALSE).
-> - **conf.level**: tingkat kepercayaan. Secara default tingkat kepercayaan yang digunakan adalah 95%.
+```{block2, type = "rmdnote"}
+- `x,y`: vektor numerik. Kedua argumen akan terisi jika akan dilakukan uji hipotesis untuk dua populasi.
+- `alternative`: diguanakan untuk menentukan jenis uji hipotesis apakah satu sisi("less" dan "greater"), atau dua sisi ("two.sided").
+- `mu`: rata-rata populasi. Secara default nilainya `0`
+- `paired`: vektor logikal yang menentukan apakah uji dua populasi digunakan untuk sampel berpasangan (`TRUE`) atau tidak (`FALSE`).
+- `conf.level`: tingkat kepercayaan. Secara default tingkat kepercayaan yang digunakan adalah `95%`.
+```
 
+---------------------------------------------------------
 
-**Contoh**
-
+```{example, signedrank}
 Kita akan menggunakan kembali data pada contoh soal sebelumnya. Pada contoh kali ini hitunglah menggunakan signed-rank test?
+```
+
+---------------------------------------------------------
 
 **Jawab**:
 
@@ -694,6 +719,329 @@ wilcox.test(x=df, alternative ="two.sided", mu = 1.8,
 ```
 
 **Kesimpulan**: $w$ > $w_\alpha$. Terima $H_0$. Median hasil observasi tidak berbeda signifikan dengan median hasil percobaan sebelumnya.
+
+## Uji Asumsi Normalitas Distribusi Data
+
+Pada pengujian hipotesis yang telah dilakukan, asumsi normalitas merupakan asumsi yang wajib terpenuhi jika prosedur yang digunakan adalah prosedur uji parametrik. Terdapat dua buah cara untuk melihat apakah suatu data berditribusi normal atau tidak, cara tersebut adalah sebagai berikut:
+
+1. Metode grafis (QQ-plot, ECDF, Density plot, Histogram, dan Boxplot)
+2. Metode matematis (Shapiro-Wilk, Cramer-von Mises, Shapiro-Francia, Anderson-Darling, Liliefors, Pearson Chi-square, dll)
+
+Metode grafis telah banyak kita bahas pada Chapter-Chapter terkait visualisasi sebelumnya. Pada Chapter ini kita akan fokus membahas metode yang kedua.
+
+Hipotesis yang digunakan pada uji asumsi normalitas adalah sebagai berikut:
+
+$$
+H_0:\ Sampel\ berdistribusi\ normal
+$$
+
+$$
+H_1:\ Sampel\ tidak\ berdistribusi\ normal
+$$
+
+### Shapiro-Wilk
+
+Metode uji normalitas Shapiro-Wilk merupakan metode uji normalitas nonparametrik yang memiliki power yang besar, khususnya untuk sampel berukuran relatif kecil. Versi awal metode ini terbatas dengan jumlah sampel 3 sampai 50 sampel. Versi selanjutnya mengalami modifikasi sehingga dapat menangani sampel sampai dengan 5000 sampel bahkan lebih.
+
+Versi awal persamaan matematis metode Shapiro-Wilk disajikan pada Persamaan \@ref(eq:shapirowilk)
+
+\begin{equation}
+   W=\frac{\left(\sum_{i=1}^ma_i\left(x_{n+1-i}-x_i\right)\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}
+  (\#eq:shapirowilk)
+\end{equation}
+
+dimana $m=\frac{n}{2}$ ($n$ genap) dan $m=\frac{n-1}{2}$ ($n$ ganjil), $n$ merupakan jumlah sampel,  dan $a$ merupakan bobot yang didasarkan pada nilai $n$ (tabel penentuan nilai $a$ dapat pembaca lihat pada tautan <http://www.real-statistics.com/statistics-tables/shapiro-wilk-table/>).
+
+Untuk perhitungan secara manual, langkah-langkah perhitungannya adalah sebagai berikut:
+
+1. Urutkan nilai data dari yang terkecil sampai terbesar.
+2. Tentukan nilai $m$ dari jumlah sampel $n$.
+3. Hitung jumlah selisih kuadrat sampel (penyebut pada Persamaan \@ref(eq:shapirowilk))
+4. Hitung nilai selisih $a_{i}\left(x_{i}-\bar{x}\right)$.
+5. Hitung nilai $W$ menggunakan Persamaan \@ref(eq:shapirowilk).
+6. Untuk menghitung nilai p-value gunakan Tabel Shaphiro-Wilk yang dapat pembaca akses pada tautan <http://www.real-statistics.com/statistics-tables/shapiro-wilk-table/>. Gunakan metode interpolasi untuk memperoleh nilai yang paling mendekati $W$. Misal diperoleh $W=0,975$ dengan $n=10$. Berdasarkan Tabel Shapiro-Wilk nilai p-value uji berada antara 0,90 ($W=0,972$) dan 0,95 ($W=0,978$).
+
+Untuk jumlah sampel yang besar (sampai 5000) Persamaan \@ref(eq:shapirowilk) dimodifikasi menjadi Persamaan \@ref(eq:shapirowilk2).
+
+\begin{equation}
+   W=\frac{\left(\sum_{i=1}^na_ix_i\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}
+  (\#eq:shapirowilk2)
+\end{equation}
+
+Nilai p-value uji selanjutnya dihitung menggunakan pendekatan kurva normal standard ($Z$). Persamaan \@ref(eq:shapirowilk3) menyajikan cara menghitung nilai koefisien $Z$.
+
+\begin{equation}
+   Z=\frac{\ln\left(1-W\right)-\mu}{\sigma}
+  (\#eq:shapirowilk3)
+\end{equation}
+
+dimana 
+
+\begin{equation}
+   \mu=0,0038915\left(\ln\left(n\right)\right)^3-0,083751\left(\ln\left(n\right)\right)^2-0,31082\left(\ln\left(n\right)\right)-1,5861
+  (\#eq:shapirowilk4)
+\end{equation}
+
+\begin{equation}
+   \sigma=e^{0,0030302\left(\ln\left(n\right)\right)^2-0,082676\left(\ln\left(n\right)\right)-0,4803}
+  (\#eq:shapirowilk5)
+\end{equation}
+
+Contoh perhitungan uji normalitas Shapiro-Wilk dapat pembaca cek pada tautan <http://www.real-statistics.com/tests-normality-and-symmetry/statistical-tests-normality-symmetry/shapiro-wilk-test/> dan <http://www.real-statistics.com/tests-normality-and-symmetry/statistical-tests-normality-symmetry/shapiro-wilk-expanded-test/>
+
+### Cramer-von Mises
+
+Uji normalitas Cramér-von Mises adalah tes fungsi omnibus distribusi empiris untuk hipotesis normalitas komposit. Uji ini menggunakan jumlah selisih kudrat antara proporsi kumulatif yang diamati dan yang diharapkan. Statistik uji metode ini disajikan pada Persamaan \@ref(eq:cramervonmises).
+
+\begin{equation}
+   W=\frac{1}{12n}+\sum_{i=1}^n\left[p_i-\frac{2i-1}{2n}\right]^2
+  (\#eq:cramervonmises)
+\end{equation}
+
+dimana 
+
+\begin{equation}
+   p_{i=}\Phi\left[\frac{x_i-\overline{x}}{s}\right]
+  (\#eq:cramervonmises2)
+\end{equation}
+
+merupakan fungsi distribusi kumulatif distribusi normal standard. $\bar{x}$ dan $s$ merupakan nilai mean dan simpangan baku sampel.
+
+p-value dari statistik uji dapat dihitung menggunakan pendekatan fungsi normal standard (nilai Z) berdasarkan pada Tabel 4.9 Stephens (1986) menggunakan  Persamaan \@ref(eq:cramervonmises3).
+
+\begin{equation}
+   Z=W\left(1+\frac{0,5}{n}\right)
+  (\#eq:cramervonmises3)
+\end{equation}
+
+### Shapiro-Francia
+
+Uji normalitas Shapiro-Francia merupakan versi sederhana dari uji Shapiro_Wilk. Uji ini secara umum sama dengan uji Shapiro-Wilk untuk jumlah data yang besar. Seperti uji Shapiro-Wilk, uji Shapiro-Francia menghitung nilai $W$ untuk melihat apakah data berasal dari distribusi normal atau tidak. Jika data berdistribusi normal, maka akan terdapat korelasi antara data yang telah diurutkan dan nilai Z yang diambil dari distribusi normal standard.
+
+Nilai statistik uji dihitung menggunakan Persamaan \@ref(eq:shapirofrancia) untuk data yang telah diurutkan.
+
+\begin{equation}
+   W=\frac{\left(\sum_{i=1}^nm_ix_i\right)^2}{\left(n-1\right)s^2\sum_{i=1}^nm_i^2}
+  (\#eq:shapirofrancia)
+\end{equation}
+
+dimana $x_i$ merupakan data pada urutan ke-i, $m_i$ merupakan nilai perkiraan yang diharapkan pada data dengan urutan ke-i dari kuantil normal (atau nilai z). $m_i$ dapat dihitung menggunakan Persamaan \@ref(eq:shapirofrancia2)
+
+\begin{equation}
+   m_i=\Phi^{-1}\left(\frac{i}{n+1}\right)
+  (\#eq:shapirofrancia)
+\end{equation}
+
+dimana $\Phi^{-1}$ merupakan nilai inverse dari distribusi normal standard (Z). Nilai p-value selanjutnya dapat dihitung menggunakan Tabel Shapiro-Francia pada Appendix D tautan <https://www.itrcweb.org/gsmc-1/Content/Resources/Unified_Guidance_2009.pdf#10.5.2>.
+
+### Anderson-Darling
+
+Uji normalitas Anderson-Darling merupakan uji fungsi omnibus   densitas empiris (EDF) untuk hipotesis normalitas komposit. Statistik uji disajikan pada Persamaan \@ref(eq:andersondarling)
+
+\begin{equation}
+   m_i=\Phi^{-1}\left(\frac{i}{n+1}\right)
+  (\#eq:andersondarling)
+\end{equation}
+
+p-value selanjutnya dapat dihitung menggunakan pendekatan distribusi normal standard menggunakan nilai Z berdasarkan Tabel 4.9 di Stephens (1986). Perhitungan nilai Z disajikan pada Persamaan \@ref(eq:andersondarling2).
+
+\begin{equation}
+   Z=A\left(1+\frac{0,75}{n}+\frac{2,25}{n^2}\right)
+  (\#eq:andersondarling2)
+\end{equation}
+
+Uji Anderson-Darling merupakan uji EDF yang direkomendasikan oleh Stephens (1986). Dibandingkan dengan uji Cramer-von-Misses (sebagai alternatif kedua), uji Anderson-Darling memberikan bobot lebih pada ekor distribusi.
+
+### Liliefors (Kolmogorov-Smirnov)
+
+Ujnormalitas Liliefors (Kolmogorov-Smirnov) merupakan uji fungsi omnibus distribusi empiris untuk uji normalitas komposit. Statistik uji yang digunakan didasarkan pada nilai selisih absolut maksimum antara fungsi distribusi kumulatif empiris dan hipotetikal. Komuptasi statistik uji disajikan pada Persamaan \@ref(eq:liliefors).
+
+\begin{equation}
+  D=\max\left\{D^+,\ D^-\right\} 
+  (\#eq:liliefors)
+\end{equation}
+
+dimana
+
+\begin{equation}
+  D^+=\max_{i=1,..,n}\left\{\frac{1}{n}-p_i\right\},\ \ \ D^-=\max_{i=1,...,n}\left\{p_i-\frac{\left(i-1\right)}{n}\right\} 
+  (\#eq:liliefors2)
+\end{equation}
+
+p-value dihitung berdasarkan formula Dallas-Wilkinson (1986), dimana diklaim hanya dapat diandalkan ketika p-value lebih kecil dari 0,1. Jika p-value Dallas-Wilkinson lebih besar dari 0,1, maka p-value dihitung menggunakan pendekatan distribusi normal standard (lihat Stephens(1974)). Pehitungan nilai Z menggunakan Persamaan \@ref(eq:liliefors3).
+
+\begin{equation}
+   Z=D\left(\sqrt{n}-0,01+\frac{0,85}{\sqrt{n}}\right)
+  (\#eq:liliefors3)
+\end{equation}
+
+### Pearson Chi-square
+
+Statistik uji Pearson chi-square disajikan pada Persamaan \@ref(eq:pearsonchisquare).
+
+\begin{equation}
+  P=\sum_{ }^{ }\frac{\left(C_i-E_i\right)}{E_i}
+  (\#eq:pearsonchisquare)
+\end{equation}
+
+dimana $C_i$ merupakan jumlah observasi terhitung dan $E_i$ merupakan jumlah observasi estimasi di kelas i. Nilai uji tersebut selanjutnya digunakan untuk menghitung p-value menggunakan table chi-square.
+
+Uji normalitas chi-square tidak direkomendasikan digunakan untuk menguji hipotesis normalitas komposit. Hal ini disebabkan karena uji ini memiliki power yang rendah.
+
+### Uji Normalitas menggunakan `R`
+
+Terdapat beberapa library yang dapat digunakan untuk melakukan uji normalitas pada `R`. Library yang tersedia diantaranya adalah library `stats`, `nortest`, dan `RcmdrMisc`. Pada Tabel \@ref(tab:ujinormalitas) disajikan fungsi-fungsi uji normalitas beserta library fungsi tersebut:
+
+
+**Fungsi**              | **Library**  | **Keterangan**
+------------------------|--------------|-----------------------------------
+`shapiro.test(x)`       | `stats`      | Uji Shapiro-Wilk
+`ad.test(x)`            | `nortest`    | uji Anderson-Darling
+`cvm.test(x)`           | `nortest`    | uji Cramer-von Mises
+`lillie.test(x)`        | `nortest`    | uji Liliefors (Kolmogorov-Smirnov)
+`pearson.test(x)`       | `nortest`    | uji Pearson Chi-square
+`sf.test(x)`            | `nortest`    | uji Shapiro-Francia
+`normalityTest(x,test)` | `RcmdrMisc`  | uji Normalitas berbagai metode
+
+: (\#tab:ujinormalitas) Fungsi dan library uji normalitas di `R`.
+
+```{block2, type = "rmdnote"}
+- `x`: vektor numerik
+- `test`: argumen tambahan berupa fungsi uji normalitas. misal: `shapiro.test`.
+```
+
+---------------------------------------------------------
+
+```{example, ujinormalitasexm}
+Dengan menggunakan dataset `airquality`, lakukan pengujian pada `R` untuk mengetahui apakah distribusi konsentrasi `Ozone` berdistribusi normal menggunakan uji Shapiro-Wilk?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
+
+Berikut adalah sintaks untuk melakukan uji normalitas pada `R`:
+
+```{r}
+shapiro.test(airquality$Ozone)
+
+# atau
+library(RcmdrMisc)
+normalityTest(airquality$Ozone, test="shapiro.test")
+```
+
+**Kesimpulan**: dengan menggunakan $alpha=5%$ dapat disimpulkan bahwa distribusi konsentrasi `Ozone` pada dataset `airquality` tidak berdistribusi normal.
+
+## Tranformasi Box-Cox
+
+Kita telah belajar bagaimana melakukan uji hipotesis untuk satu populasi dan pada Chapter sebelumnya kita juga telah belajar bagaimana menghitung interval kepercayaan. Pada kedua materi tersebut untuk metode parametrik diperlukan pemenuhan asumsi normalitas. Jika asumsi tersebut tidak terpenuhi, maka perlu digunakan metode lain yaitu metode nonparametrik atau melakukan transformasi data untuk memperoleh data yang mendekati distribusi normal.
+
+Transformasi Box-COx merupakan metode tansformasi data yang tidak mengikuti distribusi normal agar data mengikuti distribusi normal. Metode ini dikembangkan oleh **George Box** dan **Sir David Roxbee Cox**.
+
+Inti dari tansformasi Box Cox adalah eksponen, lamda $\lambda$ yang bervariasi dari -5 sampai 5. Semua nilai $\lambda$ dipertimbangkan dan nilai optimal untuk data selanjutnya dipilih. **Nilai optimal** merupakan $\lambda$ yang menghasilkan perkiraan terbaik dari kurva distribusi normal. Transformasi y memiliki bentuk yang disajikan pada Persamaan \@ref(eq:boxcox).
+
+\begin{equation}
+y\left(\lambda\right) =
+  \begin{cases}
+    \frac{x^{\lambda}-1}{\lambda}       & \quad \lambda\ne0\\
+    \log\left(x\right)                  & \quad \lambda = 0
+    \end{cases}
+ (\#eq:boxcox)
+\end{equation}
+
+Uji ini hanya berfungsi pada data bernilai positif. Jika data negatif, maka Persamaan \@ref(eq:boxcox) akan dimodifikasi menjadi Persamaan \@ref(eq:boxcox2).
+
+\begin{equation}
+y\left(\lambda\right) =
+  \begin{cases}
+    \frac{\left(x+\lambda_2\right)^{\lambda_2}-1}{\lambda_1}       & \quad \lambda_{1}\ne0\\
+    \log\left(x+\lambda_2\right)                                   & \quad \lambda_{1} = 0
+    \end{cases}
+ (\#eq:boxcox2)
+\end{equation}
+
+Setelah nilai $\lambda$ optimal diperoleh, transformasi data dilakukan menggunakan  Persamaan \@ref(eq:boxcox) atau Persamaan \@ref(eq:boxcox2). Pada Tabel \@ref(tab:transboxcox) disajikan nilai $\lambda$ dan transformasinya yang bersesuaian untuk menghasilkan distribusi normal.
+
+**$\lambda$**  | Transformasi
+---------------|--------------
+2              | $x^2$
+0,5            | $\sqrt{x}$
+0              | $\ln{x}$
+-0,5           | $\frac{1}{\sqrt{x}}$
+-1             | $\frac{1}{x}$
+
+: (\#tab:transboxcox) Nilai $\lambda$ dan transformasinya.
+
+Pada `R` penentuan $\lambda$ optimal dapat menggunakan fungsi `powerTransform()` dari library `car`. Fungsi ini memungkinkan kita menghitung nilai $\lambda$ optimal baik untuk yang seluruh nilai datanya positif, negatif, atau sebagian datanya negatif (transformasi Yeo-Jonhson). Berikut adalah format fungsinya:
+
+```{r, eval=FALSE}
+powerTransform(object, family="bcPower")
+```
+
+```{block2, type = "rmdnote"}
+- `object`: objek dapat berupa kelas formula `lm` atau `lmerMod`, atau matrix atau vektor. 
+- `family`: keluarga transformasi. Nilai yang mungkin adalah "bcPower" jika seluruh datanya positif, "bcnPower" jika seluruh datanya negatif, dan "yjPower" jika sebagian datanya negatif.
+```
+
+---------------------------------------------------------
+
+```{example, transboxcexm}
+Dengan menggunakan dataset `airquality`, lakukan transformasi Box-Cox pada `R` untuk agar distribusi konsentrasi `Ozone` berdistribusi normal serta lakukan pengujian kembali distribusi baru tersebut apakah telah berdistribusi normal atau belum?
+```
+
+---------------------------------------------------------
+
+**Jawab**:
+
+Kita akan memvisualisasikan terlebih dahulu data konsentrasi `Ozone` pada dataset `airquality`. Visualisasi distribusi `Ozone` disajikan pada Gambar \@ref(fig:ozonevis).
+
+```{r ozonevis, echo=FALSE, fig.cap='Visualisasi distribusi konsentrasi Ozone', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE,warning=FALSE,error=FALSE,message=FALSE}
+library(ggplot2)
+ggplot(airquality, aes(Ozone))+
+  geom_histogram()+
+  theme_classic()
+```
+
+Berdasarkan Gambar \@ref(fig:ozonevis) distribusi `Ozone` memiliki kemencengan positif sehingga perlu dilakukan transformasi Box-Cox. Berikut adalah sintak untuk menentukan nilai $\lambda$ optimum pada transformasi Box-Cox:
+
+```{r}
+library(car)
+summary(powerTransform(airquality$Ozone, 
+                       family="bcPower"))
+```
+
+Berdasarkan hasil yang diperoleh diketahui nilai $\lambda$ optimum sebesar 0,2034. Kita akan menggunakan nilai ini untuk mentransformasi konsentrasi `Ozone`. Berikut adalah visualisasi hasil transformasinya:
+
+```{r ozonevis2, echo=FALSE, fig.cap='Visualisasi distribusi konsentrasi Ozone hasil transformasi Box-Cox', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE,warning=FALSE,error=FALSE,message=FALSE}
+ggplot(airquality, aes(((Ozone^0.2034)-1)/0.2034))+
+  geom_histogram()+
+  labs(x="Ozone")+
+  theme_classic()
+```
+
+Berdasarkan Gambar \@ref(fig:ozonevis2) distribusi `Ozone` hasil transformasi telah mendekati bentuk kurva normal. Selanjutnya distribusi tersebut kembali diuji normalitasnya menggunakan sintaks berikut:
+
+```{r}
+shapiro.test(((airquality$Ozone^0.2034)-1)/0.2034)
+```
+
+**Kesimpulan**: dengan menggunakan $\alpha=0,05$ dapat disimpulkan bahwa distribusi konsentrasi `Ozone` hasil transformasi Box-Cox telah berdistribusi normal.
+
+## Referensi
+
+1. Akritas, M. 2016. **Probability $ Statistics with R**. Pearson.
+2. Chi Yau. 2014. **R Tutorial with Bayesian Statistics Using OpenBUGS**. Amazon Kindle.
+3. Crawley, M.J. 2015. **Statistics: An Introduction Using R**. John Wiley & Sons.
+4. Damanhuri, E. 2011. **Statitika Lingkungan**. Penerbit ITB.
+5. Dokumentasi library Car
+6. Dokumentasi library stats
+7. Dokumentasi library RcmdrMisc
+8. Helsel, D.R., Hirsch, R.M. 2002. **statistical Methods in Water Resources**. USGS.
+9. Janicak, C.A. 2007. **Applied Statistics in Occupational Safety and Health**. Government Institutes.
+10. Kerns, G.Jay. 2018. **Introduction to Probability and Statistics Using R Third Edition**. GNU Free Documentation License.
+11. Ofungwu, J. 2014. **Statistical Applications For Environmental Analysis and Risk Assessment**.  John Wiley & Sons, Inc.
+
+
 
 
 

@@ -24,7 +24,7 @@
 <meta name="author" content="Moh. Rosidi" />
 
 
-<meta name="date" content="2019-06-14" />
+<meta name="date" content="2019-06-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -399,6 +399,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.3.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-parametrik"><i class="fa fa-check"></i><b>11.3.1</b> Uji Parametrik</a></li>
 <li class="chapter" data-level="11.3.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-nonparametrik"><i class="fa fa-check"></i><b>11.3.2</b> Uji Nonparametrik</a></li>
 </ul></li>
+<li class="chapter" data-level="11.4" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-asumsi-normalitas-distribusi-data"><i class="fa fa-check"></i><b>11.4</b> Uji Asumsi Normalitas Distribusi Data</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#shapiro-wilk"><i class="fa fa-check"></i><b>11.4.1</b> Shapiro-Wilk</a></li>
+<li class="chapter" data-level="11.4.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#cramer-von-mises"><i class="fa fa-check"></i><b>11.4.2</b> Cramer-von Mises</a></li>
+<li class="chapter" data-level="11.4.3" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#shapiro-francia"><i class="fa fa-check"></i><b>11.4.3</b> Shapiro-Francia</a></li>
+<li class="chapter" data-level="11.4.4" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#anderson-darling"><i class="fa fa-check"></i><b>11.4.4</b> Anderson-Darling</a></li>
+<li class="chapter" data-level="11.4.5" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#liliefors-kolmogorov-smirnov"><i class="fa fa-check"></i><b>11.4.5</b> Liliefors (Kolmogorov-Smirnov)</a></li>
+<li class="chapter" data-level="11.4.6" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#pearson-chi-square"><i class="fa fa-check"></i><b>11.4.6</b> Pearson Chi-square</a></li>
+<li class="chapter" data-level="11.4.7" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-normalitas-menggunakan-r"><i class="fa fa-check"></i><b>11.4.7</b> Uji Normalitas menggunakan <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#tranformasi-box-cox"><i class="fa fa-check"></i><b>11.5</b> Tranformasi Box-Cox</a></li>
+<li class="chapter" data-level="11.6" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#referensi-10"><i class="fa fa-check"></i><b>11.6</b> Referensi</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
@@ -652,7 +663,12 @@ Gambar 10.4: Probabilitas median populasi P50 pada dua sisi interval estimasi (H
   \tag{10.3}
 \end{equation}\]</span>
 <p>Interval nonparametrik tidak selalu dapat secara tepat menghasilkan tingkat kepercayaan yang diinginkan ketika ukuran sampel kecil. Ini karena mereka terpisah, melompat dari satu nilai data ke yang berikutnya di ujung interval. Namun, tingkat kepercayaan yang dekat dengan yang diinginkan tersedia untuk semua kecuali ukuran sampel terkecil.</p>
-<p>Untuk lebih memahaminya diberikan data 25 pengukuran konsentrasi arsenin di air tanah dalam ppb yang disajikan pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>.</p>
+<hr />
+
+<div class="example">
+<span id="exm:iemed" class="example"><strong>Contoh 10.1  </strong></span>Untuk lebih memahaminya diberikan data 25 pengukuran konsentrasi arsenin di air tanah dalam ppb yang disajikan pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>. Hitunglah interval estimasi median dari data tersebut?
+</div>
+
 <table>
 <caption><span id="tab:gwardat">Tabel 10.3: </span>Konsentrasi Arsenik dalam air tanah (ppb)</caption>
 <thead>
@@ -764,6 +780,8 @@ Gambar 10.4: Probabilitas median populasi P50 pada dua sisi interval estimasi (H
 </tr>
 </tbody>
 </table>
+<hr />
+<p><strong>Jawab</strong>:</p>
 <p>Visualisasi Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a> ditunjukkan pada Gambar <a href="penaksiran-secara-statistika.html#fig:gwardatvis">10.5</a>. Berdasarkan gambar tersebut terlihat bahwa data memiliki kemencengan yang positif sehingga penaksiran rata-rata populasi menggunakan nilai mean tidak dapat dilakukan.</p>
 <div class="figure" style="text-align: center"><span id="fig:gwardatvis"></span>
 <img src="EnvStat_files/figure-html/gwardatvis-1.png" alt="Distribusi konsentrasi arsenik dalam air tanah" width="70%" />
@@ -771,7 +789,7 @@ Gambar 10.4: Probabilitas median populasi P50 pada dua sisi interval estimasi (H
 Gambar 10.5: Distribusi konsentrasi arsenik dalam air tanah
 </p>
 </div>
-<p>Berdasarkan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, median konsentrasi arsenik <span class="math inline">\(\hat{C}_{0.5}\)</span>=19 yang berada pada urutan data ke-13 dari data yang telah diurutkan dari yang terkecil ke yang terbesar. Untuk menentukan interval kepercayaan 95% median kosentrasi arsenik <span class="math inline">\(C_{0.5}\)</span>, nilai kritis berdasarkan nilai error mendekati <span class="math inline">\(\alpha/2\)</span>=0,025 adalah <span class="math inline">\(x&#39;\)</span>=7. Untuk lebih memahaminya pembaca dapat mengunduh tabel distribusi binomial pada laman <a href="https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf">berikut</a>. Nilai <span class="math inline">\(x&#39;\)</span>=7 diperoleh menggunakan Tabel distribusi binomial dengan <span class="math inline">\(n\)</span>=25 dan <span class="math inline">\(p\)</span>=0,5 yang ditampilkan pada Gambar <a href="penaksiran-secara-statistika.html#fig:tabbinom">10.6</a> dengan nilai probabilitas sebesar 0,022 (mendekati 0,025) yang setara dengan area yang diarsir pada Gambar <a href="penaksiran-secara-statistika.html#fig:iemednp">10.4</a>.</p>
+<p>Berdasarkan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, median konsentrasi arsenik <span class="math inline">\(\hat{C}_{0.5}\)</span>=19 yang berada pada urutan data ke-13 dari data yang telah diurutkan dari yang terkecil ke yang terbesar. Untuk menentukan interval kepercayaan 95% median kosentrasi arsenik <span class="math inline">\(C_{0.5}\)</span>, nilai kritis berdasarkan nilai error mendekati <span class="math inline">\(\alpha/2\)</span>=0,025 adalah <span class="math inline">\(x&#39;\)</span>=7. Untuk lebih memahaminya pembaca dapat mengunduh tabel distribusi binomial pada laman <a href="https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf" class="uri">https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf</a>. Nilai <span class="math inline">\(x&#39;\)</span>=7 diperoleh menggunakan Tabel distribusi binomial dengan <span class="math inline">\(n\)</span>=25 dan <span class="math inline">\(p\)</span>=0,5 yang ditampilkan pada Gambar <a href="penaksiran-secara-statistika.html#fig:tabbinom">10.6</a> dengan nilai probabilitas sebesar 0,022 (mendekati 0,025) yang setara dengan area yang diarsir pada Gambar <a href="penaksiran-secara-statistika.html#fig:iemednp">10.4</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:tabbinom"></span>
 <img src="tabbinom.PNG" alt="Lokasi probabilitas x berdasarkan tabel distribusi binomial" width="65%" />
 <p class="caption">
@@ -812,13 +830,14 @@ Gambar 10.6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
                   <span class="st">&quot;Upper CL&quot;</span>=UCL)
   <span class="kw">return</span>(data)
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>alpha</code>: alpha level yang digunakan
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Fungsi yang telah dibuat tersebut selanjutnya dapat pembaca gunakan saat akan menghitung interval kepercayaan median populasi menggunakan metode Nonparametrik. Berikut penerapannya menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a> yang telah disimpan kedalam objek <code>gwardat</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">med_npCI</span>(<span class="dt">x=</span>gwardat<span class="op">$</span>konsentrasi, <span class="dt">alpha=</span><span class="fl">0.05</span>)</code></pre></div>
 <pre><code>##   median True.CL.. Lower.CL Upper.CL
@@ -832,7 +851,15 @@ Gambar 10.6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
    R_l=\frac{n-z_{\frac{\alpha}{2}}\cdot\sqrt{n}}{2}+1
   \tag{10.5}
 \end{equation}\]</span>
-<p>Menggunakan contoh data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, dengan 95% interval kepercayaan (<span class="math inline">\(z_{\alpha/2}\)</span>=1,96) median dapat dihitung seperti berikut:</p>
+<hr />
+
+<div class="example">
+<span id="exm:iemed2" class="example"><strong>Contoh 10.2  </strong></span>Menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, Hitunglah interval kepercayaan median dengan 95% interval kepercayaan (<span class="math inline">\(z_{\alpha/2}\)</span>=1,96)?
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
+<p>95% interval kepercayaan (<span class="math inline">\(z_{\alpha/2}\)</span>=1,96) median dapat dihitung seperti berikut:</p>
 <p><span class="math display">\[
   R_l=\frac{25-1,96\cdot\sqrt{25}}{2}=7,6 
 \]</span></p>
@@ -862,13 +889,14 @@ Gambar 10.6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
 }</code></pre></div>
 <p>Fungsi <code>med_norCI()</code> sama dengan fungsi <code>med_npCI()</code>. Perbedaannya terletak pada penggunaan distribusi normal pada proses penentuan titik kritisnya.</p>
 <p>Dengan menggunakan fungsi <code>med_norCI()</code>, rentang kepercayaan median dapat dihitung seperti berikut:</p>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>alpha</code>: alpha level yang digunakan
+</div>
+</li>
 </ul>
-</blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">med_norCI</span>(<span class="dt">x=</span>gwardat<span class="op">$</span>konsentrasi, <span class="dt">alpha=</span><span class="fl">0.05</span>)</code></pre></div>
 <pre><code>##   median Lower CL Upper CL 
 ##     19.0      4.8    110.0</code></pre>
@@ -934,13 +962,14 @@ Gambar 10.6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
                   <span class="st">&quot;Upper CL&quot;</span>=UCL)
   data
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>df</strong>: data frame</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
+<li><code>df</code>: data frame</li>
+<li><code>alpha</code>: alpha level yang digunakan
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Fungsi tersebut dapat menghitung sekaligus Interval kepercayaan median dengan metode nonparametrik. Pembaca dapat mencobanya dengan menggunakan dataset yang pembaca miliki. Pembaca dapat mengabaikan peringatan yang muncul dan berfokus pada hasil yang diperoleh. Sebagai contoh jalankan fungsi tersebut menggunakan dataset <code>airquality</code> berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">med_norCI</span>(<span class="dt">df=</span>airquality, <span class="dt">alpha=</span><span class="fl">0.05</span>)</code></pre></div>
 <pre><code>##   variabel median Lower.CL Upper.CL
@@ -964,6 +993,14 @@ Gambar 10.6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
   \tag{10.7}
 \end{equation}\]</span>
 <p>dimana <span class="math inline">\(s_{y}^2\)</span>= varians sampel y pada unit log natural.</p>
+<hr />
+
+<div class="example">
+<span id="exm:iemedparam" class="example"><strong>Contoh 10.3  </strong></span>Menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, Hitunglah interval kepercayaan median dengan 95% interval kepercayaan (<span class="math inline">\(z_{\alpha/2}\)</span>=1,96) menggunakan pendekatan <em>mean geometrik</em>?
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
 <p>Pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, untuk menghitung interval keyakinan median menggunakan pendekatan mean geometrik <span class="math inline">\(GM_x\)</span> kita perlu mentransformasi datanya terlebih dahulu sehingga menjadi bentuk natural log. hasil transformasi disajikan pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat2">10.4</a>.</p>
 <table>
 <caption><span id="tab:gwardat2">Tabel 10.4: </span>Tranformasi logaritmik konsentrasi Arsenik dalam air tanah (ppb)</caption>
@@ -1113,13 +1150,14 @@ Gambar 10.7: Distribusi logaritmik konsentrasi arsenik dalam air tanah
         <span class="st">&quot;Upper CL&quot;</span>=UCL)
   data
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>alpha</code>: alpha level yang digunakan
+</div>
+</li>
 </ul>
-</blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">med_gm</span>(<span class="dt">x=</span>gwardat<span class="op">$</span>konsentrasi, <span class="dt">alpha=</span><span class="fl">0.05</span>)</code></pre></div>
 <pre><code>##       GM Lower CL Upper CL 
 ##    23.87    10.63    53.60</code></pre>
@@ -1183,13 +1221,14 @@ Gambar 10.7: Distribusi logaritmik konsentrasi arsenik dalam air tanah
                   <span class="st">&quot;Upper CL&quot;</span>=UCL)
   data
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>df</strong>: data frame</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
+<li><code>df</code>: data frame</li>
+<li><code>alpha</code>: alpha level yang digunakan
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Untuk menguji fungsi tersebut jalankan fungsi tersebut menggunakan dataset yang pembaca miliki. Dalam contoh ini ak diberikan contoh penerapannya menggunakan dataset <code>airquality</code>. Jalankan fungsi berikut untuk memperoleh hasilnya.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">med_gm</span>(airquality, <span class="fl">0.05</span>)</code></pre></div>
 <pre><code>##   Variabel      GM Lower.CL Upper.CL
@@ -1213,7 +1252,15 @@ Gambar 10.7: Distribusi logaritmik konsentrasi arsenik dalam air tanah
   \overline{x}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{\frac{s^2}{n}}\le\mu\le\overline{x}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{\frac{s^2}{n}}
   \tag{10.8}
 \end{equation}\]</span>
-<p>Untuk lebih memahami cara penerapannya, kita akan menggunakan kembali data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat2">10.4</a>. Langkah pertama yang perlu dilakukan adalah menghitung mean sampel <span class="math inline">\(\overline{x}\)</span> dan simpangan baku sampel <span class="math inline">\(s\)</span>. Berdasarkan hasil perhitungan diperoleh nilai <span class="math inline">\(\overline{x}\)</span> =98.352 dan <span class="math inline">\(s\)</span> = 144.685. Dengan meggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeancisim">(10.8)</a>, interval estimasi mean dengan tingkat kepercayaan 95% dapat dihitung sebagai berikut:</p>
+<hr />
+
+<div class="example">
+<span id="exm:iemeansim" class="example"><strong>Contoh 10.4  </strong></span>Menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, Hitunglah interval kepercayaan mean dengan 95% interval kepercayaan (<span class="math inline">\(z_{\alpha/2}\)</span>=1,96) menggunakan pendekatan distribusi yang simetris?
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
+<p>Langkah pertama yang perlu dilakukan adalah menghitung mean sampel <span class="math inline">\(\overline{x}\)</span> dan simpangan baku sampel <span class="math inline">\(s\)</span>. Berdasarkan hasil perhitungan diperoleh nilai <span class="math inline">\(\overline{x}\)</span> =98.352 dan <span class="math inline">\(s\)</span> = 144.685. Dengan meggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeancisim">(10.8)</a>, interval estimasi mean dengan tingkat kepercayaan 95% dapat dihitung sebagai berikut:</p>
 <p><span class="math display">\[
   3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}\le\mu\le3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}
 \]</span></p>
@@ -1443,6 +1490,14 @@ r</code></pre></div>
   \tag{10.10}
 \end{equation}\]</span>
 <p>Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeanciasimci">(10.10)</a> dapat dimodifikasi dengan menggunakan distribusi t dibanding menggunakan distribusi normal. Penggunaan distribusi t akan memperbaiki kelemahan penggunaan distribusi normal pada sampel yang berukuran kecil.</p>
+<hr />
+
+<div class="example">
+<span id="exm:iemeanasim" class="example"><strong>Contoh 10.5  </strong></span>Menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, Hitunglah interval kepercayaan mean dengan 95% interval kepercayaan (<span class="math inline">\(z_{\alpha/2}\)</span>=1,96) menggunakan pendekatan distribusi yang simetris?
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
 <p>Data Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a> dapat kita gunakan untuk menghitung rata-rata menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeanciasimci">(10.10)</a>. Hal ini disebabkan karena data yang ada memiliki kemencengan positif sehingga dapat dianggap bahwa transformasi logaritmik dapat membentuk distribusi ini menjadi lebih simetris.</p>
 <p>Berdasarkan hasil perhitungan diperoleh nilai <span class="math inline">\(\overline{Y}\)</span> =3.173 dan <span class="math inline">\(s^2_y\)</span> = 1.96. Sehingga nilai interval selanjutnya dapat dihitung menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:pmeanciasimci">(10.10)</a> dengan interval keyakinan 95%.</p>
 <p><span class="math display">\[
@@ -1481,13 +1536,14 @@ r</code></pre></div>
             <span class="st">&quot;Upper CL&quot;</span>=UCL)
   data
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>alpha</code>: alpha level yang digunakan</li>
 </ul>
-</blockquote>
+</div>
+
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean_asci</span>(<span class="dt">x=</span>gwardat<span class="op">$</span>konsentrasi, <span class="dt">alpha=</span><span class="fl">0.05</span>)</code></pre></div>
 <pre><code>##     Mean Lower CL Upper CL 
 ##    98.35    40.11   660.94</code></pre>
@@ -1557,13 +1613,14 @@ r</code></pre></div>
                     <span class="st">&quot;Upper CL&quot;</span>=UCL)
   data
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>df</strong>: data frame</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
+<li><code>df</code>: data frame</li>
+<li><code>alpha</code>: alpha level yang digunakan
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Untuk menguji fungsi tersebut, pembaca dapat memasukkan data frame yang pembaca miliki kedalam persamaan tersebut. Berikut adalah contoh sintaks yang digunakan untuk menghitung interval kepercayaan mean pada dataset <code>airquality</code>. Pembaca dapat menjalankannya pada komputer pembaca.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean_asci</span>(airquality, <span class="fl">0.05</span>)</code></pre></div>
 <pre><code>##   Variabel    Mean Lower.CL Upper.CL
@@ -1592,7 +1649,14 @@ r</code></pre></div>
 Gambar 10.8: Prediksi interval dua sisi (Helsel dan Hirsch, 2002)
 </p>
 </div>
-<p>Kita akan kembali menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>. Dengan menggunakan tingkat kepercayaan 90% kita diminta untuk menentukan interval prediksi dari konsentrasi arsenik pada data tersebut tanpa mengasumsikan distribusi dari data.</p>
+<hr />
+
+<div class="example">
+<span id="exm:ipnonparam" class="example"><strong>Contoh 10.6  </strong></span>Menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, Hitunglah interval prediksi dengan 90% interval kepercayaan menggunakan metode nonparametrik?
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
 <p>Untuk melakukannya kita perlu menentukan observasi ke-2,5 dan 97,5 (berdasarkan nilai <span class="math inline">\(\alpha/2\)</span>) dengan rangking observasi berdasarkan Persamaan <a href="penaksiran-secara-statistika.html#eq:eqipnds">(10.11)</a> adalah <span class="math inline">\((0,05*26)\)</span> atau rangking observasi antara observasi 1 (<span class="math inline">\(R_1\)</span>) dan 2 (<span class="math inline">\(R_2\)</span>) dan <span class="math inline">\((0,95*26)\)</span> rangking observasi antara observasi 24 (<span class="math inline">\(R_{24}\)</span>) dan 25 (<span class="math inline">\(R_{25}\)</span>). Dengan menggunakan interpolasi linier pada observasi ke-1, 2 , 24 dan 25, interval prediksi yang diperoleh adalah sebagai berikut:</p>
 <p><span class="math display">\[
   X_1+\left(\frac{R_{\left(0.05\cdot26\right)}-R_1}{R_2-R_1}\right)\cdot\left(X_2-X_1\right)\ sampai\ dengan\ X_{24}+\left(\frac{R_{\left(0.95\cdot26\right)}-R_{24}}{R_{25}-R_{24}}\right)\cdot\left(X_{25}-X_4\right)
@@ -1628,13 +1692,14 @@ Gambar 10.8: Prediksi interval dua sisi (Helsel dan Hirsch, 2002)
                     <span class="st">&quot;Upper PI&quot;</span>=UPI)
   <span class="kw">return</span>(data)
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>alpha</code>: alpha level yang digunakan
+</div>
+</li>
 </ul>
-</blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PInp</span>(<span class="dt">x=</span>gwardat<span class="op">$</span>konsentrasi, <span class="dt">alpha=</span><span class="fl">0.1</span>)</code></pre></div>
 <pre><code>##   Lower.PI Upper.PI
 ## 1      1.4      508</code></pre>
@@ -1652,7 +1717,14 @@ Gambar 10.9: Prediksi interval satu sisi (Helsel dan Hirsch, 2002)
   PI_{np}:\ x_{baru}&lt;X_{\alpha\cdot\left(n+1\right)}\ atau\ x_{baru}&gt;X_{\left[1-\alpha\right]\cdot\left(n+1\right)}
   \tag{10.12}
 \end{equation}\]</span>
-<p>Untuk memahami penerapannya, misalkan kita memiliki nilai arsenik baru dengan konsentrasi 355 ppb. Kita perlu menentukan apakah nilai tersebut lebih besar dari sebagian besar data yang ada.</p>
+<hr />
+
+<div class="example">
+<span id="exm:inprednpsatu" class="example"><strong>Contoh 10.7  </strong></span>Misalkan kita memiliki nilai arsenik baru dengan konsentrasi 355 ppb. Tentukan apakah nilai tersebutlebih besar dari sebagian besar data yang ada pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>?
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
 <p>Dengan menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:eqipss">(10.12)</a> dan <span class="math inline">\(\alpha\)</span>=0,1 atau tingkat kepercayaan 90%, interval prediksi satu sisi atau data teratas dari persentil ke-90 dari data yang ada adalah <span class="math inline">\(X_{0,9}*26=X_{23,4}\)</span>. Dengan menggunakan interpolasi linier pada observasi data dengan rangking ke-23 (<span class="math inline">\(R_{23}\)</span>) dan 24 (<span class="math inline">\(R_{23}\)</span>) diperoleh:</p>
 <p><span class="math display">\[
   X_{23}+0,4\cdot\left(X_{24}-X_{23}\right)=300+0,4\cdot40=316\ ppb
@@ -1694,15 +1766,16 @@ Gambar 10.9: Prediksi interval satu sisi (Helsel dan Hirsch, 2002)
     <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi sama dengan sebagian besar nilai yang ada&quot;</span>)
   }
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
-<li><strong>obs</strong>: observasi baru yang akan dibandingkan</li>
-<li><strong>side</strong>: untuk memilih jenis uji satu sisi yang digunakan. nilai yang mungkin adalah <strong>Upper</strong> (membandingkan dengan limit atas) dan <strong>Lower</strong> (membandingkan dengan limit bawah)</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>alpha</code>: alpha level yang digunakan</li>
+<li><code>obs</code>: observasi baru yang akan dibandingkan</li>
+<li><code>side</code>: untuk memilih jenis uji satu sisi yang digunakan. nilai yang mungkin adalah <code>Upper</code> (membandingkan dengan limit atas) dan <code>Lower</code> (membandingkan dengan limit bawah)
+</div>
+</li>
 </ul>
-</blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PInp_os</span>(<span class="dt">x=</span>gwardat<span class="op">$</span>konsentrasi, <span class="dt">obs=</span><span class="dv">355</span>, <span class="dt">alpha=</span><span class="fl">0.1</span>, <span class="dt">side=</span><span class="st">&quot;upper&quot;</span>)</code></pre></div>
 <pre><code>## PI = 316 ,observasi baru= 355
 ## ----------------------------------------------------------------------
@@ -1725,7 +1798,14 @@ Gambar 10.9: Prediksi interval satu sisi (Helsel dan Hirsch, 2002)
   PI=\overline{X}-t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}sampai\ \overline{X}+t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}
   \tag{10.14}
 \end{equation}\]</span>
-<p>Untuk lebih memahaminya misalkan terdapat hasil pengukuran baru konsentrasi arsenik sebesar 350 ppb dengan menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a> sebagai pembanding. Buktikan bahwa observasi baru tersebut berasal dari distrubusi yang sama dengan <span class="math inline">\(\alpha\)</span>=5%.</p>
+<hr />
+
+<div class="example">
+<span id="exm:ipparamsimetris" class="example"><strong>Contoh 10.8  </strong></span>Misalkan terdapat hasil pengukuran baru konsentrasi arsenik sebesar 350 ppb. Dengan menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a> sebagai pembanding, buktikan bahwa observasi baru tersebut berasal dari distrubusi yang sama dengan <span class="math inline">\(\alpha\)</span>=5%?
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
 <p>Dengan menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:ipds">(10.13)</a>, interval prediksi dapat dihitung sebagai berikut:</p>
 <p><span class="math display">\[
 PI\ =\ 98,4-t_{\left(0.025,24\right)}\cdot\sqrt{144,7^2+\frac{144,7^2}{25}\ }sampai\ \ 98,4+t_{\left(0.025,24\right)}\cdot\sqrt{144,7^2+\frac{144,7^2}{25}}
@@ -1790,15 +1870,16 @@ PI\ =\ -206,25\ \ sampai\ \ 403,05
     <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi sama dengan sebagian besar nilai yang ada&quot;</span>)
   }
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
-<li><strong>obs</strong>: observasi baru yang akan dibandingkan</li>
-<li><strong>side</strong>: untuk memilih jenis uji digunakan. nilai yang mungkin adalah <strong>upper</strong> (membandingkan dengan limit atas uji satu sisi), <strong>lower</strong> (membandingkan dengan limit bawah uji satu sisi) dan <strong>two side</strong> (uji dua sisi).</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>alpha</code>: alpha level yang digunakan</li>
+<li><code>obs</code>: observasi baru yang akan dibandingkan</li>
+<li><code>side</code>: untuk memilih jenis uji digunakan. nilai yang mungkin adalah <code>upper</code> (membandingkan dengan limit atas uji satu sisi), <code>lower</code> (membandingkan dengan limit bawah uji satu sisi) dan <code>two side</code> (uji dua sisi).
+</div>
+</li>
 </ul>
-</blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># interval prediksi satu sisi</span>
 <span class="kw">PI_sim</span>(<span class="dt">x =</span> gwardat<span class="op">$</span>konsentrasi, <span class="dt">obs =</span> <span class="dv">350</span>, <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="dt">side=</span><span class="dv">2</span>)</code></pre></div>
 <pre><code>## PI Bawah = -206.2 ,observasi baru= 350 ,PI Atas = 402.9
@@ -1818,7 +1899,14 @@ PI\ =\ -206,25\ \ sampai\ \ 403,05
   \tag{10.16}
 \end{equation}\]</span>
 <p>dimana <span class="math inline">\(y=\ln{(x)}\)</span>, <span class="math inline">\(\overline{y}\)</span> adalah nilai rata-rata dari tranformasi logaritmik data, dan <span class="math inline">\(s^2_y\)</span> adalah varians dari tranformasi logaritmik data.</p>
-<p>Dengan menggunakan contoh soal sebelumnya misalkan terdapat observasi baru konsentrasi arsenik sebesar 350 ppb. Kita perlu menentukan apakah observasi baru tersebut berasal dari distribusi yang sama berdasarkan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>.</p>
+<hr />
+
+<div class="example">
+<span id="exm:ipparamdua" class="example"><strong>Contoh 10.9  </strong></span>Misalkan terdapat hasil pengukuran baru konsentrasi arsenik sebesar 350 ppb. Dengan menggunakan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a> sebagai pembanding, buktikan bahwa observasi baru tersebut berasal dari distrubusi yang sama dengan <span class="math inline">\(\alpha\)</span>=5% dengan asumsi data tidak simetris?
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
 <p>Berdasarkan hasil visualisasi diketahui bahwa distribusi data yang dihasilkan memiliki bentuk kemencengan positif sehingga interval prediksi asimetris dapat digunakan. Dengan menggunakan <span class="math inline">\(\alpha\)</span>=5% prediksi interval dua sisi dapat dihitung menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:ipdas">(10.15)</a>.</p>
 <p><span class="math display">\[
 \ln\left(PI\right)\ =\ 3,71-t_{\left(0.025,24\right)}\cdot\sqrt{1,96^2+\frac{1,96^2}{25}\ }sampai\ \ 3,71+t_{\left(0.025,24\right)}\cdot\sqrt{1,96^2+\frac{1,96^2}{25}\ }
@@ -1888,15 +1976,16 @@ PI=\ 0,31\ \ sampai\ \ 1476.07
     <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">nilai observasi sama dengan sebagian besar nilai yang ada&quot;</span>)
   }
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik</li>
-<li><strong>alpha</strong>: alpha level yang digunakan</li>
-<li><strong>obs</strong>: observasi baru yang akan dibandingkan</li>
-<li><strong>side</strong>: untuk memilih jenis uji digunakan. nilai yang mungkin adalah <strong>upper</strong> (membandingkan dengan limit atas uji satu sisi), <strong>lower</strong> (membandingkan dengan limit bawah uji satu sisi) dan <strong>two side</strong> (uji dua sisi).</li>
+<li><code>x</code>: vektor numerik</li>
+<li><code>alpha</code>: alpha level yang digunakan</li>
+<li><code>obs</code>: observasi baru yang akan dibandingkan</li>
+<li><code>side</code>: untuk memilih jenis uji digunakan. nilai yang mungkin adalah <code>upper</code> (membandingkan dengan limit atas uji satu sisi), <code>lower</code> (membandingkan dengan limit bawah uji satu sisi) dan <code>two side</code> (uji dua sisi).
+</div>
+</li>
 </ul>
-</blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># interval prediksi satu sisi</span>
 <span class="kw">PI_asim</span>(<span class="dt">x =</span> gwardat<span class="op">$</span>konsentrasi, <span class="dt">obs =</span> <span class="dv">350</span>, <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="dt">side=</span><span class="dv">2</span>)</code></pre></div>
 <pre><code>## PI Bawah = 0.386 ,observasi baru= 350 ,PI Atas = 1476
@@ -1922,7 +2011,14 @@ PI=\ 0,31\ \ sampai\ \ 1476.07
   R_u=x_u
   \tag{10.18}
 \end{equation}\]</span>
-<p>Untuk memahami mengenai penerapan interval kepercayaan persentil diberikan sebuah contoh kita diminta untuk menentukan 95% interval kepercayaan nilai persentil ke-20 (<span class="math inline">\(C_{0.20}\)</span>) data konsentrasi arsenik pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a> (p=0,2).</p>
+<hr />
+
+<div class="example">
+<span id="exm:ikpersentilnp" class="example"><strong>Contoh 10.10  </strong></span>Pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, hitunglah interval kepercayaan kepercayaan persentil ke-20 (<span class="math inline">\(C_{0.20}\)</span>) data pada tabel tersebut menggunakan metode nonparametrik?
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
 <p>Berdasarkan data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, nilai persentil ke-20 (<span class="math inline">\(\overline{C}_{0.20}\)</span>)= 3.36ppb, yaitu data yang berada pada rangking 0,2*(26)=5,2 atau dua per sepuluh jarak antara data ke-5 dan ke-6. Untuk menentukan rentang kepercayaan persentil ke-20 sebenarnya dari data, kita perlu menggunakan kembali tabel binomial dengan menginputkan nilai p=0,2. nilai kritis <span class="math inline">\(x_l\)</span> diperoleh dengan mencari probabilitas data pada kolom p=0,2 yang mendekati nilai <span class="math inline">\(\alpha/2\)</span>=0,025 adalah 1 (<span class="math inline">\(p&#39;\)</span>=0,027, error probabilitas sisi bawah distribusi). Dengan menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:iknp">(10.17)</a>, diperoleh <span class="math inline">\(R_l=2\)</span>. Dengan cara sama untuk sisi atas distribusi nilai kritis atas <span class="math inline">\(x_u\)</span> diperoleh dengan menginputkan nilai p=0,20 dengan nilai probabilitas mendekati <span class="math inline">\(1-\frac{\alpha}{2}\)</span>= 0,975 diperoleh sebesar 9 (<span class="math inline">\(p&#39;\)</span>=0,983, error probabilitas sisi atas distribusi). Sehingga rentang kepercayaang 95,6% (0,983-0,027=0,956) untuk persentil ke-20 berada pada range data dengan rangkin ke-2 dan ke-9, atau</p>
 <p><span class="math display">\[
 1,5\le C_{0.20}\le8\ pada\ \alpha=0,044
@@ -1994,14 +2090,15 @@ R_u=25\cdot0,2+1,96\cdot\sqrt{25\cdot0,2\left(1-0,2\right)}+0,5\ =\ 5+1,96\cdot2
   <span class="kw">cat</span>(<span class="st">&quot;Lower CI=&quot;</span>, LCI,<span class="st">&quot; &lt;= C(&quot;</span>, p, <span class="st">&quot;) &lt;= &quot;</span>, 
        <span class="st">&quot;Upper CI=&quot;</span>, UCI)
 }</code></pre></div>
-<blockquote>
-<p><strong>Note: </strong></p>
+
+<div class="rmdnote">
 <ul>
-<li><strong>x</strong>: vektor numerik.</li>
-<li><strong>p</strong>: persentil yang ingin dicari. Nilai berkisar antara 0 sampai 1.</li>
-<li><strong>alpha</strong>: alpha level yang digunakan.</li>
+<li><code>x</code>: vektor numerik.</li>
+<li><code>p</code>: persentil yang ingin dicari. Nilai berkisar antara 0 sampai 1.</li>
+<li><code>alpha</code>: alpha level yang digunakan.
+</div>
+</li>
 </ul>
-</blockquote>
 <p>Pembaca dapat menjalankan fungsi tersebut mengggunakan data pada contoh soal sebelumnya yaitu mencari interval kepercayaan persentil ke-20. Jalankan sintaks berikut untuk mengetahui hasil yang diperoleh.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">CI_npPercent</span>(<span class="dt">x=</span> gwardat<span class="op">$</span>konsentrasi, <span class="dt">p=</span> <span class="fl">0.2</span>, <span class="dt">alpha=</span><span class="fl">0.05</span>)</code></pre></div>
 </div>
@@ -2028,7 +2125,15 @@ Gambar 10.12: Interval estimasi persentil Xp sebagai penguji apakah Xp&gt;X0. A)
 </p>
 </div>
 <p>Untuk menghitungnya secara nonparametrik menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:iknp3">(10.19)</a> dan Persamaan <a href="penaksiran-secara-statistika.html#eq:iknp4">(10.20)</a> untuk jumlah sampel kecil sedangkan untuk sampel besar kita dapat menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:iknp3">(10.19)</a> dan Persamaan <a href="penaksiran-secara-statistika.html#eq:iknp4">(10.20)</a>.</p>
-<p>Dengan menggunakan kembali data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a> kita akan menghitung apakah kadar arsenik kualitas air tanah tersebut melebihi baku mutu arsenik pada air minum dengan baku mutu konsentrasi arsenik tidak melampaui 300 ppb. Dengan menggunakan nilai <span class="math inline">\(\alpha\)</span>=0,05 dan batas bawah persentil yang digunakan sebagai acuan pembanding adalah persentil ke-90 dapat dihitung sebagai berikut:</p>
+<hr />
+
+<div class="example">
+<span id="exm:unpikpersentil" class="example"><strong>Contoh 10.11  </strong></span>Dengan menggunakan kembali data pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, tentukan apakah kadar arsenik kualitas air tanah tersebut melebihi baku mutu arsenik pada air minum dengan baku mutu konsentrasi arsenik tidak melampaui 300 ppb? (<span class="math inline">\(\alpha\)</span>=0,05)
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
+<p>Dengan menggunakan nilai <span class="math inline">\(\alpha\)</span>=0,05 dan batas bawah persentil yang digunakan sebagai acuan pembanding adalah persentil ke-90 dapat dihitung sebagai berikut:</p>
 <p><span class="math display">\[
 \overline{C}_{0.90}=\left(25+1\right)\cdot0,9=23,4\ \left(data\ point\right)=300+0,4\left(340-300\right)=316\ ppb
 \]</span> Karena jumlah sampel lebih besar dari 20, maka kita dapat menghitung batas atas data menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:iknp4">(10.20)</a>.</p>
@@ -2054,7 +2159,15 @@ R_l=np+z_{0,05}\sqrt{np\left(1-p\right)}=25\cdot0,9+\left(-1,64\right)\cdot\sqrt
   \tag{10.22}
 \end{equation}\]</span>
 <p>dimana <span class="math inline">\(\zeta{\alpha/2}\)</span> merupakan <span class="math inline">\(\alpha/2\)</span> dari kuantil distribusi t non-sentral untuk persentil dengan ukuran sampel <span class="math inline">\(n\)</span> yang diinginkan.</p>
-<p>Untuk lebih memahami penerapannya pembaca dapat mengerjakan contoh soal pada bagian sebelumnya. Dengan menggunakan estimasi interval 90% kita perlu menentukan interval estimasi persentil ke-90 dari data konsentrasi arsenik dengan asumsi distribusi yang digunakan berupa distribusi lognormal.</p>
+<hr />
+
+<div class="example">
+<span id="exm:ikpersentilp" class="example"><strong>Contoh 10.12  </strong></span>Pada Tabel <a href="penaksiran-secara-statistika.html#tab:gwardat">10.3</a>, hitunglah interval kepercayaan kepercayaan persentil ke-90 (<span class="math inline">\(C_{0.90}\)</span>) data pada tabel tersebut menggunakan metode parametrik? (<span class="math inline">\(\alpha=0.1\)</span>)
+</div>
+
+<hr />
+<p><strong>Jawab</strong>:</p>
+<p>Dengan menggunakan estimasi interval 90% kita perlu menentukan interval estimasi persentil ke-90 dari data konsentrasi arsenik dengan asumsi distribusi yang digunakan berupa distribusi lognormal.</p>
 <p>Dengan menggunakan Persamaan <a href="penaksiran-secara-statistika.html#eq:ikp1">(10.21)</a> estimasi titik persentil ke-90 dapat dihitung.</p>
 <p><span class="math display">\[
 C_{0,90}=\exp\left(3,17+1,28\cdot1,96\right)=292,6\ ppb

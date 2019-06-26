@@ -24,7 +24,7 @@
 <meta name="author" content="Moh. Rosidi" />
 
 
-<meta name="date" content="2019-06-14" />
+<meta name="date" content="2019-06-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -399,6 +399,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.3.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-parametrik"><i class="fa fa-check"></i><b>11.3.1</b> Uji Parametrik</a></li>
 <li class="chapter" data-level="11.3.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-nonparametrik"><i class="fa fa-check"></i><b>11.3.2</b> Uji Nonparametrik</a></li>
 </ul></li>
+<li class="chapter" data-level="11.4" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-asumsi-normalitas-distribusi-data"><i class="fa fa-check"></i><b>11.4</b> Uji Asumsi Normalitas Distribusi Data</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#shapiro-wilk"><i class="fa fa-check"></i><b>11.4.1</b> Shapiro-Wilk</a></li>
+<li class="chapter" data-level="11.4.2" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#cramer-von-mises"><i class="fa fa-check"></i><b>11.4.2</b> Cramer-von Mises</a></li>
+<li class="chapter" data-level="11.4.3" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#shapiro-francia"><i class="fa fa-check"></i><b>11.4.3</b> Shapiro-Francia</a></li>
+<li class="chapter" data-level="11.4.4" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#anderson-darling"><i class="fa fa-check"></i><b>11.4.4</b> Anderson-Darling</a></li>
+<li class="chapter" data-level="11.4.5" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#liliefors-kolmogorov-smirnov"><i class="fa fa-check"></i><b>11.4.5</b> Liliefors (Kolmogorov-Smirnov)</a></li>
+<li class="chapter" data-level="11.4.6" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#pearson-chi-square"><i class="fa fa-check"></i><b>11.4.6</b> Pearson Chi-square</a></li>
+<li class="chapter" data-level="11.4.7" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#uji-normalitas-menggunakan-r"><i class="fa fa-check"></i><b>11.4.7</b> Uji Normalitas menggunakan <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#tranformasi-box-cox"><i class="fa fa-check"></i><b>11.5</b> Tranformasi Box-Cox</a></li>
+<li class="chapter" data-level="11.6" data-path="uji-hipotesis.html"><a href="uji-hipotesis.html#referensi-10"><i class="fa fa-check"></i><b>11.6</b> Referensi</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://environmental-data-modeling.netlify.com/" target="blank">Author's Website</a></li>
@@ -473,6 +484,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Probabilitas dari ketiga proses pelemparan dadu tersebut merupakan hasil kali probabilitas pada tiap giliran pelemparan seperti berikut:</p>
 <p><span class="math display">\[
 P\left(111\right)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{216}
@@ -497,6 +509,7 @@ P\left(111\right)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{216}
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dbinom">(9.2)</a> kita dapat menghitung probabilitas keluarnya angka 1 pada dadu untuk 3 kali percobaan (<span class="math inline">\(n\)</span>) atau seluruh percobaan menghasilkan angka 1 (<span class="math inline">\(n=x=3\)</span>) sebagai berikut:</p>
 <p><span class="math display">\[
 b\left(3;3,\frac{1}{6}\right)=\left(\frac{3!}{3!\left(3-3\right)!}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^{\left(3-3\right)}
@@ -522,6 +535,7 @@ b\left(3;3,\frac{1}{6}\right)=\left(1\right)\cdot\left(\frac{1}{6}\right)^3\cdot
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Untuk mengerjakan contoh soal tersebut kita dapat menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dbinom3">(9.4)</a>. Berikut adalah hasil perhitungan probabilitas contoh soal tersebut:</p>
 <ol style="list-style-type: lower-alpha">
 <li>jika setidaknya 3 aerator tidak rusak</li>
@@ -611,6 +625,7 @@ f\left(x_1,x_2,...,x_k;\ p_1,p_2,...,p_k\right)
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Untuk menyelesaikannya kita perlu mendata jumlah kemunculan disertai dengan probabilitas kejadia pada tiap grup seperti berikut:</p>
 <p><span class="math display">\[
 n=8;\ x_1=2\ dengan\ p_1=0,30;\ x_2=5\ dengan\ p_2=0,50,\ dan\ x_3=1\ dengan\ p_1=0,20\ 
@@ -661,6 +676,7 @@ f\left(2,5,1;0.30,0.50,0.20\right)=0,0945
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Berdasarkan contoh soal tersebut kita dapat menyimpulkan bahwa proses sampling yang dilakukan adalah dengan menggunakan prosedur sampling tanpa pengembalian, sehingga distribusi hipergeometris dapat diterapkan dengan nilai <span class="math inline">\(n=5\)</span>, <span class="math inline">\(N=40\)</span>, <span class="math inline">\(k=3\)</span>, dan <span class="math inline">\(x=1\)</span>. Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dhiper">(9.9)</a>, peluang ditemukan 1 sak kompos yang tidak sesuai adalah sebagai berikut:</p>
 <p><span class="math display">\[
 h\left(1;40,5,3\right)=\frac{\binom{3}{1}\binom{40-3}{5-1}}{\binom{40}{5}}=0,3011
@@ -697,6 +713,7 @@ h\left(1;40,5,3\right)=\frac{\binom{3}{1}\binom{40-3}{5-1}}{\binom{40}{5}}=0,301
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Untuk melakukannya kita perlu menghitung probabilitas hipergeometris untuk kondisi saat <span class="math inline">\(x=0,1,2\)</span>. Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dhiper2">(9.10)</a>, nilai probabilitas yang dihasilkan adalah sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(X\le2\right)=b\left(0;40,5,3\right)+b\left(1;40,5,3\right)+b\left(2;40,5,3\right)=0,999
@@ -749,6 +766,7 @@ P\left(X\le2\right)=b\left(0;40,5,3\right)+b\left(1;40,5,3\right)+b\left(2;40,5,
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Untuk mengerjakan contoh soal tersebut kita perlu mendefinisikan kejadian sukses dengan simbol <span class="math inline">\(S\)</span> dan gagal dengan simbol <span class="math inline">\(F\)</span>, urutan yang mungkin dari ketujuh pasien berdasarkan respon terhadap obat adalah <span class="math inline">\(SFSSSFS\)</span> yang probabilitas kejadian berdasarkan urutan tersebut adalah sebagai berikut:</p>
 <p><span class="math display">\[
 \left(0,6\right)\left(0,4\right)\left(0,6\right)\left(0,6\right)\left(0,6\right)\left(0,4\right)\left(0,6\right)=\left(0,6\right)^5\left(0,4\right)^2
@@ -775,6 +793,7 @@ P\left(X=7\right)=\binom{6}{4}\left(0.6\right)^2\left(0,4\right)^2=0,1866
 </li>
 </ul>
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dnegbinom">(9.12)</a>, probabilitas kemenangan tim A terhadap tim B dapat dihitung sebagai berikut:</p>
 <ul>
 <li><strong>Tim A juara pada pertandingan ke-6 (<span class="math inline">\(x=6\)</span>, <span class="math inline">\(k=4\)</span>, dan <span class="math inline">\(p=0,55\)</span>)</strong></li>
@@ -847,6 +866,7 @@ b^{\ast}\left(4;4,0.55\right)+b^{\ast}\left(5;4,0.55\right)+b^{\ast}\left(6;4,0.
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Dengan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dgeom">(9.13)</a> probabilitas barang ke-5 merupakan produk gagal sebagai berikut:</p>
 <p><span class="math display">\[
 g\left(5;0.01\right)=\left(0,01\right)\left(0,99\right)^{5-1}=0,0096
@@ -877,6 +897,7 @@ g\left(5;0.01\right)=\left(0,01\right)\left(0,99\right)^{5-1}=0,0096
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Untuk menyelesaikannya kita dapat menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dgeom2">(9.14)</a>. Dengan menetapkan rentang probabilitas kejadian yang diinginkan adalah <span class="math inline">\(\le5\)</span>, probabilitas kejadian pada contoh soal tersebut adalah sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(P\le5\right)=g\left(0;0.01\right)+g\left(1;0.01\right)+...+g\left(5;0.01\right)=0.0585
@@ -942,6 +963,7 @@ P\left(P\le5\right)=g\left(0;0.01\right)+g\left(1;0.01\right)+...+g\left(5;0.01\
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Contoh kasus tersebut dapat diselesaikan menggunakan Persamaan <a href="distribusi-probabilitas.html#eq:dpoisson">(9.16)</a> dengan nilai <span class="math inline">\(x=4\)</span> dan <span class="math inline">\(\lambda t=4\)</span> seperti berikut:</p>
 <p><span class="math display">\[
 p\left(6;4\right)=\frac{e^{-4}\left(4\right)^6}{6!}=0,1042
@@ -1142,6 +1164,7 @@ P\left(x_1&lt;z\le x_2\right)=P\left(z&lt; x_2\right)+P\left(z&gt; x_1\right)
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p><strong>Masa layan lampu antara 750 sampai 830 jam</strong></p>
 <p>Distribusi dan luasan yang dicari dapat digambarkan berdasarkan Gambar <a href="distribusi-probabilitas.html#fig:normvis5">9.7</a> berikut:</p>
 <div class="figure" style="text-align: center"><span id="fig:normvis5"></span>
@@ -1304,6 +1327,7 @@ Gambar 9.9: Visualisasi distribusi konsentrasi ozon Kota New York a)density plot
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Pada kasus tersebut kejadian sukses didefinisikan jika terdapat pompa yang rusak. Untuk menghitungnya pertama-tama kita perlu menghitung nilai mean dan simpangan baku dari populasinya.</p>
 <p><span class="math display">\[
 \mu=np=\left(100\right)\left(0,4\right)=40\ \ \ dan\ \ \ \sigma=\sqrt{npq}=\sqrt{\left(100\right)\left(0,4\right)\left(0,6\right)}=4,899
@@ -1398,6 +1422,7 @@ f\left(x;\beta \right) =
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Probabilitas suatu pompa masih dapat berfungsi setelah 8 tahun dari kasus tersebut dapat dituliskan sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(T&gt;8\right)=\frac{1}{5}\int_0^{\infty}e^{-\frac{t}{5}}dt=e^{-\frac{8}{5}}\approx0,2.
@@ -1432,6 +1457,7 @@ P\left(X\ge2\right)=\sum_{x=2}^5b\left(x;5,0.2\right)=1-\sum_{x=0}^1b\left(x;5,0
 </div>
 
 <hr />
+<p><strong>Jawab</strong>:</p>
 <p>Diberikan variabel acak <span class="math inline">\(X\)</span> yang menyatakan <em>survival time</em> (waktu hingga mati). Probabilitas yang terjadi dapat dituliskan sebagai berikut:</p>
 <p><span class="math display">\[
 P\left(X\le60\right)=\frac{1}{\beta^5}\int_0^{\infty}\frac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\Gamma\left(5\right)}dx
@@ -1936,7 +1962,7 @@ Gambar 9.19: Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a
 <h2><span class="header-section-number">9.11</span> Referensi</h2>
 <ol style="list-style-type: decimal">
 <li>Chi Yau. 2014. <strong>R Tutorial with Bayesian Statistics Using OpenBUGS</strong>. Amazon Kindle</li>
-<li>Damanhuri, E. 2011. <strong>Statitika Lingkunga</strong>. Penerbit ITB.</li>
+<li>Damanhuri, E. 2011. <strong>Statitika Lingkungan</strong>. Penerbit ITB.</li>
 <li>Janicak, C.A. 2007. <strong>Applied Statistics in Occupational Safety and Health</strong>. Government Institutes.</li>
 <li>Kerns, G.Jay. 2018. <strong>Introduction to Probability and Statistics Using R Third Edition</strong>. GNU Free Documentation License.</li>
 <li>King, William B. <strong>PROBILITY DISTRIBUTIONS, QUANTILES, CHECKS FOR NORMALITY</strong>. <a href="http://ww2.coastal.edu/kingw/statistics/R-tutorials/prob.html" class="uri">http://ww2.coastal.edu/kingw/statistics/R-tutorials/prob.html</a>.</li>

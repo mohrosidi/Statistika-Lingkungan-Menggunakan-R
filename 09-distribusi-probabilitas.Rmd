@@ -61,6 +61,8 @@ Misalkan kita akan melakukan percobaan pelemparan dadu sebanyak 3 kali. Probabil
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Probabilitas dari ketiga proses pelemparan dadu tersebut merupakan hasil kali probabilitas pada tiap giliran pelemparan seperti berikut:
 
 $$
@@ -92,6 +94,8 @@ Dengan menggunakan data pada Contoh \@ref(exm:bernouliprocess), Hitunglah probab
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Dengan menggunakan Persamaan \@ref(eq:dbinom) kita dapat menghitung probabilitas keluarnya angka 1 pada dadu untuk 3 kali percobaan ($n$) atau seluruh percobaan menghasilkan angka 1 ($n=x=3$) sebagai berikut:
 
@@ -128,6 +132,8 @@ Misalkan kita diminta untuk melakukan analisis kerusakan *diffused aerator* pada
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Untuk mengerjakan contoh soal tersebut kita dapat menggunakan Persamaan \@ref(eq:dbinom3). Berikut adalah hasil perhitungan probabilitas contoh soal tersebut: 
 
@@ -243,6 +249,8 @@ Probabilitas sejenis pompa memiliki umur ekonomis 2 tahun sebesar 0,30, antara 2
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Untuk menyelesaikannya kita perlu mendata jumlah kemunculan disertai dengan probabilitas kejadia pada tiap grup seperti berikut:
 
 $$
@@ -305,6 +313,8 @@ Misalkan pembaca ditugaskan untuk melakukan sortir terhadap 40 sak kompos yang a
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Berdasarkan contoh soal tersebut kita dapat menyimpulkan bahwa proses sampling yang dilakukan adalah dengan menggunakan prosedur sampling tanpa pengembalian, sehingga distribusi hipergeometris dapat diterapkan dengan nilai $n=5$, $N=40$, $k=3$, dan $x=1$. Dengan menggunakan Persamaan \@ref(eq:dhiper), peluang ditemukan 1 sak kompos yang tidak sesuai adalah sebagai berikut:
 
 $$
@@ -351,6 +361,8 @@ Dengan menggunakan data pada Contoh \@ref(exm:hipergeoexm), hitunglah probabilit
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Untuk melakukannya kita perlu menghitung probabilitas hipergeometris untuk kondisi saat $x=0,1,2$. Dengan menggunakan Persamaan \@ref(eq:dhiper2), nilai probabilitas yang dihasilkan adalah sebagai berikut:
 
@@ -415,6 +427,8 @@ Misalkan kita menguji sebuah obat dengan memberikannya kepada pasien yang sakit.
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Untuk mengerjakan contoh soal tersebut kita perlu mendefinisikan kejadian sukses dengan simbol $S$ dan gagal dengan simbol $F$, urutan yang mungkin dari ketujuh pasien berdasarkan respon terhadap obat adalah $SFSSSFS$ yang probabilitas kejadian berdasarkan urutan tersebut adalah sebagai berikut:
 
 $$
@@ -446,6 +460,8 @@ Misalkan pada suatu kejuaraan NBA (Championship series) atau final antar juara w
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Dengan menggunakan Persamaan \@ref(eq:dnegbinom), probabilitas kemenangan tim A terhadap tim B dapat dihitung sebagai berikut:
 
@@ -533,6 +549,8 @@ Suatu pabrik memiliki probabilitas 1 dari 100 barang produksinya merupakan produ
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Dengan menggunakan Persamaan \@ref(eq:dgeom) probabilitas barang ke-5 merupakan produk gagal sebagai berikut:
 
 $$
@@ -571,6 +589,8 @@ Dengan menggunakan data pada Contoh \@ref(exm:geomdistexm), hitunglah probabilit
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Untuk menyelesaikannya kita dapat menggunakan Persamaan \@ref(eq:dgeom2). Dengan menetapkan rentang probabilitas kejadian yang diinginkan adalah $\le5$, probabilitas kejadian pada contoh soal tersebut adalah sebagai berikut:
 
@@ -653,6 +673,8 @@ Selama melakukan eksperimen laboratorium, rata-rata jumlah partikel radioaktif y
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Contoh kasus tersebut dapat diselesaikan menggunakan Persamaan \@ref(eq:dpoisson) dengan nilai $x=4$ dan $\lambda t=4$ seperti berikut:
 
@@ -964,6 +986,8 @@ c. Lampu dengan masa layan lebih dari atau sama dengan 830 jam
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 **Masa layan lampu antara 750 sampai 830 jam**
 
 Distribusi dan luasan yang dicari dapat digambarkan berdasarkan Gambar \@ref(fig:normvis5) berikut:
@@ -1181,6 +1205,8 @@ Diketahui probabilitas suatu pompa air rusak disuatu kawasan adalah 0,4. Jika pa
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Pada kasus tersebut kejadian sukses didefinisikan jika terdapat pompa yang rusak. Untuk menghitungnya pertama-tama kita perlu menghitung nilai mean dan simpangan baku dari populasinya.
 
 $$
@@ -1307,6 +1333,8 @@ Dalam suatu kawasan terdapat sistem penyediaan air minum lingkup kecil dengan ko
 
 ---------------------------------------------------------
 
+**Jawab**:
+
 Probabilitas suatu pompa masih dapat berfungsi setelah 8 tahun dari kasus tersebut dapat dituliskan sebagai berikut:
 
 $$
@@ -1350,6 +1378,8 @@ Pengujian suatu toksikan dilakukan terhadap hewan uji untuk menentukan dosis mem
 ```
 
 ---------------------------------------------------------
+
+**Jawab**:
 
 Diberikan variabel acak $X$ yang menyatakan *survival time* (waktu hingga mati). Probabilitas yang terjadi dapat dituliskan sebagai berikut:
 
@@ -1877,7 +1907,7 @@ pweibull(q, shape, scale, lower.tail = TRUE)
 ## Referensi
 
 1. Chi Yau. 2014. **R Tutorial with Bayesian Statistics Using OpenBUGS**. Amazon Kindle
-2. Damanhuri, E. 2011. **Statitika Lingkunga**. Penerbit ITB.
+2. Damanhuri, E. 2011. **Statitika Lingkungan**. Penerbit ITB.
 3. Janicak, C.A. 2007. **Applied Statistics in Occupational Safety and Health**. Government Institutes.
 4. Kerns, G.Jay. 2018. **Introduction to Probability and Statistics Using R Third Edition**. GNU Free Documentation License.
 5. King, William B. **PROBILITY DISTRIBUTIONS, QUANTILES, CHECKS FOR NORMALITY**. <http://ww2.coastal.edu/kingw/statistics/R-tutorials/prob.html>.
