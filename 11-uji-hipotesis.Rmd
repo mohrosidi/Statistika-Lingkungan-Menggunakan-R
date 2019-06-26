@@ -43,15 +43,12 @@ Transformasi data sering digunakan agar distribusi data mendekati distribusi nor
 
 Untuk mempermudah proses pemilihan uji yang sesuai, Gardener (2012) membuat skema pemilihan uji hipotesis yang disajikan pada Gambar \@ref(fig:test)
 
-\newpage
-\begin{landscape}
 ```{r test, echo=FALSE, fig.cap='Skema pemilihan uji hipotesis (sumber: Gradener, 2012).', tidy=FALSE, fig.align='center', message=FALSE,warning=FALSE}
 library(knitr)
 img1_path <- "test.png"
 include_graphics(img1_path)
 
 ```
-\end{landscape}
 
 ### Hipotesis Nol dan Alternatif
 
@@ -92,7 +89,7 @@ Dalam menguji hipotesis statistik apa pun, ada empat kemungkinan situasi yang me
 **Terima $H_0$**   | Keputusan benar  | Error tipe II
 **Tolak $H_0$**    | Error tipe I     | Keputusan benar
 
-: (\#tab:oparitmatika) Kondisi yang mungkin terjadi pada saat pengujian hipotesis.
+: (\#tab:error) Kondisi yang mungkin terjadi pada saat pengujian hipotesis.
 
 Peluang untuk melakukan error tipe I disebut sebagai **tingkat signifikansi**, dilambangkan dengan huruf Yunani $\alpha$. Dalam kondisi di atas kesalahan tipe satu terjadi ketika lebih dari 8 orang dari 20 orang yang diinokulasi  dengan vaksin baru melampaui periode 2 tahun tanpa tertular virus dan peneliti menyimpulkan bahwa vaksin baru lebih baik padahal kenyataannya setara dengan vaksin yang sudah ada. Oleh karena itu, jika $X$ adalah jumlah orang yang tetap bebas dari virus selama minimal 2 tahun dengan probabilitas sukses $p=0,25$, maka probabilitas error tipe satu adalah sebagai berikut:
 
@@ -150,16 +147,12 @@ Prosedur uji hipotesis untuk satu populasi yang akan penulis bahas kali ini akan
 
 Untuk mempermudahnya, pada Gambar \@ref(fig:singletest) penulis sajikan skema pemilihan uji hipotesis untuk satu sampel.
 
-
-\newpage
-\begin{landscape}
 ```{r singletest, echo=FALSE, fig.cap='Skema pemilihan uji hipotesis untuk satu populasi.', tidy=FALSE, fig.align='center', message=FALSE,warning=FALSE, out.width='90%'}
 library(knitr)
 img1_path <- "singletest.png"
 include_graphics(img1_path)
 
 ```
-\end{landscape}
 
 ### Uji Parametrik
 
@@ -188,21 +181,21 @@ Jika varians populasi diketahui maka kita dapat menggunakan pendekatan distribus
 - **Aturan penolakan (RR) berdasarkan variasi $H_a$**
 
 
-**$H_a$**         | **RR pada level $\alpha$**
-------------------|--------------------------------------------------------------|
-$\mu>\mu_0$       | $Z_{H_0}\ge Z_\alpha$                                        |  
-$\mu<\mu_0$       | $Z_{H_0}\le -Z_\alpha$                                       |
-$\mu\neq\mu_0$    | $Z_{\frac{\alpha}{2}} \le Z_{H_0}\le Z_{\frac{\alpha}{2}}$   |  
+**$H_a$**         | **RR pada level $\alpha$**                                     |
+------------------|----------------------------------------------------------------|
+$\mu>\mu_0$       | $Z_{H_0}\ge Z_\alpha$                                          |  
+$\mu<\mu_0$       | $Z_{H_0}\le -Z_\alpha$                                         |
+$\mu\neq\mu_0$    | $Z_{\frac{\alpha}{2}}$ $\le Z_{H_0}\le Z_{\frac{\alpha}{2}}$   |  
 
 : (\#tab:stha) Aturan penolakan berdasakan hipotesis alternatif distribusi normal.
 
 
 
-**$H_a$**          | **RR pada level $\alpha$**
--------------------|----------------------------------------------------------------|
-$\mu>\mu_0$        | $T_{H_0}>t_{n-1,\alpha}$                                       |
-$\mu<\mu_0$        | $T_{H_0}< -t_{n-1,\alpha}$                                     |
-$\mu\neq\mu_0$     | $-t_{n-1,\frac{\alpha}{2}}<T_{H_0}< t_{n-1,\frac{\alpha}{2}}$  |
+**$H_a$**          | **RR pada level $\alpha$**                                        |
+-------------------|-------------------------------------------------------------------|
+$\mu>\mu_0$        | $T_{H_0}>t_{n-1,\alpha}$                                          |
+$\mu<\mu_0$        | $T_{H_0}< -t_{n-1,\alpha}$                                        |
+$\mu\neq\mu_0$     | $-t_{n-1,\frac{\alpha}{2}}$ $<T_{H_0}< t_{n-1,\frac{\alpha}{2}}$  |
 
 : (\#tab:stha1) Aturan penolakan berdasakan hipotesis alternatif distribusi t.
 
@@ -404,7 +397,7 @@ $\tilde{\mu}\ne\tilde{\mu_0}$ | $p\ne0,5$
 -------------------------------|-----------------------------------------------
 $\tilde{\mu}> \tilde{\mu_0}$   | $Z_{H_0}\ge Z_\alpha$
 $\tilde{\mu}< \tilde{\mu_0}$   | $Z_{H_0}\le -Z_\alpha$
-$\tilde{\mu}\ne\tilde{\mu_0}$  | $|Z_{H_0}|\ge z_{\frac{\alpha}{2}}$
+$\tilde{\mu}\ne\tilde{\mu_0}$  | $|Z_{H_0}|\ge $ $z_{\frac{\alpha}{2}}$
 
 : (\#tab:signtest) Hipotesis alternatif terkonversi pendekatan  distribusi normal.
 

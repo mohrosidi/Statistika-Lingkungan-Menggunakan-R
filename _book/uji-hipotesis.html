@@ -458,9 +458,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Kriteria kedua yang digunakan adalah tujuan dari pengujian. Uji hipotesis yang tersedia dapat digunakan untuk melihat beda antara dua nilai sentral dua grup, tiga atau lebih grup, sebaran data antar grup, kovariansi antara dua atau lebi variabel antara satu sama lain.</p>
 <p>Kriteria ketiga yang digunakan adalah memilih apakah akan melakukan uji parameterik atau nonparameterik. Pemilihan berdasarkan kriteria ini perlu melihat asumsi distribusi uji statististik apakah telah terpenuhi atau belum. Jika suatu data berdistribusi normal maka uji parametrik akan lebih dipilih, jika sebaliknya atau distribusi data tidak mengikuti distribusi tertentu maka uji yang digunakan adalah uji nonparametrik. Power dar uji parametrik untuk menolah hipotesis nol ketika hipotesis nol salah dapat sangat rendah jika digunakan pada data yang tidak berdistribusi normal. Selain itu, error tipe II biasanya juga terjadi pada uji parametrikpada data dengan distribusi tidak normal.</p>
 <p>Transformasi data sering digunakan agar distribusi data mendekati distribusi normal. Jenis tranformasi akan berbeda pada setiap data sehingga proses transformasi akan mencoba pada berbagai format. Kendala yang timbul pada proses ini adalah jika kita akan melakukan uji pada dua atau lebih grup data. Jenis transformasi pada satu grup data bisa saja tidak berlaku untuk grup data lainnya. Jika kita paksakan transformasi ynag berbeda-beda pada tiap grup, maka pembacaan hasil yang diperoleh akan lebih sulit. Hal ini tidak terjadi jika sejak awal data yang tidak mengikuti distribusi normal dilakukan uji nonparametrik.</p>
-<p>Untuk mempermudah proses pemilihan uji yang sesuai, Gardener (2012) membuat skema pemilihan uji hipotesis yang disajikan pada Gambar <a href="#fig:test"><strong>??</strong></a></p>
-
-
+<p>Untuk mempermudah proses pemilihan uji yang sesuai, Gardener (2012) membuat skema pemilihan uji hipotesis yang disajikan pada Gambar <a href="uji-hipotesis.html#fig:test">11.1</a></p>
+<div class="figure" style="text-align: center"><span id="fig:test"></span>
+<img src="test.PNG" alt="Skema pemilihan uji hipotesis (sumber: Gradener, 2012)." width="432" />
+<p class="caption">
+Gambar 11.1: Skema pemilihan uji hipotesis (sumber: Gradener, 2012).
+</p>
+</div>
 </div>
 <div id="hipotesis-nol-dan-alternatif" class="section level3">
 <h3><span class="header-section-number">11.2.2</span> Hipotesis Nol dan Alternatif</h3>
@@ -481,9 +485,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4><span class="header-section-number">11.2.3.1</span> Probabilitas Error Tipe I</h4>
 <p>Terdapat dua buah error yang terjadi pada saat pengambilan keputusan. Secara sederhana penulis akan menjelaskan error tersebut dengan menggunakan contoh pemberian vaksin kepada pasien. Vaksin baru tersebut tidak lebih baik atau sama kualitasnya dengan vaksin yang telah ada sebelumnya (<span class="math inline">\(H_0\)</span> benar). Sebagai data pendukung, pengujian telah dilakukan dengan memilih individu secara acak, dimana 8 individu melewati 2 tahun tanpa tertular virus. Kita akan melakukan kesalahan dengan menolak <span class="math inline">\(H_0\)</span> dan mendukung <span class="math inline">\(H_a\)</span> (vaksin lebih baik) sedangkan kenyataannya <span class="math inline">\(H_0\)</span> benar. Error yang disebabkan oleh penolakan <span class="math inline">\(H_0\)</span> padahal <span class="math inline">\(H_0\)</span> benar disebut sebagai <strong>error tipe I</strong>.</p>
 <p>Jenis error kedua dapat terjadi jika 8 individu atau kurang melewati dua tahun periode penggunaan vaksin secara sukses, namun kita tidak dapat menyimpulkan bahwa vaksin tersebut lebih baik meskipun pada kenyataannya demikian (<span class="math inline">\(H_a\)</span> benar). Sehingga pada kasus ini kita gagal menolak <span class="math inline">\(H_0\)</span> meskipun kenyataannya <span class="math inline">\(H_0\)</span> salah. Kondisi dimana kita tidak menolak <span class="math inline">\(H_0\)</span> meskipun <span class="math inline">\(H_0\)</span> salah disebut sebagai <strong>error tipe II</strong>.</p>
-<p>Dalam menguji hipotesis statistik apa pun, ada empat kemungkinan situasi yang menentukan apakah keputusan kita benar atau salah. Keempat kemungkinan tersebut disajikan pada Tabel <a href="#tab:error"><strong>??</strong></a>:</p>
+<p>Dalam menguji hipotesis statistik apa pun, ada empat kemungkinan situasi yang menentukan apakah keputusan kita benar atau salah. Keempat kemungkinan tersebut disajikan pada Tabel <a href="uji-hipotesis.html#tab:error">11.1</a>:</p>
 <table>
-<caption><span id="tab:oparitmatika">Tabel 2.1: </span> Kondisi yang mungkin terjadi pada saat pengujian hipotesis.</caption>
+<caption><span id="tab:error">Tabel 11.1: </span> Kondisi yang mungkin terjadi pada saat pengujian hipotesis.</caption>
 <thead>
 <tr class="header">
 <th></th>
@@ -551,9 +555,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Apakah sampel berdistribusi normal?</li>
 <li>Apakah jumlah sampel besar atau kecil?</li>
 </ol>
-<p>Untuk mempermudahnya, pada Gambar <a href="#fig:singletest"><strong>??</strong></a> penulis sajikan skema pemilihan uji hipotesis untuk satu sampel.</p>
-
-
+<p>Untuk mempermudahnya, pada Gambar <a href="uji-hipotesis.html#fig:singletest">11.2</a> penulis sajikan skema pemilihan uji hipotesis untuk satu sampel.</p>
+<div class="figure" style="text-align: center"><span id="fig:singletest"></span>
+<img src="singletest.png" alt="Skema pemilihan uji hipotesis untuk satu populasi." width="90%" />
+<p class="caption">
+Gambar 11.2: Skema pemilihan uji hipotesis untuk satu populasi.
+</p>
+</div>
 <div id="uji-parametrik" class="section level3">
 <h3><span class="header-section-number">11.3.1</span> Uji Parametrik</h3>
 <p>Pada uji parametrik asumsi normalitas distribusi sampel menjadi sesuatu yang penting agar hasil yang diperoleh valid. Pada uji satu populasi untuk uji parametrik terdapat dua pertimbangan dalam pemilihan metode uji yaitu varians populasi serta ukuran sampel.</p>
@@ -590,9 +598,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p><span class="math inline">\(\mu&lt;\mu_0\)</span> | <span class="math inline">\(Z_{H_0}\le -Z_\alpha\)</span> | <span class="math inline">\(\mu\neq\mu_0\)</span> | <span class="math inline">\(Z_{\frac{\alpha}{2}} \le Z_{H_0}\le Z_{\frac{\alpha}{2}}\)</span> |</p>
+<p><span class="math inline">\(\mu&lt;\mu_0\)</span> | <span class="math inline">\(Z_{H_0}\le -Z_\alpha\)</span> | <span class="math inline">\(\mu\neq\mu_0\)</span> | <span class="math inline">\(Z_{\frac{\alpha}{2}}\)</span> <span class="math inline">\(\le Z_{H_0}\le Z_{\frac{\alpha}{2}}\)</span> |</p>
 <table>
-<caption><span id="tab:stha">Tabel 11.1: </span> Aturan penolakan berdasakan hipotesis alternatif distribusi normal.</caption>
+<caption><span id="tab:stha">Tabel 11.2: </span> Aturan penolakan berdasakan hipotesis alternatif distribusi normal.</caption>
 <thead>
 <tr class="header">
 <th><strong><span class="math inline">\(H_a\)</span></strong></th>
@@ -606,7 +614,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p><span class="math inline">\(\mu&lt;\mu_0\)</span> | <span class="math inline">\(T_{H_0}&lt; -t_{n-1,\alpha}\)</span> | <span class="math inline">\(\mu\neq\mu_0\)</span> | <span class="math inline">\(-t_{n-1,\frac{\alpha}{2}}&lt;T_{H_0}&lt; t_{n-1,\frac{\alpha}{2}}\)</span> |</p>
+<p><span class="math inline">\(\mu&lt;\mu_0\)</span> | <span class="math inline">\(T_{H_0}&lt; -t_{n-1,\alpha}\)</span> | <span class="math inline">\(\mu\neq\mu_0\)</span> | <span class="math inline">\(-t_{n-1,\frac{\alpha}{2}}\)</span> <span class="math inline">\(&lt;T_{H_0}&lt; t_{n-1,\frac{\alpha}{2}}\)</span> |</p>
 <p>: (#tab:stha1) Aturan penolakan berdasakan hipotesis alternatif distribusi t.</p>
 <ul>
 <li><p><strong>Formula p-value</strong></p></li>
@@ -766,7 +774,7 @@ T_{H_0}=\frac{19-17}{\frac{4}{\sqrt{7}}}=1,322876
 <li><strong>Hipotesis alternatif terkonversi</strong></li>
 </ul>
 <table>
-<caption><span id="tab:signtest">Tabel 11.3: </span> Hipotesis alternatif terkonversi.</caption>
+<caption><span id="tab:signtest">Tabel 11.4: </span> Hipotesis alternatif terkonversi.</caption>
 <thead>
 <tr class="header">
 <th><strong><span class="math inline">\(H_a\)</span> untuk <span class="math inline">\(\tilde{\mu}\)</span></strong></th>
@@ -789,7 +797,7 @@ T_{H_0}=\frac{19-17}{\frac{4}{\sqrt{7}}}=1,322876
 </tbody>
 </table>
 <table>
-<caption><span id="tab:signtest">Tabel 11.3: </span> Hipotesis alternatif terkonversi pendekatan distribusi normal.</caption>
+<caption><span id="tab:signtest">Tabel 11.4: </span> Hipotesis alternatif terkonversi pendekatan distribusi normal.</caption>
 <thead>
 <tr class="header">
 <th><strong><span class="math inline">\(H_a\)</span></strong></th>
@@ -980,7 +988,7 @@ P=2\left[\Phi\left(Z_{-1,581139}\right)\right]=0,1138463
 <li><strong>Komputasi jumlah rangking dan aturan penolakan berdasarkan <span class="math inline">\(H_a\)</span></strong></li>
 </ul>
 <table>
-<caption><span id="tab:signranktest">Tabel 11.4: </span> Komputasi jumlah rangking dan aturan penolakan berdasarkan hipotesif alternatif.</caption>
+<caption><span id="tab:signranktest">Tabel 11.5: </span> Komputasi jumlah rangking dan aturan penolakan berdasarkan hipotesif alternatif.</caption>
 <thead>
 <tr class="header">
 <th><strong><span class="math inline">\(H_a\)</span></strong></th>
@@ -1006,7 +1014,7 @@ P=2\left[\Phi\left(Z_{-1,581139}\right)\right]=0,1138463
 </tr>
 </tbody>
 </table>
-<p>Untuk <span class="math inline">\(n\ge15\)</span> aturan penolakan dapat menggunakan pendekatan distribusi normal seperti pada Tabel <a href="uji-hipotesis.html#tab:signtest">11.3</a>.</p>
+<p>Untuk <span class="math inline">\(n\ge15\)</span> aturan penolakan dapat menggunakan pendekatan distribusi normal seperti pada Tabel <a href="uji-hipotesis.html#tab:signtest">11.4</a>.</p>
 <ul>
 <li><strong>Statistik Uji</strong></li>
 </ul>
@@ -1054,7 +1062,7 @@ Z=\frac{w_+-\mu w_+}{\sigma w_+}
 <li><p>Hasil perhitungan <span class="math inline">\(d_i\)</span> dan rangking masing-masing nilai disajikan sebagai berikut:</p></li>
 </ul>
 <table>
-<caption><span id="tab:signranktest2">Tabel 11.5: </span> Komputasi signed-rank test.</caption>
+<caption><span id="tab:signranktest2">Tabel 11.6: </span> Komputasi signed-rank test.</caption>
 <thead>
 <tr class="header">
 <th><strong><span class="math inline">\(d_i\)</span></strong></th>
@@ -1257,9 +1265,9 @@ H_1:\ Sampel\ tidak\ berdistribusi\ normal
 </div>
 <div id="uji-normalitas-menggunakan-r" class="section level3">
 <h3><span class="header-section-number">11.4.7</span> Uji Normalitas menggunakan <code>R</code></h3>
-<p>Terdapat beberapa library yang dapat digunakan untuk melakukan uji normalitas pada <code>R</code>. Library yang tersedia diantaranya adalah library <code>stats</code>, <code>nortest</code>, dan <code>RcmdrMisc</code>. Pada Tabel <a href="uji-hipotesis.html#tab:ujinormalitas">11.6</a> disajikan fungsi-fungsi uji normalitas beserta library fungsi tersebut:</p>
+<p>Terdapat beberapa library yang dapat digunakan untuk melakukan uji normalitas pada <code>R</code>. Library yang tersedia diantaranya adalah library <code>stats</code>, <code>nortest</code>, dan <code>RcmdrMisc</code>. Pada Tabel <a href="uji-hipotesis.html#tab:ujinormalitas">11.7</a> disajikan fungsi-fungsi uji normalitas beserta library fungsi tersebut:</p>
 <table>
-<caption><span id="tab:ujinormalitas">Tabel 11.6: </span> Fungsi dan library uji normalitas di <code>R</code>.</caption>
+<caption><span id="tab:ujinormalitas">Tabel 11.7: </span> Fungsi dan library uji normalitas di <code>R</code>.</caption>
 <thead>
 <tr class="header">
 <th><strong>Fungsi</strong></th>
@@ -1366,9 +1374,9 @@ y\left(\lambda\right) =
     \end{cases}
  \tag{11.26}
 \end{equation}\]</span>
-<p>Setelah nilai <span class="math inline">\(\lambda\)</span> optimal diperoleh, transformasi data dilakukan menggunakan Persamaan <a href="uji-hipotesis.html#eq:boxcox">(11.25)</a> atau Persamaan <a href="uji-hipotesis.html#eq:boxcox2">(11.26)</a>. Pada Tabel <a href="uji-hipotesis.html#tab:transboxcox">11.7</a> disajikan nilai <span class="math inline">\(\lambda\)</span> dan transformasinya yang bersesuaian untuk menghasilkan distribusi normal.</p>
+<p>Setelah nilai <span class="math inline">\(\lambda\)</span> optimal diperoleh, transformasi data dilakukan menggunakan Persamaan <a href="uji-hipotesis.html#eq:boxcox">(11.25)</a> atau Persamaan <a href="uji-hipotesis.html#eq:boxcox2">(11.26)</a>. Pada Tabel <a href="uji-hipotesis.html#tab:transboxcox">11.8</a> disajikan nilai <span class="math inline">\(\lambda\)</span> dan transformasinya yang bersesuaian untuk menghasilkan distribusi normal.</p>
 <table>
-<caption><span id="tab:transboxcox">Tabel 11.7: </span> Nilai <span class="math inline">\(\lambda\)</span> dan transformasinya.</caption>
+<caption><span id="tab:transboxcox">Tabel 11.8: </span> Nilai <span class="math inline">\(\lambda\)</span> dan transformasinya.</caption>
 <thead>
 <tr class="header">
 <th><strong><span class="math inline">\(\lambda\)</span></strong></th>
@@ -1416,14 +1424,14 @@ y\left(\lambda\right) =
 
 <hr />
 <p><strong>Jawab</strong>:</p>
-<p>Kita akan memvisualisasikan terlebih dahulu data konsentrasi <code>Ozone</code> pada dataset <code>airquality</code>. Visualisasi distribusi <code>Ozone</code> disajikan pada Gambar <a href="uji-hipotesis.html#fig:ozonevis">11.1</a>.</p>
+<p>Kita akan memvisualisasikan terlebih dahulu data konsentrasi <code>Ozone</code> pada dataset <code>airquality</code>. Visualisasi distribusi <code>Ozone</code> disajikan pada Gambar <a href="uji-hipotesis.html#fig:ozonevis">11.3</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:ozonevis"></span>
 <img src="EnvStat_files/figure-html/ozonevis-1.png" alt="Visualisasi distribusi konsentrasi Ozone" width="90%" />
 <p class="caption">
-Gambar 11.1: Visualisasi distribusi konsentrasi Ozone
+Gambar 11.3: Visualisasi distribusi konsentrasi Ozone
 </p>
 </div>
-<p>Berdasarkan Gambar <a href="uji-hipotesis.html#fig:ozonevis">11.1</a> distribusi <code>Ozone</code> memiliki kemencengan positif sehingga perlu dilakukan transformasi Box-Cox. Berikut adalah sintak untuk menentukan nilai <span class="math inline">\(\lambda\)</span> optimum pada transformasi Box-Cox:</p>
+<p>Berdasarkan Gambar <a href="uji-hipotesis.html#fig:ozonevis">11.3</a> distribusi <code>Ozone</code> memiliki kemencengan positif sehingga perlu dilakukan transformasi Box-Cox. Berikut adalah sintak untuk menentukan nilai <span class="math inline">\(\lambda\)</span> optimum pada transformasi Box-Cox:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
 <span class="kw">summary</span>(<span class="kw">powerTransform</span>(airquality<span class="op">$</span>Ozone, 
                        <span class="dt">family=</span><span class="st">&quot;bcPower&quot;</span>))</code></pre></div>
@@ -1445,10 +1453,10 @@ Gambar 11.1: Visualisasi distribusi konsentrasi Ozone
 <div class="figure" style="text-align: center"><span id="fig:ozonevis2"></span>
 <img src="EnvStat_files/figure-html/ozonevis2-1.png" alt="Visualisasi distribusi konsentrasi Ozone hasil transformasi Box-Cox" width="90%" />
 <p class="caption">
-Gambar 11.2: Visualisasi distribusi konsentrasi Ozone hasil transformasi Box-Cox
+Gambar 11.4: Visualisasi distribusi konsentrasi Ozone hasil transformasi Box-Cox
 </p>
 </div>
-<p>Berdasarkan Gambar <a href="uji-hipotesis.html#fig:ozonevis2">11.2</a> distribusi <code>Ozone</code> hasil transformasi telah mendekati bentuk kurva normal. Selanjutnya distribusi tersebut kembali diuji normalitasnya menggunakan sintaks berikut:</p>
+<p>Berdasarkan Gambar <a href="uji-hipotesis.html#fig:ozonevis2">11.4</a> distribusi <code>Ozone</code> hasil transformasi telah mendekati bentuk kurva normal. Selanjutnya distribusi tersebut kembali diuji normalitasnya menggunakan sintaks berikut:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shapiro.test</span>(((airquality<span class="op">$</span>Ozone<span class="op">^</span><span class="fl">0.2034</span>)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="fl">0.2034</span>)</code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
