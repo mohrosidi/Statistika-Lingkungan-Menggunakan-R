@@ -29,7 +29,7 @@ Uji hipotesis yang melibatkan sejumlah asumsi seperti ditribusi data mengikuti d
 Alternatif lain yang dapat digunakan untuk melakukan uji hipotesis adalah dengan melakukan uji hipotesis **nonparameterik**. Uji ini tidak mengasumsikan data mengikuti distribusi tertentu. Informasi pada uji ini diperoleh dengan melakukan rangking pada data. Hal ini tentu berbeda dengan uji parametrik yang mengharuskan kita mengekstrak parameter pada data. Kesalahpahaman yang umum adalah pada uji nonparametrik memungkinkan terjadinya kehilangan informasi dibandingkan dengan tes parametrik karena tes nonparametrik membuang nilai data. Bradley (1968) dalam  bukunya "*Distribution-Free Statistical Tests*" menanggapi kesalahpahaman ini: "Sebenarnya, pemanfaatan informasi sampel tambahan [dalam parameter] dimungkinkan oleh informasi populasi tambahan yang terkandung dalam asumsi uji parametrik. Oleh karena itu, uji bebas distribusi hanya membuang informasi hanya jika pada uji parametrik asumsi diketahui benar (data mengikuti distribusi tertentu)." Alih-alih membuang informasi, tes nonparametrik secara efisien mengekstraksi informasi pada besaran relatif (rangking) data tanpa menciutkan informasi menjadi hanya beberapa statistik sederhana. 
 
 
-## Menyiapkan Prosedur UJi Hipotesis
+## Menyiapkan Prosedur Uji Hipotesis
 
 ### Memilih Uji yang Sesuai
 
@@ -84,10 +84,10 @@ Jenis error kedua dapat terjadi jika 8 individu atau kurang melewati dua tahun p
 Dalam menguji hipotesis statistik apa pun, ada empat kemungkinan situasi yang menentukan apakah keputusan kita benar atau salah. Keempat kemungkinan tersebut disajikan pada Tabel \@ref(tab:error):
 
 
-|                  | **$H_0$ Benar**  | **$H_0$ Salah**
--------------------|------------------|----------------
-**Terima $H_0$**   | Keputusan benar  | Error tipe II
-**Tolak $H_0$**    | Error tipe I     | Keputusan benar
+|                     | **$H_0$ Benar**    | **$H_0$ Salah**  |
+| :-------------------| :------------------| :----------------|
+| **Terima $H_0$**    | Keputusan benar    | Error tipe II    |
+| **Tolak $H_0$**     | Error tipe I       | Keputusan benar  |
 
 : (\#tab:error) Kondisi yang mungkin terjadi pada saat pengujian hipotesis.
 
@@ -180,24 +180,8 @@ Jika varians populasi diketahui maka kita dapat menggunakan pendekatan distribus
 
 - **Aturan penolakan (RR) berdasarkan variasi $H_a$**
 
+Aturan penolakan berdasarkan variasi $H_a$ dan pendekatan distribusi yang digunakan disajikan pada Tabel \@ref(tab:stha).
 
-**$H_a$**         | **RR pada level $\alpha$**                                     |
-------------------|----------------------------------------------------------------|
-$\mu>\mu_0$       | $Z_{H_0}\ge Z_\alpha$                                          |  
-$\mu<\mu_0$       | $Z_{H_0}\le -Z_\alpha$                                         |
-$\mu\neq\mu_0$    | $Z_{\frac{\alpha}{2}}$ $\le Z_{H_0}\le Z_{\frac{\alpha}{2}}$   |  
-
-: (\#tab:stha) Aturan penolakan berdasakan hipotesis alternatif distribusi normal.
-
-
-
-**$H_a$**          | **RR pada level $\alpha$**                                        |
--------------------|-------------------------------------------------------------------|
-$\mu>\mu_0$        | $T_{H_0}>t_{n-1,\alpha}$                                          |
-$\mu<\mu_0$        | $T_{H_0}< -t_{n-1,\alpha}$                                        |
-$\mu\neq\mu_0$     | $-t_{n-1,\frac{\alpha}{2}}$ $<T_{H_0}< t_{n-1,\frac{\alpha}{2}}$  |
-
-: (\#tab:stha1) Aturan penolakan berdasakan hipotesis alternatif distribusi t.
 
 - **Formula p-value**
 
@@ -226,6 +210,16 @@ p-value =
 \end{equation}
 
 dimana $G_{n-1}$ adalah CDF (fungsi densitas kumulatif) dari distribusi t.
+
+
+| **$H_a$**         | **RR pada level $\alpha$ (Distribusi Normal)**                  |**RR pada level $\alpha$ (Distribusi t)**                          |
+|:------------------|:----------------------------------------------------------------|:------------------------------------------------------------------|
+| $\mu>\mu_0$       | $Z_{H_0}\ge Z_\alpha$                                           | $T_{H_0}>t_{n-1,\alpha}$                                          | 
+| $\mu<\mu_0$       | $Z_{H_0}\le -Z_\alpha$                                          | $T_{H_0}< -t_{n-1,\alpha}$                                        |
+| $\mu\neq\mu_0$    | $Z_{\frac{\alpha}{2}}\le Z_{H_0}\le Z_{\frac{\alpha}{2}}$       | $-t_{n-1,\frac{\alpha}{2}}<T_{H_0}< t_{n-1,\frac{\alpha}{2}}$     |  
+
+: (\#tab:stha) Aturan penolakan berdasakan hipotesis alternatif.
+
 
 --------------------------------------------------------------
 
@@ -384,23 +378,22 @@ p-value pada sign test dihitung menggunakan menggunakan distribusi binomial, dim
 - **Sign Statistic**: Y = # observasi yang $>\tilde{\mu_0}$
 - **Hipotesis alternatif terkonversi**
 
-**$H_a$ untuk $\tilde{\mu}$** | **$H_a$ untuk $p$**
-------------------------------|---------------------------
-$\tilde{\mu}>\tilde{\mu_0}$   | $p>0,5$
-$\tilde{\mu}<\tilde{\mu_0}$   | $p<0,5$
-$\tilde{\mu}\ne\tilde{\mu_0}$ | $p\ne0,5$
+| **$H_a$ untuk $\tilde{\mu}$** | **$H_a$ untuk $p$**        |
+|:------------------------------|:---------------------------|
+| $\tilde{\mu}>\tilde{\mu_0}$   | $p>0,5$                    |
+| $\tilde{\mu}<\tilde{\mu_0}$   | $p<0,5$                    |
+| $\tilde{\mu}\ne\tilde{\mu_0}$ | $p\ne0,5$                  |
 
 : (\#tab:signtest) Hipotesis alternatif terkonversi.
 
 
-**$H_a$**                      | **RR pada level $\alpha$**
--------------------------------|-----------------------------------------------
-$\tilde{\mu}> \tilde{\mu_0}$   | $Z_{H_0}\ge Z_\alpha$
-$\tilde{\mu}< \tilde{\mu_0}$   | $Z_{H_0}\le -Z_\alpha$
-$\tilde{\mu}\ne\tilde{\mu_0}$  | $|Z_{H_0}|\ge $ $z_{\frac{\alpha}{2}}$
+| **$H_a$**                      | **RR pada level $\alpha$**                     |
+|:-------------------------------|:-----------------------------------------------|
+| $\tilde{\mu}> \tilde{\mu_0}$   | $Z_{H_0}\ge Z_\alpha$                          |
+| $\tilde{\mu}< \tilde{\mu_0}$   | $Z_{H_0}\le -Z_\alpha$                         |
+| $\tilde{\mu}\ne\tilde{\mu_0}$  | $|Z_{H_0}|\ge $ $z_{\frac{\alpha}{2}}$         |
 
 : (\#tab:signtest) Hipotesis alternatif terkonversi pendekatan  distribusi normal.
-
 
 - **Statistik Uji**
 
@@ -621,11 +614,11 @@ $w$ = Nilai terkecil antara $w_-$ dan $w_+$
 
 - **Komputasi jumlah rangking dan aturan penolakan berdasarkan $H_a$**
 
-**$H_a$**                      | **RR pada level $\alpha$**  | **komputasi** 
--------------------------------|-----------------------------|---------------
-$\tilde{\mu}> \tilde{\mu_0}$   | $w \le w_\alpha$            | $w_-$
-$\tilde{\mu}< \tilde{\mu_0}$   | $w \le w_\alpha$            | $w_+$
-$\tilde{\mu}\ne\tilde{\mu_0}$  | $w \le w_\alpha$            | $w$
+| **$H_a$**                      | **RR pada level $\alpha$**   | **komputasi**  | 
+|:-------------------------------|:-----------------------------|:---------------|
+| $\tilde{\mu}> \tilde{\mu_0}$   | $w \le w_\alpha$             | $w_-$          |
+| $\tilde{\mu}< \tilde{\mu_0}$   | $w \le w_\alpha$             | $w_+$          |
+| $\tilde{\mu}\ne\tilde{\mu_0}$  | $w \le w_\alpha$             | $w$            |
 
 : (\#tab:signranktest) Komputasi jumlah rangking dan aturan penolakan berdasarkan hipotesif alternatif.
 
@@ -687,18 +680,18 @@ Kita akan menggunakan kembali data pada contoh soal sebelumnya. Pada contoh kali
 
 - Hasil perhitungan $d_i$ dan rangking masing-masing nilai disajikan sebagai berikut:
 
-**$d_i$**  | **$r_i$**
------------|-----------
--0,3       | 5,5       
-0,4        | 7         
--0,9       | 10
--0,5       | 8
-0,2        | 3
--0,2       | 3
--0,3       | 5,5
-0,2        | 3
--0,6       | 9
--0,1       | 1
+| **$d_i$**  | **$r_i$**  |
+|:-----------|:-----------|
+| -0,3       | 5,5        |
+| 0,4        | 7          |
+| -0,9       | 10         |
+| -0,5       | 8          |
+| 0,2        | 3          |
+| -0,2       | 3          |
+| -0,3       | 5,5        |
+| 0,2        | 3          |
+| -0,6       | 9          |
+| -0,1       | 1          |
 
 : (\#tab:signranktest2) Komputasi signed-rank test.
 
@@ -955,13 +948,13 @@ y\left(\lambda\right) =
 
 Setelah nilai $\lambda$ optimal diperoleh, transformasi data dilakukan menggunakan  Persamaan \@ref(eq:boxcox) atau Persamaan \@ref(eq:boxcox2). Pada Tabel \@ref(tab:transboxcox) disajikan nilai $\lambda$ dan transformasinya yang bersesuaian untuk menghasilkan distribusi normal.
 
-**$\lambda$**  | Transformasi
----------------|--------------
-2              | $x^2$
-0,5            | $\sqrt{x}$
-0              | $\ln{x}$
--0,5           | $\frac{1}{\sqrt{x}}$
--1             | $\frac{1}{x}$
+| **$\lambda$**  | Transformasi        |
+|:---------------|:--------------------|
+| 2              | $x^2$               |
+| 0,5            | $\sqrt{x}$          |
+| 0              | $\ln{x}$            |
+| -0,5           | $\frac{1}{\sqrt{x}}$|
+| -1             | $\frac{1}{x}$       |
 
 : (\#tab:transboxcox) Nilai $\lambda$ dan transformasinya.
 
